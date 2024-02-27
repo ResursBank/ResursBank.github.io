@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Rounding</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Rounding
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Gert</span>, last modified by <span class='editor'> Thomas Tornevall</span> on 2023-12-27
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><strong>Please, do not round numbers on your side. If calculations result in more than 2 decimals, please supply all decimals in the invocations of our service.</strong></p><p><strong>Later, the API will return five (5) decimals in the getPayment-response - no matter how many decimals where sent in earlier.</strong></p></div></div><p><br/></p><p>The rounding of purchase and VAT values is carried out by Resurs Bank’s web services, based on a set of rules, and thus is not mandatory.</p><p>We always respect the price values (except VAT values) as total amount in each row and the payment's total amount, sent to us by the representative.<br/>However, there has to be a consistency between the received values and the ones we calculate ourselves taking into account of the rounding rules.</p><p>The service compensates for errors less than, or equal to, 0.05 currency units (i.e. no matter which currency).<br/>This error threshold must be respected in both the “<strong>specLines</strong>” values and in the “<strong>totalAmount</strong>” and “<strong>totalVatAmount</strong>” values within the “<strong>paymentSpect</strong>” XML tag, <a href="paymentSpec_1474947.html">see paymentSpec</a>.</p><p>To summarize:<br/><br/><strong>1.</strong> Representatives should send in the price and VAT values as is, without rounding, and let us calculate them.<br/>Precision is not an issue as our routines are capable of dealing with a great number of decimals.</p><p><strong>2.</strong> If you perform rounding calculations before invoking the e-Commerce service, it may produce an error if the error margin is exceeded.<br/>We will perform rounding calculations in any case as described below.<br/><br/><strong>The web services rounding rules are:</strong></p><p><strong>- Individual items*:</strong><br/><code>Given Item Net Price (without VAT) = Given row value / ( ( 1 + VAT percent / 100 ) * Quantity )</code><br/><code>Given Total VAT Amount = ( VAT percent / 100 ) * Total !Calculated! Item’s Net Price</code>  </p><p><strong>- Total Amount:</strong><br/><code>Given Total Price Amount with VAT = Σ ( Given Total Individual Price Amount )</code><br/><code>Given Total VAT Amount = Σ ( Given Total Individual VAT Amount )</code><br/><br/>* Refers to each “specLines” entry.</p><p><strong>Example:</strong><br/>One of the most common sources of [rounding] errors is the representative adding the sales price with VAT and sending that sum to us.<br/>A representative sells the following item: 1'' x 4'' building board, price: 15.71 SEK (includes VAT).<br/>Upon receiving this value we recalculate it to a net price: 15,71 / 1,25 = 12,568.<br/>Now, say that the following is set within one “specLines” XML tag:<br/> </p><div class="table-wrap"><table class="wrapped confluenceTable"><tbody><tr><th class="confluenceTh">Quantity</th><td class="confluenceTd">1000</td></tr><tr><th class="confluenceTh">Net Price per Item</th><td class="confluenceTd">12,57 (!= 12,568)</td></tr><tr><th class="confluenceTh">VAT</th><td class="confluenceTd"> 25%</td></tr><tr><th class="confluenceTh">Total VAT</th><td class="confluenceTd"> 3142,00</td></tr><tr><th class="confluenceTh">Total Price including VAT</th><td class="confluenceTd">15710,00</td></tr></tbody></table></div><p><br/></p><p><strong>Upon recalculation:</strong><br/>* 15710,00 / (1,25 * 1000 ) = 12,568 (!= 12,57)<br/>* 0,25 * 1000 * 12,568 = 3142,00 = 3142,00</p><p>The difference between the received and calculated net price is:  12,57 – 12,568 = 0,002.<br/>This difference, being within the error margin, leads to 12,568 being used instead of 12,57. </p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

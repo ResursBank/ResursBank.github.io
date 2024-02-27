@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Calculations with getAnnuityFactors/part payments (EComPHP)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="87393094.html">Version 1.x (EComPHP)</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="EComPHP-features-and-tips_12190045.html">EComPHP features and tips</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Calculations with getAnnuityFactors/part payments (EComPHP)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2019-09-05
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>EComPHP has internal functions to calculate annuity factors (or &quot;part pay from&quot; on for example single product page views where customers wants to know how much they need to pay per month). The function called by EComPHP is basically getAnnuityFactors, but intead of letting intergrators/developers calculate the factors by themselves, EComPHP does this for you. The primary function to do this is getAnnuityPriceByDuration, where you push in the total price of a product, the factors you want to use when you calculate the amount, and finally the duration time of how long the payment should  be &quot;alive&quot; (12 months, 24 months and so on).</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$payFrom = $flow-&gt;getAnnuityPriceByDuration(10000, 
+    &#39;PARTPAYMENT&#39;,
+    12
+);</pre>
+</div></div><p>In this example we will get 833 SEK out of the response based on our chosen payment method.</p><div class="confluence-information-macro confluence-information-macro-warning"><p class="title conf-macro-render">No fees are added in this question</p><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>No extra set up fees are calculated in this call. If you want complete information about monthly payments including fees, the alternative to use is getCostOfPurchaseHtml. Unfortunately, that function is not an automated function that gives values separately. It generates a complete html table (exactly as the method name are called).</p></div></div><h2 id="CalculationswithgetAnnuityFactors/partpayments(EComPHP)-FurtherdescriptionofwhatgetAnnuityPriceByDurationdoinitscalls">Further description of what getAnnuityPriceByDuration do in its calls</h2><p>As you can see below, you're quite free of what you send into the question. You can either send the getAnnuityFactors-object directly into the method and save some time with it (if you for example have it cached). If you don't have this and want as live information as possible, the $paymentMethodIdOrFactorObject can be used to send for example the payment method name &quot;PARTPAYMENT&quot;. Doing this, will first resolve which factors that belongs to the payment method and THEN after this start the calculation.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">    /**
+     * Get annuity factor rounded sum by the total price
+     *
+     * @param $totalAmount
+     * @param $paymentMethodIdOrFactorObject
+     * @param $duration
+     *
+     * @return float
+     * @since 1.1.24
+     * @throws \Exception
+     */
+    public function getAnnuityPriceByDuration($totalAmount, $paymentMethodIdOrFactorObject, $duration)
+    {
+        $return = 0;
+        $durationFactor = $this-&gt;getAnnuityFactorByDuration($paymentMethodIdOrFactorObject, $duration);
+        if ($durationFactor &gt; 0) {
+            $return = round($durationFactor * $totalAmount);
+        }
+
+        return $return;
+    }
+
+    /**
+     * Get annuity factor by duration
+     *
+     * @param $paymentMethodIdOrFactorObject
+     * @param $duration
+     *
+     * @return float
+     * @throws \Exception
+     * @since 1.1.24
+     */
+    public function getAnnuityFactorByDuration($paymentMethodIdOrFactorObject, $duration)
+    {
+        $returnFactor = 0;
+        $factorObject = $paymentMethodIdOrFactorObject;
+        if (is_string($paymentMethodIdOrFactorObject) &amp;&amp; !empty($paymentMethodIdOrFactorObject)) {
+            $factorObject = $this-&gt;getAnnuityFactors($paymentMethodIdOrFactorObject);
+        }
+        if (is_array($factorObject)) {
+            foreach ($factorObject as $factorObjectData) {
+                if ($factorObjectData-&gt;duration == $duration &amp;&amp; isset($factorObjectData-&gt;factor)) {
+                    return (float)$factorObjectData-&gt;factor;
+                }
+            }
+        }
+
+        return $returnFactor;
+    }
+
+</pre>
+</div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

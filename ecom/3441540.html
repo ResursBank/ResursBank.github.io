@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Magento: Finalize-, credit- and annulpayment details (v1.3.8.1)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Plugins_1476269.html">Platform Plugins</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Magento-modules_1476277.html">Magento modules</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Magento-Plugin---OldFlow-version_5570890.html">Magento Plugin - OldFlow version</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="4653139.html">Release- and installation notes, error logging and development for Magento OldFlow</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Magento: Finalize-, credit- and annulpayment details (v1.3.8.1)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified by <span class='editor'> Benny</span> on 2017-02-20
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>From version 1.3.8.1, automated finalizepayment, creditpayment and annulpayment are supported. Functionality related to the aftershopflow is by default disabled, since the new flow also affects the booking-stage for some product types. The settings can however be activated from the administration panel in Magento (in the payment methods section).</p><p>It is also very important to use the “regular flow”, since the extended handler for bundled products is not yet fully supported.</p><p>By default, the settings looks like this:</p><p> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" draggable="false" src="attachments/3441540/3801181.png" data-image-src="attachments/3441540/3801181.png" data-unresolved-comment-count="0" data-linked-resource-id="3801181" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-1-27 9:9:56.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="3441540" data-linked-resource-container-version="7" alt=""></span></p><p>As you also can see at the image, this flow currently only accepts that invoice ID's are handled by Resurs Bank and can not be switched over to Magento-handling.</p><p>As soon as the flow is activated the shopflow will start working as follows:</p><ul><li>Finalizepayment/debit are only invoked when the order is fully shipped to the customer. This means that partial debits are currently not possible.</li><li>Finalizepayment/debit will invoke immediately after booking, if the order only contains virtual or downloadable products, since they are not able to ship through Magento</li><li>Creditpayment and annulpayment are invoked on order cancellations and the plugin automatically detects, depending on the order, which method it will use</li></ul><p> </p><h1 id="Magento:Finalize,creditandannulpaymentdetails(v1.3.8.1)-Whereandwhenithappens">Where and when it happens</h1><p>Finalizing, credits and annulments are all methods controlled from Magento Orderview, and are activated when you begin your shipping process.</p><h3 id="Magento:Finalize,creditandannulpaymentdetails(v1.3.8.1)-Finalize/Debitorder">Finalize/Debit order</h3><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" width="800" src="attachments/3441540/4161537.png" data-image-src="attachments/3441540/4161537.png" data-unresolved-comment-count="0" data-linked-resource-id="4161537" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-2-12 10:14:48.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="3441540" data-linked-resource-container-version="7" alt=""></span></p><p>Currently, no finalization are envoked before the full order has been shipped. If you are only partially delivering your order, nothing is going to happen.</p><p>As you are submitting your shipment in full, Betalningsadmin is also updated together with your order.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" draggable="false" width="300" src="attachments/3441540/4161540.png" data-image-src="attachments/3441540/4161540.png" data-unresolved-comment-count="0" data-linked-resource-id="4161540" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-2-12 10:18:11.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="3441540" data-linked-resource-container-version="7" alt=""></span><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" draggable="false" width="300" src="attachments/3441540/4161541.png" data-image-src="attachments/3441540/4161541.png" data-unresolved-comment-count="0" data-linked-resource-id="4161541" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-2-12 10:18:46.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="3441540" data-linked-resource-container-version="7" alt=""></span></p><h3 id="Magento:Finalize,creditandannulpaymentdetails(v1.3.8.1)-Creditandannulments">Credit and annulments</h3><p>Crediting and annulling orders are made through Magento's cancellation button, and depending on the current order it will either annul or credit the payment.</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" draggable="false" src="attachments/3441540/4161542.png" data-image-src="attachments/3441540/4161542.png" data-unresolved-comment-count="0" data-linked-resource-id="4161542" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-2-12 10:20:6.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="3441540" data-linked-resource-container-version="7" alt=""></span></p><p>In the above example, a creditpayment will invoke since the order has been debited (shipped). If it has not been shipped, the order will instead get annulled.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" width="500" src="attachments/3441540/4161543.png" data-image-src="attachments/3441540/4161543.png" data-unresolved-comment-count="0" data-linked-resource-id="4161543" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-2-12 10:21:51.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="3441540" data-linked-resource-container-version="7" alt=""></span></p><p> </p><p>Orders are also, always, logged in the order history of Magento</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" draggable="false" src="attachments/3441540/4161544.png" data-image-src="attachments/3441540/4161544.png" data-unresolved-comment-count="0" data-linked-resource-id="4161544" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-2-12 10:24:25.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="3441540" data-linked-resource-container-version="7" alt=""></span></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/3441540/3801181.png">image2015-1-27 9:9:56.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/3441540/4161537.png">image2015-2-12 10:14:48.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/3441540/4161538.png">image2015-2-12 10:16:15.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/3441540/4161539.png">image2015-2-12 10:16:52.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/3441540/4161540.png">image2015-2-12 10:18:11.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/3441540/4161541.png">image2015-2-12 10:18:46.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/3441540/4161542.png">image2015-2-12 10:20:6.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/3441540/4161543.png">image2015-2-12 10:21:51.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/3441540/4161544.png">image2015-2-12 10:24:25.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

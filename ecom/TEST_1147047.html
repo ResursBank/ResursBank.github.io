@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : TEST</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Callbacks_327724.html">Callbacks</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : TEST
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Tobias</span>, last modified by <span class='editor'> Thomas Tornevall</span> on 2023-12-21
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Test the callback mechanism. Can be used in integration testing to assure that communication works. A call is made to <a href="https://test.resurs.com/docs/x/XIUW" rel="nofollow">DeveloperService</a> (<code>triggerTestEvent</code>) and Resurs Bank immediately does a callback. Note that TEST callback must be registered in the same way as all the other callbacks before it can be used.</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"><br/></td><td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey">Name</td><td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"><span style="color: rgb(0,51,102);">Description</span></td></tr><tr><th class="confluenceTh">ID</th><td class="confluenceTd"><code>TEST</code></td><td colspan="1" class="confluenceTd">The test event ID.</td></tr><tr><td class="highlight-grey confluenceTd" data-highlight-colour="grey">Parameter</td><td class="confluenceTd"><code>param1</code>, <code>param2</code>, <code>param3</code>, <code>param4</code>, <code>param5</code></td><td colspan="1" class="confluenceTd">Parameters to test a succesful roundtrip (see below)</td></tr></tbody></table></div><h3 id="TEST-Usingthetestcallback"><span>Using the test callback</span></h3><p>If a representative calls <code>DeveloperService.triggerTestEvent(...)</code> with param1 = 1 param2 = 2, param3 = 3, param4 = 4, param5 = 5, and he has previously registered the following URL:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">http://hosten.se/kontexten/funktionen.html?first={param1}&amp;nr2={param2}&amp;nr3={param3}&amp;nr4={param4}&amp;last={param5}</pre>
+</div></div><p>with no digest or checksum, then he will get a call to:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">http://hosten.se/kontexten/funktionen.html?first=1&amp;nr2=2&amp;nr3=3&amp;nr4=4&amp;last=5</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Note that the test event is placed in the queue, just like all other events. If they can not be delivered immediately, the system continues to try for a month ...</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;!--Register callback TEST--&gt;
+&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:con=&quot;http://ecommerce.resurs.com/v4/msg/configure&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;con1:registerEventCallback xmlns:con1=&quot;http://ecommerce.resurs.com/v4/msg/configuration&quot;&gt;
+       &lt;eventType xmlns=&quot;&quot;&gt;TEST&lt;/eventType&gt;
+       &lt;uriTemplate xmlns=&quot;&quot;&gt;http://host.com/?merchant=ResursBank&amp;amp;event-type=TEST&amp;amp;par1={param1}&amp;amp;par2={param2}&amp;amp;par3={param3}&amp;amp;par4={param4}&amp;amp;par5={param5}&lt;/uriTemplate&gt;
+       &lt;/con1:registerEventCallback&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+ 
+&lt;!--Get callback TEST--&gt;
+&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:con=&quot;http://ecommerce.resurs.com/v4/msg/configuration&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;con:getRegisteredEventCallback&gt;
+         &lt;eventType&gt;TEST&lt;/eventType&gt;
+      &lt;/con:getRegisteredEventCallback&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+
+&lt;!--Trigger callback TEST--&gt;
+&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:dev=&quot;http://ecommerce.resurs.com/v4/msg/developer&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;dev:triggerEvent&gt;
+         &lt;eventType&gt;TEST&lt;/eventType&gt;
+         &lt;param&gt;Alfa&lt;/param&gt;
+         &lt;param&gt;Bravo&lt;/param&gt;
+         &lt;param&gt;Charlie&lt;/param&gt;
+         &lt;param&gt;Delta&lt;/param&gt;
+         &lt;param&gt;Echo&lt;/param&gt;
+      &lt;/dev:triggerEvent&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+
+&lt;!--Result: http://host.com/?merchant=ResursBank&amp;event-type=TEST&amp;par1=Alfa&amp;par2=Bravo&amp;par3=Charlie&amp;par4=Delta&amp;par5=Echo --&gt;
+
+&lt;!--Remove callback TEST--&gt;
+&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:con=&quot;http://ecommerce.resurs.com/v4/msg/configure&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;con1:unregisterEventCallback xmlns:con1=&quot;http://ecommerce.resurs.com/v4/msg/configuration&quot;&gt;
+         &lt;eventType&gt;TEST&lt;/eventType&gt;
+      &lt;/con1:unregisterEventCallback&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+</pre>
+</div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

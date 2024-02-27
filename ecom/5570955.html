@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Checkout Integration, initial notes / tips / FAQ</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Resurs-Checkout-Web_5014022.html">Resurs Checkout Web</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Checkout Integration, initial notes / tips / FAQ
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified by <span class='editor'> Tobias</span> on 2018-02-16
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Resurs Checkout is a full hosted iframe based checkout solution, with the purpose of getting started faster with a checkout, that you don't have to build by yourself from scratch. This is a small guide for how implementation could be done.</p><p>The development could be made in a few different ways, depending on your needs.</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Development type</th><th class="confluenceTh">Described as</th><th colspan="1" class="confluenceTh">Requirements or recommended</th></tr><tr><td colspan="1" class="confluenceTd"><div class="content-wrapper"><span class="status-macro aui-lozenge aui-lozenge-moved">GLOBAL REQUIREMENTS</span></div></td><td colspan="1" class="confluenceTd"><span style="color: rgb(255,0,0);"><strong>Required for all solutions below</strong></span></td><td colspan="1" class="confluenceTd"><ul><li>Billing fields and shipping fields are handled by Resurs Bank, not the store</li><li>When the order are created, enforce address data to be the one that is returned from Resurs Bank</li><li>Make sure that, if the cart is editable from the checkout page, the iframe could be updated with the new content (websockets are required)<br/>Note: To make this work properly, you should let the site handle this <strong>Frontend (Ajax)</strong> → <strong>Backend (Shop)</strong> <span>→ </span><strong><a rel="nofollow">PUT Resurs Checkout API</a></strong></li><li>Make sure that you implement the standard Callbacks, either by <a href="Callbacks_327724.html">this solution</a> or via the <a href="https://test.resurs.com/docs/x/BoJM#ResursCheckout-Callbacks" rel="nofollow">Resurs Checkout json-object</a></li></ul></td></tr><tr><td class="confluenceTd"><div class="content-wrapper"><span class="status-macro aui-lozenge">SIMPLE</span></div></td><td class="confluenceTd">The store handles the orders internally with minor work, by for example the user session.</td><td colspan="1" class="confluenceTd"><ul><li>A landing/order confirmation page where the order are created by the store</li></ul></td></tr><tr><td colspan="1" class="confluenceTd"><div class="content-wrapper"><span class="status-macro aui-lozenge aui-lozenge-success">ADVANCED</span></div></td><td colspan="1" class="confluenceTd">The store handles the orders internally, but customer data are handled live</td><td colspan="1" class="confluenceTd"><ul><li>A landing/order confirmation page where the order are updated further and possibly finished</li><li>Orders are created backend via frontend, before creating the order at Resurs Bank (<a href="5570788.html">See OmniJS</a>)</li><li>Make sure that your store handles order confirmation mail properly, or this method may send duplicate order confirmations (also important if Resurs Bank denies payments)</li></ul></td></tr></tbody></table></div><p>For PHP we use our in-house developed library <a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a>, to utilize the functions of making calls to both Resurs Checkout and our other shopflows. EComPHP are able to handle the creation of the Resurs Checkout iFrame, including updating orders when OmniJS (or similar) is active. EComPHP uses an <a href="https://developer.tornevall.net/apigen/TorneLIB-5.0/class-TorneLIB.Tornevall_cURL.html" class="external-link" rel="nofollow">open source solution</a> (<a href="https://developer.tornevall.net/download/TorneLIB-5.0/raw/tornevall_network.php" class="external-link" rel="nofollow">Develop-Snapshot</a>) when it comes to handling http calls, therefore an activated cURL-module in PHP is required.</p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

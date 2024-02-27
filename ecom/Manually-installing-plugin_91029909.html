@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Manually installing plugin</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Plugins_1476269.html">Platform Plugins</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="WooCommerce_2588830.html">WooCommerce</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Resurs-Merchant-API-2.0-for-WooCommerce_81887266.html">Resurs Merchant API 2.0 for WooCommerce</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Manually installing plugin
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2023-04-27
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>If you plan to install a development version <strong>or</strong> not directly from WordPress plugin manager, this is the place to look at. If you plan to run this plugin in a &quot;production state&quot;, please install it properly within the WordPress plugin manager. This page currently only has information for git installs.</p><p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780961149 {padding: 0px;}
+div.rbtoc1706780961149 ul {margin-left: 0px;}
+div.rbtoc1706780961149 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780961149'>
+<ul class='toc-indentation'>
+<li><a href='#Manuallyinstallingplugin-Installationswithzipfile(mostsimilartotheWordPressPluginRepository)'>Installations with zip file (most similar to the WordPress Plugin Repository)</a></li>
+<li><a href='#Manuallyinstallingplugin-Installationswithgit'>Installations with git</a>
+<ul class='toc-indentation'>
+<li><a href='#Manuallyinstallingplugin-Dualplugins(howtoactonit)'>Dual plugins (how to act on it)</a></li>
+<li><a href='#Manuallyinstallingplugin-Creatingyourownzip-releasefromgit'>Creating your own zip-release from git</a></li>
+</ul>
+</li>
+</ul>
+</div></p><h1 id="Manuallyinstallingplugin-Installationswithzipfile(mostsimilartotheWordPressPluginRepository)">Installations with zip file (most similar to the WordPress Plugin Repository)</h1><div class="confluence-information-macro confluence-information-macro-note"><p class="title conf-macro-render">About the current-zip file</p><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Currently, there are no stable tag present in the repository. When there is a stable tag, the &quot;current&quot; file will always contain the most recent release. While waiting, the code structure in this zip is based on the master branch.</p></div></div><p><br/></p><p>1. Upload the plugin (<a href="attachments/91029909/91030034.zip" data-linked-resource-id="91030034" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="resurs-bank-payment-gateway-for-woocommerce-current.zip" data-nice-type="Zip Archive" data-linked-resource-content-type="application/zip" data-linked-resource-container-id="91029909" data-linked-resource-container-version="13">resurs-bank-payment-gateway-for-woocommerce-current.zip</a> - 1.0.0, <strong>last update <span style="color: rgb(23,43,77);">2023-04-27</span></strong>) archive to the &quot;/wp-content/plugins/&quot; directory.<br/>2. Activate the plugin through the &quot;Plugins&quot; menu in WordPress.<br/>3. Configure the plugin via Resurs Bank control panel in admin.</p><h1 id="Manuallyinstallingplugin-Installationswithgit">Installations with git</h1><p>Go to your WordPress plugin structure (normally located in <strong>[WP-ROOT]</strong>/wp-content/plugins and run this command:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">git clone --recurse-submodules -j8 https://bitbucket.org/resursbankplugins/resursbank-woocommerce.git</pre>
+</div></div><p>The slug (path) used by this repository is not the proper name standard for the module. While writing this, the official slug is not entirely set yet, but there should be no problems installing it with another slug name than the default. However, if you use another path than the default, <a href="https://vavkamil.cz/2021/11/25/wordpress-plugin-confusion-update-can-get-you-pwned/" class="external-link" rel="nofollow">be aware of the security issues that may come with this</a>.</p><p>The above command will ensure you get all requirements installed in your structure, but primarily with the master branch installed. You should consider checking out a stable tag if you really need to use this install method. In this case you'll also need to check for updates manually and do manual checkouts.</p><p>This kind of installation neither guarantee that submodules are updated properly. In some cases, you'll need to update lib/ecom manually, with an extra git pull.</p><h2 id="Manuallyinstallingplugin-Dualplugins(howtoactonit)">Dual plugins (how to act on it)</h2><p>This is how it may look if you run the old version and just installed the new one. It is always recommended to deactivate the old one before activating the new one (and vice versa) before you start running them. The namespaces in the plugins are different to each other, so they should not crash the platform <strong>if</strong> you enable both of them in the same time.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" height="166" src="attachments/91029909/91029913.png" data-image-src="attachments/91029909/91029913.png" data-unresolved-comment-count="0" data-linked-resource-id="91029913" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-2023-3-14_14-15-46.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="91029909" data-linked-resource-container-version="13" alt=""></span></p><h2 id="Manuallyinstallingplugin-Creatingyourownzip-releasefromgit">Creating your own zip-release from git</h2><p>Clone the repository as shown above. Run a script similar like this. You need rsync and git installed. Observe that this is only a simplified example. The important thing is to make sure that the codebase has both the module and lib/ecom merged. The script below will do this, and also make sure that the latest ecom2-release is present. <strong>Currently, ecom2 don't have any stable tag!</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example script</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">#!/bin/bash
+
+branch=&quot;master&quot;
+
+if [ &quot;&quot; = &quot;$1&quot; ] ; then
+    branch=&quot;$1&quot;
+fi
+
+src=&quot;resurs-bank-payments-for-woocommerce-bitbucket&quot;
+dest=&quot;zip/resurs-bank-payment-gateway-for-woocommerce&quot;
+
+if [ ! -d $dest ] ; then
+    mkdir $dest
+fi
+
+echo &quot;Synchronize $src with $dest&quot;
+
+rsync -a --info=progress1,progress2 --delete $src/ $dest
+cd $dest
+git checkout $branch
+git pull
+
+cd lib/ecom
+git pull origin master
+
+cd ../..
+
+echo &quot;Bundle by cleanup ...&quot;
+find . -name .gitignore -exec rm -v {} \; &gt;/dev/null 2&gt;&amp;1
+find . -type d -name .git -exec rm -rvf {} \; &gt;/dev/null 2&gt;&amp;1
+
+cd ..
+
+echo &quot;Archiving ...&quot;
+
+zip -r resurs-bank-payment-gateway-for-woocommerce.zip resurs-bank-payment-gateway-for-woocommerce</pre>
+</div></div><p><br/></p><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029909/91029913.png">image-2023-3-14_14-15-46.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029909/91029990.zip">resurs-bank-payment-gateway-for-woocommerce-0.0.1-1.zip</a> (application/zip)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029909/91030018.zip">resurs-bank-payment-gateway-for-woocommerce.zip</a> (application/zip)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029909/91030019.zip">resurs-bank-payment-gateway-for-woocommerce-current.zip</a> (application/zip)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029909/91030033.zip">resurs-bank-payment-gateway-for-woocommerce-1.0.0.zip</a> (application/zip)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029909/91030034.zip">resurs-bank-payment-gateway-for-woocommerce-current.zip</a> (application/zip)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

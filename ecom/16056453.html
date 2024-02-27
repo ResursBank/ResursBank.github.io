@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Errors, problem solving and corner cases</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Errors, problem solving and corner cases
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2021-08-28
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="panel" style="border-width: 1px;"><div class="panelHeader" style="border-bottom-width: 1px;"><b>Table of contents</b></div><div class="panelContent">
+<p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780964227 {padding: 0px;}
+div.rbtoc1706780964227 ul {margin-left: 0px;}
+div.rbtoc1706780964227 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780964227'>
+<ul class='toc-indentation'>
+<li><a href='#Errors,problemsolvingandcornercases-Howtohandleerrors'>How to handle errors</a></li>
+</ul>
+</div></p><p><ul class='childpages-macro'><li><a href="EComPHP-custom-errorcodes_16056511.html">EComPHP custom errorcodes</a></li><li><a href="328078.html">Error handling (Resurs error codes)</a></li></ul></p>
+</div></div><p><br/></p><p>This section covers known problems, fixes for them, workarounds and other things related to solving problems.</p><div class="confluence-information-macro confluence-information-macro-warning"><p class="title conf-macro-render">Using ngrok or proxies?</p><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><span style="color: rgb(29,28,29);">Do not use publicly available proxies for your developing, like ngrok, and sites that are known to also spread malicious code and software as they normally is banned in our firewall.<br/><span>This covers callbacks, but could affect other functions too.<br/>One main reason could be that you are using a host or domain name that is flagged malicious in our systems. Ngrok is one of those that is usually scored to be blocked in outbound communications. If is highly recommended that you don't use such sites.</span><br/></span></p></div></div><h2 id="Errors,problemsolvingandcornercases-Howtohandleerrors">How to handle errors</h2><p>As we do have more flows than one, with different &quot;calling techniques&quot; error handling may vary a bit between the flows. In its simplest way, you can say that HTTP-HEAD responses partially covers exceptions, however by only listening to a code from the http header may not reveal the cause many times. EComPHP covers most of the error handling in different steps, and an advice is to do something similar in other software too - if possible.</p><p>For example, SOAP errors can be handled by checking both head and body. Some exceptions sends a http head code above 500 (internal server error, and similar). This might give a part of the error, so in this case, you should consider checking for SoapExceptions too. In th body, details about the errors usually reside in the detail element, under an ECommerceError tag. Extracting this value could give you further information about the error. Such errors are documented at <a href="328078.html">Error handling (Resurs error codes)</a>. EComPHP extracts this kind of errors to find the root cause, and when unable to find an error it uses its own - see <a href="EComPHP-custom-errorcodes_16056511.html">EComPHP custom errorcodes</a>.</p><p>For the rest section, you could normally just check the http head responses.</p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

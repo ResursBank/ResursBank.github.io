@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Version 2.x (EComPHP)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Version 2.x (EComPHP)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2023-06-09
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Source code is located at <a href="https://bitbucket.org/resursbankplugins/ecom2" class="external-link" rel="nofollow">https://bitbucket.org/resursbankplugins/ecom2</a></p><p>ECom2 (or EComPHP version 2) is ecommerce library built for PHP starting with v8.1, with the intention to only support the Resurs REST-backend <a href="MAPI-Checkout-Flow_91029720.html">MAPI Checkout Flow</a>. None of the older API's (except for RCO) is included, so SOAP is no longer required. The library is also built to be an independent stand-alone library. </p><h1 id="Version2.x(EComPHP)-Tableofcontents">Table of contents</h1><p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780969951 {padding: 0px;}
+div.rbtoc1706780969951 ul {margin-left: 0px;}
+div.rbtoc1706780969951 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780969951'>
+<ul class='toc-indentation'>
+<li><a href='#Version2.x(EComPHP)-Tableofcontents'>Table of contents</a></li>
+<li><a href='#Version2.x(EComPHP)-Requirements'>Requirements</a></li>
+<li><a href='#Version2.x(EComPHP)-Gettingstarted'>Getting started</a>
+<ul class='toc-indentation'>
+<li><a href='#Version2.x(EComPHP)-Config'>Config</a></li>
+<li><a href='#Version2.x(EComPHP)-Exceptions'>Exceptions</a>
+<ul class='toc-indentation'>
+<li><a href='#Version2.x(EComPHP)-Exceptions.1'>Exceptions</a></li>
+<li><a href='#Version2.x(EComPHP)-Exceptions/Validation'>Exceptions/Validation</a></li>
+</ul>
+</li>
+<li><a href='#Version2.x(EComPHP)-Libraries'>Libraries</a>
+<ul class='toc-indentation'>
+<li><a href='#Version2.x(EComPHP)-Api'>Api</a></li>
+<li><a href='#Version2.x(EComPHP)-Cache'>Cache</a></li>
+<li><a href='#Version2.x(EComPHP)-Collection'>Collection</a></li>
+<li><a href='#Version2.x(EComPHP)-DataStorage'>DataStorage</a></li>
+<li><a href='#Version2.x(EComPHP)-Event'>Event</a></li>
+<li><a href='#Version2.x(EComPHP)-Locale'>Locale</a></li>
+<li><a href='#Version2.x(EComPHP)-Log'>Log</a></li>
+<li><a href='#Version2.x(EComPHP)-Model'>Model</a></li>
+<li><a href='#Version2.x(EComPHP)-Network'>Network</a></li>
+<li><a href='#Version2.x(EComPHP)-Simplified'>Simplified</a></li>
+<li><a href='#Version2.x(EComPHP)-Utilities'>Utilities</a></li>
+<li><a href='#Version2.x(EComPHP)-Validation'>Validation</a></li>
+</ul>
+</li>
+<li><a href='#Version2.x(EComPHP)-Modules'>Modules</a>
+<ul class='toc-indentation'>
+<li><a href='#Version2.x(EComPHP)-Annuity'>Annuity</a></li>
+<li><a href='#Version2.x(EComPHP)-PaymentMethod'>PaymentMethod</a></li>
+<li><a href='#Version2.x(EComPHP)-RCO'>RCO</a></li>
+<li><a href='#Version2.x(EComPHP)-RCOCallback'>RCO Callback</a></li>
+<li><a href='#Version2.x(EComPHP)-Store'>Store</a></li>
+</ul>
+</li>
+<li><a href='#Version2.x(EComPHP)-Callbacks'>Callbacks</a></li>
+</ul>
+</li>
+</ul>
+</div></p><p></p><h1 id="Version2.x(EComPHP)-Requirements">Requirements</h1><ul><li>PHP 8.1</li><li>SSL-connectivity (preferably OpenSSL)</li><li>CURL (ext-curl with necessary libraries) 7.61.0 or higher</li><li><strong style="color: rgb(255,0,0);letter-spacing: 0.0px;">Curl with CURLAUTH_BEARER-support</strong></li></ul><p><em>If you run Ubuntu (bionic) the lowest available curl version will probably be 7.58.0 (focal is currently - aug22 - on 7.68) and in many systems bearers was introduced in 7.61.0 - however, you need to make sure it is really present in newer releases too.</em></p><h1 id="Version2.x(EComPHP)-Gettingstarted">Getting started</h1><h2 id="Version2.x(EComPHP)-Config">Config</h2><p>The<span> </span><strong>Config::setup()</strong><span> </span>must always be called before performing any API call. This method creates a configured instance of the ECom library with all necessary information to execute API calls and perform related actions (such as logging, caching, data persistence etc.).<span> </span><strong>Config</strong><span> </span>acts as a singleton and the instance is stored in<span> </span><strong>Config::$instance</strong>.</p><p>This is a little unorthodox, but it allows for a single point of configuration for the library. This allows for simpler integrations. For example, if you utilize ECom from various places within your application you could call<span> </span><strong>Config::setup()</strong><span> </span>at a central point early in your application lifecycle, making sure that any calls to the library are configured properly always, regardless of where you may require the library. This can also have a beneficial impact on dependency management.</p><h2 id="Version2.x(EComPHP)-Exceptions">Exceptions</h2><h3 id="Version2.x(EComPHP)-Exceptions.1">Exceptions</h3><p>Custom Exception classes.</p><ul><li>ApiException | Base exception for all API exceptions.</li><li>AuthException | Exception for authentication errors.</li><li>CacheException | Exception for cache errors.</li><li>CurlException | Exception for curl errors.</li><li>EventException | Exception for event errors.</li><li>EventSubscriberException | Exception for event subscriber errors.</li><li>FilesystemError | Exception for filesystem errors.</li><li>IOException | Exception for IO errors.</li><li>TestException | Exception for test errors.</li><li>ValidationException | Exception for validation errors, see below.</li></ul><h3 id="Version2.x(EComPHP)-Exceptions/Validation">Exceptions/Validation</h3><p>Custom Exception classes utilized for data validation.</p><p><strong>NOTE:</strong><span> </span>All of these exceptions are subclasses of ValidationException.</p><ul><li>EmptyValueException | Value was not expected to be empty.</li><li>FormatException | Value was not in expected format.</li><li>IllegalCharsetException | Value contained illegal characters.</li><li>IllegalTypeException | Value was not of expected type.</li><li>IllegalValueException | Value was not allowed.</li><li>MissingKeyException | Required key was not found in array.</li></ul><hr/><h2 id="Version2.x(EComPHP)-Libraries">Libraries</h2><p>Libraries are located under<span> </span><strong>src/Lib</strong>. Libraries are allowed to communicate with each other. As such they are allowed to have dependencies on each other. These classes contain abstract business logic and are not meant to be called directly by the end user. Libraries are not allowed to communicate with modules, modules are however allowed to communicate with libraries.</p><h3 id="Version2.x(EComPHP)-Api">Api</h3><p>General API classes and functionality.</p><ul><li>Mapi | Contains centralized business logic for communication with Merchant API.</li></ul><h3 id="Version2.x(EComPHP)-Cache">Cache</h3><ul><li>AbstractCache | Abstract base class for all cache implementations.</li><li>CacheInterface | Interface for all cache implementations.</li><li>Filesystem | Filesystem cache implementation.</li><li>None | No cache implementation. This is the default cache implementation.</li><li>Redis | Redis cache implementation.</li></ul><h3 id="Version2.x(EComPHP)-Collection">Collection</h3><ul><li>Collection | Abstract base class for all collection implementations.</li></ul><h3 id="Version2.x(EComPHP)-DataStorage">DataStorage</h3><p>Work in progress. Intended to be a persistent data storage implementation.</p><h3 id="Version2.x(EComPHP)-Event">Event</h3><p>Work in progress. Intended to be an event system to communicate between Modules.</p><h3 id="Version2.x(EComPHP)-Locale">Locale</h3><p>Work in progress. Intended to help with localization and country availability.</p><h3 id="Version2.x(EComPHP)-Log">Log</h3><p>Logging functionality.</p><ul><li>FileLogger | File logger implementation.</li><li>LoggerInterface | Interface for all logger implementations.</li><li>LogLevel | Log level enumeration.</li><li>StdoutLogger | Stdout logger implementation.</li></ul><h3 id="Version2.x(EComPHP)-Model">Model</h3><p>Data object implementations.</p><ul><li>Model | Abstract base class for all model implementations.</li></ul><h3 id="Version2.x(EComPHP)-Network">Network</h3><p>Network communication functionality.</p><ul><li>ApiType | API type enumeration.</li><li>AuthType | Authentication type enumeration.</li><li>ContentType | Content type enumeration.</li><li>Curl | Curl implementation.</li><li>RequestMethod | Request method enumeration.</li><li>Url | URL implementation.</li><li>Curl/Header | Helper methods for Curl headers.</li><li>Model/Auth/Basic | Basic authentication model.</li><li>Model/Auth/Jwt | JWT authentication model.</li><li>Model/Header | Header model.</li><li>Model/JwtToken | JWT token model.</li><li>Model/Response | Generic response model. This is the expected return type of all API calls.</li></ul><h3 id="Version2.x(EComPHP)-Simplified">Simplified</h3><p>Data and logic specifically related to the Simplified API.</p><ul><li>Config | Configuration object for Simplified API.</li></ul><h3 id="Version2.x(EComPHP)-Utilities">Utilities</h3><p>Generic functionality that does not belong to any specific library.</p><ul><li>Generic | Methods to extract Composer and Docblock information.</li><li>DataConverter | Helps us convert anonymous arrays to known objects. Also lets us convert multidimensional arrays to collections.</li><li>DataConverter/TestClasses | Test classes for DataConverter.</li></ul><h3 id="Version2.x(EComPHP)-Validation">Validation</h3><p>Functionality to help us validate various kinds of data. Classes are separated by the data type they validate.</p><ul><li>ArrayValidation | Validation for arrays.</li><li>BoolValidation | Validation for booleans.</li><li>FloatValidation | Validation for floats.</li><li>IntValidation | Validation for integers.</li><li>StringValidation | Validation for strings.</li></ul><h2 id="Version2.x(EComPHP)-Modules">Modules</h2><p>Modules are independent pieces of functionality that are meant to be used by the end user. Modules are not allowed to communicate with each other to allow for maximum flexibility.</p><h3 id="Version2.x(EComPHP)-Annuity">Annuity</h3><p>Integration of<span> </span><strong>annuity factors</strong>, currently incomplete. At present this only reflect how we could leverage the<span> </span><strong>Event</strong><span> </span>library to implement logic that will fetch annuity factor information from the API when payment methods are being fetched (fetching factors for each method fetched from the API). Since modules are not allowed to have knowledge of each other, this is the best way to achieve this.</p><h3 id="Version2.x(EComPHP)-PaymentMethod">PaymentMethod</h3><p>Integration of<span> </span><strong>payment methods</strong>, currently incomplete. Work in progress.</p><h3 id="Version2.x(EComPHP)-RCO">RCO</h3><p>Implementation of the Checkout API (iframe based checkout).</p><ul><li>Repository | Repository for RCO.</li><li>Api/GetPayment::call() | Fetch payment information from the API.</li><li>Api/InitPayment::call() | Initialize payment session (iframe) with the API.</li><li>Api/UpdatePayment::call() | Update payment session in the API.</li><li>Api/UpdatePaymentReference::call() | Update payment reference in the API.</li><li>Model/* | Model classes for API requests and responses.</li></ul><p>Please note that all API calls should be performed through<span> </span><strong>Repository</strong>.</p><p>When using the RCO you first need to call<span> </span><strong>InitPayment</strong><span> </span>to initialize the payment session. You will be required to provide a reference for this session which should be your order number if you already have that on hand at this point. You will otherwise be able to update this value later using<span> </span><strong>UpdatePaymentReference</strong>.<span> </span><strong>InitPayment</strong><span> </span>Will supply you with the iframe to allow checkout.<span> </span><strong>UpdatePayment</strong><span> </span>Allows you to update the payment session with new items etc. after the payment session has already been created, so you do not need to re-create the session every time the cart changes for example. Whenever the totals in your platform change you should call this endpoint to update the payment session which will reflect the new total within the iframe through JS sockets. You can call<span> </span><strong>GetPayment</strong><span> </span>to fetch the payment session information at any time. When the client completes their purchase the session will be converted to an actual payment.</p><h3 id="Version2.x(EComPHP)-RCOCallback">RCO Callback</h3><p>Documentation TBD.</p><h3 id="Version2.x(EComPHP)-Store">Store</h3><p>Implementation of<span> </span><strong>stores</strong><span> </span>in the Merchant API (MAPI).</p><ul><li>Repository | Repository for Store.</li><li>Api/GetStores::call() | Fetch list of available stores from the API.</li><li>Model/* | Model classes for API requests and responses.</li></ul><p>Please note that all API calls should be performed through<span> </span><strong>Repository</strong>.</p><p>Every API account has one or more stores. You can fetch the list of available stores through the<span> </span><strong>Repository</strong><span> </span>class. You will need your store(s) for subsequent API calls to fetch payment methods for example. The<span> </span><strong>Repository</strong><span> </span>class will return a<span> </span><strong>Collection</strong><span> </span>of<span> </span><strong>Store</strong><span> </span>objects read either from cache or directly from the API.</p><h2 id="Version2.x(EComPHP)-Callbacks">Callbacks</h2><p>Incoming callbacks are not explicitly handled by the SDK. However, it can still handle the data models for the callbacks sent from Resurs.</p><p>Callbacks are handled by the repository located under<span> </span><strong>src/Lib/Module/Callback</strong>.</p><p>In its simplest form (as the callback types are not auto discovered), you can use the following code to fetch the proper callback model for Authorization (where the repository itself also handles the data received via <a href="php://input" rel="nofollow">php://input</a>).</p><pre><span class="x">use Resursbank\Ecom\Module\Callback\Repository;</span>
+<span class="x">$this-&gt;callbackModel = (new Repository(CallbackType::AUTHORIZATION))-&gt;getCallbackModel();</span>
+</pre><p>The models are based on the data sent from Resurs (which you can read about<span> </span><a style="text-decoration: none;" href="https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v2/options#callbacks" rel="nofollow" class="external-link">here,</a><span> </span>and they are stored at<span> </span><strong>src/Lib/Model/Callback</strong><span> </span>as the two below:</p><ul><li>Authorization</li><li>Management</li></ul>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

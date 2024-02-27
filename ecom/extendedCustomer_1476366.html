@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : extendedCustomer</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="API-Types_1475647.html">API Types</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="customer_1475725.html">customer</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : extendedCustomer
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Joachim Andersson</span>, last modified by <span class='editor'> Thomas Tornevall</span> on 2023-12-21
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Extended Customer is an extension of the Customer, it is used in the Simplified Shop Flow</p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Occurrences of fields below adhere to the xsd requirements.</p><p>Beware that some fields are required by the bank product the client and Resurs agreed upon.</p></div></div><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Component</th><th class="confluenceTh">Type</th><th class="confluenceTh">Occurs</th><th class="confluenceTh">Nillable?</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">cellPhone</td><td class="confluenceTd">string</td><td class="confluenceTd">0..1</td><td class="confluenceTd">false</td><td class="confluenceTd">The customer's cell phone number is specified here. Is mandatory if you are using Swish payment method via Resurs Bank</td></tr><tr><td class="confluenceTd">yourCustomerId</td><td class="confluenceTd">string</td><td class="confluenceTd">0..1</td><td class="confluenceTd">true</td><td class="confluenceTd">Your internal customer ID, if you want it on invoice etc.</td></tr><tr><td class="confluenceTd">deliveryAddress</td><td class="confluenceTd"><a href="address_1475687.html">address</a></td><td class="confluenceTd">0..1</td><td class="confluenceTd">true</td><td class="confluenceTd">If the delivery address should be changed, specify a new delivery address here else leave it empty.</td></tr><tr><td colspan="1" class="confluenceTd">contactGovernmentId</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">0..1</td><td colspan="1" class="confluenceTd">true</td><td colspan="1" class="confluenceTd"><p>If your customer is of LEGAL type (company), set the contact person for the payment. If a none LEGAL (i.e. NATURAL) leave it empty.</p><p>Contact civic number. <strong>Company applicable only for Sweden</strong>.</p></td></tr></tbody></table></div><p><br/></p><p><br/></p><p><span style="font-size: 14.0px;line-height: 1.4285715;">Details about a (potential) customer, be it natural or legal.</span><br/>Contains elements as defined in the following table.<div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Component</th><th class="confluenceTh">Type</th><th class="confluenceTh">Occurs</th><th class="confluenceTh">Nillable?</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">governmentId</td><td class="confluenceTd"><strong><a href="https://test.resurs.com/docs/pages/viewpage.action?pageId=1475653">nonEmptyString</a></strong></td><td class="confluenceTd">0..1</td><td class="confluenceTd">No</td><td class="confluenceTd"><div class="content-wrapper"><p>Identifies a customer uniquely within the country.</p><p>• SE: Personnummer/Organisationsnummer</p><p><span style="line-height: 1.4285715;">• DK: CPR-number</span></p><p>• NO: Fødselsnummer</p><p>• FI: Henkilötunnus</p></div></td></tr><tr><td class="confluenceTd">address</td><td class="confluenceTd"><strong><a href="https://test.resurs.com/docs/display/ecom/address">address</a></strong></td><td class="confluenceTd">1..1</td><td class="confluenceTd">No</td><td class="confluenceTd">The customer address. It's only used for fraud control. billingAddress will always be the customers registered address.</td></tr><tr><td class="confluenceTd">cellPhone</td><td class="confluenceTd">string</td><td class="confluenceTd">0..1</td><td class="confluenceTd">No</td><td class="confluenceTd"><span style="color: rgb(23,43,77);">The customer's cell phone number is specified here. Mandatory if Swish is to be used as payment method</span></td></tr><tr><td class="confluenceTd">email</td><td class="confluenceTd"><strong><a href="https://test.resurs.com/docs/pages/viewpage.action?pageId=1475653">nonEmptyString</a></strong></td><td class="confluenceTd">0..1</td><td class="confluenceTd">No</td><td class="confluenceTd">The customer email address.</td></tr><tr><td class="confluenceTd">type</td><td class="confluenceTd"><strong><a href="https://test.resurs.com/docs/display/ecom/customerType">customerType</a></strong></td><td class="confluenceTd">1..1</td><td class="confluenceTd"><span>No </span></td><td class="confluenceTd">The customer type.</td></tr></tbody></table></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"> &lt;customer&gt;
+    &lt;governmentId&gt;7312195873&lt;/governmentId&gt;
+    &lt;address&gt;
+       	&lt;fullName&gt;Asgeirsen Asgeir&lt;/fullName&gt;
+        &lt;firstName&gt;Asgeir&lt;/firstName&gt;
+        &lt;lastName&gt;Asgeirsen&lt;/lastName&gt;
+	    &lt;addressRow1/&gt;
+        &lt;postalArea&gt;Inøja&lt;/postalArea&gt;
+        &lt;postalCode&gt;1234&lt;/postalCode&gt;
+       	&lt;country&gt;SE&lt;/country&gt;
+    &lt;/address&gt;
+    &lt;phone/&gt;
+ 	&lt;email&gt;javatest@resurs.se&lt;/email&gt;
+ 	&lt;type&gt;NATURAL&lt;/type&gt;
+&lt;/customer&gt;</pre>
+</div></div><p><br/><br/><br/></p></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

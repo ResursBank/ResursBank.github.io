@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Using sku as article numbers in old plugin</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Plugins_1476269.html">Platform Plugins</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="WooCommerce_2588830.html">WooCommerce</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="91030050.html">Resurs Bank Payment Gateway for WooCommerce (v2.2) Resurs Checkout &amp; Simplified Flow</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Using sku as article numbers in old plugin
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2023-09-13
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The old module once <strong>had</strong> support for sku-values as articlenumbers on order rows, but has since the evolving of our plugins been removed from the configuration panel due to decisions. The old plugin is currently explicitly using id/permalinks for the order rows instead. At the time, this was more safe than the opposite option as sku's very often was missing from old products.</p><p>However, the ability to use woocommerce sku-id's instead of post-id (when they exist) is still available in the plugin, but not as an active configurable setting. SInce it is not included in the configuration array anymore, you are therefore also unable to override it normally. The setting itself will (when enabled) is actively using the sku instead of the regular id, and fail over to the regular id if sku is not set - if you still manage to enable the setting.</p><p>Yes. There is a solution.</p><h2 id="Usingskuasarticlenumbersinoldplugin-Temporaryoverrideskufeatureplugin">Temporary override sku feature plugin</h2><p>Create a file in your plugin directory (<strong>/wp-content/plugins</strong>) in your platform, for example named resurs-force-sku.php - the file should contain the code below.</p><p>Save it and activate it as a standalone plugin in your store.</p><p>To remove and disable this feature (as it also saves the value <strong>useSku</strong> in the database), disable this plugin from your plugin manager. Then go to the Resurs Bank-tabs and save the configuration again.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>resurs-force-sku.php</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence" data-theme="Confluence">&lt;?php
+
+/**
+ * Plugin Name: Force sku usage for resurs-bank-payment-gateway-for-woocommerce (v2.2.105 and above)
+ * Description: Restores the usage of sku names in orders.
+ * Version: 1.0.0
+ * Author:
+ */
+
+  add_action(&#39;plugins_loaded&#39;, function () {
+    add_filter(&#39;resurs_bank_form_fields&#39;, function ($formFields, $sectionName) {
+        if (
+            (preg_match(&#39;/resurs_bank/i&#39;, $sectionName) || $sectionName === &#39;defaults&#39;) &amp;&amp;
+            !isset($formFields[&#39;useSku&#39;])
+        ) {
+            $ns = &#39;woocommerce_resurs-bank_settings&#39;;
+            // Validate prior options in case useSku has been saved as disabled.
+            $optionCheck = get_option($ns);
+            if (isset($optionCheck[&#39;useSku&#39;]) &amp;&amp; $optionCheck[&#39;useSku&#39;] === &#39;no&#39;) {
+                $optionCheck[&#39;useSku&#39;] = &#39;yes&#39;;
+                // Update the options if that&#39;s the case.
+                update_option($ns, $optionCheck);
+            }
+
+            // Return useSku to the plugin as if it was still configurable, to convince
+            // woocommece to bring it to storefront.
+            $formFields[&#39;useSku&#39;] = [
+                &#39;id&#39; =&gt; &#39;useSku&#39;,
+                &#39;title&#39; =&gt; __(
+                    &#39;Use sku instead of id, when available&#39;,
+                    &#39;resurs-bank-payment-gateway-for-woocommerce&#39;
+                ),
+                &#39;type&#39; =&gt; &#39;checkbox&#39;,
+                &#39;default&#39; =&gt; &#39;yes&#39;,
+                &#39;description&#39; =&gt; __(
+                    &#39;Enforcing sku as artno instead of id, when it is available.&#39;,
+                    &#39;resurs-bank-payment-gateway-for-woocommerce&#39;
+                ),
+            ];
+        }
+        return $formFields;
+    }, 11, 2);
+});</pre>
+</div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

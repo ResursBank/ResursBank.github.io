@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : 0 decimals in WooCommerce</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Plugins_1476269.html">Platform Plugins</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="WooCommerce_2588830.html">WooCommerce</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : 0 decimals in WooCommerce
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified by <span class='editor'> Gert</span> on 2023-01-19
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780960859 {padding: 0px;}
+div.rbtoc1706780960859 ul {margin-left: 0px;}
+div.rbtoc1706780960859 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780960859'>
+<ul class='toc-indentation'>
+<li><a href='#id-0decimalsinWooCommerce-DecimalsinWooCommerce'>Decimals in WooCommerce</a></li>
+<li><a href='#id-0decimalsinWooCommerce-Whydoesn’tthepaymentgatewayscalculateasWooCommerce?'>Why doesn’t the payment gateways calculate as WooCommerce?</a></li>
+<li><a href='#id-0decimalsinWooCommerce-Timeforsomemath'>Time for some math</a></li>
+<li><a href='#id-0decimalsinWooCommerce-Orderrowquantityandcoupons'>Order row quantity and coupons</a></li>
+<li><a href='#id-0decimalsinWooCommerce-ButIdon’twanttodisplaydecimalsinmystore–howdoIdo?'>But I don’t want to display decimals in my store – how do I do?</a></li>
+<li><a href='#id-0decimalsinWooCommerce-Iwanttodothisasaplugin-howwoulditlook?'>I want to do this as a plugin - how would it look?</a></li>
+</ul>
+</div></p><p>Under <em>General settings</em><span> </span>in WooCommerce there is a section called<span> </span><em>Currency options</em>. Here you can set the store currency and how the currency symbol should be positioned. There is also a setting that lets you choose how many decimal points you want prices to be displayed with.</p><p>At a first glance this setting only appear to be a display option. A setting that makes your prices look a little bit fancier. But to set the decimals to 0 can cause some real problems for you and your store.</p><h2 id="id-0decimalsinWooCommerce-DecimalsinWooCommerce">Decimals in WooCommerce</h2><p>When you set the number of decimals to 0 WooCommerce starts rounding product prices. Or to be a bit more specific – the ratio between the net pice and the VAT. If you are using a payment gateway that sends each order row individually to the payment provider, or have an extension that connects to your accounting/erp system, then the calculation of order total might differ between the systems.</p><h2 id="id-0decimalsinWooCommerce-Whydoesn’tthepaymentgatewayscalculateasWooCommerce?">Why doesn’t the payment gateways calculate as WooCommerce?</h2><p>You might think that this is something we as extension developers should solve so that the figures added to the WooCommerce order is the same as the ones sent to the payment provider.</p><p>The problem is that when the price for a product is rounded and stored in the order it can be difficult to recreate the same kind of rounding in an external system. Let me give you an example.</p><h2 id="id-0decimalsinWooCommerce-Timeforsomemath">Time for some math</h2><p>A product has the price of 49 EUR including 25% VAT. This means a net price of 39.2 with a tax of 9.8 EUR. If you set the decimal points to 0, WooCommerce will round this to a net price of 39 and and a tax of 10.</p><p>If we now imagine a payment provider who wants us to send each order row with the product price excluding tax plus the tax rate, this would mean 39 and 25%. But if you add 25% to 39 you will get a price including tax that equals 48,75.</p><p>In many cases when each order line is sent to the payment provider, order total is also sent as a parameter. When the sum of the order rows is compared to order total, these two figures don’t match. Usually the payment provider answers with an error message and the purchase can’t be finalized.</p><h2 id="id-0decimalsinWooCommerce-Orderrowquantityandcoupons">Order row quantity and coupons</h2><p>In some cases it will work with this type of rounding. Instead problems might occur if the customer buys a number of items of a specific product. The payment provider usually wants the unit price plus the number of items purchased but WooCommerce does the rounding after the entire order row has been calculated. Another scenario that could cause similar problems is when using coupons.</p><h2 id="id-0decimalsinWooCommerce-ButIdon’twanttodisplaydecimalsinmystore–howdoIdo?">But I don’t want to display decimals in my store – how do I do?</h2><p>Luckily there are ways to avoid displaying decimals a long as it’s about prices with whole numbers (integers). Set the decimal points to 2 in the currency settings and then add this code snippet to your themes functions.php or or in a separate plugin.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence" data-theme="Confluence">/**
+ * Trim zeros in price decimals
+ **/
+ add_filter( &#39;woocommerce_price_trim_zeros&#39;, &#39;__return_true&#39; );</pre>
+</div></div><p><br/></p><p>With this code 49,00 will be displayed as 49. If you only have prices with whole numbers in your store and you’re displaying prices including VAT, then it’s only the VAT that actually will be displayed with 2 decimals. This results in a more correct calculation of prices and VAT in your store while you don’t have to display unnecessary decimal points.</p><h2 id="id-0decimalsinWooCommerce-Iwanttodothisasaplugin-howwoulditlook?">I want to do this as a plugin - how would it look?</h2><p>This is how a plugin could look like. A file like this can be placed directly in wp-content/plugins, and then activated from the plugin manager.</p><p><strong>Example &lt;WP-root&gt;/wp-content/plugins/woocommerce-price-trim-zeros.php</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence" data-theme="Confluence">&lt;?php
+/*
+Plugin Name: WooCommerce price trim zeros
+*/
+
+ /**
+  * Trim zeros in price decimals
+  **/
+ add_filter( &#39;woocommerce_price_trim_zeros&#39;, &#39;__return_true&#39; );
+
+</pre>
+</div></div><p>Download:</p><p><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="/docs/download/attachments/91029828/woocommerce-price-trim-zeros.php?version=1&amp;modificationDate=1674130461000&amp;api=v2" data-nice-type="null" data-file-src="/docs/download/attachments/91029828/woocommerce-price-trim-zeros.php?version=1&amp;modificationDate=1674130461000&amp;api=v2" data-linked-resource-id="91029837" data-linked-resource-type="attachment" data-linked-resource-container-id="91029828" data-linked-resource-default-alias="woocommerce-price-trim-zeros.php" data-mime-type="application/octet-stream" data-has-thumbnail="false" data-linked-resource-version="1" data-can-edit="true" aria-label="woocommerce-price-trim-zeros.php" draggable="false"><img src="download/resources/com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-resources/images/placeholder-small-file.png" height="150" alt="" draggable="false"/><span class="title">woocommerce-price-trim-zeros.php</span></a><span class="companion-edit-button-placeholder edit-button-overlay" data-linked-resource-container-id="91029828" data-linked-resource-id="91029837" data-template-name="companionEditIcon" data-source-location="embedded-attachment"></span></span></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029828/91029837.php">woocommerce-price-trim-zeros.php</a> (application/octet-stream)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

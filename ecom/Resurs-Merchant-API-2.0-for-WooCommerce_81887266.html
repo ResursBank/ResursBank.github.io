@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Resurs Merchant API 2.0 for WooCommerce</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Plugins_1476269.html">Platform Plugins</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="WooCommerce_2588830.html">WooCommerce</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Resurs Merchant API 2.0 for WooCommerce
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2023-12-07
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><ul class='childpages-macro'><li><a href="Plugin-basics-and-information_91029973.html">Plugin basics and information</a></li><li><a href="Trouble-shooting-and-error-handling_91030061.html">Trouble shooting and error handling</a></li><li><a href="Installation-from-WordPress-plugin-repository_91029967.html">Installation from WordPress plugin repository</a></li><li><a href="Manually-installing-plugin_91029909.html">Manually installing plugin</a></li><li><a href="Store-configuration-requirements_91029884.html">Store configuration requirements</a></li><li><a href="Plugin-configuration_91029886.html">Plugin configuration</a></li><li><a href="Order-management_91029950.html">Order management</a></li><li><a href="Part-payment-widget_91029758.html">Part payment widget</a></li><li><a href="MAPI-Checkout-Flow_91029720.html">MAPI Checkout Flow</a></li><li><a href="MAPI-WC---Customizations_91030072.html">MAPI-WC - Customizations</a></li></ul></p><p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780960952 {padding: 0px;}
+div.rbtoc1706780960952 ul {margin-left: 0px;}
+div.rbtoc1706780960952 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780960952'>
+<ul class='toc-indentation'>
+<li><a href='#ResursMerchantAPI2.0forWooCommerce-Requirements'>Requirements</a></li>
+<li><a href='#ResursMerchantAPI2.0forWooCommerce-Upgradeinformation'>Upgrade information</a></li>
+<li><a href='#ResursMerchantAPI2.0forWooCommerce-Download/installtheplugin'>Download/install the plugin</a></li>
+<li><a href='#ResursMerchantAPI2.0forWooCommerce-FAQ&amp;Genericquestions'>FAQ &amp; Generic questions</a>
+<ul class='toc-indentation'>
+<li><a href='#ResursMerchantAPI2.0forWooCommerce-CanIchangetheordernumbersequence?'>Can I change the order number sequence?</a></li>
+</ul>
+</li>
+</ul>
+</div></p><p>This section is reserved for the new WooCommerce plugin from Resurs bank.</p><h1 id="ResursMerchantAPI2.0forWooCommerce-Requirements">Requirements</h1><ul><li><strong>At least</strong> PHP 8.1</li><li><strong>At least</strong> WooCommerce 7.6.0</li><li>SSL-connectivity (preferably OpenSSL)</li><li>CURL (ext-curl with necessary libraries) 7.61.0 or higher</li><li><span style="color: rgb(255,0,0);"><strong>Curl with CURLAUTH_BEARER-support</strong></span></li></ul><p><em>If you run Ubuntu (bionic) the lowest available curl version will probably be 7.58.0 (focal is currently - aug22 - on 7.68) and in many systems bearers was introduced in 7.61.0 - however, you need to make sure it is really present in newer releases too.</em></p><h1 id="ResursMerchantAPI2.0forWooCommerce-Upgradeinformation">Upgrade information</h1><p>Are you installing this module over the prior release (2.2-series)? Make sure you uninstall the old plugin before installing this. We've seen conflicts between the both releases, for where the old plugin overrides parts of the new by stating that the CURLAUTH_BEARER is missing, even though the old wp-admin layout is still seen. This is very common when the both plugins are active side by side.</p><h1 id="ResursMerchantAPI2.0forWooCommerce-Download/installtheplugin">Download/install the plugin</h1><p>Install the plugin via WordPress plugin repository (the plugin manager in wp-admin). It is NOT recommended to install the plugin manually since you will miss all automatic upgrades.</p><p>Url to the plugin itself is <a class="external-link" href="https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/" rel="nofollow">https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/</a></p><p><br/></p><h1 id="ResursMerchantAPI2.0forWooCommerce-FAQ&amp;Genericquestions">FAQ &amp; Generic questions</h1><h2 id="ResursMerchantAPI2.0forWooCommerce-CanIchangetheordernumbersequence?">Can I change the order number sequence?</h2><p>Yes!</p><p class="c-mrkdwn__pre">To update the order number sequence, update the database auto increment number like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>UPDATE database</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">ALTER TABLE `wp-database`.`wp_posts` AUTO_INCREMENT = 200000000;</pre>
+</div></div><p class="c-mrkdwn__pre">Change <strong>wp-database</strong> to your database name and set the <strong>AUTO_INCREMENT</strong> number to something that suits you.</p><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/81887266/91029807.png">image-2023-1-12_7-38-24.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/81887266/91029906.png">image-2023-3-14_13-47-8.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/81887266/91029925.png">image-2023-3-16_10-0-24.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/81887266/91029926.png">image-2023-3-16_12-36-8.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

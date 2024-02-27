@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : EComPHP: createPayment [simplifiedShopFlow]</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="87393094.html">Version 1.x (EComPHP)</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : EComPHP: createPayment [simplifiedShopFlow]
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2020-12-11
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780967554 {padding: 0px;}
+div.rbtoc1706780967554 ul {margin-left: 0px;}
+div.rbtoc1706780967554 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780967554'>
+<ul class='toc-indentation'>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-Initializethemodule'>Initialize the module</a></li>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-Successfulordersvsunsuccessfulorders-Settingrulesofsigning(Flowrequirement)'>Successful orders vs unsuccessful orders - Setting rules of signing (Flow requirement)</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-ThesyntaxforsetSigningisasfollows:'>The syntax for setSigning is as follows:</a></li>
+</ul>
+</li>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-Setthepreferredpaymentservice(flow)'>Set the preferred payment service (flow)</a></li>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-Preparethecustomer'>Prepare the customer</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-Billingaddress'>Billing address</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-getPayload()'>getPayload()</a></li>
+</ul>
+</li>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-Additionalrequiredcustomerdata'>Additional required customer data</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-getPayload().1'>getPayload()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-Preparingthecart'>Preparing the cart</a>
+<ul class='toc-indentation'>
+
+<ul class='toc-indentation'>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-Function:addOrderLine()'>Function: addOrderLine()</a></li>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-Function:getPayload()'>Function: getPayload()</a></li>
+</ul>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-Specialrequirements'>Special requirements</a></li>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-Preparingaorderreference'>Preparing a order reference</a></li>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-Creatingtheorder'>Creating the order</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-Thebookedpaymentresponse'>The booked payment response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href='#EComPHP:createPayment[simplifiedShopFlow]-Handlesignedpayments'>Handle signed payments</a></li>
+</ul>
+</div></p><p>As said in another chapter of this documentation, EComPHP 1.0.2+ and 1.1.2+ is furthermore simplified. To create a standard order, as shown in our test suite, the steps below are required to build a payment in the simplified flow. The examples are taken from the test suite, so we assume that you do run this in a similar environment. The steps below should render a huge payload, but instead of creating it by yourself, EComPHP can do this for you. If you want to look at the payload rendered by EComPHP after each step, you can use the <strong>getPayload()</strong>-function to view what's creating during the process.</p><h2 id="EComPHP:createPayment[simplifiedShopFlow]-Initializethemodule">Initialize the module</h2><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">use Resursbank\RBEcomPHP\RESURS_ENVIRONMENTS;
+use Resursbank\RBEcomPHP\ResursBank;
+$preferredEnvironment = RESURS_ENVIRONMENTS::TEST;
+$this-&gt;rb = new ResursBank( $this-&gt;username, $this-&gt;password, $preferredEnvironment );
+// or
+$this-&gt;rb = new ResursBank( $this-&gt;username, $this-&gt;password );
+$this-&gt;rb-&gt;setEnvironment($preferredEnvironment);</pre>
+</div></div><h2 id="EComPHP:createPayment[simplifiedShopFlow]-Successfulordersvsunsuccessfulorders-Settingrulesofsigning(Flowrequirement)">Successful orders vs unsuccessful orders - Setting rules of signing (<span style="color: rgb(255,0,0);">Flow requirement</span>)</h2><p>This is a part of customer preparing and required by the flow to properly work when it comes to signing/authorizing payments that requires this.</p><p>Before proceeding, it is <strong>required</strong> configure the payment to handle signings; if we for some reason require that your customer signs the payment - this happens for example, if you set a delivery address that mismatches with your billing address. If you have your own requirements (for example, you want to force signing every time a payment are created) this part is also important. <strong>Besides, without the rules of signing, Resurs Bank won't accept the payment.</strong> But the setup is quite simple. You need to set up two urls for this: One for successful signings and one for signings that fails during the payment process.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>setSigning()</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;rb-&gt;setSigning(&quot;https://mystore.test.com/signingSuccessful&quot;, &quot;https://mystore.test.com/signingFailed&quot;, false);</pre>
+</div></div><p>Running this will prepare for eventually letting the customer sign the payment. The boolean false tells Resurs Bank to not force any signing.</p><h3 id="EComPHP:createPayment[simplifiedShopFlow]-ThesyntaxforsetSigningisasfollows:">The syntax for setSigning is as follows:</h3><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Parameter</th><th colspan="1" class="confluenceTh">Type</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">successUrl</td><td colspan="1" class="confluenceTd">string</td><td class="confluenceTd">Tells Resurs Bank where your payment, when successful, will land (<em>Thanks for your order</em>, normally).</td></tr><tr><td colspan="1" class="confluenceTd">failUrl</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">The opposite to successUrl. When customers for some reason fails through making the order this is where they should land.</td></tr><tr><td colspan="1" class="confluenceTd">forceSigning</td><td colspan="1" class="confluenceTd">boolean</td><td colspan="1" class="confluenceTd">If you want all orders to force signing, set it to true. Normally, this should be disabled.</td></tr><tr><td colspan="1" class="confluenceTd">backUrl</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">Backurls is normally used for hosted flow, where customers can return to the checkout without fulfilling anything.</td></tr><tr><td colspan="1" class="confluenceTd">encodeType</td><td colspan="1" class="confluenceTd"><p><span>RESURS_URL_ENCODE_TYPES</span></p></td><td colspan="1" class="confluenceTd"><p>Default: None. Do not use. This is for extreme cases only, where the url encoding with Resurs Bank Fails.</p></td></tr></tbody></table></div><h2 id="EComPHP:createPayment[simplifiedShopFlow]-Setthepreferredpaymentservice(flow)">Set the preferred payment service (flow)</h2><p>First, we need to prepare EComPHP for which payment flow we want to use.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">use Resursbank\RBEcomPHP\RESURS_FLOW_TYPES;
+//
+$this-&gt;rb-&gt;setPreferredPaymentService(RESURS_FLOW_TYPES::SIMPLIFIED_FLOW);</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-note"><p class="title conf-macro-render">Override functions keeping compatibility between flows</p><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Note that setAdditionalDebitOfPayment() overrides this, as most of the payload are built to fit all flows, with the base from the simplified shopflow. For example, additionalDebitOfPayment is a simplified shopflow function and does not exist in Resurs Checkout. Therefore, adding a payment spec based on the Resurs Checkout payload, will fail. By this override, you can still add orderlines in the Checkout row format while EComPHP converts the specrows to a format that the simplified shopflow understands.</p></div></div><h2 id="EComPHP:createPayment[simplifiedShopFlow]-Preparethecustomer">Prepare the customer</h2><p>The second step to take is to prepare the customer from a shop. This can be done by manually adding a customer to the internal payload of EComPHP. The data below should be replaced with variables, so not all customers get the name Anders Andersson.</p><h3 id="EComPHP:createPayment[simplifiedShopFlow]-Billingaddress">Billing address</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;rb-&gt;setBillingAddress(&quot;Anders Andersson&quot;, &quot;Anders&quot;, &quot;Andersson&quot;, &quot;Hamngatan 2&quot;, null, &quot;Ingestans&quot;, &quot;12345&quot;, &quot;SE&quot;);</pre>
+</div></div><p>If you think that the getAddress-API in Resurs Bank is useful, you don't have to add the customer data manually. Instead, you can use this function to create your customer payload</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;rb-&gt;setBillingByGetAddress(&quot;198305147715&quot;);</pre>
+</div></div><h4 id="EComPHP:createPayment[simplifiedShopFlow]-getPayload()">getPayload()</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+	&quot;address&quot;: {
+		&quot;fullName&quot;: &quot;Vincent Williamsson Alexandersson&quot;,
+		&quot;firstName&quot;: &quot;Vincent&quot;,
+		&quot;lastName&quot;: &quot;Alexandersson&quot;,
+		&quot;addressRow1&quot;: &quot;Glassgatan 15&quot;,
+		&quot;postalArea&quot;: &quot;G\u00f6teborg&quot;,
+		&quot;postalCode&quot;: &quot;41655&quot;,
+		&quot;country&quot;: &quot;SE&quot;
+	}
+}</pre>
+</div></div><h3 id="EComPHP:createPayment[simplifiedShopFlow]-Additionalrequiredcustomerdata">Additional required customer data</h3><p>As we are dependent of the customer phone numbers, e-mail etc, you also need to set up that data for the customer. Since the billing (and delivery) address above is a separate section of the customer block, this additional data are added with setCustomer().</p><p>This function needs to set up some data from the client:</p><ul><li>governmentId</li><li>phoneNumber</li><li>cellPhone</li><li>e-mail</li><li>customer type (NATURAL for private shoppers and LEGAL for companies)</li></ul><p>This very much depends on which payment method you are choosing and in the simplified flow you need to set up a web based form for the customer where this data can be entered. Take a look at the page <a href="5014037.html#General:Integrationdevelopment-Thecheckoutandformsthatneedstobefilledin">General integration</a>, and see the rules  to follow on how to set up this form. For some payment methods (like card) not all of the above data is required, while for example INVOICE-payments require them all. EComPHP 1.0 and 1.1 currently has a collection of &quot;long time deprecation functions&quot;, which much likely might help you in the form creation. One of the methods, <strong>getTemplateFieldsByMethodType()</strong>, collects the correct set of form fields for the chosen payment method <span style="color: rgb(255,0,0);"><strong>(NOTE: The template handlers that has been imported from shopFlow, the old one is deprecated!)</strong></span>. For this version serie, you will also get a collection with regular expression rules, for which you can use to validate the form fields so that they are filled in correctly. <a href="https://bitbucket.org/resursbankplugins/resurs-bank-payment-gateway-for-woocommerce/src/6617e10a5cdfe210628eec0aef4109a7049ff21b/resursbankgateway.php?at=master&amp;fileviewer=file-view-default#resursbankgateway.php-1139" class="external-link" rel="nofollow">In the WooCommcerce plugin</a> (at least up to v2.1.0) those methods are used. However, since they are in deprecated: This will not be handled at all in the future (i.e. EComPHP 1.2.x does not containt this ruleset), mostly because forms are a very dynamic thing and payment methods at Resurs Bank may be configured differently compared how the payment solution are actually set up.</p><p><br/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;rb-&gt;setCustomer(&quot;198305147715&quot;, &quot;0808080808&quot;, &quot;0707070707&quot;, &quot;test@test.com&quot;, &quot;NATURAL&quot;);</pre>
+</div></div><p>If you are using setBillingByGetAddress, you can set the first field (governmentId) to null, as the payload will set the government id with the help of getAddress().</p><h4 id="EComPHP:createPayment[simplifiedShopFlow]-getPayload().1">getPayload()</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+	&quot;governmentId&quot;: &quot;198305147715&quot;,
+	&quot;email&quot;: &quot;test@test.com&quot;,
+	&quot;phone&quot;: &quot;0808080808&quot;,
+	&quot;cellPhone&quot;: &quot;0707070707&quot;,
+	&quot;type&quot;: &quot;NATURAL&quot;
+}</pre>
+</div></div><p><br/></p><h2 id="EComPHP:createPayment[simplifiedShopFlow]-Preparingthecart">Preparing the cart</h2><p>A payment is nothing without the cart. In our case, the cart is your final cart from your store - the payment specification (orderlines). To create an orderline, you can use <strong>addOrderLine()</strong> for your help, and as Resurs Checkout this function only requires minimum of data to render a correct orderline. The data needed is the following:</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Variable</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd"><pre><span style="color: rgb(128,128,128);">$articleNumberOrId</span></pre></td><td class="confluenceTd">The article number or the id (normally a short string that sets the article in your store)</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(128,128,128);">$description</span></pre></td><td colspan="1" class="confluenceTd">The longer article description of your</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(128,128,128);">$unitAmountWithoutVat</span></pre></td><td colspan="1" class="confluenceTd">The proce of your article, as it was single product (one unit)</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(128,128,128);">$vatPct</span></pre></td><td colspan="1" class="confluenceTd">The VAT of the product without decimals. If the VAT is 25%, you give 25 as value</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(128,128,128);">$unitMeasure</span></pre></td><td colspan="1" class="confluenceTd"><p>Pcs, pieces, st, styck, kg, etc. Used to describe the quantity on the invoice<br/><em>&quot;8 pcs of house hold items&quot;, &quot;3 kg of meat&quot;</em></p></td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(128,128,128);">$articleType</span></pre></td><td colspan="1" class="confluenceTd">(Optional) Used for the checkout to specifiy if the article is shipping, fee or regular. Only needed when it's not a regular article type. Null or empty string works to specify no type.</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(128,128,128);">$quantity</span></pre></td><td colspan="1" class="confluenceTd">The quantity</td></tr></tbody></table></div><h4 id="EComPHP:createPayment[simplifiedShopFlow]-Function:addOrderLine()">Function: addOrderLine()</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;rb-&gt;addOrderLine(
+   &quot;HORSE&quot;,
+   &quot;Stallponny&quot;,
+   4800,
+   25,
+   &quot;st&quot;,
+   null,
+   1
+);</pre>
+</div></div><h4 id="EComPHP:createPayment[simplifiedShopFlow]-Function:getPayload()">Function: getPayload()</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+	&quot;specLines&quot;: [{
+		&quot;artNo&quot;: &quot;HORSE&quot;,
+		&quot;description&quot;: &quot;Stallponny&quot;,
+		&quot;quantity&quot;: 1,
+		&quot;unitMeasure&quot;: &quot;st&quot;,
+		&quot;unitAmountWithoutVat&quot;: 4800,
+		&quot;vatPct&quot;: 25,
+		&quot;type&quot;: &quot;&quot;,
+		&quot;id&quot;: 1,
+		&quot;totalVatAmount&quot;: 1200,
+		&quot;totalAmount&quot;: 6000
+	}]
+}</pre>
+</div></div><h3 id="EComPHP:createPayment[simplifiedShopFlow]-Specialrequirements">Special requirements</h3><p>If you have special requirements of your order, like you need to wait for the fraudcontrol before proceeding, if you need to annul an order immediately if it's frozen, etc, such values goes with extra parameters in the payload. In this step you may want to add things that is normally not included via EComPHP, like how the payment are handled together with callbacks. In short; you can add your own payload before proceeding with the payment. Like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$myPayLoad = array(
+   &#39;paymentData&#39; =&gt; array(
+      &#39;waitForFraudControl&#39; =&gt; false,
+      &#39;annulIfFrozen&#39; =&gt; false,
+      &#39;finalizeIfBooked&#39; =&gt; false
+   ),
+   &#39;metaData&#39; =&gt; array(
+      &#39;key&#39; =&gt; &#39;CustomerId&#39;,
+      &#39;value&#39; =&gt; &#39;1337&#39;
+   ),
+   &#39;customer&#39; =&gt; array(
+      &#39;yourCustomerId&#39; =&gt; &#39;1337&#39;
+   )
+);</pre>
+</div></div><p>Note: In EComPHP, the function addMetaData() is used after a created payment, not to confuse with.</p><h3 id="EComPHP:createPayment[simplifiedShopFlow]-Preparingaorderreference">Preparing a order reference</h3><p>Somtimes we refer this as the &quot;preferred payment id&quot;. You can set it by yourself, with setPreferredId(), but sometimes - when you don't need this to be specific - you can use the internal function <strong>getPreferredId()</strong> instead. This function are delivered with a default setup, creating order references (string) with a maximum length of 25 characters and an optional prefix. If you have a very high load of shopping in your store, and are worried about the unique ids created with this function, it is also possible to double the uniqueness of the order reference. Giving the command</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;rb-&gt;getPreferredId(25, &quot;MYSTORE&quot;, true);</pre>
+</div></div><p><span>WIll for example create a reference that looks like: <span style="color: rgb(128,0,0);"><strong>2017</strong></span><span style="color: rgb(51,153,102);"><strong>05</strong></span><span style="color: rgb(0,0,255);"><strong>12</strong></span><span style="color: rgb(255,0,255);"><strong>110317</strong></span>-<span style="color: rgb(0,204,255);"><strong>MYSTORE</strong></span><strong>466 </strong></span>(the default format of references is set to <span style="color: rgb(128,0,0);"><strong>YYYY</strong></span><span style="color: rgb(51,153,102);"><strong>MM</strong></span><span style="color: rgb(0,0,255);"><strong>DD</strong></span><span style="color: rgb(255,0,255);"><strong>HHMMSS-<span style="color: rgb(0,204,255);">PREFIX</span></strong><span style="color: rgb(0,204,255);"><strong><span style="color: rgb(0,0,0);">RAND</span></strong><span style="color: rgb(0,0,0);">). </span></span></span>To get the current set payment reference, you can use <strong>getPreferredPaymentId()</strong>. Running this function with a boolean value of true, the preferred id will be set if it does not already exists.</p><h3 id="EComPHP:createPayment[simplifiedShopFlow]-Creatingtheorder">Creating the order</h3><p>After following the steps above, you are now ready to initiate the booking. This is done by simply use the function createPayment(). In this example, we have a payment method called &quot;INVOICE&quot;, so we will use that as the first parameter in.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$Payment = $this-&gt;rb-&gt;createPayment(&quot;INVOICE&quot;);</pre>
+</div></div><p>Having your own payload as described above? Sure. Just add it:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$Payment = $this-&gt;rb-&gt;createPayment(&quot;INVOICE&quot;, $myPayload);</pre>
+</div></div><h4 id="EComPHP:createPayment[simplifiedShopFlow]-Thebookedpaymentresponse">The booked payment response</h4><p>This is an example of the response that is returned after a successful createPayment(). At this moment, the below bookPaymentStatus can give you a bunch of different answers. Take a look at <a href="bookPaymentStatus_1476387.html">bookPaymentStatus</a> for more information about this.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+	&quot;paymentId&quot;: &quot;20170512112617-0195646528&quot;,
+	&quot;bookPaymentStatus&quot;: &quot;BOOKED&quot;,
+	&quot;signingUrl&quot;: null,
+	&quot;approvedAmount&quot;: &quot;6000&quot;,
+	&quot;customer&quot;: {
+		&quot;governmentId&quot;: &quot;8305147715&quot;,
+		&quot;address&quot;: {
+			&quot;fullName&quot;: &quot;Vincent Williamsson Alexandersson&quot;,
+			&quot;firstName&quot;: &quot;Vincent&quot;,
+			&quot;lastName&quot;: &quot;Alexandersson&quot;,
+			&quot;addressRow1&quot;: &quot;Glassgatan 15&quot;,
+			&quot;postalArea&quot;: &quot;G\u00f6teborg&quot;,
+			&quot;postalCode&quot;: &quot;41655&quot;,
+			&quot;country&quot;: &quot;SE&quot;
+		},
+		&quot;phone&quot;: &quot;+46707070707&quot;,
+		&quot;email&quot;: &quot;test@test.com&quot;,
+		&quot;type&quot;: &quot;NATURAL&quot;
+	}
+}</pre>
+</div></div><h2 id="EComPHP:createPayment[simplifiedShopFlow]-Handlesignedpayments">Handle signed payments</h2><p>In some cases, the bookPaymentStatus will be &quot;SIGNING&quot;. This means you need to handle signings also (which has been mentioned above in the &quot;rules of signing&quot;-section. How? You put up a landing page for where you can handle successful signings. When your customers sign payments, they are redirected back to your store, where you can handle the final part of a signed payment. Normally, Resurs Bank are attaching the parameter you set up in the signing step, so do not forget to add a payment reference when you do this. The payment reference is supposed to be picked back up at the landing page.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$Payment = $this-&gt;rb-&gt;bookSignedPayment(&quot;prior_set_payment_id&quot;);</pre>
+</div></div><p>When this is done, you'll get a new <a href="bookPaymentResult_1476388.html">response</a> from the signing sent back to Resurs Bank. If everything is successful, you may start handling the final parts of the order (like changing order statuses or whatever you need to do to set the order as confirmed). When this is also done, you may redirect your customer to your final &quot;successful landingpage&quot;.</p><p><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

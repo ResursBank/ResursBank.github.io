@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : EComPHP: setAdditionalDebitOfPayment() - Update payments with additional data</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="87393094.html">Version 1.x (EComPHP)</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : EComPHP: setAdditionalDebitOfPayment() - Update payments with additional data
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2017-10-25
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In the simplified flow, <a href="Additional-Debit-of-Payment_1474956.html">Additional Debit of Payment</a> will give you the opportunity to add more orderlines to your orders after it has been created. As of EComPHP 1.0.3 and 1.1.3, this is also supported by the library. To make it easy to add more orderlines to an order, we are using our own internal function addOrderLine(). You might want to take a look at <a href="7438490.html">EComPHP: createPayment [simplifiedShopFlow]</a> to find out more about this. In 1.0.3/1.1.3, after creation of an order, EComPHP will clean up the internal storage of the payment spec, as soon as it has been successfully booked. This means that you can reuse that function to put in additional lines:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$paymentId = &quot;myPaymentId&quot;;
+$this-&gt;rb-&gt;addOrderLine(
+   &quot;extraLine&quot;,
+   &quot;One another forgotten orderline&quot;,
+   150,
+   25,
+   &quot;st&quot;,
+   null,
+   1
+);
+// With setLoggedInUser() you can also set up a user identification for the createdBy-parameter sent with the additional debig. If not set, EComPHP will use the merchant credentials.
+$this-&gt;rb-&gt;setLoggedInUser(&quot;Shrek&quot;);
+$this-&gt;rb-&gt;setAdditionalDebitOfPayment($paymentId);</pre>
+</div></div><p>Ad you can see, setAdditionalDebitOfPayment does not require any other parameter in than the payment that needs the extra orderline. Making sure we're using the setLoggedInUser(), EComPHP will also set the createdBy parameter to the administrator that added the extra order line. If this is not being set, EComPHP will instead use the configured merchant credentials (which might be a little bit of lacking sometimes).</p><div class="confluence-information-macro confluence-information-macro-information"><p class="title conf-macro-render">Payload notice</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of v1.1.22 (+1.0.22), the payload will reset after each successful call to this method. This opens for multiple calls in the same &quot;EComPHP session&quot;.</p></div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

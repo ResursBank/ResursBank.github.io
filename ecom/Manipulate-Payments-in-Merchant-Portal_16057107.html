@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Manipulate Payments in Merchant Portal</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Payment-administration-GUI_327748.html">Payment administration GUI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Merchant-Portal_16057099.html">Merchant Portal</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Manipulate Payments in Merchant Portal
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Daniel</span>, last modified by <span class='editor'> Patric Johnsson</span> on 2019-09-13
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body">The Merchant Portal web-GUI is offered in Swedish, Norwegian, Finnish and Danish.</div></div><p><br/></p><p>When the customer completes a purchase, a payment is created. In order for the money to be transferred to the merchants bank account, the order has to be finalized. This page describes how a payment can be changed after its creation and how you finalize the order. You can do all this from your platform, Resurs Banks web-based interface, or by using the <a href="https://test.resurs.com/docs/display/ecom/After+Shop+Service+API" rel="nofollow">Aftershop Flow</a></p><p>With Merchant Portal, you can adjust the Resurs payment after an order has been made. The adjustments that are supported are described below.</p><p><br/></p><p><strong>Annull</strong><br/>Annulment can only be done on non-finalized order rows. If a payment is partially finalized, you can still annul the row-/s that is/are authorized.</p><p>You can annul in the following ways;<br/>1. Select “Annul”, (choose which order lines to annul) and press “Submit” <br/>2. Change from “Quantity” to “Amount” and manually type in your wanted description, VAT-percentage and amount. Press “Submit”.</p><p><br/></p><p><strong>Debit</strong><br/>Debiting can be made on a non-annulled payment and can be done either on selected order rows or the whole order.</p><p>You can debit in the following ways;<br/>1. Select “Debit”, (choose which order lines to finalize) and press “Submit” <br/>2. Change from “Quantity” to “Amount” and manually type in your wanted description, VAT-percentage and amount. Press “Submit”.</p><p><br/></p><p><strong>Credit</strong><br/>Crediting can be made on the part of the order rows which already has been debited, either partially or the whole order.</p><p>You can credit in the following ways:<br/>1. Select “Credit”, (choose which order lines to credit) and press “Submit” <br/>2. Change from “Quantity” to “Amount” and manually type in your wanted description, VAT-percentage and amount. Press “Submit”.</p><p><br/></p><p><strong>Additional authorization of payment</strong><br/>Normally, you cannot add an order row since this would mean that the total amount is above the initial approved amount. However, in some cases the merchant and Resurs Account manager have agreed upon setting an extralimit that is based on a percentage (or a fixed amount) of the initial amount. If so, you can add an order row to the existing payment instead of the customer making a completely new order for that one/few product-/s.</p><p>In addition, a new authorization can always be made if a product has been annulled by accident.</p><p>This feature <strong>only</strong> applies to Resurs Bank payment methods.</p><p>You can add an order row in the following ways:<br/>1. Select “Add an article”, put in the required fields and press “Add” <br/>2. The order row is now authorized. If you want to debit the added order row, follow the instructions above.</p><p><br/></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><em>Try it out here: <a style="text-decoration: underline;text-align: left;" href="https://merchantportal.integration.resurs.com/login" class="external-link" rel="nofollow">https://merchantportal.integration.resurs.com/login</a></em></div></div></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><strong>Search bar</strong></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" height="155" src="attachments/16057107/16057131.png" data-image-src="attachments/16057107/16057131.png" data-unresolved-comment-count="0" data-linked-resource-id="16057131" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2019-5-20_9-55-47.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16057107" data-linked-resource-container-version="6" alt=""></span></p><p><br/></p><p><br/></p><p><br/></p><p><strong>Order example</strong></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" height="158" src="attachments/16057107/16057132.png" data-image-src="attachments/16057107/16057132.png" data-unresolved-comment-count="0" data-linked-resource-id="16057132" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2019-5-20_9-56-8.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16057107" data-linked-resource-container-version="6" alt=""></span></p><p><br/></p><p><br/></p><p><br/></p><p><strong>Additional authorization of payment</strong></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" draggable="false" height="250" src="attachments/16057107/16057134.png" data-image-src="attachments/16057107/16057134.png" data-unresolved-comment-count="0" data-linked-resource-id="16057134" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2019-5-20_9-56-56.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16057107" data-linked-resource-container-version="6" alt=""></span></p></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/16057107/16057105.jpg">Skärmavbild.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/16057107/16057106.jpg">Screenshot from 2013-04-24 10 15 28.png.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/16057107/16057131.png">image2019-5-20_9-55-47.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/16057107/16057132.png">image2019-5-20_9-56-8.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/16057107/16057134.png">image2019-5-20_9-56-56.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

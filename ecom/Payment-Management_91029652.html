@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Payment Management</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Merchant-API-2.0_91029586.html">Merchant API 2.0</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Payment Management
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Sara Wintherfrid Josefsson</span>, last modified by <span class='editor'> Patric Johnsson</span> on 2023-07-04
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="sectionColumnWrapper"><div class="sectionMacro"><div class="sectionMacroRow"><div class="columnMacro" style="width:50%;min-width:50%;max-width:50%;"><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 667.875px;"><colgroup><col style="width: 292.109px;"/><col style="width: 374.766px;"/></colgroup><thead><tr><th style="text-align: left;" class="confluenceTh"><p>Callback Status</p></th><th style="text-align: left;" class="confluenceTh"><p>Possible Actions</p></th></tr></thead><tbody><tr><td style="text-align: left;" class="confluenceTd">AUTHORIZED</td><td style="text-align: left;" class="confluenceTd"><p>CAPTURE </p><p>CANCEL </p></td></tr><tr><td style="text-align: left;" class="confluenceTd">CAPTURED</td><td style="text-align: left;" class="confluenceTd">REFUND</td></tr><tr><td style="text-align: left;" class="confluenceTd">FROZEN</td><td style="text-align: left;" class="confluenceTd">await for callback-status <span style="color: rgb(33,37,41);">AUTHORIZED or REJECTED</span></td></tr></tbody></table></div></div><div class="columnMacro" style="width:50%;min-width:50%;max-width:50%;"><div class="panel" style="border-width: 1px;"><div class="panelHeader" style="border-bottom-width: 1px;"><b>What can I find here?</b></div><div class="panelContent">
+<p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780947414 {padding: 0px;}
+div.rbtoc1706780947414 ul {margin-left: 0px;}
+div.rbtoc1706780947414 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780947414'>
+<ul class='toc-indentation'>
+<li><a href='#PaymentManagement-Capturepayment'>Capture payment</a></li>
+<li><a href='#PaymentManagement-Refundpayment'>Refund payment</a></li>
+<li><a href='#PaymentManagement-Cancelpayment'>Cancel payment</a></li>
+<li><a href='#PaymentManagement-Postman-collectionoftherequestsabove'>Postman-collection of the requests above</a></li>
+</ul>
+</div></p>
+</div></div></div></div></div></div><h1 id="PaymentManagement-Capturepayment"><strong style="color: rgb(33,37,41);font-size: 20.0px;letter-spacing: -0.008em;">Capture payment</strong></h1><p class="body-param__example microlight"><span style="color: rgb(33,37,41);">This call is used to capture a payment after the payment is created.<br/>If no order lines are supplied, then all not yet captured order lines will be captured. </span></p><p class="body-param__example microlight"><span style="color: rgb(33,37,41);">URL to capture payment:<span> <span style="color: rgb(255,255,255);"><a href="https://merchant-api.integration.resurs.com/v2/payments/" class="external-link" rel="nofollow">https://merchant-api.integration.resurs.com/v2/payments/</a></span><span class="resolvedVariable" style="text-decoration: none;">{payment_id}/capture</span><span style="color: rgb(255,255,255);">/capture</span><span style="color: rgb(255,255,255);">ture</span></span></span></p><p>Link to the call in swagger documentation:<span> </span><strong><a href="https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v2#/Payment%20management/capturePayment" class="external-link" rel="nofollow">Capture Payment</a></strong></p><p><strong>Curl to capture the payment</strong></p><div class="table-wrap"><table class="wrapped confluenceTable" style="text-align: left;"><tbody style="text-align: left;"><tr style="text-align: left;"><td style="text-align: left;" class="confluenceTd"><p style="text-align: left;"><code class="xml plain" style="text-align: left;">curl --location --request POST '<span style="color: rgb(33,37,41);"><span><span style="color: rgb(255,255,255);"><a href="https://merchant-api.integration.resurs.com/v2/payments/" class="external-link" rel="nofollow">https://merchant-api.integration.resurs.com/v2/payments/</a></span><span class="resolvedVariable" style="text-decoration: none;">{payment_id}/capture</span><span style="color: rgb(255,255,255);">/c</span></span></span>'</code><br/><code class="xml plain" style="text-align: left;">--header 'Content-Type: application/json' \</code><br/><code class="xml plain" style="text-align: left;">--header 'Authorization: Bearer &lt;</code><code class="xml keyword" style="text-align: left;">TOKEN</code><code class="xml plain" style="text-align: left;">&gt;' \</code><br/><code class="xml plain" style="text-align: left;">--data-raw '<br/></code></p><pre class="body-param__example microlight"><code class="language-json"><span>{
+</span><span>  </span><span class="hljs-attr">&quot;creator&quot;</span><span>: &quot;fictive@resurs.com&quot;</span><span>,
+</span><span>  </span><span class="hljs-attr">&quot;orderLines&quot;</span><span>: [
+</span>    {
+<span>        <span class="hljs-attr">&quot;description&quot;</span>: &quot;Book&quot;,
+        <span class="hljs-attr">&quot;quantity&quot;</span>: 1,
+        <span class="hljs-attr">&quot;quantityUnit&quot;</span>: &quot;pcs&quot;,
+        <span class="hljs-attr">&quot;vatRate&quot;</span>: 25,
+        <span class="hljs-attr">&quot;totalAmountIncludingVat&quot;</span>: 500.0 </span>    }
+  ]
+}</code></pre></td></tr></tbody></table></div><h1 class="body-param__example microlight" id="PaymentManagement-Refundpayment"><span style="color: rgb(33,37,41);"><strong>Refund payment</strong></span></h1><p class="body-param__example microlight"><span style="color: rgb(33,37,41);">This call is used to refund a payment that is captured. <br/>If no order lines are supplied, then all captured not yet refunded order lines will be refunded. </span></p><p class="body-param__example microlight"><span style="color: rgb(33,37,41);">URL to refund payment:<span> <span style="color: rgb(255,255,255);"><a href="https://merchant-api.integration.resurs.com/v2/payments/" class="external-link" rel="nofollow">https://merchant-api.integration.resurs.com/v2/payments/</a></span><span class="resolvedVariable" style="text-decoration: none;">{payment_id}</span><a href="https://web-integration-mock-merchant-api-portal.integration.resurs.com/v2/payments/{payment_id}/capture" class="external-link" rel="nofollow">/</a>refund</span></span></p><p class="body-param__example microlight"><span style="color: rgb(33,37,41);">Link to the call in swagger documentation:<span> <strong><a href="https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v2#/Payment%20management/refundPayment" class="external-link" rel="nofollow">Refund Payment</a></strong></span></span></p><p><strong>Curl to refund the payment</strong></p><div class="table-wrap"><table class="wrapped confluenceTable" style="text-align: left;"><tbody style="text-align: left;"><tr style="text-align: left;"><td style="text-align: left;" class="confluenceTd"><p style="text-align: left;"><code class="xml plain" style="text-align: left;">curl --location --request POST '<span style="color: rgb(33,37,41);"><span><span style="color: rgb(255,255,255);"><a href="https://merchant-api.integration.resurs.com/v2/payments/" class="external-link" rel="nofollow">https://merchant-api.integration.resurs.com/v2/payments/</a></span><span class="resolvedVariable" style="text-decoration: none;">{payment_id}</span><a href="https://web-integration-mock-merchant-api-portal.integration.resurs.com/v2/payments/{payment_id}/capture" class="external-link" rel="nofollow">/</a>refund</span></span>'</code><br/><code class="xml plain" style="text-align: left;">--header 'Content-Type: application/json' \</code><br/><code class="xml plain" style="text-align: left;">--header 'Authorization: Bearer &lt;</code><code class="xml keyword" style="text-align: left;">TOKEN</code><code class="xml plain" style="text-align: left;">&gt;' \</code><br/><code class="xml plain" style="text-align: left;">--data-raw '<br/></code></p><pre class="body-param__example microlight"><code class="language-json"><span>{
+</span><span>  </span><span class="hljs-attr">&quot;creator&quot;</span><span>: &quot;fictive@resurs.com&quot;</span><span>,
+</span><span>  </span><span class="hljs-attr">&quot;orderLines&quot;</span><span>: [
+</span>    {
+<span>        <span class="hljs-attr">&quot;description&quot;</span>: &quot;Book&quot;,
+        <span class="hljs-attr">&quot;quantity&quot;</span>: 1,
+        <span class="hljs-attr">&quot;quantityUnit&quot;</span>: &quot;pcs&quot;,
+        <span class="hljs-attr">&quot;vatRate&quot;</span>: 25,
+        <span class="hljs-attr">&quot;totalAmountIncludingVat&quot;</span>: 500.0 </span>    }
+  ]
+}</code></pre></td></tr></tbody></table></div><h1 class="body-param__example microlight" id="PaymentManagement-Cancelpayment"><span style="color: rgb(33,37,41);"><strong>Cancel payment</strong></span></h1><p class="body-param__example microlight"><span style="color: rgb(33,37,41);">This call is used to cancel a payment that is created but not yet captured. <br/>If no order lines are supplied, everything that can be canceled will be canceled.<br/></span></p><p class="body-param__example microlight"><span style="color: rgb(33,37,41);">URL to cancel payment:<span> <span style="color: rgb(255,255,255);"><a href="https://merchant-api.integration.resurs.com/v2/payments/" class="external-link" rel="nofollow">https://merchant-api.integration.resurs.com/v2/payments/</a></span><span class="resolvedVariable" style="text-decoration: none;">{payment_id}</span><a href="https://web-integration-mock-merchant-api-portal.integration.resurs.com/v2/payments/{payment_id}/capture" class="external-link" rel="nofollow">/ca</a>ncel</span></span></p><p>Link to the call in swagger documentation:<span> </span><strong><a href="https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v2#/Payment%20management/cancel" class="external-link" rel="nofollow">Cancel Payment</a></strong></p><p><strong>Curl to cancel the payment</strong></p><div class="table-wrap"><table class="wrapped confluenceTable" style="text-align: left;"><tbody style="text-align: left;"><tr style="text-align: left;"><td style="text-align: left;" class="confluenceTd"><p style="text-align: left;"><code class="xml plain" style="text-align: left;">curl --location --request POST '<span style="color: rgb(33,37,41);"><span><span style="color: rgb(255,255,255);"><a href="https://merchant-api.integration.resurs.com/v2/payments/" class="external-link" rel="nofollow">https://merchant-api.integration.resurs.com/v2/payments/</a></span><span class="resolvedVariable" style="text-decoration: none;">{payment_id}</span><a href="https://web-integration-mock-merchant-api-portal.integration.resurs.com/v2/payments/{payment_id}/capture" class="external-link" rel="nofollow">/ca</a>ncel</span></span>'</code><br/><code class="xml plain" style="text-align: left;">--header 'Content-Type: application/json' \</code><br/><code class="xml plain" style="text-align: left;">--header 'Authorization: Bearer &lt;</code><code class="xml keyword" style="text-align: left;">TOKEN</code><code class="xml plain" style="text-align: left;">&gt;' \</code><br/><code class="xml plain" style="text-align: left;">--data-raw '<br/></code></p><pre class="body-param__example microlight"><code class="language-json"><span>{
+</span><span>  </span><span class="hljs-attr">&quot;creator&quot;</span><span>: &quot;fictive@resurs.com&quot;</span><span>,
+</span><span>  </span><span class="hljs-attr">&quot;orderLines&quot;</span><span>: [
+</span>    {
+<span>        <span class="hljs-attr">&quot;description&quot;</span>: &quot;Book&quot;,
+        <span class="hljs-attr">&quot;quantity&quot;</span>: 1,
+        <span class="hljs-attr">&quot;quantityUnit&quot;</span>: &quot;pcs&quot;,
+        <span class="hljs-attr">&quot;vatRate&quot;</span>: 25,
+        <span class="hljs-attr">&quot;totalAmountIncludingVat&quot;</span>: 500.0 </span>    }
+  ]
+}</code></pre></td></tr></tbody></table></div><p><br/></p><h1 class="body-param__example microlight" id="PaymentManagement-Postman-collectionoftherequestsabove"><span style="color: rgb(33,37,41);"><strong>Postman-collection of the requests above</strong></span></h1><p><span style="color: rgb(33,37,41);"><strong><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="/docs/download/attachments/91029652/Merchant%20API2%20Payment%20management.json?version=1&amp;modificationDate=1688462138000&amp;api=v2" data-nice-type="null" data-file-src="/docs/download/attachments/91029652/Merchant%20API2%20Payment%20management.json?version=1&amp;modificationDate=1688462138000&amp;api=v2" data-linked-resource-id="109805620" data-linked-resource-type="attachment" data-linked-resource-container-id="91029652" data-linked-resource-default-alias="Merchant API2 Payment management.json" data-mime-type="application/octet-stream" data-has-thumbnail="false" data-linked-resource-version="1" data-can-edit="true" aria-label="Merchant API2 Payment management.json" draggable="false"><img src="download/resources/com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-resources/images/placeholder-medium-file.png" height="250" alt="" draggable="false"/><span class="title">Merchant API2 Payment management.json</span></a><span class="companion-edit-button-placeholder edit-button-overlay" data-linked-resource-container-id="91029652" data-linked-resource-id="109805620" data-template-name="companionEditIcon" data-source-location="embedded-attachment"></span></span></strong></span></p><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029652/109805620.json">Merchant API2 Payment management.json</a> (application/octet-stream)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

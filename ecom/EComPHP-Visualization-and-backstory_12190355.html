@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : EComPHP Visualization and backstory</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="87393094.html">Version 1.x (EComPHP)</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="EComPHP-features-and-tips_12190045.html">EComPHP features and tips</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : EComPHP Visualization and backstory
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2021-08-21
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><br/><br/></p><div class="panel" style="border-width: 1px;"><div class="panelHeader" style="border-bottom-width: 1px;"><b>Table of contents</b></div><div class="panelContent">
+<p><div class='toc-macro'>[ <a href='#EComPHPVisualizationandbackstory-Communicationdrivers'>Communication drivers</a> ] [ <a href='#EComPHPVisualizationandbackstory-Overlappingflows'>Overlapping flows</a> ] [ <a href='#EComPHPVisualizationandbackstory-getPaymentMagics'>getPayment Magics</a> ] [ <a href='#EComPHPVisualizationandbackstory-AftershopFlowMagics'>Aftershop Flow Magics</a> ] [ <a href='#EComPHPVisualizationandbackstory-Wasandis-Backstory'>Was and is - Backstory</a> ]</div></p>
+</div></div><h2 id="EComPHPVisualizationandbackstory-Communicationdrivers">Communication drivers</h2><p>This image shows what EComPHP actually is in a visual style. Observe that SoapClient has an entry - &quot;internal curl&quot; - in this scenario. The reason is that SoapClient is internally using curl to communicate with Resurs Bank Webservices (SOAP).</p><p>
+
+<map id="gliffy-map-39191456-378" name="gliffy-map-39191456-378"></map>
+<table width="100%" class="gliffy-macro-table">
+    <tr>
+        <td >
+            <table class="gliffy-macro-inner-table">
+                <caption align="bottom">
+                                    </caption>
+                <tr>
+                    <td>
+                        <img style="border: none; width: 1487px;" usemap="#gliffy-map-39191456-378" src="attachments/12190355/39191457.png" alt="" class="gliffy-macro-image"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+</p><h2 id="EComPHPVisualizationandbackstory-Overlappingflows">Overlapping flows</h2><p>The below view is a shortened (as EComPHP do much more than this) overview on how the payment flows may overlap each other, when EComPHP is fully integrated into a system.</p><p>As you can see here, there are mixed communication environments:</p><ul><li>The simplified flow and hosted flow allows checkouts, but parts in hosted flow can use the simplified system. For example: If the checkout that uses the hosted flow, needs to show payment methods dynamically, the simplified flow is used to fetch and list the payment methods</li><li>If your store allows separate &quot;pay from NNN SEK&quot; for each item in the store, the simplified flow is used, even if you have Resurs Checkout or Hosted flow configured</li><li>If your store runs the checkout with rest-only in the shop, but you want to handle all payments from the shops internal order administration, SOAP and aftershop services are still required (unless you find it more comfortable to use Resurs Payment admin)</li><li>Callbacks has to be configured somewhere, if you want to handle events that occurs in payment admin. It could be done either via <a href="https://test.resurs.com/docs/display/ecom/Resurs+Checkout#ResursCheckout-Callbacks" rel="nofollow">rest (checkout)</a> or <a href="https://test.resurs.com/docs/display/ecom/Callbacks" rel="nofollow">SOAP (fully supported as the rest does not support UPDATE)</a></li></ul><p>
+
+<map id="gliffy-map-16056361-7484" name="gliffy-map-16056361-7484"></map>
+<table width="100%" class="gliffy-macro-table">
+    <tr>
+        <td >
+            <table class="gliffy-macro-inner-table">
+                <caption align="bottom">
+                                    </caption>
+                <tr>
+                    <td>
+                        <img style="border: none; width: 1351px;" usemap="#gliffy-map-16056361-7484" src="attachments/12190355/16056362.png" alt="" class="gliffy-macro-image"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+</p><p><br/></p><h2 id="EComPHPVisualizationandbackstory-getPaymentMagics">getPayment Magics</h2><p>When using our API's you'll soon realize that the checkout/hosted-flow API contains most of the functions you actually need. There are however exceptions when you have to fall over to SOAP-calls - getPaymentMethods, and such methods only exists in the webservices API (SOAP).</p><p>getPayment however, exists in both environments, but the two API's works slightly different.</p><ul><li>getPayment in the SOAP-call and the REST-API gives you the same information when orders exists at Resurs Bank</li><li>getPayment, on failures, in the SOAP-call will most likely throw a soapfault with extended information about the error (in a details block). When the payment does not exist, the error code is 8.</li><li>getPayment, on failures, in the REST-API does not throw a soapfault (of course), but an HTTP HEAD error 404 (not found) which contains an extended body with the &quot;more correct error response&quot; (which also might confuse exception handling)</li></ul><p>The fact that the rest functions actually returns a http-404 might confuse a bit, as this error type is actually used for more than just unexistent payments. If you build tests based on getPayment with rest, you need to consider that there's also an extended json-based body, when you're using the call and gets errors.</p><p>
+
+<map id="gliffy-map-24641635-928" name="gliffy-map-24641635-928"></map>
+<table width="100%" class="gliffy-macro-table">
+    <tr>
+        <td >
+            <table class="gliffy-macro-inner-table">
+                <caption align="bottom">
+                                    </caption>
+                <tr>
+                    <td>
+                        <img style="border: none; width: 922px;" usemap="#gliffy-map-24641635-928" src="attachments/12190355/24641636.png" alt="" class="gliffy-macro-image"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+</p><h2 id="EComPHPVisualizationandbackstory-AftershopFlowMagics">Aftershop Flow Magics</h2><p>Coming soon.</p><h1 id="EComPHPVisualizationandbackstory-Wasandis-Backstory">Was and is - Backstory</h1><p>EComPHP was, historical, built around a number of stub files generated by wsdl2phpgenerator as this was a recommended way of simplify communication with Resurs Bank Ecommerce. Using the stubs directly sometimes was a bit tricky to get along with, so the ending result was EComPHP, that handled all basic communication for the developer. There was several methods built in, that EComPHP handled, and the goal was to simplify the flows that much, so only one method call was needed to initiate a payment - and even if the shop flows changed, all initiations should be identical since some fields in the payload sometimes mismatched between the flows. EComPHP fixed this too, and still are.</p><p>Time passed and Resurs Bank different shop flows was extended with the hosted flow and Resurs Checkout which, in difference to the simplified flow, uses rest calls.</p><div class="confluence-information-macro confluence-information-macro-tip"><p class="title conf-macro-render">Community support</p><span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If something does not work properly in EComPHP, feel free to <a href="https://bitbucket.org/resursbankplugins/resurs-ecomphp" class="external-link" rel="nofollow">join the community via bitbucket</a>, or contact us at <a href="mailto:onboarding@resurs.se" class="external-link" rel="nofollow">onboarding@resurs.se</a>. EComPHP is updated continuously to improve functionality.</p></div></div>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/12190351">EComPHP-Visualized</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/12190352.png">EComPHP-Visualized.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/12190353">EComPHP-Visualized</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/12190354.png">EComPHP-Visualized.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/12190356">EComPHP-Visualized</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/12190357.png">EComPHP-Visualized.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/12190358">EComPHP-Visualized</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/12190359.png">EComPHP-Visualized.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/12190378">EComPHP-Visualized</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/12190379.png">EComPHP-Visualized.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056346">EComPHP-Visualized</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056347.png">EComPHP-Visualized.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056351">EComPHP-Visualized</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056352.png">EComPHP-Visualized.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056356">EComPHP Driver Flow</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056357.png">EComPHP Driver Flow.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/12190349">EComPHP-Visualized</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/12190350.png">EComPHP-Visualized.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056353">EComPHP Driver Flow</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056354.png">EComPHP Driver Flow.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/24641639">EComPHP Driver Flow</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/24641640.png">EComPHP Driver Flow.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056363">ecom-flow-utilization</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056364.png">ecom-flow-utilization.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056365">ecom-flow-utilization</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056366.png">ecom-flow-utilization.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056367">ecom-flow-utilization</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056368.png">ecom-flow-utilization.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/24641647">ecom-flow-utilization</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/24641648.png">ecom-flow-utilization.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/24641635">EComPHP getPayment Magics</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/24641636.png">EComPHP getPayment Magics.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/24641642">EComPHP Driver Flow</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/24641643.png">EComPHP Driver Flow.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/24641644">EComPHP Driver Flow</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/24641645.png">EComPHP Driver Flow.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/39191447">EComPHP Driver Flow</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/39191448.png">EComPHP Driver Flow.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056361">ecom-flow-utilization</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056362.png">ecom-flow-utilization.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/39191450">EComPHP Driver Flow</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/39191451.png">EComPHP Driver Flow.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/39191452">EComPHP Driver Flow</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/39191453.png">EComPHP Driver Flow.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/39191454">EComPHP Driver Flow</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/39191455.png">EComPHP Driver Flow.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056348">EComPHP Driver Flow</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/16056349.png">EComPHP Driver Flow.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/39191456">EComPHP Communication Drivers</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/39191457.png">EComPHP Communication Drivers.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/39191459">EComPHP Communication Drivers</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190355/39191460.png">EComPHP Communication Drivers.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

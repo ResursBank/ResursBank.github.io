@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Customer data - Regular expressions</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Customer data - Regular expressions
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Joachim Andersson</span>, last modified by <span class='editor'> Benny</span> on 2021-09-17
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-information"><p class="title conf-macro-render">Note!</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If you are using Resurs Checkout, note that the customer input is country specific for the test-/production account that you are using. If you are unsure of which country your account is setup for, please contact us.</p></div></div><h3 id="CustomerdataRegularexpressions-GovernmentIdLegal">GovernmentId<br/>Legal</h3><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Country</th><th class="confluenceTh">Expression</th></tr><tr><td class="confluenceTd">Sweden</td><td class="confluenceTd"><p><code>^(16\d{2}|18\d{2}|19\d{2}|20\d{2}|\d{2})(\d{2})(\d{2})(\-|\+)?([\d]{4})$<br/></code></p></td></tr><tr><td class="confluenceTd">Norway</td><td class="confluenceTd"><code>^([89]([ |-]?[0-9]){8})$</code></td></tr><tr><td class="confluenceTd">Finland</td><td class="confluenceTd"><code>^((\d{7})(\-)?\d)$</code></td></tr><tr><td colspan="1" class="confluenceTd">Denmark</td><td colspan="1" class="confluenceTd"><br/></td></tr></tbody></table></div><h3 id="CustomerdataRegularexpressions-Natural">Natural</h3><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Country</th><th class="confluenceTh">Expression</th></tr><tr><td class="confluenceTd">Sweden</td><td class="confluenceTd"><code>
+<span>^(18\d{2}|19\d{2}|20\d{2}|\d{2})(0[1-9]|1[0-2])([0][1-9]|[1-2][0-9]|3[0-1])(\-|\+)?([\d]{4})$</span>
+        </code></td></tr><tr><td class="confluenceTd">Norway</td><td class="confluenceTd"><code>
+<span>^([0][1-9]|[1-2][0-9]|3[0-1])(0[1-9]|1[0-2])(\d{2})(\-)?([\d]{5})$</span>
+        </code></td></tr><tr><td class="confluenceTd">Finland</td><td class="confluenceTd"><p><code class="java plain">^([\d]{</code><code class="java value">6</code><code class="java plain">})[\+\-A]([\d]{</code><code class="java value">3</code><code class="java plain">})([0123456789ABCDEFHJKLMNPRSTUVWXY])$</code></p></td></tr><tr><td colspan="1" class="confluenceTd">Denmark</td><td colspan="1" class="confluenceTd"><p><code class="java plain">^((</code><code class="java value">3</code><code class="java plain">[</code><code class="java value">0</code><code class="java plain">-</code><code class="java value">1</code><code class="java plain">])|([</code><code class="java value">1</code><code class="java plain">-</code><code class="java value">2</code><code class="java plain">][</code><code class="java value">0</code><code class="java plain">-</code><code class="java value">9</code><code class="java plain">])|(</code><code class="java value">0</code><code class="java plain">[</code><code class="java value">1</code><code class="java plain">-</code><code class="java value">9</code><code class="java plain">]))((</code><code class="java value">1</code><code class="java plain">[</code><code class="java value">0</code><code class="java plain">-</code><code class="java value">2</code><code class="java plain">])|(</code><code class="java value">0</code><code class="java plain">[</code><code class="java value">1</code><code class="java plain">-</code><code class="java value">9</code><code class="java plain">]))(\d{</code><code class="java value">2</code><code class="java plain">})(\-)?([\d]{</code><code class="java value">4</code><code class="java plain">})$</code></p></td></tr></tbody></table></div><p><br/></p><hr/><h3 id="CustomerdataRegularexpressions-Phonenumber">Phone number</h3><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Country</th><th class="confluenceTh">Expression</th></tr><tr><td class="confluenceTd">Sweden</td><td class="confluenceTd"><p><s><code>^(0|\+46|0046)[ |-]?(200|20|70|73|76|74|[1-9][0-9]{0,2})([ |-]?[0-9]){5,8}$</code></s></p><p>^(\\+46|0046|0|)[ |-]?(200|20|70|73|76|74|46|4[0-5,7-9][0-9]?|[1-3,5-9][0-9]{0,2})([ |-]?[0-9]){5,8}$ - OBS. the double backslahes (\\) are needed when using the reg.exp in JavaScript since JavaScript removes one.</p></td></tr><tr><td class="confluenceTd">Norway</td><td class="confluenceTd"><p><code>^(\+47|0047|)?[ |-]?[2-9]([ |-]?[0-9]){7,7}$</code></p></td></tr><tr><td class="confluenceTd">Finland</td><td class="confluenceTd"><p><code>^((\+358|00358|0)[-| ]?(1[1-9]|[2-9]|[1][0][1-9]|201|2021|[2][0][2][4-9]|[2][0][3-8]|29|[3][0][1-9]|71|73|[7][5][0][0][3-9]|[7][5][3][0][3-9]|[7][5][3][2][3-9]|[7][5][7][5][3-9]|[7][5][9][8][3-9]|[5][0][0-9]{0,2}|[4][0-9]{1,3})([-| ]?[0-9]){3,10})?$</code></p></td></tr><tr><td colspan="1" class="confluenceTd">Denmark</td><td colspan="1" class="confluenceTd"><p><code class="java plain"><span style="color: rgb(51,51,51);">^(\+45|0045|)?[ |-]?[2-9]([ |-]?[0-9]){7,</span><span style="color: rgb(51,51,51);">7}$</span><br/></code></p></td></tr></tbody></table></div><p><br/></p><h3 id="CustomerdataRegularexpressions-E-mail">E-mail</h3><div class="table-wrap"><table class="wrapped confluenceTable"><tbody><tr><th class="confluenceTh">Country</th><th class="confluenceTh"><span>Expression</span></th><th colspan="1" class="confluenceTh">PHP preg_match example</th></tr><tr><td class="confluenceTd">All</td><td class="confluenceTd"><code>^[A-Za-z0-9!#%&amp;'*+/=?^_`~-]+(\.[A-Za-z0-9!#%&amp;'*+/=?^_`~-]+)*@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$<br/></code></td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><div class="code panel pdl" style="border-width: 1px;">
+ <div class="codeHeader panelHeader pdl hide-border-bottom">
+  <b class="code-title"></b><span class="collapse-source expand-control" style="display:none;"><span class="expand-control-icon icon">&nbsp;</span><span class="expand-control-text">Expand source</span></span><span class="collapse-spinner-wrapper"></span>
+ </div>
+ <div class="codeContent panelContent pdl hide-toolbar">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence; collapse: true" data-theme="Confluence">preg_match('@^[A-Za-z0-9!#%&amp;\'*+/=?^_`~-]+(\.[A-Za-z0-9!#%&amp;\'*+/=?^_`~-]+)*\@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$@', $emailAddress);</pre>
+ </div>
+</div></div></td></tr></tbody></table></div><p><br/></p><h3 id="CustomerdataRegularexpressions-Cardnumber">Card number</h3><div class="table-wrap"><table class="wrapped confluenceTable"><tbody><tr><th class="confluenceTh">Country</th><th class="confluenceTh">Expression</th></tr><tr><td class="confluenceTd">All</td><td class="confluenceTd"><code>^([1-9][0-9]{3}[ ]{0,1}[0-9]{4}[ ]{0,1}[0-9]{4}[ ]{0,1}[0-9]{4})$</code></td></tr></tbody></table></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

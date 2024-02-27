@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : MagentoPlugin - Important notices, features, information</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Plugins_1476269.html">Platform Plugins</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Magento-modules_1476277.html">Magento modules</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Magento-Plugin---OldFlow-version_5570890.html">Magento Plugin - OldFlow version</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="4653139.html">Release- and installation notes, error logging and development for Magento OldFlow</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : MagentoPlugin - Important notices, features, information
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified by <span class='editor'> Benny</span> on 2017-02-20
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="MagentoPluginImportantnotices,features,information-Taxcalculationmethods(anddiscounts)">Tax calculation methods (and discounts)</h1><p>Issues with tax calculation, especially when applying tax to products with giftcards/discount, has been reported to magentocommerce. <a href="http://merch.docs.magento.com/ce/user_guide/Magento_Community_Edition_User_Guide.html#tax/warning-messages.html" class="external-link" rel="nofollow">Magento themselves</a> strongly recommends that you - from administration - apply tax <strong>after discount</strong> and using tax on catalog prices to avoid calculation issues.</p><h1 id="MagentoPluginImportantnotices,features,information-Mypaymentmethodsareshowingup,evenwhentheallowedamountaretoohighortoolow">My payment methods are showing up, even when the allowed amount are too high or too low</h1><p>Problem: When you are trying to check out with an amount - higher or lower than the payment method normally accepts - and the payment still shows up in the checkout.</p><p>Cause: Starts in the table <em>resursbank_payment_methods</em> where all payment methods are stored. They sometimes need to be emptied to sync properly, especially in test environments where min/max amount are changed often.</p><p>Solution: Running apache? Add this row to your .htaccess-file:</p><p style="margin-left: 30.0px;"><strong>SetEnv RESURS_CLEAN_METHODS_CACHE &quot;true&quot;</strong></p><p style="margin-left: 30.0px;">Then update your payment methods again. By doing this, you will clean up the payment methods cache and add the new proper settings. This variable is limited to the current representative id, so if you have more than one store, the cleanup will only occur for the current representative. If you want to do a full clean-up with this method, in all (if you have this configured) stores, you should also add the variable <strong style="line-height: 1.42857;">RESURS_CLEAN_METHODS_CACHE_EXTEND</strong> to .htaccess</p><h1 id="MagentoPluginImportantnotices,features,information-paymentsigningstatusCreditcardsandpaymentmethodsthatrequirespaymentsigning"><span class="confluence-anchor-link" id="MagentoPluginImportantnotices,features,information-paymentsigningstatus"></span>Credit cards and payment methods that requires payment signing</h1><p>If your store needs payment signing in some of the payment steps, make sure you assign &quot;Signing status&quot; correct status. This is made by creating a custom order status in magento like this:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" draggable="false" src="attachments/1476277/4161551.jpg" data-image-src="attachments/1476277/4161551.jpg" data-unresolved-comment-count="0" data-linked-resource-id="4161551" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="newStatus.jpg" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="1476277" data-linked-resource-container-version="183" alt=""></span></p><p>When the status is created, you have to assign it to a state. In our example, we use &quot;Hold/Holded&quot; (&quot;Parkerad/Pausad&quot;) like this:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" draggable="false" src="attachments/1476277/4161552.jpg" data-image-src="attachments/1476277/4161552.jpg" data-unresolved-comment-count="0" data-linked-resource-id="4161552" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="newStatusAssign.jpg" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="1476277" data-linked-resource-container-version="183" alt=""></span></p><p>When the status has been created, assign it to the assignment rules in our payment method configuration:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" draggable="false" src="attachments/1476277/4161553.jpg" data-image-src="attachments/1476277/4161553.jpg" data-unresolved-comment-count="0" data-linked-resource-id="4161553" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="newStatusConfig.jpg" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="1476277" data-linked-resource-container-version="183" alt=""></span></p><p>The reason is to mark the order to indicate that it is in a &quot;Payment signing&quot;-state if something goes wrong during the payment signing.</p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Callbacks</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Callbacks
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Tobias</span>, last modified by <span class='editor'> Thomas Tornevall</span> on 2023-12-21
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><br/><br/></p><p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780963263 {padding: 0px;}
+div.rbtoc1706780963263 ul {margin-left: 0px;}
+div.rbtoc1706780963263 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780963263'>
+<ul class='toc-indentation'>
+<li><a href='#Callbacks-Statusandcallbackchart'>Status and callback chart</a></li>
+<li><a href='#Callbacks-AvailableCallbacks'>Available Callbacks</a></li>
+<li><a href='#Callbacks-What&#39;sacallback?'>What&#39;s a callback?</a></li>
+<li><a href='#Callbacks-Digestandchecksumdigest'>Digest and checksum</a></li>
+<li><a href='#Callbacks-RegisterCallback'>Register Callback</a></li>
+<li><a href='#Callbacks-Authentication'>Authentication</a></li>
+<li><a href='#Callbacks-Fallback-resendingfailedcallbacks'>Fallback - resending failed callbacks</a></li>
+</ul>
+</div></p><div class="confluence-information-macro confluence-information-macro-information"><p class="title conf-macro-render">User-Agent notice</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p class="c-mrkdwn__pre">Generally callbacks are also sent with two different user-agents, to secure that callbacks are really delivered. Some hosting providers usually blocks traffic from clients that are identified as a Java client.</p></div></div><p><br/></p><p>Polling the e-commerce service for status changes would prevent scaling of the service, and it would prevent efficient handling. The answer is callbacks, simple HTTP calls initiated by Resurs Bank.</p><p><br/><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" draggable="false" src="attachments/1475264/128286751.png" data-image-src="attachments/1475264/128286751.png" data-unresolved-comment-count="0" data-linked-resource-id="128286751" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-2023-12-21_15-9-13.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1475264" data-linked-resource-container-version="3" alt=""></span></p><p><br/></p></p><p><br/></p><h3 id="Callbacks-Statusandcallbackchart">Status and callback chart</h3><div id="expander-893850418" class="expand-container"><div id="expander-control-893850418" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">Click here to expand flow chart for callback events with waitForFraudControl set to FALSE in bookPayment...</span></div><div id="expander-content-893850418" class="expand-content">  
+
+<map id="gliffy-map-6127657-425" name="gliffy-map-6127657-425"></map>
+<table width="100%" class="gliffy-macro-table">
+    <tr>
+        <td >
+            <table class="gliffy-macro-inner-table">
+                <caption align="bottom">
+                                    </caption>
+                <tr>
+                    <td>
+                        <img style="border: none; width: 1315px;" usemap="#gliffy-map-6127657-425" src="attachments/327724/6127658.png" alt="" class="gliffy-macro-image"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+</div></div><div id="expander-1347386974" class="expand-container"><div id="expander-control-1347386974" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">Click here to expand flow chart for callback events with waitForFraudControl set to TRUE in bookPayment...</span></div><div id="expander-content-1347386974" class="expand-content"><p>
+
+<map id="gliffy-map-6127660-1109" name="gliffy-map-6127660-1109"></map>
+<table width="100%" class="gliffy-macro-table">
+    <tr>
+        <td >
+            <table class="gliffy-macro-inner-table">
+                <caption align="bottom">
+                                    </caption>
+                <tr>
+                    <td>
+                        <img style="border: none; width: 1205px;" usemap="#gliffy-map-6127660-1109" src="attachments/327724/6127661.png" alt="" class="gliffy-macro-image"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+</p><p><br/></p></div></div><div id="expander-139749556" class="expand-container"><div id="expander-control-139749556" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">Click here to expand flow chart for callback events with Resurs Checkout...</span></div><div id="expander-content-139749556" class="expand-content"><p>
+
+<map id="gliffy-map-6521121-5935" name="gliffy-map-6521121-5935"></map>
+<table width="100%" class="gliffy-macro-table">
+    <tr>
+        <td >
+            <table class="gliffy-macro-inner-table">
+                <caption align="bottom">
+                                    </caption>
+                <tr>
+                    <td>
+                        <img style="border: none; width: 966px;" usemap="#gliffy-map-6521121-5935" src="attachments/327724/6521122.png" alt="" class="gliffy-macro-image"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+</p></div></div><div id="expander-1580106803" class="expand-container"><div id="expander-control-1580106803" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">Click here to expand flow chart for callback events with Resurs self service checkout...</span></div><div id="expander-content-1580106803" class="expand-content"><p>
+
+<map id="gliffy-map-39190601-7023" name="gliffy-map-39190601-7023"></map>
+<table width="100%" class="gliffy-macro-table">
+    <tr>
+        <td >
+            <table class="gliffy-macro-inner-table">
+                <caption align="bottom">
+                                    </caption>
+                <tr>
+                    <td>
+                        <img style="border: none; width: 1246px;" usemap="#gliffy-map-39190601-7023" src="attachments/327724/39190602.png" alt="" class="gliffy-macro-image"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+</p></div></div><h3 id="Callbacks-AvailableCallbacks">Available Callbacks</h3><ul><li><a href="https://test.resurs.com/docs/display/ecom/BOOKED" rel="nofollow">BOOKED </a>- The order is created in Resurs Bank system. (Note! Order can be in a FROZEN state.)</li><li><a href="AUTOMATIC_FRAUD_CONTROL_1147049.html">AUTOMATIC_FRAUD_CONTROL</a> - A payment has automatically been fraud screened</li><li><a href="UNFREEZE_1147040.html">UNFREEZE</a> - A payment is &quot;thawed&quot; from a FROZEN status.</li><li><a href="ANNULMENT_1147045.html">ANNULMENT&nbsp;</a>- A payment is fully annulled.</li><li><p><a href="FINALIZATION_1476415.html">FINALIZATION</a> - Resurs Bank finalizes a payment. (Note! Only applicable if finilizedIfBooked parameter is set to true.)</p></li><li><a href="UPDATE_5013983.html">UPDATE</a> - A payment is updated. </li><li><a href="TEST_1147047.html">TEST</a> - Is used to test the callback machinery</li></ul><h3 id="Callbacks-What&#39;sacallback?">What's a callback?</h3><p>A callback is a simple HTTP call <strong>from</strong> Resurs Bank <strong>to</strong> the representative (not necessary the shop). This is in opposite direction of the &quot;normal&quot; communication, where the representative makes calls to Resurs Bank. The main reason to resort to a callback solution is that it's not possible in practicality for the representative to poll for different status changes in the e-commerce service in most cases. (It is reminiscent of <a href="https://test.resurs.com/docs/display/DD/Terminology">Paypals IPN</a>)</p><p>The representative <em>registers</em> a callback URL with the web service. When the event occurs, Resurs Bank will make a simple HTTP/GET call with query parameters (defined by the callback type) to that URL. If a status below 300 is returned to Resurs Bank that event will be considered delivered, otherwise several more tries will be carried out. </p><p><br/></p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><ul><li>When receiving an event, please return an OK status (HTTP 2xx). Otherwise the e-commerce service will continue to try to inform until the timeout is reached.</li><li>We do not, for the time being, follow redirects correctly (302, 303)</li></ul></div></div><p><br/></p><p>A callback type is defined by an identity that is a common string. This allows us to easily create new callbacks without breaking the interface. The callback can have any number of parameters. It is the information to be communicated to the representative when a callback event occurs. The Respresentative register a URI that Resurs Bank will call, with placeholders for each parameter. </p><p>Here's an example of a callback URI</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">https://ws.host.com/Resursbank.aspx?orderId={paymentId}&amp;status=UNFREEZE&amp;partnerId=Resursbank&amp;digest={digest} </pre>
+</div></div><p>Apparently, this event-type has two parameters: <em>paymentId</em> and <em>digest</em>. Read more about digest and checksums below.</p><p>When the call is done, we take the URI, and populate the placeholders with the actual values, and makes the call. All callbacks are HTTP/GET's with the exception of BOOKED and UPDATE that are HTTP/POST's. If we get a status that is less than 300 back, we consider the event conveyed. Otherwise, it lands in a queue with a fall-off mechanism: The gap between callback attempts increases until a month has passed, after which the callback is lost.</p><h3 id="Callbacks-Digestandchecksumdigest">Digest and checksum <span class="confluence-anchor-link" id="Callbacks-digest"></span></h3><p>A representative can also request a checksum attached as a parameter in the call. This parameter is called <code>digest</code> (always, regardless of event type) and the agent specifies the parameters to be included in the checksum. He also indicates which algorithm is used (SHA-1 or MD5), and possibly a <code>salt</code>.</p><p>If we use the above URI such as:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">SALT: iCanHasCheezeburger
+ALGORITM: MD5
+CALLBACK URI: https://ws.host.com/Resursbank.aspx?orderId={paymentId}&amp;status=UNFREEZE&amp;partnerId=Resursbank&amp;digest={digest} 
+PARAMETERS WHICH SHOULD BE USED IN CHECKSUM CALCULATION: paymentId
+paymentId: lePayment
+ 
+This whould give the following string: lePaymentiCanHasCheezeburger
+MD5 for this string is ED3381936CCAA2659CF3089F4AA83007
+ 
+This would result in a call to
+ 
+https://ws.host.com/Resursbank.aspx?orderId=lePayment&amp;status=UNFREEZE&amp;partnerId=Resursbank&amp;digest=ED3381936CCAA2659CF3089F4AA83007  </pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The checksum is in <strong>UPPERCASE</strong>!</p></div></div><p><br/></p><h3 id="Callbacks-RegisterCallback">Register Callback</h3><p>You can use either <a href="Register-Event-Callback_1475892.html">SOAP </a>or <a href="Resurs-Checkout-Web_5014022.html">REST </a>to register callbacks.</p><h3 id="Callbacks-Authentication">Authentication</h3><p>When the representative registers a callback, it´s optional to provide a username and password. These will be used by Resurs Bank to perform a Basic Authentication at the merchant's site when doing a callback. <br/><span style="letter-spacing: 0.0px;" lang="en">Alternatively </span>is your site is open for calls.</p><p>Other authentication methods are not supported. Please note that the usage of a salt will be more secure if the channel isn't encrypted (SSL/TLS) (since basic authentication is plain text). <span style="color: rgb(0,0,0);">For extra safety you can send in an unique SALT with every call.</span></p><h3 id="Callbacks-Fallback-resendingfailedcallbacks">Fallback - resending failed callbacks</h3><p style="margin-left: 0.0cm;"><span>When we try to send a callback and it fails, either if we can't contact the callback service or the correct status aren’t returned, we will try to resend it 19 times, after the first failed one.</span></p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup> <col/> <col/> </colgroup><tbody><tr><th style="text-align: center;" class="confluenceTh">Attempt</th><th style="text-align: center;" class="confluenceTh">Delay between attempts</th></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">1</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">0</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">2</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">30 sec</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">3</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">45 sec</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">4</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">1 min</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">5</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">1,5 min</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">6</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">2,5 min</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">7</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">4 min</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">8</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">5,5 min</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">9</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">8,5 min</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">10</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">13 min</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">11</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">20 min</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">12</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">30 min</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">13</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">45 min</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">14</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">1 h</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">15</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">1,5 h</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">16</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">2,5 h</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">17</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">4 h</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">18</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">5 h</td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">19</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green"><p>8 h</p></td></tr><tr><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">20</td><td class="highlight-green confluenceTd" style="text-align: center;" data-highlight-colour="green">12 h(total 36 h)</td></tr></tbody></table></div><p style="margin-left: 0.0cm;"><span> <br/></span></p><p><br/></p><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/5571473">CallbackEvent_waitForFraudControl_false</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/5571474.png">CallbackEvent_waitForFraudControl_false.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/5571475.html">CallbackEvent_waitForFraudControl_false.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127644">CallbackEvent_waitForFraudControl_true</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127645.png">CallbackEvent_waitForFraudControl_true.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127646.html">CallbackEvent_waitForFraudControl_true.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/5571487.jpeg">under-construction-2.jpeg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/5571481">CallbackEvent_waitForFraudControl_true</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/5571482.png">CallbackEvent_waitForFraudControl_true.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/5571483.html">CallbackEvent_waitForFraudControl_true.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127706">CallbackEventWaitFalse_v2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127707.png">CallbackEventWaitFalse_v2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127708.html">CallbackEventWaitFalse_v2.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127703">CallbackEventWaitTrue_v2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127704.png">CallbackEventWaitTrue_v2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127705.html">CallbackEventWaitTrue_v2.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127702.png">CallbackEventWaitFalse_v2[1].png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127718">CallbackEventWaitTrue_v2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127719.png">CallbackEventWaitTrue_v2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127720.html">CallbackEventWaitTrue_v2.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127709">CallbackEventWaitFalse_v2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127710.png">CallbackEventWaitFalse_v2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127711.html">CallbackEventWaitFalse_v2.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127712">CallbackEventWaitFalse_v2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127713.png">CallbackEventWaitFalse_v2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127714.html">CallbackEventWaitFalse_v2.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127715">CallbackEventWaitFalse_v2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127716.png">CallbackEventWaitFalse_v2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127717.html">CallbackEventWaitFalse_v2.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521111">CallbackEventWaitFalse_v2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521112.png">CallbackEventWaitFalse_v2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521113.html">CallbackEventWaitFalse_v2.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521114">CallbackEventWaitTrue_v2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521115.png">CallbackEventWaitTrue_v2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521116.html">CallbackEventWaitTrue_v2.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521117">CallbackEventWaitFalse_v2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521118.png">CallbackEventWaitFalse_v2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521119.html">CallbackEventWaitFalse_v2.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127660">CallbackEventWaitTrue_v2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127661.png">CallbackEventWaitTrue_v2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127662.html">CallbackEventWaitTrue_v2.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127657">CallbackEventWaitFalse_v2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127658.png">CallbackEventWaitFalse_v2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6127659.html">CallbackEventWaitFalse_v2.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521125">CallbackEventResursCheckout_v1</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521126.png">CallbackEventResursCheckout_v1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521127.html">CallbackEventResursCheckout_v1.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521123.html">CallbackEventResursCheckout_v1.html</a> (text/html)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/16056442">CallbackEventResursCheckout_v1</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/16056443.png">CallbackEventResursCheckout_v1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/16056445">CallbackEventResursCheckout_v1</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/16056446.png">CallbackEventResursCheckout_v1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/16056447">CallbackEventResursCheckout_v1</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/16056448.png">CallbackEventResursCheckout_v1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/32833544">CallbackEventResursCheckout_v1</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/32833545.png">CallbackEventResursCheckout_v1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/32833546">CallbackEventResursCheckout_v1</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/32833547.png">CallbackEventResursCheckout_v1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/32833550">CallbackEventResursCheckout_v1</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/32833551.png">CallbackEventResursCheckout_v1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/32833553">CallbackEventResursCheckout_v1</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/32833554.png">CallbackEventResursCheckout_v1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521121">CallbackEventResursCheckout_v1</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/6521122.png">CallbackEventResursCheckout_v1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/39190604">CallbackEventResursSelfServiceCheckout_v1</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/39190605.png">CallbackEventResursSelfServiceCheckout_v1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/39190606">CallbackEventResursSelfServiceCheckout_v1</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/39190607.png">CallbackEventResursSelfServiceCheckout_v1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/39190608">CallbackEventResursSelfServiceCheckout_v1</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/39190609.png">CallbackEventResursSelfServiceCheckout_v1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/39190611">CallbackEventResursSelfServiceCheckout_v1</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/39190612.png">CallbackEventResursSelfServiceCheckout_v1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/39190601">CallbackEventResursSelfServiceCheckout_v1</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327724/39190602.png">CallbackEventResursSelfServiceCheckout_v1.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

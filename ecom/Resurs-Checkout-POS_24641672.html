@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Resurs Checkout POS</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Resurs Checkout POS
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Daniel</span>, last modified by <span class='editor'> Patric Johnsson</span> on 2022-12-06
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>------</p><div class="sectionColumnWrapper"><div class="sectionMacro"><div class="sectionMacroRow"><div class="columnMacro" style="width:50%;min-width:50%;max-width:50%;"><h1 id="ResursCheckoutPOS-Overview">Overview</h1><p>Resurs Checkout POS is an iFrame browser-based payment gateway that can be used <span style="letter-spacing: 0.0px;">in a Point of Sale-system (POS). Payments</span> <span style="letter-spacing: 0.0px;"> are finalized automatically since the customer is to be expected to recieve the product directly. If you however <span style="color: rgb(62,62,62);">submit an offer</span> &quot;Betala Senare&quot; (will be explained in depth below), the payment will only be authorized and will need to be finalized. </span> <span style="letter-spacing: 0.0px;">Note that all purchases in the POS-environment require e-signing. </span> <span style="letter-spacing: 0.0px;">The Resurs Checkout POS part is marked with a blue frame in the screenshot below.</span></p><h2 id="ResursCheckoutPOS-TryResursCheckoutPOSforyourself"><span>Try Resurs Checkout POS for yourself</span></h2><p><a href="https://demoshop.resurs.com/" class="external-link" rel="nofollow">Demo-shop</a></p><p><br/></p><p><em>Screenshot from the iFrame</em></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" height="400" src="attachments/24641672/24641663.png" data-image-src="attachments/24641672/24641663.png" data-unresolved-comment-count="0" data-linked-resource-id="24641663" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2019-5-6_15-22-51.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="24641672" data-linked-resource-container-version="76" alt=""></span></p></div><div class="columnMacro" style="width:50%;min-width:50%;max-width:50%;"><div class="panel" style="border-width: 1px;"><div class="panelHeader" style="border-bottom-width: 1px;"><b>What can I find here?</b></div><div class="panelContent">
+<p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780946209 {padding: 0px;}
+div.rbtoc1706780946209 ul {margin-left: 0px;}
+div.rbtoc1706780946209 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780946209'>
+<ul class='toc-indentation'>
+<li><a href='#ResursCheckoutPOS-Overview'>Overview</a>
+<ul class='toc-indentation'>
+<li><a href='#ResursCheckoutPOS-TryResursCheckoutPOSforyourself'>Try Resurs Checkout POS for yourself</a></li>
+<li><a href='#ResursCheckoutPOS-Paymentmethodsofferedwithinthecheckout'>Payment methods offered within the checkout</a></li>
+</ul>
+</li>
+<li><a href='#ResursCheckoutPOS-ResursCheckoutImplementation'>Resurs Checkout Implementation</a>
+<ul class='toc-indentation'>
+<li><a href='#ResursCheckoutPOS-Authentication'>Authentication</a></li>
+<li><a href='#ResursCheckoutPOS-Endpoints(URLs)'>End points (URLs)</a></li>
+<li><a href='#ResursCheckoutPOS-Errors'>Errors</a></li>
+<li><a href='#ResursCheckoutPOS-TestData'>Test Data</a></li>
+<li><a href='#ResursCheckoutPOS-APIOverview'>API Overview</a>
+<ul class='toc-indentation'>
+<li><a href='#ResursCheckoutPOS-1.InitiateResursCheckOutPOS'>1. Initiate Resurs CheckOut POS</a></li>
+<li><a href='#ResursCheckoutPOS-3.Getinformationregardingthepayment'>3. Get information regarding the payment</a></li>
+<li><a href='#ResursCheckoutPOS-4.RetrievetheOrder'>4. Retrieve the Order</a></li>
+<li><a href='#ResursCheckoutPOS-5.ManageOrder'>5. Manage Order</a></li>
+</ul>
+</li>
+<li><a href='#ResursCheckoutPOS-API-HTTPRequest'>API - HTTP Request</a>
+<ul class='toc-indentation'>
+<li><a href='#ResursCheckoutPOS-initPosPOST/payments/{orderReference}'>POST /payments/{orderReference}</a>
+<ul class='toc-indentation'>
+
+<ul class='toc-indentation'>
+<li><a href='#ResursCheckoutPOS-orderLines'>orderLines</a></li>
+<li><a href='#ResursCheckoutPOS-metaData'>metaData</a></li>
+<li><a href='#ResursCheckoutPOS-successUrl'>successUrl</a></li>
+<li><a href='#ResursCheckoutPOS-backUrl'>backUrl</a></li>
+<li><a href='#ResursCheckoutPOS-paymentCreatedCallbackUrl'>paymentCreatedCallbackUrl</a></li>
+<li><a href='#ResursCheckoutPOS-shopUrl'>shopUrl</a></li>
+</ul>
+<li><a href='#ResursCheckoutPOS-Response'>Response</a></li>
+<li><a href='#ResursCheckoutPOS-Errors.1'>Errors</a></li>
+</ul>
+</li>
+<li><a href='#ResursCheckoutPOS-getPaymentPOSGET/payments/{orderReference}'>GET /payments/{orderReference}</a></li>
+</ul>
+</li>
+<li><a href='#ResursCheckoutPOS-DelayedCheckout-&quot;Betalasen&quot;'>Delayed Checkout - &quot;Betala sen&quot;</a>
+<ul class='toc-indentation'>
+<li><a href='#ResursCheckoutPOS-SequencediagramResursBankCheckoutPOS-DelayedCheckout'>Sequence diagram Resurs Bank Checkout POS - Delayed Checkout</a></li>
+</ul>
+</li>
+<li><a href='#ResursCheckoutPOS-Restrictions'>Restrictions</a></li>
+</ul>
+</li>
+</ul>
+</div></p>
+</div></div></div></div></div></div></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h2 id="ResursCheckoutPOS-Paymentmethodsofferedwithinthecheckout"><span style="letter-spacing: 0.0px;"><span style="color: rgb(52,52,52);">Payment methods offered within the checkout</span></span></h2><p><span style="letter-spacing: 0.0px;">Resurs Checkout provides an easy to use checkout for payment methods such as invoice and partial payments, . The cashier enters the customer's personal identity number (government ID) to retrieve address details which will populate the address fields automatically. Other mandatory information that needs to be entered are cellphone number and email address.</span></p><p>Supported payment methods are;</p><ul><li>Invoice</li><li>Partial payment</li><li>Credit cards</li><li>Branded credit cards and application for a new credit card</li><li>VISA/Mastercard (Delayed Checkout only)</li><li>Swish (Delayed Checkout only - Sweden)</li></ul><p><span style="letter-spacing: 0.0px;">Note that all payment methods are to be discussed through the merchant and Resurs account manager. Onboarding can never setup a payment method without an order from the account manager.</span></p><p><br/></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h1 id="ResursCheckoutPOS-ResursCheckoutImplementation"><span style="letter-spacing: -0.01em;font-size: 24.0px;">Resurs Checkout Implementation</span></h1><p>To use Resurs Checkout you first have to set up an agreement with Resurs bank. This is when you get your merchant ID and your credentials.</p><p style="text-align: left;">This tutorial <span style="letter-spacing: 0.0px;">how to render the Resurs Checkout HTML snippet on your checkout page. </span></p><p><br/></p><div class="confluence-information-macro confluence-information-macro-note"><p class="title conf-macro-render">TLS</p><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Resurs Bank does not support Transport Layer Security (TLS) prior to Version 1.2</p></div></div><p><br/></p><h2 id="ResursCheckoutPOS-Authentication">Authentication</h2><p>Resurs Checkout API uses HTTP Basic Auth for authentication. To call the services you need to provide the credentials you received when setting up the agreement with Resurs Bank. <a href="https://test.resurs.com/docs/x/a4IW" rel="nofollow">Read more here</a>.</p><h2 id="ResursCheckoutPOS-Endpoints(URLs)">End points (URLs)</h2><ul><li><a href="https://poscheckout.resurs.com/pos" class="external-link" rel="nofollow">https://poscheckout.resurs.com/pos</a> <span>  - Production Environment</span></li></ul><ul><li><a href="https://postest.resurs.com/pos" class="external-link" rel="nofollow">https://postest.resurs.com/pos</a> - Test Environment</li></ul><h2 id="ResursCheckoutPOS-Errors">Errors</h2><p>Resurs APIs use HTTP 4xx 5xx status codes together with error messages to handle errors.</p><h2 id="ResursCheckoutPOS-TestData">Test Data</h2><p>For testing your implementation, follow the below link to test civic numbers with different scenarios:</p><p><a href="https://test.resurs.com/docs/x/aQAg" rel="nofollow">Sweden</a></p><h2 id="ResursCheckoutPOS-APIOverview"><span>API Overview</span></h2><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup> <col/> <col/> <col/> </colgroup><tbody><tr><th class="confluenceTh">URI</th><th class="confluenceTh">Method</th><th class="confluenceTh">Action</th></tr><tr><td class="confluenceTd">/payments/<span>{orderReference}</span></td><td class="confluenceTd"><strong>POST</strong></td><td class="confluenceTd"><p>Creates a payment session including:</p><ul><li>Shopping cart content (mandatory)</li><li>Customer information (Optional)</li></ul><p>Output:</p><ul><li>iFrame/script HTML</li><li>Payment session id</li></ul></td></tr><tr><td colspan="1" class="confluenceTd"><p>/payments/{orderReference}</p></td><td colspan="1" class="confluenceTd"><strong>GET</strong></td><td colspan="1" class="confluenceTd"><p>Retrieves a payment. Used to fetch existing</p><p>payments (not sessions).</p></td></tr></tbody></table></div><div class="confluence-information-macro confluence-information-macro-information"><p class="title conf-macro-render">Want to run DELETE on payment session?</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><pre class="c-mrkdwn__pre">Running a POST with the same orderReference a second time will overwrite the first payment session, making the previous one obsolete.</pre></div></div><h3 id="ResursCheckoutPOS-1.InitiateResursCheckOutPOS">1. Initiate Resurs CheckOut POS</h3><p>When you want to display Resurs Checkout you need to initiate the payment. For details about this see <a href="#ResursCheckoutPOS-initPos">/pos/payments/ - <span style="color: rgb(0,0,0);"> <strong>POST</strong> </span> </a> <span style="color: rgb(0,0,0);"> </span>.<br/><span style="color: rgb(52,52,52);">When you initiate the payment you may choose to <a href="Pre-filling-customer-data-in-Resurs-Checkout-POS_24641680.html">pre-filling data about the customer</a>.<span> We recommended this feature to optimize the Checkout for Returning Customers.</span></span></p><p><span style="color: rgb(52,52,52);"><span>The JSON response from the <em>POST payments</em> call contains a unique <em>paymentSessionId</em> generated by Resurs Bank The JSON response payload also contains the HTML snippet that you need to include on your page to render the checkout.</span></span></p><h3 id="ResursCheckoutPOS-3.Getinformationregardingthepayment"><span style="letter-spacing: -0.008em;">3. Get information regarding the payment</span></h3><p>To receive information regarding the payment whether the customer has completed the purchase or not, y<span>ou can GET-poll with paymentSessionId as the ID which is received in the initializePayment-response. <a href="#ResursCheckoutPOS-getPullPOS">Read more...</a><br/></span></p><h3 id="ResursCheckoutPOS-4.RetrievetheOrder"><span>4. Retrieve the Order</span></h3><p>Use <em>orderReference</em> <span style="letter-spacing: 0.0px;">to fetch the order from Resurs Bank. </span><a href="#ResursCheckoutPOS-getPaymentPOS">Read more...</a></p><h3 id="ResursCheckoutPOS-5.ManageOrder"><span>5. Manage Order</span></h3><p><span>Now you can choose to manage the order by implement APIs in <a href="After-Shop-Service-API_327799.html">After Shop Service API</a> or manually in Resurs GUI <a href="Manipulate-Payments-in-Merchant-Portal_16057107.html">Manipulate Payments in Merchant Portal</a>.<br/>Note that the payments are automatically finalized. You will only need to implement the creditPayment for the After Shop API (see Delayed Checkout - &quot;Betala sen&quot; for exception).</span></p><h2 id="ResursCheckoutPOS-API-HTTPRequest"><span style="letter-spacing: 0.0em;font-size: 20.0px;">API - HTTP Request</span></h2><h3 id="ResursCheckoutPOS-initPosPOST/payments/{orderReference}"><span style="line-height: 1.5;font-size: 16.0px;"> <span class="confluence-anchor-link" id="ResursCheckoutPOS-initPos"></span>POST /payments/{orderReference}</span></h3><p>This service sets up the payment session and should be called whenever you want to display the checkout. It will return the paymentId and html to be included in the online shop.</p><p><br/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Request parameters</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Eclipse" data-theme="Eclipse">{
+    &quot;orderLines&quot;: [
+        {              
+                &quot;artNo&quot; : &quot;1&quot;,     
+                &quot;description&quot; : &quot;Order line:1&quot;,     
+                &quot;quantity&quot; : 1.0,                
+                &quot;unitMeasure&quot; : &quot;pcs&quot;,     
+                &quot;unitAmountWithoutVat&quot; : 500.0,     
+                &quot;vatPct&quot; : 25.0,
+				&quot;totalAmountWithVat&quot;: &quot;625&quot;,
+				&quot;totalVatAmount&quot;: &quot;125&quot;
+         },               
+         {        
+                &quot;artNo&quot; : &quot;2&quot;,     
+                &quot;description&quot; : &quot;Order line:2&quot;,     
+                &quot;quantity&quot; : 1.0,          
+                &quot;unitMeasure&quot; : &quot;pcs&quot;,            
+                &quot;unitAmountWithoutVat&quot; : 10.0,     
+                &quot;vatPct&quot; : 25.0,
+				&quot;totalAmountWithVat&quot;: &quot;12.5&quot;,
+				&quot;totalVatAmount&quot;: &quot;2.5&quot;,
+				&quot;type&quot;: &quot;ORDER_LINE&quot;
+          },             
+          {        
+                &quot;artNo&quot; : &quot;80&quot;,     
+                &quot;description&quot; : &quot;Discount&quot;,     
+                &quot;quantity&quot; : 1.0,          
+                &quot;unitMeasure&quot; : &quot;pcs&quot;,            
+                &quot;unitAmountWithoutVat&quot; : -5.0,     
+                &quot;vatPct&quot; : 0.0,
+				&quot;totalAmountWithVat&quot;: &quot;-5.0&quot;,
+				&quot;totalVatAmount&quot;: &quot;0.0&quot;,
+				&quot;type&quot;: &quot;DISCOUNT&quot;
+          },             
+          {        
+                &quot;artNo&quot; : &quot;90&quot;,     
+                &quot;description&quot; : &quot;Shipping &amp; Handling&quot;,     
+                &quot;quantity&quot; : 1.0,                 
+                &quot;unitMeasure&quot; : &quot;pcs&quot;,     
+                &quot;unitAmountWithoutVat&quot; : 5.0,     
+                &quot;vatPct&quot; : 0.0,
+				&quot;totalAmountWithVat&quot;: &quot;5.0&quot;,
+				&quot;totalVatAmount&quot;: &quot;0.0&quot;,
+				&quot;type&quot;: &quot;SHIPPING_FEE&quot;
+           }  
+    ],
+  &quot;metaData&quot; : [
+	{
+		&quot;key&quot;:&quot;key1&quot;,
+		&quot;value&quot;:&quot;value1&quot;
+	},
+	{
+		&quot;key&quot;:&quot;key2&quot;,
+		&quot;value&quot;:&quot;value2&quot;
+	},
+	{
+		&quot;key&quot;:&quot;CustomerId&quot;,
+		&quot;value&quot;:&quot;String 20 chars&quot;
+	},
+	{
+		&quot;key&quot;:&quot;invoiceExtRef&quot;,
+		&quot;value&quot;:&quot;String 46 chars&quot;
+	}
+	   ],
+    &quot;customer&quot;: {
+        &quot;governmentId&quot;: &quot;&quot;,
+        &quot;mobile&quot;: &quot;0707123456&quot;,
+        &quot;email&quot;: &quot;test@resurs.se&quot;,
+        &quot;deliveryAddress&quot;: {
+            &quot;firstName&quot;: &quot;Daniel&quot;,
+            &quot;lastName&quot;: &quot;Johnsson&quot;,
+            &quot;addressRow1&quot;: &quot;Ekslingan 8&quot;,
+            &quot;addressRow2&quot;: null,
+            &quot;postalArea&quot;: &quot;Helsingborg&quot;,
+            &quot;postalCode&quot;: &quot;25467&quot;,
+            &quot;countryCode&quot;: &quot;SE&quot;
+        }
+    },
+    &quot;successUrl&quot;: &quot;https://shop.representative.com/order/12345/success/&quot;,
+    &quot;backUrl&quot;: &quot;https://shop.representative.com/order/12345/checkout/&quot;,
+    &quot;paymentCreatedCallbackUrl&quot;: &quot;https://shop.representative.com/backend/order/12345/&quot;,
+	&quot;storeId&quot;: &quot;9012&quot;,
+    &quot;shopUrl&quot;: &quot;https://mystore.test.com&quot;
+}</pre>
+</div></div><div class="table-wrap"><table class="wrapped confluenceTable" style="line-height: 1.4285;"><colgroup> <col style="width: 236.0px;"/> <col style="width: 88.0px;"/> <col style="width: 94.0px;"/> <col style="width: 1367.0px;"/> </colgroup><tbody><tr><th class="confluenceTh"><p>Attribute</p></th><th colspan="1" class="confluenceTh">Data type</th><th class="confluenceTh"><p align="center">Mandatory</p></th><th class="confluenceTh"><p>Description</p></th></tr><tr><td class="confluenceTd"><h5 id="ResursCheckoutPOS-orderLines">orderLines</h5></td><td colspan="1" class="confluenceTd"><br/></td><td class="confluenceTd"><p align="center">X</p></td><td class="confluenceTd"><p>Object that represents an orderline.</p></td></tr><tr><td class="confluenceTd"><p>orderLines/artNo</p></td><td colspan="1" class="confluenceTd">varchar(100)</td><td class="confluenceTd"><p align="center">X</p></td><td class="confluenceTd"><p>Article number.</p></td></tr><tr><td class="confluenceTd"><p>orderLines/description</p></td><td colspan="1" class="confluenceTd">text </td><td class="confluenceTd"><p align="center">X</p></td><td class="confluenceTd"><p>Article name. Will be shown on the invoice. (Nillable? yes)</p></td></tr><tr><td class="confluenceTd"><p>orderLines/quantity</p></td><td colspan="1" class="confluenceTd">decimal(15,5)</td><td class="confluenceTd"><p align="center">X</p></td><td class="confluenceTd"><p>Quantity for the specific article.</p></td></tr><tr><td class="confluenceTd"><p>orderLines/unitMeasure</p></td><td colspan="1" class="confluenceTd">varchar(15)</td><td class="confluenceTd"><p align="center">X</p></td><td class="confluenceTd"><p>Unit type for the orderline e.g. kg, pcs.</p></td></tr><tr><td class="confluenceTd"><p>orderLines/unitAmountWithoutVat</p></td><td colspan="1" class="confluenceTd">decimal(15,5) </td><td class="confluenceTd"><p align="center">X</p></td><td class="confluenceTd"><p>Net price per unit.</p></td></tr><tr><td class="confluenceTd"><p>orderLines/vatPct</p></td><td colspan="1" class="confluenceTd">decimal(15,5) </td><td class="confluenceTd"><p align="center">X</p></td><td class="confluenceTd"><p>Vat per unit (%).</p></td></tr><tr><td colspan="1" class="confluenceTd">orderLines/totalAmountWithVat</td><td colspan="1" class="confluenceTd">decimal(15,5)</td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd">The total amount of the orderline, including VAT (do not forget to multiply by quantity)</td></tr><tr><td colspan="1" class="confluenceTd">orderLines/totalVatAmount</td><td colspan="1" class="confluenceTd">decimal(15,5)</td><td style="text-align: center;" colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd">The total VAT-amount of the orderline</td></tr><tr><td colspan="1" class="confluenceTd"><h5 id="ResursCheckoutPOS-metaData">metaData</h5></td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd"> <span style="color: rgb(102,102,102);text-decoration: none;">Extra meta data for the payment.</span> <a href="Recognized-metadata_3440674.html">Recognized metadata</a></td></tr><tr><td colspan="1" class="confluenceTd">metaData/key</td><td colspan="1" class="confluenceTd">varchar(30)</td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd"> Meta data key</td></tr><tr><td colspan="1" class="confluenceTd">metaData/value</td><td colspan="1" class="confluenceTd">text</td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd"> Meta data value</td></tr><tr><td colspan="1" class="confluenceTd">customer</td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd"><p>Used for pre-filling customer data in the iFrame. <br/>I<span style="color: rgb(23,43,77);">t is possible to only send partial customer data.<br/>If customer has a cookie from Resurs, this will override all customer data that is sent in below</span></p></td></tr><tr><td class="confluenceTd">customer/governmentId</td><td colspan="1" class="confluenceTd"><span style="color: rgb(23,43,77);">varchar(15)</span></td><td class="confluenceTd"><br/></td><td class="confluenceTd">GovernmentID of the customer - will automatically fetch country registered address of the customer (not appliable for Norway)</td></tr><tr><td class="confluenceTd">customer/mobile</td><td colspan="1" class="confluenceTd"><span style="color: rgb(23,43,77);">varchar(45)</span></td><td class="confluenceTd"><br/></td><td class="confluenceTd">Mobilephone number.</td></tr><tr><td colspan="1" class="confluenceTd">customer/email</td><td colspan="1" class="confluenceTd"><span style="color: rgb(23,43,77);">varchar(300)</span></td><td style="text-align: center;" colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd">Email address.</td></tr><tr><td colspan="1" class="confluenceTd">customer/deliveryAddress</td><td colspan="1" class="confluenceTd"><br/></td><td style="text-align: center;" colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd">If no delivery address is sent <strong title="">and </strong>governmentId is sent, delivery address will automatically be the customers country registered address (not appliable for Norway).</td></tr><tr><td colspan="1" class="confluenceTd">customer/deliveryAddress/firstName</td><td colspan="1" class="confluenceTd"><span style="color: rgb(23,43,77);">varchar(100)</span></td><td style="text-align: center;" colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd"><span style="color: rgb(23,43,77);">Given name</span></td></tr><tr><td class="confluenceTd">customer/deliveryAddress/lastName</td><td class="confluenceTd"><span style="color: rgb(23,43,77);">varchar(100)</span></td><td class="confluenceTd"><br/></td><td class="confluenceTd"><span style="color: rgb(23,43,77);">Family name</span></td></tr><tr><td class="confluenceTd">customer/deliveryAddress/addressRow1</td><td class="confluenceTd"><span style="color: rgb(23,43,77);">varchar(250)</span></td><td class="confluenceTd"><br/></td><td class="confluenceTd"><span style="color: rgb(23,43,77);">Street address, first line</span></td></tr><tr><td class="confluenceTd">customer/deliveryAddress/addressRow2</td><td class="confluenceTd"><span style="color: rgb(23,43,77);">varchar(250)</span></td><td class="confluenceTd"><br/></td><td class="confluenceTd"><span style="color: rgb(23,43,77);">Street address, second line</span></td></tr><tr><td class="confluenceTd">customer/deliveryAddress/postalArea</td><td class="confluenceTd"><span style="color: rgb(23,43,77);">varchar(100)</span></td><td class="confluenceTd"><br/></td><td class="confluenceTd">City</td></tr><tr><td class="confluenceTd">customer/deliveryAddress/postalCode</td><td class="confluenceTd"><span style="color: rgb(23,43,77);">varchar(45)</span></td><td class="confluenceTd"><br/></td><td class="confluenceTd">Postal/post code</td></tr><tr><td class="confluenceTd">customer/deliveryAddress/countryCode</td><td class="confluenceTd"><span style="color: rgb(23,43,77);">varchar(2)</span></td><td class="confluenceTd"><br/></td><td class="confluenceTd">Country code of the delivery address - SE/NO/FI/DK. Has to be same country as the webservice-account is created for. If you're unsure, please contact us.</td></tr><tr><td colspan="1" class="confluenceTd"><h5 id="ResursCheckoutPOS-successUrl">successUrl</h5></td><td colspan="1" class="confluenceTd">text</td><td colspan="1" class="confluenceTd"><p align="center">X</p></td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><p>The address of the web page where the customer will be redirected when the payment has completed successfully.</p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><span>The URL must contain a unique identifier so that the URL can be linked to the correct order at the merchant.</span></p></div></div><p>Use a SALT when creating the identifier for greater security.</p></div></td></tr><tr><td class="confluenceTd"><h5 id="ResursCheckoutPOS-backUrl">backUrl</h5></td><td class="confluenceTd">text</td><td class="confluenceTd"><p align="center">X</p></td><td class="confluenceTd"><p>The address of the web page where the customer will be redirected if the payment is <u>not</u> completed successfully or if the customer navigates back him-/herself. A message will be shown and it will be the same regardless of error or back navigation, so a generic message is recommended.</p></td></tr><tr><td class="confluenceTd"><h5 id="ResursCheckoutPOS-paymentCreatedCallbackUrl">paymentCreatedCallbackUrl</h5></td><td class="confluenceTd">text</td><td class="confluenceTd">-</td><td class="confluenceTd"><div class="content-wrapper"><p>A callback URL that will be called when a payment is created. If a user closes the webrowser before he/she has been redirected to the success Url.</p><p>There is also a possibility to register a permanent callback BOOKED. It's more safe to use the BOOKED callback since you can use a SALT in that call. See <a href="#ResursCheckoutPOS-AvailableCallbacks">Available callback-types</a></p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If both <span>paymentCreatedCallbackUrl and <span>BOOKED</span> </span>are used, <span>paymentCreatedCallbackUrl</span> is prioritized.</p><p>If you need full support of callbacks we recommend you to not using this callback setup since it will stop other important callbacks to run.</p></div></div></div></td></tr><tr><td class="confluenceTd">storeId</td><td class="confluenceTd">varchar</td><td class="confluenceTd">-</td><td class="confluenceTd"><span>Used with permission from Resurs Bank, if you have a chain of stores. storeID defines which store in the chain it is.</span></td></tr><tr><td class="confluenceTd"><h5 id="ResursCheckoutPOS-shopUrl">shopUrl</h5></td><td class="confluenceTd">text</td><td class="confluenceTd">X</td><td class="confluenceTd"><div class="content-wrapper"><p>The shop's domain, this is used to send user events from the iframe to the shop. How to do the communication is described at <a href="5570788.html">OmniCheckoutJS-Communication</a>. It is recommended to always send this value into your payload.</p><div class="confluence-information-macro confluence-information-macro-warning"><p class="title conf-macro-render">Required at iframe event level</p><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>To be able to communicate correctly with the iframe events, this URL <strong>must</strong> be set - <span style="color: rgb(128,0,0);"> <em>without trailing slashes</em> </span>.</p><p>The format of URL must be HTTP_HOST only, not a full URI.</p><p>Example:</p><p>Your shop full Url is located at <span style="color: rgb(255,0,0);"> <em> <span class="nolink"> <a href="https://mystore.test.com/full/path/to/checkout/uri/" class="external-link" rel="nofollow">https://mystore.test.com/full/path/to/checkout/uri/</a> </span> </em> </span></p><p>The<em> shopUrl </em>will be<em>:</em></p><p style="margin-left: 30.0px;"><span style="color: rgb(51,153,102);"> <em> <strong>&quot;shopUrl&quot;:&quot;<a href="https://mystore.test.com" class="external-link" rel="nofollow">https://mystore.test.com</a>&quot;</strong> </em> </span></p></div></div></div></td></tr></tbody></table></div><h4 id="ResursCheckoutPOS-Response">Response</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Response</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Eclipse" data-theme="Eclipse">{
+  &quot;paymentSessionId&quot;: &quot;ebffab5a-3746-41c6-a020-f0cf11949897&quot;,
+  &quot;html&quot;: &quot;&lt;iframe id=\&quot;rco-checkout-app-frame\&quot; src=\&quot;https://postest.resurs.com/web/dist/omni-checkout.html?ebffab5a-3746-41c6-a020-f0cf11949897\&quot; frameBorder=\&quot;0\&quot; width=\&quot;100%\&quot; scrolling=\&quot;no\&quot; &gt;&lt;/iframe&gt;&lt;script type=\&quot;text/javascript\&quot; src=\&quot;https://postest.resurs.com/web/dist/js/oc-shop.js\&quot;&gt;&lt;/script&gt;&quot;
+}</pre>
+</div></div><div class="table-wrap"><table class="wrapped confluenceTable" style="line-height: 1.4285;"><colgroup> <col/> <col/> <col/> </colgroup><tbody><tr><th class="confluenceTh"><p>Attribute</p></th><th class="confluenceTh"><p>Description</p></th><th class="confluenceTh"><br/></th></tr><tr><td class="confluenceTd"><p>paymentSessionId</p></td><td class="confluenceTd"><p>The ID for the payment session.</p></td><td class="confluenceTd"><br/></td></tr><tr><td class="confluenceTd"><p>html</p></td><td class="confluenceTd"><p>The html snippet that must be displayed by the shop in order to display Resurs Checkout.</p></td><td class="confluenceTd"><br/></td></tr></tbody></table></div><h4 id="ResursCheckoutPOS-Errors.1">Errors</h4><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup> <col/> <col/> <col/> </colgroup><tbody><tr><th class="confluenceTh"><p>HTTP status code</p></th><th class="confluenceTh"><p>Type</p></th><th class="confluenceTh"><p>Example</p></th></tr><tr><td class="confluenceTd"><p>400</p></td><td class="confluenceTd"><p>Application/json</p></td><td class="confluenceTd"><p>{ &quot;message&quot;: &quot;OrderReference already exists&quot; }</p></td></tr><tr><td class="confluenceTd"><p>401</p></td><td class="confluenceTd"><p>Application/json</p></td><td class="confluenceTd"><p>{ &quot;message&quot;: &quot;Bad credentials&quot; }</p></td></tr><tr><td class="confluenceTd"><p>500</p></td><td class="confluenceTd"><p>Application/json</p></td><td class="confluenceTd"><p>{ &quot;message&quot;: &quot;Internal error&quot; }</p></td></tr></tbody></table></div><p><br/><br/></p><h3 id="ResursCheckoutPOS-getPaymentPOSGET/payments/{orderReference}"><span class="confluence-anchor-link" id="ResursCheckoutPOS-getPaymentPOS"></span>GET /payments/{orderReference} </h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Response</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Eclipse" data-theme="Eclipse">{
+	&quot;id&quot;: &quot;Omni-Session_2342345&quot;,
+	&quot;totalAmount&quot;: 500,
+	&quot;metaData&quot;: [
+		{
+			&quot;key&quot;: &quot;advertisement&quot;,
+			&quot;value&quot;: &quot;false&quot;
+		}
+	],
+	&quot;limit&quot;: 500,
+	&quot;paymentDiffs&quot;: [
+		{
+			&quot;type&quot;: &quot;AUTHORIZE&quot;,
+			&quot;transactionId&quot;: null,
+			&quot;created&quot;: -5648895212887551616,
+			&quot;createdBy&quot;: &quot;SHOP_FLOW&quot;,
+			&quot;paymentSpec&quot;: {
+				&quot;specLines&quot;: [
+					{
+						&quot;id&quot;: &quot;0&quot;,
+						&quot;artNo&quot;: &quot;ART123&quot;,
+						&quot;description&quot;: &quot;Product description&quot;,
+						&quot;quantity&quot;: 2,
+						&quot;unitMeasure&quot;: &quot;kg&quot;,
+						&quot;unitAmountWithoutVat&quot;: 200,
+						&quot;vatPct&quot;: 25,
+						&quot;totalVatAmount&quot;: 100,
+						&quot;totalAmount&quot;: 500
+					}
+				],
+				&quot;totalAmount&quot;: 500,
+				&quot;totalVatAmount&quot;: 100,
+				&quot;bonusPoints&quot;: 0
+			},
+			&quot;orderId&quot;: null,
+			&quot;invoiceId&quot;: null,
+			&quot;documentNames&quot;: []
+		}
+	],
+	&quot;customer&quot;: {
+		&quot;governmentId&quot;: &quot;8305147715&quot;,
+		&quot;address&quot;: {
+			&quot;fullName&quot;: &quot;William Williamsson Eliassson&quot;,
+			&quot;firstName&quot;: &quot;William&quot;,
+			&quot;lastName&quot;: &quot;Eliassson&quot;,
+			&quot;addressRow1&quot;: &quot;Ekslingan 13&quot;,
+			&quot;addressRow2&quot;: null,
+			&quot;postalArea&quot;: &quot;Helsingborg&quot;,
+			&quot;postalCode&quot;: &quot;25024&quot;,
+			&quot;country&quot;: &quot;SE&quot;
+		},
+		&quot;phone&quot;: &quot;+46701234567&quot;,
+		&quot;email&quot;: &quot;info@resurs.se&quot;,
+		&quot;type&quot;: &quot;NATURAL&quot;
+	},
+	&quot;deliveryAddress&quot;: {
+		&quot;fullName&quot;: &quot;Testsson Test&quot;,
+		&quot;firstName&quot;: &quot;Test&quot;,
+		&quot;lastName&quot;: &quot;Testsson&quot;,
+		&quot;addressRow1&quot;: &quot;Ekslingan 9&quot;,
+		&quot;addressRow2&quot;: null,
+		&quot;postalArea&quot;: &quot;Helsingborg&quot;,
+		&quot;postalCode&quot;: &quot;254 67&quot;,
+		&quot;country&quot;: &quot;SE&quot;
+	},
+	&quot;booked&quot;: -5648516529463551616,
+	&quot;finalized&quot;: null,
+	&quot;paymentMethodId&quot;: &quot;VISA SUPER CARD&quot;,
+	&quot;paymentMethodName&quot;: &quot;Mocked PSP&quot;,
+	&quot;fraud&quot;: false,
+	&quot;frozen&quot;: false,
+	&quot;status&quot;: [
+		&quot;DEBITABLE&quot;
+	],
+	&quot;storeId&quot;: &quot;107999&quot;,
+	&quot;paymentMethodType&quot;: &quot;PAYMENT_PROVIDER&quot;,
+	&quot;totalBonusPoints&quot;: 0
+}</pre>
+</div></div><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup> <col/> <col/> <col/> </colgroup><tbody><tr><th class="confluenceTh"><p>HTTP status code</p></th><th class="confluenceTh"><p>Type</p></th><th class="confluenceTh"><p>Example</p></th></tr><tr><td colspan="1" class="confluenceTd">200</td><td colspan="1" class="confluenceTd">Application/json</td><td colspan="1" class="confluenceTd">OK</td></tr><tr><td class="confluenceTd"><p>401</p></td><td class="confluenceTd"><p>Application/json</p></td><td class="confluenceTd"><p>{ &quot;message&quot;: &quot;Bad credentials&quot; }</p></td></tr><tr><td class="confluenceTd"><p>404</p></td><td class="confluenceTd"><p>Application/json</p></td><td class="confluenceTd"><p>{ &quot;message&quot;: &quot;The order does not exist&quot;}</p></td></tr><tr><td colspan="1" class="confluenceTd">500</td><td colspan="1" class="confluenceTd"><span>Application/json</span></td><td colspan="1" class="confluenceTd"><span>{ &quot;message&quot;: &quot;Internal error.&quot; }</span></td></tr></tbody></table></div><p><br/></p><h2 id="ResursCheckoutPOS-DelayedCheckout-&quot;Betalasen&quot;"><span style="letter-spacing: -0.008em;"><br/>Delayed Checkout - &quot;Betala sen&quot;</span></h2><p><br/></p><div class="confluence-information-macro confluence-information-macro-information"><p class="title conf-macro-render">NOTE!</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This feature is only available if this has been agreed to with Resurs salesperson</p></div></div><p><br/></p><p><span>A feature in the Resurs Checkout POS is to send out what we call a &quot;delayed checkout&quot;, via &quot;Betala sen&quot;. The cashier is only to insert the customer's information and set a valid to-date. Then, a sms/email with a URL to the iFrame containing the cart is sent to the customer. The customer can then choose to make purchase whenever they want. </span></p><p>The payment/order is not created at Resurs Bank by this point, Resurs Bank simply keeps the payment session alive for a period of time of the cashiers choice, default 24 hours.</p><p>Using this feature, you will need to finalize the payment via finalizePayment in the <a href="https://test.resurs.com/docs/x/Q4EW" rel="nofollow">After Shop API</a>.</p><h3 id="ResursCheckoutPOS-SequencediagramResursBankCheckoutPOS-DelayedCheckout">Sequence diagram Resurs Bank Checkout POS - Delayed Checkout</h3><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" draggable="false" src="attachments/24641672/24641735.png" data-image-src="attachments/24641672/24641735.png" data-unresolved-comment-count="0" data-linked-resource-id="24641735" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2019-12-19_14-55-26.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="24641672" data-linked-resource-container-version="76" alt=""></span></p><p><br/></p><h2 id="ResursCheckoutPOS-Restrictions"><span style="letter-spacing: 0.0em;">Restrictions</span></h2><p>Payment is possible for persons, but not for companies.</p><p>Resurs Checkout has no IPv6 support.</p><p><span style="color: rgb(51,51,51);">If card payment via Nets is to be offered in the Delayed Checkout, a requirement from Nets is max 32 characters for {orderReference}.</span></p><p><span style="color: rgb(51,51,51);">If Delayed Checkout is to be offered, each store has to provide their own shop terms, e-mailed to Onboarding Support in a public URL, prior to going live</span></p><p><span style="color: rgb(51,51,51);">When going live, you have to host your own public success- and backUrl to where the customers/clerk are to go when the payment is completed or failed</span></p><p><span style="color: rgb(51,51,51);">The orderReference-sequence is per webservice account, not per storeId. As a solution, if you are running storeId, you can add the store number as a prefix to the sequence</span></p><p><br/></p></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641657.png">image2019-5-21_13-25-12.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641658.png">image2019-5-21_13-24-0.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641659.png">image2019-5-21_13-22-58.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641660.png">image2019-5-21_13-22-10.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641661.png">image2019-5-21_13-20-36.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641662.png">image2019-5-21_13-14-53.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641663.png">image2019-5-6_15-22-51.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641664.png">image2019-5-6_15-19-57.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641665.png">image2018-6-18_14-6-7.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641666.png">DemoshopOmniCheckout.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641667.png">Omnicheckout screen.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641668.png">demoshop.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641669.png">sequence_diagram.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641670.png">checkout_mobile.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641671.png">checkout_desktop.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641718.png">image2019-12-19_14-4-26.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641720.png">image2019-12-19_14-5-29.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641721.png">image2019-12-19_14-7-25.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641731.png">image2019-12-19_14-48-12.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641733.png">image2019-12-19_14-52-6.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641672/24641735.png">image2019-12-19_14-55-26.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

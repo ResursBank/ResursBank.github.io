@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : EComPHP: Contribute</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="87393094.html">Version 1.x (EComPHP)</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : EComPHP: Contribute
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2017-10-11
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>EComPHP is delived as open source, we encourage the community to develop and enhance the module. On this page, some tips is being held as there are &quot;best practices&quot; to use with it.</p><p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780967398 {padding: 0px;}
+div.rbtoc1706780967398 ul {margin-left: 0px;}
+div.rbtoc1706780967398 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780967398'>
+<ul class='toc-indentation'>
+<li><a href='#EComPHP:Contribute-DevelopingfunctionsusingResursBankservice'>Developing functions using Resurs Bank service</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHP:Contribute-Initializingservices'>Initializing services</a></li>
+<li><a href='#EComPHP:Contribute-Buildingfunctions'>Building functions</a></li>
+</ul>
+</li>
+</ul>
+</div></p><h2 id="EComPHP:Contribute-DevelopingfunctionsusingResursBankservice"><span style="font-size: 20.0px;">Developing functions using Resurs Bank service</span></h2><h3 id="EComPHP:Contribute-Initializingservices"><span style="font-size: 20.0px;">Initializing services</span></h3><p>Most of the services provided by Resurs Bank are already implemented. If there are some missing, enhancing the module with those is welcome. For all function being built with EComPHP we usually need to initialize user authentication and such thigs, which is being made with <strong>InitializeServices()</strong>.</p><h3 id="EComPHP:Contribute-Buildingfunctions">Building functions</h3><p>If the services are provided from Resurs webservices (WSDL), you should take a look at $ServiceRequestList, for where all function calls are linked to the service that is providing it. For example, getPaymentMethods could be reached from the SimplifiedShopFlowService, so in the array, it's defined as <span style="color: rgb(0,128,0);">'getPaymentMethods' </span><span>=&gt; </span><span style="color: rgb(0,128,0);">'SimplifiedShopFlowService'</span>. All methods are defined the same way. $ServiceRequestList are then using the function postService() to handle the call. So, for this specific method, we can <em>almost</em> keep ourself with a oneliner:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>getPaymentMethods example</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence" data-theme="Confluence">public function getPaymentMethods($parameters = array()) {
+   $this-&gt;InitializeServices();
+   return $this-&gt;postService( &quot;getPaymentMethods&quot;, array(
+      &#39;customerType&#39;   =&gt; isset( $parameters[&#39;customerType&#39;] ) ? $parameters[&#39;customerType&#39;] : null,
+      &#39;language&#39;       =&gt; isset( $parameters[&#39;language&#39;] ) ? $parameters[&#39;language&#39;] : null,
+      &#39;purchaseAmount&#39; =&gt; isset( $parameters[&#39;purchaseAmount&#39;] ) ? $parameters[&#39;purchaseAmount&#39;] : null
+   ) );
+}</pre>
+</div></div><p>For Resurs Checkout and hosted flow, we will never get to use $ServiceRequestList as the urls are not related to WSDL. Instead, at least for Resurs Checkout, we use getCheckoutUrl() to get the current URL for the checkout. As both production and test environments are available, getCheckoutUrl() handles this for you. To get a proper URL to for example the callbacks interface, you can do a very simple request that looks like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Get checkout URL</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;getCheckoutUrl() . &quot;/callbacks&quot;;</pre>
+</div></div><p>Since the checkout allows both POST, GET, PUT and DELETE, the calls are being handled &quot;more manually&quot; for each function, being implemented. In the example below we are preparing to register a callback for annulling payments.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Resurs Checkout calls</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence" data-theme="Confluence">$renderCallback = array(&#39;array&#39;, &#39;that&#39;, &#39;contains&#39;, &#39;a&#39;, &#39;setup&#39;, &#39;for&#39;, &#39;registering&#39;, &#39;an&#39;, &#39;annulment&#39;, &#39;callback&#39;);
+$renderedResponse = $this-&gt;CURL-&gt;doPost($this-&gt;getCheckoutUrl() . &quot;/callbacks/ANNULMENT&quot;, $renderCallback, \TorneLIB\CURL_POST_AS::POST_AS_JSON);</pre>
+</div></div><p>As you can see here, we are speaking directly to the CURL interface, which handles everything. Since the checkout like JSON data, and registering callbacks is a POST method, we'll do a doPost() with the array, that is - when posting the data - is converted to a JSON string. If the rest call not requires a POST, a GET can be done in a similar way:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Fetching all registered callbacks for a merchant</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence" data-theme="Confluence">$CallbackList = $this-&gt;CURL-&gt;getParsedResponse($this-&gt;CURL-&gt;doGet($this-&gt;getCheckoutUrl() . &quot;/callbacks&quot;));</pre>
+</div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : submitApplicationExt FI</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Consumer-Loan-API_16056949.html">Consumer Loan API</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : submitApplicationExt FI
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified by <span class='editor'> Bobil Poli</span> on 2023-11-27
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="submitApplicationExtFI-FI"><strong>FI</strong></h1><div id="expander-1820544910" class="expand-container"><div id="expander-control-1820544910" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">Click here to expand submitApplicationExt for Finland</span></div><div id="expander-content-1820544910" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:app=&quot;http://consumerloan.resurs.com/v1/msg/application&quot;&gt;
+  &lt;soapenv:Header/&gt;
+  &lt;soapenv:Body&gt;
+     &lt;app:submitApplicationExt&gt;
+        &lt;xml&gt;&lt;![CDATA[&lt;resurs-response&gt;
+   &lt;amount&gt;10000&lt;/amount&gt;
+   &lt;time&gt;120&lt;/time&gt;
+   &lt;applicant-government-id&gt;020189-074E&lt;/applicant-government-id&gt;
+   &lt;applicant-mobile-number&gt;+3585005555127&lt;/applicant-mobile-number&gt;
+   &lt;applicant-email-address&gt;test@resurs.se&lt;/applicant-email-address&gt;
+   &lt;purpose-of-loan&gt;HOUSING_MORTGAGE_LOAN&lt;/purpose-of-loan&gt;
+   &lt;applicant-marital-status&gt;MARRIED&lt;/applicant-marital-status&gt;
+   &lt;applicant-habitation-form&gt;DETACHED_HOUSE&lt;/applicant-habitation-form&gt;
+   &lt;applicant-habitation-year&gt;2010&lt;/applicant-habitation-year&gt;
+   &lt;applicant-employment-type&gt;FAST_ANSTALLD&lt;/applicant-employment-type&gt;
+   &lt;applicant-monthly-income-gross&gt;3200&lt;/applicant-monthly-income-gross&gt;
+   &lt;household-monthly-income&gt;6400&lt;/household-monthly-income&gt;
+   &lt;household-living-expenses&gt;300&lt;/household-living-expenses&gt;
+   &lt;household-mortgage-debt&gt;10000&lt;/household-mortgage-debt&gt;
+   &lt;household-other-loan-expenses&gt;200&lt;/household-other-loan-expenses&gt;
+   &lt;other-expenses&gt;400&lt;/other-expenses&gt;
+   &lt;household-mortgage-total-amount&gt;10000&lt;/household-mortgage-total-amount&gt;
+   &lt;household-mortgage-monthly-cost&gt;200&lt;/household-mortgage-monthly-cost&gt;
+   &lt;insurance&gt;false&lt;/insurance&gt;
+   &lt;confirm-legal-documents&gt;true&lt;/confirm-legal-documents&gt;
+   &lt;approve-conditions&gt;true&lt;/approve-conditions&gt;
+   &lt;agreement-sign-type&gt;MAIL&lt;/agreement-sign-type&gt;
+&lt;/resurs-response&gt;]]&gt;&lt;/xml&gt;
+        &lt;consumerIp&gt;1.2.3.4&lt;/consumerIp&gt;
+        &lt;!--Optional:--&gt;
+        &lt;externalReference&gt;onboarding1&lt;/externalReference&gt;
+     &lt;/app:submitApplicationExt&gt;
+  &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</pre>
+</div></div></div></div><div id="expander-1318758631" class="expand-container"><div id="expander-control-1318758631" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">Click here to view form validation for Finland</span></div><div id="expander-content-1318758631" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;resurs-form&gt;
+
+    &lt;!-- ***** Lånebelopp --&gt;
+    &lt;element java-property=&quot;amount&quot;&gt;
+        &lt;label&gt;Lainasumma&lt;/label&gt;
+        &lt;description&gt;Täytä toivomasi luottoraja (€)&lt;/description&gt;
+        &lt;name&gt;amount&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;100&lt;/min-value&gt;
+        &lt;max-value&gt;40000&lt;/max-value&gt;
+        &lt;format-message&gt;Kenttään on täytettävä haettava summa!&lt;/format-message&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;paymentTerms&quot;&gt;
+        &lt;label&gt;Takaisinmaksuaika&lt;/label&gt;
+        &lt;description&gt;Toivottu takaisinmaksuaika.&lt;/description&gt;
+        &lt;name&gt;time&lt;/name&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;unit&gt;time&lt;/unit&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;1&lt;/label&gt;
+                &lt;value&gt;12&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;2&lt;/label&gt;
+                &lt;value&gt;24&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;3&lt;/label&gt;
+                &lt;value&gt;36&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;4&lt;/label&gt;
+                &lt;value&gt;48&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;5&lt;/label&gt;
+                &lt;value&gt;60&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;6&lt;/label&gt;
+                &lt;value&gt;72&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;7&lt;/label&gt;
+                &lt;value&gt;84&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;8&lt;/label&gt;
+                &lt;value&gt;96&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;9&lt;/label&gt;
+                &lt;value&gt;108&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;10&lt;/label&gt;
+                &lt;value&gt;120&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;11&lt;/label&gt;
+                &lt;value&gt;132&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;12&lt;/label&gt;
+                &lt;value&gt;144&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(12|24|36|48|60|72|84|96|108|120|132|144)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;!-- ***** Huvudsökande - Personalia --&gt;
+    &lt;element java-property=&quot;applicant.governmentId&quot;&gt;
+        &lt;label&gt;Henkilötunnus&lt;/label&gt;
+        &lt;description&gt;Täytä henkilötunnus muodossa PPKKVVYXXXX&lt;/description&gt;
+        &lt;name&gt;applicant-government-id&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;11&lt;/length&gt;
+        &lt;format&gt;^([\\d]{6})[\\+\\-A]([\\d]{3})([0123456789ABCDEFHJKLMNPRSTUVWXY])$&lt;/format&gt;
+        &lt;format-message&gt;Kenttään on täytettävä henkilötunnus muodossa PPKKVV-XXXX tai PPKKVVAXXXX!&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.mobilePhoneNumber&quot;&gt;
+        &lt;label&gt;Matkapuhelin&lt;/label&gt;
+        &lt;description&gt;Varmista, että matkapuhelinnumerosi on oikein.&lt;/description&gt;
+        &lt;name&gt;applicant-mobile-number&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;16&lt;/length&gt;
+        &lt;format&gt;^((\\+358|00358|0)[-| ]?(1[1-9]|[2-9]|[1][0][1-9]|201|2021|[2][0][2][4-9]|[2][0][3-8]|29|[3][0][1-9]|71|73|[7][5][0][0][3-9]|[7][5][3][0][3-9]|[7][5][3][2][3-9]|[7][5][7][5][3-9]|[7][5][9][8][3-9]|[5][0][0-9]{0,2}|[4][0-9]{1,3})([-| ]?[0-9]){3,10})$&lt;/format&gt;
+        &lt;format-message&gt;Tarkista puhelinnumerosi.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.emailAddress&quot;&gt;
+        &lt;label&gt;Sähköpostiosoite&lt;/label&gt;
+        &lt;description&gt;Varmista, että sähköpostiosoitteesi on oikein.&lt;/description&gt;
+        &lt;name&gt;applicant-email-address&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;50&lt;/length&gt;
+        &lt;format&gt;^[A-Za-z0-9!#%&amp;&#39;*+/=?^_`~-]+(\\.[A-Za-z0-9!#%&amp;&#39;*+/=?^_`~-]+)*@([A-Za-z0-9]+)(([\\.\\-]?[a-zA-Z0-9]+)*)\\.([A-Za-z]{2,})$&lt;/format&gt;
+        &lt;format-message&gt;Tarkista sähköpostiosoitteesi.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;loanPurpose&quot;&gt;
+        &lt;label&gt;Lainan käyttötarkoitus&lt;/label&gt;
+        &lt;description&gt;Lainan käyttötarkoitus&lt;/description&gt;
+        &lt;name&gt;purpose-of-loan&lt;/name&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Auto / Moottoripyörä&lt;/label&gt;
+                &lt;value&gt;MOTOR&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Häät&lt;/label&gt;
+                &lt;value&gt;WEDDING&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Vene&lt;/label&gt;
+                &lt;value&gt;BOAT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Asunto-omaisuuden hankkiminen&lt;/label&gt;
+                &lt;value&gt;HOUSING_MORTGAGE_LOAN&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Sijoittaminen (esim. osakkeet)&lt;/label&gt;
+                &lt;value&gt;INVESTMENT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Ajokortti&lt;/label&gt;
+                &lt;value&gt;DRIVERS_LICENSE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Sisustus (esim. huonekalut, kodin elektroniikka)&lt;/label&gt;
+                &lt;value&gt;INTERIOR&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Remontointi, kunnostaminen&lt;/label&gt;
+                &lt;value&gt;RENOVATION&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Matkailu, vapaa-aika&lt;/label&gt;
+                &lt;value&gt;TRAVEL&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Lainojen ja/tai luottojen yhdistäminen&lt;/label&gt;
+                &lt;value&gt;CONSOLIDATE_LOANS&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Terveyden- tai hampaidenhoito&lt;/label&gt;
+                &lt;value&gt;DENTAL_OR_OTHER_CARE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Opiskelu&lt;/label&gt;
+                &lt;value&gt;STUDIES&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Muu kulutus&lt;/label&gt;
+                &lt;value&gt;OTHER&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(MOTOR|WEDDING|BOAT|HOUSING_MORTGAGE_LOAN|INVESTMENT|DRIVERS_LICENSE|INTERIOR|RENOVATION|TRAVEL|CONSOLIDATE_LOANS|DENTAL_OR_OTHER_CARE|STUDIES|OTHER)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.maritalStatus&quot;&gt;
+        &lt;label&gt;Siviilisääty&lt;/label&gt;
+        &lt;description&gt;Valitse siviilisääty valikon vaihtoehdoista&lt;/description&gt;
+        &lt;name&gt;applicant-marital-status&lt;/name&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;default&gt;&lt;/default&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Avioliitto / Rekisteröity parisuhde&lt;/label&gt;
+                &lt;value&gt;MARRIED&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Naimaton&lt;/label&gt;
+                &lt;value&gt;SINGLE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Avoliitto&lt;/label&gt;
+                &lt;value&gt;DOMESTIC_PARTNER&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Eronnut&lt;/label&gt;
+                &lt;value&gt;DIVORCED&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Leski&lt;/label&gt;
+                &lt;value&gt;WIDOW&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(MARRIED|DOMESTIC_PARTNER|SINGLE|DIVORCED|WIDOW)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.habitationType&quot;&gt;
+        &lt;label&gt;Asumismuoto&lt;/label&gt;
+        &lt;description&gt;Valitse asumismuoto valikon vaihtoehdoista&lt;/description&gt;
+        &lt;name&gt;applicant-habitation-form&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;default&gt;&lt;/default&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Omistusasunto&lt;/label&gt;
+                &lt;value&gt;DETACHED_HOUSE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Vuokra-asunto&lt;/label&gt;
+                &lt;value&gt;APARTMENT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Asumisoikeusasunto&lt;/label&gt;
+                &lt;value&gt;CONDOMINIUM&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Osaomistusasunto&lt;/label&gt;
+                &lt;value&gt;CONDOMINIUM_PARTLY_OWNED&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Alivuokralainen&lt;/label&gt;
+                &lt;value&gt;BY_PARENTS&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Työsuhdeasunto&lt;/label&gt;
+                &lt;value&gt;OFFICIAL_RESIDENCE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Muu&lt;/label&gt;
+                &lt;value&gt;OTHER&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(DETACHED_HOUSE|APARTMENT|CONDOMINIUM|CONDOMINIUM_PARTLY_OWNED|BY_PARENTS|OFFICIAL_RESIDENCE|OTHER)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.habitationDate&quot;&gt;
+        &lt;label&gt;Asunut nykyisessä osoitteessa alkaen&lt;/label&gt;
+        &lt;description&gt;Valitse muuttovuosi- ja kuukausi.&lt;/description&gt;
+        &lt;name&gt;applicant-habitation-year&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;4&lt;/length&gt;
+        &lt;format&gt;^([0-9]{2})(0[1-9]|1[012])$&lt;/format&gt;
+        &lt;format-message&gt;Pakollinen kenttä&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element&gt;
+        &lt;name&gt;coapplicant-toggle&lt;/name&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;label&gt;Haen lainaa toisen henkilön kanssa&lt;/label&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.governmentId&quot;&gt;
+        &lt;label&gt;Henkilötunnus&lt;/label&gt;
+        &lt;description&gt;Täytä henkilötunnus muodossa PPKKVVYXXXX tai PPKKVVAXXXX.&lt;/description&gt;
+        &lt;name&gt;coapplicant-government-id&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;11&lt;/length&gt;
+        &lt;format&gt;^([\\d]{6})[\\+\\-A]([\\d]{3})([0123456789ABCDEFHJKLMNPRSTUVWXY])$&lt;/format&gt;
+        &lt;format-message&gt;Kenttään on täytettävä henkilötunnus muodossa PPKKVV-XXXX tai PPKKVVAXXXX!&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.mobilePhoneNumber&quot;&gt;
+        &lt;label&gt;Matkapuhelin&lt;/label&gt;
+        &lt;description&gt;Varmista, että matkapuhelinnumerosi on oikein.&lt;/description&gt;
+        &lt;name&gt;coapplicant-mobile-number&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;16&lt;/length&gt;
+        &lt;format&gt;^((\\+358|00358|0)[-| ]?(1[1-9]|[2-9]|[1][0][1-9]|201|2021|[2][0][2][4-9]|[2][0][3-8]|29|[3][0][1-9]|71|73|[7][5][0][0][3-9]|[7][5][3][0][3-9]|[7][5][3][2][3-9]|[7][5][7][5][3-9]|[7][5][9][8][3-9]|[5][0][0-9]{0,2}|[4][0-9]{1,3})([-| ]?[0-9]){3,10})$&lt;/format&gt;
+        &lt;format-message&gt;Tarkista puhelinnumerosi.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.emailAddress&quot;&gt;
+        &lt;label&gt;Sähköposti&lt;/label&gt;
+        &lt;description&gt;Varmista, että sähköpostiosoitteesi on oikein.&lt;/description&gt;
+        &lt;name&gt;coapplicant-email-address&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;50&lt;/length&gt;
+        &lt;format&gt;^([A-Za-z0-9!#%&amp;&#39;*+/=?^_`~-]+(\\.[A-Za-z0-9!#%&amp;&#39;*+/=?^_`~-]+)*@([A-Za-z0-9]+)(([\\.\\-]?[a-zA-Z0-9]+)*)\\.([A-Za-z]{2,}))?$&lt;/format&gt;
+        &lt;format-message&gt;Tarkista sähköpostiosoitteesi.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+&lt;element java-property=&quot;coApplicant.lastMonthIncomeNet&quot;&gt;
+        &lt;label&gt;kk:n nettotulo&lt;/label&gt;
+        &lt;description&gt;Edeltävän kk:n nettotulo&lt;/description&gt;
+        &lt;name&gt;coapplicant-last-month-income-net&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;99999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Tarkista kuukausitulosi (0-99 999 €).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.sixMonthsAverageIncomeNet&quot;&gt;
+        &lt;label&gt;6 kk:n nettotulo&lt;/label&gt;
+        &lt;description&gt;Edeltävän 6 kk:n keskimääräinen nettotulo&lt;/description&gt;
+        &lt;name&gt;coapplicant-six-months-average-income-net&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;99999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Tarkista kuukausitulosi (0-99 999 €).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+      &lt;!-- ***** Huvudsökande - Arbete --&gt;
+    &lt;element java-property=&quot;applicant.employmentType&quot;&gt;
+        &lt;label&gt;Hakijan työsuhteen muoto&lt;/label&gt;
+        &lt;description&gt;Valitse työmuoto valikon vaihtoehdoista&lt;/description&gt;
+        &lt;name&gt;applicant-employment-type&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;default&gt;&lt;/default&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Vakituinen&lt;/label&gt;
+                &lt;value&gt;FAST_ANSTALLD&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Määräaikainen&lt;/label&gt;
+                &lt;value&gt;VIKARIAT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Osa-aikainen&lt;/label&gt;
+                &lt;value&gt;PART_TIME&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Eläkkeellä&lt;/label&gt;
+                &lt;value&gt;PENSIONAR&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Työkyvyttömyys- tai varhaiseläkkeellä&lt;/label&gt;
+                &lt;value&gt;SJUKPENSIONAR&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Yrittäjä&lt;/label&gt;
+                &lt;value&gt;EGEN_FORETAGARE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Opiskelija&lt;/label&gt;
+                &lt;value&gt;STUDENT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Työtön&lt;/label&gt;
+                &lt;value&gt;ARBETSLOS&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Maanviljelijä&lt;/label&gt;
+                &lt;value&gt;FARMER&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(FAST_ANSTALLD|VIKARIAT|PART_TIME|PENSIONAR|SJUKPENSIONAR|EGEN_FORETAGARE|STUDENT|ARBETSLOS|FARMER)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.employedSince&quot;&gt;
+        &lt;label&gt;Nykyinen työsuhde alkoi&lt;/label&gt;
+        &lt;description&gt;Valitse aloitusvuosi ja –kuukausi.&lt;/description&gt;
+        &lt;name&gt;applicant-employment-year-from&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;4&lt;/length&gt;
+        &lt;format&gt;^([0-9]{2})(0[1-9]|1[012])$&lt;/format&gt;
+        &lt;format-message&gt;Pakollinen kenttä&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.employedTo&quot;&gt;
+        &lt;label&gt;Työsuhde päättyy&lt;/label&gt;
+        &lt;description&gt;Valitse päättymisvuosi ja –kuukausi.&lt;/description&gt;
+        &lt;name&gt;applicant-employment-year-until&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;4&lt;/length&gt;
+        &lt;format&gt;^([0-9]{2})(0[1-9]|1[012])$&lt;/format&gt;
+        &lt;format-message&gt;Pakollinen kenttä&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.employerName&quot;&gt;
+        &lt;label&gt;Työnantaja&lt;/label&gt;
+        &lt;description&gt;Ilmoita työnantajasi nimi&lt;/description&gt;
+        &lt;name&gt;applicant-employer&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;100&lt;/length&gt;
+        &lt;format&gt;^[\\s\\S]{0,100}$&lt;/format&gt;
+        &lt;format-message&gt;Täydennä työntantajasi nimi&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.profession&quot;&gt;
+        &lt;label&gt;Ammatti&lt;/label&gt;
+        &lt;description&gt;Ilmoita ammattisi&lt;/description&gt;
+        &lt;name&gt;applicant-profession&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;100&lt;/length&gt;
+        &lt;format&gt;^[\\s\\S]{0,100}$&lt;/format&gt;
+        &lt;format-message&gt;Ilmoita ammattisi&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.grossMonthlyIncome&quot;&gt;
+        &lt;label&gt;Omat kuukausitulot brutto&lt;/label&gt;
+        &lt;description&gt;Omat kuukausitulot ennen veroja.&lt;/description&gt;
+        &lt;name&gt;applicant-monthly-income-gross&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;99999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Tarkista kuukausitulosi (0-99 999 €).&lt;/format-message&gt;
+    &lt;/element&gt;
+&lt;element java-property=&quot;applicant.lastMonthIncomeNet&quot;&gt;
+        &lt;label&gt;Hakijan kk:n nettotulo&lt;/label&gt;
+        &lt;description&gt;Edeltävän kk:n nettotulo&lt;/description&gt;
+        &lt;name&gt;applicant-last-month-income-net&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;99999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Tarkista kuukausitulosi (0-99 999 €).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.sixMonthsAverageIncomeNet&quot;&gt;
+        &lt;label&gt;Hakijan 6 kk:n nettotulo&lt;/label&gt;
+        &lt;description&gt;Edeltävän 6 kk:n keskimääräinen nettotulo&lt;/description&gt;
+        &lt;name&gt;applicant-six-months-average-income-net&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;99999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Tarkista kuukausitulosi (0-99 999 €).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;householdIncome&quot;&gt;
+        &lt;label&gt;Talouden kuukausitulot netto&lt;/label&gt;
+        &lt;description&gt;Talouden yhteenlasketut kuukausitulot verojen jälkeen.&lt;/description&gt;
+        &lt;name&gt;household-monthly-income&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;99999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Tarkista talouden kuukausitulot (0-99 999 €).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;householdLivingExpenses&quot;&gt;
+        &lt;label&gt;Omat asumiskustannukset kuukaudessa (sis. asuntolainan)&lt;/label&gt;
+        &lt;description&gt;Asumiskustannuksesi sisältäen osuutesi asuntolainan lyhennyksestä, vuokrasta/vastikkeesta, sähköstä ja lämmityksestä kuukaudessa.&lt;/description&gt;
+        &lt;name&gt;household-living-expenses&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Tarkista omat asumiskustannuksesi (0-9 999 €).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;creditCardMasterCard&quot;&gt;
+        &lt;label&gt;MasterCard&lt;/label&gt;
+        &lt;description&gt;MasterCard&lt;/description&gt;
+        &lt;name&gt;credit-cards-master-card&lt;/name&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Kyllä&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;creditCardVisa&quot;&gt;
+        &lt;label&gt;VISA&lt;/label&gt;
+        &lt;description&gt;VISA&lt;/description&gt;
+        &lt;name&gt;credit-cards-visa&lt;/name&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Kyllä&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;creditCardAmericanExpress&quot;&gt;
+        &lt;label&gt;American Express&lt;/label&gt;
+        &lt;description&gt;American Express&lt;/description&gt;
+        &lt;name&gt;credit-cards-american-express&lt;/name&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Kyllä&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;creditCardDinersClub&quot;&gt;
+        &lt;label&gt;Diners Club&lt;/label&gt;
+        &lt;description&gt;Diners Club&lt;/description&gt;
+        &lt;name&gt;credit-cards-diners-club&lt;/name&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Kyllä&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;creditCardOthers&quot;&gt;
+        &lt;label&gt;Muut&lt;/label&gt;
+        &lt;description&gt;Muut&lt;/description&gt;
+        &lt;name&gt;credit-cards-others&lt;/name&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Kyllä&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;mortgageDebt&quot;&gt;
+        &lt;label&gt;Oma osuus asuntolainasta&lt;/label&gt;
+        &lt;description&gt;Jäljellä oleva oma osuutesi koko asuntolainasta.&lt;/description&gt;
+        &lt;name&gt;household-mortgage-debt&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Tarkista summa (0-999 999 €).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;householdLoanExpenses&quot;&gt;
+        &lt;label&gt;Omat muut lainat ja luottokorttilainat yhteensä&lt;/label&gt;
+        &lt;description&gt;Luottokorttilainat ja muut lainat kuin asuntolaina.&lt;/description&gt;
+        &lt;name&gt;household-other-loan-expenses&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Tarkista summa (0-999 999 €).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;otherExpenses&quot;&gt;
+        &lt;label&gt;Omat lainojen lyhennykset kuukaudessa (ei asuntolaina)&lt;/label&gt;
+        &lt;description&gt;Muiden lainojen kuin asuntolainan lyhennykset kuukaudessa yhteensä.&lt;/description&gt;
+        &lt;name&gt;other-expenses&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Tarkista summa (0-9 999 €).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;mortgageTotalAmount&quot;&gt;
+        &lt;label&gt;Talouden kaikki lainat yhteensä&lt;/label&gt;
+        &lt;description&gt;Kanssasi samassa taloudessa asuvien kaikki lainat yhteensä.&lt;/description&gt;
+        &lt;name&gt;household-mortgage-total-amount&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Tarkista summa (0-999 999 €).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;monthlyMortgageCost&quot;&gt;
+        &lt;label&gt;Talouden kaikkien lainojen lyhennykset kuukaudessa&lt;/label&gt;
+        &lt;description&gt;Kanssasi samassa taloudessa asuvien kaikkien lainojen lyhennykset kuukaudessa yhteensä.&lt;/description&gt;
+        &lt;name&gt;household-mortgage-monthly-cost&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Tarkista summa (0-9 999 €).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;isFinancingOtherLoan&quot;&gt;
+        &lt;label&gt;Haluan yhdistää nykyisiä lainojani&lt;/label&gt;
+        &lt;name&gt;finance-other-loans&lt;/name&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;nbrOfLoansToConsolidate&quot;&gt;
+        &lt;label&gt;Yhdistettävien lainojen lukumäärä&lt;/label&gt;
+        &lt;description&gt;Anna lunastettavien lainojen ja luottokorttien lukumäärä&lt;/description&gt;
+        &lt;name&gt;finance-other-loans-nbr-of-loans&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;1&lt;/min-value&gt;
+        &lt;max-value&gt;20&lt;/max-value&gt;
+        &lt;unit&gt;kpl&lt;/unit&gt;
+        &lt;format-message&gt;Voit yhdistää enintään 20 lainaa&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;balanceOfConsolidatedLoans&quot;&gt;
+        &lt;label&gt;Yhdistettävien lainojen yhteissumma&lt;/label&gt;
+        &lt;description&gt;Anna yhdistettävien lainojen ja luottokorttilainojen yhteissumma&lt;/description&gt;
+        &lt;name&gt;finance-other-loans-balance-of-loans&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;99999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Voit yhdistää lainoja (0 - 99 999 €).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;monthlyCostOfConsolidatedLoans&quot;&gt;
+        &lt;label&gt;Yhdistettävien lainojen lyhennykset kuukaudessa&lt;/label&gt;
+        &lt;description&gt;Anna lunastettavien lainojen ja luottokorttien yhteenlaskettu kuukausimaksu&lt;/description&gt;
+        &lt;name&gt;finance-other-loans-monthly-cost-of-loans&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Yhdistettävien lainojen lyhennykset kuukaudessa voivat olla 0 - 9 999 €.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;financeOtherLoansConsentToConsolidate&quot;&gt;
+        &lt;label&gt;Hyväksyn ja annan toimeksiannon yhdistettävien lainojeni poismaksuun&lt;/label&gt;
+        &lt;description&gt;Hyväksyn ja annan toimeksiannon yhdistettävien lainojeni poismaksuun&lt;/description&gt;
+        &lt;name&gt;finance-other-loans-consolidation-consent&lt;/name&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Kyllä&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Ei&lt;/label&gt;
+                &lt;value&gt;false&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|false)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;payoutAccountNo&quot;&gt;
+        &lt;label&gt;Tilinumero IBAN-muodossa&lt;/label&gt;
+        &lt;name&gt;payout-account-number&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;18&lt;/length&gt;
+        &lt;format&gt;^[A-Z0-9]{18}$&lt;/format&gt;
+        &lt;format-message&gt;Tarkista tilinumerosi, sen pitäisi olla IBAN-muodossa: FI01234567890000000.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;isInsured&quot;&gt;
+        &lt;label&gt;Haluan liittää lainaani Maksuvakuutuksen.&lt;/label&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;name&gt;insurance&lt;/name&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Kyllä&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Ei&lt;/label&gt;
+                &lt;value&gt;false&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|false)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;name&gt;campaign-code-toggle&lt;/name&gt;
+        &lt;label&gt;Lisää kampanjakoodi&lt;/label&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;campaignCode&quot;&gt;
+        &lt;label&gt;Kampanjakoodi&lt;/label&gt;
+        &lt;description&gt;Jos sinulla on kampanjakoodi, täytä se tähän.&lt;/description&gt;
+        &lt;name&gt;campaign-code&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;10&lt;/length&gt;
+        &lt;format&gt;^([A-ZÅÄÖÜ\\-\\.\\S\\d a-zåäöü]{2,10})?$&lt;/format&gt;
+        &lt;format-message&gt;Ystävällisesti tarkistakaa että kamppanjakoodi on oikein.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;confirmRegisterConsent&quot;&gt;
+        &lt;name&gt;confirm-register-concent&lt;/name&gt;
+        &lt;label&gt;Hyväksyn tietojeni käsittelyn&lt;/label&gt;
+        &lt;description&gt;Annan/Annamme toimeksiannon Resurs Bankille kerätä ja käsitellä muilta luotonantajilta
+            saatavia tietoja luotoistani luottohakemuksen käsittelyä varten. Annan suostumukseni
+            siihen, että luotonantajat luovuttavat minua koskevia tietoja luotoistani.
+            Näitä tietoja Resurs Bank kysyy Suomen Asiakastieto Oy:n ylläpitämän
+            kyselyjärjestelmän avulla järjestelmään osallistuvilta yrityksiltä.&lt;/description&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Annan/Annamme toimeksiannon Resurs Bankille kerätä ja käsitellä muilta luotonantajilta
+                    saatavia tietoja luotoistani luottohakemuksen käsittelyä varten. Annan suostumukseni
+                    siihen, että luotonantajat luovuttavat minua koskevia tietoja luotoistani.
+                    Näitä tietoja Resurs Bank kysyy Suomen Asiakastieto Oy:n ylläpitämän
+                    kyselyjärjestelmän avulla järjestelmään osallistuvilta yrityksiltä.&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;confirmLegalDocuments&quot;&gt;
+        &lt;name&gt;confirm-legal-documents&lt;/name&gt;
+        &lt;label&gt;Vahvistan tietoni ja hyväksyn ehdot&lt;/label&gt;
+        &lt;description&gt;Vakuutan, että antamani tiedot ovat oikeat. Olen tutustunut Vakiomuotoiset
+            eurooppalaiset kuluttajaluottotiedot -lomakkeeseen (VEK) sekä Resurs Bankin
+            yksityisiä tili- ja korttiluottoja sekä yksityislainoja koskeviin yleisiin
+            ehtoihin, ja hyväksyn ne.&lt;/description&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Vakuutan, että antamani tiedot ovat oikeat. Olen tutustunut Vakiomuotoiset
+                    eurooppalaiset kuluttajaluottotiedot -lomakkeeseen (VEK) sekä Resurs Bankin
+                    yksityisiä tili- ja korttiluottoja sekä yksityislainoja koskeviin yleisiin
+                    ehtoihin, ja hyväksyn ne.&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format-message&gt;Sinun on hyväksyttävä ehdot edetä.&lt;/format-message&gt;
+        &lt;format&gt;^(true)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;termsAgreedTo&quot;&gt;
+        &lt;label&gt;Annan suostumukseni henkilötietojeni käsittelyyn&lt;/label&gt;
+        &lt;description&gt;
+            Tehdessäsi sopimuksen Resurs Bankin kanssa sinut rekisteröidään Resurskonsernin asiakasrekisteriin. Pääasialliset henkilötietojen käyttötarkoituksemme ovat sopimuksen tekemisen edellyttämien tietojen kerääminen, tarkastaminen ja rekisteröinti sekä tekemäsi sopimuksen dokumentointi, hallinnointi ja toimeenpano. Henkilötietoja voidaan käsitellä myös markkinoinnissa. Kun henkilötietoja käsitellään markkinointitarkoituksessa, voidaan suorittaa myös profilointia sinulle soveltuvien tuote-ehdotusten tekemiseksi, jolloin sinulle voidaan tarjota vaihtoehtoisia tuotteitamme tai voit saada yhteydenoton Resurs Bankin yhteistyökumppaneilta, mihin annan suostumukseni. Kattavat tiedot henkilötietojemme käsittelystä ja sinun oikeuksistasi saat henkilötietojen käsittelyä koskevista sopimusehdoistamme. Ymmärrän, että voin kieltää suoramarkkinoinnin ilmoittamalla asiasta Resurs Bankille.
+            Vakuutan, että annetut tiedot ovat oikein ja täydellisiä ja annan suostumukseni hakemukseni luottoharkintaa varten. Luotonantaja pitää itsellään vapaan harkintaoikeuden. Vakuutan lisäksi, että olen saanut tiedon ja tutustunut asiakirjoihin Vakiomuotoiset eurooppalaiset kuluttajaluottotiedot voimassaolevine erikoismaksuehtoineen sekä Resurs Bankin yksityisiä tili- ja korttiluottoja sekä yksityislainoja koskeviin yleisiin ehtoihin, mitkä sopimusehdot täten hyväksyn. Nämä asiakirjat ja asiakaskohtainen sopimus tallennetaan ja ovat saatavilla Omat Sivut – palvelussa www.resursbank.fi
+        &lt;/description&gt;
+        &lt;name&gt;approve-conditions&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;confirmation&lt;/type&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Allekirjoittaessasi sopimuksen Resurs Bankin kanssa tallennetaan henkilötietosi
+                    asiakasrekisteriin. Samalla annat suostumuksesi siihen, että luottohakemusta
+                    käsitellessä saadaan käyttää henkilötietojasi. Henkilötietojasi voidaan käyttää
+                    ja luovuttaa suoramarkkinointitarkoituksiin. Sinulla on oikeus kieltää
+                    henkilötietojesi käsittely suoramarkkinointitarkoituksiin ilmoittamalla siitä
+                    Resurs Bankin asiakaspalveluun. Siinä tapauksessa, että hakemuksesi hylätään,
+                    Resurs Bankin yhteistyökumppani voi tarjota sinulle vastaavanlaista tuotetta.&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format-message&gt;Sinun on hyväksyttävä ehdot edetä.&lt;/format-message&gt;
+        &lt;format&gt;^(true)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;consentEmailMarketing&quot;&gt;
+        &lt;name&gt;consent-email-marketing&lt;/name&gt;
+        &lt;label&gt;&lt;/label&gt;
+        &lt;description&gt;Annan suostumukseni siihen, että Resurs Bank
+            voi lähettää minulle tarjouksia sähköpostitse.&lt;/description&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Annan suostumukseni siihen, että Resurs Bank
+                    voi lähettää minulle tarjouksia sähköpostitse.&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;agreementSignType&quot;&gt;
+        &lt;label&gt;Valitse allekirjoitustapa&lt;/label&gt;
+        &lt;description&gt;Valitse allekirjoitustapa&lt;/description&gt;
+        &lt;name&gt;agreement-sign-type&lt;/name&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Pankkitunnuksilla&lt;/label&gt;
+                &lt;value&gt;E_SIGN&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Postitse&lt;/label&gt;
+                &lt;value&gt;MAIL&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(MAIL|E_SIGN)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;!-- ***** mediaCode --&gt;
+    &lt;element java-property=&quot;mediaCode&quot;&gt;
+        &lt;type&gt;hidden&lt;/type&gt;
+        &lt;name&gt;mediacode&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+    &lt;/element&gt;
+&lt;/resurs-form&gt;
+
+
+</pre>
+</div></div></div></div><div id="expander-841697645" class="expand-container"><div id="expander-control-841697645" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">Click here to expand submitApplicationExtResponse example for Finland</span></div><div id="expander-content-841697645" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+    &lt;soap:Body&gt;
+        &lt;ns2:submitApplicationExtResponse xmlns:ns2=&quot;http://consumerloan.resurs.com/v1/msg/application&quot; xmlns:ns3=&quot;http://consumerloan.resurs.com/v1/msg/exception&quot;&gt;
+            &lt;submitApplicationExtResult&gt;
+                &lt;applicationReference&gt;1acca31b-c4c8-466a-9f7e-51c8c06591dd&lt;/applicationReference&gt;
+                &lt;decision&gt;APPROVED&lt;/decision&gt;
+                &lt;approvedAmount&gt;10000&lt;/approvedAmount&gt;
+                &lt;interest&gt;22.30&lt;/interest&gt;
+                &lt;tenor&gt;72&lt;/tenor&gt;
+                &lt;effectiveInterest&gt;25.31&lt;/effectiveInterest&gt;
+                &lt;monthlyCost&gt;259.00&lt;/monthlyCost&gt;
+                &lt;consolidationDemand&gt;1000.0&lt;/consolidationDemand&gt;
+                &lt;adminFee&gt;2.00&lt;/adminFee&gt;
+                &lt;arrangementFee&gt;39.00&lt;/arrangementFee&gt;
+                &lt;documentTypes&gt;ID&lt;/documentTypes&gt;
+                &lt;documentTypes&gt;PAYMENT_SLIP&lt;/documentTypes&gt;
+                &lt;totalRepaymentAmount&gt;18700.00&lt;/totalRepaymentAmount&gt;
+                &lt;monthlyAccountFee&gt;0&lt;/monthlyAccountFee&gt;
+                &lt;totalFeesAndInterest&gt;8700.00&lt;/totalFeesAndInterest&gt;
+  				&lt;topUpAmount&gt;9000.0&lt;/topUpAmount&gt;
+				&lt;monthlyCostTopUp&gt;169.0&lt;/monthlyCostTopUp&gt;
+                &lt;/submitApplicationExtResult&gt;
+        &lt;/ns2:submitApplicationExtResponse&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;  </pre>
+</div></div></div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

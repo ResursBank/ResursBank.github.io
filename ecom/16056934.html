@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Failurls in RCO-payload (EComPHP)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="87393094.html">Version 1.x (EComPHP)</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="9338886.html">EComPHP: createPayment [RCO]</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Failurls in RCO-payload (EComPHP)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2019-09-05
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The failurl sometimes requires encoding to properly work with redirects from Resurs Bank.</p><p>Using a failurl that is fully encoded may however not be entirely compatible with the ecommerce solutions especially when it comes to &quot;not nice urls&quot;. A &quot;nice&quot; url is a rest-looking url where no ? and &amp; parameters are required. Instead of <a href="http://www.test.com/index.php?parameter1=true" class="external-link" rel="nofollow">http://www.test.com/index.php?parameter1=true</a>, a nice URL looks like this:</p><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>http://www.test.com/index/parameter1/true/</pre>
+</div></div><p>To avoid such problems, we can as of march 2019, push encoded urls into the payload. But when we push a <strong style="letter-spacing: 0.0px;">http%3A%2F%2F</strong>-formatted urlstring into the signing/failurl-blocks (in this case in the iframe), Resurs ecommerce responds with a &quot;malformed url&quot;-exception instead of accepting it. So we need to properly encode the url by the path only. However, to make it possible to change this in the future (if this is at some point fixed at Resurs Bank) we use bitwise methods to decide <strong style="letter-spacing: 0.0px;">how</strong> we'd like to encode the url. This is an example from PrestaShop on how we do handle encoded urls:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Using setSigning()</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;ecom()-&gt;setSigning(
+    $this-&gt;getSuccessUrl(),
+    $this-&gt;getBackUrl(),
+    false,
+    null,
+    RESURS_URL_ENCODE_TYPES::FAILURL +
+    RESURS_URL_ENCODE_TYPES::PATH_ONLY
+);</pre>
+</div></div><p>In this case we ask EComPHP to set the successUrls and failurl, but <em>not</em> backurl (it will go null here, since hosted flow is the only flow that wants to know about a backurl).</p><p>Besides of this, the last parameter setup tells EComPHP to only encode the failurl. However, since Resurs did not support fully encoded urls, we ask EComPHP to only encode the pathway of the url. By means, the url will be encoded like this:</p><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>https://www.test.com/%3Fparameter1%3Dvalue1%26parameter2%3Dvalue2.</pre>
+</div></div><p>When we go through a test flow where we decide do &quot;mockfail&quot;, the redirect will be done as is above. In worse cases, we can also add the bitflag <strong style="letter-spacing: 0.0px;">LEAVE_FIRST_PART</strong>. This means that the PATH will be encoded, but only after the first part of the string. By means, our encoded url will look like this: </p><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>https://www.test.com/?parameter1=value1%26parameter2%3Dvalue2</pre>
+</div></div><p>Both above cases can be tested here:</p><p><a href="https://omnitest.resurs.com/web/dist/fail.html?redirectUrl=https://identifier.tornevall.net/%3Fjson%3Dtrue%26queryParam1%3DTest1%26queryParam2%3DTest2" title="Follow link" rel="nofollow" class="external-link">https://omnitest.resurs.com/web/dist/fail.html?redirectUrl=https://identifier.tornevall.net/%3Fjson%3Dtrue%26queryParam1%3DTest1%26queryParam2%3DTest2</a><a href="https://omnitest.resurs.com/web/dist/fail.html?redirectUrl=https://identifier.tornevall.net/?json=true%26queryParam1%3DTest1%26queryParam2%3DTest2" title="Follow link" class="external-link" rel="nofollow"><br/>https://omnitest.resurs.com/web/dist/fail.html?redirectUrl=https://identifier.tornevall.net/?json=true%26queryParam1%3DTest1%26queryParam2%3DTest2</a></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

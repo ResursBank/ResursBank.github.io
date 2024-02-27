@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Version 1.x (EComPHP)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Version 1.x (EComPHP)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2023-05-12
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This document covers information about EComPHP 1.x (Currently 1.3.x).</p><div class="confluence-information-macro confluence-information-macro-tip"><p class="title conf-macro-render">Resurs Bank in the community</p><span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If something does not work properly in EComPHP, feel free to <a href="https://bitbucket.org/resursbankplugins/resurs-ecomphp" class="external-link" rel="nofollow">join the community via bitbucket</a>, or contact us at <a href="mailto:onboarding@resurs.se" class="external-link" rel="nofollow">onboarding@resurs.se</a>. EComPHP is updated continuously to improve functionality.</p><p>To speed up the wsdl requests make sure you use <strong>setWsdlCache(true)</strong> on runs.</p></div></div><h1 id="Version1.x(EComPHP)-Description">Description</h1><p>Resurs EComPHP Gateway is a simplifier for our webservices, with functionality enough to getting started fast. It communicates with the <a href="Simplified-Flow-API_1476359.html">Simplified Flow API</a> for booking payments, <a href="Configuration-Service_1475161.html">Configuration Service</a> and the <a href="After-Shop-Service-API_327799.html">After Shop Service API</a> for finalizing, crediting and annulments etc. This full version of the gateway communicates with <a href="https://test.resurs.com/docs/display/ecom/Hosted+Payment+Flow">Hosted Payment Flow</a> and <a href="Resurs-Checkout-Web_5014022.html">Resurs Checkout Web</a> (supporting both REST and SOAP). A PHP-reference for EComPHP is located at <a href="https://test.resurs.com/autodocs/" class="external-link" rel="nofollow">https://test.resurs.com/autodocs</a>, if you want to take a look at our automatically generated documentation.</p><p>As EComPHP is continuously developed, you should take a look at our bitbucket repo to keep this information updated. It can be found at <a href="https://bitbucket.org/resursbankplugins/resurs-ecomphp" class="external-link" rel="nofollow">https://bitbucket.org/resursbankplugins/resurs-ecomphp</a>.</p><h1 id="Version1.x(EComPHP)-Branches">Branches</h1><p><strong>Red branches is obsolete and no longer officially maintained.</strong><br/><span class="status-macro aui-lozenge aui-lozenge-success">1.3</span><br/><span class="status-macro aui-lozenge aui-lozenge-error">1.1</span><br/><span class="status-macro aui-lozenge aui-lozenge-error">1.0</span></p><h2 id="Version1.x(EComPHP)-Makesuretoalwaysupgrade!">Make sure to always upgrade!</h2><p>EComPHP is continuosly delivering upgrades that makes things work better. The current 1.3 is not fully PSR4-compliant, but our goal is to get rid of non-PSR4 code (which takes time). Below follows a list of some major non-breaking changes that takes us closer to such compliance.</p><ul><li>v1.3.47: Internal curlwrapper calls are now using proper class calls instead of deprecated classes from 6.0 - this also means that we no longer has to verify that they do exist before loading them. They are called on fly.</li></ul><h1 id="Version1.x(EComPHP)-Preparingthelibrary">Preparing the library</h1><h2 id="Version1.x(EComPHP)-Download">Download</h2><p>Take a look at the ongoing project at <a href="https://bitbucket.org/resursbankplugins/resurs-ecomphp" class="external-link" rel="nofollow">https://bitbucket.org/resursbankplugins/resurs-ecomphp</a></p><h2 id="Version1.x(EComPHP)-Requirementsanddependencies">Requirements and dependencies</h2><ul><li>Use composer</li><li>Do not use other versions than EComPHP 1.3 as the prior versions is no longer guaranteed to work.</li><li>PHP 7.3 - 8.0 are supported, the dialect is written for 5.6</li><li>Even if you plan to only use Resurs Checkout, features are widely spread between many flows, which we also recommend to install the library so it can fully use all flows.</li><li><a href="https://www.openssl.org/" class="external-link" rel="nofollow">OpenSSL</a>: For reaching Resurs Bank REST/SOAP</li><li><a href="https://curl.haxx.se/" class="external-link" rel="nofollow">curl</a>: php-curl with SSL support</li><li>php-xml and streams (For the SOAP parts)</li><li>EComPHP uses <a href="https://www.netcurl.org" class="external-link" rel="nofollow">NetCURL</a> for calls via both SOAP and REST. The packagist component is located <span style="color: rgb(0,0,255);"><a href="https://www.netcurl.org/packagist" class="external-link" rel="nofollow">here</a></span></li></ul><h3 id="Version1.x(EComPHP)-Installingcurl,xml,soapclient,etc">Installing curl, xml, soapclient, etc</h3><p>For Ubuntu, you can quickly fetch those with apt-get like below, if your system is missing them:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">apt-get install php-curl php-xml php-soap</pre>
+</div></div><h2 id="Version1.x(EComPHP)-Installation">Installation</h2><p>As mentioned above, we recommend that you use composer to install. How you install with composer is a bit up to you. But with all dependencies available, installing may look like this, depending on how you'd like to follow the release branches:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Emacs" data-theme="Emacs"># Either this:
+composer require resursbank/ecomphp:1.3.*
+# Or this:
+composer require resursbank/ecomphp:^1.3</pre>
+</div></div><p>In it simplest form, composer.json could look like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>composer.json</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Emacs" data-theme="Emacs">{
+    &quot;require&quot;: {
+        &quot;resursbank/ecomphp&quot;: &quot;^1.3&quot;
+    }
+}</pre>
+</div></div><h3 id="Version1.x(EComPHP)-DeployingpluginswithEComPHPbulked">Deploying plugins with EComPHP bulked</h3><p>If you need to release a plugin with EComPHP, you can use composer to prefer-dist like the example below. However, the prefer-dist may not be entirely safe and components could be missing out. To be sure that everything stays put, the below example also shows how to clean up repoistories that still contains a git reference.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Deploy and redeploy</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Emacs" data-theme="Emacs"> #!/bin/bash
+ composer clearcache
+ rm -rf vendor composer.lock
+ composer install --prefer-dist
+ find vendor/ -type d -name .git -exec rm -rf {} \; &gt;/dev/null 2&gt;&amp;1
+ find vendor/ -name .gitignore -exec rm {} \; &gt;/dev/null 2&gt;&amp;1</pre>
+</div></div><h1 id="Version1.x(EComPHP)-Startbuilding-minorexamples">Start building - minor examples</h1><p>At its simplest level, this is the way how to start talking with the API. If you need detailed documents, take a look at the subsections in this space.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Simple start</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">use \Resursbank\RBEcomPHP\ResursBank;
+// [...] Other usages, like RESURS_ENVIRONMENTS, ETC [...]
+require_once(&quot;vendor/autoload.php&quot;);
+
+$flow = new ResursBank(&#39;storeUsername&#39;, &#39;storePassword&#39;, ResursEnvironments::ENVIRONMENT_TEST);
+// Since v1.3.40 caching wsdl has been made easier.
+$flow-&gt;setWsdlCache(true);
+$flow-&gt;getPaymentMethods();
+// [...] more code [...]
+$flow-&gt;getPayment(&#39;orderIdOfThePaymentYouJustCreated&#39;);</pre>
+</div></div><h3 id="Version1.x(EComPHP)-Registeringcallbacks">Registering callbacks</h3><p>setRegisterCallback is set, by default, to register callbacks through REST instead of SOAP (to avoid using SoapClient).</p><p><span>Make sure that the callback digest key are saved in your endpoint also, so that it can be tested on incoming calls. Also make sure you are really using a secure URL configuration (i.e. you need to use the digest to make sure your orders can not be manipulated by someone).</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>getPaymentMethods</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">require_once(__DIR__ . &quot;/classes/rbapiloader.php&quot;);
+$flow = new \Resursbank\RBEcomPHP\ResursBank(&#39;storeUsername&#39;, &#39;storePassword&#39;);
+$flow-&gt;setWsdlCache(true);
+$this-&gt;flow-&gt;setCallbackDigestSalt(&#39;St0res4lTkeY&#39;);
+$paymentMethodObject = $this-&gt;flow-&gt;setCallback(ResursCallbackTypes::UNFREEZE, &quot;http://shop.test.com/callbacks/?paymentId={paymentId}&amp;digest={digest}&quot;);</pre>
+</div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : paymentData</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="API-Types_1475647.html">API Types</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : paymentData
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Joachim Andersson</span>, last modified by <span class='editor'> Gert</span> on 2022-01-12
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><span>The data for the payment during a Simplified Basic Show Flow.</span></p><p><span><br/></span></p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Component</th><th class="confluenceTh">Type</th><th class="confluenceTh">Occurs</th><th class="confluenceTh">Nillable?</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">preferredId</td><td class="confluenceTd"><strong><a href="Simple-Types..._1475653.html">id</a></strong></td><td class="confluenceTd">0..1</td><td class="confluenceTd">Yes</td><td class="confluenceTd"><p>The preferred payment ID for the payment, usually the order ID. This ID has to be unique per representative and payment. If nothing is specified, the system will generate an unique ID. This ID will in both cases be returned in the bookPaymentResult as paymentId.<br/>If you are to offer Swish (SE) or card payment via Nets through Resurs Bank, the maximum characters are 35 (Swish) and 32 (Nets) and <em style="text-align: left;">allowed characters are a-z A-Z 0-9 - </em></p></td></tr><tr><td class="confluenceTd">paymentMethodId</td><td class="confluenceTd"><strong><a href="Simple-Types..._1475653.html">id</a></strong></td><td class="confluenceTd">1..1</td><td class="confluenceTd">No</td><td class="confluenceTd">The payment method to be used when doing a payment.</td></tr><tr><td class="confluenceTd">preferredTransactionId</td><td class="confluenceTd"><strong><a href="Simple-Types..._1475653.html">id</a></strong></td><td class="confluenceTd">0..1</td><td class="confluenceTd">Yes</td><td class="confluenceTd"><p>An identifier which is reported back in economic reports. Can thus be used as a key to track transactions. It's optional. Only to be used when finalizeIfBooked is set to <code>true</code>, else use this parameter in<a href="Finalize-Payment_1474883.html"> finalizePayment</a>!</p></td></tr><tr><td colspan="1" class="confluenceTd">customerIpAddress</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">1...1</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">The IP address of the customer of the payment.</td></tr><tr><td class="confluenceTd">waitForFraudControl</td><td class="confluenceTd">boolean</td><td class="confluenceTd">0..1</td><td class="confluenceTd">Yes</td><td class="confluenceTd">If the system should wait to return a response until the fraud control has run.<strong> </strong><span>If you set waitForFraudControl to <code>false</code> you will have to register the callback <a href="AUTOMATIC_FRAUD_CONTROL_1147049.html"><code>AUTOMATIC_FRAUD_CONTROL</code> </a>to get notified when the control is finished, with result <code>FROZEN</code> or <code>THAWED</code>. <a href="Parameters-and-Callbacks_5014323.html">Read more...</a> <strong>Default: true.</strong></span></td></tr><tr><td class="confluenceTd">annulIfFrozen</td><td class="confluenceTd">boolean</td><td class="confluenceTd">0..1</td><td class="confluenceTd">Yes</td><td class="confluenceTd">If the fraud freezes a payment, it will <span>automatically </span>annul the payment. Set it to <code>true</code> if you cannot wait for the order to be thawed before delivering the purchased items. <strong>Default: false</strong><span>.</span></td></tr><tr><td class="confluenceTd">finalizeIfBooked</td><td class="confluenceTd">boolean</td><td class="confluenceTd">0..1</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Will <span>automatically </span>finalize (debit) the payment if you will get an okay from the fraud control. If you set the waitForFraudControl to false <span>you need to register the callback <code>FINALIZATION</code> if you want to get notified when a payment is finalized</span>. <strong>Default: false.</strong></td></tr></tbody></table></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

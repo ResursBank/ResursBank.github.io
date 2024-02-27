@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Plugin basics and information</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Plugins_1476269.html">Platform Plugins</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="WooCommerce_2588830.html">WooCommerce</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Resurs-Merchant-API-2.0-for-WooCommerce_81887266.html">Resurs Merchant API 2.0 for WooCommerce</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Plugin basics and information
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span> on 2023-04-11
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This is planned space for Resurs for WooCommerce MAPI Release v1.0. The MAPI-Commerce package is a rebuild of Resurs for WooCommerce that is adapted into the latest Resurs API (MAPIv2, as of 2022). All old flows has been disconnected from this plugin and since it will be a huge breaking change due to this among other features, it will be released separately from the old plugin.</p><p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780961033 {padding: 0px;}
+div.rbtoc1706780961033 ul {margin-left: 0px;}
+div.rbtoc1706780961033 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780961033'>
+<ul class='toc-indentation'>
+<li><a href='#Pluginbasicsandinformation-Oldpluginvsnewplugin(sidebyside/migration)'>Old plugin vs new plugin (side by side/migration)</a></li>
+<li><a href='#Pluginbasicsandinformation-ZerodecimalsinWooCommerce'>Zero decimals in WooCommerce</a></li>
+<li><a href='#Pluginbasicsandinformation-Changingthepaymentmethodconfiguration'>Changing the payment method configuration</a></li>
+</ul>
+</div></p><h1 id="Pluginbasicsandinformation-Oldpluginvsnewplugin(sidebyside/migration)">Old plugin vs new plugin (side by side/migration)</h1><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" height="150" src="attachments/91029973/91029969.png" data-image-src="attachments/91029973/91029969.png" data-unresolved-comment-count="0" data-linked-resource-id="91029969" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-2023-3-14_13-47-8.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="91029973" data-linked-resource-container-version="1" alt=""></span></p><p>As of the latest master branch it is possible to run both the new version and old version side by side. It is however <strong>not</strong> recommended to do so as both modules are fetching and handling payment methods differently. Best practice is to never run the plugins simultaneous, to avoid problems such as duplicate getAddress-fields and/or payment methods in the checkout. You can not only set the old plugin disabled by the &quot;Enabled&quot;-checkbox.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" alt="Do not disable the plugin at this level" height="225" src="attachments/91029973/91029970.png" data-image-src="attachments/91029973/91029970.png" data-unresolved-comment-count="0" data-linked-resource-id="91029970" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-2023-3-16_12-36-8.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="91029973" data-linked-resource-container-version="1" title="Do not disable the plugin at this level"></span></p><p><br/></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" alt="This is where the plugins should be handled" height="139" src="attachments/91029973/91029971.png" data-image-src="attachments/91029973/91029971.png" data-unresolved-comment-count="0" data-linked-resource-id="91029971" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-2023-3-16_10-0-24.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="91029973" data-linked-resource-container-version="1" title="This is where the plugins should be handled"></span></p><p><br/></p><p><br/></p><h1 id="Pluginbasicsandinformation-ZerodecimalsinWooCommerce">Zero decimals in WooCommerce</h1><p>In newer installs of WooCommerce the setting for number of decimals to use in the checkout may be set to 0 as the default value. This is usually what you <em>do not want</em>, due to problems with roundings. If you are new to WooCommerce, make sure to look this up and change it if necessary. The recommended settings here is 2 decimals (<strong><em>Resurs do not fully support more than 2</em></strong>).</p><p>If you want to run with 0 decimals regardless of the warnings, you can <a href="0-decimals-in-WooCommerce_91029828.html">check out this page</a> for a proper solution.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" height="400" src="attachments/91029973/91029972.png" data-image-src="attachments/91029973/91029972.png" data-unresolved-comment-count="0" data-linked-resource-id="91029972" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-2023-1-12_7-38-24.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="91029973" data-linked-resource-container-version="1" alt=""></span></p><h1 id="Pluginbasicsandinformation-Changingthepaymentmethodconfiguration">Changing the payment method configuration</h1><p>When making any changes to payment methods at Resurs Bank it is strongly recommended that you clear the cache in the <a href="Plugin-configuration_91029886.html">Plugin configuration</a> to avoid potential problems.</p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029973/91029969.png">image-2023-3-14_13-47-8.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029973/91029970.png">image-2023-3-16_12-36-8.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029973/91029971.png">image-2023-3-16_10-0-24.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029973/91029972.png">image-2023-1-12_7-38-24.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,37 @@
+Look around line 181, After ...
+
+            <?php if(isset($this->formErrors['payment_method']) && $this->formErrors['payment_method']): ?>
+                <div class="onestepcheckout-error onestepcheckout-payment-method-error">
+                    <?php echo $this->__('Please choose a payment method.'); ?>
+                </div>
+            <?php else: ?>
+
+Add ...
+                    <!-- Begin display Resursbank Error -->
+                   <?php if(isset($this->formErrors['payment_method_error']) && !empty($this->formErrors['resursbank_error'])): ?>
+                        <div class="onestepcheckout-error onestepcheckout-payment-method-error">
+                            <?php echo $this->formErrors['resursbank_error'];?>
+                        </div>
+                    <?php elseif(isset($this->formErrors['payment_method_error'])): ?>
+                        <div class="onestepcheckout-error onestepcheckout-payment-method-error">
+                            <?php echo $this->__('Please enter valid details below.'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <!-- End display Resursbank Error -->
+
+In the bottom of the file, add ...
+
+<!-- Begin Resursbank Block -->
+<?php
+    if($paymentId = Mage::getSingleton('checkout/session')->getDisablePaymentMethodId())
+    {
+        echo "<script type='text/javascript'>
+              \$j = jQuery.noConflict();  
+              //\$j('#p_method_resurspayment$paymentId').attr('disabled','disabled');
+               document.getElementById('p_method_resurspayment$paymentId').checked = false;
+              //\$j('#payment_form_resurspayment$paymentId').hide();
+              </script>";
+        Mage::getSingleton('checkout/session')->setDisablePaymentMethodId('');
+    }
+?>
+<!-- End Resursbank Block -->

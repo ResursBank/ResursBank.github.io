@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : The &quot;not a bug&quot; list</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="FAQ_328016.html">FAQ</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : The &quot;not a bug&quot; list
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified by <span class='editor'> Daniel</span> on 2023-11-10
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>On this page, we keep a list of errors and problems that is normally not related to plugins or installed modules. Sometimes errors are generated due to missing components or external access is denied from your platform. Sometimes this happens due to unmet requirements. Here's some of them. If this page does not cover your problem, you can also take a look at <a href="16056453.html">Errors, problem solving and corner cases</a>.</p><p><br/></p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Error/Code</th><th class="confluenceTh">Description</th><th colspan="1" class="confluenceTh">Solution (Eventually)</th></tr><tr><td class="confluenceTd"><span style="color: rgb(51,51,51);">error:<strong>14090086</strong>:SSL routines:ssl3_get_server_certificate:certificate verify failed</span></td><td class="confluenceTd">Root certificate bundles are missing on your server, or is placed in a path where your server is not looking.</td><td colspan="1" class="confluenceTd"><p>For PHP cases, this can be fixed by editing your server's php.ini:</p><p><span>See the variables for openssl.cafile, openssl.capath.</span></p><p>Another solution is to try to add the missing files. In many cases, the missing file is ca-certificates.crt, and in a &quot;standard&quot; Ubuntu platform, they are located in /etc/ssl/certs - openssl usually delivers this file by the dependency ca-certificates (<em>apt-get install ca-certificates</em>).</p></td></tr><tr><td colspan="1" class="confluenceTd"><p class="gh-header-title"><span class="js-issue-title">error:<strong>14094410</strong>:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure</span></p><p><span><br/></span></p></td><td colspan="1" class="confluenceTd">SSL handshake errors due to unsupported SSL version. This usually happens when your client tries to communicate with a disabled or non-existent SSL version.</td><td colspan="1" class="confluenceTd">Upgrade openssl and/or your platform.</td></tr><tr><td colspan="1" class="confluenceTd"><p class="highlight">ERROR: Error 35: error:<strong>14077458</strong>:SSL routines:SSL23_GET_SERVER_HELLO:reason(1112)</p></td><td colspan="1" class="confluenceTd">Almost like the one above. SSL protocol error.</td><td colspan="1" class="confluenceTd">Make sure your ssl supports the right protocol.</td></tr><tr><td colspan="1" class="confluenceTd">SOAP-ERROR: Parsing WSDL: Couldn't load from 'url?wsdl' : failed to load external entity &quot;url?wsdl&quot;</td><td colspan="1" class="confluenceTd">If this error is a &quot;standalone&quot; where only this message is visible, there might be an SSL problem again.</td><td colspan="1" class="confluenceTd"><p>This is normally either a credential error or a sign that your system is missing enabled ssl-drivers. The <a href="PHP-and-development-libraries_5014349.html">EComPHP</a>-library is normally trying to defeat this error message by revealing the &quot;true&quot; error since credential errors, especially on older PHP-systems, tend to hide such error messages when credentials are used.</p><p><a href="https://tracker.tornevall.net/browse/NETCURL-67" class="external-link" rel="nofollow">This is a bug in PHP, known since 2006</a> where 401-Unauthorized errors are being handled as notices rather than a &quot;real&quot; exceptions, and is normally not catched by PHP. This is probably not fixed since PHP 7+ should be able to handle this better (unconfirmed).</p></td></tr></tbody></table></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

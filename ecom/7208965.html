@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Hooks/filters v2.2 (and core tweaks)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Plugins_1476269.html">Platform Plugins</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="WooCommerce_2588830.html">WooCommerce</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="91030050.html">Resurs Bank Payment Gateway for WooCommerce (v2.2) Resurs Checkout &amp; Simplified Flow</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Hooks/filters v2.2 (and core tweaks)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2022-04-07
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780961803 {padding: 0px;}
+div.rbtoc1706780961803 ul {margin-left: 0px;}
+div.rbtoc1706780961803 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780961803'>
+<ul class='toc-indentation'>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-Filter:SendingstoreIdintothepayload'>Filter: Sending storeId into the payload</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-Filter:Handlingofpaymentmethodsprefixpaths'>Filter: Handling of payment methods prefix paths</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-Filter:Sortorderofpaymentmethodsinwp-admin'>Filter: Sort order of payment methods in wp-admin</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-Filter:Partpaymentwidgetstring'>Filter: Part payment widget string</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-Action:Orderinfo'>Action: Order info</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-Action:Handlingsessions'>Action: Handling sessions</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-Partialrefunds(onpricelevel)-resurs_refund_price_override'>Partial refunds (on price level) - resurs_refund_price_override</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-Frontendhooksforcountrychanges'>Front end hooks for country changes</a></li>
+</ul>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-CoreTweaks'>Core Tweaks</a>
+<ul class='toc-indentation'>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-Theoldroweditorforpartialannul/creditingisnolongeravailable'>The old row editor for partial annul/crediting is no longer available</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-Performanceissuesandpluginbreakswithinwp-admin(2.2.24+)'>Performance issues and plugin breaks within wp-admin (2.2.24+)</a></li>
+</ul>
+</li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-Settableadvancedflags'>Settable advanced flags</a>
+<ul class='toc-indentation'>
+
+<ul class='toc-indentation'>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-GIT_BIN'>GIT_BIN</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-ECOM_CACHE_TIME'>ECOM_CACHE_TIME</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-CURL_TIMEOUT'>CURL_TIMEOUT</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-DISABLE_SSL_VALIDATION'>DISABLE_SSL_VALIDATION</a></li>
+</ul>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-Miscellaneous'>Miscellaneous</a>
+<ul class='toc-indentation'>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-FEE_EDITOR'>FEE_EDITOR</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-DEBUG'>DEBUG</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-NONCE_ERRORS'>NONCE_ERRORS</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-SKIP_DIGEST_VALIDATION'>SKIP_DIGEST_VALIDATION</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-XDEBUG_SESSION_START'>XDEBUG_SESSION_START</a></li>
+<li><a href='#Hooks/filtersv2.2(andcoretweaks)-PTEUSERS'>PTEUSERS</a></li>
+</ul>
+</li>
+</ul>
+</div></p><p>The filters described on this page always requires that you keep our plugin updated.</p><h2 id="Hooks/filtersv2.2(andcoretweaks)-Filter:SendingstoreIdintothepayload">Filter: Sending storeId into the payload</h2><p>As of the release of v2.1.x we not only deliver the plugin with EComPHP 1.1.x, we also support storeids in the shop, via the filter <strong>resursbank_set_storeid</strong>-filter.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence" data-theme="Confluence">function setResursStoreId() {
+    $return = 107999;  // Enter your code here, to fetch or generate the storeId to return.
+
+    return $return;
+}
+add_filter( &#39;resursbank_set_storeid&#39;, &#39;setResursStoreId&#39;, 10, 1 );</pre>
+</div></div><p>A sample plugin for testings, including (almost) the above example can be found at <a href="https://bitbucket.org/resursbankplugins/resurs-storeid-test/overview" class="external-link" rel="nofollow">https://bitbucket.org/resursbankplugins/resurs-storeid-test/overview</a></p><h2 id="Hooks/filtersv2.2(andcoretweaks)-Filter:Handlingofpaymentmethodsprefixpaths">Filter: Handling of payment methods prefix paths</h2><p>As of 2.2.18 we have changed the path structure for where payment method models are stored. From now on, since they are files, the are stored in subpaths within the includes structure and the directories are created based on WordPress database table_prefix names. However, if this method is not good enough, you have a small chance to fix such &quot;errors&quot;, by using the filter <strong>resurs_bank_model_prefix</strong>. For example, if you wish to keep those directories numeric only, you can add something like this to an external plugin for your site:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">function altPrefix($return) {
+    global $table_prefix;
+    $return = preg_replace(&#39;/[^0-9]/&#39;, &#39;&#39;, $table_prefix);
+    return $return;
+}
+add_filter(&#39;resurs_bank_model_prefix&#39;, &#39;altPrefix&#39;);</pre>
+</div></div><p>The function example could actually contain whatever you need to adapt a multisite solution. In newer versions, we do not use models like this so this should not be a problem for future versions.</p><h2 id="Hooks/filtersv2.2(andcoretweaks)-Filter:Sortorderofpaymentmethodsinwp-admin">Filter: Sort order of payment methods in wp-admin</h2><p>The filer <strong>resurs_admin_sort_methods_by_value</strong> makes it possible to change the content of  the default payment method &quot;name&quot; in the WP-admin. Since version 2.2.17.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">/**
+ * @param string $description
+ * @param stdClass $paymentMethodContent
+ * @return mixed
+ */
+function resursMethodValue($description, $paymentMethodContent)
+{
+ return $paymentMethodContent-&gt;id;
+}
+
+add_filter(&#39;resurs_admin_sort_methods_by_value&#39;, &#39;resursMethodValue&#39;, 10, 2);</pre>
+</div></div><p>The above example will change the output from the default description order:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" height="150" src="attachments/7208965/16057050.png" data-image-src="attachments/7208965/16057050.png" data-unresolved-comment-count="0" data-linked-resource-id="16057050" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2019-4-26_12-3-42.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7208965" data-linked-resource-container-version="27" alt=""></span></p><p>to sort methods by their id names:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" height="150" src="attachments/7208965/16057048.png" data-image-src="attachments/7208965/16057048.png" data-unresolved-comment-count="0" data-linked-resource-id="16057048" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2019-4-26_12-2-42.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7208965" data-linked-resource-container-version="27" alt=""></span></p><p>The way this is handled should not affect anything but the list itself.</p><h2 id="Hooks/filtersv2.2(andcoretweaks)-Filter:Partpaymentwidgetstring">Filter: Part payment widget string</h2><p>We have seen moments where the part payment widget text data is not translated properly. In earlier versions (&lt; 2.2.18) this data had to be hard coded if you had to replace the string in the widget (in cases where translations don't work). The below plugin-filter might help you with this, without the necessary hard coding. This filter works from 2.2.18+</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Part payment text replacer</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence" data-theme="Confluence">/**
+ * @param $defaultString The html content string created by the plugin.
+ * @param $annuityData The data values from annuity factors.
+ * @return string Your new string.
+ */
+function resursPartPaymentStringReplace($defaultString, $annuityData){
+    return sprintf(&quot;Pröjsa från %s spänn&quot;, $annuityData);
+}
+add_filter(&#39;resursbank_custom_annuity_string&#39;, &#39;resursPartPaymentStringReplace&#39;, 10, 2);</pre>
+</div></div><h2 id="Hooks/filtersv2.2(andcoretweaks)-Action:Orderinfo">Action: Order info</h2><p>In version 2.0 of our WooCommerce plugin you are able to integrate with a few hooks in our plugin. The hooks are recently introduced and therefore considered experimental, and there might be more of them in the future. For the moment, we support some hooks in the callbacks, which means for each received callback from Resurs Ecommerce there will be a forwarding hook, that is able to registered what happaned in the callback.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Coding example</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence" data-theme="Confluence">function resurs_hook_orderinfo($paymentInfo) {
+ 
+/*
+    What we get from here:
+ 
+    Array
+    (
+        [id] =&gt; resursOrderReference
+        [fraud] =&gt; 1
+        [frozen] =&gt; 1
+        [status] =&gt; IS_ANNULLED
+        [booked] =&gt; time()
+        [finalized] =&gt; time()
+        [callback] =&gt; ANNULMENT
+    )
+*/
+ 
+    // Do what you need to do here
+}
+add_action(&#39;resurs_hook_callback&#39;, &#39;resurs_hook_orderinfo&#39;, 1, 1);</pre>
+</div></div><p>The example above is very simple - the callback hook takes one argument and contains data about the received callback in an array (See the example).</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Field</th><th colspan="1" class="confluenceTh">Type</th><th class="confluenceTh">Explained</th></tr><tr><td class="confluenceTd"><em>id</em></td><td colspan="1" class="confluenceTd"><strong>string</strong></td><td class="confluenceTd">The order reference id, booked at Resurs Bank</td></tr><tr><td colspan="1" class="confluenceTd"><em>fraud</em></td><td colspan="1" class="confluenceTd"><strong>boolean</strong></td><td colspan="1" class="confluenceTd">If the booked order is flagged possible fraud (will change on &quot;not suspected&quot; to false)</td></tr><tr><td colspan="1" class="confluenceTd"><em>frozen</em></td><td colspan="1" class="confluenceTd"><strong>boolean</strong></td><td colspan="1" class="confluenceTd">If the order is frozen</td></tr><tr><td colspan="1" class="confluenceTd"><em>status</em></td><td colspan="1" class="confluenceTd"><strong>string</strong></td><td colspan="1" class="confluenceTd"><a href="paymentStatus_1475845.html">paymentStatus</a> from Resurs Bank</td></tr><tr><td colspan="1" class="confluenceTd"><em>booked</em></td><td colspan="1" class="confluenceTd"><strong>integer</strong></td><td colspan="1" class="confluenceTd">Unix timestamp for when the order was booked</td></tr><tr><td colspan="1" class="confluenceTd"><em>finalized</em></td><td colspan="1" class="confluenceTd"><strong>integer</strong></td><td colspan="1" class="confluenceTd">Unix timestamp for when the order was finalized (if it was)</td></tr><tr><td colspan="1" class="confluenceTd"><em>callback</em></td><td colspan="1" class="confluenceTd"><strong>string</strong></td><td colspan="1" class="confluenceTd">If the hook was triggered by a <a href="Callbacks_327724.html">callback</a>, this is the name of the callback</td></tr></tbody></table></div><h2 id="Hooks/filtersv2.2(andcoretweaks)-Action:Handlingsessions">Action: Handling sessions</h2><p>In very rare cases, there might be a need of controlling how the session is handled. There are two new filters in the latest version that handles whether session_start() should be invoked by the plugin, or not.</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Filter name</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd"><p>resursbank_start_session_before</p></td><td class="confluenceTd"><p>Using this filter and setting return value to true will be the same as disabling the session during this phase.<br/>This filter can disable the session creation completely. Use at your own risk, if you believe that you need to handle this by yourself.</p></td></tr><tr><td colspan="1" class="confluenceTd"><p>resursbank_start_session_outside_admin_only</p></td><td colspan="1" class="confluenceTd"><p>Disable session creation when in admin if true (will make a !is_admin()-check).</p>Activation of this filter will turn session_start() off, when in admin.</td></tr></tbody></table></div><h2 id="Hooks/filtersv2.2(andcoretweaks)-Partialrefunds(onpricelevel)-resurs_refund_price_override">Partial refunds (on price level) - resurs_refund_price_override</h2><p>Normally, partial refunds in woocommerce are supported on quantity level (as of 2.2.21). This means that you now only can remove entire rows from an order, you can also for example change the quantity (i.e. if you by mistake ordered a product with 2 pieces in quantity, you can annul/credit one of them). However, when it comes to manipulation of pricing per row, we usually do not allow such things. But there is a override filter for this, if you want to take further risks with the partial annullment/refunding functions; <strong style="text-align: left;">resurs_refund_price_override</strong>. Doing something like below, with your own plugin you can make our plugin override the price manipulation protection.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">function refundFunction() {
+    return true;
+}
+add_filter(&#39;resurs_refund_price_override&#39;, &#39;refundFunction&#39;);</pre>
+</div></div><p><br/></p><h2 id="Hooks/filtersv2.2(andcoretweaks)-Frontendhooksforcountrychanges">Front end hooks for country changes</h2><p>In prior versions of the plugin there had been no relations between the getAddress-form and the country changes, if the store has several delivery countries, mostly due to the codebase. As the codebase is not included in WooCommerce own triggers (which they should, see example <a href="https://github.com/Tornevall/tornevalls-resurs-bank-payment-gateway-for-woocommerce/blob/master/src/Service/WordPress.php#L217" class="external-link" rel="nofollow">here</a> and <a href="https://github.com/Tornevall/tornevalls-resurs-bank-payment-gateway-for-woocommerce/blob/master/src/Service/WooCommerce.php#L1411" class="external-link" rel="nofollow">here</a> for a proper implementation with payment review fragments - in that example, instead of exclude the getAddress-forms from a natural flow it is instead included in it - and renders fields when WooCommerce itself requests to do so). In this specific case, nothing will happen unless the scripts gets notified on the country changes.</p><p>This commit adds a new trigger, handled from the plugin as long as billing_country can be bound to an onChange-event via jQuery:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$(&#39;#billing_country&#39;).on(&#39;change&#39;, function () {
+    $(&#39;body&#39;).trigger(&#39;resursCountryChange&#39;, {newCountry: this.value});});</pre>
+</div></div><p><strong>How it is catched:</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$RB(document).on(&#39;resursCountryChange&#39;, function(e, data) {});</pre>
+</div></div><p>This specific event is used internally by our own plugin on the condition that the government id field is forced to be shown in the last parts of the checkout, mostly to demonstrate how it works. This setting can be found in the “advanced”-section:</p><p>The event triggering is likely to depend on how templates are set up to show the billing data fields, and the importance lies within that #billing_country must be present at the document-ready event.</p><h1 id="Hooks/filtersv2.2(andcoretweaks)-CoreTweaks">Core Tweaks</h1><h2 id="Hooks/filtersv2.2(andcoretweaks)-Theoldroweditorforpartialannul/creditingisnolongeravailable">The old row editor for partial annul/crediting is no longer available</h2><p>It actually is. But for a while this function is moved into the status type of the order. By means, editing order to partially credit/annul rows on an order is only available as long as WooCommerce has a pending order. In older releases of WooCommerce, this editor has always been active. But don't feel sorry. You can still re-activate this function, even if it's probably not recommended. What you need is a plugin that loads after ours - or if you edit the core (<strong>resursbankmain.php</strong>) and add the code below. Note: In future 2.2-releases, this function will be added to the plugin.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Editable order code</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence" data-theme="Confluence">/**
+ * @param bool $isEditable
+ * @param $that WC_Admin_Order
+ *
+ * @return bool
+ */
+function resurs_order_is_editable($isEditable, $that)
+{
+    $resursOrderId = wc_get_payment_id_by_order_id($that-&gt;get_id());
+
+    if (!empty($resursOrderId)) {
+        return true;
+    }
+
+    return $isEditable;
+}
+
+
+add_filter(&#39;wc_order_is_editable&#39;, &#39;resurs_order_is_editable&#39;, 10, 2);</pre>
+</div></div><h2 id="Hooks/filtersv2.2(andcoretweaks)-Performanceissuesandpluginbreakswithinwp-admin(2.2.24+)">Performance issues and plugin breaks within wp-admin (2.2.24+)</h2><p>There are rare moments when our plugin may interfere with parts of wp-admin which causes strange untraceable errors. As long as we can't find error logs that indicates what's wrong, we've added an extremely odd filter that controls the major activity for the plugin, and where it is allowed to act. In the beginning of this plugin's era it was built in a way too fragile way, so it is normally active in each &quot;browser session&quot; (where one page reload here is counted as a single session). This means that the plugin are running on pages (like the template editor) even if it has no role there. Normally, this works fine, as the plugin should be idle. We've been working on the same behaviour in the frontend parts, where filters and actions restricts usage where it does not belong. But the road is quite long to make this perfect.</p><p>For wp-admin, this is where the filter comes in. If works like this - and you can build your own plugin that lifts or restricts access in the same way we did. The filter itself is called <strong><span style="color: rgb(128,0,0);">allow_resurs_run</span></strong> and is activated by a setting in the control panel. As we have a lot more store managers than just you, we don't want to ruin life for them by always having this feature active.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" height="166" src="attachments/7208965/24641608.png" data-image-src="attachments/7208965/24641608.png" data-unresolved-comment-count="0" data-linked-resource-id="24641608" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2019-11-21_10-32-43.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7208965" data-linked-resource-container-version="27" alt=""></span></p><p>If this setting is enabled, the filter is triggered after the plugin has checked if it is located on the admin-pages. As this feature is experimental, it should be <em><strong>considered activated as a last resort only</strong></em>. The setting makes sure that the plugin is active in a few scenarios only, at wp-admin-stage. For the moment, this happens in the shop-order-editor and woocommerce settings only. However, it CAN be extended by something like below. In the example, the filter always returns true, so it will become permanently active in wp-admin. However, if you know there's a section in wp-admin you need to reach and you believe that the plugin is the showstopper, you can adapt this part to just prevent activity on that page. But don't forget to activate the feature first!</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">add_filter(&#39;allow_resurs_run&#39;, &#39;wp_admin_resurs_limitations&#39;, 10, 2);
+
+/**
+ * @param $allow Current inbound allow state.
+ * @param $info Very basic requests from _REQUEST and _POST parameters that could easily be analyzed.
+ * @return bool If true, the plugin is allowed to proceed.
+ */
+function wp_admin_resurs_limitations($allow,$info) {
+   return true;
+}</pre>
+</div></div><h1 id="Hooks/filtersv2.2(andcoretweaks)-Settableadvancedflags">Settable advanced flags</h1><p>In some cases we think it is not necessary to have a setting for each detailed setting that can be done. In v2 there are also, unfortunayely, a very limited count hooks and filters so when it is really necessary to change the regular behaviour of the plugin some flags can be set. We however, do not take any resposibility over such actions. Below is a list of some of them. They can be set in to ways: <strong>FLAG_KEY</strong> and <strong>FLAG_KEY=VALUE</strong>, where only the flag without a value will be considered a boolean while the other way is considered a key with a value.</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Flag</th><th class="confluenceTh">Value</th><th colspan="1" class="confluenceTh">Behaviour</th></tr><tr><td class="confluenceTd"><h4 id="Hooks/filtersv2.2(andcoretweaks)-GIT_BIN">GIT_BIN</h4></td><td class="confluenceTd">string</td><td colspan="1" class="confluenceTd">Activates a function that checks if your plugin is on the latest commit (when cloned from a master repository).</td></tr><tr><td colspan="1" class="confluenceTd"><h4 id="Hooks/filtersv2.2(andcoretweaks)-ECOM_CACHE_TIME">ECOM_CACHE_TIME</h4></td><td colspan="1" class="confluenceTd">int</td><td colspan="1" class="confluenceTd">getPayments can in newer EComPHP-releases be cached for a limited time (3 sec). Each time a getPayment is done, EComPHP will return a stored copy of the getPayment-API instead of making a new request. Since the default time is 3 seconds, this setting can be used to change this value.</td></tr><tr><td colspan="1" class="confluenceTd"><h4 id="Hooks/filtersv2.2(andcoretweaks)-CURL_TIMEOUT">CURL_TIMEOUT</h4></td><td colspan="1" class="confluenceTd">int</td><td colspan="1" class="confluenceTd">Double-pass value. The timeout set in this flag will be passed through over to EComPHP and further into the communications driver (6.0.x) to replace the <a href="https://bitbucket.tornevall.net/projects/LIB/repos/tornelib-php-netcurl/browse/source/Modules/curl.php?at=refs%2Fheads%2Fstable%2F6.0#61" class="external-link" rel="nofollow">default connectivity timeout</a>.</td></tr><tr><td colspan="1" class="confluenceTd"><h4 id="Hooks/filtersv2.2(andcoretweaks)-DISABLE_SSL_VALIDATION">DISABLE_SSL_VALIDATION</h4></td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd">Experiencing much trouble with SSL certificates (very common with self signed certificates as the communications driver by default requires a valid SSL certificate to be able to communicate). This flag is passed over from EComPHP to the driver to lower the security requirements. Normally this should only be used in test environments.</td></tr><tr><td colspan="3" class="confluenceTd"><h2 id="Hooks/filtersv2.2(andcoretweaks)-Miscellaneous"><strong>Miscellaneous</strong></h2></td></tr><tr><td colspan="1" class="confluenceTd"><h4 id="Hooks/filtersv2.2(andcoretweaks)-FEE_EDITOR">FEE_EDITOR</h4></td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd">Activates a fee editor directly in the MAIN configuration for payment methods.</td></tr><tr><td colspan="1" class="confluenceTd"><h4 id="Hooks/filtersv2.2(andcoretweaks)-DEBUG">DEBUG</h4></td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd">Passed debug mode over to EComPHP to activate debugging features (deprecated, as EComPHP normally in newer versions allows debugging anyway).</td></tr><tr><td colspan="1" class="confluenceTd"><h4 id="Hooks/filtersv2.2(andcoretweaks)-NONCE_ERRORS">NONCE_ERRORS</h4></td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd">Developer feature to test nonce validations.</td></tr><tr><td colspan="1" class="confluenceTd"><h4 id="Hooks/filtersv2.2(andcoretweaks)-SKIP_DIGEST_VALIDATION">SKIP_DIGEST_VALIDATION</h4></td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd">Developer feature.</td></tr><tr><td colspan="1" class="confluenceTd"><h4 id="Hooks/filtersv2.2(andcoretweaks)-XDEBUG_SESSION_START">XDEBUG_SESSION_START</h4></td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd">Developer feature for xdebuggers.</td></tr><tr><td colspan="1" class="confluenceTd"><h4 id="Hooks/filtersv2.2(andcoretweaks)-PTEUSERS">PTEUSERS</h4></td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">Internal usage only.</td></tr></tbody></table></div>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7208965/16057048.png">image2019-4-26_12-2-42.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7208965/16057050.png">image2019-4-26_12-3-42.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7208965/24641608.png">image2019-11-21_10-32-43.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

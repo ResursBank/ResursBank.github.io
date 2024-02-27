@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Release- and installation notes, error logging and development for Magento OldFlow</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Plugins_1476269.html">Platform Plugins</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Magento-modules_1476277.html">Magento modules</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Magento-Plugin---OldFlow-version_5570890.html">Magento Plugin - OldFlow version</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Release- and installation notes, error logging and development for Magento OldFlow
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified by <span class='editor'> Benny</span> on 2017-02-20
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div><h1 id="Releaseandinstallationnotes,errorlogginganddevelopmentforMagentoOldFlow-DevelopingMagento"><strong>Developing Magento</strong></h1><h2 id="Releaseandinstallationnotes,errorlogginganddevelopmentforMagentoOldFlow-Cache">Cache</h2><p>Make sure that as much as possible of Magento's caching features are disabled. Old caches may be heavy showstoppers when things normally works ok and suddenly stops. This is especially occuring when many things are changing shortly after each after. A good thing otherwise, is to clear caches often.</p><p> </p><h1 id="Releaseandinstallationnotes,errorlogginganddevelopmentforMagentoOldFlow-Afterinstallationnotices"><strong>After installation notices</strong></h1><h2 id="Releaseandinstallationnotes,errorlogginganddevelopmentforMagentoOldFlow-Olderpluginreleasesandtestenvironments">Older plugin releases and test environments</h2><p>For older releases, make sure that test environment are pointed to <a href="https://test.resurs.com/ecommerce-test/ws/V4/" class="external-link" rel="nofollow">https://test.resurs.com/ecommerce-test/ws/V4/</a></p><h2 id="Releaseandinstallationnotes,errorlogginganddevelopmentforMagentoOldFlow-Testversusproduction">Test versus production</h2><p>Data in test environment may differ from data that can be found in production environment. For example, getCostOfPurchaseHtml may present more information on payments in production, depending on chosen payment method, than it normally does in test.</p><h2 id="Releaseandinstallationnotes,errorlogginganddevelopmentforMagentoOldFlow-Configuration">Configuration</h2><p>Don't forget to check out settings and configurations below, since there are things that has to be done before the plugin works properly, like setting up merchant credentials.<br/>Make sure that you are really setting this to what is preferred usage for your store.<br/><br/><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" draggable="false" height="150" src="attachments/1476277/4161545.png" data-image-src="attachments/1476277/4161545.png" data-unresolved-comment-count="0" data-linked-resource-id="4161545" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-2-12 10:58:46.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1476277" data-linked-resource-container-version="183" alt=""></span></p><h2 id="Releaseandinstallationnotes,errorlogginganddevelopmentforMagentoOldFlow-Errorhandlinginproductionenvironments">Error handling in production environments</h2><p>For a production environment: Make sure that <strong>MAGE_IS_DEVELOPER_MODE = &quot;true&quot;</strong> is disabled (in .htaccess) if enabled, together with display_errors (php.ini) - unless you don't want it to be very verbose. Other plugins (including this) may generate errors that makes the plugin stop working properly, since the AJAX routines are depending on correct returned values. For example, plugins that contains pre-undefined variables, may create log-notices this way, that may halt scripts before they are finished. Those settings may also cause same kind of errors in a test environment.</p><p> </p></div><h1 id="Releaseandinstallationnotes,errorlogginganddevelopmentforMagentoOldFlow-Releasenotes"><strong>Release notes</strong></h1><h2 id="Releaseandinstallationnotes,errorlogginganddevelopmentforMagentoOldFlow-Version1.2.9">Version 1.2.9</h2><p>The form for which the customers can enter their own SSN to confirm their home address has been removed and is now put into code examples which can be found here</p><h2 id="Releaseandinstallationnotes,errorlogginganddevelopmentforMagentoOldFlow-Version1.2.5">Version 1.2.5</h2><p>This version contains a major change of how payment-methods are saved in configuration. When upgrading a reconfiguration of your old payment methods may be needed. We've also added patch files to manually patch up newer versions of Firecheckout (look in the patch-path in the zip-file). <strong>The new format (in the Model-path) is Resurspayment&lt;representativeId&gt;&lt;paymentMethodId&gt;.php </strong></p><p><strong><br/></strong></p><h1 id="Releaseandinstallationnotes,errorlogginganddevelopmentforMagentoOldFlow-Bugs,etc"><strong>Bugs, etc</strong></h1><h2 id="Releaseandinstallationnotes,errorlogginganddevelopmentforMagentoOldFlow-Pricingbugs">Pricing bugs</h2><p><strong>Discover dates: </strong></p><p>2014-02-03, Klarna <br/>2015-02-23, Payson </p><p>There may be problems with shopping cart price rules, when running our plugin together with Klarna, Payson and possibly more plugins, due to misconfiguration. Especially shipping and order sums may fail in the final order.</p><p><strong>How to fix:</strong></p><p>Make sure etc/config.xml (in Klarna's plugin) have shipping included in the &lt;before&gt;-tag under &lt;sales&gt;&lt;quote&gt;&lt;totals&gt;&lt;klarna_fee&gt;<br/>Likewise, there may be problems with the shopping cart information (confirmed with Magento 1.9) when working together with Payson plugin (Discovered 2015-02-23).<br/>Add shipping,subtotal at the &lt;before&gt;-tag at &lt;sales&gt;&lt;quote&gt;&lt;totals&gt;&lt;payson_invoice&gt; (etc/config.xml in Payson's plugin)</p><p>There is however not a guarantee that the fix is completely solved this way; problems with other miscalculations (like double taxes) has been reported to us.</p><h2 id="Releaseandinstallationnotes,errorlogginganddevelopmentforMagentoOldFlow-Technicalissuesontaxclasses">Technical issues on tax classes</h2><p>Found 2015-03-24</p><p>Some tax classes may cause technical issues with webservices, and some settings in Magento's own configuration may give double taxes. Currently, there is no fix for this, since it's configurable outside the space of Resurs Bank.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" draggable="false" height="150" src="attachments/4653139/4653146.png" data-image-src="attachments/4653139/4653146.png" data-unresolved-comment-count="0" data-linked-resource-id="4653146" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-5-19 13:19:58.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="4653139" data-linked-resource-container-version="11" alt=""></span><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" draggable="false" height="150" src="attachments/4653139/4653147.png" data-image-src="attachments/4653139/4653147.png" data-unresolved-comment-count="0" data-linked-resource-id="4653147" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-5-19 13:21:37.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="4653139" data-linked-resource-container-version="11" alt=""></span></p><h2 id="Releaseandinstallationnotes,errorlogginganddevelopmentforMagentoOldFlow-Paymentmethodthresholds,minandmaxboundaries">Payment method thresholds, min and max boundaries</h2><p>Technical issues should normally not occur, when a price is too low or too high for a payment method, since the payment method automatically checks the boundaries during the payment. However, if it happens, it may be caused by an older cached payment method. To fix this, you need database access, so you can remove the misconfigured payment methods from the table <em><strong>resursbank_payment_methods</strong></em>.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" height="150" src="attachments/4653139/4653151.png" data-image-src="attachments/4653139/4653151.png" data-unresolved-comment-count="0" data-linked-resource-id="4653151" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-5-19 13:28:10.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="4653139" data-linked-resource-container-version="11" alt=""></span></p><p> </p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4653139/4653146.png">image2015-5-19 13:19:58.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4653139/4653147.png">image2015-5-19 13:21:37.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4653139/4653151.png">image2015-5-19 13:28:10.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

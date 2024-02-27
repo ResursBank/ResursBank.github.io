@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Get Payment</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="After-Shop-Service-API_327799.html">After Shop Service API</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Get Payment
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Benny</span>, last modified by <span class='editor'> Thomas Tornevall</span> on 2023-12-27
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 style="text-align: center;" id="GetPayment-getPayment">getPayment</h1><p><em><span>Retrieves detailed information about the payment.</span></em></p><p><em><span> </span></em><br/><strong>Input (Literal)</strong></p><div class="table-wrap"><table class="confluenceTable"><tbody class=""><tr class=""><th class="confluenceTh">Name</th><th class="confluenceTh">Type</th><th class="confluenceTh">Occurs</th><th class="confluenceTh">Nillable?</th><th class="confluenceTh">Description</th></tr><tr class=""><td class="confluenceTd"><span>paymentId </span></td><td class="confluenceTd"><strong><a href="Simple-Types..._1475653.html">id</a></strong></td><td class="confluenceTd">1..1</td><td class="confluenceTd">No</td><td class="confluenceTd"><span>The identity of the payment.</span></td></tr></tbody></table></div><p><br/><strong>Output (Literal)</strong></p><div class="table-wrap"><table class="confluenceTable"><tbody class=""><tr class=""><th class="confluenceTh">Name</th><th class="confluenceTh">Type</th><th class="confluenceTh">Occurs</th><th class="confluenceTh">Nillable?</th><th class="confluenceTh">Description</th></tr><tr class=""><td class="confluenceTd"><span>return </span></td><td class="confluenceTd"><span><a href="payment_1475853.html"><strong>payment</strong> </a></span></td><td class="confluenceTd">1..1</td><td class="confluenceTd">No</td><td class="confluenceTd"><span>The payment details.</span></td></tr></tbody></table></div><p><br/><strong>Faults</strong></p><div class="table-wrap"><table class="confluenceTable"><tbody class=""><tr class=""><th class="confluenceTh">Name</th><th class="confluenceTh">Content</th><th class="confluenceTh">Description</th></tr><tr class=""><td class="confluenceTd"><span>ECommerceErrorException </span></td><td class="confluenceTd"><strong><a href="ECommerceError_1475945.html">ECommerceError</a></strong><span> </span><span> </span></td><td class="confluenceTd"><span>Failed to retrieve the payment details. See error for details.</span></td></tr></tbody></table></div><p><br/></p><h3 id="GetPayment-Introduction"><span style="line-height: 1.25;">Introduction</span></h3><p><span style="line-height: 17.0px;">R</span>etrieves detailed information about a specific payment. You need the paymentId for the payment you want to have information about. To get all available payments you should use the <strong><a href="Find-Payments_1474966.html">findPayments</a> </strong>method.</p><h3 id="GetPayment-Example">Example</h3><p>An example showing request/response for a get payment</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Request</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:aft=&quot;http://ecommerce.resurs.com/v4/msg/aftershopflow&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;aft:getPayment&gt;
+         &lt;paymentId&gt;Pay-1372762301644-3166&lt;/paymentId&gt; &lt;!-- Seraching for payment with id in the exshop--&gt;
+      &lt;/aft:getPayment&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Response</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;soap:Body&gt;
+      &lt;ns2:getPaymentResponse xmlns:ns3=&quot;http://ecommerce.resurs.com/v4/msg/exception&quot; xmlns:ns2=&quot;http://ecommerce.resurs.com/v4/msg/aftershopflow&quot;&gt;
+         &lt;return&gt;
+            &lt;id&gt;Pay-1372762301644-3166&lt;/id&gt;
+            &lt;totalAmount&gt;0.00000000000000000000&lt;/totalAmount&gt;
+            &lt;metaData&gt;
+               &lt;key&gt;Expressfrakt&lt;/key&gt;
+               &lt;value&gt;true&lt;/value&gt;
+            &lt;/metaData&gt;
+            &lt;limit&gt;3030.00000&lt;/limit&gt;
+            &lt;paymentDiffs&gt;
+               &lt;type&gt;AUTHORIZE&lt;/type&gt;
+               &lt;created&gt;2013-07-02T12:51:51+02:00&lt;/created&gt;
+               &lt;createdBy&gt;SHOP_FLOW&lt;/createdBy&gt;
+               &lt;paymentSpec&gt;
+                  &lt;specLines&gt;
+                     &lt;id&gt;BOLT-002&lt;/id&gt;
+                     &lt;artNo&gt;BOLT-002&lt;/artNo&gt;
+                     &lt;description&gt;Bolt (M8x125mm)&lt;/description&gt;
+                     &lt;quantity&gt;10.00000&lt;/quantity&gt;
+                     &lt;unitMeasure&gt;st&lt;/unitMeasure&gt;
+                     &lt;unitAmountWithoutVat&gt;1.60000&lt;/unitAmountWithoutVat&gt;
+                     &lt;vatPct&gt;25.00000&lt;/vatPct&gt;
+                     &lt;totalVatAmount&gt;4.000000000000000&lt;/totalVatAmount&gt;
+                     &lt;totalAmount&gt;20.000000000000000&lt;/totalAmount&gt;
+                  &lt;/specLines&gt;
+                  &lt;specLines&gt;
+                     &lt;id&gt;NUT-001&lt;/id&gt;
+                     &lt;artNo&gt;NUT-001&lt;/artNo&gt;
+                     &lt;description&gt;Nut (M8)&lt;/description&gt;
+                     &lt;quantity&gt;10.00000&lt;/quantity&gt;
+                     &lt;unitMeasure&gt;st&lt;/unitMeasure&gt;
+                     &lt;unitAmountWithoutVat&gt;0.80000&lt;/unitAmountWithoutVat&gt;
+                     &lt;vatPct&gt;25.00000&lt;/vatPct&gt;
+                     &lt;totalVatAmount&gt;2.000000000000000&lt;/totalVatAmount&gt;
+                     &lt;totalAmount&gt;10.000000000000000&lt;/totalAmount&gt;
+                  &lt;/specLines&gt;
+                  &lt;totalAmount&gt;30.000000000000000&lt;/totalAmount&gt;
+                  &lt;totalVatAmount&gt;6.000000000000000&lt;/totalVatAmount&gt;
+               &lt;/paymentSpec&gt;
+            &lt;/paymentDiffs&gt;
+            &lt;paymentDiffs&gt;
+               &lt;type&gt;DEBIT&lt;/type&gt;
+               &lt;transactionId&gt;TrD-1372762301644-3166&lt;/transactionId&gt;
+               &lt;created&gt;2013-07-02T12:51:51+02:00&lt;/created&gt;
+               &lt;paymentSpec&gt;
+                  &lt;totalAmount&gt;30.0000000000&lt;/totalAmount&gt;
+                  &lt;totalVatAmount&gt;6.0000000000&lt;/totalVatAmount&gt;
+               &lt;/paymentSpec&gt;
+               &lt;orderId&gt;Ord-1372762301644-3166&lt;/orderId&gt;
+               &lt;invoiceId&gt;DebInv-1372762301644-3166&lt;/invoiceId&gt;
+            &lt;/paymentDiffs&gt;
+            &lt;paymentDiffs&gt;
+               &lt;type&gt;CREDIT&lt;/type&gt;
+               &lt;transactionId&gt;TrC-1372762301644-3166&lt;/transactionId&gt;
+               &lt;created&gt;2013-07-02T12:51:52+02:00&lt;/created&gt;
+               &lt;paymentSpec&gt;
+                  &lt;totalAmount&gt;30.0000000000&lt;/totalAmount&gt;
+                  &lt;totalVatAmount&gt;6.0000000000&lt;/totalVatAmount&gt;
+               &lt;/paymentSpec&gt;
+               &lt;invoiceId&gt;CrN-1372762301644-3166&lt;/invoiceId&gt;
+            &lt;/paymentDiffs&gt;
+            &lt;customer&gt;
+               &lt;governmentId&gt;8305147715&lt;/governmentId&gt;
+               &lt;address&gt;
+                  &lt;fullName&gt;Vincent Williamsson Alexandersson&lt;/fullName&gt;
+                  &lt;firstName&gt;Vincent&lt;/firstName&gt;
+                  &lt;lastName&gt;Williamsson Alexandersson&lt;/lastName&gt;
+                  &lt;addressRow1&gt;Glassgatan 15&lt;/addressRow1&gt;
+                  &lt;postalArea&gt;Göteborg&lt;/postalArea&gt;
+                  &lt;postalCode&gt;41655&lt;/postalCode&gt;
+                  &lt;country&gt;SE&lt;/country&gt;
+               &lt;/address&gt;
+               &lt;phone&gt;0707123456&lt;/phone&gt;
+               &lt;email&gt;testdata@resurs.se&lt;/email&gt;
+               &lt;type&gt;NATURAL&lt;/type&gt;
+            &lt;/customer&gt;
+            &lt;booked&gt;2013-07-02T12:51:49+02:00&lt;/booked&gt;
+            &lt;finalized&gt;2013-07-02T12:51:51+02:00&lt;/finalized&gt;
+            &lt;paymentMethodId&gt;Faktura&lt;/paymentMethodId&gt;
+            &lt;fraud&gt;false&lt;/fraud&gt;
+            &lt;frozen&gt;false&lt;/frozen&gt;
+            &lt;status&gt;IS_DEBITED&lt;/status&gt;
+            &lt;status&gt;IS_CREDITED&lt;/status&gt;
+            &lt;paymentMethodType&gt;INVOICE&lt;/paymentMethodType&gt;
+         &lt;/return&gt;
+      &lt;/ns2:getPaymentResponse&gt;
+   &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</pre>
+</div></div><p><br/></p><h3 id="GetPayment-Errorexample">Error example</h3><p>When trying to get a payment that doesn´t exist you get this error with the fixableByYou flag set to true.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;soap:Body&gt;
+      &lt;soap:Fault&gt;
+         &lt;faultcode&gt;soap:Server&lt;/faultcode&gt;
+         &lt;faultstring&gt;This order group do not exists&lt;/faultstring&gt;
+         &lt;detail&gt;
+            &lt;ns3:ECommerceError xmlns:ns2=&quot;http://ecommerce.resurs.com/v4/msg/aftershopflow&quot; xmlns:ns3=&quot;http://ecommerce.resurs.com/v4/msg/exception&quot;&gt;
+               &lt;errorTypeDescription&gt;REFERENCED_DATA_DONT_EXISTS&lt;/errorTypeDescription&gt;
+               &lt;errorTypeId&gt;8&lt;/errorTypeId&gt;
+               &lt;fixableByYou&gt;true&lt;/fixableByYou&gt;
+               &lt;userErrorMessage&gt;Efterfrågad order/betalning (Pay-1372762301644-31656) kan inte hittas i databasen.&lt;/userErrorMessage&gt;
+            &lt;/ns3:ECommerceError&gt;
+         &lt;/detail&gt;
+      &lt;/soap:Fault&gt;
+   &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</pre>
+</div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

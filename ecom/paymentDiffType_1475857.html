@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : paymentDiffType</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="API-Types_1475647.html">API Types</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : paymentDiffType
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Benny</span>, last modified on 2017-02-15
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h4 id="paymentDiffType-Thetypeofpaymentpart."><span style="line-height: 1.4285;font-size: 14.0px;">The type of payment part.</span></h4><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Value</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">AUTHORIZE</td><td class="confluenceTd">The payment part is an authorization request.</td></tr><tr><td class="confluenceTd">DEBIT</td><td class="confluenceTd">The payment part is a debit request.</td></tr><tr><td class="confluenceTd">CREDIT</td><td class="confluenceTd">The payment part is a credit request.</td></tr><tr><td class="confluenceTd">ANNUL</td><td class="confluenceTd">The payment part is an annulment request.</td></tr></tbody></table></div><h4 id="paymentDiffType-Typesofpaymentdiffs">Types of payment diffs</h4><p>Today, the system supports the following types of payment diffs:</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Type</th><th class="confluenceTh">Description</th><th colspan="1" class="confluenceTh">Banking system</th><th colspan="1" class="confluenceTh">Order value</th><th class="confluenceTh">When is it used?</th><th colspan="1" class="confluenceTh">Comments</th></tr><tr><td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey">AUTHORIZE</td><td colspan="1" class="confluenceTd">Reservation of part / whole of the allotted limit.</td><td colspan="1" class="confluenceTd">Authorization of amounts in accounts.</td><td colspan="1" class="confluenceTd">Increases</td><td colspan="1" class="confluenceTd">When a purchase is booked.</td><td colspan="1" class="confluenceTd">In earlier drafts DEBIT has had dual functions, authorization and billing has been done by</td></tr><tr><td class="highlight-grey confluenceTd" data-highlight-colour="grey">DEBIT</td><td class="confluenceTd">Making of a debit.</td><td colspan="1" class="confluenceTd"><p>Transaction of the amount on account.<br/>New authorization on the remaining amount.</p></td><td colspan="1" class="confluenceTd"><p>Unchanged</p></td><td class="confluenceTd">When goods are shipped to the customer.</td><td colspan="1" class="confluenceTd">See above</td></tr><tr><td class="highlight-grey confluenceTd" data-highlight-colour="grey">CREDIT</td><td class="confluenceTd">Effecting a crediting.</td><td colspan="1" class="confluenceTd">Crediting the amount of the account.</td><td colspan="1" class="confluenceTd">Reduced</td><td class="confluenceTd">When a return is received.</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td class="highlight-grey confluenceTd" data-highlight-colour="grey">ANNUL</td><td class="confluenceTd">Annulment of the reservation amount.</td><td colspan="1" class="confluenceTd">New authorization on the remaining amount.</td><td colspan="1" class="confluenceTd">Reduced</td><td class="confluenceTd">When a booked purchase is canceled.</td><td colspan="1" class="confluenceTd"> </td></tr></tbody></table></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

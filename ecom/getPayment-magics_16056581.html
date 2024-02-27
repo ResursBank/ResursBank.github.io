@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : getPayment-magics</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="87393094.html">Version 1.x (EComPHP)</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="EComPHP-features-and-tips_12190045.html">EComPHP features and tips</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : getPayment-magics
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2021-09-25
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>When using our API's you'll soon realize that the checkout/hosted-flow API contains most of the functions you actually need. There are however exceptions when you have to fall over to SOAP-calls - getPaymentMethods, and such methods only exists in the webservices API (SOAP).</p><p>getPayment however, exists in both environments, but the two API's works slightly different.</p><ul><li>getPayment in the SOAP-call and the REST-API gives you the same information when orders exists at Resurs Bank</li><li>getPayment, on failures, in the SOAP-call will most likely throw a soapfault with extended information about the error (in a details block). When the payment does not exist, the error code is <strong>8</strong>.</li><li>getPayment, on failures, in the REST-API does not throw a soapfault (of course), but an HTTP HEAD error <strong>404</strong> (not found) or internal code <strong>3</strong> which contains an extended body with the &quot;more correct error response&quot; (which also might confuse exception handling)</li></ul><p>The fact that the rest functions actually returns a http-404 might confuse a bit, as this error type is actually used for more than just unexistent payments. If you build tests based on getPayment with rest, you need to consider that there's also an extended json-based body, when you're using the call and gets errors.</p><p>
+
+<map id="gliffy-map-16056577-7548" name="gliffy-map-16056577-7548"></map>
+<table width="100%" class="gliffy-macro-table">
+    <tr>
+        <td >
+            <table class="gliffy-macro-inner-table">
+                <caption align="bottom">
+                                    </caption>
+                <tr>
+                    <td>
+                        <img style="border: none; width: 922px;" usemap="#gliffy-map-16056577-7548" src="attachments/16056581/16056578.png" alt="" class="gliffy-macro-image"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+</p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/16056581/16056579">EComPHP getPayment-flow</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/16056581/16056580.png">EComPHP getPayment-flow.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/16056581/16056582">EComPHP getPayment-flow</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/16056581/16056583.png">EComPHP getPayment-flow.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/16056581/16056577">EComPHP getPayment-flow</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/16056581/16056578.png">EComPHP getPayment-flow.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

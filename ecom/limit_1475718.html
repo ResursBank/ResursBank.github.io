@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : limit</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="API-Types_1475647.html">API Types</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : limit
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Benny</span>, last modified on 2017-02-27
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><span style="font-size: 14.0px;line-height: 1.4285715;">Detailed information about the limit.</span><br/>Contains elements as defined in the following table.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Component</th><th class="confluenceTh">Type</th><th class="confluenceTh">Occurs</th><th class="confluenceTh">Nillable?</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">approvedAmount</td><td class="confluenceTd"><strong><a href="Simple-Types..._1475653.html">positiveDecimal</a></strong></td><td class="confluenceTd">1..1</td><td class="confluenceTd">No</td><td class="confluenceTd">The amount that has been approved.</td></tr><tr><td class="confluenceTd">decision</td><td class="confluenceTd"><strong><a href="limitDecision_1475720.html">limitDecision</a></strong></td><td class="confluenceTd">1..1</td><td class="confluenceTd">No </td><td class="confluenceTd">The limit decision.</td></tr><tr><td class="confluenceTd">customer</td><td class="confluenceTd"><strong><a href="customer_1475725.html">customer</a></strong></td><td class="confluenceTd">1..1</td><td class="confluenceTd">No</td><td class="confluenceTd">The customer details.</td></tr><tr><td class="confluenceTd">limitRequestId</td><td class="confluenceTd"><strong><a href="Simple-Types..._1475653.html">id</a></strong></td><td class="confluenceTd">1..1</td><td class="confluenceTd">No</td><td class="confluenceTd">Identifies this limit request uniquely, whether it's granted or not. It can be used to request more information<span>, by phone,</span> about the application from Resurs Bank in special cases.</td></tr></tbody></table></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;soap:Body&gt;
+      &lt;ns3:submitLimitApplicationResponse xmlns:ns3=&quot;http://ecommerce.resurs.com/v4/msg/shopflow&quot; xmlns:ns2=&quot;http://ecommerce.resurs.com/v4/msg/exception&quot;&gt;
+         &lt;return&gt;
+            &lt;approvedAmount&gt;3030&lt;/approvedAmount&gt;
+            &lt;decision&gt;GRANTED&lt;/decision&gt;
+            &lt;customer&gt;
+               &lt;governmentId&gt;7312195873&lt;/governmentId&gt;
+               &lt;address&gt;
+                  &lt;fullName&gt;Asgeirsen Asgeir&lt;/fullName&gt;
+                  &lt;firstName&gt;Asgeir&lt;/firstName&gt;
+                  &lt;lastName&gt;Asgeirsen&lt;/lastName&gt;
+                  &lt;addressRow1/&gt;
+                  &lt;postalArea&gt;Inøja&lt;/postalArea&gt;
+                  &lt;postalCode&gt;1234&lt;/postalCode&gt;
+                  &lt;country&gt;SE&lt;/country&gt;
+               &lt;/address&gt;
+               &lt;phone/&gt;
+               &lt;email&gt;javatest@resurs.se&lt;/email&gt;
+               &lt;type&gt;NATURAL&lt;/type&gt;
+            &lt;/customer&gt;
+         &lt;/return&gt;
+      &lt;/ns3:submitLimitApplicationResponse&gt;
+   &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</pre>
+</div></div><p><br/><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

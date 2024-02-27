@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : EComPHP Error Adaption</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="87393094.html">Version 1.x (EComPHP)</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="7438497.html">Important notes and troubleshooting/exceptions (EComPHP)</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Errors-and-EComPHP_16056394.html">Errors and EComPHP</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : EComPHP Error Adaption
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span> on 2019-05-10
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>EComPHP has been built to follow and normalize Resurs flows (and when it's needed convert unsupported data to valid supported data), so that we in the end always get the same kind of answers regardless of what we'd like to do with Resurs API.</p><p>As described in <a href="updatePaymentReference-notices_16057075.html">the notices about updatePaymentReference-section</a> it is highly valued that everything looks the same way all the time. However, depending on the flow, the acting might differ a bit. This also includes error handling. The later versions of EComPHP is written to be able to handle stringified exception codes. Normally, <a href="https://www.php.net/manual/en/exception.construct.php" class="external-link" rel="nofollow">the Exception-class in PHP</a> only accept long integers as a valid error code when exceptions are thrown. In some cases Resurs Bank may throw exceptions that is against this standard, with alpha numeric instead. EComPHP tries to handle this, with an extended exception class.</p><h2 id="EComPHPErrorAdaption-Defaultexceptionconstructor">Default exception constructor</h2><p><span class="modifier" style="color: rgb(153,51,102);">public</span> <span class="methodname"><span style="color: rgb(51,102,153);">Exception::__construct</span></span> ([ <span class="methodparam"><span class="type" style="color: rgb(102,153,51);">string</span> <code class="parameter">$message</code><span class="initializer" style="color: rgb(153,51,102);"> = &quot;&quot;</span></span> [, <span class="methodparam"><span class="type" style="color: rgb(102,153,51);">int</span> <code class="parameter">$code</code><span class="initializer" style="color: rgb(153,51,102);"> = 0</span></span> [, <span class="methodparam"><span class="type" style="color: rgb(102,153,51);"><a class="external-link" href="https://www.php.net/manual/en/class.throwable.php" rel="nofollow">Throwable</a></span> <code class="parameter">$previous</code><span class="initializer" style="color: rgb(153,51,102);"> = <span><code>NULL</code></span></span></span> ]]] )</p><h2 id="EComPHPErrorAdaption-EComPHPexceptionconstructor">EComPHP exception constructor</h2><p>As of version 1.3.18 (or 1.1.45 in the older branches) out intention is to start reusing our recent ResursException again (meaning, it is no longer deprecated). The syntax for ResursException looks like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public function __construct(
+    $message = &#39;Unknown exception&#39;,
+    $code = 0,
+    \Exception $previous = null,
+    $stringifiedCode,
+    $fromFunction = &#39;&#39;
+)</pre>
+</div></div><h2 id="EComPHPErrorAdaption-ResursExceptionsparameters">ResursExceptions parameters</h2><div class="table-wrap"><table class="confluenceTable"><colgroup><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Parameter</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">message</td><td class="confluenceTd">The regular error message thrown in exceptions.</td></tr><tr><td colspan="1" class="confluenceTd">code</td><td colspan="1" class="confluenceTd">The regular error code thrown in exceptions.</td></tr><tr><td colspan="1" class="confluenceTd">previous</td><td colspan="1" class="confluenceTd">The regular previous exception that was thrown in inherited exceptions.</td></tr><tr><td colspan="1" class="confluenceTd">stringifiedCode</td><td colspan="1" class="confluenceTd">Everything that may be thrown by an API that is not a long integer.</td></tr><tr><td colspan="1" class="confluenceTd">fromFunction</td><td colspan="1" class="confluenceTd">Extra variable that allows backtracing of the function where the exception was thrown.</td></tr></tbody></table></div><h2 id="EComPHPErrorAdaption-Examples">Examples</h2><p>With this exception handler we may be able to bypass exceptions that is normally not allowed to use by PHP. It is still possible, referring to our tests, to catch this exception with the standard exception syntax, like this (from the test suite):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">try {
+    throw new \ResursException(&#39;Fail&#39;, 0, null, &#39;TEST_ERROR_CODE_AS_STRING&#39;, __FUNCTION__);
+} catch (\Exception $e) {
+    $firstCode = $e-&gt;getCode();
+}
+try {
+    throw new \ResursException(&#39;Fail&#39;, 0, null, &#39;TEST_ERROR_CODE_AS_STRING_WITHOUT_CONSTANT&#39;, __FUNCTION__);
+} catch (\Exception $e) {
+    $secondCode = $e-&gt;getCode();
+}</pre>
+</div></div><p>When running those two exceptions in the test, the responses should look like this, in the end:</p><div class="table-wrap"><table class="confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">code</th><th class="confluenceTh">$exception-&gt;getCode() result</th><th colspan="1" class="confluenceTh">Why?</th></tr><tr><td class="confluenceTd"><pre>TEST_ERROR_CODE_AS_STRING</pre></td><td class="confluenceTd">1007</td><td colspan="1" class="confluenceTd"><p><span>Every constant that exists in the RESURS_EXCEPTIONS class will be translated to a numeric.</span></p></td></tr><tr><td colspan="1" class="confluenceTd"><pre>TEST_ERROR_CODE_AS_STRING_WITHOUT_CONSTANT</pre></td><td colspan="1" class="confluenceTd"><p>TEST_ERROR_CODE_AS_STRING_WITHOUT_CONSTANT</p></td><td colspan="1" class="confluenceTd">If the constant does not exist in the RESURS_EXCEPTIONS class EComPHP will leave the error code as it was from its initial state. The purpose is to keep compatibility intact if Resurs Ecommerce ever adds more error codes in the future.</td></tr></tbody></table></div><p>This exception however, supports to directly ask for the stringified code by something like this: $e-&gt;getStringifiedCode(). But to be absolutely sure that we're not breaking anyting, the output will be pushed through the regular getCode()-method.</p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

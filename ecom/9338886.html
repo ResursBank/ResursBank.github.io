@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : EComPHP: createPayment [RCO]</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="87393094.html">Version 1.x (EComPHP)</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : EComPHP: createPayment [RCO]
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2021-09-01
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780967491 {padding: 0px;}
+div.rbtoc1706780967491 ul {margin-left: 0px;}
+div.rbtoc1706780967491 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780967491'>
+<ul class='toc-indentation'>
+<li><a href='#EComPHP:createPayment[RCO]-Initializethemodule'>Initialize the module</a></li>
+<li><a href='#EComPHP:createPayment[RCO]-Successfulordersvsunsuccessfulorders-Settingrulesofsigning(Flowrequirement)'>Successful orders vs unsuccessful orders - Setting rules of signing (Flow requirement)</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHP:createPayment[RCO]-ThesyntaxforsetSigningisasfollows:'>The syntax for setSigning is as follows:</a></li>
+</ul>
+</li>
+<li><a href='#EComPHP:createPayment[RCO]-Setthepreferredpaymentservice'>Set the preferred payment service</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHP:createPayment[RCO]-PreparingforResursCheckoutJSorsimilarsolutions'>Preparing for ResursCheckoutJS or similar solutions</a></li>
+</ul>
+</li>
+<li><a href='#EComPHP:createPayment[RCO]-Preparingthecart'>Preparing the cart</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHP:createPayment[RCO]-Function:addOrderLine()'>Function: addOrderLine()</a></li>
+<li><a href='#EComPHP:createPayment[RCO]-Function:getPayload()returns'>Function: getPayload() returns</a></li>
+</ul>
+</li>
+<li><a href='#EComPHP:createPayment[RCO]-Fullexample'>Full example</a></li>
+</ul>
+<li><a href='#EComPHP:createPayment[RCO]-CommunicatingwiththeiFrame'>Communicating with the iFrame</a></li>
+</ul>
+</div></p><p>Creating payments behaviour for the checkout is very much like the <a href="7438490.html">Simplified shopflow</a>, except for the fact that you <em>almost</em> only need to display an iframe on the webpage instead of integrated web forms.</p><div class="confluence-information-macro confluence-information-macro-information"><p class="title conf-macro-render">Payload notice</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of v1.1.22 (+1.0.22), the payload will reset after each successful call to this method. Prior versions just cleans up the internal orderlines. The new way to handle the payload, opens for multiple calls in the same &quot;EComPHP session&quot;.</p></div></div><h2 id="EComPHP:createPayment[RCO]-Initializethemodule">Initialize the module</h2><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">use \Resursbank\RBEcomPHP\ResursEnvironments;
+$preferredEnvironment = ResursEnvironments::ENVIRONMENT_TEST;
+$this-&gt;rb = new \ResursBank( $this-&gt;username, $this-&gt;password, $preferredEnvironment );
+// or
+$this-&gt;rb = new \ResursBank( $this-&gt;username, $this-&gt;password );
+$this-&gt;rb-&gt;setEnvironment($preferredEnvironment);</pre>
+</div></div><h2 id="EComPHP:createPayment[RCO]-Successfulordersvsunsuccessfulorders-Settingrulesofsigning(Flowrequirement)">Successful orders vs unsuccessful orders - Setting rules of signing (<span style="color: rgb(255,0,0);">Flow requirement</span>)</h2><p>This part works much like <a href="7438490.html">the simplifed shopflow</a>.</p><p>Before proceeding, we need to configure the payment to handle signings; if we for some reason require that your customer signs the payment - this happens for example, if you set a delivery address that mismatches with your billing address. If you have your own requirements (for example, you want to force signing every time a payment are created) this part is also important. Besides, without the rules of signing, Resurs Bank won't accept the payment. But the setup is quite simple. You need to set up two urls for this: One for successful signings and one for signings that fails during the payment process.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>setSigning()</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;rb-&gt;setSigning(&quot;https://mystore.test.com/signingSuccessful&quot;, &quot;https://mystore.test.com/signingFailed&quot;, false);</pre>
+</div></div><p>In EComPHP v1.1.22 or later you can solve this with lesser confusion (see below). Basically, setCheckoutUrls are passing over the variables to the setSigning()-function.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;rb-&gt;setCheckoutUrls(&quot;https://mystore.test.com/signingSuccessful&quot;, &quot;https://mystore.test.com/signingFailed&quot;);</pre>
+</div></div><p><br/></p><p>Running this will prepare for eventually letting the customer sign the payment. The boolean false tells Resurs Bank to not force any signing.</p><h3 id="EComPHP:createPayment[RCO]-ThesyntaxforsetSigningisasfollows:">The syntax for setSigning is as follows:</h3><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Parameter</th><th colspan="1" class="confluenceTh">Type</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">successUrl</td><td colspan="1" class="confluenceTd">string</td><td class="confluenceTd">Tells Resurs Bank where your payment, when successful, will land (<em>Thanks for your order</em>, normally).</td></tr><tr><td colspan="1" class="confluenceTd">failUrl</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">The opposite to successUrl. When customers for some reason fails through making the order this is where they should land.</td></tr><tr><td colspan="1" class="confluenceTd">forceSigning</td><td colspan="1" class="confluenceTd">boolean</td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><p>Forced signing. <span style="color: rgb(255,0,0);"><strong>Deprecated and won't have any effect in future releases of the API.</strong></span><br/><span class="status-macro aui-lozenge aui-lozenge-error">DEPRECATED</span></p></div></td></tr><tr><td colspan="1" class="confluenceTd">backUrl</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">Backurls is normally used for hosted flow, where customers can return to the checkout without fulfilling anything.</td></tr></tbody></table></div><h2 id="EComPHP:createPayment[RCO]-Setthepreferredpaymentservice">Set the preferred payment service</h2><p>First, we need to prepare EComPHP for which payment flow we want to use. In this case, we'll tell EComPHP to use the checkout. To maintain some kind of backwards compatibility, both <span style="color: rgb(102,14,122);">METHOD_RESURSCHECKOUT </span>and <span style="color: rgb(102,14,122);">METHOD_OMNI</span> still works.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;rb-&gt;setPreferredPaymentService(ResursMethodTypes::METHOD_CHECKOUT);</pre>
+</div></div><p>Compared to the <a href="7438490.html">simplified shopflow</a> you do not need to prepare much more than some basic data. For example, you can skip all inbound customer data at this point. Data about the customer is handled by the checkout iframe, and could be catched with some help from for example <a href="5570788.html">ResursCheckoutJS</a>, depending on how the integration looks.</p><p>One other thing you however need though, is a payment reference (orderid) to create the order with. If your store supports the ability to create an order reference before creating the order, you should use this method to set up the iframe. If this is not supported, you can do this in some ways:</p><ol><li>Create a random, temporary order reference, to build the iframe. During the iframe order completion, lock the submit button (<a href="5570788.html">Get inspired with ResursCheckoutJS</a>), create the order in the store and return the handle to the checkout.<ol><li>If you need to rename the order reference to match with your store, you can in this moment also send a backend-signal to Resurs Checkout with help from updatePaymentReference</li></ol></li><li>Create the order on the way back to the checkout (preferrably through a customer landing page)</li></ol><p>Both of the above method have their own advantages. Some of them are listed here:</p><ul><li>Creating the order in the store <strong>before</strong> returning the handle might create junk orders in the store that will be left untouched if something happens in the checkout before the landing page (customer aborts, fails or just backs out of the checkout without proceeding)</li><li>Creating the order in the store <strong>after</strong> the checkout process might not create the order fully, if the customer aborts or fails in the process before the landing page</li></ul><p>You can of course create the order after the checkout process, if you don't want to script anything, and instead use the advantage of callbacks. This, however, leaves you completely alone with the store API and you need to take control over anything that can happen in the order process by yourself. The only thing you can trust at this moment is the BOOKED callback. When this callback is running, you can do a <strong>getPayment()</strong> with EComPHP and fetch both the required customer info and the orderlines. However, like said here, you need to be very familiar with your stores API and now how to complete a full order without the help of the customer session.</p><h3 id="EComPHP:createPayment[RCO]-PreparingforResursCheckoutJSorsimilarsolutions">Preparing for ResursCheckoutJS or similar solutions</h3><p><span>If you decide to use the &quot;</span><a href="5570788.html">ResursCheckoutJS</a><span>&quot;-method, you need to be aware that you also need to include an url in the payload handler that tells the web-browser on which parent URL it can find the iframe source. EComPHP does this for you, by setting a default URL through the webserver variables $_SERVER['HTTP_HOST']. However, if you require a &quot;non standard URL&quot; you'll need to use the internal function </span><strong>setShopUrl</strong><span>(). As of version 1.0.22/1.1.22/1.2.0, validation of the shopUrl are included in EComPHP, to make sure that the shopUrl are properly formatted. However, this feature must be activated to get effect.</span></p><p><span>Setting this:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;rb-&gt;setShopUrl(&quot;https://my.shop.url/failing/uri/&quot;, true);</pre>
+</div></div><p><span>Will render this, in the final payload:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">https://my.shop.url</pre>
+</div></div><p><span>You can also run this, to get similar result:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;rb-&gt;setValidateCheckoutShopUrl(); // As of 1.1.22
+$this-&gt;rb-&gt;setShopUrl(&quot;https://my.shop.url/failing/uri/&quot;);</pre>
+</div></div><p><span>Note: This validation does not validate if the host is real.</span></p><h2 id="EComPHP:createPayment[RCO]-Preparingthecart">Preparing the cart</h2><p>A payment is nothing without the cart. In our case, the cart is your final cart from your store - the payment specification (orderlines). To create an orderline, you can use <strong>addOrderLine()</strong> for your help, and as Resurs Checkout this function only requires minimum of data to render a correct orderline. The data needed is the following:</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Variable</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd"><pre><span style="color: rgb(128,128,128);">$articleNumberOrId</span></pre></td><td class="confluenceTd">The article number or the id (normally a short string that sets the article in your store)</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(128,128,128);">$description</span></pre></td><td colspan="1" class="confluenceTd">The longer article description of your</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(128,128,128);">$unitAmountWithoutVat</span></pre></td><td colspan="1" class="confluenceTd">The proce of your article, as it was single product (one unit)</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(128,128,128);">$vatPct</span></pre></td><td colspan="1" class="confluenceTd">The VAT of the product without decimals. If the VAT is 25%, you give 25 as value</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(128,128,128);">$unitMeasure</span></pre></td><td colspan="1" class="confluenceTd"><p>Pcs, pieces, st, styck, kg, etc. Used to describe the quantity on the invoice<br/><em>&quot;8 pcs of house hold items&quot;, &quot;3 kg of meat&quot;</em></p></td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(128,128,128);">$articleType</span></pre></td><td colspan="1" class="confluenceTd">(Optional) Used for the checkout to specifiy if the article is shipping, fee or regular. Only needed when it's not a regular article type. Null or empty string works to specify no type.</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(128,128,128);">$quantity</span></pre></td><td colspan="1" class="confluenceTd">The quantity</td></tr></tbody></table></div><h4 id="EComPHP:createPayment[RCO]-Function:addOrderLine()">Function: addOrderLine()</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;rb-&gt;addOrderLine(
+   &quot;HORSE&quot;,
+   &quot;Stallponny&quot;,
+   4800,
+   25,
+   &quot;st&quot;,
+   null,
+   1
+);</pre>
+</div></div><h4 id="EComPHP:createPayment[RCO]-Function:getPayload()returns">Function: getPayload() returns</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;orderLines&quot;: [
+        {
+            &quot;artNo&quot;: &quot;HORSE&quot;,
+            &quot;description&quot;: &quot;Stallponny&quot;,
+            &quot;quantity&quot;: 1,
+            &quot;unitMeasure&quot;: &quot;st&quot;,
+            &quot;unitAmountWithoutVat&quot;: 4800,
+            &quot;vatPct&quot;: 25,
+            &quot;type&quot;: &quot;&quot;
+        }
+    ]
+}</pre>
+</div></div><h2 id="EComPHP:createPayment[RCO]-Fullexample">Full example</h2><p>This example has partially been taken from the EComPHP UnitTest suite and shows a very basic set up for the checkout, to be enabled:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;rb-&gt;setPreferredPaymentService(ResursMethodTypes::METHOD_CHECKOUT);
+$iframePaymentReference = $this-&gt;rb-&gt;getPreferredPaymentId(30, &quot;CREATE-&quot;);
+$this-&gt;rb-&gt;addOrderLine(
+   &quot;Product&quot;,
+   &quot;This text describes our product&quot;,
+   500,
+   25,
+   &quot;st&quot;,
+   null,
+   1
+);
+$this-&gt;rb-&gt;setShopUrl(&quot;https://my-iframe-shop.test.com&quot;);
+$this-&gt;rb-&gt;setCheckoutUrls(&quot;https://google.com/?q=signingSuccessful&quot;, &quot;https://google.com/?q=signingFailed&quot;, false);
+$theFrame = $this-&gt;rb-&gt;createPayment($iframePaymentReference);
+// Display the frame
+echo $theFrame;</pre>
+</div></div><p>Note that the shopUrl must be set in &lt;protocol&gt;://host.name only, or it may fail on the iframe communications level. However, if this rule is honored in later versions of EComPHP, like below, the hostname will be validated and corrected automatically.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$this-&gt;rb-&gt;setShopUrl(&quot;https://my-iframe-shop.test.com/this/uri/will/be/removed/in/the/final/result&quot;);</pre>
+</div></div><p><strong>Output Result for above will be <span class="nolink">https://my-iframe-shop.test.com</span></strong></p><h1 id="EComPHP:createPayment[RCO]-CommunicatingwiththeiFrame">Communicating with the iFrame</h1><div class="confluence-information-macro confluence-information-macro-warning"><p class="title conf-macro-render">postMsg is deprecated</p><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Please have in mind that the old legacy iframe communication is deprecated.</p></div></div><p>To get a more responsive behaviour for your store, it is possible to communicate with the iFrame and create an order on the fly, instead of waiting until Resurs Bank is finished with the order creation. Basically, this method makes it possible to create an order in the background (front-end) before the checkout process are taking place in Resurs e-commerce.</p><p>Some advantages of this is that ...</p><ul><li>Your customers may be able to fulfill the order even if the internet connection is broken while completing the flow.</li><li>The checkout will be more responsive and support updates of the shop cart before the checkout</li></ul><p>You should read the section <a href="5570788.html">Iframe communication (v2API)</a> if you want to know more about this, since you need to handle the incoming data from the iFrame.</p><div class="confluence-information-macro confluence-information-macro-warning"><p class="title conf-macro-render">Order flow and denied credits while using OmniJS</p><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Since the order has to be created in the shop before it is confirmed and created in e-commerce, it is important that you, if you get any orders where the customer has a denied credit, update the previously created order with the proper address data from the customer. If this is not properly done, there's a risk that a bad customer could hijack a good customer's government ID to fulfill an order.</p></div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

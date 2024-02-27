@@ -1,0 +1,116 @@
+﻿		/* Resursbank Extension Save Order Process Start */
+		$payment = $this->getRequest()->getPost('payment');
+		if(preg_match('/resurspayment/', $payment['method']))
+		{
+			$paymentId = str_replace('resurspayment','',$payment['method']);
+			$fromData = $this->getRequest()->getPost($paymentId);
+			if(empty($fromData))
+			{
+				$payment = $this->getRequest()->getParam('payment',array());
+				$result['success'] = false;
+				$result['error']   = true;
+				$result['error_messages'] = Mage::helper('resursbank')->__('please click on radio button to load form');
+				$this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
+				return;
+            }
+			else 
+			{
+				$customerId    = Mage::getSingleton('checkout/session')->getQuote()->getCustomerId();
+				$fromData['amount'] = Mage::getSingleton('checkout/session')->getQuote()->getGrandTotal();
+				$xmlformdata = Mage::helper('resursbank')->formDataXml($fromData);
+				$paymentSessionId = Mage::getSingleton('checkout/session')->getResursPaymentSession();
+				
+				$currentCountry = (isset($_POST['billing']['country_id']) ? strtolower($_POST['billing']['country_id']) : "");
+				// Always add this to submitlimitapplication
+					$slaAddress = array();
+					
+                    if (isset($_POST['billing_address_id']) && $_POST['billing_address_id'] > 0 && empty($_POST['billing']['street'][0]) && Mage::getSingleton('customer/session')->isLoggedIn())
+                    {
+                        $billingByAddressId = Mage::getModel('customer/address')->load($_POST['billing_address_id']);
+                        $addressStreet = $billingByAddressId->getStreet();
+                        if (empty($_POST['billing']['firstname'])) {$_POST['billing']['firstname'] = $billingByAddressId->getData("firstname");}
+                        if (empty($_POST['billing']['lastname'])) {$_POST['billing']['lastname'] = $billingByAddressId->getData("lastname");}
+                        $_POST['billing']['street'][0] = isset($addressStreet[0]) ? $addressStreet[0] : "";
+                        $_POST['billing']['street'][1] = isset($addressStreet[1]) ? $addressStreet[1] : "";
+                    }
+
+                    if (isset($_POST['billing']['firstname']) && trim($_POST['billing']['firstname']) != "") {$slaAddress['firstName'] = $_POST['billing']['firstname'];}
+                    if (isset($_POST['billing']['lastname']) && trim($_POST['billing']['lastname']) != "") {$slaAddress['lastName'] = $_POST['billing']['lastname'];}
+                    if (isset($_POST['billing']['street'][0]) && trim($_POST['billing']['street'][0]) != "") {$slaAddress['addressRow1'] = $_POST['billing']['street'][0];}
+                    if (isset($_POST['billing']['street'][1]) && trim($_POST['billing']['street'][1]) != "") {$slaAddress['addressRow2'] = $_POST['billing']['street'][1];}
+                    if (isset($_POST['billing']['postcode']) && trim($_POST['billing']['postcode']) != "") {$slaAddress['postalCode'] = $_POST['billing']['postcode'];}
+                    if (isset($_POST['billing']['city']) && trim($_POST['billing']['city']) != "") {$slaAddress['postalArea'] = $_POST['billing']['city'];}
+                    if (isset($_POST['billing']['country_id']) && trim($_POST['billing']['country_id']) != "") {$slaAddress['country'] = $_POST['billing']['country_id'];}
+
+				// Forcera adressdata för norska kunder är inte tillåtet, utan här vill vi använda de uppgifter som kunden själv skickar.
+				// Kontrollera NO innan submitLimitApplication skickas - är detta ett norskt ombud, skicka billingdata från kund till SLA i stället (ovanstående $slaAddress).
+				// Denna ändring #35108 kräver att Api.php också är uppdaterad så att vi kan bypassa $slaAddress till submitlimitapplication.
+				$limitResult = Mage::getModel('resursbank/api')->submitLimitApplication($paymentSessionId,$customerId,$xmlformdata, $slaAddress);
+				$newbillingaddress = isset($limitResult['addressdata']) ? $limitResult['addressdata'] : array();
+				// If plugin gets patched after this patch (1.3.9+), customerinfo won't exist, so let's keep it safe.
+				$customerinfo = (isset($limitResult) && !empty($limitResult) && isset($limitResult['customerinfo']) && !empty($limitResult)) ? $limitResult['customerinfo'] : array();
+
+				if (isset($limitResult['addressdata']) && $currentCountry != "no")
+				{
+					if (($limitResult['result']!='error') && ($limitResult['result']=='success' and $limitResult['message'] == 'granted'))
+					{
+						$useuc = true;	// Make everything returned in ucwords-format on true
+						unset($_POST['billing']['street']);	// Reset street address since the array is based on pushing.
+						if (isset($newbillingaddress->firstName)) $_POST['billing']['firstname'] = ($useuc ? ucwords(strtolower($newbillingaddress->firstName)) : $newbillingaddress->firstName);
+						if (isset($newbillingaddress->lastName)) $_POST['billing']['lastname'] = ($useuc ? ucwords(strtolower($newbillingaddress->lastName)) : $newbillingaddress->lastName);
+						if (isset($newbillingaddress->addressRow1)) $_POST['billing']['street'][] = ($useuc ? ucwords(strtolower($newbillingaddress->addressRow1)) : $newbillingaddress->addressRow1);
+						if (isset($newbillingaddress->addressRow2)) $_POST['billing']['street'][] = ($useuc ? ucwords(strtolower($newbillingaddress->addressRow2)) : $newbillingaddress->addressRow2);
+						if (isset($newbillingaddress->postalCode)) $_POST['billing']['postcode'] = ($useuc ? ucwords(strtolower($newbillingaddress->postalCode)) : $newbillingaddress->postalCode);
+						if (isset($newbillingaddress->postalArea)) $_POST['billing']['city'] = ($useuc ? ucwords(strtolower($newbillingaddress->postalArea)) : $newbillingaddress->postalArea);
+						if (isset($newbillingaddress->country)) $_POST['billing']['country'] = ($useuc ? ucwords(strtolower($newbillingaddress->country)) : $newbillingaddress->country);
+						if (isset($newbillingaddress->country)) $_POST['billing']['country_id'] = ($useuc ? ucwords(strtolower($newbillingaddress->country)) : $newbillingaddress->country);
+						if ($customerinfo->type != 'NATURAL') {
+							if (!isset($newbillingaddress->lastName)) {$_POST['billing']['lastname'] = "-";}
+							if (!isset($newbillingaddress->addressRow1)) {$_POST['billing']['street'] = array();}
+							if (isset($newbillingaddress->fullName)) {$_POST['billing']['company'] = ($useuc ? ucwords(strtolower($newbillingaddress->fullName)) : $newbillingaddress->fullName);}
+						}
+						// In magento 1.8, forced shipping stops working.
+						if(Mage::getSingleton('checkout/session')->getQuote()->getShippingAddress()->getData('same_as_billing')=='1')
+						{
+							unset($_POST['shipping']['street']);     // Reset street address since the array is based on pushing.
+							if (isset($newbillingaddress->firstName)) {$_POST['shipping']['firstname'] = ($useuc ? ucwords(strtolower($newbillingaddress->firstName)) : $newbillingaddress->firstName);}
+							if (isset($newbillingaddress->lastName)) {$_POST['shipping']['lastname'] = ($useuc ? ucwords(strtolower($newbillingaddress->lastName)) : $newbillingaddress->lastName);}
+							if (isset($newbillingaddress->addressRow1)) {$_POST['shipping']['street'][] = ($useuc ? ucwords(strtolower($newbillingaddress->addressRow1)) : $newbillingaddress->addressRow1);}
+							if (isset($newbillingaddress->addressRow2)) {$_POST['shipping']['street'][] = ($useuc ? ucwords(strtolower($newbillingaddress->addressRow2)) : $newbillingaddress->addressRow2);}
+							if (isset($newbillingaddress->postalCode)) {$_POST['shipping']['postcode'] = ($useuc ? ucwords(strtolower($newbillingaddress->postalCode)) : $newbillingaddress->postalCode);}
+							if (isset($newbillingaddress->postalArea)) {$_POST['shipping']['city'] = ($useuc ? ucwords(strtolower($newbillingaddress->postalArea)) : $newbillingaddress->postalArea);}
+							if (isset($newbillingaddress->country)) {$_POST['shipping']['country'] = ($useuc ? strtoupper($newbillingaddress->country) : $newbillingaddress->country);}
+							if (isset($newbillingaddress->country)) {$_POST['shipping']['country_id'] = ($useuc ? strtoupper($newbillingaddress->country) : $newbillingaddress->country);}
+                            if ($customerinfo->type != 'NATURAL') {
+								if (!isset($newbillingaddress->lastName)) {$_POST['shipping']['lastname'] = "-";}
+								if (!isset($newbillingaddress->addressRow1)) {$_POST['shipping']['street'] = array();}
+                                if (isset($newbillingaddress->fullName)) {$_POST['shipping']['company'] = ($useuc ? ucwords(strtolower($newbillingaddress->fullName)) : $newbillingaddress->fullName);}
+                            }
+						}
+						unset($_POST['billing_address_id']);
+					}
+				}
+				if($limitResult['result']=='error')
+				{
+					$result['success'] = false;
+					$result['error']   = true;
+					$result['error_messages'] = $limitResult['message'];
+					$this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
+					return;
+				}
+				else if($limitResult['result']=='success' and $limitResult['message'] == 'not granted')
+				{
+					$disablejs['success'] = false;
+					$disablejs['error']   = true;
+					$disablejs['body'] = array('content' => $this->getLayout()->createBlock('core/template')
+															->setTemplate('resursbank/firecheckout_disable_payment_method.phtml')
+															->setDisablePaymentId($paymentId)
+															->setCustomerError(isset($limitResult['customerError']) ? $limitResult['customerError'] : null)
+															->toHtml()
+					);
+					$this->getResponse()->setBody(Mage::helper('core')->jsonEncode($disablejs));
+					return;
+				}
+			}
+		}
+		/* Resursbank Extension Save Order Process End */

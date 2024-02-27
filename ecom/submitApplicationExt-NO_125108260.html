@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : submitApplicationExt NO</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Consumer-Loan-API_16056949.html">Consumer Loan API</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : submitApplicationExt NO
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Daniel</span>, last modified on 2023-11-13
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="submitApplicationExtNO-NO"><strong>NO</strong></h1><div id="expander-1520626914" class="expand-container"><div id="expander-control-1520626914" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">Click here to expand submitApplicationExt for Norway</span></div><div id="expander-content-1520626914" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:app=&quot;http://consumerloan.resurs.com/v1/msg/application&quot;&gt;
+  &lt;soapenv:Header/&gt;
+  &lt;soapenv:Body&gt;
+     &lt;app:submitApplicationExt&gt;
+        &lt;xml&gt;&lt;![CDATA[&lt;resurs-response&gt;
+   &lt;amount&gt;100000&lt;/amount&gt;
+   &lt;time&gt;120&lt;/time&gt;
+   &lt;applicant-government-id&gt;05128727908&lt;/applicant-government-id&gt;
+   &lt;applicant-mobile-number&gt;22563733&lt;/applicant-mobile-number&gt;
+   &lt;applicant-email-address&gt;test@resurs.se&lt;/applicant-email-address&gt;
+   &lt;purpose-of-loan&gt;HOUSING_MORTGAGE_LOAN&lt;/purpose-of-loan&gt;
+   &lt;applicant-marital-status&gt;MARRIED&lt;/applicant-marital-status&gt;
+   &lt;number-children-not-of-age&gt;1&lt;/number-children-not-of-age&gt;
+   &lt;applicant-habitation-form&gt;DETACHED_HOUSE&lt;/applicant-habitation-form&gt;
+   &lt;applicant-employment-type&gt;FAST_ANSTALLD&lt;/applicant-employment-type&gt;
+   &lt;applicant-nationality&gt;NORWEGIAN&lt;/applicant-nationality&gt;
+   &lt;applicant-monthly-income-gross&gt;32000&lt;/applicant-monthly-income-gross&gt;
+   &lt;applicant-monthly-income-net&gt;27000&lt;/applicant-monthly-income-net&gt;
+   &lt;applicant-mortgage-debt&gt;1200&lt;/applicant-mortgage-debt&gt;
+   &lt;applicant-car-loan-sum&gt;10000&lt;/applicant-car-loan-sum&gt;
+   &lt;applicant-student-loan-sum&gt;10000&lt;/applicant-student-loan-sum&gt;
+   &lt;applicant-credit-card-sum&gt;3200&lt;/applicant-credit-card-sum&gt;
+   &lt;applicant-monthly-debt-repayment&gt;5000&lt;/applicant-monthly-debt-repayment&gt;
+   &lt;finance-other-loans&gt;true&lt;/finance-other-loans&gt;
+   &lt;approve-conditions&gt;true&lt;/approve-conditions&gt;
+   &lt;agreement-sign-type&gt;MAIL&lt;/agreement-sign-type&gt;
+&lt;/resurs-response&gt;]]&gt;&lt;/xml&gt;
+        &lt;consumerIp&gt;1.2.3.4&lt;/consumerIp&gt;
+        &lt;!--Optional:--&gt;
+        &lt;externalReference&gt;onboarding1&lt;/externalReference&gt;
+     &lt;/app:submitApplicationExt&gt;
+  &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</pre>
+</div></div></div></div><div id="expander-606036646" class="expand-container"><div id="expander-control-606036646" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">Click here to view form validation for Norway</span></div><div id="expander-content-606036646" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;resurs-form&gt;
+
+    &lt;!-- ***** Lånebelopp --&gt;
+    &lt;element java-property=&quot;amount&quot;&gt;
+        &lt;label&gt;Lånebeløp&lt;/label&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;name&gt;amount&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;1000&lt;/min-value&gt;
+        &lt;max-value&gt;500000&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;paymentTerms&quot;&gt;
+        &lt;label&gt;Nedbetalingstid&lt;/label&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;name&gt;time&lt;/name&gt;
+        &lt;type&gt;list&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;unit&gt;time&lt;/unit&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;1&lt;/label&gt;
+                &lt;value&gt;12&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;2&lt;/label&gt;
+                &lt;value&gt;24&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;3&lt;/label&gt;
+                &lt;value&gt;36&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;4&lt;/label&gt;
+                &lt;value&gt;48&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;5&lt;/label&gt;
+                &lt;value&gt;60&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;6&lt;/label&gt;
+                &lt;value&gt;72&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;7&lt;/label&gt;
+                &lt;value&gt;84&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;8&lt;/label&gt;
+                &lt;value&gt;96&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;10&lt;/label&gt;
+                &lt;value&gt;120&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;12&lt;/label&gt;
+                &lt;value&gt;144&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(12|24|36|48|60|72|84|96|120|144)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;!-- ***** Huvudsökande - Personalia --&gt;
+    &lt;element java-property=&quot;applicant.governmentId&quot;&gt;
+        &lt;label&gt;Fødselsnummer&lt;/label&gt;
+        &lt;description&gt;Oppgi ditt fødselsnummer (format DDMMÅÅXXXXX).&lt;/description&gt;
+        &lt;name&gt;applicant-government-id&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;11&lt;/length&gt;
+        &lt;format&gt;^([0][1-9]|[1-2][0-9]|3[0-1])(0[1-9]|1[0-2])([0-9]{2})([0-9]{5})$&lt;/format&gt;
+        &lt;format-message&gt;Ugyldig fødselsnummer. Oppgi ditt fødselsnummer i formatet DDMMÅÅXXXXX.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.mobilePhoneNumber&quot;&gt;
+        &lt;label&gt;Mobilnummer&lt;/label&gt;
+        &lt;description&gt;Oppgi ditt mobil telefonnummer.&lt;/description&gt;
+        &lt;name&gt;applicant-mobile-number&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;16&lt;/length&gt;
+        &lt;format&gt;^((\\+47|0047|)?[ |-]?[2-9]([ |-]?[0-9]){7,7})?$&lt;/format&gt;
+        &lt;format-message&gt;Oppgi ditt mobil telefonnummer.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.emailAddress&quot;&gt;
+        &lt;label&gt;E-postadresse&lt;/label&gt;
+        &lt;description&gt;Oppgi din e-postadresse.&lt;/description&gt;
+        &lt;name&gt;applicant-email-address&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;50&lt;/length&gt;
+        &lt;format&gt;^[A-Za-z0-9!#%&amp;&#39;*+/=?^_`~-]+(\\.[A-Za-z0-9!#%&amp;&#39;*+/=?^_`~-]+)*@([A-Za-z0-9]+)(([\\.\\-]?[a-zA-Z0-9]+)*)\\.([A-Za-z]{2,})$&lt;/format&gt;
+        &lt;format-message&gt;Oppgi din e-postadresse.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;!-- ***** Medsökande - Personalia --&gt;
+
+    &lt;element java-property=&quot;coApplicant.governmentId&quot;&gt;
+        &lt;label&gt;Fødselsnummer&lt;/label&gt;
+        &lt;description&gt;Oppgi ditt fødselsnummer (format DDMMÅÅXXXXX).&lt;/description&gt;
+        &lt;name&gt;coapplicant-government-id&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;11&lt;/length&gt;
+        &lt;format&gt;^([0][1-9]|[1-2][0-9]|3[0-1])(0[1-9]|1[0-2])([0-9]{2})([0-9]{5})$&lt;/format&gt;
+        &lt;format-message&gt;Ugyldig fødselsnummer. Oppgi ditt fødselsnummer i formatet DDMMÅÅXXXXX.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.mobilePhoneNumber&quot;&gt;
+        &lt;label&gt;Mobilnummer&lt;/label&gt;
+        &lt;description&gt;Oppgi ditt mobil telefonnummer.&lt;/description&gt;
+        &lt;name&gt;coapplicant-mobile-number&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;16&lt;/length&gt;
+        &lt;format&gt;^((\\+47|0047|)?[ |-]?[2-9]([ |-]?[0-9]){7,7})?$&lt;/format&gt;
+        &lt;format-message&gt;Oppgi ditt mobil telefonnummer.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.emailAddress&quot;&gt;
+        &lt;label&gt;E-postadresse&lt;/label&gt;
+        &lt;description&gt;Oppgi din e-postadresse.&lt;/description&gt;
+        &lt;name&gt;coapplicant-email-address&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;50&lt;/length&gt;
+        &lt;format&gt;^[A-Za-z0-9!#%&amp;&#39;*+/=?^_`~-]+(\\.[A-Za-z0-9!#%&amp;&#39;*+/=?^_`~-]+)*@([A-Za-z0-9]+)(([\\.\\-]?[a-zA-Z0-9]+)*)\\.([A-Za-z]{2,})$&lt;/format&gt;
+        &lt;format-message&gt;Oppgi din e-postadresse.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.consentEmailMarketing&quot;&gt;
+        &lt;name&gt;coapplicant-consent-email-marketing&lt;/name&gt;
+        &lt;label&gt;Jeg ønsker fremtidige tilbud fra Resurs Bank på e-post.&lt;/label&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.employmentType&quot;&gt;
+        &lt;label&gt;Arbeidsforhold&lt;/label&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;name&gt;coapplicant-employment-type&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;default&gt;&lt;/default&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Fast ansatt&lt;/label&gt;
+                &lt;value&gt;FAST_ANSTALLD&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Midlertidig ansatt/vikar&lt;/label&gt;
+                &lt;value&gt;VIKARIAT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Selvstendig næringsdrivende&lt;/label&gt;
+                &lt;value&gt;EGEN_FORETAGARE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Pensjonist&lt;/label&gt;
+                &lt;value&gt;PENSIONAR&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Student&lt;/label&gt;
+                &lt;value&gt;STUDENT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Uføretrygd&lt;/label&gt;
+                &lt;value&gt;SJUKPENSIONAR&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Arbeidsledig&lt;/label&gt;
+                &lt;value&gt;ARBETSLOS&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Arbeidsavklaringspenger&lt;/label&gt;
+                &lt;value&gt;REHABILITATION&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Annet&lt;/label&gt;
+                &lt;value&gt;LONG_TERM_SICKNESS&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(FAST_ANSTALLD|VIKARIAT|EGEN_FORETAGARE|PENSIONAR|STUDENT|SJUKPENSIONAR|ARBETSLOS|REHABILITATION|LONG_TERM_SICKNESS)$&lt;/format&gt;
+        &lt;format-message&gt;Velg et av alternativene.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.grossMonthlyIncome&quot;&gt;
+        &lt;label&gt;Månedsinntekt før skatt &lt;/label&gt;
+        &lt;description&gt;Oppgi din månedsinntekt før skatt.&lt;/description&gt;
+        &lt;name&gt;coapplicant-monthly-income-gross&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.netMonthlyIncome&quot;&gt;
+        &lt;label&gt;Månedsinntekt etter skatt&lt;/label&gt;
+        &lt;description&gt;Oppgi din månedsinntekt etter skatt.&lt;/description&gt;
+        &lt;name&gt;coapplicant-monthly-income-net&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.mortgageDebt&quot;&gt;
+        &lt;label&gt;Bolig/hyttelån – lånesaldo (medsøkers andel)&lt;/label&gt;
+        &lt;description&gt;Fyll ut hvor mye medsøker har i boliglån (kun medsøkers andel dersom medsøker deler med noen andre)..&lt;/description&gt;
+        &lt;name&gt;coapplicant-mortgage-debt&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;default&gt;0&lt;/default&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;99999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;length&gt;8&lt;/length&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 99999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.mortgageMonthlyCost&quot;&gt;
+        &lt;label&gt;Bolig/hyttelån – månedskostnad (medsøkers andel)&lt;/label&gt;
+        &lt;description&gt;Fyll ut hvor mye medsøker betaler på boliglån hver måned (kun medsøkers andel dersom medsøker deler med noen andre).&lt;/description&gt;
+        &lt;name&gt;coapplicant-mortgage-monthly-cost&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;default&gt;0&lt;/default&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;99999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;length&gt;8&lt;/length&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 99999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.carLoanSum&quot;&gt;
+        &lt;label&gt;Bil/MC/Båt – lånesaldo (medsøkers andel)&lt;/label&gt;
+        &lt;description&gt;Fyll ut hvor mye medsøker har i lån med pant I bil eller andre kjøretøy (kun medsøkers andel dersom medsøker deler med noen andre).&lt;/description&gt;
+        &lt;name&gt;coapplicant-car-loan-sum&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;default&gt;0&lt;/default&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;length&gt;7&lt;/length&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.carLoanMonthlyCost&quot;&gt;
+        &lt;label&gt;Bil/MC/Båt – månedskostnad (medsøkers andel)&lt;/label&gt;
+        &lt;description&gt;Fyll ut hvor mye medsøker betaler på lån med pant I bil eller andre kjøretøy hver måned (kun medsøkers andel dersom medsøker deler med noen andre).&lt;/description&gt;
+        &lt;name&gt;coapplicant-car-loan-monthly-cost&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;default&gt;0&lt;/default&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;length&gt;7&lt;/length&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.studentLoanSum&quot;&gt;
+        &lt;label&gt;Studielån – lånesaldo&lt;/label&gt;
+        &lt;description&gt;Fyll ut hvor mye medsøker har i studielån&lt;/description&gt;
+        &lt;name&gt;coapplicant-student-loan-sum&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;default&gt;0&lt;/default&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;length&gt;7&lt;/length&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.studentLoanMonthlyCost &quot;&gt;
+        &lt;label&gt;Studielån – månedskostnad&lt;/label&gt;
+        &lt;description&gt;Fyll ut hvor mye medsøker betaler på studielånet hver måned.&lt;/description&gt;
+        &lt;name&gt;coapplicant-student-loan-monthly-cost&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;default&gt;0&lt;/default&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;length&gt;7&lt;/length&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.creditCardSum&quot;&gt;
+        &lt;label&gt;Kredittkortgjeld/forbrukslån - lånesaldo&lt;/label&gt;
+        &lt;description&gt;Fyll ut medsøkers samlede kredittkortgjeld/forbrukslån (inkluder ubenyttede kreditter dersom medsøker har dette)&lt;/description&gt;
+        &lt;name&gt;coapplicant-credit-card-sum&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;default&gt;0&lt;/default&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;length&gt;7&lt;/length&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.creditCardMonthlyCost&quot;&gt;
+        &lt;label&gt;Kredittkortgjeld/forbrukslån – månedskostnad&lt;/label&gt;
+        &lt;description&gt;Fyll ut hvor mye medsøker betaler på hver måned på medsøkers kredittkortgjeld og forbrukslån.&lt;/description&gt;
+        &lt;name&gt;coapplicant-credit-card-monthly-cost&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;default&gt;0&lt;/default&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;length&gt;7&lt;/length&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;loanPurpose&quot;&gt;
+        &lt;label&gt;Formålet med lånet&lt;/label&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;name&gt;purpose-of-loan&lt;/name&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Bil/MC&lt;/label&gt;
+                &lt;value&gt;MOTOR&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Bryllup&lt;/label&gt;
+                &lt;value&gt;WEDDING&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Båt&lt;/label&gt;
+                &lt;value&gt;BOAT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Investering (f. eks aksjer)&lt;/label&gt;
+                &lt;value&gt;INVESTMENT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Førerkort&lt;/label&gt;
+                &lt;value&gt;DRIVERS_LICENSE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Innredning (f.eks møbler, elektronikk)&lt;/label&gt;
+                &lt;value&gt;INTERIOR&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Oppussing/Renovering&lt;/label&gt;
+                &lt;value&gt;RENOVATION&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Reise/Fritid&lt;/label&gt;
+                &lt;value&gt;TRAVEL&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Samle lån/kreditt&lt;/label&gt;
+                &lt;value&gt;CONSOLIDATE_LOANS&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Helse/tannpleie&lt;/label&gt;
+                &lt;value&gt;DENTAL_OR_OTHER_CARE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Studier&lt;/label&gt;
+                &lt;value&gt;STUDIES&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Øvrig konsum&lt;/label&gt;
+                &lt;value&gt;OTHER&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Kjøp av bolig&lt;/label&gt;
+                &lt;value&gt;HOUSING_MORTGAGE_LOAN&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(MOTOR|WEDDING|BOAT|HOUSING_MORTGAGE_LOAN|INVESTMENT|DRIVERS_LICENSE|INTERIOR|RENOVATION|TRAVEL|CONSOLIDATE_LOANS|DENTAL_OR_OTHER_CARE|STUDIES|OTHER)$&lt;/format&gt;
+        &lt;format-message&gt;Velg et av alternativene.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;!-- ***** Huvudsökande - Civilstånd --&gt;
+
+    &lt;element java-property=&quot;applicant.maritalStatus&quot;&gt;
+        &lt;label&gt;Sivilstatus&lt;/label&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;name&gt;applicant-marital-status&lt;/name&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;default&gt;&lt;/default&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Gift/Registrert partnerskap&lt;/label&gt;
+                &lt;value&gt;MARRIED&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Samboer&lt;/label&gt;
+                &lt;value&gt;DOMESTIC_PARTNER&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Skilt/separert&lt;/label&gt;
+                &lt;value&gt;DIVORCED&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Aleneboende&lt;/label&gt;
+                &lt;value&gt;SINGLE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Enke-/mann&lt;/label&gt;
+                &lt;value&gt;WIDOW&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(MARRIED|DOMESTIC_PARTNER|SINGLE|DIVORCED|WIDOW)$&lt;/format&gt;
+        &lt;format-message&gt;Velg et av alternativene.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;householdNoOfChildren&quot;&gt;
+        &lt;label&gt;Antall barn under 18 år&lt;/label&gt;
+        &lt;description&gt;Om du ikke har barn, oppgi 0.&lt;/description&gt;
+        &lt;name&gt;number-children-not-of-age&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;list&lt;/type&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;0&lt;/label&gt;
+                &lt;value&gt;0&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;1&lt;/label&gt;
+                &lt;value&gt;1&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;2&lt;/label&gt;
+                &lt;value&gt;2&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;3&lt;/label&gt;
+                &lt;value&gt;3&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;4&lt;/label&gt;
+                &lt;value&gt;4&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;5&lt;/label&gt;
+                &lt;value&gt;5&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;6&lt;/label&gt;
+                &lt;value&gt;6&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;7&lt;/label&gt;
+                &lt;value&gt;7&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;8&lt;/label&gt;
+                &lt;value&gt;8&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;9&lt;/label&gt;
+                &lt;value&gt;9&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;10&lt;/label&gt;
+                &lt;value&gt;10&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;11&lt;/label&gt;
+                &lt;value&gt;11&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;12&lt;/label&gt;
+                &lt;value&gt;12&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;13&lt;/label&gt;
+                &lt;value&gt;13&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;14&lt;/label&gt;
+                &lt;value&gt;14&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;15&lt;/label&gt;
+                &lt;value&gt;15&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;16&lt;/label&gt;
+                &lt;value&gt;16&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;17&lt;/label&gt;
+                &lt;value&gt;17&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;18&lt;/label&gt;
+                &lt;value&gt;18&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;19&lt;/label&gt;
+                &lt;value&gt;19&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;20&lt;/label&gt;
+                &lt;value&gt;20&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;unit&gt;kpl&lt;/unit&gt;
+        &lt;format&gt;^([01]?[0-9]|20)$&lt;/format&gt;
+        &lt;format-message&gt;Oppgi et gyldig antall barn under 18 (mellom 0 og 20).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+        &lt;element java-property=&quot;applicant.habitationType&quot;&gt;
+        &lt;label&gt;Boform&lt;/label&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;name&gt;applicant-habitation-form&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;default&gt;&lt;/default&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Eier leilighet/bolig&lt;/label&gt;
+                &lt;value&gt;DETACHED_HOUSE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Borettslag&lt;/label&gt;
+                &lt;value&gt;CONDOMINIUM&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Leier&lt;/label&gt;
+                &lt;value&gt;APARTMENT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Bor hos foreldre&lt;/label&gt;
+                &lt;value&gt;BY_PARENTS&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(DETACHED_HOUSE|APARTMENT|CONDOMINIUM|BY_PARENTS)$&lt;/format&gt;
+        &lt;format-message&gt;Velg et av alternativene.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;!-- ***** Huvudsökande - Arbete --&gt;
+    &lt;element java-property=&quot;applicant.employmentType&quot;&gt;
+        &lt;label&gt;Arbeidsforhold&lt;/label&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;name&gt;applicant-employment-type&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;default&gt;&lt;/default&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Fast ansatt&lt;/label&gt;
+                &lt;value&gt;FAST_ANSTALLD&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Midlertidig ansatt/vikar&lt;/label&gt;
+                &lt;value&gt;VIKARIAT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Selvstendig næringsdrivende&lt;/label&gt;
+                &lt;value&gt;EGEN_FORETAGARE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Pensjonist&lt;/label&gt;
+                &lt;value&gt;PENSIONAR&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Student&lt;/label&gt;
+                &lt;value&gt;STUDENT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Uføretrygd&lt;/label&gt;
+                &lt;value&gt;SJUKPENSIONAR&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Arbeidsledig&lt;/label&gt;
+                &lt;value&gt;ARBETSLOS&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Arbeidsavklaringspenger&lt;/label&gt;
+                &lt;value&gt;REHABILITATION&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Annet&lt;/label&gt;
+                &lt;value&gt;LONG_TERM_SICKNESS&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(FAST_ANSTALLD|VIKARIAT|EGEN_FORETAGARE|PENSIONAR|STUDENT|SJUKPENSIONAR|ARBETSLOS|REHABILITATION|LONG_TERM_SICKNESS)$&lt;/format&gt;
+        &lt;format-message&gt;Velg et av alternativene.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.citizenship&quot;&gt;
+        &lt;label&gt;Norsk statsborger&lt;/label&gt;
+        &lt;description&gt;Stasborgerskap&lt;/description&gt;
+        &lt;name&gt;applicant-nationality&lt;/name&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;default&gt;&lt;/default&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Norsk&lt;/label&gt;
+                &lt;value&gt;NORWEGIAN&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Utenlandsk&lt;/label&gt;
+                &lt;value&gt;FOREIGN&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(NORWEGIAN|FOREIGN)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.grossMonthlyIncome&quot;&gt;
+        &lt;label&gt;Månedsinntekt før skatt &lt;/label&gt;
+        &lt;description&gt;Oppgi din månedsinntekt før skatt.&lt;/description&gt;
+        &lt;name&gt;applicant-monthly-income-gross&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.netMonthlyIncome&quot;&gt;
+        &lt;label&gt;Månedsinntekt etter skatt&lt;/label&gt;
+        &lt;description&gt;Oppgi din månedsinntekt etter skatt.&lt;/description&gt;
+        &lt;name&gt;applicant-monthly-income-net&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.otherMonthlyIncome&quot;&gt;
+        &lt;label&gt;Annen månedsinntekt&lt;/label&gt;
+        &lt;description&gt;Oppgi ekstra månedsinntekt som barnebidrag, leieinntekter etc&lt;/description&gt;
+        &lt;name&gt;applicant-monthly-income-other&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.monthlyRentalCost&quot;&gt;
+        &lt;label&gt;Husleie/Fellesutgifter pr måned&lt;/label&gt;
+        &lt;description&gt;Oppgi dine totale månedlige husleie/fellesutgifter per måned.&lt;/description&gt;
+        &lt;name&gt;applicant-monthly-rental-cost&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;format-message&gt;&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.mortgageDebt&quot;&gt;
+        &lt;label&gt;Bolig/hyttelån lånesaldo&lt;/label&gt;
+        &lt;description&gt;Husholdningens samlede lån&lt;/description&gt;
+        &lt;name&gt;applicant-mortgage-debt&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;99999999&lt;/max-value&gt;
+        &lt;unit&gt;nok&lt;/unit&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 99999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.mortgageMonthlyCost&quot;&gt;
+        &lt;label&gt;Bolig/hyttelån – månedskostnad (din andel)&lt;/label&gt;
+        &lt;description&gt;Fyll ut hvor mye du betaler på boliglån hver måned (kun din andel dersom du deler med noen andre).&lt;/description&gt;
+        &lt;name&gt;applicant-mortgage-monthly-cost&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;default&gt;0&lt;/default&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;99999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;length&gt;8&lt;/length&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 99999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;consolidatedLoansTenor&quot;&gt;
+        &lt;label&gt;Nedbetalingstid på lån du skal refinansiere&lt;/label&gt;
+        &lt;description&gt;Om flere lån, gjennomsnittlig ant år legges inn&lt;/description&gt;
+        &lt;name&gt;consolidated-loans-tenor&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.mortgageDebtCeiling&quot;&gt;
+        &lt;label&gt;Kredittramme bolig/hyttelån&lt;/label&gt;
+        &lt;description&gt;Sett inn den avtalte øvre lånegrensen for din kredittramme&lt;/description&gt;
+        &lt;name&gt;applicant-mortgage-debt-ceiling&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;49999999&lt;/max-value&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 49.999.999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.creditCardDebtCeiling&quot;&gt;
+        &lt;label&gt;Kredittramme forbrukslån og kredittkort&lt;/label&gt;
+        &lt;description&gt;Sett inn den avtalte øvre kredittgrensen for kredittkort/forbrukslån&lt;/description&gt;
+        &lt;name&gt;applicant-credit-card-debt-ceiling&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;4999999&lt;/max-value&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 4.999.999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.carLoanSum&quot;&gt;
+        &lt;label&gt;Bil/MC/båtlån lånesaldo&lt;/label&gt;
+        &lt;description&gt;Husholdningens samlede lån&lt;/description&gt;
+        &lt;name&gt;applicant-car-loan-sum&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;nok&lt;/unit&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.carLoanMonthlyCost&quot;&gt;
+        &lt;label&gt;Bil/MC/Båt – månedskostnad (din andel)&lt;/label&gt;
+        &lt;description&gt;Fyll ut hvor mye du betaler på lån med pant I bil eller andre kjøretøy hver måned (kun din andel dersom du deler med noen andre).&lt;/description&gt;
+        &lt;name&gt;applicant-car-loan-monthly-cost&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;default&gt;0&lt;/default&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;length&gt;7&lt;/length&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.studentLoanSum&quot;&gt;
+        &lt;label&gt;Studielån lånesaldo&lt;/label&gt;
+        &lt;description&gt;Søker sin(e) samlede studielån&lt;/description&gt;
+        &lt;name&gt;applicant-student-loan-sum&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;nok&lt;/unit&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.studentLoanMonthlyCost &quot;&gt;
+        &lt;label&gt;Studielån – månedskostnad&lt;/label&gt;
+        &lt;description&gt;Fyll ut hvor mye du betaler på studielånet hver måned.&lt;/description&gt;
+        &lt;name&gt;applicant-student-loan-monthly-cost&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;default&gt;0&lt;/default&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;length&gt;7&lt;/length&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.creditCardSum&quot;&gt;
+        &lt;label&gt;Kredittkortgjeld/forbrusklån lånesaldo&lt;/label&gt;
+        &lt;description&gt;Søker sin(e) samlede kredittkort-/forbrukslån gjeld&lt;/description&gt;
+        &lt;name&gt;applicant-credit-card-sum&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;nok&lt;/unit&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.creditCardMonthlyCost&quot;&gt;
+        &lt;label&gt;Kredittkortgjeld/forbrukslån – månedskostnad&lt;/label&gt;
+        &lt;description&gt;Fyll ut hvor mye du betaler hver måned på din kredittkortgjeld og dine forbrukslån.&lt;/description&gt;
+        &lt;name&gt;applicant-credit-card-monthly-cost&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;default&gt;0&lt;/default&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;length&gt;7&lt;/length&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.monthlyDebtRepayment&quot;&gt;
+        &lt;label&gt;Totale månedskostnader alle lån&lt;/label&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;name&gt;applicant-monthly-debt-repayment&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;9999999&lt;/max-value&gt;
+        &lt;unit&gt;nok&lt;/unit&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 9999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.creditRemarks&quot;&gt;
+        &lt;name&gt;applicant-credit-remarks&lt;/name&gt;
+        &lt;label&gt;Har du gjeld hos inkassoselskap?&lt;/label&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Ja&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Nei&lt;/label&gt;
+                &lt;value&gt;false&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(?:true|false)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;payoutAccountNo&quot;&gt;
+        &lt;label&gt;&lt;/label&gt;
+        &lt;name&gt;payout-account-number&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;11&lt;/length&gt;
+        &lt;format&gt;^[\\d]{11}$&lt;/format&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi - 11 siffer uten tegn.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;isFinancingOtherLoan&quot;&gt;
+        &lt;label&gt;Vil du refinansiere/samle gjeld?&lt;/label&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;name&gt;finance-other-loans&lt;/name&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Ja&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;balanceOfConsolidatedLoans&quot;&gt;
+        &lt;label&gt;Hvor mye vil du refinansiere?&lt;/label&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;name&gt;finance-other-loans-balance-of-loans&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;999999&lt;/max-value&gt;
+        &lt;unit&gt;€&lt;/unit&gt;
+        &lt;format-message&gt;Oppgi gyldig verdi (0 - 999999 kr).&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element&gt;
+        &lt;type&gt;group&lt;/type&gt;
+        &lt;label&gt;Betalingsforsikring&lt;/label&gt;
+        &lt;description&gt;Forsikringen skal gi deg og din familie trygghet om du skulle bli utsatt for langtidssykemelding,
+            ufrivillig arbeidsledighet/permittering, sykehusinnleggelse eller dødsfall på grunn av ulykke. Premien er
+            0,67% av din aktuelle lånesaldo. Forsikringen dekker din månedskostnad på lånet inntil 12 måneder. Ved
+            dødsfall som følge av en ulykke betaler forsikringen gjelden på tidspunktet for dødsfallet (opptil
+            50 000 kr).&lt;/description&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;isInsured&quot;&gt;
+        &lt;label&gt;Ja takk! Jeg vil tegne betalingsforsikring. Send meg mer informasjon og søknad.&lt;/label&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;name&gt;insurance&lt;/name&gt;
+        &lt;type&gt;confirmation&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;campaignCode&quot;&gt;
+        &lt;label&gt;Kampanjekode&lt;/label&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;name&gt;campaign-code&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;10&lt;/length&gt;
+        &lt;format&gt;^([A-ZÅÄÖÜ\\-\\.\\S\\d a-zåäöü]{2,5})?$&lt;/format&gt;
+        &lt;format-message&gt;&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;termsAgreedTo&quot;&gt;
+        &lt;label&gt;
+            Ved å inngå avtale med Resurs Bank inngår du i Resurskonsernets kunderegister. Hovedformålet med vår behandling av personopplysninger er å samle inn, kontrollere og registrere de opplysningene som kreves før avtaleinngåelse samt dokumentere, administrere og gjennomføre avtalen. Personopplysninger kan også benyttes for markedsføringsformål. Når behandling skjer for markedsføringsformål kan også profilering forekomme for å rette tilpassede tilbud til deg hvorved du kan tilbys alternativt produkt eller kontaktes av en av Resurs Banks samarbeidspartnere. Fullstendig informasjon om vår behandling av personopplysninger finner du i våre vilkår for behandling av personopplysninger.
+            Jeg er innforstått med at jeg gjennom å kontakte Resurs Bank kan reservere meg mot direkte markedsføring. Undertegnede låntaker(e) erkjenner med dette å skylde banken det lånebeløp som er angitt ovenfor. Beløpet med tillegg av renter og omkostninger, beregnet på grunnlag av de satser som til enhver tid gjelder i låneperioden, tilbakebetales i samsvar med betingelsene ovenfor og de alminnelige vilkår. Jeg forsikrer at oppgitte opplysninger er riktige og fullstendige og tillater at søknaden kredittprøves og at arbeidsgiver kan komme til å kontaktes. Jeg forsikrer videre at jeg før jeg søkte har mottatt og lest Standardiserte europeiske opplysninger om forbrukerkreditt (SEF-skjema) og Resurs Banks alminnelige vilkår for privat konto- og kortkreditt samt forbrukslån for Norge, hvilke bestemmelser herved vedtas. Avtalen, som består av dette dokumentet og ovenstående dokumenter, er tilgjengelig på «Mine Sider» på www.resursbank.no. Inndrivelse kan skje uten søksmål, jf. tvangsfullbyrdelsesloven § 7-2 bokstav a eller g, som også omfatter renter og utenrettslige inndrivingskostnader.
+        &lt;/label&gt;
+        &lt;name&gt;approve-conditions&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;confirmation&lt;/type&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true)$&lt;/format&gt;
+        &lt;format-message&gt;Dette feltet er obligatorisk.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.consentEmailMarketing&quot;&gt;
+        &lt;name&gt;applicant-consent-email-marketing&lt;/name&gt;
+        &lt;label&gt;Jeg ønsker fremtidige tilbud fra Resurs Bank på e-post.&lt;/label&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element&gt;
+        &lt;type&gt;group&lt;/type&gt;
+        &lt;label&gt;Välj signeringsmetod&lt;/label&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;agreementSignType&quot;&gt;
+        &lt;label&gt;Signeringsmetode&lt;/label&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;name&gt;agreement-sign-type&lt;/name&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Elektronisk signering&lt;/label&gt;
+                &lt;value&gt;E_SIGN&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Post&lt;/label&gt;
+                &lt;value&gt;MAIL&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(MAIL|E_SIGN)$&lt;/format&gt;
+        &lt;format-message&gt;Vennligst velg signeringsmetode.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;!-- ***** Avslutning --&gt;
+    &lt;element&gt;
+        &lt;label&gt;Send søknad&lt;/label&gt;
+        &lt;imagesrc/&gt;
+        &lt;name&gt;send-application&lt;/name&gt;
+        &lt;type&gt;submit&lt;/type&gt;
+    &lt;/element&gt;
+&lt;/resurs-form&gt;
+
+
+</pre>
+</div></div></div></div><div id="expander-1842313934" class="expand-container"><div id="expander-control-1842313934" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">Click here to expand submitApplicationExtResponse example for Norway</span></div><div id="expander-content-1842313934" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+    &lt;soap:Body&gt;
+        &lt;ns2:submitApplicationExtResponse xmlns:ns2=&quot;http://consumerloan.resurs.com/v1/msg/application&quot; xmlns:ns3=&quot;http://consumerloan.resurs.com/v1/msg/exception&quot;&gt;
+            &lt;submitApplicationExtResult&gt;
+                &lt;applicationReference&gt;1acca31b-c4c8-466a-9f7e-51c8c06591dd&lt;/applicationReference&gt;
+                &lt;decision&gt;APPROVED&lt;/decision&gt;
+                &lt;approvedAmount&gt;100000&lt;/approvedAmount&gt;
+                &lt;interest&gt;22.30&lt;/interest&gt;
+                &lt;tenor&gt;72&lt;/tenor&gt;
+                &lt;effectiveInterest&gt;25.31&lt;/effectiveInterest&gt;
+                &lt;monthlyCost&gt;2598.00&lt;/monthlyCost&gt;
+                &lt;consolidationDemand&gt;10000.0&lt;/consolidationDemand&gt;
+                &lt;adminFee&gt;19.00&lt;/adminFee&gt;
+                &lt;arrangementFee&gt;399.00&lt;/arrangementFee&gt;
+                &lt;documentTypes&gt;ID&lt;/documentTypes&gt;
+                &lt;documentTypes&gt;PAYMENT_SLIP&lt;/documentTypes&gt;
+                &lt;totalRepaymentAmount&gt;187007.00&lt;/totalRepaymentAmount&gt;
+                &lt;monthlyAccountFee&gt;0&lt;/monthlyAccountFee&gt;
+                &lt;totalFeesAndInterest&gt;87007.00&lt;/totalFeesAndInterest&gt;
+            &lt;/submitApplicationExtResult&gt;
+        &lt;/ns2:submitApplicationExtResponse&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;  </pre>
+</div></div></div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

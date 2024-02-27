@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : updateApplication</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Consumer-Loan-API_16056949.html">Consumer Loan API</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : updateApplication
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Daniel</span>, last modified on 2021-06-15
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="updateApplication-Oneorseveralfieldscanbesent/updatedintherequest.(Thisrequestmustbedonepriortoacceptingtheoffer.)">One or several fields can be sent / updated in the request.<br/><strong>(This request must be done prior to accepting the offer.)</strong></h2><p>Fields that can be updated are:</p><ul><li>  applicantEmail</li><li>  coApplicantEmail</li><li>  account&gt;clearing<br/>   - If the clearing consists of 5 digits and where the last digit is a control number it must be included, the control number cannot be omitted.</li><li>  account&gt;number<br/>   - Control number must be included, it cannot be omitted.</li><li>  iban </li><li><p>  requestedSigningMethod</p><div class="confluence-information-macro confluence-information-macro-information"><p class="title conf-macro-render">E_SIGN Clearing- &amp; account number</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body">If customer is to choose<strong> E_SIGN </strong>as signing method, it is mandatory to input clearing- and account number in either submitApplicationExt or updateApplication prior to acceptQuote. <br/>Email is also mandatory since link for signing will be sent by email.</div></div></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:app=&quot;http://consumerloan.resurs.com/v1/msg/application&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;app:updateApplication&gt;
+         &lt;applicationReference&gt;?&lt;/applicationReference&gt;
+         &lt;application&gt;
+            &lt;!--Optional:--&gt;
+            &lt;applicantEmail&gt;?&lt;/applicantEmail&gt;
+            &lt;!--Optional:--&gt;
+            &lt;coApplicantEmail&gt;?&lt;/coApplicantEmail&gt;
+            &lt;!--Optional:--&gt;
+            &lt;account&gt;
+               &lt;clearing&gt;?&lt;/clearing&gt;
+               &lt;number&gt;?&lt;/number&gt;
+            &lt;/account&gt;
+            &lt;!--Optional:--&gt;
+            &lt;iban&gt;?&lt;/iban&gt;
+            &lt;!--Optional:--&gt;
+            &lt;requestedSigningMethod&gt;?&lt;/requestedSigningMethod&gt;
+         &lt;/application&gt;
+      &lt;/app:updateApplication&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;updateApplicationResult&gt;
+    &lt;updated&gt;true&lt;/updated&gt;
+    &lt;message&gt;Applicationupdated&lt;/message&gt;
+&lt;/updateApplicationResult&gt;</pre>
+</div></div><p><br/></p><p><br/></p><p><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

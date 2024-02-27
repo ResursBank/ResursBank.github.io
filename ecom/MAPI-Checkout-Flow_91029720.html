@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : MAPI Checkout Flow</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Plugins_1476269.html">Platform Plugins</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="WooCommerce_2588830.html">WooCommerce</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Resurs-Merchant-API-2.0-for-WooCommerce_81887266.html">Resurs Merchant API 2.0 for WooCommerce</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : MAPI Checkout Flow
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2022-12-21
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Reserved space for the described MAPI-flow. It very much looks like the prior flow, with a few enhancements.</p><h2 id="MAPICheckoutFlow-PurchasingwiththenewMerchantAPI.">Purchasing with the new Merchant API.</h2><p>The Merchant API is, like the former simplified shopflow, made to go with a platform default rules but with some improvements. <span style="letter-spacing: 0.0px;">The WooCommerce order will (as before) be created first (in </span><em style="letter-spacing: 0.0px;">Pending</em><span style="letter-spacing: 0.0px;"> status), then Resurs order is placed and finally - depending on the result - updated to </span><em style="letter-spacing: 0.0px;">Processing</em><span style="letter-spacing: 0.0px;">. The procedure looks like this:</span></p><ol><li>Purchase button is clicked. WooCommerce starts handling the order, setting the first Pending status.</li><li>When WooCommerce checks (stock count, etc) are finished, Resurs plugin takes over to create the payment. During this process, signing the payment also occurs.</li><li>When Resurs is done, the order can be either accepted (<em>processing</em>), rejected (<em>failed</em>) or paused (<em>on-hold</em>). Depending on the outcome, Resurs will redirect customers back, either to the final order received-page (&quot;thank you&quot;) or a failure-page (if Resurs rejects the order, customers redirected to a fail-page will render the order to be <em>canceled</em>).</li><li>Side by side with the above steps, callbacks are also sent from Resurs, in case that the customer fails to return to the thank you page. This makes sure that the statuses are properly set.</li></ol><h3 id="MAPICheckoutFlow-VisualizedFlow">Visualized Flow</h3><p>
+
+<map id="gliffy-map-91029724-590" name="gliffy-map-91029724-590"></map>
+<table width="100%" class="gliffy-macro-table">
+    <tr>
+        <td >
+            <table class="gliffy-macro-inner-table">
+                <caption align="bottom">
+                                    </caption>
+                <tr>
+                    <td>
+                        <img style="border: none; width: 820px;" usemap="#gliffy-map-91029724-590" src="attachments/91029720/91029725.png" alt="" class="gliffy-macro-image"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+</p><h2 id="MAPICheckoutFlow-Howcallbacksworks">How callbacks works</h2><ol><li>When a purchase is completed and the payment is ready to be handled at Resurs side a few callbacks are executed synchronously from Resurs. You can see the flow and more information <a href="https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v2/options#callbacks" class="external-link" rel="nofollow">about the callbacks here</a>.</li><li>To make sure that the callback received from Resurs is correct, the plugin will make a secure request with Resurs to confirm the order status, before handling the order locally at WooCommerce side.</li><li>When an order is synchronized with Resurs, the order status will update to either <em>processing, on-hold</em> or <em>failed</em>. If t he order is set to <em>on-hold</em>, this means that more actions could follow. For example, an order at Resurs can be temporarily frozen (which is the cause of on-hold) and will be pushed further (to <em>processing</em>) when ready to handle.</li></ol>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029728">MAPIv2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029729.png">MAPIv2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029732">MAPIv2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029733.png">MAPIv2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029735">MAPIv2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029736.png">MAPIv2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029740">MAPIv2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029741.png">MAPIv2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029744">MAPIv2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029745.png">MAPIv2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029747">MAPIv2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029748.png">MAPIv2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029750">MAPIv2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029751.png">MAPIv2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029724">MAPIv2</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/91029720/91029725.png">MAPIv2.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

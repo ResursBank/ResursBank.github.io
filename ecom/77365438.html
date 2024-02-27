@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : PrestaShop Simplified: Changes and updates</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Plugins_1476269.html">Platform Plugins</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PrestaShop-Payment-Gateways_12189753.html">PrestaShop Payment Gateways</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PrestaShop-SimplifiedShopFlow_59342873.html">PrestaShop SimplifiedShopFlow</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : PrestaShop Simplified: Changes and updates
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2022-06-08
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="PrestaShopSimplified:Changesandupdates-AbouttheRCOmodule">About the RCO module</h2><p>The prior module that handled Resurs Checkout will over time be replaced with this new module and is therefore no longer maintained the same way it has been. There's a few things to think of if you plan to upgrade in the future.</p><h3 id="PrestaShopSimplified:Changesandupdates-WillgovernmentID&#39;sbestoredinthenewmodulethewayitwashandledintheoldmodule?">Will government ID's be stored in the new module the way it was handled in the old module?</h3><p><em><strong>Yes, but there are changes in the prior behaviour.</strong></em></p><p>According to 
+<span class="jira-issue resolved" data-jira-key="P17-169" >
+                    <a href="https://resursbankplugins.atlassian.net/browse/P17-169?src=confmacro" class="jira-issue-key"><img class="icon"
+                                                                                      src="https://resursbankplugins.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium"/>P17-169</a>
+                            -
+            <span class="summary">Hantering av personnummer (möjlighet att fånga dessa med en hook för försäkringsbolag)</span>
+                                                <span class="aui-lozenge aui-lozenge-subtle             aui-lozenge-success
+     jira-macro-single-issue-export-pdf">Done</span>
+                </span>
+, the same hook that handled the ability to store government id's in the platform is still there. It is mostly - as in the old version - not supported more than by an execution. The hook trigger itself looks like this and can be found in the rco-module too, the same way:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">                    Hook::exec(
+                        &#39;UpdateResursSsn&#39;,
+                        [
+                            &#39;order&#39; =&gt; $order,
+                            &#39;vat_number&#39; =&gt; $currentResursPayment-&gt;customer-&gt;governmentId,
+                        ]
+                    );</pre>
+</div></div><p>In the simplified module, this trigger can be triggered multiple times, depending on the &quot;way in&quot;. The trigger itself is placed in one method that has always a guarantee to run - <span style="color: rgb(9,30,66);">getSynchronizedAddress()</span>. This method is called from the moment when bookPayment gets &quot;BOOKED&quot; as response from Resurs and the moment after bookSignedPayment has been running. If both events happens to occur, there will also be two calls to the hook.</p><p>Note: Auto debited and finalized orders are only handled on the UPDATE-callback since there is high risk of race conditions when several callbacks are sent simultaneously and there's currently no solution for handle them in order (queue by cron for example), since this method is more or less a non-standard solution.</p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

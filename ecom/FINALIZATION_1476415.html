@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : FINALIZATION</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Callbacks_327724.html">Callbacks</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : FINALIZATION
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Joachim Andersson</span>, last modified by <span class='editor'> Thomas Tornevall</span> on 2023-12-27
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="panelMacro" style="margin-left: 0.0px;"><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This event is triggered when a paymnet is automatically finalized at Resurs Bank.<br/>i.e.:</p><ul><li>finalizeIfBooked set to TRUE in bookPayment method (Simplified Shop Flow Service and Resurs Hosted flow).</li><li>Payment type is Swish (SE)</li></ul></div></div><p>Once a payment is finalized automatically at Resurs Bank, for this will trigger this event, when the parameter finalizeIfBooked parmeter is set to true in <a href="paymentData_1476364.html">paymentData</a>.</p></div><div class="table-wrap"><table class="wrapped confluenceTable"><tbody><tr><td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"><br/></td><td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey">Name</td><td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey">Description</td></tr><tr><th class="confluenceTh">ID</th><td class="confluenceTd"><code>FINALIZATION</code></td><td colspan="1" class="confluenceTd">The finalization event ID.</td></tr><tr><td class="highlight-grey confluenceTd" data-highlight-colour="grey"><span style="color: rgb(0,0,0);">Parameter</span></td><td class="confluenceTd"><code>paymentId</code></td><td colspan="1" class="confluenceTd">Payment ID (was sent to us as<code> <strong>preferredPaymentId</strong>
+        </code> in the <code>bookPayment</code> call)</td></tr></tbody></table></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;S:Envelope xmlns:S=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+  &lt;S:Body&gt;
+    &lt;ns0:registerEventCallback xmlns:ns0=&quot;http://ecommerce.resurs.com/v4/msg/configuration&quot; xmlns:ns1=&quot;http://ecommerce.resurs.com/v4/msg/exception&quot;&gt;
+      &lt;eventType&gt;FINALIZATION&lt;/eventType&gt;
+      &lt;uriTemplate&gt;https://host.com/rest/resursbank_checkout/finalization/paymentId/{paymentId}/digest/{digest}&lt;/uriTemplate&gt;
+      &lt;basicAuthUserName&gt;UserNameIfBasicAccessAuthenticationIsUsed&lt;/basicAuthUserName&gt;
+      &lt;basicAuthPassword&gt;PasswordIfBasicAccessAuthenticationIsUsed&lt;/basicAuthPassword&gt;
+      &lt;digestConfiguration&gt;
+        &lt;digestAlgorithm&gt;SHA1&lt;/digestAlgorithm&gt;
+        &lt;digestParameters&gt;paymentId&lt;/digestParameters&gt;
+        &lt;digestSalt&gt;SecretHashSalt&lt;/digestSalt&gt;
+      &lt;/digestConfiguration&gt;
+    &lt;/ns0:registerEventCallback&gt;
+  &lt;/S:Body&gt;
+&lt;/S:Envelope&gt; </pre>
+</div></div><p> Resurs Bank will make a HTTP/<span style="color: rgb(0,0,0);">GET</span> call with query parameters (defined by the callback type) to the registered URL: <a href="https://host.com/?merchant=ResursBank&amp;event-type=FINALIZATION&amp;paymentId=10000016&amp;digest=4b6f2ddec947e6e5b6c4c3998081f3d7bce1f40d" class="external-link" rel="nofollow">https://host.com/?merchant=ResursBank&amp;event-type=FINALIZATION&amp;paymentId=10000016&amp;digest=4b6f2ddec947e6e5b6c4c3998081f3d7bce1f40d</a></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

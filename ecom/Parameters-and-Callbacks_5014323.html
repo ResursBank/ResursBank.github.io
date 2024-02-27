@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Parameters and Callbacks</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Callbacks_327724.html">Callbacks</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Parameters and Callbacks
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Benny</span>, last modified on 2017-02-21
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Depending on what value you use for the parameter <code>waitForFraudControl</code> in <code>bookPayment</code> you will have to implement different callbacks, if you are not monitoring the orders manually with the web tool <a href="Payment-administration-GUI_327748.html">Payment Administration</a>. The answer you get from <code>bookPayment</code> will differ depending on if you use the Simplified flow or the Hosted flow (the latter also explained <a href="https://test.resurs.com/docs/display/ecom/Hosted+Flow+with+After+Shop+Service">here</a>).</p><h3 id="ParametersandCallbacks-SIMPLIFIEDFLOW">SIMPLIFIED FLOW</h3><h4 id="ParametersandCallbacks-waitForFraudControl=FALSE"><span> waitForFraudControl=FALSE <br/> </span></h4><p>With this setting in the call <code>bookPayment</code> you run asynchronously and do not wait for the answer of the control.<br/>In <code>bookPaymentResponse</code> you will instead get an intermediate status <code>FROZEN</code> (in the old deprecated flow you will get <code>CONTROL_IN_PROGRESS</code>) or you will get <code>DENIED</code>.</p><p>When the automatic control has finished the order will get one of these statuses:</p><ul><li><code>BOOKED</code> in the system - the control shows nothing wrong and you can debit the order. The callback <code>AUTOMATIC_FRAUD_CONTROL</code> is sent and says <code>THAWED</code>.</li><li><code>FROZEN</code> in the system - something is suspicious and the order goes to manual handling. The callback <code>AUTOMATIC_FRAUD_CONTROL</code> is sent and says <code>FROZEN</code>.</li></ul><p>When an order is manually inspected it's also here two outcomes, both send their own callback that you have to listen to:</p><ul><li>The order is okay for debiting - this callback is sent: <code>UNFREEZE</code>.</li><li>Something is wrong or suspicious - this callback is sent: <code>ANNULMENT</code>.</li></ul><h4 id="ParametersandCallbacks-waitForFraudControl=TRUE">waitForFraudControl=TRUE</h4><p>With this setting in the call <code>bookPayment</code> you run synchronously and wait for the control to run.<br/>In <code>bookPaymentResponse</code> you will get one of these statuses:</p><ul><li><code>BOOKED</code> - the control shows nothing and you can debit the order.</li><li><code>FROZEN</code> - something is suspicious and it will be a manual inspection.</li></ul><p>When an order is manually inspected it's also here two outcomes, both send their own callback that you have to listen to:</p><ul><li>The order is okay for debiting - this callback is sent: <code>UNFREEZE</code>.</li><li>Something is wrong or suspicious - this callback is sent: <code>ANNULMENT</code>.</li></ul><p>Our callbacks: <a href="https://test.resurs.com/docs/x/LAAF" style="line-height: 1.4285;" rel="nofollow">https://test.resurs.com/docs/x/LAAF</a></p><h3 id="ParametersandCallbacks-HOSTEDFLOW">HOSTED FLOW</h3><h4 id="ParametersandCallbacks-waitForFraudControl=FALSE.1">waitForFraudControl=FALSE</h4><p>With this setting in the call <code>bookPayment</code> you run asynchronously and do not wait for the answer of the control.<br/>The order will get an intermediate status <code>FROZEN</code> and you will only get back your <code>successUrl</code>.</p><p>When the automatic control has finished the order will get one of these statuses:</p><ul><li><code>BOOKED</code> in the system - the control shows nothing wrong and you can debit the order. The callback <code>AUTOMATIC_FRAUD_CONTROL</code> is sent and says <code>THAWED</code>.</li><li><code>FROZEN</code> in the system - something is suspicious and the order goes to manual handling. The callback <code>AUTOMATIC_FRAUD_CONTROL</code> is sent and says <code>FROZEN</code>.</li></ul><p>When an order is manually inspected it's also here two outcomes, both send their own callback that you have to listen to:</p><ul><li>The order is okay for debiting - this callback is sent: <code>UNFREEZE</code>.</li><li>Something is wrong or suspicious - this callback is sent: <code>ANNULMENT</code>.</li></ul><h4 id="ParametersandCallbacks-waitForFraudControl=TRUE.1">waitForFraudControl=TRUE</h4><p>With this setting in the call <code>bookPayment</code> you run synchronously and wait for the control which will set the order in one of two statuses:<br/>You will only get your <code>successUrl</code> back and have to listen to callback <code>AUTOMATIC_FRAUD_CONTROL</code> to know which status the control has set the order in out of these two:</p><ul><li><code>BOOKED</code> - the control shows nothing and you can debit the order.</li><li><code>FROZEN</code> - something is suspicious and it will be a manual inspection.</li></ul><p>When an order is manually inspected it's also here two outcomes, both send their own callback that you have to listen to:</p><ul><li>The order is okay for debiting - this callback is sent: <code>UNFREEZE</code>.</li><li>Something is wrong or suspicious - this callback is sent: <code>ANNULMENT</code>.</li></ul><p>If you use the payment method &quot;existing card&quot; the automatic fraud control is not run, a control was made when you applied for the card.<br/>This means that you can regard the <code>successUrl</code> as a successful booking it that is returned.<br/>You might still be denied to place the order due to using a higher amount than your are allowed to.</p><p>Our callbacks: <a href="https://test.resurs.com/docs/x/LAAF" rel="nofollow">https://test.resurs.com/docs/x/LAAF</a></p><p> </p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : submitApplicationExt SE</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Consumer-Loan-API_16056949.html">Consumer Loan API</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : submitApplicationExt SE
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Daniel</span>, last modified on 2023-11-10
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="submitApplicationExtSE-SE"><strong>SE</strong></h1><div id="expander-1451956479" class="expand-container"><div id="expander-control-1451956479" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">Click here to expand submitApplicationExt for Sweden</span></div><div id="expander-content-1451956479" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:app=&quot;http://consumerloan.resurs.com/v1/msg/application&quot;&gt;
+  &lt;soapenv:Header/&gt;
+  &lt;soapenv:Body&gt;
+     &lt;app:submitApplicationExt&gt;
+        &lt;xml&gt;&lt;![CDATA[&lt;resurs-response&gt;
+   &lt;amount&gt;10000&lt;/amount&gt;
+   &lt;time&gt;120&lt;/time&gt;
+   &lt;applicant-government-id&gt;ENTER GOVID&lt;/applicant-government-id&gt;
+   &lt;applicant-mobile-number&gt;0708123456&lt;/applicant-mobile-number&gt;
+   &lt;applicant-email-address&gt;test@resurs.se&lt;/applicant-email-address&gt;
+   &lt;purpose-of-loan&gt;HOUSING_MORTGAGE_LOAN&lt;/purpose-of-loan&gt;
+   &lt;applicant-marital-status&gt;MARRIED&lt;/applicant-marital-status&gt;
+   &lt;number-children-not-of-age&gt;1&lt;/number-children-not-of-age&gt;
+   &lt;applicant-habitation-form&gt;DETACHED_HOUSE&lt;/applicant-habitation-form&gt;
+   &lt;applicant-employment-type&gt;FAST_ANSTALLD&lt;/applicant-employment-type&gt;
+   &lt;applicant-employer&gt;Resurs Bank&lt;/applicant-employer&gt;
+   &lt;applicant-employment-year-from&gt;1011&lt;/applicant-employment-year-from&gt;
+   &lt;applicant-employment-year-until&gt;2002&lt;/applicant-employment-year-until&gt;
+   &lt;applicant-monthly-income-gross&gt;32000&lt;/applicant-monthly-income-gross&gt;
+   &lt;household-living-expenses&gt;8950&lt;/household-living-expenses&gt;
+   &lt;household-other-loan-expenses&gt;1200&lt;/household-other-loan-expenses&gt;
+   &lt;approve-conditions&gt;true&lt;/approve-conditions&gt;
+   &lt;agreement-sign-type&gt;MAIL&lt;/agreement-sign-type&gt;
+&lt;/resurs-response&gt;]]&gt;&lt;/xml&gt;
+        &lt;consumerIp&gt;1.2.3.4&lt;/consumerIp&gt;
+        &lt;!--Optional:--&gt;
+        &lt;externalReference&gt;?&lt;/externalReference&gt;
+     &lt;/app:submitApplicationExt&gt;
+  &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</pre>
+</div></div></div></div><div id="expander-120086755" class="expand-container"><div id="expander-control-120086755" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">Click here to view form validation for Sweden</span></div><div id="expander-content-120086755" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;resurs-form&gt;
+
+    &lt;!-- ***** Lånebelopp --&gt;
+    &lt;element&gt;
+        &lt;label&gt;Lånebelopp&lt;/label&gt;
+        &lt;name&gt;subtitle-terms&lt;/name&gt;
+        &lt;type&gt;subtitle&lt;/type&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;amount&quot;&gt;
+        &lt;label&gt;Lånebelopp&lt;/label&gt;
+        &lt;name&gt;amount&lt;/name&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;unit&gt;kr&lt;/unit&gt;
+        &lt;min-value&gt;10000&lt;/min-value&gt;
+        &lt;max-value&gt;500000&lt;/max-value&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;paymentTerms&quot;&gt;
+        &lt;label&gt;Önskad avbetalningstid&lt;/label&gt;
+        &lt;description&gt;Välj den önskade avbetalningstiden i listan.&lt;/description&gt;
+        &lt;name&gt;time&lt;/name&gt;
+        &lt;type&gt;list&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;default&gt;144&lt;/default&gt;
+        &lt;unit&gt;år&lt;/unit&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;1&lt;/label&gt;
+                &lt;value&gt;12&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;2&lt;/label&gt;
+                &lt;value&gt;24&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;3&lt;/label&gt;
+                &lt;value&gt;36&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;4&lt;/label&gt;
+                &lt;value&gt;48&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;5&lt;/label&gt;
+                &lt;value&gt;60&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;6&lt;/label&gt;
+                &lt;value&gt;72&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;7&lt;/label&gt;
+                &lt;value&gt;84&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;8&lt;/label&gt;
+                &lt;value&gt;96&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;9&lt;/label&gt;
+                &lt;value&gt;108&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;10&lt;/label&gt;
+                &lt;value&gt;120&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;11&lt;/label&gt;
+                &lt;value&gt;132&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;12&lt;/label&gt;
+                &lt;value&gt;144&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;13&lt;/label&gt;
+                &lt;value&gt;156&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;14&lt;/label&gt;
+                &lt;value&gt;168&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;15&lt;/label&gt;
+                &lt;value&gt;180&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(12|24|36|48|60|72|84|96|108|120|132|144|156|168|180)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;!-- ***** Huvudsökande - Personalia --&gt;
+    &lt;element&gt;
+        &lt;label&gt;Huvudsökande&lt;/label&gt;
+        &lt;name&gt;subtitle-applicant&lt;/name&gt;
+        &lt;type&gt;subtitle&lt;/type&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.governmentId&quot;&gt;
+        &lt;label&gt;Personnummer&lt;/label&gt;
+        &lt;description&gt;Vänligen ange i format ÅÅMMDD-XXXX&lt;/description&gt;
+        &lt;name&gt;applicant-government-id&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;11&lt;/length&gt;
+        &lt;format&gt;^([0-9]{2})(0[1-9]|1[0-2])([0][1-9]|[1-2][0-9]|3[0-1])(\\-|\\+)?([\\d]{4})$&lt;/format&gt;
+        &lt;format-message&gt;Ogiltigt personnummer. Vänligen ange ditt personnummer med 10 siffror, ÅÅMMDD-XXXX.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.mobilePhoneNumber&quot;&gt;
+        &lt;label&gt;Mobilnummer&lt;/label&gt;
+        &lt;description&gt;Vänligen skriv in endast siffror&lt;/description&gt;
+        &lt;name&gt;applicant-mobile-number&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;16&lt;/length&gt;
+        &lt;format&gt;^((0|\\+46||0046)[ |-]?(200|20|70|73|76|74|[1-9][0-9]{0,2})([ |-]?[0-9]){5,8})?$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen kontrollera ditt mobilnummer, endast siffror ska skrivas in.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.emailAddress&quot;&gt;
+        &lt;label&gt;E-postadress&lt;/label&gt;
+        &lt;description&gt;Vänligen ange din e-postadress&lt;/description&gt;
+        &lt;name&gt;applicant-email-address&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;50&lt;/length&gt;
+        &lt;format&gt;^([A-Za-z0-9!#%&amp;&#39;*+/=?^_`~-]+(\\.[A-Za-z0-9!#%&amp;&#39;*+/=?^_`~-]+)*@([A-Za-z0-9]+)(([\\.\\-]?[a-zA-Z0-9]+)*)\\.([A-Za-z]{2,}))?$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen kontrollera din e-postadress&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;loanPurpose&quot;&gt;
+        &lt;label&gt;Syfte med lån?&lt;/label&gt;
+        &lt;name&gt;purpose-of-loan&lt;/name&gt;
+        &lt;type&gt;list&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Bil/MC&lt;/label&gt;
+                &lt;value&gt;MOTOR&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Bröllop&lt;/label&gt;
+                &lt;value&gt;WEDDING&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Båt&lt;/label&gt;
+                &lt;value&gt;BOAT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Investering (t.ex. aktier)&lt;/label&gt;
+                &lt;value&gt;INVESTMENT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Körkort&lt;/label&gt;
+                &lt;value&gt;DRIVERS_LICENSE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Inredning (t.ex. möbler, hemelektronik)&lt;/label&gt;
+                &lt;value&gt;INTERIOR&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Renovering&lt;/label&gt;
+                &lt;value&gt;RENOVATION&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Resa/Fritid&lt;/label&gt;
+                &lt;value&gt;TRAVEL&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Samla lån/kredit&lt;/label&gt;
+                &lt;value&gt;CONSOLIDATE_LOANS&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Sjuk- eller tandvård&lt;/label&gt;
+                &lt;value&gt;DENTAL_OR_OTHER_CARE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Studier&lt;/label&gt;
+                &lt;value&gt;STUDIES&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Övrig konsumtion&lt;/label&gt;
+                &lt;value&gt;OTHER&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Köp av bostad&lt;/label&gt;
+                &lt;value&gt;HOUSING_MORTGAGE_LOAN&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(MOTOR|WEDDING|BOAT|INVESTMENT|DRIVERS_LICENSE|INTERIOR|RENOVATION|TRAVEL|CONSOLIDATE_LOANS|DENTAL_OR_OTHER_CARE|STUDIES|OTHER|HOUSING_MORTGAGE_LOAN)$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen välj ett alternativ&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.maritalStatus&quot;&gt;
+        &lt;label&gt;Civilstånd&lt;/label&gt;
+        &lt;name&gt;applicant-marital-status&lt;/name&gt;
+        &lt;type&gt;list&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Gift/Registrerad partner&lt;/label&gt;
+                &lt;value&gt;MARRIED&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Sambo&lt;/label&gt;
+                &lt;value&gt;DOMESTIC_PARTNER&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Singel&lt;/label&gt;
+                &lt;value&gt;SINGLE&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(SINGLE|MARRIED|DOMESTIC_PARTNER)$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen välj ett alternativ&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.numberChildrenNotOfAge&quot;&gt;
+        &lt;label&gt;Antal barn under 18 år&lt;/label&gt;
+        &lt;description&gt;Om du inte har barn, vänligen ange 0.&lt;/description&gt;
+        &lt;name&gt;number-children-not-of-age&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;list&lt;/type&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;0&lt;/label&gt;
+                &lt;value&gt;0&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;1&lt;/label&gt;
+                &lt;value&gt;1&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;2&lt;/label&gt;
+                &lt;value&gt;2&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;3&lt;/label&gt;
+                &lt;value&gt;3&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;4&lt;/label&gt;
+                &lt;value&gt;4&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;5&lt;/label&gt;
+                &lt;value&gt;5&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;6&lt;/label&gt;
+                &lt;value&gt;6&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;7&lt;/label&gt;
+                &lt;value&gt;7&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;8&lt;/label&gt;
+                &lt;value&gt;8&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;9&lt;/label&gt;
+                &lt;value&gt;9&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;10 eller fler&lt;/label&gt;
+                &lt;value&gt;10&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(0|1|2|3|4|5|6|7|8|9|10)$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen ange  ett giltigt antal barn under 18 (mellan 0 och 10 eller fler)&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.habitationType&quot;&gt;
+        &lt;label&gt;Boendeform&lt;/label&gt;
+        &lt;name&gt;applicant-habitation-form&lt;/name&gt;
+        &lt;type&gt;list&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Hyresrätt&lt;/label&gt;
+                &lt;value&gt;APARTMENT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Bostadsrätt&lt;/label&gt;
+                &lt;value&gt;CONDOMINIUM&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Egen fastighet&lt;/label&gt;
+                &lt;value&gt;DETACHED_HOUSE&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(DETACHED_HOUSE|APARTMENT|CONDOMINIUM)$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen välj ett alternativ&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;!-- ***** Huvudsökande - Arbete --&gt;
+    &lt;element java-property=&quot;applicant.employmentType&quot;&gt;
+        &lt;label&gt;Anställningsform&lt;/label&gt;
+        &lt;name&gt;applicant-employment-type&lt;/name&gt;
+        &lt;type&gt;list&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Fast anställd&lt;/label&gt;
+                &lt;value&gt;FAST_ANSTALLD&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Visstidsansställd&lt;/label&gt;
+                &lt;value&gt;VIKARIAT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Eget företag&lt;/label&gt;
+                &lt;value&gt;EGEN_FORETAGARE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Pensionär&lt;/label&gt;
+                &lt;value&gt;PENSIONAR&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Saknar arbete&lt;/label&gt;
+                &lt;value&gt;ARBETSLOS&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(FAST_ANSTALLD|VIKARIAT|EGEN_FORETAGARE|PENSIONAR|ARBETSLOS)$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen välj ett alternativ&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.employmentTypeQualifying&quot;&gt;
+        &lt;label&gt;Är din visstidsanställning inom utbildning eller vård &amp; omsorg?&lt;/label&gt;
+        &lt;name&gt;applicant-employment-type-qualifying&lt;/name&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Ja&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Nej&lt;/label&gt;
+                &lt;value&gt;false&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|false)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.employerName&quot;&gt;
+        &lt;label&gt;Arbetsgivare&lt;/label&gt;
+        &lt;description&gt;Vänligen ange företagsnamnet&lt;/description&gt;
+        &lt;name&gt;applicant-employer&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;100&lt;/length&gt;
+        &lt;format&gt;^[\\s\\S]{0,100}$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen skriv in din arbetsgivare&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.employedSince&quot;&gt;
+        &lt;label&gt;Anställd/Eget företag/Pensionär sedan&lt;/label&gt;
+        &lt;description&gt;Vänligen ange i format ÅÅMM. Välj år och månad för nuvarande anställning, när du startade eget eller blev pensionär.&lt;/description&gt;
+        &lt;name&gt;applicant-employment-year-from&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;4&lt;/length&gt;
+        &lt;format&gt;^([0-9]{2})(0[1-9]|1[012])$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen välj ett alternativ&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.employedTo&quot;&gt;
+        &lt;label&gt;Anställd t  o m&lt;/label&gt;
+        &lt;description&gt;Vänligen välj år och månad då du slutar din visstidsanställning&lt;/description&gt;
+        &lt;name&gt;applicant-employment-year-until&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;4&lt;/length&gt;
+        &lt;format&gt;^([0-9]{2})(0[1-9]|1[012])$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen välj ett alternativ&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;applicant.grossMonthlyIncome&quot;&gt;
+        &lt;label&gt;Inkomst per månad före skatt&lt;/label&gt;
+        &lt;description&gt;Vänligen skriv in endast siffror&lt;/description&gt;
+        &lt;name&gt;applicant-monthly-income-gross&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;999999&lt;/max-value&gt;
+        &lt;unit&gt;kr&lt;/unit&gt;
+        &lt;format-message&gt;Vänligen ange din inkomst per månad före skatt i siffror (0 - 999999)&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;householdLivingExpenses&quot;&gt;
+        &lt;label&gt;Boendekostnad per månad&lt;/label&gt;
+        &lt;description&gt;Vänligen ange din del av boendekostnad (hyra, bolåneränta, amortering, avgift, el, värme) per månad i siffror.&lt;/description&gt;
+        &lt;name&gt;household-living-expenses&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;99999&lt;/max-value&gt;
+        &lt;unit&gt;kr&lt;/unit&gt;
+        &lt;format-message&gt;Vänligen ange ett värde i siffror (0-99999)&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;householdLoanExpenses&quot;&gt;
+        &lt;label&gt;Kostnader övriga lån/krediter per månad exkl. bolån&lt;/label&gt;
+        &lt;description&gt;Vänligen ange din del av månadskostnad för övriga lån/krediter, exkl. bolån.&lt;/description&gt;
+        &lt;name&gt;household-other-loan-expenses&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;99999&lt;/max-value&gt;
+        &lt;unit&gt;kr&lt;/unit&gt;
+        &lt;format-message&gt;Vänligen ange ett värde i siffror (0-99999)&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;financeOtherLoansAmount&quot;&gt;
+        &lt;label&gt;Ange vilket belopp du vill samla&lt;/label&gt;
+        &lt;name&gt;finance-other-loans-balance-of-loans&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;500000&lt;/max-value&gt;
+        &lt;unit&gt;money&lt;/unit&gt;
+        &lt;format-message&gt;Vänligen ange ett värde i siffror (0-500000)&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;payoutClearingNo&quot;&gt;
+        &lt;label&gt;Clearingnummer&lt;/label&gt;
+        &lt;description&gt;Ett clearingnummer består av 4 eller 5 siffror. För att kunna e-signera ditt avtal måste du uppge clearingnummer.&lt;/description&gt;
+        &lt;name&gt;payout-clearing-number&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;5&lt;/length&gt;
+        &lt;format&gt;^[\\d]{4,5}$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen ange ett giltigt clearing nummer (4 eller 5 siffror)&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;payoutAccountNo&quot;&gt;
+        &lt;label&gt;Kontonummer&lt;/label&gt;
+        &lt;description&gt;Vänligen ange ditt kontonummer utan bindestreck eller punkter. För att kunna e-signera ditt avtal måste du uppge kontonummer.&lt;/description&gt;
+        &lt;name&gt;payout-account-number&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;12&lt;/length&gt;
+        &lt;format&gt;^[\\d]{6,12}$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen fyll i ett giltigt kontonummer (utan bindestreck eller punkter)&lt;/format-message&gt;
+    &lt;/element&gt;
+
+     &lt;element java-property=&quot;payoutClearingNo&quot;&gt;
+        &lt;label&gt;Clearingnummer&lt;/label&gt;
+        &lt;description&gt;Partners clearingnummer för hybridlån. Ett clearingnummer består av 4 eller 5 siffror. För att kunna e-signera ditt avtal måste du uppge clearingnummer.&lt;/description&gt;
+        &lt;name&gt;partner-clearing-number&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;5&lt;/length&gt;
+        &lt;format&gt;^[\\d]{4,5}$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen ange ett giltigt clearing nummer (4 eller 5 siffror)&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;payoutAccountNo&quot;&gt;
+        &lt;label&gt;Kontonummer&lt;/label&gt;
+        &lt;description&gt;Partners kontonummer för hybridlån. Vänligen ange ditt kontonummer utan bindestreck eller punkter. För att kunna e-signera ditt avtal måste du uppge kontonummer.&lt;/description&gt;
+        &lt;name&gt;partner-disbursement-account-number&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;12&lt;/length&gt;
+        &lt;format&gt;^[\\d]{6,12}$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen fyll i ett giltigt kontonummer (utan bindestreck eller punkter)&lt;/format-message&gt;
+    &lt;/element&gt; 
+
+    &lt;!-- ***** Medsökande - Personalia --&gt;
+    &lt;element&gt;
+        &lt;label&gt;Eventuell medsökande&lt;/label&gt;
+        &lt;name&gt;subtitle-coapplicant&lt;/name&gt;
+        &lt;type&gt;subtitle&lt;/type&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.governmentId&quot;&gt;
+        &lt;label&gt;Personnummer&lt;/label&gt;
+        &lt;description&gt;Vänligen ange i format ÅÅMMDD-XXXX&lt;/description&gt;
+        &lt;name&gt;coapplicant-government-id&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;11&lt;/length&gt;
+        &lt;format&gt;^([0-9]{2})(0[1-9]|1[0-2])([0][1-9]|[1-2][0-9]|3[0-1])(\\-|\\+)?([\\d]{4})$&lt;/format&gt;
+        &lt;format-message&gt;Ogiltigt personnummer. Vänligen ange ditt personnummer med 10 siffror, ÅÅMMDD-XXXX.&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.mobilePhoneNumber&quot;&gt;
+        &lt;label&gt;Mobilnummer&lt;/label&gt;
+        &lt;description&gt;Vänligen skriv in endast siffror&lt;/description&gt;
+        &lt;name&gt;coapplicant-mobile-number&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;16&lt;/length&gt;
+        &lt;format&gt;^((0|\\+46||0046)[ |-]?(200|20|70|73|76|74|[1-9][0-9]{0,2})([ |-]?[0-9]){5,8})?$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen kontrollera ditt mobilnummer, endast siffror ska skrivas in.&lt;/format-message&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.emailAddress&quot;&gt;
+        &lt;label&gt;E-postadress&lt;/label&gt;
+        &lt;description&gt;Vänligen ange din e-postadress&lt;/description&gt;
+        &lt;name&gt;coapplicant-email-address&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;50&lt;/length&gt;
+        &lt;format&gt;^([A-Za-z0-9!#%&amp;&#39;*+/=?^_`~-]+(\\.[A-Za-z0-9!#%&amp;&#39;*+/=?^_`~-]+)*@([A-Za-z0-9]+)(([\\.\\-]?[a-zA-Z0-9]+)*)\\.([A-Za-z]{2,}))?$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen ange din e-postadress&lt;/format-message&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+    &lt;/element&gt;
+
+    &lt;!-- ***** Medsökande - Civilstånd --&gt;
+    &lt;element java-property=&quot;coApplicant.maritalStatus&quot;&gt;
+        &lt;label&gt;Civilstånd&lt;/label&gt;
+        &lt;name&gt;coapplicant-marital-status&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;list&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Gift registrerard partner&lt;/label&gt;
+                &lt;value&gt;MARRIED&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Sambo&lt;/label&gt;
+                &lt;value&gt;DOMESTIC_PARTNER&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Singel&lt;/label&gt;
+                &lt;value&gt;SINGLE&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(MARRIED|DOMESTIC_PARTNER|SINGLE)?$&lt;/format&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+    &lt;/element&gt;
+
+    &lt;!-- ***** Medsökande - Bostad --&gt;
+    &lt;element java-property=&quot;coApplicant.habitationType&quot;&gt;
+        &lt;label&gt;Boendeform&lt;/label&gt;
+        &lt;name&gt;coapplicant-habitation-form&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;list&lt;/type&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Hyresrätt&lt;/label&gt;
+                &lt;value&gt;APARTMENT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Bostadsrätt&lt;/label&gt;
+                &lt;value&gt;CONDOMINIUM&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Egen fastighet&lt;/label&gt;
+                &lt;value&gt;DETACHED_HOUSE&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(DETACHED_HOUSE|APARTMENT|CONDOMINIUM)$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen välj ett alternativ&lt;/format-message&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+    &lt;/element&gt;
+
+    &lt;!-- ***** Medsökande - Arbete --&gt;
+    &lt;element java-property=&quot;coApplicant.employmentType&quot;&gt;
+        &lt;label&gt;Anställningsform&lt;/label&gt;
+        &lt;name&gt;coapplicant-employment-type&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;list&lt;/type&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Fast anställd&lt;/label&gt;
+                &lt;value&gt;FAST_ANSTALLD&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Visstidsansställd&lt;/label&gt;
+                &lt;value&gt;VIKARIAT&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Eget företag&lt;/label&gt;
+                &lt;value&gt;EGEN_FORETAGARE&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Pensionär&lt;/label&gt;
+                &lt;value&gt;PENSIONAR&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Saknar arbete&lt;/label&gt;
+                &lt;value&gt;ARBETSLOS&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(FAST_ANSTALLD|VIKARIAT|EGEN_FORETAGARE|PENSIONAR|ARBETSLOS)$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen välj ett alternativ&lt;/format-message&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.employmentTypeQualifying&quot;&gt;
+        &lt;label&gt;Är din visstidsanställning inom utbildning eller vård &amp; omsorg?&lt;/label&gt;
+        &lt;name&gt;coapplicant-employment-type-qualifying&lt;/name&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Ja&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Nej&lt;/label&gt;
+                &lt;value&gt;false&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|false)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.employerName&quot;&gt;
+        &lt;label&gt;Arbetsgivare&lt;/label&gt;
+        &lt;description&gt;Vänligen ange företagsnamnet&lt;/description&gt;
+        &lt;name&gt;coapplicant-employer&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;100&lt;/length&gt;
+        &lt;format&gt;^[\\s\\S]{0,100}$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen skriv in din arbetsgivare&lt;/format-message&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.employedSince&quot;&gt;
+        &lt;label&gt;Anställd/Eget företag/Pensionär sedan&lt;/label&gt;
+        &lt;description&gt;Vänligen ange i format ÅÅMM. Välj år och månad för nuvarande anställning, när du startade eget eller blev pensionär.&lt;/description&gt;
+        &lt;name&gt;coapplicant-employment-year-from&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;4&lt;/length&gt;
+        &lt;format&gt;^(([0-9]{2})(0[1-9]|1[012]))?$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen välj ett alternativ&lt;/format-message&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.employedTo&quot;&gt;
+        &lt;label&gt;Anställd t  o m&lt;/label&gt;
+        &lt;description&gt;Vänligen välj år och månad då du slutar din visstidsanställning&lt;/description&gt;
+        &lt;name&gt;coapplicant-employment-year-until&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;string&lt;/type&gt;
+        &lt;length&gt;4&lt;/length&gt;
+        &lt;format&gt;^([0-9]{2})(0[1-9]|1[012])$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen välj ett alternativ&lt;/format-message&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;coApplicant.grossMonthlyIncome&quot;&gt;
+        &lt;label&gt;Inkomst per månad före skatt&lt;/label&gt;
+        &lt;description&gt;Vänligen skriv in endast siffror&lt;/description&gt;
+        &lt;name&gt;coapplicant-monthly-income-gross&lt;/name&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;type&gt;integer&lt;/type&gt;
+        &lt;min-value&gt;0&lt;/min-value&gt;
+        &lt;max-value&gt;999999&lt;/max-value&gt;
+        &lt;unit&gt;kr&lt;/unit&gt;
+        &lt;format-message&gt;Vänligen ange din inkomst per månad före skatt i siffror (0 - 999999)&lt;/format-message&gt;
+        &lt;depends-on&gt;coapplicant-government-id&lt;/depends-on&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;isInsured&quot;&gt;
+        &lt;label&gt;Låneskydd&lt;/label&gt;
+        &lt;name&gt;insurance&lt;/name&gt;
+        &lt;type&gt;checkbox&lt;/type&gt;
+        &lt;is-mandatory&gt;false&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;Ja&lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true|)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;!-- ***** Godkännande --&gt;
+    &lt;element&gt;
+        &lt;label&gt;Villkor&lt;/label&gt;
+        &lt;name&gt;subtitle-conditions&lt;/name&gt;
+        &lt;type&gt;subtitle&lt;/type&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;termsAgreedTo&quot;&gt;
+        &lt;format-message&gt;Du måste godkänna villkoren för att kunna gå vidare.&lt;/format-message&gt;
+        &lt;label&gt;Villkorsbekräftelse&lt;/label&gt;
+        &lt;name&gt;approve-conditions&lt;/name&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;type&gt;confirmation&lt;/type&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;
+                    Jag accepterar Resurs Banks allmänna villkor.
+                    Vid tecknande av avtal med Resurs Bank ingår du i Resurskoncernens kundregister.
+                    Inhämtade personuppgifter kan användas och distribueras för marknadsföring.
+                    Jag är införstådd med att jag genom att kontakta Resurs Bank kan förbjuda behandling
+                    av personuppgifter för marknadsföring. Jag försäkrar att de uppgifter som lämnats är
+                    riktiga, fullständiga och att jag uppfyller de allmänna förutsättningarna för
+                    Privatlån. Jag tillåter kreditgivaren att göra sedvanlig kreditprövning varvid
+                    arbetsgivaren kan komma att kontaktas. Kreditgivaren förbehåller sig fri
+                    prövningsrätt. Jag godkänner även att jag vid avslag kan komma att erbjudas
+                    alternativ produkt eller kontaktas av en av Resurs Banks samarbetspartners. Jag
+                    försäkrar vidare att jag skriftligen eller på www.resursbank.se tagit del av samt
+                    mottagit kopia av vid tidpunkten för detta avtals ingående gällande Standardiserad
+                    europeisk konsumentkreditinformation (SEKKI) med aktuella Specialkontovillkor samt
+                    Resurs Banks allmänna villkor för privat konto- och kortkredit samt privatlån för
+                    Sverige, vars bestämmelser härmed accepteras.
+                &lt;/label&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(true)$&lt;/format&gt;
+    &lt;/element&gt;
+
+    &lt;element java-property=&quot;agreementSignType&quot;&gt;
+        &lt;label&gt;Signeringsmetod&lt;/label&gt;
+        &lt;name&gt;agreement-sign-type&lt;/name&gt;
+        &lt;type&gt;radio&lt;/type&gt;
+        &lt;is-mandatory&gt;true&lt;/is-mandatory&gt;
+        &lt;items&gt;
+            &lt;item&gt;
+                &lt;label&gt;E-signering&lt;/label&gt;
+                &lt;value&gt;E_SIGN&lt;/value&gt;
+            &lt;/item&gt;
+            &lt;item&gt;
+                &lt;label&gt;Postalt avtal&lt;/label&gt;
+                &lt;value&gt;MAIL&lt;/value&gt;
+            &lt;/item&gt;
+        &lt;/items&gt;
+        &lt;format&gt;^(MAIL|E_SIGN)$&lt;/format&gt;
+        &lt;format-message&gt;Vänligen välj signeringsmetod&lt;/format-message&gt;
+    &lt;/element&gt;
+
+    &lt;element&gt;
+        &lt;label&gt;Skicka&lt;/label&gt;
+        &lt;imagesrc&gt;&lt;/imagesrc&gt;
+        &lt;name&gt;send-application&lt;/name&gt;
+        &lt;type&gt;submit&lt;/type&gt;
+    &lt;/element&gt;
+&lt;/resurs-form&gt;
+
+
+
+</pre>
+</div></div></div></div><div id="expander-530534550" class="expand-container"><div id="expander-control-530534550" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">Click here to expand submitApplicationExtResponse example for Sweden</span></div><div id="expander-content-530534550" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;soap:Body&gt;
+      &lt;ns2:submitApplicationExtResponse xmlns:ns2=&quot;http://consumerloan.resurs.com/v1/msg/application&quot; xmlns:ns3=&quot;http://consumerloan.resurs.com/v1/msg/exception&quot;&gt;
+         &lt;submitApplicationExtResult&gt;
+            &lt;applicationReference&gt;eabea8be-abda-432b-97ec-8199232d2613&lt;/applicationReference&gt;
+            &lt;decision&gt;APPROVED&lt;/decision&gt;
+            &lt;approvedAmount&gt;10000&lt;/approvedAmount&gt;
+            &lt;interest&gt;8.02&lt;/interest&gt;
+            &lt;tenor&gt;72&lt;/tenor&gt;
+            &lt;effectiveInterest&gt;14.05&lt;/effectiveInterest&gt;
+            &lt;monthlyCost&gt;202.00&lt;/monthlyCost&gt;
+            &lt;consolidationDemand&gt;1000.0&lt;/consolidationDemand&gt;
+            &lt;adminFee&gt;19.00&lt;/adminFee&gt;
+            &lt;arrangementFee&gt;399.00&lt;/arrangementFee&gt;
+            &lt;documentTypes&gt;ID&lt;/documentTypes&gt;
+            &lt;documentTypes&gt;PAYMENT_SLIP&lt;/documentTypes&gt;
+            &lt;monthlyAccountFee&gt;0&lt;/monthlyAccountFee&gt;
+		    &lt;totalFeesAndInterest&gt;1000.00&lt;/totalFeesAndInterest&gt;
+         &lt;/submitApplicationExtResult&gt;
+      &lt;/ns2:submitApplicationExtResponse&gt;
+   &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+
+
+</pre>
+</div></div></div></div><div id="expander-1404717768" class="expand-container"><div id="expander-control-1404717768" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">Click here to expand deliveryComplete for Sweden</span></div><div id="expander-content-1404717768" class="expand-content"><p>PUT <span style="color: rgb(33,33,33);">/api/callback/delivery-complete</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;publicApplicationReferenceId&quot;: &quot;e99ea389-584f-49a9-bbc1-f51bcb62ff5e&quot;
+}</pre>
+</div></div></div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

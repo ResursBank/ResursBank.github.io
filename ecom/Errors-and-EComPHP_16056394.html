@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Errors and EComPHP</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="87393094.html">Version 1.x (EComPHP)</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="7438497.html">Important notes and troubleshooting/exceptions (EComPHP)</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Errors and EComPHP
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2018-05-24
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>EComPHP is not only a ecommerce wrapper/helper, for making orders. It also assures that you get as accurate error information as properly. Different flows has different ways to handle errors. We will try to explain how errors are thrown from ecommerce and how they will be handled by EComPHP. In newer releases of EComPHP we aim at helping furthermore to throw correct errors throught the interfaces.</p><div class="panel" style="border-width: 1px;"><div class="panelHeader" style="border-bottom-width: 1px;"><b>Table of contents</b></div><div class="panelContent">
+<p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780969878 {padding: 0px;}
+div.rbtoc1706780969878 ul {margin-left: 0px;}
+div.rbtoc1706780969878 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780969878'>
+<ul class='toc-indentation'>
+<li><a href='#ErrorsandEComPHP-HTTPErrors'>HTTP Errors</a>
+<ul class='toc-indentation'>
+<li><a href='#ErrorsandEComPHP-ExtendedHTTPErrors'>Extended HTTP Errors</a></li>
+</ul>
+</li>
+<li><a href='#ErrorsandEComPHP-SOAPErrors'>SOAP Errors</a>
+<ul class='toc-indentation'>
+<li><a href='#ErrorsandEComPHP-ExtendedSoapFaults'>Extended SoapFaults</a></li>
+</ul>
+</li>
+<li><a href='#ErrorsandEComPHP-Otherstandarderrors'>Other standard errors</a></li>
+</ul>
+</div></p>
+</div></div><h2 id="ErrorsandEComPHP-HTTPErrors">HTTP Errors</h2><p>If nothing else than a HTTP error code can be fetched, this will be primarily used. Such exceptions will first try to fetch the code and the message received in the HTTP header. For example,</p><p>HTTP/1.1 400 Bad Request</p><p>can be catched like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">catch (\Exception $e) {
+  $e-&gt;getMessage();  // Bad Request
+  $e-&gt;getCode();     // 400
+}</pre>
+</div></div><h3 id="ErrorsandEComPHP-ExtendedHTTPErrors">Extended HTTP Errors</h3><p>However, in some cases, when HTTP 400 errors are thrown (for example) there might also be a body delivered with the error that is not empty. Such errors is mostly common in the rest interfaces and might look like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{&quot;timestamp&quot;:1527160469786,&quot;status&quot;:400,&quot;error&quot;:&quot;Bad Request&quot;,&quot;exception&quot;:&quot;java.lang.IllegalArgumentException&quot;,&quot;message&quot;:&quot;totalAmount &#39;340284&#39; must not be greater than minLimit &#39;50000.00&#39;&quot;}</pre>
+</div></div><p>If EComPHP catches a HTTP error, it will also check the body for this kind of JSON-strings and extend the errors thrown to the integrated platform.</p><p>Available from EComPHP 1.3.11, 1.0.38, 1.1.38 (and 2.0.0)</p><h2 id="ErrorsandEComPHP-SOAPErrors">SOAP Errors</h2><p>When running through SOAP, several errors might occur. The most common way to catch errors is through SoapClient standard error interface (which can be handled as a regualr Exception or a SoapFault).</p><h3 id="ErrorsandEComPHP-ExtendedSoapFaults">Extended SoapFaults</h3><p>SoapFaults might in some cases be extended by ecommerce itself (See the constant codes at <a href="328078.html">Error handling (Resurs error codes)</a>). If this part of the exception exists in a SoapFault, EComPHP will set its priority to those parts. It will also add the popular string &quot;fixableByYou&quot;, that might indicate if the problem has been created by you or if it comes from ecommerce (in some cases there might however be false alarms).</p><h2 id="ErrorsandEComPHP-Otherstandarderrors">Other standard errors</h2><p>The modules sometimes throw their own exceptions. Some of them are <a href="http://www.netcurl.org/exceptions" class="external-link" rel="nofollow">listed here</a>, and covers amongst others &quot;SOAP Auth Errors&quot;, SSL and resolving problems, etc.</p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : payment</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="API-Types_1475647.html">API Types</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : payment
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Benny</span>, last modified on 2017-02-27
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><br/><span style="font-size: 14.0px;line-height: 1.4285715;">The detailed payment information. In addition to the overall information about the payment, it also contains full details about all part payments associated with the payment. The part payments are the complete history of the payment. (The current state of the payment, if needed, must be calculated client side.)</span><br/><span style="font-size: 14.0px;line-height: 1.4285715;">Contains elements as defined in the following table.</span></p><p> </p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Component</th><th class="confluenceTh">Type</th><th class="confluenceTh">Occurs</th><th class="confluenceTh">Nillable?</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">id</td><td class="confluenceTd"><strong><a href="Simple-Types..._1475653.html">id</a></strong></td><td class="confluenceTd">1..1</td><td class="confluenceTd">No</td><td class="confluenceTd">The payment identity.</td></tr><tr><td class="confluenceTd">totalAmount</td><td class="confluenceTd"><strong><a href="Simple-Types..._1475653.html">positiveDecimal</a></strong></td><td class="confluenceTd"><span>1..1</span></td><td class="confluenceTd"><span>No</span></td><td class="confluenceTd">The current total amount of the part payments making up this payment.</td></tr><tr><td colspan="1" class="confluenceTd">metaData</td><td colspan="1" class="confluenceTd"><strong><a href="mapEntry_1475741.html">mapEntry</a></strong></td><td colspan="1" class="confluenceTd">0..*</td><td colspan="1" class="confluenceTd"><span>No</span></td><td colspan="1" class="confluenceTd">The meta data associated with the payment as key/value pairs.</td></tr><tr><td colspan="1" class="confluenceTd">limit</td><td colspan="1" class="confluenceTd"><strong><a href="Simple-Types..._1475653.html">positiveDecimal</a></strong></td><td colspan="1" class="confluenceTd">1..1</td><td colspan="1" class="confluenceTd"><span>No</span></td><td colspan="1" class="confluenceTd">The limit (if any) associated with the payment. This could for instance be the credit amount applied for.</td></tr><tr><td colspan="1" class="confluenceTd">paymentDiffs</td><td colspan="1" class="confluenceTd"><strong><a href="paymentDiff_1475855.html">paymentDiff</a></strong></td><td colspan="1" class="confluenceTd">0..*</td><td colspan="1" class="confluenceTd"><span>No</span></td><td colspan="1" class="confluenceTd">The parts that make up this payment.</td></tr><tr><td colspan="1" class="confluenceTd">customer</td><td colspan="1" class="confluenceTd"><strong><a href="customer_1475725.html">customer</a></strong></td><td colspan="1" class="confluenceTd">1..1</td><td colspan="1" class="confluenceTd"><span>No</span></td><td colspan="1" class="confluenceTd">The payment customer information.</td></tr><tr><td colspan="1" class="confluenceTd">deliveryAddress</td><td colspan="1" class="confluenceTd"><strong><a href="address_1475687.html">address</a></strong></td><td colspan="1" class="confluenceTd">0..1</td><td colspan="1" class="confluenceTd"><span>No</span></td><td colspan="1" class="confluenceTd">The delivery address, if one has been specified.</td></tr><tr><td colspan="1" class="confluenceTd">booked</td><td colspan="1" class="confluenceTd"><a href="http://www.w3schools.com/schema/schema_dtypes_date.asp" class="external-link" rel="nofollow">dateTime</a></td><td colspan="1" class="confluenceTd">1..1</td><td colspan="1" class="confluenceTd"><span>No</span></td><td colspan="1" class="confluenceTd">The timestamp of the payment booking.</td></tr><tr><td colspan="1" class="confluenceTd">finalized</td><td colspan="1" class="confluenceTd"><a href="http://www.w3schools.com/schema/schema_dtypes_date.asp" class="external-link" rel="nofollow">dateTime</a></td><td colspan="1" class="confluenceTd">0..1</td><td colspan="1" class="confluenceTd"><span>No</span></td><td colspan="1" class="confluenceTd">The timestamp of the latest payment finalization.</td></tr><tr><td colspan="1" class="confluenceTd">paymentMethodId</td><td colspan="1" class="confluenceTd"><strong><a href="Simple-Types..._1475653.html">id</a></strong></td><td colspan="1" class="confluenceTd">1..1</td><td colspan="1" class="confluenceTd"><span>No</span></td><td colspan="1" class="confluenceTd">The identity of the payment method used for the payment.</td></tr><tr><td colspan="1" class="confluenceTd">paymentMethodName</td><td colspan="1" class="confluenceTd">String</td><td colspan="1" class="confluenceTd">0..1</td><td colspan="1" class="confluenceTd">Yes</td><td colspan="1" class="confluenceTd">The name of the payment method.</td></tr><tr><td colspan="1" class="confluenceTd">fraud</td><td colspan="1" class="confluenceTd">boolean</td><td colspan="1" class="confluenceTd">1..1</td><td colspan="1" class="confluenceTd"><span>No</span></td><td colspan="1" class="confluenceTd">Whether or not the payment has been flagged as fraudulent.</td></tr><tr><td colspan="1" class="confluenceTd">frozen</td><td colspan="1" class="confluenceTd">boolean</td><td colspan="1" class="confluenceTd">1..1</td><td colspan="1" class="confluenceTd"><span>No</span></td><td colspan="1" class="confluenceTd">Whether or not the payment has been frozen by the fraud system for a more detailed control.</td></tr><tr><td colspan="1" class="confluenceTd">status</td><td colspan="1" class="confluenceTd"><strong><a href="paymentStatus_1475845.html">paymentStatus</a></strong></td><td colspan="1" class="confluenceTd">0..100</td><td colspan="1" class="confluenceTd"><span>No</span></td><td colspan="1" class="confluenceTd">The status of the payment as a list of status values.</td></tr><tr><td colspan="1" class="confluenceTd">storeId</td><td colspan="1" class="confluenceTd"><strong><a href="Simple-Types..._1475653.html">id</a></strong></td><td colspan="1" class="confluenceTd">0..1</td><td colspan="1" class="confluenceTd"><span>No</span></td><td colspan="1" class="confluenceTd">The identity of the actual store for the representative. This ID is defined by Resurs Bank. You can receive the list of stores tied to your user (representative) if you wish.</td></tr><tr><td colspan="1" class="confluenceTd">paymentMethodType</td><td colspan="1" class="confluenceTd"><strong><a href="paymentMethodType_1475671.html">paymentMethodType</a></strong></td><td colspan="1" class="confluenceTd">1..1</td><td colspan="1" class="confluenceTd"><span>No</span></td><td colspan="1" class="confluenceTd">The type the payment, i e invoice, new account etc.</td></tr><tr><td colspan="1" class="confluenceTd">totalBonusPoints</td><td colspan="1" class="confluenceTd">nonNegativeInteger</td><td colspan="1" class="confluenceTd">1..1</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">The current sum of bonus points of the payment's diffs making up this payment.</td></tr></tbody></table></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

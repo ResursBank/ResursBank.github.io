@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : EComPHP features and tips</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="87393094.html">Version 1.x (EComPHP)</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : EComPHP features and tips
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2022-03-01
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This page will contain all special features that is not always obvious that EComPHP supports</p><p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780968945 {padding: 0px;}
+div.rbtoc1706780968945 ul {margin-left: 0px;}
+div.rbtoc1706780968945 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780968945'>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPfeaturesandtips-ThisisEComPHP'>This is EComPHP</a></li>
+<li><a href='#EComPHPfeaturesandtips-Listofspecialfeatures'>List of special features</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPfeaturesandtips-Openingformoreorderlinefreedom'>Opening for more order line freedom</a></li>
+<li><a href='#EComPHPfeaturesandtips-Tweaking'>Tweaking</a></li>
+<li><a href='#EComPHPfeaturesandtips-Featurelist'>Feature list</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPfeaturesandtips-PaymentmethodsinsimplifiedshopflowvsResursCheckout'>Payment methods in simplified shopflow vs Resurs Checkout</a></li>
+<li><a href='#EComPHPfeaturesandtips-SOAP-callsiscachable'>SOAP-calls is cachable</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPfeaturesandtips-getPaymentiscached'>getPayment is cached</a></li>
+</ul>
+</li>
+<li><a href='#EComPHPfeaturesandtips-getCostOfPriceInformationalternativetogetCostOfPurchaseHtml'>getCostOfPriceInformation alternative to getCostOfPurchaseHtml</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPfeaturesandtips-Showingpriceinformationfordenmark'>Showing price information for denmark</a></li>
+</ul>
+</li>
+<li><a href='#EComPHPfeaturesandtips-Invoicesequencehandlingarechanged'>Invoice sequence handling are changed</a></li>
+<li><a href='#EComPHPfeaturesandtips-Reachablecurlhandle'>Reachable curl handle</a></li>
+<li><a href='#EComPHPfeaturesandtips-Units'>Units</a></li>
+<li><a href='#EComPHPfeaturesandtips-Otherfixes'>Other fixes</a></li>
+<li><a href='#EComPHPfeaturesandtips-DebuggingcreatePayment'>Debugging createPayment</a></li>
+<li><a href='#EComPHPfeaturesandtips-CustomshopUrlforResursCheckout'>Custom shopUrl for Resurs Checkout</a></li>
+<li><a href='#EComPHPfeaturesandtips-PreferredpaymentID&#39;s'>Preferred payment ID&#39;s</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPfeaturesandtips-setPreferredId(&lt;string&gt;)'>setPreferredId(&lt;string&gt;)</a></li>
+<li><a href='#EComPHPfeaturesandtips-getPreferredPaymentId()'>getPreferredPaymentId()</a></li>
+</ul>
+</li>
+<li><a href='#EComPHPfeaturesandtips-setCountry'>setCountry</a></li>
+</ul>
+</li>
+<li><a href='#EComPHPfeaturesandtips-Specialpaymentfunctionsandaftershopfeatures'>Special payment functions and aftershop features</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPfeaturesandtips-getAnnuityPriceByDuration'>getAnnuityPriceByDuration</a></li>
+<li><a href='#EComPHPfeaturesandtips-getPaymentDiffByStatus'>getPaymentDiffByStatus</a></li>
+<li><a href='#EComPHPfeaturesandtips-getPaymentSpecCount'>getPaymentSpecCount</a></li>
+<li><a href='#EComPHPfeaturesandtips-sanitizeAfterShopSpec'>sanitizeAfterShopSpec</a></li>
+</ul>
+</li>
+<li><a href='#EComPHPfeaturesandtips-Userandclient'>User and client</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPfeaturesandtips-EComPHPClientidentification'>EComPHP Client identification</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPfeaturesandtips-ClientIdentification-SubFeature'>Client Identification - SubFeature</a></li>
+<li><a href='#EComPHPfeaturesandtips-Userandapplicationidentification'>User and application identification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href='#EComPHPfeaturesandtips-ResursBankpaymentorderStatuses,howdoIhandlethem?'>Resurs Bank payment order Statuses, how do I handle them?</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPfeaturesandtips-getOrderStatusByPayment'>getOrderStatusByPayment</a></li>
+<li><a href='#EComPHPfeaturesandtips-RESURS_PAYMENT_STATUS_RETURNCODESandhowtheyareused'>RESURS_PAYMENT_STATUS_RETURNCODES and how they are used</a></li>
+</ul>
+</li>
+<li><a href='#EComPHPfeaturesandtips-Callbacks'>Callbacks</a></li>
+<li><a href='#EComPHPfeaturesandtips-Multiplestores'>Multiple stores</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPfeaturesandtips-Extendedfeatures'>Extended features</a></li>
+<li><a href='#EComPHPfeaturesandtips-getCostOfPurchase'>getCostOfPurchase</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPfeaturesandtips-setCostOfPurchaseHtmlBeforeandsetCostOfPurchaseHtmlAfter'>setCostOfPurchaseHtmlBefore and setCostOfPurchaseHtmlAfter</a></li>
+</ul>
+</li>
+<li><a href='#EComPHPfeaturesandtips-ExternalextendedURLvalidation'>External extended URL validation</a></li>
+</ul>
+</li>
+<li><a href='#EComPHPfeaturesandtips-Invoicesequencenumbering'>Invoice sequence numbering</a></li>
+</ul>
+</li>
+<li><a href='#EComPHPfeaturesandtips-Undocumentedfeatures'>Undocumented features</a>
+<ul class='toc-indentation'>
+
+<ul class='toc-indentation'>
+<li><a href='#EComPHPfeaturesandtips-setCustomerIpProxy'>setCustomerIpProxy</a></li>
+</ul>
+<li><a href='#EComPHPfeaturesandtips-ShopFlowclonedfeatures(deprecated)'>ShopFlow cloned features (deprecated)</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPfeaturesandtips-setFormTemplateRules'>setFormTemplateRules</a></li>
+<li><a href='#EComPHPfeaturesandtips-getRegEx'>getRegEx</a></li>
+<li><a href='#EComPHPfeaturesandtips-canHideFormField'>canHideFormField</a></li>
+<li><a href='#EComPHPfeaturesandtips-getTemplateFieldsByMethodType'>getTemplateFieldsByMethodType</a></li>
+<li><a href='#EComPHPfeaturesandtips-getTemplateFieldsByMethod'>getTemplateFieldsByMethod</a></li>
+<li><a href='#EComPHPfeaturesandtips-getFormFieldsByMethod'>getFormFieldsByMethod</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></p><h1 id="EComPHPfeaturesandtips-ThisisEComPHP">This is EComPHP</h1><ul><li>EComPHP is a wrapper that transforms data into the right format before handling it. The library of curl used is side-by-side-compatible with both rest and soap so EComPHP can utilize and jump freely between both old and new services.</li><li>In some cases, for example when working with aftershop features, EComPHP runs multiple commands with Resurs Bank to get current states (i.e. getPayment, getPaymentMethods)</li><li>Some aftershop functions have shopflow overriders (Example: Running in Resurs Checkout-mode, still requires parts of the simplified flow, when running aftershop - ecomphp have overrides to handle this automatically)</li><li>Many features are cross-flow based<ul><li>Like above example: the afterShopFlow webservice is using simplifiedShopFlow to find out states in the payments</li><li>Registering callbacks in checkout rest mode is sometimes using SOAP and configurationService to handle callbacks</li></ul></li></ul><h1 id="EComPHPfeaturesandtips-Listofspecialfeatures">List of special features</h1><h2 id="EComPHPfeaturesandtips-Openingformoreorderlinefreedom">Opening for more order line freedom</h2><p>As of v1.3.76 we've been opening the ability to manipulate order rows outside the ruleset of ECom's own business logics. There are moments when you really need to push data through the API without the validations the ECom does on each order row (which is built in to prevent bad actions). There are an example in the test suite that we have been running manually to confirm moments when this is required (named <strong>afterShopOverride</strong>) and includes two specific methods to disable internal validation rows:</p><div class="table-wrap"><table class="confluenceTable"><colgroup><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Function</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd"><strong>setGetPaymentValidation</strong></td><td class="confluenceTd">Feature designed for afterShop actions like creditPayment, annulPayment, etc. Disables order row validation entirely so that any data will be accepted as valid.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>setBookPaymentValidation</strong></td><td colspan="1" class="confluenceTd">Feature designed for bookPayment. Disables validations on duplicate rows, where the duplicate validator usually merges identical order rows into one, with updated quantity and order totals. This is more or less a fix from a legacy system where the specLine-setup was built differently and where PHP could not handle identical product lines properly. By disabling this validation, you can push through whatever you need, line by line.</td></tr></tbody></table></div><h2 id="EComPHPfeaturesandtips-Tweaking">Tweaking</h2><p>EComPHP is tweakable by its internal flagset. When initializing the library you can use a $library-&gt;setFlag(), to enable features that is normally not active. Here's a list of those flags.</p><p>As of 1.0.23, 1.1.23 and 1.2.0, the ECom library supports setup of configurable flags that could be picked up again, in external applications. This makes it prossible to control parts of ECom from time to time and from 1.2.2/1.3.2 (1.1.29/1.0.29), we've started up to use those flag internally too. From those versions of the library we also starting to use session variables, so some of the flags can be passed between different calls in a web application. The internal flags and their usage are presented below, and can be set by <strong>setFlag($key, $value)</strong>, <strong>getFlag($key)</strong>, <strong>deleteFlag($key)</strong>. Using session variables, is being made with <strong>setSessionVar($key,  $value)</strong>, <strong>getSessionVar($key)</strong> and <strong>deleteSessionVar($key)</strong>.</p><p><em>As NetCURL 6.1 was released a &quot;generation 2 flagset&quot; became available through the Flag::class.</em></p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col style="width: 274.0px;"/><col style="width: 69.0px;"/><col/><col style="width: 1481.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><br/></th><th colspan="1" class="confluenceTh">inValue</th><th colspan="1" class="confluenceTh">Information/Since</th><th class="confluenceTh">Description</th></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(0,128,0);">PREVENT_EXEC_FLOOD</span></pre></td><td colspan="1" class="confluenceTd"><em>true</em></td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-moved">DEPRECATED</span></p></div></td><td colspan="1" class="confluenceTd">This flag prevents the createPayment()-method to run too fast. It uses session variables (PHP: $_SESSION) to set a timestamp for which createPayment was last runned, and throttles the payment creation if next createPayment is executed within 5 seconds (default)</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(0,128,0);">PREVENT_EXEC_FLOOD_TIME</span></pre></td><td colspan="1" class="confluenceTd"><em>integer</em></td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-moved">DEPRECATED</span></p></div></td><td colspan="1" class="confluenceTd">If 5 seconds is to little to prevent createPayment()-execution, this flag will replace the default of 5 seconds to another value.<br/>Example: setFlag('PREVENT_EXEC_FLOOD_TIME', 10);<br/>In this example, next createPayment() for the current session might not be executed during a time of 10 seconds instead.</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(0,128,0);">PREVENT_EXEC_FLOOD_EXCEPTIONS</span></pre></td><td colspan="1" class="confluenceTd"><em>true</em></td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-moved">DEPRECATED</span></p></div></td><td colspan="1" class="confluenceTd">Activating this flag with true, will allow exceptions to be thrown during createPayment() - otherwise, the next createPayment() if it is in the range of PREVENT_EXEC_FLOOD_TIME, will be dropped silently.<br/><strong>If you do set this value to true, you must handle exceptions yourself.</strong></td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(0,128,0);">SKIP_AFTERSHOP_INVOICE_CONTROL</span></pre></td><td colspan="1" class="confluenceTd"><em>false</em></td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-moved">N/A</span></p></div></td><td colspan="1" class="confluenceTd">(<strong>Default</strong>: false) Prevents - if set to true - afterShop functions finalize, annul and credit to repair invoice numbering if <a href="328078.html">error 29</a> occurs during the process. If enabled <span>ALREADY_EXISTS_INVOICE_ID is checked, and EComPHP will try to find the last increment value and set things right.</span></td></tr><tr><td colspan="1" class="confluenceTd"><pre><span style="color: rgb(0,128,0);">GET_PAYMENT_BY_REST</span></pre></td><td colspan="1" class="confluenceTd"><em>true</em></td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-moved">N/A</span></p></div></td><td colspan="1" class="confluenceTd">Asks EComPHP to use getPayment via REST instead of afterShop-SOAP. In prior versions this setting was reverse (GET_PAYMENT_BY_SOAP), but as there was too much backfires in the errorhandling, we chose to use SOAP as default instead.</td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(0,128,0);">CREATED_BY_NO_CLIENT_NAME</span></td><td colspan="1" class="confluenceTd"><em>true</em></td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-moved">N/A</span></p></div></td><td colspan="1" class="confluenceTd">Allow clients to skip clientname (if the client name is confusing in payment admin) by setting flag CREATED_BY_NO_CLIENT_NAME. If flag is unset ecomphp_&lt;DECIMAL_VERSION_NUMBER_ will be shown. If unset EComPHP will first try to use a name by a logged in user (if set by client) and then fall back to the username <strong>EComPHP-RemoteClientAction</strong>.</td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(0,128,0);">ALWAYS_RENDER_TOTALS</span></td><td colspan="1" class="confluenceTd"><em>true</em></td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-moved">N/A</span></p></div></td><td colspan="1" class="confluenceTd">Makes EComPHP, in renderPaymentSpec(), to always render new total amounts instead of trusting inbound payload data. However, the new functions that handles paymentDiffs usually also recalculates the totals (since 1.3.23) since quantity often tend to change during aftershop actions.</td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(0,128,0);">USE_AFTERSHOP_RENDERING</span></td><td colspan="1" class="confluenceTd"><em>true</em></td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-moved">N/A</span></p></div></td><td colspan="1" class="confluenceTd">Internally used by EComPHP to be able to skip exceptions when there are no payload set, where the internal methods still needs the rest of the payload (specLines, etc).</td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(0,128,0);">KEEP_RCO_BILLING</span></td><td colspan="1" class="confluenceTd"><em>true</em></td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-moved">N/A</span></p></div></td><td colspan="1" class="confluenceTd">In Resurs Checkout mode, make EComPHP not strip off ['customer'=&gt;['billing']] from the payload. Currently not in use, just prepared. The fields used is the same as those that you can find in the simplified flow.</td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(0,128,0);">KEEP_RCO_DELIVERY</span></td><td colspan="1" class="confluenceTd"><em>true</em></td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-moved">N/A</span></p></div></td><td colspan="1" class="confluenceTd">In Resurs Checkout mode, make EComPHP not strip off ['customer'=&gt;['deliveryAddress']] from the payload. Use to prefill (push in own customer information) the iframe.The fields used is the same as those that you can find in the simplified flow.</td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(0,128,0);">SKIP_AFTERSHOP_VALIDATION</span></td><td colspan="1" class="confluenceTd"><em>true</em></td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-moved">N/A</span></p></div></td><td colspan="1" class="confluenceTd">Used to override getPayment orderrows during aftershop handling (for example, when you have own prices on prior rows that has to be forcefully changed).</td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(0,128,0);">HEAL_URL</span></td><td colspan="1" class="confluenceTd"><em>true</em></td><td colspan="1" class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-success">1.3.47</span></p></div></td><td colspan="1" class="confluenceTd">If you during a payment creation in hosted flow gets a landingpage-url from the API that contains http instead of https, this flag will rewrite the url to a proper https-link before returning it to the client. The features is currently only for hosted flow as we've only seen it there.</td></tr></tbody></table></div><h2 id="EComPHPfeaturesandtips-Featurelist">Feature list</h2><h3 id="EComPHPfeaturesandtips-PaymentmethodsinsimplifiedshopflowvsResursCheckout"><span style="color: rgb(255,0,0);">Payment methods in simplified shopflow vs Resurs Checkout</span></h3><p>Historically (for ecom 1.3 at least), simplified shopflow has not always supported payment providers. To not break standard compatibility by displaying unsupported methods in a checkout, EComPHP chose to hide them by default. Today, this is different but the getPaymentMethods-method called from ECom is still honoring PSP methods. This happens since payment providers supports government-id-less submission forms, which Resurs internals require. To activate full support for all payment methods (requires that you can handle the lack of government id), you can use<span style="font-weight: 400;letter-spacing: 0.0px;"> </span><strong style="letter-spacing: 0.0px;">setSimplifiedPsp(true)</strong><span style="font-weight: 400;letter-spacing: 0.0px;">.</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">$connection-&gt;setSimplifiedPsp(true);</pre>
+</div></div><p><span>if you'd like to follow the prior restrictions in simplified even when you run RCO-mode, you can use the </span><strong>setStrictPsp(true)</strong><span> instead. As we today support PSP in the simplified shopflow, those parts are deprecated but still active. This could change in future releases.</span></p><h3 id="EComPHPfeaturesandtips-SOAP-callsiscachable">SOAP-calls is cachable</h3><p>With start at 1.3.40, the communication interface with Resurs Bank is updated, which means there is a big raise in performance. Support for cached wsdl is enabled with this kind of method call:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">$connection-&gt;setWsdlCache(true);</pre>
+</div></div><p>Furthermore the ECom will be able to set itself in production- or testmode, which means cached SOAP calls will be enabled in production environments, while test will still run uncached in case of updates in the webservices.</p><h4 id="EComPHPfeaturesandtips-getPaymentiscached">getPayment is cached</h4><p>In EComPHP a bigger optimization has been done with the getPayment method. This means that if you do a regular getPayment out of the box, the response is stored unless you request specifically to make a whole new request. The primary reason for this is to limit request per browser lookup. In WooCommerce for example getPayment are being made in several places during one load, making EComPHP make at least 8 requests to the API. If EComPHP store cached payment information this won't happen. This is considered a performance fix. To make uncached requests, the call should look like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">$ecom-&gt;getPayment(&#39;paymentid&#39;, false);</pre>
+</div></div><ul><li>Observe that this does not apply to new instatiated calls. For each instance of EComPHP that is created, a new request will be sent through the API.</li><li>Also observe that each cal to status update features in ecom is not cached.</li></ul><h3 id="EComPHPfeaturesandtips-getCostOfPriceInformationalternativetogetCostOfPurchaseHtml">getCostOfPriceInformation alternative to getCostOfPurchaseHtml</h3><p>As of 1.3.30, we are starting to utilize priceInfo as an alternative to getCostOfPurchaseHtml. Three standard templates are added to the library that executes a similar view as getCostOfPurchase. The function itself looks like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">    /*
+     * @param string $paymentMethod Payment method as string or object (multiple methods allowed, due to DK).
+     * @param int $amount The amount to show the priceInformation with.
+     * @param bool $fetch If ecom should try to download the content from the priceinfolink.
+     * @param bool $iframe Pushes the priceinfolink into an iframe. You should preferrably have $fetch false here.
+     * @param bool $limitByMinMax By default, ecom only shows priceinformation based on the $amount.
+     */
+public function getCostOfPriceInformation(
+        $paymentMethod = &#39;&#39;,
+        $amount = 0,
+        $fetch = false,
+        $iframe = false,
+        $limitByMinMax = true
+    )</pre>
+</div></div><p>This means that you can display the priceinformation in different ways.</p><ul><li>Priceinfo is extracted from the legal-links block in getPaymentMethods.</li><li>The first parameter allows you to send in the payment method as a string or the object directly. Do not forget to add the amount to the request as the second argument.</li><li>The third and fourth arguments allows you to either get the url or the content of the priceInfo. With the fourth argument you can choose to contain the urls in an iframe so the modal data fits better in your store as the css and design resides remotely at Resurs Bank.</li><li>If both third and fourth arguments are true, iframe is chosen instead of colliding the view.</li><li>The firth argument is by default true, so the method follows the rules of minAmount and maxAmount. This means the priceinformation will be rendered with compatible payment methods within the range of min and max. Normally, we'd be happy with this, but this can be overridden in corner cases where all methods should be shown regardless of their limits.</li><li>To remember: All views are based on a single payment methods. If you want to show price information for denmark it is recommended to push all payment methods in the call (see below).</li></ul><h4 id="EComPHPfeaturesandtips-Showingpriceinformationfordenmark">Showing price information for denmark</h4><p>The example below renders a full &quot;tabbed view&quot; for denmark based on all payment methods available that has price information available.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">$costOfPurchaseHtml = $flow-&gt;getCostOfPriceInformation($flow-&gt;getPaymentMethods(), $amount);</pre>
+</div></div><h3 id="EComPHPfeaturesandtips-Invoicesequencehandlingarechanged">Invoice sequence handling are changed</h3><p>Due to limitations in the API, invoice id's are now handled differntly to prior versions. Invoice id's are set one time - if the ID is unexisten on the side of Resurs Bank. Next time aftershop are running, ECom won't force any more invoice id into the system as it this could potentially stop stores not increment id's properly. To restore the old behaviour you could use the practically undocumented flag features AFTERSHOP_RESCUE_INVOICE and AFTERSHOP_RESCUE_INCREMENT but normally, this should not be necessary.</p><h3 id="EComPHPfeaturesandtips-Reachablecurlhandle">Reachable curl handle</h3><p>If any changes has to be made directly to the curl library, the support for this is opened further. Test environment is no longer a required parameter.</p><h3 id="EComPHPfeaturesandtips-Units">Units</h3><p>Besides of this, pipeline tests should now work properly with each version of phpunit without backward compatible installations (as setUp() function in the units changes after PHP 7.1).</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">public function setUp(): void {
+    // This is not compatible with prior versions of PHP.
+}
+
+public function __setUp() {
+    // The replacement that unfortunately need to be added in each test case.
+}</pre>
+</div></div><p><br/></p><h3 id="EComPHPfeaturesandtips-Otherfixes">Other fixes</h3><p>The full changelog could be found here: <a href="5015031.html">EComPHP: ChangeLog</a>.</p><h3 id="EComPHPfeaturesandtips-DebuggingcreatePayment">Debugging createPayment</h3><p>You can do a createPayment() without really creating it - by simply pause the final exectue of bookPayment/creating the iframe. This section has however its own documentation, that you may find interesting: <a href="7438497.html">Important notes and troubleshooting/exceptions (EComPHP)</a></p><h3 id="EComPHPfeaturesandtips-CustomshopUrlforResursCheckout">Custom shopUrl for Resurs Checkout</h3><p>Normally, when creating the iframe for Resurs Checkout, not setting shopUrl will render a default URL that defines how the iframe handles the communication between the end user and the iframe. This is absolutely not necessary, but to make the features constantly open and reachable for developers EComPHP sets up this for you, in the format: <strong>PROTOCOL://HTTP_HOST</strong>. The protocol is based on what's returned in the web server HTTPS-variable, and if it is set, the URL might for example look like this <strong><span class="nolink">https://test.com</span></strong> - you shoule here note that trailing slashed and eventually the following full uri is stripped from the url, så even if you have a site laying on <span class="nolink">https://test.com/this/sub/structure</span> the shopUrl should still be <span class="nolink">https://test.com</span>.</p><p>You can customize this URL to point to another domain name. For example, your site should be test.org instad of test.com:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">$rb-&gt;setShopUrl(&quot;https://test.org/&quot;);</pre>
+</div></div><p>Take a not on the bad formatted trailing slash. This will be stripped off in the final result.<br/>In a near future, host validation (by resolvers, to make sure that the shopUrl is by DNS confirmed as valid) will become available.</p><p>Another thing to take not of here, is that the shopUrl should be validated even when the payload are sent into EComPHP manually. This is currenly not done by default, so by setting up following code, validation will become active at payload level too:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">$rb-&gt;setValidateCheckoutShopUrl();
+// ... code ...
+$myPayLoad = array(&#39;shopUrl&#39; =&gt; &#39;https://test.com/badly/formed/uri/link&#39;);
+// ... code ...
+$rb-&gt;createPayment( /* Your data here */ );</pre>
+</div></div><h3 id="EComPHPfeaturesandtips-PreferredpaymentID&#39;s">Preferred payment ID's</h3><p>EComPHP is designed to handle payment/order id's where such ids is not important for the store to be correct. In a normal scenario, the payment id is created by the shop, and just transferred through to EComPHP and then the order can be fulfilled. However, if this is ignored by developers or the store, EComPHP creates this by default.</p><h4 id="EComPHPfeaturesandtips-setPreferredId(&lt;string&gt;)">setPreferredId(&lt;string&gt;)</h4><p>This function is used when there is a prepared order id, that EComPHP should use.</p><h4 id="EComPHPfeaturesandtips-getPreferredPaymentId()">getPreferredPaymentId()</h4><p>This function returns a payment id. If it is pre-set by client, it will return the set id. Otherwise, it returns a randomly generated id, based on the current timestamp and a random number (to avoid conflicts between many end users).</p><h3 id="EComPHPfeaturesandtips-setCountry">setCountry</h3><p>Setting up a default country by setCountry might help a bit with things like default unitMeasure-data. While using addOrderLine, the unitMeasure is set to be &quot;st&quot; (styck). However, setting up the country with this function allows you to pass $unitMeasure empty. Doing this, will change (try) the values of unitMeasure to a proper measure for each country.</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Country value</th><th class="confluenceTh">Default unitMeasure</th></tr><tr><td class="confluenceTd"><pre><span>ResursCountry::</span><span style="color: rgb(102,14,122);">COUNTRY_DK</span></pre></td><td class="confluenceTd">st</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span>ResursCountry::</span><span style="color: rgb(102,14,122);">COUNTRY_NO</span></pre></td><td colspan="1" class="confluenceTd">st</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span>ResursCountry::</span><span style="color: rgb(102,14,122);">COUNTRY_FI</span></pre></td><td colspan="1" class="confluenceTd">kpl</td></tr><tr><td colspan="1" class="confluenceTd"><pre><span>ResursCountry::</span><span style="color: rgb(102,14,122);">COUNTRY_SE</span></pre></td><td colspan="1" class="confluenceTd">st (<strong>default</strong>)</td></tr></tbody></table></div><h2 id="EComPHPfeaturesandtips-Specialpaymentfunctionsandaftershopfeatures">Special payment functions and aftershop features</h2><p>This section is mostly made for the aftershop functions. You might also take a look at the bottom section for <a href="12189822.html">EComPHP: DEBIT, CREDIT, ANNUL [afterShopFlow]</a>, where there are some functions listed for which you can find out which status an order is set in.</p><h3 id="EComPHPfeaturesandtips-getAnnuityPriceByDuration"><span style="color: rgb(23,43,77);">getAnnuityPriceByDuration</span></h3><p><span style="color: rgb(23,43,77);">EComPHP has special features that should make it easy to show how much a customer needs to pay monthly (usually shown at single-product pageviews). This method is called getAnnuityPriceByDuration and is in details described at the section <a href="22183993.html">Calculations with getAnnuityFactors/part payments (EComPHP)</a>.</span></p><h3 id="EComPHPfeaturesandtips-getPaymentDiffByStatus">getPaymentDiffByStatus </h3><p>This is a master renderer and has replaced the prior method name <strong>getPaymentSpecByStatus</strong>, which sorts out what happened to each paymentDiff in the getPayment service API. It will list all authorized, debited, credited and annulled orderrows separately. The newer release not only give you statuses from the paymentDiff (of what happened to the order). It also renders a per-product-row-table where it shows what's left in the order referring to debiting, annulling and crediting. Together with <strong>getPaymentDiffByAbility</strong> it has a high value when it comes to partially crediting and annulling orders which EComPHP hasn't entirely supported before. This comes to a reality in v1.3.23+ (1.0.48/1.1.48) for prior setups.</p><p>It looks like this:</p><p><span style="color: rgb(102,0,0);">$orderLinesByStatus </span><span>= </span><span style="color: rgb(0,0,128);">array</span><span>(<br/></span><span> </span><span style="color: rgb(0,128,0);">'AUTHORIZE' </span><span>=&gt; </span><span style="color: rgb(0,0,128);">array</span><span>(),<br/></span><span> </span><span style="color: rgb(0,128,0);">'DEBIT' </span><span>=&gt; </span><span style="color: rgb(0,0,128);">array</span><span>(),<br/></span><span> </span><span style="color: rgb(0,128,0);">'CREDIT' </span><span>=&gt; </span><span style="color: rgb(0,0,128);">array</span><span>(),<br/></span><span> </span><span style="color: rgb(0,128,0);">'ANNUL' </span><span>=&gt; </span><span style="color: rgb(0,0,128);">array</span><span>(),<br/></span><span>);<br/><br/>The formatted table itself can look like the table below, where the new values ANNULLABLE, DEBITABLE and CREDITABLE keys shows up which quantity that is left in for each item row. So, if you plan to credit PR01, this table tells you that there are 50 more in the quantity that you can credit, etc. There's also a bunch of new features for which ECom can handle paymentdiffs and compare items. We primarily use <a href="https://www.php.net/manual/en/function.array-intersect.php" class="external-link" rel="nofollow">array_intersect</a> to compare valid orderrows those days instead of the prior &quot;removeFromArray&quot; that is from v1.3.23 completely removed from the source.<br/><br/></span></p><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>Array
+(
+    [0] =&gt; Array
+        (
+            [artNo] =&gt; PR01
+            [description] =&gt; PR01
+            [unitMeasure] =&gt; st
+            [unitAmountWithoutVat] =&gt; 37.00000
+            [vatPct] =&gt; 25.00000
+            [AUTHORIZE] =&gt; 100.00000
+            [DEBIT] =&gt; 50.00000
+            [CREDIT] =&gt; 0
+            [ANNUL] =&gt; 50.00000
+            [ANNULLABLE] =&gt; 0
+            [DEBITABLE] =&gt; 0
+            [CREDITABLE] =&gt; 50
+        )
+
+    [1] =&gt; Array
+        (
+            [artNo] =&gt; PR02
+            [description] =&gt; PR02
+            [unitMeasure] =&gt; st
+            [unitAmountWithoutVat] =&gt; 57.00000
+            [vatPct] =&gt; 25.00000
+            [AUTHORIZE] =&gt; 100.00000
+            [DEBIT] =&gt; 0
+            [CREDIT] =&gt; 0
+            [ANNUL] =&gt; 0
+            [ANNULLABLE] =&gt; 100
+            [DEBITABLE] =&gt; 100
+            [CREDITABLE] =&gt; 0
+        )
+
+    [2] =&gt; Array
+        (
+            [artNo] =&gt; PR03
+            [description] =&gt; PR03
+            [unitMeasure] =&gt; st
+            [unitAmountWithoutVat] =&gt; 55.00000
+            [vatPct] =&gt; 25.00000
+            [AUTHORIZE] =&gt; 100.00000
+            [DEBIT] =&gt; 0
+            [CREDIT] =&gt; 0
+            [ANNUL] =&gt; 0
+            [ANNULLABLE] =&gt; 100
+            [DEBITABLE] =&gt; 100
+            [CREDITABLE] =&gt; 0
+        )
+
+    [3] =&gt; Array
+        (
+            [artNo] =&gt; PR04
+            [description] =&gt; PR04
+            [unitMeasure] =&gt; st
+            [unitAmountWithoutVat] =&gt; 68.00000
+            [vatPct] =&gt; 25.00000
+            [AUTHORIZE] =&gt; 100.00000
+            [DEBIT] =&gt; 0
+            [CREDIT] =&gt; 0
+            [ANNUL] =&gt; 0
+            [ANNULLABLE] =&gt; 100
+            [DEBITABLE] =&gt; 100
+            [CREDITABLE] =&gt; 0
+        )
+
+)
+
+</pre>
+</div></div><p><br/></p><h3 id="EComPHPfeaturesandtips-getPaymentSpecCount">getPaymentSpecCount</h3><p>This function was built primarily for unittesting. It uses getPaymentSpecByStatus() and instead of returning the order rows, returns each diff-status-object with the total count of rows for each status:</p><pre><span style="color: rgb(102,0,0);">$orderLinesByStatus </span>= <span style="color: rgb(0,0,128);">array</span>(<br/> <span style="color: rgb(0,128,0);">'AUTHORIZE' </span>=&gt; <span style="color: rgb(0,0,128);">count</span>,<br/> <span style="color: rgb(0,128,0);">'DEBIT' </span>=&gt; <span style="color: rgb(0,0,128);">count</span>,<br/> <span style="color: rgb(0,128,0);">'CREDIT' </span>=&gt; <span style="color: rgb(0,0,128);">count</span>,<br/> <span style="color: rgb(0,128,0);">'ANNUL' </span>=&gt; <span style="color: rgb(0,0,128);">count</span>,<br/>);</pre><h3 id="EComPHPfeaturesandtips-sanitizeAfterShopSpec">sanitizeAfterShopSpec</h3><p>Sanitizes a payment spec from a payment id or a prepared getPayment object and return filtered depending on the requested aftershop type</p><h2 id="EComPHPfeaturesandtips-Userandclient">User and client</h2><p>There are several functions in EComPHP that is used to identify users and clients. This is some of them, listed.</p><h3 id="EComPHPfeaturesandtips-EComPHPClientidentification">EComPHP Client identification</h3><p>When communicating with Resurs Bank webservices and rest, you can tell EComPHP to identify itself with a customized USER_AGENT-header. This opens for the possibility to identify your plugin name, the web store name/version and any other variable you need to use to simplify error checking and so.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">$rb-&gt;setUserAgent(&#39;MyPlugin-2.1.77 Magento-XXX.YYY&#39;);</pre>
+</div></div><h4 id="EComPHPfeaturesandtips-ClientIdentification-SubFeature">Client Identification - SubFeature</h4><p>If you have great needs of also transmitting the end user web-browser with this USER-AGENT-header, you can also activate another feature by using <span>setPushCustomerUserAgent(true). In this case, EComPHP will also add the end user HTTP_USER_AGENT into the user-agent string, as a compressed string, base64-encoded.</span></p><h4 id="EComPHPfeaturesandtips-Userandapplicationidentification"><span>User and application identification</span></h4><p><span>This function is mostly used by AfterShop features in EComPHP. If there are any needs of identifying who annulled, credited or debited a payment setLoggedInUser() can be used for setting more data than just &quot;EComPHP -versionNumber-&quot;. The data can be seen, amongst others, in Resurs Payment Admin. The following example will render what's shown in the screen capture below (except for the realClientName parts as this has been built in after the screenshots, which by the way also needs to be renewed to match MP).</span></p><p><span>Note: setRealClientName is used to assign a name in the aftershop parts, which identifies an application if the aftershop process has been automated.</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Emacs" data-theme="Emacs">$rb-&gt;setLoggedInUser(&#39;myAdminUserName&#39;);
+$rb-&gt;setRealClientName(&#39;myApplicationName&#39;);
+$rb-&gt;annulPayment($paymentId);</pre>
+</div></div><p><span><br/><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-content-image-border" draggable="false" height="666" width="600" src="attachments/12190045/12190060.png" data-image-src="attachments/12190045/12190060.png" data-unresolved-comment-count="0" data-linked-resource-id="12190060" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2017-10-9 10:57:51.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12190045" data-linked-resource-container-version="36" alt=""></span></span></p><h2 id="EComPHPfeaturesandtips-ResursBankpaymentorderStatuses,howdoIhandlethem?">Resurs Bank payment order Statuses, how do I handle them?</h2><h3 id="EComPHPfeaturesandtips-getOrderStatusByPayment">getOrderStatusByPayment</h3><p>How you configure your store is very individual and are often also dependent on what your store can handle. However, there is a suggested &quot;best practice&quot; you could follow when setting up how to handle local order statusen during for example receiving callbacks or updating orders depending on the status of the order at Resurs Bank side. There is fragment of code in EComPHP that suggests how to update the orders, via <strong>getOrderStatusByPayment</strong>. Here's a small example (taken out of its context) on how to use it.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">$storeOrderId = &quot;1337&quot;;
+$paymentIdOrPaymentObject = &quot;1337&quot;;
+$byCallbackEvent = RESURS_CALLBACK_TYPES::CALLBACK_TYPE_AUTOMATIC_FRAUD_CONTROL;
+$callbackResult = &quot;THAWED&quot;;
+// Callback AUTOMATIC_FRAUD_CONTROL arrives here
+$suggestedStatus = $ecom-&gt;getOrderStatusByPayment($paymentIdOrPaymentObject, $byCallbackEvent, $callbackResult);
+switch ($suggestedStatus) {
+   case RESURS_PAYMENT_STATUS_RETURNCODES::PAYMENT_PROCESSING:
+      setStoreLocalStatus($storeOrderId, &quot;processing&quot;);
+   default:
+      setStoreLocalStatus($storeOrderId, &quot;on-hold&quot;);
+}</pre>
+</div></div><p>To use this without the callback control, you can just run this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">$suggestedStatus = $ecom-&gt;getOrderStatusByPayment($paymentIdOrPaymentObject);</pre>
+</div></div><p>In this case, the control will process lesser analyzing on the current order. However, it is not always interesting to run this control with the callback control. The returned value is based on <span style="color: rgb(0,0,255);"><strong>RESURS_PAYMENT_STATUS_RETURNCODES</strong></span>.</p><h3 id="EComPHPfeaturesandtips-RESURS_PAYMENT_STATUS_RETURNCODESandhowtheyareused"><span>RESURS_PAYMENT_STATUS_RETURNCODES and how they are used</span></h3><p><span>The calculations below are based on <a href="After-Shop-Service-API_327799.html">the advices from the aftershop service API here</a> (scroll to the bottom). From around v1.3.16 the behaviour of the return codes has changed to bitwise data, as SWISH payment method practically introduced a new kind of status: Instant debits. The means of this is that when you get the status DEBITED from a getPayment, you won't be able to determine if the finalization has been instant or if someone manually fired a finalization. EComPHP tries to find out this on its own, by comparing the payment with the payment method.</span></p><p><span>If the payment method is based on SWISH (this is configurable) or other &quot;instant payment methods&quot; (INTERNET or &quot;direkt banköverföring&quot; is also based on this) EComPHP must have the ability to set to statuses in the same time. By using bitwise masking in this setup you can either use the values as before - separately - or check for a combined set of data. For example, if this feature is enabled with SWISH, the return code will be 4 &amp; 32 (36) rather than just 4 according to the table below.</span></p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Status</th><th colspan="1" class="confluenceTh">Integer value</th><th class="confluenceTh">Description</th><th colspan="1" class="confluenceTh">Calculations (AND)</th></tr><tr><td class="confluenceTd"><p><span style="color: rgb(128,0,0);">NOT_IN_USE</span></p></td><td colspan="1" class="confluenceTd">0</td><td class="confluenceTd">When the analyze of the current payment could not be define anything</td><td colspan="1" class="confluenceTd">Nothing will happen</td></tr><tr><td colspan="1" class="confluenceTd"><p><span style="color: rgb(128,0,0);">PAYMENT_PENDING</span></p></td><td colspan="1" class="confluenceTd">1</td><td colspan="1" class="confluenceTd"><p>Invoked on BOOKED and AUTOMATIC_FRAUD_CONTROL</p><ul><li>BOOKED: getPayment(), <strong>frozen is true</strong></li><li>AUTOMATIC_FRAUD_CONTROL, <strong>not thawed</strong> (FROZEN)</li></ul></td><td colspan="1" class="confluenceTd"><br/></td></tr><tr><td colspan="1" class="confluenceTd"><p><span style="color: rgb(128,0,0);">PAYMENT_PROCESSING</span></p></td><td colspan="1" class="confluenceTd">2</td><td colspan="1" class="confluenceTd"><p>Invoked <span>on</span> AUTOMATIC_FRAUD_CONTROL, BOOKED and UNFREEZE</p><ul><li>BOOKED: getPayment(), <strong>frozen is false</strong></li><li>AUTOMATIC_FRAUD_CONTROL: <strong>Trusting THAWED</strong></li><li>UNFREEZE: <strong>Trusting the event</strong></li></ul></td><td colspan="1" class="confluenceTd"><br/></td></tr><tr><td colspan="1" class="confluenceTd"><p><span style="color: rgb(128,0,0);">PAYMENT_COMPLETED</span></p></td><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd"><p>Invoked on FINALIZATION and UPDATE</p><ul><li>FINALIZATION: <strong>Trusting the event</strong></li><li>UPDATE: getPayment() - <strong><em>See calculations</em></strong></li></ul></td><td colspan="1" class="confluenceTd"><ul><li><span>! canDebit(</span><span style="color: rgb(102,0,0);">$paymentData</span><span>)</span></li><li>getIsDebited(<span style="color: rgb(102,0,0);">$paymentData</span>)</li><li><span style="color: rgb(102,0,0);">$resursTotalAmount </span><span>&gt; </span><span style="color: rgb(0,0,255);">0</span></li></ul></td></tr><tr><td colspan="1" class="confluenceTd"><p><span style="color: rgb(128,0,0);">PAYMENT_ANNULLED</span></p></td><td colspan="1" class="confluenceTd">8</td><td colspan="1" class="confluenceTd"><p>Invoked <span>on</span> ANNUL and UPDATE</p><ul><li>ANNUL: getPayment() - <strong>Trusting the event</strong></li><li>UPDATE: getPayment() - <strong><em>See calculations</em></strong></li></ul></td><td colspan="1" class="confluenceTd"><ul><li><span>getIsAnnulled(</span><span style="color: rgb(102,0,0);">$paymentData</span><span>)</span></li><li>! $this<span>-&gt;getIsCredited(</span><span style="color: rgb(102,0,0);">$paymentData</span><span>) </span></li><li><span style="color: rgb(102,0,0);">$resursTotalAmount </span><span>== </span><span style="color: rgb(0,0,255);">0</span></li></ul></td></tr><tr><td colspan="1" class="confluenceTd"><p><span style="color: rgb(128,0,0);">PAYMENT_CREDITED</span></p></td><td colspan="1" class="confluenceTd">16</td><td colspan="1" class="confluenceTd"><p>Invoked on UPDATE and ANNUL</p><ul><li>Using getPayment() - <strong><em>See calculations</em></strong></li></ul></td><td colspan="1" class="confluenceTd"><ul><li><span>getIsCredited(</span><span style="color: rgb(102,0,0);">$paymentData</span><span>)</span><ul><li><span style="color: rgb(102,0,0);">$resursTotalAmount </span><span>== </span><span style="color: rgb(0,0,255);">0</span></li></ul></li></ul></td></tr><tr><td colspan="1" class="confluenceTd"><p><span style="color: rgb(128,0,0);">PAYMENT_AUTOMATICALLY_DEBITED</span></p></td><td colspan="1" class="confluenceTd">32</td><td colspan="1" class="confluenceTd"><p>Most ofthen invoked on FINALIZATION</p><ul><li>Using getPayment() and getPaymentMethods()</li></ul></td><td colspan="1" class="confluenceTd">Based on PAYMENT_COMPLETED but with a twist.</td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(128,0,0);">PAYMENT_MANUAL_INSPECTION</span></td><td colspan="1" class="confluenceTd">64</td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd"><br/></td></tr><tr><td colspan="1" class="confluenceTd"><p><span style="color: rgb(128,0,0);">PAYMENT_STATUS_COULD_NOT_BE_SET</span></p></td><td colspan="1" class="confluenceTd">128</td><td colspan="1" class="confluenceTd">When something goes wrong. This was changed from 0 for a while ago<br/>since 0 is also considered a value in the bitwise-verse.</td><td colspan="1" class="confluenceTd"><br/></td></tr></tbody></table></div><h2 id="EComPHPfeaturesandtips-Callbacks">Callbacks</h2><p>When callbacks are handled, you can either code the digest validation yourself by, something like this (examples is from the WooCommerce plugin):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Emacs" data-theme="Emacs">                       $currentSalt = get_transient( &#39;resurs_bank_digest_salt&#39; );
+                       if ( $event_type == &#39;AUTOMATIC_FRAUD_CONTROL&#39; ) {
+                               $check_digest = $request[&#39;paymentId&#39;] . $request[&#39;result&#39;] . $currentSalt;
+                       } else {
+                               $check_digest = $request[&#39;paymentId&#39;] . $currentSalt;
+                       }
+                       $check_digest = sha1( $check_digest );
+                       $check_digest = strtoupper( $check_digest );
+                       $resursPaymentData = null;
+                       try {
+                               $resursPaymentData = $this-&gt;flow-&gt;getPayment( $request[&#39;paymentId&#39;] );
+                       } catch (\Exception $ignorePaymentExceptions) {}
+                       if ( $request[&#39;digest&#39;] === $check_digest ) {
+                               // Do whatever you need with the callback, on correct matches
+                       }</pre>
+</div></div><p>Or you can use EComPHP internal validation (available from 1.0.33/1.1.33/1.2.6/1.3.6):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">$currentSalt = get_transient( &#39;resurs_bank_digest_salt&#39; );
+if ( !$this-&gt;flow-&gt;getValidatedCallbackDigest(isset($request[&#39;paymentId&#39;]) ? $request[&#39;paymentId&#39;] : null, $currentSalt, isset($request[&#39;digest&#39;]) ? $request[&#39;digest&#39;] : null, isset($request[&#39;result&#39;]) ? $request[&#39;result&#39;] : null) ) {
+  // Digest mismatche, so stop handle the callback from here
+  die;
+}</pre>
+</div></div><p><br/></p><h2 id="EComPHPfeaturesandtips-Multiplestores">Multiple stores</h2><p>If you have multiple stores in a single merchant, you can set up a deal with Resurs Bank to use storeId's. In this case, you can add an extra row in the payload sent with createPayment: <strong>setStoreId(&lt;integer&gt;)</strong>.</p><h3 id="EComPHPfeaturesandtips-Extendedfeatures"><span>Extended features</span></h3><p><span>This section contains a list of features that either has been extended or is very specific for EComPHP as helpers.</span></p><h3 id="EComPHPfeaturesandtips-getCostOfPurchase">getCostOfPurchase</h3><p><span>The getCostOfPurchase-function is based on Resurs Bank webservice getCostOfPurcaseHtml. However, instead of just returning the html-code generated by Resurs Bank, the internal function also returns a properly set html-body and - if requested - a linked CSS that referers to the page content, so it could be easily designed with a standard look.</span></p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Parameter</th><th colspan="1" class="confluenceTh">Type</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">paymentMethod</td><td colspan="1" class="confluenceTd">string</td><td class="confluenceTd">The basic set up, requred to generate the correct data</td></tr><tr><td colspan="1" class="confluenceTd">amount</td><td colspan="1" class="confluenceTd">int</td><td colspan="1" class="confluenceTd">The base amount for which Resurs Bank will build the costOfPurchase-page</td></tr><tr><td colspan="1" class="confluenceTd">returnBody</td><td colspan="1" class="confluenceTd">boolean</td><td colspan="1" class="confluenceTd">Setting this to true, will add the proper &lt;html&gt;-tags in the returned html code</td></tr><tr><td colspan="1" class="confluenceTd">callCss</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">URL to the CSS layout</td></tr><tr><td colspan="1" class="confluenceTd">hrefTarget</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">Sets up, for each href element in the html body, a target=&quot;_blank&quot; (default) so that each click in the information box opens a new window rather that just redirects them.<br/>To change the _blank-behaviour to somehing else, the string can just simple be replaced to a custom value.</td></tr></tbody></table></div><h4 id="EComPHPfeaturesandtips-setCostOfPurchaseHtmlBeforeandsetCostOfPurchaseHtmlAfter"><span>setCostOfPurchaseHtmlBefore and setCostOfPurchaseHtmlAfter</span></h4><p><span>If you have greater needs to add data into the getCostOfPurchase, that is prepended or appended to the returned body you can use those two functions to add additional data to the returned html body.</span></p><h3 id="EComPHPfeaturesandtips-ExternalextendedURLvalidation"><span>External extended URL validation</span></h3><p><span>This feature is very out of the box of EComPHP and uses a third party API, that do not belong to Resurs Bank. In some cases, there have been problems with site reachability - for example, when callbacks are running  there is a web hosting company that blocks the connectivity to your store. Or, another one, where you use internal links that is normally not reachable at all for our callback services. For such cases, you can run this function to find out whether your site is reachable or not.</span></p><p>Usage example (partially taken from our unittest suite):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: php; gutter: false; theme: Emacs" data-theme="Emacs">$testUrl = &quot;https://test.resurs.com/signdummy/index.php?isCallback=1?event=ANNULMENT&amp;digest={digest}&amp;paymentId={paymentId}&amp;lastReg=171009083933&quot;;
+$validateResponse = $rb-&gt;setValidateExternalCallbackUrl( $testUrl );
+if ( $Reachable !== ResursCallbackReachability::IS_FULLY_REACHABLE ) {
+   // Our site is not fully reachable on this response
+}</pre>
+</div></div><p>The API used for this function supports <strong>IPv6</strong>.</p><h2 id="EComPHPfeaturesandtips-Invoicesequencenumbering">Invoice sequence numbering</h2><p>Using our aftershop flow means you can handle all of your orders on your ecommerce-site instead of via our merchant portals, like payment admin. The first time you run through those functions - you can read about them here <a href="12189822.html">EComPHP: DEBIT, CREDIT, ANNUL [afterShopFlow]</a> - there will be a need for an invoice number on Resurs side. This is automatically set up by EComPHP if not already set. As of v1.0.27/1.1.27 (and 1.2.0) you can reset the invoice sequence (it will be nullified), with the function call <strong>resetInvoiceNumber()</strong>. If this is being made by mistake, the prior invoice sequence numbering might be restored again with the help from <strong>getNextInvoiceNumberByDebits()</strong> - which is a function that scans through a number of already debited payments, from which it uses the last invoice number it can find and restores the invoice sequence number with this value (+1).</p><h1 id="EComPHPfeaturesandtips-Undocumentedfeatures">Undocumented features</h1><h3 id="EComPHPfeaturesandtips-setCustomerIpProxy">setCustomerIpProxy</h3><h2 id="EComPHPfeaturesandtips-ShopFlowclonedfeatures(deprecated)">ShopFlow cloned features (deprecated)</h2><p>The methods in this section is &quot;long time deprecated&quot;. They have a history in our deprecated shopflow that, in startPaymentSession, got most of the form data from Resurs Bank, neceassy to create a proper order. To make things easier in early versions of our WooCommerce-plugin, this part of EComPHP was used to simlate the behaviour from the flow. EComPHP is here set up to return customer field data, required by end users to complete orders. It can also return default regexes for which developers can validate proper customer fields like phone numbers, e-mail, etc. In future version it is completely up to developers to make this right.</p><div class="confluence-information-macro confluence-information-macro-note"><p class="title conf-macro-render">Class changes</p><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><em>As of newer releases of EComPHP, the deprecated form controller has been moved to its own class.</em></p></div></div><p><br/></p><p><em>This documentation section is incomplete.</em></p><h3 id="EComPHPfeaturesandtips-setFormTemplateRules">setFormTemplateRules</h3><h3 id="EComPHPfeaturesandtips-getRegEx">getRegEx</h3><h3 id="EComPHPfeaturesandtips-canHideFormField">canHideFormField</h3><h3 id="EComPHPfeaturesandtips-getTemplateFieldsByMethodType"><span>getTemplateFieldsByMethodType</span></h3><h3 id="EComPHPfeaturesandtips-getTemplateFieldsByMethod"><span><span>getTemplateFieldsByMethod</span></span></h3><h3 id="EComPHPfeaturesandtips-getFormFieldsByMethod"><span><span>getFormFieldsByMethod</span></span></h3><p><span><br/></span></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/12190045/12190060.png">image2017-10-9 10:57:51.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

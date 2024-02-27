@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Prestashop Resurs Checkout</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Plugins_1476269.html">Platform Plugins</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PrestaShop-Payment-Gateways_12189753.html">PrestaShop Payment Gateways</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Prestashop Resurs Checkout
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2023-03-14
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780950052 {padding: 0px;}
+div.rbtoc1706780950052 ul {margin-left: 0px;}
+div.rbtoc1706780950052 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780950052'>
+<ul class='toc-indentation'>
+<li><a href='#PrestashopResursCheckout-CUSTOMIZABLEPRODUCTS'>CUSTOMIZABLE PRODUCTS</a></li>
+<li><a href='#PrestashopResursCheckout-Compatibility'>Compatibility</a></li>
+<li><a href='#PrestashopResursCheckout-Pluginversions'>Plugin versions</a>
+<ul class='toc-indentation'>
+<li><a href='#PrestashopResursCheckout-ENDOFLIFE(EOL)'>END OF LIFE (EOL)</a></li>
+</ul>
+</li>
+<li><a href='#PrestashopResursCheckout-Requirements'>Requirements</a></li>
+<li><a href='#PrestashopResursCheckout-Upgrading'>Upgrading</a></li>
+<li><a href='#PrestashopResursCheckout-Installation'>Installation</a>
+<ul class='toc-indentation'>
+<li><a href='#PrestashopResursCheckout-Moduleconfigurationexample'>Module configuration example</a></li>
+<li><a href='#PrestashopResursCheckout-Registeredpaymentmethodsandcallbacks'>Registered payment methods and callbacks</a></li>
+</ul>
+</li>
+<li><a href='#PrestashopResursCheckout-Knownproblemsand(eventually)thesolutions'>Known problems and (eventually) the solutions</a>
+<ul class='toc-indentation'>
+<li><a href='#PrestashopResursCheckout-Handlingunfinishedorders'>Handling unfinished orders</a></li>
+<li><a href='#PrestashopResursCheckout-SSN/GovernmentID&#39;sanddirectdebitingmethods(likeSWISH)'>SSN/Government ID&#39;s and direct debiting methods (like SWISH)</a></li>
+<li><a href='#PrestashopResursCheckout-GoingfromcarttocheckouthasweirdURL'>Going from cart to checkout has weird URL</a></li>
+</ul>
+</li>
+</ul>
+</div></p><div class="confluence-information-macro confluence-information-macro-tip"><p class="title conf-macro-render">Problem solving</p><span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>There are a few known problems in the core functions of Prestashop, some of them are not related to our module at all. Take a look at the bottom at this page for more information.</p></div></div><div class="confluence-information-macro confluence-information-macro-warning"><p class="title conf-macro-render">Before installation</p><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><h2 id="PrestashopResursCheckout-CUSTOMIZABLEPRODUCTS">CUSTOMIZABLE PRODUCTS</h2><p><span style="color: rgb(0,0,0);"><em><strong>In PrestaShop 1.7, the store offers customizable products (for example, you can add custom texts on your products; in the sample store, it is possible to add custom text to a mug).</strong></em></span></p><p><span style="color: rgb(255,0,0);"><em><strong>This is not yet (june 2020) supported by the module for version 1.7.6.</strong></em></span></p></div></div><p><br/></p><p>This extension helps merchants to integrate Resurs Bank Payment Gateway to their PrestaShop based e-commerce stores. There are two versions of this plugin and they are currecntly only supporting Resurs Checkout.</p><h2 id="PrestashopResursCheckout-Compatibility">Compatibility</h2><p>This plugin is tested in &quot;vanilla environments&quot;, which means that the plugin is installed with a default installed store. If there are plugins installed, they are usually installed from for example a marketplace. We can not fully guarantee functionality if you have other plugins installed, that uses overriders and such.</p><h2 id="PrestashopResursCheckout-Pluginversions">Plugin versions</h2><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/><col/><col/><col/><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Name</th><th class="confluenceTh">Tested with</th><th class="confluenceTh">PHP</th><th class="confluenceTh">Details</th><th class="confluenceTh">Country</th><th class="confluenceTh">Repos</th><th class="confluenceTh">Download</th><th class="confluenceTh">Dev Tracking</th><th class="confluenceTh">Status</th></tr><tr><td class="confluenceTd"><strong><a href="Resurs-Checkout-Web_5014022.html">Resurs Checkout Web</a></strong> - PrestaShop</td><td class="confluenceTd">1.6</td><td class="confluenceTd">&gt;= 5.4</td><td class="confluenceTd"><a href="Resurs-Checkout-Web_5014022.html">Resurs Checkout Docs</a></td><td class="confluenceTd">SE (Confirmed)</td><td class="confluenceTd"><a href="https://bitbucket.org/resursbankplugins/resurs-checkout-prestashop16/src/master/" class="external-link" rel="nofollow">Master branch (1.6)</a></td><td class="confluenceTd"><a href="https://bitbucket.org/resursbankplugins/resurs-checkout-prestashop16/downloads/?tab=tags" class="external-link" rel="nofollow">Release-tags for v1.6</a></td><td class="confluenceTd"><a href="https://resursbankplugins.atlassian.net/projects/PRESTA16/issues/?filter=allopenissues" class="external-link" rel="nofollow">JIRA for v1.6</a></td><td class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-error">NO LONGER SUPPORTED</span></p></div></td></tr><tr><td class="confluenceTd"><strong><a href="Resurs-Checkout-Web_5014022.html">Resurs Checkout Web</a></strong><span> - PrestaShop</span></td><td class="confluenceTd">1.7.6.x<br/>1.7.7.x</td><td class="confluenceTd">&gt;= 5.4</td><td class="confluenceTd"><a href="Resurs-Checkout-Web_5014022.html">Resurs Checkout Docs</a></td><td class="confluenceTd"><span>SE (Confirmed)</span></td><td class="confluenceTd"><a href="https://bitbucket.org/resursbankplugins/resurs-checkout-prestashop17/src/master/" class="external-link" rel="nofollow">Master branch (1.7)</a></td><td class="confluenceTd"><a href="https://bitbucket.org/resursbankplugins/resurs-checkout-prestashop17/downloads/?tab=tags" class="external-link" rel="nofollow">Release-tags for v1.7</a></td><td class="confluenceTd"><a href="https://resursbankplugins.atlassian.net/projects/PRESTA17/issues/PRESTA17-64?filter=allopenissues" class="external-link" rel="nofollow">JIRA for v1.7</a></td><td class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-current">MAINTENANCE</span></p></div></td></tr><tr><td class="confluenceTd"><strong>Resurs Simplified Flow (SOAP)</strong></td><td class="confluenceTd">&gt;= 1.7.7</td><td class="confluenceTd">&gt;= 7.4</td><td class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-moved">INSTALL WITH COMPOSER</span><br/><a href="https://test.resurs.com/docs/display/ecom/Simplified+Flow+API" rel="nofollow">Using Simplified Flow</a><br/><a href="https://test.resurs.com/docs/display/ecom/PrestaShop+SimplifiedShopFlow" rel="nofollow">Documentation</a></p></div></td><td class="confluenceTd"><span>SE (Confirmed)</span></td><td class="confluenceTd"><a href="https://bitbucket.org/resursbankplugins/psrbcore/src/master/" class="external-link" rel="nofollow">Core</a><br/><a href="https://bitbucket.org/resursbankplugins/psrbsimplified/src/master/" class="external-link" rel="nofollow">Simplified Addon</a><br/><a href="https://bitbucket.org/resursbankplugins/psrbpartpayment/src/master/" class="external-link" rel="nofollow">Partpayment Widget</a><br/><a href="https://bitbucket.org/resursbankplugins/psrbordermanagement/src/master/" class="external-link" rel="nofollow">Order Management Addon</a><br/><br/></td><td class="confluenceTd"><br/></td><td class="confluenceTd"><br/></td><td class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-success">NEWLY RELEASED</span></p></div></td></tr></tbody></table></div><p><span>The above RCO-1.6/1.7 was splitted into separate modules when the development of the module for Prestashop v1.7 was initiated. The module for v1.6 went up to 2.6.5 with some updates that was brought into the v1.7-module - and the 1.7 module became 2.7.0</span></p><h3 id="PrestashopResursCheckout-ENDOFLIFE(EOL)"><span>END OF LIFE (EOL)</span></h3><p><span>The status flag above indicates how our support works and when there's eventually an <strong>E</strong>nd <strong>O</strong>f <strong>L</strong>ife for each plugin. As for the maintenance flag, we tend to stop supporting PrestaShop 1.6 in the future as development for both PrestaShop 1.7.5 and 1.7.6 (april 2019) is moving foward. Leaving older deprecated versions is a way to maintain stability with fewer glitches than if we supported long range versions.</span></p><h2 id="PrestashopResursCheckout-Requirements"><span>Requirements</span></h2><ul><li>Supported platforms should follow the PrestaShop requirements. However, as of april 2019, none of those plugins supports PHP 5.3 anymore.</li><li>Merchant credentials from Resurs Bank (ID and Password).</li><li>Full SSL support for communicating with Resurs Bank.</li><li>PHP module activated to support curl.</li><li>PHP module activated to support soapclient and XML .</li></ul><h2 id="PrestashopResursCheckout-Upgrading">Upgrading</h2><p>For each upgrade you do, make sure you clear all cache data in PrestaShop admin (Via the Advanced-&gt;Performance tab). As there are front end scripts that may require extra cleanups, this is also necessary.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" height="250" src="attachments/59342864/59342934.png" data-image-src="attachments/59342864/59342934.png" data-unresolved-comment-count="0" data-linked-resource-id="59342934" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-11-4_9-12-16.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="59342864" data-linked-resource-container-version="10" alt=""></span></p><h2 id="PrestashopResursCheckout-Installation">Installation</h2><p><em>The below instruction is based on a basic installation, where you have direct access to the server. By means, you probably have ssh access at the hosting provider or something similar. If you're using ftp, it's probably best to extract the zip (described below) at your local computer first - rename the folder, and then upload the file structure to the modules-directory at your shop.</em></p><p>There are other ways, which is in this case unsupported. There is also a &quot;Prestashop Marketplace&quot; where the plan is to get our modules distributed. When this part is fulfilled, it may be possible to install it directly from there. Unfortunately, as of april 2019, this is currently not possible yet.</p><ol><li><strong>For both Prestashop 1.6 and 1.7, grab a tagged release</strong> from our repos (<strong>do not use the master-branch</strong> as this usually is a development branch - and even if it's for the moment stable, we can't guarantee full production support at this level).</li><li>Unzip the downloaded file into &lt;primary folder of your shop&gt;/modules (the downloaded file may look like this: <strong><span style="color: rgb(0,128,0);">resursbankplugins-resurs-checkout-prestashop16-ff8652e77e83.zip</span></strong>)</li><li>Make sure you rename the primary directory that you unzipped to the modules directory.<br/>If the zip looks like above (resursbankplugins-resurs-checkout-prestashop16-ff8652e77e83.zip), the directory that the module will land under may look like this: <em>resursbankplugins-resurs-checkout-prestashop16-ff8652e77e83</em></li><li>Make sure your cloned or extracted directory under modules is renamed to <strong><em>resursbankcheckout</em></strong>, or the module won't be found by prestashop therefore not work.</li><li>Activate the module and configure it through the admin module panel. Do not forget to put the username and password in the credentials field.</li><li><strong>Also do not forget to register payment methods and callbacks (see screen dump below)!</strong></li><li><strong>Before going production mode, make sure you test the module so you know it covers your needs!</strong></li></ol><h3 id="PrestashopResursCheckout-Moduleconfigurationexample">Module configuration example</h3><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" height="400" src="attachments/59342864/59342866.png" data-image-src="attachments/59342864/59342866.png" data-unresolved-comment-count="0" data-linked-resource-id="59342866" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2019-4-11_8-37-30.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="59342864" data-linked-resource-container-version="10" alt=""></span></p><h3 id="PrestashopResursCheckout-Registeredpaymentmethodsandcallbacks">Registered payment methods and callbacks</h3><p><span style="color: rgb(255,0,0);"><strong><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" height="400" src="attachments/59342864/59342867.png" data-image-src="attachments/59342864/59342867.png" data-unresolved-comment-count="0" data-linked-resource-id="59342867" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2019-4-11_8-35-55.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="59342864" data-linked-resource-container-version="10" alt=""></span><br/></strong></span></p><h2 id="PrestashopResursCheckout-Knownproblemsand(eventually)thesolutions">Known problems and (eventually) the solutions</h2><h3 id="PrestashopResursCheckout-Handlingunfinishedorders">Handling unfinished orders</h3><p>Sometimes, customers decide to not fullfill their payments and shuts down their payment session/browsers faster than we can handle the cancellation. This means that some orders may look active, but in reality they are cancelled. In Prestashop, we have added an adapted shellscript written in PHP that is supposed to handle this kind of problems. It is not really supported, and is more to consider an extra addin-tool than something that really belongs to the plugin. It is located under <strong>modules/resursbankcheckout/shell/Cleaner.php</strong>, if you want to try it out. It is usually not recemmended to install this to run under the Prestashop internal cron handler, but externally like a shellscript. For shelled-cronjob, the crontab should look like below and it is fine running it once per hour:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Emacs" data-theme="Emacs">0 * * * * /bin/php /var/www/prestashop/modules/resursbankcheckout/shell/Cleaner.php</pre>
+</div></div><p>From /etc/cron.d it could also be added as a generic cronjob:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Emacs" data-theme="Emacs">0 * * * * &lt;owner&gt; /bin/php /var/www/prestashop/modules/resursbankcheckout/shell/Cleaner.php</pre>
+</div></div><p>Do not forget to change the paths, binaries and the ownership for both above examples.</p><h3 id="PrestashopResursCheckout-SSN/GovernmentID&#39;sanddirectdebitingmethods(likeSWISH)">SSN/Government ID's and direct debiting methods (like SWISH)</h3><p>If a customer chooses to change their billing/delivery address in the checkout without using the getPayment-features (meaning there may be some missing government id's through the checkout), Prestashop will be unable to catch this information on the payment. If you use features in the plugin that collects data for insurances, the module will be unable to store this data for you. By means, it may be &quot;bad for business&quot; especially insurance-features, if the customer somehow are not required to enter this information during the payment.</p><h3 id="PrestashopResursCheckout-GoingfromcarttocheckouthasweirdURL">Going from cart to checkout has weird URL</h3><p>
+<span class="jira-issue resolved" data-jira-key="PRESTA17-68" >
+                    <a href="https://resursbankplugins.atlassian.net/browse/PRESTA17-68?src=confmacro" class="jira-issue-key"><img class="icon"
+                                                                                      src="https://resursbankplugins.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium"/>PRESTA17-68</a>
+                            -
+            <span class="summary">(Not a bug) Problems with /För in cart-to-checkout-url (Documentation only)</span>
+                                                <span class="aui-lozenge aui-lozenge-subtle             aui-lozenge-success
+     jira-macro-single-issue-export-pdf">Done</span>
+                </span>
+</p><p>When you use swedish translations the url, depending on your platform, may show up as &quot;<a href="https://your-site/" class="external-link" rel="nofollow">https://your-site/</a><strong>För</strong>&quot;. The &quot;För&quot; link is a typo related to a redirect_url that went wrong when it was installed in the database. It looks ugly but is normally not destroying anything.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" height="190" src="attachments/59342864/59342868.png" data-image-src="attachments/59342864/59342868.png" data-unresolved-comment-count="0" data-linked-resource-id="59342868" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-5-27_8-55-23.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="59342864" data-linked-resource-container-version="10" alt=""></span></p><p>Solution:</p><p>If you want to report this as a bug to Resurs Bank - don't. We can't solve it from our side. Instead, update your database. If you are unsure of what to look for, the above query could probably be changed to something like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Emacs" data-theme="Emacs">SELECT * FROM ps_meta_lang WHERE url_rewrite = &#39;För&#39;</pre>
+</div></div><p>If you find a row that contains &quot;För&quot; in the url_rewrite-field, change it to &quot;order&quot;. If you only have access to prestashop admin and the sql editor there, you could run something that looks like the query below.</p><p><span style="color: rgb(255,0,0);"><strong> Best practice is to look for the correct &quot;wrong row&quot; and change it, just so nothing else is changed by mistake.</strong></span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Emacs" data-theme="Emacs">UPDATE ps_meta_lang SET url_rewrite = &#39;order&#39; WHERE url_rewrite = &#39;För&#39;</pre>
+</div></div><p>Just make sure your tables are not prefixed as something else.</p><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/59342864/59342866.png">image2019-4-11_8-37-30.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/59342864/59342867.png">image2019-4-11_8-35-55.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/59342864/59342868.png">image2020-5-27_8-55-23.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/59342864/59342934.png">image2021-11-4_9-12-16.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

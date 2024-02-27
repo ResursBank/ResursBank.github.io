@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : Pre-filling customer data in Resurs Checkout POS</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Resurs-Checkout-POS_24641672.html">Resurs Checkout POS</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : Pre-filling customer data in Resurs Checkout POS
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Daniel</span>, last modified by <span class='editor'> Patric Johnsson</span> on 2020-12-07
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><br/></p><h3 id="PrefillingcustomerdatainResursCheckoutPOS-OptimizetheCheckoutforReturningCustomers">Optimize the Checkout for Returning Customers</h3><p>Customers are more likely to complete purchases if they can checkout quickly and accurately. Resurs Bank creates a fast and accurate checkout experience by prefilling, auto-completing and validating personal details.</p><p>Send us the customer’s information, if you already have it, just before you render the checkout. When you create the order you may choose to add data about the customer. <span style="letter-spacing: 0.0px;">We recommended this feature for customers who have already registered with your website.</span></p><p>If you choose to add customer data, the customer-defined fields on the checkout form will be pre-populated, which will increase your conversion.</p><p><br/></p><h5 id="PrefillingcustomerdatainResursCheckoutPOS-Customer-definedfieldsthatcanbepre-populated:">Customer-defined fields that can be pre-populated:</h5><p>governmentId -&gt;</p><p>mobile -&gt; Mobile phone number</p><p>email -&gt; E-mail address</p><p><br/></p><p><strong>POST-example containing customer data</strong></p><div id="expander-1976310184" class="expand-container"><div id="expander-control-1976310184" class="expand-control" aria-expanded="true"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down"></span><span class="expand-control-text conf-macro-render">POST-example containing customer data</span></div><div id="expander-content-1976310184" class="expand-content"><p style="text-align: left;"><code class="java plain" style="text-align: left;">{</code><br/><code class="java spaces" style="text-align: left;">    </code><code class="java string" style="text-align: left;">&quot;orderLines&quot;</code><code class="java plain" style="text-align: left;">: [</code><br/><code class="java spaces" style="text-align: left;">        </code><code class="java plain" style="text-align: left;">{</code><br/><code class="java spaces" style="text-align: left;">            </code><code class="java string" style="text-align: left;">&quot;artNo&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;ART123&quot;</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">            </code><code class="java string" style="text-align: left;">&quot;description&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;Product description&quot;</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">            </code><code class="java string" style="text-align: left;">&quot;quantity&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java value" style="text-align: left;">2</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">            </code><code class="java string" style="text-align: left;">&quot;unitMeasure&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;kg&quot;</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">            </code><code class="java string" style="text-align: left;">&quot;unitAmountWithoutVat&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java value" style="text-align: left;">200</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">            </code><code class="java string" style="text-align: left;">&quot;vatPct&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java value" style="text-align: left;">25</code><br/><code class="java spaces" style="text-align: left;">        </code><code class="java plain" style="text-align: left;">}</code><br/><code class="java spaces" style="text-align: left;">    </code><code class="java plain" style="text-align: left;">],</code><br/><code class="java spaces" style="text-align: left;">    </code><code class="java string" style="text-align: left;">&quot;customer&quot;</code><code class="java plain" style="text-align: left;">: {</code><br/><code class="java spaces" style="text-align: left;">        </code><code class="java string" style="text-align: left;">&quot;governmentId&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;<span style="color: rgb(23,43,77);">198305147715</span>&quot;</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">        </code><code class="java string" style="text-align: left;">&quot;mobile&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;<span style="color: rgb(23,43,77);">0771112233</span>&quot;</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">        </code><code class="java string" style="text-align: left;">&quot;email&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;test@<a href="http://resurs.se" class="external-link" rel="nofollow">resurs.se</a>&quot;</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">        </code><code class="java string" style="text-align: left;">&quot;deliveryAddress&quot;</code><code class="java plain" style="text-align: left;">: {</code><br/><code class="java spaces" style="text-align: left;">            </code><code class="java string" style="text-align: left;">&quot;fullName&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;<span style="color: rgb(23,43,77);">Vincent Williamsson Alexandersson</span>&quot;</code><span> </span><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">            </code><code class="java string" style="text-align: left;">&quot;firstName&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;<span style="color: rgb(23,43,77);">Vincent </span>&quot;</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">            </code><code class="java string" style="text-align: left;">&quot;lastName&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;<span style="color: rgb(23,43,77);">Williamsson Alexandersson</span>&quot;</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">            </code><code class="java string" style="text-align: left;">&quot;addressRow1&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;<span style="color: rgb(23,43,77);">Glassgatan 15</span>&quot;</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">            </code><code class="java string" style="text-align: left;">&quot;addressRow2&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java keyword" style="text-align: left;">null</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">            </code><code class="java string" style="text-align: left;">&quot;postalArea&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;<span style="color: rgb(23,43,77);">Göteborg</span>&quot;</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">            </code><code class="java string" style="text-align: left;">&quot;postalCode&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;<span style="color: rgb(23,43,77);">41655</span>&quot;</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">            </code><code class="java string" style="text-align: left;">&quot;countryCode&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;SE&quot;</code><br/><code class="java spaces" style="text-align: left;">        </code><code class="java plain" style="text-align: left;">}</code><br/><code class="java spaces" style="text-align: left;">    </code><code class="java plain" style="text-align: left;">},</code><br/><code class="java spaces" style="text-align: left;">    </code><code class="java string" style="text-align: left;">&quot;successUrl&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;<a style="text-decoration: none;text-align: left;" href="http://google.com/" class="external-link" rel="nofollow">http://google.com</a>&quot;</code><code class="java plain" style="text-align: left;">,</code><br/><code class="java spaces" style="text-align: left;">    </code><code class="java string" style="text-align: left;">&quot;backUrl&quot;</code><code class="java plain" style="text-align: left;">:<span> </span></code><code class="java string" style="text-align: left;">&quot;<a style="text-decoration: none;text-align: left;" href="http://failblog.cheezburger.com/" class="external-link" rel="nofollow">http://failblog.cheezburger.com/</a>&quot;</code><br/><code class="java plain" style="text-align: left;">}</code></p></div></div>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641680/24641678.png">image2018-6-18_14-6-7.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24641680/24641679.png">image2019-5-6_15-22-51.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

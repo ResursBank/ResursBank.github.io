@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : EComPHP and localization</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development_950386.html">Development</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PHP-and-development-libraries_5014349.html">PHP and development libraries</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="87393094.html">Version 1.x (EComPHP)</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : EComPHP and localization
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2022-05-10
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Table of contents</strong></p><p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780968250 {padding: 0px;}
+div.rbtoc1706780968250 ul {margin-left: 0px;}
+div.rbtoc1706780968250 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780968250'>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPandlocalization-Current(May2022)translationstringbuildup'>Current (May 2022) translation string buildup</a>
+<ul class='toc-indentation'>
+<li><a href='#EComPHPandlocalization-Keywordstolookfor'>Keywords to look for</a></li>
+</ul>
+</li>
+<li><a href='#EComPHPandlocalization-Description'>Description</a></li>
+<li><a href='#EComPHPandlocalization-LanguageNames'>Language Names</a></li>
+<li><a href='#EComPHPandlocalization-Howtouse'>How to use</a></li>
+</ul>
+</div></p><h2 id="EComPHPandlocalization-Current(May2022)translationstringbuildup">Current (May 2022) translation string buildup</h2><p>The translation segment in EComPHP is very complex. From an external point of view, translations may look hardcoded as phrases and keying in the language files looks quite inconsistent. There <strong>is</strong> a non-hardcoded-ish structure, but it is mostly driven internally and it is therefore impossible to statically decide which payment method is connected to a specific phrase, since they are probable to move around during development. Also, the phrases are mainly built for Resurs Checkout, so internally this will never become a problem. There are plans to restructure this lineup of code, so in an ECom aspect, this has to be taken care with caution. If the languages in future releases are changing it is highly important that the requesting methods can handle them as of today.</p><p>Below is an explanation of how the phrases are built <em>today</em>. The translation place is entirely depending on the internal location, country and system in use:</p><ul><li>Resurs-owned payment methods is used to be built on subTitle. Normally, ecomphp is extracting <strong>infoText1</strong> and <strong>infoText2</strong>, which is sometimes not the correct keys to use when it comes to the internals. The characteristics of an internal method is based on the initial name RESURS. For example, part payments comes both as RESURS_PART_PAYMENT and partPayment in the language files now. To extract the proper phrase, the best way is to match type with what's not PAYMENT_PROVIDER and when not, use RESURS_PART_PAYMENT as the proper payment method.</li><li>The above method leads us into the PAYMENT_PROVIDER handing. Most of the named payment methods contains psp as an initial string. Like pspTrustly, pspCard, pspSwish, etc. For pspTrustly there are however some very specific rules applied, at least for when we use getPaymentMethods; Trustly are identified as specificType INTERNET, not TRUSTLY. But since there are also a pspInternet defined in the language files there may be inaccurate hits on that phrase collection. For those currently checking payment methods, the phrase should be easiest to fetch from pspTrustly.</li><li>During translation fetching, we look for data stored based by <strong>specificType</strong>. There was an idea to also check <strong>type</strong>, when specificType does not return data. But in the most cases methods based on type is also returning empty data when specificType is not present. But we usually do a failovercheck on this too, in case there is changes for this in the future.</li><li>Is the payment trustly? Go for pspTrustly instead of pspInternet, since the info string is <strong>currently</strong> located in the pspTrustly-block.</li></ul><p>For more information of how this is digged through, most of the above (and below) is described in swedish at 
+<span class="jira-issue resolved" data-jira-key="P17-307" >
+                    <a href="https://resursbankplugins.atlassian.net/browse/P17-307?src=confmacro" class="jira-issue-key"><img class="icon"
+                                                                                      src="https://resursbankplugins.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium"/>P17-307</a>
+                            -
+            <span class="summary">Synka betalmetodernas texter del 3</span>
+                                                <span class="aui-lozenge aui-lozenge-subtle             aui-lozenge-success
+     jira-macro-single-issue-export-pdf">Done</span>
+                </span>
+ where it was discovered first.</p><h3 id="EComPHPandlocalization-Keywordstolookfor">Keywords to look for</h3><p>As this text is written, we are working on the PrestaShop module (simplified) for this to work properly. Normally when we're looking for phrases we use ecom internals, which is using infoText1 and infoText2 to find the strings. However, the key <strong>info</strong> is also sometimes necessary (pspTrustly is using that for SE, but not for the other countries). Also, for internal methods, we look for subTitle. So to sum up this we collect:</p><ul><li>infoText1</li><li>infoText2</li><li>info</li><li>subTitle</li></ul><h2 id="EComPHPandlocalization-Description">Description</h2><p>Resurs Bank is giving us the opportunity to export a bunch of locales with help from language files where phrases are stored. We've picked this feature up, and those language files are embedded in the EComPHP source. The files are stored in src/Service/Container and for Swedish, Norwegian and Finnish phrases are stored in json containers. Danish is stored as XML.</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" draggable="false" src="attachments/71794940/71794939.png" data-image-src="attachments/71794940/71794939.png" data-unresolved-comment-count="0" data-linked-resource-id="71794939" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2022-3-30_12-20-6.png" data-base-url="https://test.resurs.com/docs" data-linked-resource-content-type="image/png" data-linked-resource-container-id="71794940" data-linked-resource-container-version="7" alt=""></span></p><h2 id="EComPHPandlocalization-LanguageNames">Language Names</h2><p>Resurs are using ISO 639-1 based locale names (sv, da, no, fi, etc), instead of ISO 3166 (SE, DK, NO, FI, etc). The translation class is however covers both of the formats when requesting a locale (see below).</p><h2 id="EComPHPandlocalization-Howtouse">How to use</h2><p>Our testsuite is covering two ways fetching translation phrases. The simplest way is to just request for a key and to make ECom choose the proper language you instantiate a class called Translation.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">        $helper = new Translation();
+        $helper-&gt;setLanguage(&#39;sv&#39;);</pre>
+</div></div><p>When the locale is selected, you can start request a phrase by doing one of the below:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">        $closePhrase = $helper-&gt;getPhrase(&#39;Change&#39;);
+        $validationForEmptyGovId = $helper-&gt;getPhrase(&#39;forEmpty&#39;, [&#39;validation&#39;, &#39;govId&#39;]);</pre>
+</div></div><p>By looking at the json files you can also see where the data is stored and if you find (like the above example) that the phrases are stored recursively where ECom can not find the phrases itself (it won't do the recursion for you), the second argument helps you define a array-path to the phrase location.</p><p>If you know what you are looking for, like payment methods, there's however faster ways getting some of the phrases, by the customized getMethodInfo and getPhraseByMethod. getPhraseByMethod will look for a payment method and return a block of data relating to that method (very often based by type or specificType). getPaymentMethdInfo if a very strict checker and will only return data on very specific keys. Currently the keys are based on &quot;infoText1&quot; and &quot;infoText2&quot;.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">$partPaymentInfo1 = $helper-&gt;getMethodInfo(&#39;partPayment&#39;);
+$partPaymentInfo2 = $helper-&gt;getMethodInfo(&#39;partPayment&#39;, 2);
+$pspTrustly = $helper-&gt;getPhraseByMethod(&#39;pspTrustly&#39;);</pre>
+</div></div>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/71794940/71794938.png">image2022-3-30_12-19-23.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/71794940/71794939.png">image2022-3-30_12-20-6.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

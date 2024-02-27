@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : MAPI-WC - Customizations</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Plugins_1476269.html">Platform Plugins</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="WooCommerce_2588830.html">WooCommerce</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Resurs-Merchant-API-2.0-for-WooCommerce_81887266.html">Resurs Merchant API 2.0 for WooCommerce</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : MAPI-WC - Customizations
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Thomas Tornevall</span>, last modified on 2023-08-23
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This section contains a set of examples of how you can code with the module on your own. Much of the codebase is modular which means that you practically can use the same hooks as we do. Please be aware of the fact that our module follows a lot of standard practices, so some things may not be supported or compatible with your platform <strong>if</strong> you have own customizations.</p><p>The methods and examples on this page is not actually supported by Resurs and reside here only to be initial examples of other ways of coding.</p><p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780961563 {padding: 0px;}
+div.rbtoc1706780961563 ul {margin-left: 0px;}
+div.rbtoc1706780961563 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780961563'>
+<ul class='toc-indentation'>
+<li><a href='#MAPIWCCustomizations-Customcustomertypehandling'>Custom customer type handling</a></li>
+</ul>
+</div></p><h2 id="MAPIWCCustomizations-Customcustomertypehandling">Custom customer type handling</h2><p>Normally, in at least Sweden, we use a widget called getAddress that we pick up customer information based on the customer type (private person - NATURAL, or company - LEGAL). If you decide to not use it but still need to update payment methods based on other sections that picks up customer types, you can use the hooks that we use with the standard getAddress requests. The trigger will prepare internal session values to change the customer type so that the payment methods can update with correct data.</p><p>The urls generated in this example very much follows the standards of WordPress' permalinks, so if you can you would want to look for the frontend variable set called <strong>rbCustomerTypeData</strong>. In our basic front end we usually look up the customer type by what's entered in the company name (in the billing forms). Like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">rbCustomerTypeData[&#39;apiUrl&#39;] + &#39;&amp;customerType=&#39; + (rbIsCompany() ? &#39;LEGAL&#39; : &#39;NATURAL&#39;),</pre>
+</div></div><p>If you know how to set up frontend-hooks by binding html-elements you can easily bind your own request like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// Code to bind a function, for example radio button triggers goes here.
+
+//
+// In your header with scripts or similar put up function like the one below.
+// Just make sure you can access rbCustomerTypeData.
+// The URL usually looks like this:
+// /?resursbank=set-customer-type&amp;customerType=NATURAL
+// 
+
+function customizedRbUpdateCustomerType(setCustomerTypeValue) {
+    jQuery.ajax(
+        {
+            url: rbCustomerTypeData[&#39;apiUrl&#39;] + &#39;&amp;customerType=&#39; + (setCustomerTypeValue === &#39;LEGAL&#39; ? &#39;LEGAL&#39; : &#39;NATURAL&#39;),
+        }
+    ).done(
+        function (result) {
+            // When the request is completed, retrigger wooCommerce checkout features with the internal trigger.
+            if (typeof result === &#39;object&#39; &amp;&amp; result[&#39;update&#39;]) {
+                jQuery(&#39;body&#39;).trigger(&#39;update_checkout&#39;);
+            } else {
+                alert(&quot;Unable to update customer type.&quot;);
+            }
+        }
+    )
+}</pre>
+</div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

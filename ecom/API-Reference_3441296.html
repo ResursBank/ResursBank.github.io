@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resurs Bank e-Commerce Platform : API Reference</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Resurs Bank e-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="The-Resurs-Bank-E-Commerce-Platform_327701.html">The Resurs Bank E-Commerce Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Invoice-Service-2.0_3441293.html">Invoice Service 2.0</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Resurs Bank e-Commerce Platform : API Reference
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> User2</span>, last modified by <span class='editor'> Tobias</span> on 2016-05-25
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p> </p><p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1706780971034 {padding: 0px;}
+div.rbtoc1706780971034 ul {margin-left: 0px;}
+div.rbtoc1706780971034 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1706780971034'>
+<ul class='toc-indentation'>
+<li><a href='#APIReference-Methods'>Methods</a>
+<ul class='toc-indentation'>
+<li><a href='#APIReference-Listpaymentalternatives'>List payment alternatives</a></li>
+<li><a href='#APIReference-Verifycredit'>Verify credit</a></li>
+<li><a href='#APIReference-Sellinvoice'>Sell invoice</a></li>
+<li><a href='#APIReference-Creditinvoice'>Credit invoice</a></li>
+<li><a href='#APIReference-Configureinvoicedata'>Configure invoice data</a></li>
+<li><a href='#APIReference-Retrieveinvoicedataconfiguration'>Retrieve invoice data configuration</a></li>
+</ul>
+</li>
+<li><a href='#APIReference-CommonAPI-types'>Common API-types</a>
+<ul class='toc-indentation'>
+<li><a href='#APIReference-Paymentalternative'>Payment alternative</a></li>
+<li><a href='#APIReference-Contactinformation'>Contact information</a></li>
+<li><a href='#APIReference-Invoiceline'>Invoice line</a></li>
+<li><a href='#APIReference-Pdf'>Pdf</a></li>
+<li><a href='#APIReference-Errormessage'>Error message</a></li>
+</ul>
+</li>
+</ul>
+</div></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The API is accessible in test and production via the following endpoints:</p><p>Test: <a href="https://test.resurs.com/invoice-ws-v2" class="external-link" rel="nofollow">https://test.resurs.com/invoice-ws-v2</a></p><p>Production: <a href="https://butiksservice.resurs.com/invoice-v2" class="external-link" rel="nofollow">https://ws.butiksservice.resurs.com/invoice-v2</a></p></div></div><h1 id="APIReference-Methods">Methods</h1><h2 id="APIReference-Listpaymentalternatives">List payment alternatives<strong><br/></strong></h2><p>Use this to get a list of all available payment alternatives. This should be called before making a purchase.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The payment alternatives can change (the id, description, etc.) and should not be cached.</p></div></div><p> </p><h4 id="APIReference-Operation">Operation</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">GET /payment_alternatives?amount={amount}</pre>
+</div></div><h4 id="APIReference-Parameters">Parameters</h4><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Name</th><th class="confluenceTh">Type</th><th class="confluenceTh">Mandatory</th><th class="confluenceTh">Constraints</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">amount</td><td class="confluenceTd">decimal</td><td class="confluenceTd"> </td><td class="confluenceTd">Positive number</td><td class="confluenceTd">If specified, only payment alternatives matching the amount will be returned.</td></tr></tbody></table></div><h4 id="APIReference-Response">Response</h4><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Name</th><th class="confluenceTh">Type</th><th class="confluenceTh">Mandatory</th><th class="confluenceTh">Constraints</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">payment_alternatives</td><td class="confluenceTd">array of <a href="#APIReference-PaymentAlternative">payment_alternative</a></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr></tbody></table></div><h4 id="APIReference-Responsesample">Response sample</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;payment_alternatives&quot;: [
+        {
+            &quot;id&quot;: &quot;AF682069&quot;,
+            &quot;description&quot;: &quot;SOVA FAKTURA TEST&quot;,
+            &quot;customer_type&quot;: &quot;NATURAL&quot;,
+            &quot;min_amount&quot;: 1000,
+            &quot;max_amount&quot;: 50000
+        },
+        {
+            &quot;id&quot;: &quot;LG686069&quot;,
+            &quot;description&quot;: &quot;TEST FAKTURA MED DELBET&quot;,
+            &quot;customer_type&quot;: &quot;NATURAL&quot;,
+            &quot;min_amount&quot;: 10,
+            &quot;max_amount&quot;: 50000
+        },
+        {
+            &quot;id&quot;: &quot;NZ690101&quot;,
+            &quot;description&quot;: &quot;TEST FÖRETAGSFAKTURA MT&quot;,
+            &quot;customer_type&quot;: &quot;LEGAL&quot;,
+            &quot;min_amount&quot;: 1,
+            &quot;max_amount&quot;: 50000
+        }
+    ]
+}
+</pre>
+</div></div><h2 id="APIReference-Verifycredit">Verify credit<strong><br/></strong></h2><p>Use this to verify the credit worthiness of an applicant. The request should be made before submitting a sell request in order to verify that the customer is ok. If the returned decision is &quot;APPROVED&quot; the purchase flow can be continued and a subsequent sell request can be made. Making a sell request when verify credibility returns a decision of anything else than APPROVED will result in an error.  If the returned decision is &quot;MANUAL_INSPECTION&quot; the PoS-system should inform the store staff  to contact Resurs Bank customer service for inspection of the application. If the application is approved this will be reflected on further calls to verify credibility.</p><h4 id="APIReference-Operation.1">Operation</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">POST /customer/verify_credibility</pre>
+</div></div><h4 id="APIReference-Request">Request</h4><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Name</th><th class="confluenceTh">Type</th><th colspan="1" class="confluenceTh">Mandatory</th><th colspan="1" class="confluenceTh">Constraints</th><th colspan="1" class="confluenceTh">Description</th></tr><tr><td colspan="1" class="confluenceTd">payment_alternative_id</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x </td><td colspan="1" style="text-align: center;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">The id of <a href="#APIReference-PaymentAlternative">payment_alternative</a></td></tr><tr><td colspan="1" class="confluenceTd">requested_amount</td><td colspan="1" class="confluenceTd">decimal</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">Positive number</td><td colspan="1" class="confluenceTd">The requested amount of the credit application</td></tr><tr><td colspan="1" class="confluenceTd">government_id</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">A valid government id</td><td colspan="1" class="confluenceTd">The government id of the liable payer. Either an organisation number or a national identification number. Use <a href="http://www.personnummer.nu" class="external-link" rel="nofollow">www.personnummer.nu</a> to generate numbers. Please note that a date in the second, or higher, quarter shall be used due to test filter characteristics.</td></tr><tr><td colspan="1" class="confluenceTd">contact_information</td><td colspan="1" class="confluenceTd"><a href="#APIReference-ContactInformation">contact_information</a><span> </span></td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"><p>The contact persons information</p></td></tr></tbody></table></div><h4 id="APIReference-Requestsample">Request sample</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;payment_alternative_id&quot;: &quot;AF682069&quot;,
+    &quot;government_id&quot;: &quot;19910125-3905&quot;,
+    &quot;contact_information&quot;: {
+        &quot;email&quot;: &quot;test@resurs.se&quot;,
+        &quot;phone&quot;: &quot;0708-123456&quot;,
+		&quot;national_identification_number&quot;: &quot;19910125-3905&quot;
+    },
+    &quot;requested_amount&quot;: 10000
+}</pre>
+</div></div><h4 id="APIReference-Response.1">Response</h4><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Name</th><th class="confluenceTh">Type</th><th class="confluenceTh">Mandatory</th><th class="confluenceTh">Constraints</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">decision</td><td class="confluenceTd">string</td><td class="confluenceTd">x</td><td class="confluenceTd">&quot;APPROVED&quot;, &quot;MANUAL_INSPECTION&quot;, &quot;REJECTED&quot;</td><td class="confluenceTd">Decision of the evaluation of the credit worthyness of the applicant. An invoice can only be sold if the decision is &quot;APPROVED&quot;.</td></tr><tr><td class="confluenceTd">approved_amount</td><td class="confluenceTd">decimal</td><td class="confluenceTd">x</td><td class="confluenceTd">Positive number.</td><td class="confluenceTd">Will never be greater than requested amount, and always zero if decision is anything else than APPROVED</td></tr></tbody></table></div><h4 id="APIReference-Responsesample.1">Response sample</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;decision&quot;: &quot;APPROVED&quot;,
+    &quot;approved_amount&quot;: 10000
+}</pre>
+</div></div><h2 id="APIReference-Sellinvoice"><strong>Sell invoice</strong></h2><p>Use this to make a purchase in the form of an invoice. In addition to returning the invoice-PDF in the response the invoice can also be delivered via e-mail (as attachment) or postal mail. The delivery option is configured by setting the invoice_delivery_option.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Do not call sell invoice if verify credibility returned anything else than APPROVED.</p></div></div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The amount fields on the invoice lines are not validated against total amount.</p></div></div><p> </p><p><strong>Operation<br/></strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">POST /invoice/sell</pre>
+</div></div><h4 id="APIReference-Request.1">Request</h4><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Name</th><th class="confluenceTh">Type</th><th colspan="1" class="confluenceTh">Mandatory</th><th colspan="1" class="confluenceTh">Constraints</th><th colspan="1" class="confluenceTh">Description</th></tr><tr><td colspan="1" class="confluenceTd">external_reference</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x </td><td colspan="1" class="confluenceTd"><p>Unique per chain.<br/>a-z, A-Z, 0-9, &quot;_&quot; and &quot;-&quot; are allowed.</p></td><td colspan="1" class="confluenceTd"><p>Payment reference.<br/><strong>This identifier will be reported back in economic reports.</strong><br/><strong><span lang="en">Use an identifier that can easily be traced back to your system, </span><span lang="en">such as order id.</span></strong> </p></td></tr><tr><td colspan="1" class="confluenceTd">payment_alternative_id</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">The id of <a href="#APIReference-PaymentAlternative">payment_alternative</a></td></tr><tr><td colspan="1" class="confluenceTd">government_id</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">A valid government id</td><td colspan="1" class="confluenceTd">The government id of the liable payer. Either an organisation number or a national identification number</td></tr><tr><td colspan="1" class="confluenceTd">contact_information</td><td colspan="1" class="confluenceTd"><a href="#APIReference-ContactInformation">contact_information</a></td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"><span>The contact persons information</span></td></tr><tr><td colspan="1" class="confluenceTd">invoice_lines</td><td colspan="1" class="confluenceTd">array of <a href="#APIReference-InvoiceLine">invoice_line</a></td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">Must contain at least one element</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">total_amount_without_vat</td><td colspan="1" class="confluenceTd">decimal</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">Total amount without VAT</td></tr><tr><td colspan="1" class="confluenceTd">total_vat_amount</td><td colspan="1" class="confluenceTd">decimal</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">Total VAT amount</td></tr><tr><td colspan="1" class="confluenceTd">total_amount_with_vat</td><td colspan="1" class="confluenceTd">decimal</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">Total amount with VAT</td></tr><tr><td colspan="1" class="confluenceTd">invoice_number</td><td colspan="1" class="confluenceTd">long</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">Positive number</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">invoice_delivery_option</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">&quot;POSTAL&quot;, &quot;EMAIL&quot;, &quot;NONE&quot;</td><td colspan="1" class="confluenceTd">This determines how the invoice will be delivered to the customer. The &quot;POSTAL&quot;-option means that the invoice will be mailed by postal mail to the customer's address. The &quot;EMAIL&quot;-option means that the invoice will be delivered by e-mail to the supplied customer email. The &quot;NONE&quot;-option will not do any of the above. This option does not affect the response, which always contains the invoice PDF if the call was successful.</td></tr><tr><td colspan="1" class="confluenceTd">invoice_extra_data</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">Free-text field on the invoice</td></tr></tbody></table></div><h4 id="APIReference-Requestsample.1">Request sample</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+	&quot;external_reference&quot; : &quot;79faa780-7b8e-11e4-82f8-0800200c9a66&quot;,
+	&quot;payment_alternative_id&quot; : &quot;NZ690101&quot;,
+    &quot;government_id&quot;: &quot;19910125-3905&quot;,
+    &quot;contact_information&quot;: {
+        &quot;email&quot;: &quot;test@resurs.se&quot;,
+        &quot;phone&quot;: &quot;0708-123456&quot;,
+		&quot;national_identification_number&quot;: &quot;19910125-3905&quot;
+    },
+	&quot;invoice_lines&quot; : [
+		{
+			&quot;article_id&quot; : &quot;sk-1&quot;,
+			&quot;article_number&quot; : &quot;1&quot;,
+			&quot;description&quot; : &quot;Lång smal skruv&quot;,
+			&quot;quantity&quot; : 4,			
+			&quot;unit_measure&quot; : &quot;paket&quot;,			
+			&quot;unit_amount_without_vat&quot; : 250.00,
+			&quot;vat_percentage&quot; : 25,
+			&quot;total_vat_amount&quot; : 252,
+			&quot;total_amount_with_vat&quot; : 1252 
+		},
+		{
+			&quot;article_id&quot; : &quot;bit-2&quot;,
+			&quot;article_number&quot; : &quot;2&quot;,
+			&quot;description&quot; : &quot;Blandade bits för hemmasnickaren&quot;,
+			&quot;quantity&quot; : 1,
+			&quot;unit_measure&quot; : &quot;st&quot;,
+			&quot;unit_amount_without_vat&quot; : 103.92,
+			&quot;vat_percentage&quot; : 25,
+			&quot;total_vat_amount&quot; : 25.98,
+			&quot;total_amount_with_vat&quot; : 129.9
+		}
+	],
+	&quot;total_amount_without_vat&quot; : 1103.92,
+	&quot;total_vat_amount&quot; : 275.98,
+	&quot;total_amount_with_vat&quot; : 1379.9,
+    &quot;invoice_number&quot; : &quot;103&quot;,
+	&quot;invoice_delivery_option&quot; : &quot;NONE&quot;,
+	&quot;invoice_extra_data&quot; : &quot;Data från kunden&quot;
+ }</pre>
+</div></div><h4 id="APIReference-Response.2">Response</h4><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Name</th><th class="confluenceTh">Type</th><th class="confluenceTh">Mandatory</th><th class="confluenceTh">Constraints</th><th class="confluenceTh">Description</th></tr><tr><td colspan="1" class="confluenceTd">pdf</td><td colspan="1" class="confluenceTd"><a href="#APIReference-Pdf">Pdf</a></td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">Invoice PDF encoded in base 64</td></tr></tbody></table></div><h4 id="APIReference-Sampleresponse">Sample response</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+	&quot;pdf&quot;: {
+		&quot;pdfData&quot;: &lt;base64 encoded pdf&gt;
+	}
+}</pre>
+</div></div><h2 id="APIReference-Creditinvoice">Credit invoice</h2><p>Use this to credit an invoice.</p><h4 id="APIReference-Operation.2">Operation</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">POST /invoice/credit</pre>
+</div></div><h4 id="APIReference-Request.2">Request</h4><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Name</th><th class="confluenceTh">Type</th><th colspan="1" class="confluenceTh">Mandatory</th><th colspan="1" class="confluenceTh">Constraints</th><th colspan="1" class="confluenceTh">Description</th></tr><tr><td colspan="1" class="confluenceTd">external_reference</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x </td><td colspan="1" class="confluenceTd">This can be the same as the external reference from the sell request, but it must be unique otherwise.</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">sell_reference</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">External reference from the invoice sell request</td></tr><tr><td colspan="1" class="confluenceTd">invoice_lines</td><td colspan="1" class="confluenceTd">array of <a href="#APIReference-InvoiceLine">invoice_line</a></td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">Must contain at least one element</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">total_amount_without_vat</td><td colspan="1" class="confluenceTd">decimal</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">Total amount without VAT</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">total_vat_amount</td><td colspan="1" class="confluenceTd">decimal</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">Total VAT amount</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">total_amount_with_vat</td><td colspan="1" class="confluenceTd">decimal</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">Total amount with VAT</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">invoice_number</td><td colspan="1" class="confluenceTd">long</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">Must be a positive number</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">invoice_delivery_option</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">&quot;POSTAL&quot;, &quot;EMAIL&quot;, &quot;NONE&quot;</td><td colspan="1" class="confluenceTd">This determines how the invoice will be delivered to the customer. The &quot;POSTAL&quot;-option means that the invoice will be mailed by postal mail to the customer's address. The &quot;EMAIL&quot;-option means that the invoice will be delivered by e-mail to the supplied customer email in the sell request. The &quot;NONE&quot;-option will not do any of the above. This option does not affect the response, which always contains the invoice PDF if the call was successful.</td></tr><tr><td colspan="1" class="confluenceTd">invoice_extra_data</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">Free-text field on the invoice</td></tr></tbody></table></div><h4 id="APIReference-Samplerequest">Sample request</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+	&quot;sell_reference&quot; : &quot;79faa780-7b8e-11e4-82f8-0800200c9a66&quot;,
+	&quot;external_reference&quot; : &quot;23aef167-4a1c-70a1-82f8-6775126a1c21&quot;,
+	&quot;invoice_lines&quot; : [
+		{
+			&quot;article_id&quot; : &quot;sk-1&quot;,
+			&quot;article_number&quot; : &quot;1&quot;,
+			&quot;description&quot; : &quot;Lång smal skruv&quot;,
+			&quot;quantity&quot; : 4,			
+			&quot;unit_measure&quot; : &quot;paket&quot;,			
+			&quot;unit_amount_without_vat&quot; : 250.00,
+			&quot;vat_percentage&quot; : 25,
+			&quot;total_vat_amount&quot; : 252,
+			&quot;total_amount_with_vat&quot; : 1252 
+		},
+		{
+			&quot;article_id&quot; : &quot;bit-2&quot;,
+			&quot;article_number&quot; : &quot;2&quot;,
+			&quot;description&quot; : &quot;Blandade bits för hemmasnickaren&quot;,
+			&quot;quantity&quot; : 1,
+			&quot;unit_measure&quot; : &quot;st&quot;,
+			&quot;unit_amount_without_vat&quot; : 103.92,
+			&quot;vat_percentage&quot; : 25,
+			&quot;total_vat_amount&quot; : 25.98,
+			&quot;total_amount_with_vat&quot; : 129.9
+		}
+	],
+	&quot;total_amount_without_vat&quot; : 1103.92,
+	&quot;total_vat_amount&quot; : 275.98,
+	&quot;total_amount_with_vat&quot; : 1379.9,
+    &quot;invoice_number&quot; : 104
+ 	&quot;invoice_delivery_option&quot; : &quot;EMAIL&quot;,
+	&quot;invoice_extra_data&quot; : &quot;Data från kunden&quot;
+ }</pre>
+</div></div><h4 id="APIReference-Response.3">Response</h4><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Name</th><th class="confluenceTh">Type</th><th class="confluenceTh">Mandatory</th><th class="confluenceTh">Constraints</th><th class="confluenceTh">Description</th></tr><tr><td colspan="1" class="confluenceTd">pdf</td><td colspan="1" class="confluenceTd"><a href="#APIReference-Pdf">Pdf</a></td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">Invoice PDF encoded in base 64</td></tr></tbody></table></div><h4 id="APIReference-Sampleresponse.1">Sample response</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+	&quot;pdf&quot;: {
+		&quot;pdfData&quot;: &lt;base64 encoded pdf&gt;
+	}
+}</pre>
+</div></div><h2 id="APIReference-Configureinvoicedata">Configure invoice data</h2><p>Use this to configure the information that should be printed on the invoice. Each store must configure this information before making a sell request.</p><h4 id="APIReference-Operation.3"><strong>Operation</strong></h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">POST /configuration/store</pre>
+</div></div><h4 id="APIReference-Request.3">Request</h4><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Name</th><th class="confluenceTh">Type</th><th colspan="1" class="confluenceTh">Mandatory</th><th colspan="1" class="confluenceTh">Constraints</th><th colspan="1" class="confluenceTh">Description</th></tr><tr><td colspan="1" class="confluenceTd">name</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x </td><td colspan="1" style="text-align: center;" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">street</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"><p> </p></td></tr><tr><td colspan="1" class="confluenceTd">zipcode</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">Only numbers</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">city</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">country</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">phone</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">fax</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">email</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">homepage</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">vatreg</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">orgnr</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">Only numbers</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">companytaxnote</td><td colspan="1" class="confluenceTd">boolean</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">logotype</td><td colspan="1" class="confluenceTd">byte[]</td><td colspan="1" style="text-align: center;" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">base64 encoded image</td></tr></tbody></table></div><h4 id="APIReference-Samplerequest.1">Sample request</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;name&quot;: &quot;Resurs Bank&quot;,
+    &quot;street&quot;: &quot;Ekslingan 9&quot;,
+    &quot;zipcode&quot;: &quot;25467&quot;,
+    &quot;city&quot;: &quot;Helsingborg&quot;,
+    &quot;country&quot;: &quot;Sweden&quot;,
+    &quot;phone&quot;: &quot;0727556898&quot;,
+    &quot;fax&quot;: &quot;123456789&quot;,
+    &quot;email&quot;: &quot;mail@resurs.se&quot;,
+    &quot;homepage&quot;: &quot;www.resurs.se&quot;,
+    &quot;vatreg&quot;: &quot;24598789&quot;,
+    &quot;orgnr&quot;: &quot;25879945987&quot;,
+    &quot;companytaxnote&quot;: true,
+    &quot;logotype&quot;: &quot;/9j/4AAQSkZJRgA.... base64 encoded image&quot;
+}</pre>
+</div></div><h2 id="APIReference-Retrieveinvoicedataconfiguration">Retrieve invoice data configuration</h2><p>Use this to retrieve the stored invoice configuration of the store.</p><h4 id="APIReference-Operation.4"><strong>Operation<br/></strong></h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">GET /configuration/store</pre>
+</div></div><h4 id="APIReference-Sampleresponse.2">Sample response</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;name&quot;: &quot;Resurs Bank&quot;,
+    &quot;street&quot;: &quot;Ekslingan 9&quot;,
+    &quot;zipcode&quot;: &quot;25467&quot;,
+    &quot;city&quot;: &quot;Helsingborg&quot;,
+    &quot;country&quot;: &quot;Sweden&quot;,
+    &quot;phone&quot;: &quot;0727556898&quot;,
+    &quot;fax&quot;: &quot;123456789&quot;,
+    &quot;email&quot;: &quot;mail@resurs.se&quot;,
+    &quot;homepage&quot;: &quot;www.resurs.se&quot;,
+    &quot;vatreg&quot;: &quot;24598789&quot;,
+    &quot;orgnr&quot;: &quot;25879945987&quot;,
+    &quot;companytaxnote&quot;: true,
+    &quot;logotype&quot;: &lt;base64 encoded image&gt;
+}</pre>
+</div></div><h1 id="APIReference-CommonAPI-types">Common API-types</h1><h2 id="APIReference-Paymentalternative">Payment alternative</h2><p><span class="confluence-anchor-link" id="APIReference-PaymentAlternative"></span></p><p>Payment alternative</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Property Name</th><th class="confluenceTh">Type</th><th class="confluenceTh">Mandatory</th><th class="confluenceTh">Constraints</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd"><span style="color: rgb(17,17,17);">id</span></td><td class="confluenceTd">string</td><td class="confluenceTd">x</td><td class="confluenceTd"> </td><td class="confluenceTd">Payment alternative id. Use this id to specify payment alternative id in verify credibility and sell call.</td></tr><tr><td class="confluenceTd"><span style="color: rgb(17,17,17);">description</span></td><td class="confluenceTd">string</td><td class="confluenceTd">x</td><td class="confluenceTd"> </td><td class="confluenceTd">Description of the payment alternative</td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(17,17,17);">customer_type</span></td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">NATURAL, LEGAL</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(17,17,17);">min_amount</span></td><td colspan="1" class="confluenceTd">decimal</td><td colspan="1" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">The minimum allowed amount for this payment alternative. Applying for an amount with a payment alternative less than min_amount will result in an error.</td></tr><tr><td colspan="1" class="confluenceTd">max_amount</td><td colspan="1" class="confluenceTd">decimal</td><td colspan="1" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">The maximum allowed amount for this payment alternative. Applying for an amount with a payment alternative more than max_amount will result in an error.</td></tr></tbody></table></div><h2 id="APIReference-Contactinformation">Contact information</h2><p><span class="confluence-anchor-link" id="APIReference-ContactInformation"></span></p><p>Holds information about the contact person.</p><p>If the liable payer is an organisation, the contact person may be different from the liable payer.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Property Name</th><th class="confluenceTh">Type</th><th class="confluenceTh">Mandatory</th><th class="confluenceTh">Constraints</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">email</td><td class="confluenceTd">string</td><td class="confluenceTd">x</td><td class="confluenceTd">A valid email address.</td><td class="confluenceTd">The contact persons email address.</td></tr><tr><td colspan="1" class="confluenceTd">phone</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">A valid phone number.</td><td colspan="1" class="confluenceTd">The contact persons phone number.</td></tr><tr><td colspan="1" class="confluenceTd">national_identification_number</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">The contact persons national identification number.</td></tr></tbody></table></div><h4 id="APIReference-Sample">Sample</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;email&quot; : &quot;customer@mail.com&quot;,
+    &quot;phone&quot; : &quot;0700-123456&quot;,
+	&quot;national_identification_number&quot; : &quot;85052312345&quot;
+}</pre>
+</div></div><h2 id="APIReference-Invoiceline">Invoice line</h2><p><span class="confluence-anchor-link" id="APIReference-InvoiceLine"></span></p><p>Representation of an invoice line.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Property Name</th><th class="confluenceTh">Type</th><th class="confluenceTh">Mandatory</th><th class="confluenceTh">Constraints</th><th class="confluenceTh">Description</th></tr><tr><td colspan="1" class="confluenceTd">article_id</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">x</td><td colspan="1" class="confluenceTd">Min length: 1</td><td colspan="1" class="confluenceTd"><span>The line identity</span></td></tr><tr><td class="confluenceTd">article_number</td><td class="confluenceTd">string</td><td class="confluenceTd">x</td><td class="confluenceTd"><p>Min length: 1</p><p>Max length: 30</p></td><td class="confluenceTd"><span>Article number of the item.</span></td></tr><tr><td class="confluenceTd">description</td><td class="confluenceTd">string</td><td class="confluenceTd">x</td><td class="confluenceTd"><p>Min length: 1</p><p>Max length: 100</p></td><td class="confluenceTd">A description of the product.</td></tr><tr><td colspan="1" class="confluenceTd">quantity</td><td colspan="1" class="confluenceTd">double</td><td colspan="1" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">The quantity of the product.</td></tr><tr><td colspan="1" class="confluenceTd">unit_measure</td><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"><p>Min length: 1</p><p>Max length: 10</p></td><td colspan="1" class="confluenceTd"><p>The unit the product quantity is measured in.</p></td></tr><tr><td colspan="1" class="confluenceTd">unit_amount_without_vat</td><td colspan="1" class="confluenceTd">double</td><td colspan="1" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">The amount with VAT per unit.</td></tr><tr><td colspan="1" class="confluenceTd">vat_percentage</td><td colspan="1" class="confluenceTd">double</td><td colspan="1" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"><p>Min value: 0</p><p>Max value: 100</p></td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd">total_vat_amount</td><td colspan="1" class="confluenceTd">double</td><td colspan="1" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"><span>The total item VAT amount.</span></td></tr><tr><td colspan="1" class="confluenceTd">total_amount_with_vat</td><td colspan="1" class="confluenceTd">double</td><td colspan="1" class="confluenceTd">x</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"><span>The total item amount, including VAT.</span></td></tr></tbody></table></div><h4 id="APIReference-Example">Example</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;article_id&quot; : &quot;sc-001&quot;,
+  &quot;article_number&quot; : &quot;1&quot;
+  &quot;description&quot; : &quot;Screws 40x8 200/package&quot;,
+  &quot;quantity&quot; : 5,
+  &quot;unit_measure&quot; : &quot;package&quot;,
+  &quot;unit_amount_without_vat&quot; : 200.0,
+  &quot;vat_percentage&quot; : 25,
+  &quot;total_vat_amount&quot; : 250
+  &quot;total_amount_with_vat&quot; : 1250
+}</pre>
+</div></div><h2 id="APIReference-Pdf">Pdf</h2><p><span class="confluence-anchor-link" id="APIReference-Pdf"></span></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Property Name</th><th class="confluenceTh">Type</th><th class="confluenceTh">Mandatory</th><th class="confluenceTh">Constraints</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd"><p>pdfData</p></td><td class="confluenceTd">string</td><td class="confluenceTd">x</td><td class="confluenceTd"><p> </p></td><td class="confluenceTd">base 64 encoded string</td></tr></tbody></table></div><h4 id="APIReference-Example.1">Example</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;pdfData&quot; :  &lt;base64 encoded pdf&gt;
+}</pre>
+</div></div><h2 id="APIReference-Errormessage">Error message</h2><p><span class="confluence-anchor-link" id="APIReference-ErrorMessage"></span></p><p>Errors (HTTP-status 4xx or 5xx) are structured as a message with the following structure.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Property Name</th><th class="confluenceTh">Type</th><th class="confluenceTh">Mandatory</th><th class="confluenceTh">Constraints</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">error_type</td><td class="confluenceTd">string</td><td style="text-align: center;" class="confluenceTd">x</td><td class="confluenceTd">&quot;SELL_INVOICE_ERROR&quot;, &quot;PAYMENT_ALTERNATIVE_ERROR&quot;, &quot;CREDIT_INVOICE_ERROR&quot;, &quot;VERIFY_CREDIBILITY_ERROR&quot;, &quot;ARGUMENT_ERROR&quot;, &quot;UNKNOWN_ERROR&quot;</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">error_message</td><td class="confluenceTd">string</td><td style="text-align: center;" class="confluenceTd">x</td><td class="confluenceTd"> </td><td class="confluenceTd">Message describing the error</td></tr></tbody></table></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 2024-02-01 10:49</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
