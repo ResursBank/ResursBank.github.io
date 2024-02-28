@@ -1,5 +1,7 @@
-# Resurs Bank Partner Documentation
+## Resurs Bank Partner Documentation
 
-## Content Index
+This is Resurs new landingpage for forthcoming documentation for partners.
+
+### Content Index
 
 [Resurs Bank Ecommerce Documentation - Confluence Exports](/ecom)
