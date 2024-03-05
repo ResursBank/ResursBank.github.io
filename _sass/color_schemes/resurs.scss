@@ -1,0 +1,64 @@
+@import "./color_schemes/dark";
+
+.side-bar {
+  /*background-color: #C85F00 !important;*/ // Orange
+  /*background-color: #006464 !important;*/ // Dark green
+  /*background-color: #E1BE00 !important;*/ // Yellow
+  background-color: #009B96 !important;
+}
+
+.nav-list .nav-list-item .nav-list-link:hover,
+.nav-list .nav-list-item .nav-list-link.active,
+.site-header .site-title:hover {
+  background: linear-gradient(to right, rgba(3, 134, 134, 0), rgba(3, 134, 134, 1)) !important;
+}
+
+.site-header {
+  border-bottom: 1px solid #006464 !important;
+}
+
+.site-footer {
+  display: none !important;
+}
+
+html {
+  body {
+    .side-bar {
+      .site-header {
+        width: 25.5rem;
+      }
+
+      .site-nav {
+        padding-top: .75rem;
+        width: 25.5rem;
+        scrollbar-color: #002626 #006464;
+        scrollbar-width: thin;
+
+        a, .nav-list-item {
+          color: #A6FFFC !important;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+        .nav-list-expander {
+          cursor: pointer;
+          color: #002626 !important;
+        }
+
+        .nav-list-expander:hover {
+          color: #A6FFFC !important;
+        }
+      }
+    }
+
+    #main-content {
+      main {
+        a {
+          color: #E1BE00;
+          cursor: pointer;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
