@@ -159,6 +159,15 @@ def scan_and_update_metadata(directory):
                 if os.path.isdir(directory_path):
                     update_parent_metadata(md_path, directory_path)
 
+def is_excluded(file):
+    pathPieces = file.split('/')[2:]
+
+    if len(pathPieces) == 0: return False
+
+    excludedPath = os.path.join('./_exclude', "/".join(pathPieces))
+
+    return os.path.exists(excludedPath)
+
 def update_parent_metadata(md_path, directory_path):
     with open(md_path, "r+", encoding="utf-8") as file:
         content = file.read()
@@ -228,6 +237,24 @@ def correct_img_urls(baseDir):
                 fh.write(content)
                 fh.truncate()
 
+def cleanup(output_dir):
+    # Delete excluded files.
+    for root, dirs, files in os.walk(output_dir):
+        for file in files:
+            filePath = os.path.join(root, file)
+
+            if is_excluded(filePath):
+                print(f"Excluding {filePath}")
+                os.remove(filePath)
+
+    # Delete empty dirs.
+    for root, dirs, files in os.walk(output_dir, topdown=False):
+        for dir in dirs:
+            dirPath = os.path.join(root, dir)
+
+            if not os.listdir(dirPath):
+                os.rmdir(dirPath)
+
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: python convert_html_to_md.py input_directory output_directory")
@@ -244,3 +271,4 @@ if __name__ == "__main__":
 
     scan_and_update_metadata(output_directory)
     correct_img_urls(output_directory)
+    cleanup(output_directory)
