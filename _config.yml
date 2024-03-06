@@ -25,7 +25,7 @@ description:
 github_username: "ResursBank"
 
 # Build settings
-theme: just-the-docs
+theme: jekyll-theme-just-the-docs
 color_scheme: resurs
 footer_content: "Copyright &copy; Resurs Bank AB 2024"
 logo: "/assets/resurs.svg"
