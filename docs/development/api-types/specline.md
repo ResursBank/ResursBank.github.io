@@ -9,7 +9,6 @@ grand_parent: Development
 
 
 # specLine 
-Created by Benny, last modified by Tobias on 2019-06-24
 The payment line (item) specification. These can be used to provide
 detailed information about the contents of the payment.  
 Contains elements as defined in the following table.
