@@ -1,13 +1,13 @@
 ---
 layout: page
 title: Crediting / Refunding
-permalink: /after-shop-service-api/1474902/
+permalink: /after-shop-service-api/Crediting/
 parent: After Shop Service Api
 ---
 
 
 # Crediting / Refunding 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-21
+
 # creditPayment
 *Credits the payment. This returns the payment amount from the
 representative to the customer's account. NB: For a payment to be
@@ -19,18 +19,18 @@ annulled.)*
 | Name                    | Type                                                             | Occurs | Nillable? | Description                                                                                                                                                                            |
 |-------------------------|------------------------------------------------------------------|--------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | paymentId               |  [**id**](/development/api-types/simple-types/)                                       | 1..1   | No        | The identity of the payment.                                                                                                                                                           |
-| preferredTransactionId  | [**id**](simple-types...)                                        | 0..1   | No        | Will be printed on the accounting summary. Can be used to track the transaction. If not set it will fallback on paymentId for this value.                                              |
-| partPaymentSpec         |  [**paymentSpec**](paymentspec)                                  | 0..1   | No        | The specification of the payment crediting. **PS! Mandatory if payment method is INVOICE**                                                                                             |
-| createdBy               |  [**nonEmptyString**](simple-types...)                           | 0..1   | No        | The username of the person performing the operation.                                                                                                                                   |
-| creditNoteId            | [**id**](simple-types...)                                        | 0..1   | No        | The credit note number. This will be printed on the credit note. For payment methods other than INVOICE, setting this will generate an error.                                          |
-| creditNoteDate          |  [date](http://www.w3schools.com/schema/schema_dtypes_date.asp)  | 0..1   | No        | The credit note date. This will be printed on the credit note. For payment methods other than INVOICE, setting this will generate an error.Note: use the format "yyyy-MM-dd" for date. |
-| invoiceDeliveryType     | **[invoiceDeliveryType](invoicedeliverytype)**                   | 0..1   | Yes       | How the credit invoice should be delivered to the customer. **Default: EMAIL**                                                                                                         |
+| preferredTransactionId  | [**id**](/development/api-types/simple-types/)                                        | 0..1   | No        | Will be printed on the accounting summary. Can be used to track the transaction. If not set it will fallback on paymentId for this value.                                              |
+| partPaymentSpec         |  [**paymentSpec**](/development/api-types/paymentspec/)                                  | 0..1   | No        | The specification of the payment crediting. **PS! Mandatory if payment method is INVOICE**                                                                                             |
+| createdBy               |  [**nonEmptyString**](/development/api-types/simple-types/)                           | 0..1   | No        | The username of the person performing the operation.                                                                                                                                   |
+| creditNoteId            | [**id**](/development/api-types/simple-types/)                                        | 0..1   | No        | The credit note number. This will be printed on the credit note. For payment methods other than INVOICE, setting this will generate an error.                                          |
+| creditNoteDate          |  date  | 0..1   | No        | The credit note date. This will be printed on the credit note. For payment methods other than INVOICE, setting this will generate an error.Note: use the format "yyyy-MM-dd" for date. |
+| invoiceDeliveryType     | [**invoiceDeliveryType**](/development/api-types/invoicedeliverytype/)                   | 0..1   | Yes       | How the credit invoice should be delivered to the customer. **Default: EMAIL**                                                                                                         |
 
 **Faults**
 
 | Name                     | Content                                  | Description                                          |
 |--------------------------|------------------------------------------|------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](ecommerceerror)**     | Failed to credit the payment. See error for details. |
+| ECommerceErrorException  | [**ECommerceError** ](/development/api-types/ecommerceerror/)    | Failed to credit the payment. See error for details. |
 
 ### Introduction
 Credits the payment. This returns the payment amount from the
@@ -50,8 +50,8 @@ Contains elements as defined in the following table.
 
 | Component      | Type                                                                                     | Occurs | Nillable? | Description                                                                                                                                                                                                                  |
 |----------------|------------------------------------------------------------------------------------------|--------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| specLines      | **[specLine](https://test.resurs.com/docs/display/ecom/specLine)**                       | 0..\*  | No        | The list of payment lines. In the case you're sending a simple payment, without lines, this parameter should be left empty. Sending payment lines may, or may not, be mandatory, depending on the contract with Resurs Bank. |
-| totalAmount    | **[positiveDecimal](https://test.resurs.com/docs/pages/viewpage.action?pageId=1475653)** | 1..1   | No        | The total payment amount. The sum of all line amounts (if there are lines supplied) including VAT. If this payment is without lines this is the only value to be set on the payment spec.                                    |
+| specLines      | [**specLine**](/development/api-types/specline/)                       | 0..\*  | No        | The list of payment lines. In the case you're sending a simple payment, without lines, this parameter should be left empty. Sending payment lines may, or may not, be mandatory, depending on the contract with Resurs Bank. |
+| totalAmount    | [**positiveDecimal**](/development/api-types/simple-types/) | 1..1   | No        | The total payment amount. The sum of all line amounts (if there are lines supplied) including VAT. If this payment is without lines this is the only value to be set on the payment spec.                                    |
 | totalVatAmount | decimal                                                                                  | 0..1   | Yes       | The total VAT amount of the payment when there are specification lines supplied. If there are no lines this fileld must be empty (null).                                                                                     |
 
 ### Paymentspec - speclines
@@ -71,7 +71,7 @@ startPaymentSession method
 **paymentSpec example in bookPayment**
 
 ### Paymentspec - rounding
-[see Rounding](https://test.resurs.com/docs/display/ecom/Rounding)
+[see Rounding](/development/rounding/)
 
 ### Credit Payment - code example
 **creditPayment**
