@@ -13,21 +13,23 @@ Created by Thomas Tornevall, last modified on 2017-09-21
 There is currently a plan of refactor EComPHP regarding to how it
 handles the AfterShop flow today. This page is a bunch of notes, that
 documents the old behaviour and the upcoming solution for a new flow.
+
 - [Developer
-  notes](#RefactoringNotesforAfterShopinEComPHP-Developernotes)
+  notes](#refactoringnotesforaftershopinecomphp-developernotes)
 - [Things that happened during the finalization flow in EComPHP \<
-  1.1.22:](#RefactoringNotesforAfterShopinEComPHP-ThingsthathappenedduringthefinalizationflowinEComPHP%3C1.1.22:)
+  1.1.22:](#refactoringnotesforaftershopinecomphp-thingsthathappenedduringthefinalizationflowinecomphp%3C1.1.22:)
 - [Things that happens during the renderPaymentSpecContainer()
   \[deprecation\] in a
-  finalization](#RefactoringNotesforAfterShopinEComPHP-ThingsthathappensduringtherenderPaymentSpecContainer()%5Bdeprecation%5Dinafinalization)
+  finalization](#refactoringnotesforaftershopinecomphp-thingsthathappensduringtherenderpaymentspeccontainer()%5Bdeprecation%5Dinafinalization)
 - [Methods for new
-  release](#RefactoringNotesforAfterShopinEComPHP-Methodsfornewrelease)
-  - [sanitizeAfterShopSpec()](#RefactoringNotesforAfterShopinEComPHP-sanitizeAfterShopSpec())
-    - [FINALIZE](#RefactoringNotesforAfterShopinEComPHP-FINALIZE)
-    - [CREDIT](#RefactoringNotesforAfterShopinEComPHP-CREDIT)
-    - [ANNUL](#RefactoringNotesforAfterShopinEComPHP-ANNUL)
+  release](#refactoringnotesforaftershopinecomphp-methodsfornewrelease)
+  - [sanitizeAfterShopSpec()](#refactoringnotesforaftershopinecomphp-sanitizeaftershopspec())
+    - [FINALIZE](#refactoringnotesforaftershopinecomphp-finalize)
+    - [CREDIT](#refactoringnotesforaftershopinecomphp-credit)
+    - [ANNUL](#refactoringnotesforaftershopinecomphp-annul)
     - [UPDATE
-      (OBSOLETE)](#RefactoringNotesforAfterShopinEComPHP-UPDATE(OBSOLETE))
+      (OBSOLETE)](#refactoringnotesforaftershopinecomphp-update(obsolete))
+
 ## Developer notes
 - None of the renderers are supporting the fact that not only artNo may
   differ. If there's more identical artNo with different
@@ -41,7 +43,8 @@ documents the old behaviour and the upcoming solution for a new flow.
 - The magento plugin behaviour uses the methods that is about to get
   deprecated, so the old methods will probably be untouched until we
   reach at least v1.2
-  ``` syntaxhighlighter-pre
+
+  ```xml
   if (!$connection->creditPayment($reference, $this->getCreditMemoItems($subject), array(), false, true)) {}
   ```
 - The easiest way to do future afterShop is to use the same method as
@@ -50,7 +53,7 @@ documents the old behaviour and the upcoming solution for a new flow.
   *This method should however support the prior payload system that sets
   a manual payload. By doing this, we could also add custom objects into
   the aftershop method.*
- 
+
 ## Things that happened during the finalization flow in EComPHP \< 1.1.22:
 1.  Adds metadata to the current order, that gets reflected to the
     invoice (CustomerId)
@@ -63,21 +66,28 @@ documents the old behaviour and the upcoming solution for a new flow.
     \$paymentArray, \$clientPaymentSpec, \$finalizeParams,
     \$quantityMatch, \$useSpecifiedQuantity )***  
     renderPaymentSpecContainer() - What does this do? See below in the 
+
 5.  The new rendered payment container are posted to the
     finalizePayment-service during a try-catch moment
+
 ##  Things that happens during the renderPaymentSpecContainer() \[deprecation\] in a finalization
 **Parameters received**
+
 *( \$paymentId, ResursAfterShopRenderTypes::FINALIZE, \$paymentArray,
 \$clientPaymentSpec, \$finalizeParams, \$quantityMatch,
 \$useSpecifiedQuantity );*
+
 - - The payment id
   - The type that should be rendered
   - The customer client payment request
   - *Finalizing parameters*
   - *QuantityMatchSetup*
   - *SpecifiedQuantitySetup*
+
 **Old behaviour**
+
 The renderer should not only render a correct payment specification.
+
 1.  Function is initialized with a specline render (renderSpecLine) for
     the original payment spec.  
     The specline renderer do the exact same as getPaymentSpecByStatus,
@@ -110,24 +120,37 @@ of orderLines, and therefore each AUTHORIZE should be matched against
 what's in the other status blocks (DEBIT, ANNUL, CREDIT) - and if they
 do exist there in those blocks, they should not be added into the final
 reutning AUTHORIZE block - so that only AUTHORIZE-only-rows remain.
+
 #### FINALIZE
 **Read from block**
+
 **AUTHORIZE**
+
 **Sanitize**
+
 **DEBIT**, **ANNUL**, **CREDIT** (Everything in the AUTHORIZE list, that
 is not yet in DEBIT, ANNUL, CREDIT)
+
 #### CREDIT
 **Read from block**
+
 **DEBIT**
+
 **Sanitize**
+
 **ANNUL**, **CREDIT** (Everything in the DEBIT list, that is not yet
 ANNUL, CREDIT)
+
 #### ANNUL
 **Read from block**
+
 **AUTHORIZE**
+
 **Sanitize**
+
 **DEBIT**, **ANNUL**, **CREDIT** (Everything that is not yet DEBIT,
 ANNUL, CREDIT
+
 #### ~~UPDATE (OBSOLETE)~~
 *Returns AUTHORIZE (is still even active?)*
- 
+

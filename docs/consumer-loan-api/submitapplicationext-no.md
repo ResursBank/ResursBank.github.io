@@ -10,7 +10,7 @@ parent: Consumer Loan Api
 Created by Daniel, last modified on 2023-11-13
 # **NO**
 Click here to expand submitApplicationExt for Norway
-``` syntaxhighlighter-pre
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:app="http://consumerloan.resurs.com/v1/msg/application">
   <soapenv:Header/>
   <soapenv:Body>
@@ -46,7 +46,7 @@ Click here to expand submitApplicationExt for Norway
 </soapenv:Envelope>
 ```
 Click here to view form validation for Norway
-``` syntaxhighlighter-pre
+```xml
 <resurs-form>
     <!-- ***** Lånebelopp -->
     <element java-property="amount">
@@ -978,7 +978,7 @@ Click here to view form validation for Norway
 </resurs-form>
 ```
 Click here to expand submitApplicationExtResponse example for Norway
-``` syntaxhighlighter-pre
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
     <soap:Body>
         <ns2:submitApplicationExtResponse xmlns:ns2="http://consumerloan.resurs.com/v1/msg/application" xmlns:ns3="http://consumerloan.resurs.com/v1/msg/exception">

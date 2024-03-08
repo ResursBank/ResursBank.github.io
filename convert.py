@@ -46,23 +46,32 @@ def convert_td_to_th(html_string):
         # Find all rows (<tr>) in each table
         rows = table.find_all('tr')
 
-        # Iterate through each row
-        for row in rows:
-            # Find all cells (<td> or <th>) in each row
-            cells = row.find_all(['td', 'th'])
+        if len(rows) == 1:
+            blockquote_tag = soup.new_tag('blockquote')
 
-            # Iterate through each cell
-            for cell in cells:
-                # Find and remove all <br> tags in the cell
-                br_tags = cell.find_all('br')
-                for br_tag in br_tags:
-                    br_tag.extract()
+            # Check if the row tag exists
+            for row in rows:
+                # Extract text from th and td elements, join with spaces, and set as blockquote content
+                blockquote_content = ' '.join([elem.text.strip() for elem in row.find_all(['th', 'td'])])
+                blockquote_tag.string = blockquote_content
 
-                for ptag in cell.find_all('p'):
-                    ptag.unwrap()
+                # Replace the table tag with the blockquote tag
+                table.replace_with(blockquote_tag)
+        else:
+            # Iterate through each row
+            for row in rows:
+                # Find all cells (<td> or <th>) in each row
+                cells = row.find_all(['td', 'th'])
 
-                for divTag in cell.find_all('div'):
-                    divTag.unwrap()
+                # Iterate through each cell
+                for cell in cells:
+                    # Find and remove all <br> tags in the cell
+                    br_tags = cell.find_all('br')
+                    for br_tag in br_tags:
+                        br_tag.extract()
+
+                    for tag in cell.find_all(['p', 'div', 'pre']):
+                        tag.unwrap()
 
     for tbody in soup.find_all('tbody'):
         tbody.unwrap()
@@ -72,6 +81,35 @@ def convert_td_to_th(html_string):
 
     for colgroup in soup.find_all('colgroup'):
         colgroup.decompose()
+
+    for extraRowTag in soup.find_all(['p', 'ul']):
+        extraRowTag.insert_after(soup.new_tag('br'))
+
+    for noticeTag in soup.find_all(class_='confluence-information-macro'):
+        newNoticeTag = soup.new_tag('blockquote')
+        newNoticeTag.string = noticeTag.text
+        noticeTag.replace_with(newNoticeTag)
+        newNoticeTag.insert_after(soup.new_tag('br'))
+
+    links = soup.find_all('a')
+
+    for a_tag in links:
+        href = a_tag.get('href')
+
+        # Check if HREF does not include a slash (/)
+        if isinstance(href, str) and '/' not in href:
+            # Lowercase the HREF value
+            new_href = href.lower()
+
+            # Remove everything starting from the first _ if present
+            if '_' in new_href:
+                new_href = new_href.split('_')[0]
+
+            # Remove any instance of '.html'
+            new_href = new_href.replace('.html', '')
+
+            # Update the HREF attribute
+            a_tag['href'] = new_href
 
     # Remove breadcrumbs.
     el = soup.find(id="breadcrumb-section")
@@ -138,7 +176,9 @@ def process_html_file(html_file, output_dir):
     with open(md_file, "r+", encoding="utf-8") as f:
         content = f.read()
         content = content.replace('#  Resurs Bank e-Commerce Platform :', '#')
+        content = content.replace(' syntaxhighlighter-pre', 'xml')
         content = re.sub(r'\n+', "\n", content)
+        content = re.sub(r'\n\s*\n+', '\n\n', content)
 
         f.seek(0)
         f.write(jekyll_metadata + content)

@@ -10,13 +10,16 @@ parent: Simplified Flow Api
 Created by Benny, last modified on 2018-06-12
 If you want to dislay a "pay from xx per month" information on the
 product pages, a good idea is to create a widget for configuration.
+
 In this widget the admin will chose a payment method that shall form the
 base for the installment information. The admin will then chose the
 installment plan (number of months) without interest for this payment
 method that gives the lowest amount. The annuity factor for this
 selected installment plan shall then be multiplied with each product's
 price to get the amount to present at the product pages.
+
 The widget must:
+
 1.  Have the possibility to be switched on and off, if this shall be
     used in the shop or not.
 2.  Only show the payment methods available for part payment, that is
@@ -32,5 +35,8 @@ The widget must:
     that the monthly installment isn't below 150 Kr, which is the lower
     limit for which a bill is sent from Resurs.
 The prices should be rounded up to the next even amount.
+
 You can collect available annuity factors by the ECom library.
+
 Cache as much as possible to avoid unnecessary calls to ECom.
+

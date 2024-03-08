@@ -11,12 +11,15 @@ grand_parent: Development
 # EComPHP and localization 
 Created by Thomas Tornevall, last modified on 2022-05-10
 **Table of contents**
+
 - [Current (May 2022) translation string
-  buildup](#EComPHPandlocalization-Current(May2022)translationstringbuildup)
-  - [Keywords to look for](#EComPHPandlocalization-Keywordstolookfor)
-- [Description](#EComPHPandlocalization-Description)
-- [Language Names](#EComPHPandlocalization-LanguageNames)
-- [How to use](#EComPHPandlocalization-Howtouse)
+  buildup](#ecomphpandlocalization-current(may2022)translationstringbuildup)
+  - [Keywords to look for](#ecomphpandlocalization-keywordstolookfor)
+
+- [Description](#ecomphpandlocalization-description)
+- [Language Names](#ecomphpandlocalization-languagenames)
+- [How to use](#ecomphpandlocalization-howtouse)
+
 ## Current (May 2022) translation string buildup
 The translation segment in EComPHP is very complex. From an external
 point of view, translations may look hardcoded as phrases and keying in
@@ -30,9 +33,11 @@ plans to restructure this lineup of code, so in an ECom aspect, this has
 to be taken care with caution. If the languages in future releases are
 changing it is highly important that the requesting methods can handle
 them as of today.
+
 Below is an explanation of how the phrases are built *today*. The
 translation place is entirely depending on the internal location,
 country and system in use:
+
 - Resurs-owned payment methods is used to be built on subTitle.
   Normally, ecomphp is extracting **infoText1** and **infoText2**, which
   is sometimes not the correct keys to use when it comes to the
@@ -60,10 +65,12 @@ country and system in use:
 - Is the payment trustly? Go for pspTrustly instead of pspInternet,
   since the info string is **currently** located in the
   pspTrustly-block.
+
 For more information of how this is digged through, most of the above
 (and below) is described in swedish at
 [![](https://resursbankplugins.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium)P17-307](https://resursbankplugins.atlassian.net/browse/P17-307?src=confmacro) -
 Synka betalmetodernas texter del 3 Done where it was discovered first.
+
 ### Keywords to look for
 As this text is written, we are working on the PrestaShop module
 (simplified) for this to work properly. Normally when we're looking for
@@ -72,10 +79,12 @@ find the strings. However, the key **info** is also sometimes necessary
 (pspTrustly is using that for SE, but not for the other countries).
 Also, for internal methods, we look for subTitle. So to sum up this we
 collect:
+
 - infoText1
 - infoText2
 - info
 - subTitle
+
 ## Description
 Resurs Bank is giving us the opportunity to export a bunch of locales
 with help from language files where phrases are stored. We've picked
@@ -83,22 +92,27 @@ this feature up, and those language files are embedded in the EComPHP
 source. The files are stored in src/Service/Container and for Swedish,
 Norwegian and Finnish phrases are stored in json containers. Danish is
 stored as XML.
+
 ![](../../../../attachments/71794940/71794939.png)
+
 ## Language Names
 Resurs are using ISO 639-1 based locale names (sv, da, no, fi, etc),
 instead of ISO 3166 (SE, DK, NO, FI, etc). The translation class is
 however covers both of the formats when requesting a locale (see below).
+
 ## How to use
 Our testsuite is covering two ways fetching translation phrases. The
 simplest way is to just request for a key and to make ECom choose the
 proper language you instantiate a class called Translation.
-``` syntaxhighlighter-pre
+
+```xml
         $helper = new Translation();
         $helper->setLanguage('sv');
 ```
 When the locale is selected, you can start request a phrase by doing one
 of the below:
-``` syntaxhighlighter-pre
+
+```xml
         $closePhrase = $helper->getPhrase('Change');
         $validationForEmptyGovId = $helper->getPhrase('forEmpty', ['validation', 'govId']);
 ```
@@ -107,6 +121,7 @@ and if you find (like the above example) that the phrases are stored
 recursively where ECom can not find the phrases itself (it won't do the
 recursion for you), the second argument helps you define a array-path to
 the phrase location.
+
 If you know what you are looking for, like payment methods, there's
 however faster ways getting some of the phrases, by the customized
 getMethodInfo and getPhraseByMethod. getPhraseByMethod will look for a
@@ -114,7 +129,8 @@ payment method and return a block of data relating to that method (very
 often based by type or specificType). getPaymentMethdInfo if a very
 strict checker and will only return data on very specific keys.
 Currently the keys are based on "infoText1" and "infoText2".
-``` syntaxhighlighter-pre
+
+```xml
 $partPaymentInfo1 = $helper->getMethodInfo('partPayment');
 $partPaymentInfo2 = $helper->getMethodInfo('partPayment', 2);
 $pspTrustly = $helper->getPhraseByMethod('pspTrustly');

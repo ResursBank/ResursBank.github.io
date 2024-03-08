@@ -58,6 +58,30 @@ html {
           cursor: pointer;
           text-decoration: none;
         }
+
+        blockquote {
+          background-color: #E1BE00;
+          color: #605101;
+          padding: 1px 20px;
+          border-left: 4px solid #a08600;
+        }
+      }
+
+      table {
+        tr {
+          th, td {
+            text-align: left;
+          }
+
+          th {
+            background-color: #006464;
+            border-left: 1px solid #009B96;
+          }
+
+          th:first-child {
+            border-left: 0;
+          }
+        }
       }
     }
   }

@@ -10,7 +10,7 @@ parent: Consumer Loan Api
 Created by Daniel, last modified on 2023-11-13
 # **DK**
 Click here to expand submitApplicationExt for Denmark
-``` syntaxhighlighter-pre
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:app="http://consumerloan.resurs.com/v1/msg/application">
    <soapenv:Header/>
    <soapenv:Body>
@@ -21,11 +21,11 @@ Click here to expand submitApplicationExt for Denmark
         <time>60</time>
         <purpose-of-loan>OTHER</purpose-of-loan>
         <purpose-of-loan-other>HOUSING_MORTGAGE_LOAN</purpose-of-loan-other>
-        
+
         <applicant-government-id>2111929591</applicant-government-id>
         <applicant-mobile-number>666 77 888</applicant-mobile-number>
         <applicant-email-address>test@resurs.se</applicant-email-address>
-        
+
         <applicant-nationality>OTHER</applicant-nationality>
         <applicant-in-denmark-since-year>0101</applicant-in-denmark-since-year>
         <applicant-resident-permit>F</applicant-resident-permit>
@@ -38,13 +38,13 @@ Click here to expand submitApplicationExt for Denmark
         <applicant-share-of-expenses>50</applicant-share-of-expenses>
         <applicant-employment-type>TRAINEE</applicant-employment-type>
         <applicant-employment-year-from>0101</applicant-employment-year-from>
-        
+
         <applicant-monthly-income-gross>10000</applicant-monthly-income-gross>
         <applicant-monthly-income-net>8000</applicant-monthly-income-net>
         <applicant-monthly-rental-cost>5000</applicant-monthly-rental-cost>
         <household-living-expenses>1000</household-living-expenses>
         <household-other-loan-expenses>1000</household-other-loan-expenses>
-        
+
         <applicant-dankort></applicant-dankort>
         <debit-cards-master-card>true</debit-cards-master-card>
         <credit-cards-master-card>true</credit-cards-master-card>
@@ -66,7 +66,7 @@ Click here to expand submitApplicationExt for Denmark
    </soapenv:Envelope>
 ```
 Click here to expand submitApplicationExtResponse example for Denmark
-``` syntaxhighlighter-pre
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
     <soap:Body>
         <ns2:submitApplicationExtResponse xmlns:ns2="http://consumerloan.resurs.com/v1/msg/application" xmlns:ns3="http://consumerloan.resurs.com/v1/msg/exception">

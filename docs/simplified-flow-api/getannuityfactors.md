@@ -16,38 +16,42 @@ all types. It returns a list of with one annuity factor per payment plan
 of the payment method. There are typically between three and six payment
 plans per payment method.  
 * *
+
 *  * **Input (Literal)**
-  
-| Name            | Type | Occurs | Nillable? | Description                                                                                                                                                                                                                                                                                             |
-|-----------------|------|--------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| paymentMethodId | id   | 1..1   | No        | The identity of the payment method for which to retrieve the annuity factors.  While this makes most sense for payment methods involving part payments, it is possible to use for all types. (See [paymentMethodType](paymentMethodType_1475671.html) for more information about payment method types.) |
-  
+
+| Name            | Type | Occurs | Nillable? | Description                                                                                                                                                                                                                                                                                |
+|-----------------|------|--------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| paymentMethodId | id   | 1..1   | No        | The identity of the payment method for which to retrieve the annuity factors.  While this makes most sense for payment methods involving part payments, it is possible to use for all types. (See [paymentMethodType](paymentmethodtype) for more information about payment method types.) |
+
 **  
 **
+
 **Output (Literal)**
-  
+
 | Name   | Type          | Occurs | Nillable? | Description                                                                                                                                         |
 |--------|---------------|--------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | return | annuityFactor | 0..\*  | No        | A list with one annuity factor per payment plan of the payment method.  There are typically between three and six payment plans per payment method. |
-  
+
 * **  
 **  * **Faults**
-  
-| Name                    | Content                                           | Description                                                    |
-|-------------------------|---------------------------------------------------|----------------------------------------------------------------|
-| EcommerceErrorException | **[EcommerceError](ECommerceError_1475945.html)** | Failed to retrieve the annuity factors. See error for details. |
-  
-**The data in our test environment does not always match the data you
-will be getting in our live environment. This operation can return
-different answers depending on your live setup.**
-  
+
+| Name                    | Content                              | Description                                                    |
+|-------------------------|--------------------------------------|----------------------------------------------------------------|
+| EcommerceErrorException | **[EcommerceError](ecommerceerror)** | Failed to retrieve the annuity factors. See error for details. |
+
+> The data in our test environment does not always match the data you
+> will be getting in our live environment. This operation can return
+> different answers depending on your live setup.
+
 **  
 **
-The annuity factor multiplied with the total cost of a product is the
-monthly cost using that payment plan.
-  
+
+> The annuity factor multiplied with the total cost of a product is the
+> monthly cost using that payment plan.
+
 Request example for payment method PARTPAYMENT
-``` syntaxhighlighter-pre
+
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://ecommerce.resurs.com/v4/msg/simplifiedshopflow">
    <soapenv:Header/>
    <soapenv:Body>
@@ -57,9 +61,10 @@ Request example for payment method PARTPAYMENT
    </soapenv:Body>
 </soapenv:Envelope>
 ```
-  
+
 Response example for payment method PARTPAYMENT
-``` syntaxhighlighter-pre
+
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
       <ns3:getAnnuityFactorsResponse xmlns:ns2="http://ecommerce.resurs.com/v4/msg/exception" xmlns:ns3="http://ecommerce.resurs.com/v4/msg/simplifiedshopflow">
@@ -97,5 +102,4 @@ Response example for payment method PARTPAYMENT
    </soap:Body>
 </soap:Envelope>
 ```
-  
-  
+

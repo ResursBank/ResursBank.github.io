@@ -10,6 +10,7 @@ parent: Consumer Loan Api
 Created by Daniel, last modified on 2021-06-15
 ## One or several fields can be sent / updated in the request. **(This request must be done prior to accepting the offer.)**
 Fields that can be updated are:
+
 -   applicantEmail
 -   coApplicantEmail
 -   account\>clearing  
@@ -20,12 +21,14 @@ Fields that can be updated are:
      - Control number must be included, it cannot be omitted.
 -   iban 
 -   requestedSigningMethod
-  E_SIGN Clearing- & account number
-  If customer is to choose **E_SIGN** as signing method, it is mandatory
-  to input clearing- and account number in either submitApplicationExt
-  or updateApplication prior to acceptQuote.  
-  Email is also mandatory since link for signing will be sent by email.
-``` syntaxhighlighter-pre
+
+  > E_SIGN Clearing- & account numberIf customer is to choose E_SIGN as
+  > signing method, it is mandatory to input clearing- and account
+  > number in either submitApplicationExt or updateApplication prior to
+  > acceptQuote. Email is also mandatory since link for signing will be
+  > sent by email.
+
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:app="http://consumerloan.resurs.com/v1/msg/application">
    <soapenv:Header/>
    <soapenv:Body>
@@ -50,12 +53,10 @@ Fields that can be updated are:
    </soapenv:Body>
 </soapenv:Envelope>
 ```
-``` syntaxhighlighter-pre
+```xml
 <updateApplicationResult>
     <updated>true</updated>
     <message>Applicationupdated</message>
 </updateApplicationResult>
 ```
-  
-  
-  
+

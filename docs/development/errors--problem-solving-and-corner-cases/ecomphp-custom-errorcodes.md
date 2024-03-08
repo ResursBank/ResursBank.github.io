@@ -13,13 +13,14 @@ wrong. A sample of what codes that is used can be read [from this
 point](https://bitbucket.org/resursbankplugins/resurs-ecomphp/src/master/source/classes/rbapiloader/ResursException.php).
 A part of this list includes the SOAP faultcodes
 [here](https://test.resurs.com/docs/x/jgEF).
+
 Except for this EComPHP passes errors from the engine that handles the
 communication with ecommerce rest/soap. Those exceptions can be found
 [here](https://docs.tornevall.net/x/EgCNAQ) and will not be included
 here as third party applications might change over time. This list does
 not cover the section ECOMMERCEERROR either, as that section covers
 external errors for Resurs Ecommerce.
-  
+
 | CODE | CONSTANT                          | DESCRIPTION                                                                                                                                                                                                                                                                                                                                                                                                         |
 |------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1000 | *NOT_IMPLEMENTED*                 | General errors                                                                                                                                                                                                                                                                                                                                                                                                      |
@@ -31,9 +32,9 @@ external errors for Resurs Ecommerce.
 | 7009 | *EXSHOP_PROHIBITED*               | Occurs when the user account prohibited exshop user credentials are used                                                                                                                                                                                                                                                                                                                                            |
 | 7008 | *CREATEPAYMENT_NO_ID_SET*         | When preparing the payload for resurs chckout is used, and no payment id is properly set                                                                                                                                                                                                                                                                                                                            |
 | 7009 | *CREATEPAYMENT_TOO_FAST*          | When flooding prevention system is active and createPayment are running too fast is a shop, createPayment is throttled with this exception                                                                                                                                                                                                                                                                          |
-  
+
 ## Exception codes not in use or removed
-  
+
 | CODE | CONSTANT                                              | DESCRIPTION                                                                                                                                                               |
 |------|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1001 | *CLASS_REFLECTION_MISSING*                            | **REMOVED** When reflection class could not be instantiated in older ECom-libs where WSDL stubs was included.                                                             |
@@ -57,4 +58,4 @@ external errors for Resurs Ecommerce.
 | 7006 | *UPDATECARD_DOUBLE_DATA_EXCEPTION*                    | **REMOVED**                                                                                                                                                               |
 | 7007 | *PREPARECARD_NUMERIC_EXCEPTION*                       | **REMOVED**                                                                                                                                                               |
 | 7008 | *BOOK_CUSTOMERTYPE_MISSING*                           | DEPRECATED Used in form fields generator, where the customertype NATURAL or LEGAL is missed to set                                                                        |
-  
+

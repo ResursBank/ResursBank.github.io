@@ -12,16 +12,17 @@ There are two ways to get information regarding the loan status - to
 poll the loan application reference or to register a callbackURL which
 will automatically send you an update when a change is made to the
 status.
+
 The following events will trigger a callback; CREDIT_DECISION_UPDATED,
 SIGNED, WAITING_FOR_ADDITION and PAID_OUT.
+
 Below is both methods explained with example requests & responses.  
-  
-Important!
-In order to test callback properly, you'll need to use your specific
-webservice-credentials that has been sent to you.  
-testse, testno, testdk, testfi will not work, since integrators will
-overwrite eachothers callback-url.
-  
+
+> Important!In order to test callback properly, you'll need to use your
+> specific webservice-credentials that has been sent to you. testse,
+> testno, testdk, testfi will not work, since integrators will overwrite
+> eachothers callback-url.
+
 ## **Retrieve status change with callback**
 ### Register the callback-URL
 To set a callbackURL, you send in the desired URL in xml-format. The
@@ -29,8 +30,9 @@ callbackUrl is to be sent in only once! See example below.
 There is also an option to set credentials for the callback, this is
 optional. The auth methods are either BASIC and BEARER, with a base 64
 encoded credentials
+
 **setCallback-example request**
-``` syntaxhighlighter-pre
+```xml
 <setCallback>
     <callbackConfiguration>
             <callbackUrl>http://agent.com/url-to-callback</callbackUrl>
@@ -40,7 +42,7 @@ encoded credentials
 </setCallback>
 ```
 **setCallback-example response**
-``` syntaxhighlighter-pre
+```xml
 <setCallbackResponse>
     <setCallbackResult>
         <callbackSet>true</callbackSet>
@@ -57,14 +59,17 @@ submitApplicationExt-response must be provided.
 If you run your test thru Postman, simply configure GET and insert the
 end point; no authorization nor body is required - see the example
 below;
+
 ![](../../attachments/29491203/59342879.png)
-**NOTE!** Once one or more callbacks has been triggered, the application
-may not be treated as normal since there can be side effects due the
-“manual” triggering
+
+> NOTE! Once one or more callbacks has been triggered, the application
+> may not be treated as normal since there can be side effects due the
+> “manual” triggering
+
 ### Example callbacks - all sent in JSON-format
 #### SIGNED – when the signed agreement is received
 **SIGNED**
-``` syntaxhighlighter-pre
+```xml
 {
   "externalApplicationEvent" : {
     "applicationReference" : "ABC-123",
@@ -73,10 +78,10 @@ may not be treated as normal since there can be side effects due the
   "jwsData" : "eyJOXAiOLADikz.eyJpc3MiJgbDQrm4.djjft4CP-mbW1"
 }
 ```
-  
+
 #### CREDIT_DECISION_UPDATED – APPROVED – when initial credit decision manual_inspection is changed to approved
 **CREDIT_DECISION_UPDATED – APPROVED**
-``` syntaxhighlighter-pre
+```xml
 {
   "externalApplicationEvent" : {
     "applicationReference" : "abc-123-def-567",
@@ -100,10 +105,10 @@ may not be treated as normal since there can be side effects due the
   "jwsData" : " eyJOXAiOLADikz.eyJpc3MiJgbDQrm4.djjft4CP-mbW1"
 }
 ```
-  
+
 #### CREDIT_DECISION_UPDATED – REJECTED – when initial credit decision manual_inspection is changed to rejected
 **CREDIT_DECISION_UPDATED – REJECTED**
-``` syntaxhighlighter-pre
+```xml
 {
   "externalApplicationEvent" : {
     "applicationReference" : "abc-123-def-567",
@@ -116,10 +121,10 @@ may not be treated as normal since there can be side effects due the
   "jwsData" : " eyJOXAiOLADikz.eyJpc3MiJgbDQrm4.djjft4CP-mbW1"
 }
 ```
-  
+
 #### WAITING_FOR_ADDITION – when we are awaiting additional information from the customer
 **WAITING_FOR_ADDITION**
-``` syntaxhighlighter-pre
+```xml
 {
   "externalApplicationEvent" : {
     "requiredDocuments" : [ "ID" ],
@@ -129,10 +134,10 @@ may not be treated as normal since there can be side effects due the
   "jwsData" : " eyJOXAiOLADikz.eyJpc3MiJgbDQrm4.djjft4CP-mbW1"
 }
 ```
-  
+
 #### PAID_OUT - When Resurs has paid out the loan. (Disclaimer! This callback cannot be generated in test environment)
 **PAID_OUT**
-``` syntaxhighlighter-pre
+```xml
 {
   "externalApplicationEvent" : {
     "applicationReference" : "ABC-123",
@@ -141,34 +146,36 @@ may not be treated as normal since there can be side effects due the
   "jwsData" : " eyJOXAiOLADikz.eyJpc3MiJgbDQrm4.djjft4CP-mbW1"
 }
 ```
-  
+
 ### **jwsData **
-Observe
-Using jwsData is optional!
-All questions regarding jwsData or API-key is to be sent to
-support@resurs.se, not our usual email onboarding@resurs.se
-  
+> ObserveUsing jwsData is optional!All questions regarding jwsData or
+> API-key is to be sent to support@resurs.se, not our usual email
+> onboarding@resurs.se
+
 The value in jwsData is a signed and serialized JWT, known as a JWS
 (JSON Web Signature). jwsData is a data structure cryptographically
 securing a JWS Header and a JWS Payload with a JWS Signature
 (graphically explained below).
-  
+
 ![](../../attachments/29491203/29491242.png)
-  
+
 If you want to verify the JWS, you are to download our public keys
 from *[https://apigw.resurs.com/api/auth_service/jwks](https://apigw.resurs.com/api/auth_service/jwks)*.
 Note that you must use an API-key, which is handed out by us, in order
 to call the mentioned URL.  
 For test environment, you can download the public key
 from [https://apigw.integration.resurs.com/api/auth_service/jwks](https://apigw.integration.resurs.com/api/auth_service/jwks). 
+
 Below is an example of verification 
+
 **Example-request for verification**
-``` syntaxhighlighter-pre
+```xml
 curl -X GET "https://apigw.integration.resurs.com/api/auth_service/jwks" -H "accept: application/json" -H "apikey: e3331b3687xxxxxxxxxxd9d4197f30b9
 ```
 Found below is an example layout of a public key.
+
 **Example layout of a public key**
-``` syntaxhighlighter-pre
+```xml
 {
     "keys": [
         {
@@ -190,20 +197,20 @@ Found below is an example layout of a public key.
     ]
 }
 ```
-  
+
 ## **To poll the application reference**
 Simply enter the application reference, which was retrieved in the
 submitApplicationExt-response, to see whether an update has been made.
 See example request & response below.
-  
+
 **getApplicationStatus-request**
-``` syntaxhighlighter-pre
+```xml
 <getApplicationStatus>
     <applicationReference>14321-21234-445674-434344-345445</applicationReference>
 </getApplicationStatus>
 ```
 **getApplicationStatusResponse-example**
-``` syntaxhighlighter-pre
+```xml
 <getApplicationStatusResponse>
     <waitingForAddition>true|false</waitingForAddition>
     <signedWithMethod>E_SIGN|ANALOG</signedWithMethod>
@@ -211,6 +218,4 @@ See example request & response below.
     <paidOut>true|false</paidOut>
 </getApplicationStatusResponse>
 ```
-  
-  
-  
+

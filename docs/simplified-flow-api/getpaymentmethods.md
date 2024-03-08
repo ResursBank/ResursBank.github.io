@@ -9,34 +9,35 @@ parent: Simplified Flow Api
 # getPaymentMethods 
 Created by Tobias, last modified by Thomas Tornevall on 2023-10-17
 ** **
+
 **getPaymentMethods**
 *Retrieves detailed information on the payment methods available to the
 **[representative](https://test.resurs.com/docs/display/DD/Terminology)**
 . *
+
 **Input (Literal)**  
-  
+
 | Name           | Type   | Occurs | Nillable? | Description                                                                                                                                                                  |
 |----------------|--------|--------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | language       | String | 0..1   | Yes       | The language code as defined by the ISO 639-1 standard, *optional*. If not specified the default language of the representatives country will be used*.'\[sv, no, da, fi\]'* |
 | customerType   | String | 0..1   | Yes       | Filter Payment Methods based on the CustomerType, *optional. '\[NATURAL, LEGAL\]'*                                                                                           |
 | purchaseAmount | String | 0..1   | Yes       | Filter Payment Method based on the puarchaseAmount, *optional.*                                                                                                              |
-  
-  
+
 **Output (Literal)**
-  
-| Name   | Type                                                | Occurs | Nillable? | Description                                                           |
-|--------|-----------------------------------------------------|--------|-----------|-----------------------------------------------------------------------|
-| return | ** [paymentMethod](paymentMethod_1475649.html) **   | 0..\*  | No        | Return a list of all payment methods available to the representative. |
-  
-  
+
+| Name   | Type                                   | Occurs | Nillable? | Description                                                           |
+|--------|----------------------------------------|--------|-----------|-----------------------------------------------------------------------|
+| return | ** [paymentMethod](paymentmethod) **   | 0..\*  | No        | Return a list of all payment methods available to the representative. |
+
 **Faults**
-  
-| Name                    | Content                                           | Description                                                    |
-|-------------------------|---------------------------------------------------|----------------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)** | Failed to retrieve the payment methods. See error for details. |
-  
+
+| Name                    | Content                              | Description                                                    |
+|-------------------------|--------------------------------------|----------------------------------------------------------------|
+| ECommerceErrorException | **[ECommerceError](ecommerceerror)** | Failed to retrieve the payment methods. See error for details. |
+
 ### Introduction
 Each payment consist of:
+
 - An identity
 - A description intended for the developer, but can be shown to the
   customer if you wish.
@@ -45,7 +46,7 @@ Each payment consist of:
 - A specificType. This might be:
   - INVOICE: Essentially an [installment
     credit](http://en.wikipedia.org/wiki/Installment_credit). Generates
-    a PDF invoice when [finalized](After-Shop-Service-API_327799.html)
+    a PDF invoice when [finalized](after-shop-service-api)
   - REVOLVING_CREDIT: [Revolving
     credit](http://en.wikipedia.org/wiki/Revolving_credit)s and
     installment payments which do ***not*** generate invoices, in most
@@ -54,21 +55,25 @@ Each payment consist of:
   - PART_PAYMENT: You get the first payment slip the month after the
     purchase and you choose the payment plan then. The payment type does
     not generate an invoice.
+
 - Legal info links. Must always be shown (at least the last link) where
   a Resurs Bank payment method is marketed in some way or can
   alternatively show information from getCostOfPurchaseHtml in a popup.
   This is a legal requirement.
+
 Since payment methods do not contain information such as
 [**logos**](https://test.resurs.com/docs/display/ecom/Logotypes),
 descriptions, fees, etc., it is likely that the webshop has to store the
 information about the methods of payment locally. The payment methods
 should be cached for about 24 hours to improve user experience by
 reducing loading time.
+
 **Resurs Bank may add/remove payment methods. A payment method is
 withdrawn from this listing 6 hours before it stops to work.**
+
 ### Code example - response from server
 **getPaymentMethodsResponse**
-``` syntaxhighlighter-pre
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
       <ns3:getPaymentMethodsResponse xmlns:ns3="http://ecommerce.resurs.com/v4/msg/shopflow" xmlns:ns2="http://ecommerce.resurs.com/v4/msg/exception">

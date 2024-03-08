@@ -10,42 +10,40 @@ parent: After Shop Service Api
 Created by Benny, last modified by Thomas Tornevall on 2023-12-21
 #  findPayments
 *Searches for payments that match the specified requirements.*
-  
+
 **Input (Literal)**
-  
-| Name            | Type                                               | Occurs | Nillable? | Description                             |
-|-----------------|----------------------------------------------------|--------|-----------|-----------------------------------------|
-| searchCriteria  | [**searchCriteria**](searchCriteria_1475824.html)  | 1..1   | No        | The search criteria.                    |
-| pageNumber      | positiveInteger                                    | 0..1   | No        | The desired page number.                |
-| itemsPerPage    | positiveInteger                                    | 0..1   | No        | The number of items to return per page. |
-| sortBy          | [**sortOrder**](sortOrder_1475833.html)            | 0..1   | No        | The sort order of the results.          |
-  
-  
+
+| Name            | Type                                  | Occurs | Nillable? | Description                             |
+|-----------------|---------------------------------------|--------|-----------|-----------------------------------------|
+| searchCriteria  | [**searchCriteria**](searchcriteria)  | 1..1   | No        | The search criteria.                    |
+| pageNumber      | positiveInteger                       | 0..1   | No        | The desired page number.                |
+| itemsPerPage    | positiveInteger                       | 0..1   | No        | The number of items to return per page. |
+| sortBy          | [**sortOrder**](sortorder)            | 0..1   | No        | The sort order of the results.          |
+
 **Output (Literal)**
-  
-| Name   | Type                                           | Occurs | Nillable? | Description                                             |
-|--------|------------------------------------------------|--------|-----------|---------------------------------------------------------|
-| return | [**basicPayment**](basicPayment_1475839.html)  | 0..\*  | No        | The of payments matching the specified search criteria. |
-  
-  
+
+| Name   | Type                              | Occurs | Nillable? | Description                                             |
+|--------|-----------------------------------|--------|-----------|---------------------------------------------------------|
+| return | [**basicPayment**](basicpayment)  | 0..\*  | No        | The of payments matching the specified search criteria. |
+
 **Faults**
-  
-| Name                     | Content                                             | Description                                           |
-|--------------------------|-----------------------------------------------------|-------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to search for payments. See error for details. |
-  
-  
-  
+
+| Name                     | Content                                | Description                                           |
+|--------------------------|----------------------------------------|-------------------------------------------------------|
+| ECommerceErrorException  | **[ECommerceError](ecommerceerror)**   | Failed to search for payments. See error for details. |
+
 Searches for payments that matches the specified requirements and
 returns the payments matching the specified search criteria. If you know
 the identity of the payment you are looking for, it is better to use the
-[getPayment method](Get-Payment_1474970.html).
+[getPayment method](get-payment).
+
 The search may consist of information like governmentId, customer name,
 paymentmethodId etc. You can specify the search criteria as much or as
 little you want to help you find what payment(s) you are looking for. 
+
 ### Sort order
 Can be sorted by these options:
-  
+
 | Value                  | Description                                                                                 |
 |------------------------|---------------------------------------------------------------------------------------------|
 | PAYMENT_ID             | Sort the result on payment identity.                                                        |
@@ -55,12 +53,13 @@ Can be sorted by these options:
 | MODIFIED_TIME          | Sort the result on payment modification time.                                               |
 | FINALIZED_TIME         | Sort the result on payment finalization time.                                               |
 | AMOUNT                 | Sort the result on total payment amount, taking into consideration the payment part status. |
-  
+
 ### Example
 The example below shows a very simple search for payments that has been
 paid with paymentMethod 'Nytt Kort'
+
 **findPaymentRequest**
-``` syntaxhighlighter-pre
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aft="http://ecommerce.resurs.com/v4/msg/aftershopflow">
    <soapenv:Header/>
    <soapenv:Body>
@@ -75,7 +74,7 @@ paid with paymentMethod 'Nytt Kort'
 </soapenv:Envelope>
 ```
 **findPaymentResponse**
-``` syntaxhighlighter-pre
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
       <ns2:findPaymentsResponse xmlns:ns3="http://ecommerce.resurs.com/v4/msg/exception" xmlns:ns2="http://ecommerce.resurs.com/v4/msg/aftershopflow">

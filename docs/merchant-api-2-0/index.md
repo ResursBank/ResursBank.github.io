@@ -9,13 +9,11 @@ has_children: true
 # Merchant API 2.0 
 Created by Sara Wintherfrid Josefsson, last modified by Daniel on
 2023-11-21
-  
+
 # [Swagger-documentation for Merchant API](https://merchant-api.resurs.com/)
-  
-  
+
 # Output in accounting file
-  
-  
+
 | Api                |      payment_id (set by Resurs)      | orderReference |      transactionId       |           accounting file            |
 |--------------------|:------------------------------------:|:--------------:|:------------------------:|:------------------------------------:|
 | **Create Payment** | 8b9dab18-e1fe-430e-891b-42edb89ba77a |    ORDER001    |                          |                                      |
@@ -32,4 +30,4 @@ Created by Sara Wintherfrid Josefsson, last modified by Daniel on
 | **Capture**        |                                      |                |           N/A            | 8b9dab18-e1fe-430e-891b-42edb89ba77a |
 | **Capture**        |                                      |                |           N/A            | 8b9dab18-e1fe-430e-891b-42edb89ba77a |
 | **Refund**         |                                      |                |           N/A            | 8b9dab18-e1fe-430e-891b-42edb89ba77a |
-  
+

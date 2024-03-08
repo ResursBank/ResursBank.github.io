@@ -11,10 +11,8 @@ grand_parent: Development
 # bookPaymentStatus 
 Created by Joachim Andersson, last modified by Benny on 2017-02-22
 The different status that can be returned when using the [Simplified
-Flow API](Simplified-Flow-API_1476359.html)
- 
- 
-  
+Flow API](simplified-flow-api)
+
 | Status Code | Description                                                                                                                                            |
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | FINALIZED   | The payment is finalized.                                                                                                                              |
@@ -22,6 +20,4 @@ Flow API](Simplified-Flow-API_1476359.html)
 | FROZEN      | The payment is currently frozen. This typically means that there is something that needs further investigation before the payment can be finalized.    |
 | SIGNING     | The payment requires signing.                                                                                                                          |
 | DENIED      | The payment is denied.                                                                                                                                 |
-  
- 
- 
+

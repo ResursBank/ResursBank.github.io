@@ -12,15 +12,15 @@ grand_parent: Development
 Created by Benny, last modified on 2017-02-27
 Detailed information about the limit.  
 Contains elements as defined in the following table.
-  
-| Component      | Type                                                | Occurs | Nillable? | Description                                                                                                                                                                         |
-|----------------|-----------------------------------------------------|--------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| approvedAmount | **[positiveDecimal](Simple-Types..._1475653.html)** | 1..1   | No        | The amount that has been approved.                                                                                                                                                  |
-| decision       | **[limitDecision](limitDecision_1475720.html)**     | 1..1   | No        | The limit decision.                                                                                                                                                                 |
-| customer       | **[customer](customer_1475725.html)**               | 1..1   | No        | The customer details.                                                                                                                                                               |
-| limitRequestId | **[id](Simple-Types..._1475653.html)**              | 1..1   | No        | Identifies this limit request uniquely, whether it's granted or not. It can be used to request more information, by phone, about the application from Resurs Bank in special cases. |
-  
-``` syntaxhighlighter-pre
+
+| Component      | Type                                   | Occurs | Nillable? | Description                                                                                                                                                                         |
+|----------------|----------------------------------------|--------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| approvedAmount | **[positiveDecimal](simple-types...)** | 1..1   | No        | The amount that has been approved.                                                                                                                                                  |
+| decision       | **[limitDecision](limitdecision)**     | 1..1   | No        | The limit decision.                                                                                                                                                                 |
+| customer       | **[customer](customer)**               | 1..1   | No        | The customer details.                                                                                                                                                               |
+| limitRequestId | **[id](simple-types...)**              | 1..1   | No        | Identifies this limit request uniquely, whether it's granted or not. It can be used to request more information, by phone, about the application from Resurs Bank in special cases. |
+
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
       <ns3:submitLimitApplicationResponse xmlns:ns3="http://ecommerce.resurs.com/v4/msg/shopflow" xmlns:ns2="http://ecommerce.resurs.com/v4/msg/exception">
@@ -47,5 +47,4 @@ Contains elements as defined in the following table.
    </soap:Body>
 </soap:Envelope>
 ```
-  
-  
+

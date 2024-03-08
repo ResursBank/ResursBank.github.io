@@ -12,9 +12,9 @@ grand_parent: Development
 Created by Benny on 2013-06-18
 A PDF document  
 Contains elements as defined in the following table.
-  
+
 | Component | Type         | Occurs | Nillable? | Description               |
 |-----------|--------------|--------|-----------|---------------------------|
 | name      | string       | 1..1   | No        | The name of the document. |
 | pdfData   | base64Binary | 1..1   | No        | The document data.        |
-  
+

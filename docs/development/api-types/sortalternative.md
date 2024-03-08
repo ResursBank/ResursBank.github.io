@@ -11,7 +11,7 @@ grand_parent: Development
 # sortAlternative 
 Created by Benny on 2013-06-18
 The sort columns available.
-  
+
 | Value                  | Description                                                                                |
 |------------------------|--------------------------------------------------------------------------------------------|
 | PAYMENT_ID             | Sort the result on payment identity.                                                       |
@@ -21,11 +21,4 @@ The sort columns available.
 | MODIFIED_TIME          | Sort the result on payment modification time.                                              |
 | FINALIZED_TIME         | Sort the result on payment finalization time.                                              |
 | AMOUNT                 | Sort the result on total payment amount, taking into consideration the payment part status |
-  
-  
-  
-  
-  
-  
-  
-  
+

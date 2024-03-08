@@ -8,7 +8,7 @@ parent: Consumer Loan Api
 
 # getApplicationQuote 
 Created by Daniel, last modified on 2023-11-10
-``` syntaxhighlighter-pre
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:app="http://consumerloan.resurs.com/v1/msg/application">
    <soapenv:Header/>
    <soapenv:Body>
@@ -18,7 +18,7 @@ Created by Daniel, last modified on 2023-11-10
    </soapenv:Body>
 </soapenv:Envelope>
 ```
-``` syntaxhighlighter-pre
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
       <ns2:getApplicationQuoteResponse xmlns:ns2="http://consumerloan.resurs.com/v1/msg/application" xmlns:ns3="http://consumerloan.resurs.com/v1/msg/exception">

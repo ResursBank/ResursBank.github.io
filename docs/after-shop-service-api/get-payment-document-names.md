@@ -12,42 +12,40 @@ Created by Benny, last modified by Thomas Tornevall on 2023-12-21
 *Retrieves the names of all documents associated with the payments.
 These include, but are not necessarily limited to, previously generated
 invoices and credit notes sent to the customer.*
-  
+
 **Input (Literal)**
-  
-| Name      | Type                                   | Occurs | Nillable? | Description                  |
-|-----------|----------------------------------------|--------|-----------|------------------------------|
-| paymentId | **[id](Simple-Types..._1475653.html)** | 1..1   | No        | The identity of the payment. |
-  
-  
+
+| Name      | Type                      | Occurs | Nillable? | Description                  |
+|-----------|---------------------------|--------|-----------|------------------------------|
+| paymentId | **[id](simple-types...)** | 1..1   | No        | The identity of the payment. |
+
 **Output (Literal)**
-  
+
 | Name   | Type   | Occurs | Nillable? | Description                                             |
 |--------|--------|--------|-----------|---------------------------------------------------------|
 | return | string | 0..\*  | No        | The names of all documents associated with the payment. |
-  
-  
+
 **Faults**
-  
-| Name                    | Content                                             | Description                                                                  |
-|-------------------------|-----------------------------------------------------|------------------------------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to retrieve the list of payment document names. See error for details |
-  
-  
+
+| Name                    | Content                                | Description                                                                  |
+|-------------------------|----------------------------------------|------------------------------------------------------------------------------|
+| ECommerceErrorException | **[ECommerceError](ecommerceerror)**   | Failed to retrieve the list of payment document names. See error for details |
+
 ### Introduction
 This method retrieves all available documents that are associated with
 the payment, the invoice document for example. This method retrieves the
 names of the available document which you then use in the
-[**getPaymentDocument**](1474974.html) method along with the paymentId
-to retrieve the requested document.
-  
+[**getPaymentDocument**](1474974) method along with the paymentId to
+retrieve the requested document.
+
 ![](../../attachments/1476098/128286757.png)
-  
+
 ### Example
 This example shows the request/response when trying to get available
 document names for a specific payment.
+
 **Request**
-``` syntaxhighlighter-pre
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aft="http://ecommerce.resurs.com/v4/msg/aftershopflow">
    <soapenv:Header/>
    <soapenv:Body>
@@ -58,7 +56,7 @@ document names for a specific payment.
 </soapenv:Envelope>
 ```
 **Response**
-``` syntaxhighlighter-pre
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
       <ns2:getPaymentDocumentNamesResponse xmlns:ns3="http://ecommerce.resurs.com/v4/msg/exception" xmlns:ns2="http://ecommerce.resurs.com/v4/msg/aftershopflow">

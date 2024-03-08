@@ -9,7 +9,7 @@ parent: Development
 # Create part payment widget 
 Created by Gert, last modified by Daniel on 2020-06-11
 ## Create a widget which displays the suggested part payment price on product pages.
-  
+
 ### You need to be able to configure the following:
 1.  **On/Off**:  
     Ability to turn feature on/off.
@@ -18,26 +18,25 @@ Created by Gert, last modified by Daniel on 2020-06-11
     within the given range.  
     Where productPrice between Min.price and
     \<maxLimit\>50000.00\</maxLimit\>  
-    Get maxLimit using api
-    [getPaymentMethods](getPaymentMethods_950328.html)
+    Get maxLimit using api [getPaymentMethods](getpaymentmethods)
 3.  **Payment method:**  
     You should be able to configure which payment method part payment
     data is based on.  
     Only show payment methods that are eligible for installment.  
     Where \<specificType\>PART_PAYMENT\</specificType\> or
     \<specificType\>REVOLVING_CREDIT\</specificType\>  
-    Get specificType using api
-    [getPaymentMethods](getPaymentMethods_950328.html)
+    Get specificType using api [getPaymentMethods](getpaymentmethods)
 4.  **Months:**  
     Choose number of months for the selected payment method in step 3.  
     Get available annuity factors using api
-    [getAnnuityFactors](getAnnuityFactors_4653093.html)
-  
+    [getAnnuityFactors](getannuityfactors)
+
 ### On product pages.
 "Installment from 129 SEK - 12 month. *Read more...*"
+
 - The payment method used for part payments include a min. max. amount
   on its own, which we also need to check before displaying the widget.
 - Prices should be rounded to next integer.
 - Read more.. can be a Pop-Up window
-  populated using [getCostOfPurchaseHtml](getCostOfPurchaseHtml_4653091.html).
-  
+  populated using [getCostOfPurchaseHtml](getcostofpurchasehtml).
+

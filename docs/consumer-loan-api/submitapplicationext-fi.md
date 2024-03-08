@@ -10,7 +10,7 @@ parent: Consumer Loan Api
 Created by Thomas Tornevall, last modified by Bobil Poli on 2023-11-27
 # **FI**
 Click here to expand submitApplicationExt for Finland
-``` syntaxhighlighter-pre
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:app="http://consumerloan.resurs.com/v1/msg/application">
   <soapenv:Header/>
   <soapenv:Body>
@@ -47,7 +47,7 @@ Click here to expand submitApplicationExt for Finland
 </soapenv:Envelope>
 ```
 Click here to view form validation for Finland
-``` syntaxhighlighter-pre
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <resurs-form>
     <!-- ***** Lånebelopp -->
@@ -853,7 +853,7 @@ Click here to view form validation for Finland
 </resurs-form>
 ```
 Click here to expand submitApplicationExtResponse example for Finland
-``` syntaxhighlighter-pre
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
     <soap:Body>
         <ns2:submitApplicationExtResponse xmlns:ns2="http://consumerloan.resurs.com/v1/msg/application" xmlns:ns3="http://consumerloan.resurs.com/v1/msg/exception">

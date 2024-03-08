@@ -11,36 +11,34 @@ Created by Joachim Andersson, last modified by Thomas Tornevall on
 2023-12-21
 # bookPayment
 *Books the payment.  *
-  
+
 **Input (Literal)**
-  
-| Name         | Type                                                  | Occurs | Nillable? | Description                                                                                                           |
-|--------------|-------------------------------------------------------|--------|-----------|-----------------------------------------------------------------------------------------------------------------------|
-| paymentData  | **[paymentData](paymentData_1476364.html)**           | 1..1   | No        | The data that is for the payment, e.g. payment method etc.                                                            |
-| orderData    | **[paymentSpec](paymentSpec_1474947.html)**           | 1..1   | No        | The payment specifications. What the payment should handle, the amounts, spec lines etc.                              |
-| metaData     |  [**mapEntry**](mapEntry_1475741.html)                | 0..\*  | Yes       | Extra meta data for the payment. [Recognized metadata](Recognized-metadata_3440674.html).                             |
-| customer     | **[extendedCustomer](extendedCustomer_1476366.html)** | 1..1   | No        | The customer data. Here you specify the billing address, delivery address etc.                                        |
-| card         | **[cardData](cardData_1476371.html)**                 | 0..1   | Yes       | If the payment is related to a card/account, or if you apply for a new card/account.                                  |
-| signing      | **[signing](signing-object_1476374.html)**            | 1..1   | No        | For when a payment requires a Signing, contains customer URLs for a successful or failed signing.                     |
-| invoiceData  | **[invoiceData](invoiceData_1476376.html)**           | 0..1   | Yes       | The data for the invoice.                                                                                             |
-| storeId      | storeId                                               | 0..1   | No        | Used with permission from Resurs Bank, if you have a chain of stores. storeID defines which store in the chain it is. |
-  
-  
+
+| Name         | Type                                     | Occurs | Nillable? | Description                                                                                                           |
+|--------------|------------------------------------------|--------|-----------|-----------------------------------------------------------------------------------------------------------------------|
+| paymentData  | **[paymentData](paymentdata)**           | 1..1   | No        | The data that is for the payment, e.g. payment method etc.                                                            |
+| orderData    | **[paymentSpec](paymentspec)**           | 1..1   | No        | The payment specifications. What the payment should handle, the amounts, spec lines etc.                              |
+| metaData     |  [**mapEntry**](mapentry)                | 0..\*  | Yes       | Extra meta data for the payment. [Recognized metadata](recognized-metadata).                                          |
+| customer     | **[extendedCustomer](extendedcustomer)** | 1..1   | No        | The customer data. Here you specify the billing address, delivery address etc.                                        |
+| card         | **[cardData](carddata)**                 | 0..1   | Yes       | If the payment is related to a card/account, or if you apply for a new card/account.                                  |
+| signing      | **[signing](signing-object)**            | 1..1   | No        | For when a payment requires a Signing, contains customer URLs for a successful or failed signing.                     |
+| invoiceData  | **[invoiceData](invoicedata)**           | 0..1   | Yes       | The data for the invoice.                                                                                             |
+| storeId      | storeId                                  | 0..1   | No        | Used with permission from Resurs Bank, if you have a chain of stores. storeID defines which store in the chain it is. |
+
 **Output (Literal)**
-  
-| Name   | Type                                                  | Occurs | Nillable? | Description                        |
-|--------|-------------------------------------------------------|--------|-----------|------------------------------------|
-| return |  [bookPaymentResult](bookPaymentResult_1476388.html)  | 1..1   | No        | The result of the payment booking. |
-  
-  
+
+| Name   | Type                                     | Occurs | Nillable? | Description                        |
+|--------|------------------------------------------|--------|-----------|------------------------------------|
+| return |  [bookPaymentResult](bookpaymentresult)  | 1..1   | No        | The result of the payment booking. |
+
 **Faults**
-  
-| Name                     | Content                                               | Description                                        |
-|--------------------------|-------------------------------------------------------|----------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](ECommerceError_1475945.html)**     | Failed to book the payment. See error for details. |
-  
+
+| Name                     | Content                                  | Description                                        |
+|--------------------------|------------------------------------------|----------------------------------------------------|
+| ECommerceErrorException  | **[ECommerceError](ecommerceerror)**     | Failed to book the payment. See error for details. |
+
 **Response** Expand source
-``` syntaxhighlighter-pre
+```xml
  <soapenv:Body>
       <sim:bookPayment>
          <paymentData>
@@ -136,11 +134,9 @@ Created by Joachim Andersson, last modified by Thomas Tornevall on
       </sim:bookPayment>
    </soapenv:Body>
 ```
-  
-  
-Using Swish payment method?
-Note that if you are using Swish as a payment method via Resurs, you
-must include the customer's cellphone number in the \<cellPhone\>-row.
-Using \<phone\> will result in an error in production
-  
-  
+
+> Using Swish payment method?Note that if you are using Swish as a
+> payment method via Resurs, you must include the customer's cellphone
+> number in the \<cellPhone\>-row. Using \<phone\> will result in an
+> error in production
+

@@ -10,37 +10,37 @@ parent: After Shop Service Api
 Created by Benny, last modified by Thomas Tornevall on 2023-12-27
 # getPayment
 *Retrieves detailed information about the payment.*
+
 * *  
 **Input (Literal)**
-  
-| Name       | Type                                   | Occurs | Nillable? | Description                  |
-|------------|----------------------------------------|--------|-----------|------------------------------|
-| paymentId  | **[id](Simple-Types..._1475653.html)** | 1..1   | No        | The identity of the payment. |
-  
-  
+
+| Name       | Type                      | Occurs | Nillable? | Description                  |
+|------------|---------------------------|--------|-----------|------------------------------|
+| paymentId  | **[id](simple-types...)** | 1..1   | No        | The identity of the payment. |
+
 **Output (Literal)**
-  
-| Name    | Type                                 | Occurs | Nillable? | Description          |
-|---------|--------------------------------------|--------|-----------|----------------------|
-| return  | [**payment**](payment_1475853.html)  | 1..1   | No        | The payment details. |
-  
-  
+
+| Name    | Type                    | Occurs | Nillable? | Description          |
+|---------|-------------------------|--------|-----------|----------------------|
+| return  | [**payment**](payment)  | 1..1   | No        | The payment details. |
+
 **Faults**
-  
-| Name                     | Content                                             | Description                                                    |
-|--------------------------|-----------------------------------------------------|----------------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to retrieve the payment details. See error for details. |
-  
-  
+
+| Name                     | Content                                | Description                                                    |
+|--------------------------|----------------------------------------|----------------------------------------------------------------|
+| ECommerceErrorException  | **[ECommerceError](ecommerceerror)**   | Failed to retrieve the payment details. See error for details. |
+
 ### Introduction
 Retrieves detailed information about a specific payment. You need the
 paymentId for the payment you want to have information about. To get all
 available payments you should use the
-**[findPayments](Find-Payments_1474966.html) **method.
+**[findPayments](find-payments) **method.
+
 ### Example
 An example showing request/response for a get payment
+
 **Request**
-``` syntaxhighlighter-pre
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aft="http://ecommerce.resurs.com/v4/msg/aftershopflow">
    <soapenv:Header/>
    <soapenv:Body>
@@ -51,7 +51,7 @@ An example showing request/response for a get payment
 </soapenv:Envelope>
 ```
 **Response**
-``` syntaxhighlighter-pre
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
       <ns2:getPaymentResponse xmlns:ns3="http://ecommerce.resurs.com/v4/msg/exception" xmlns:ns2="http://ecommerce.resurs.com/v4/msg/aftershopflow">
@@ -143,11 +143,12 @@ An example showing request/response for a get payment
    </soap:Body>
 </soap:Envelope>
 ```
-  
+
 ### Error example
 When trying to get a payment that doesn´t exist you get this error with
 the fixableByYou flag set to true.
-``` syntaxhighlighter-pre
+
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
       <soap:Fault>
