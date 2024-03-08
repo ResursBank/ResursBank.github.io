@@ -7,7 +7,6 @@ parent: Development
 
 
 # Rounding 
-Created by Gert, last modified by Thomas Tornevall on 2023-12-27
 > Please, do not round numbers on your side. If calculations result in
 > more than 2 decimals, please supply all decimals in the invocations of
 > our service.Later, the API will return five (5) decimals in the
