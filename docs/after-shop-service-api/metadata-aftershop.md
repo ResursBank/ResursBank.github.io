@@ -7,8 +7,8 @@ parent: After Shop Service Api
 
 
 # MetaData AfterShop 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-27
-# addMetaData
+
+## addMetaData
 *Adds meta data to the payment. The meta data can be used to register
 additional information about the payment, and they may also be used for
 searching. Currently, meta data cannot be removed from a payment.
@@ -18,7 +18,7 @@ However, existing values can be over-written.*
 
 | Name       | Type                      | Occurs | Nillable? | Description                  |
 |------------|---------------------------|--------|-----------|------------------------------|
-| paymentId  | **[id](simple-types...)** | 1..1   | No        | The identity of the payment. |
+| paymentId  | **[id](/development/api-types/simple-types/)** | 1..1   | No        | The identity of the payment. |
 | key        | string                    | 1..1   | No        | The meta data key.           |
 | value      | string                    | 0..1   | No        | The meta data value.         |
 
@@ -26,15 +26,15 @@ However, existing values can be over-written.*
 
 | Name                     | Content                                  | Description                                                    |
 |--------------------------|------------------------------------------|----------------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](ecommerceerror)**     | Failed to add meta data to the payment. See error for details. |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to add meta data to the payment. See error for details. |
 
 ### What & why
 Key/value data and its additional information in an order, determined by
 the e-retailer. This can be added to the order and can later be useful
-when [searching](find-payments) for a payment. It can be anything, like
+when [searching](/after-shop-service-api/find-payments/) for a payment. It can be anything, like
 information about the shipment. You can manage metadata through
-[**PaymentAdmin**](payment-administration-gui) or using the **[aftershop
-webservice](after-shop-service-api)**
+[**Merchant Portal**] or using the **[aftershop
+webservice](/after-shop-service-api/)**
 
 #### What is metadata?
 In short, it is key/value data piggybacked on the payment.
@@ -47,8 +47,8 @@ to that rule.
 
 | Key name      | Expected format   | Description                                                                                                                                                                                                    |
 |---------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| invoiceExtRef | String. 46 chars. | In the case that the payment generates [invoices and credit notes](concepts-and-domain) this value will be printed as 'Your reference', for example the sales person responsible. Mostly for company invoices. |
-| CustomerId    | String. 20 chars. | In the case that the payment generates [invoices and credit notes](concepts-and-domain) this value will be printed as 'Customer Id'                                                                            |
+| invoiceExtRef | String. 46 chars. | In the case that the payment generates invoices and credit notes this value will be printed as 'Your reference', for example the sales person responsible. Mostly for company invoices. |
+| CustomerId    | String. 20 chars. | In the case that the payment generates invoices and credit notes this value will be printed as 'Customer Id'                                                                            |
 
 ![](../../attachments/3440674/5570827.png)
 
