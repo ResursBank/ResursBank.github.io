@@ -5,134 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89c2e868-ebcb-4868-9efe-f7135f739443" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_sass/color_schemes/resurs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/color_schemes/resurs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/convert.py" beforeDir="false" afterPath="$PROJECT_DIR$/convert.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/1474902.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/1474902.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/1474974.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/1474974.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/additional-debit-of-payment.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/additional-debit-of-payment.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/annulling.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/annulling.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/calculate-searchresult-size.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/calculate-searchresult-size.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/finalize-payment.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/finalize-payment.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/find-payments.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/find-payments.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/get-payment-document-names.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/get-payment-document-names.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/get-payment.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/get-payment.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/metadata-aftershop.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/metadata-aftershop.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/consumer-loan-api/acceptquote.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/consumer-loan-api/acceptquote.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/consumer-loan-api/callbacks-and-polling-status.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/consumer-loan-api/callbacks-and-polling-status.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/consumer-loan-api/getapplicationquote.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/consumer-loan-api/getapplicationquote.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/consumer-loan-api/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/consumer-loan-api/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/consumer-loan-api/submitapplicationext-dk.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/consumer-loan-api/submitapplicationext-dk.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/consumer-loan-api/submitapplicationext-fi.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/consumer-loan-api/submitapplicationext-fi.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/consumer-loan-api/submitapplicationext-no.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/consumer-loan-api/submitapplicationext-no.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/consumer-loan-api/submitapplicationext-se.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/consumer-loan-api/submitapplicationext-se.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/consumer-loan-api/updateapplication.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/consumer-loan-api/updateapplication.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/16056453.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/16056453.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/5014037.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/5014037.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/address.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/address.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/basicpayment.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/basicpayment.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/bookingresult.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/bookingresult.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/bookpaymentresult.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/bookpaymentresult.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/bookpaymentstatus.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/bookpaymentstatus.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/carddata.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/carddata.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/countrycode.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/countrycode.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/customer/extendedcustomer.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/customer/extendedcustomer.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/customer/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/customer/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/customercard.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/customercard.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/customeridentification.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/customeridentification.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/customeridentificationresponse.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/customeridentificationresponse.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/customertype.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/customertype.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/digestalgorithm.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/digestalgorithm.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/digestconfiguration.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/digestconfiguration.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/ecommerceerror.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/ecommerceerror.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/formelement.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/formelement.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/fraudcontrolstatus.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/fraudcontrolstatus.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/invoicedata.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/invoicedata.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/invoicedeliverytype.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/invoicedeliverytype.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/limit.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/limit.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/limitapplicationformascompiledform.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/limitapplicationformascompiledform.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/limitapplicationformasobjectgraph.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/limitapplicationformasobjectgraph.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/limitdecision.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/limitdecision.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/mapentry.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/mapentry.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/option.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/option.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/payment.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/payment.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/paymentdata.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/paymentdata.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/paymentdiff.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/paymentdiff.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/paymentdifftype.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/paymentdifftype.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/paymentmethod.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/paymentmethod.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/paymentmethodtype.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/paymentmethodtype.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/paymentsession.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/paymentsession.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/paymentspec.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/paymentspec.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/paymentstatus.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/paymentstatus.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/pdf.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/pdf.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/searchcriteria.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/searchcriteria.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/signing-object.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/signing-object.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/sortalternative.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/sortalternative.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/sortorder.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/sortorder.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/specline.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/specline.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/weblink.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/weblink.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/withmetadata.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/withmetadata.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/create-part-payment-widget.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/create-part-payment-widget.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/customer-data---regular-expressions.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/customer-data---regular-expressions.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases/328078.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases/328078.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases/ecomphp-custom-errorcodes.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases/ecomphp-custom-errorcodes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/general--integration-development/16056677.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/general--integration-development/16056677.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/general--integration-development/handling-checkout-flows-bottle-necks.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/general--integration-development/handling-checkout-flows-bottle-necks.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/payment-providers-in-simplified-flow.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/payment-providers-in-simplified-flow.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/permissions-and-passwords---platform-access.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/permissions-and-passwords---platform-access.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/81887258.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/81887258.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/87393094.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/87393094.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/12189822.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/12189822.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/12190271.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/12190271.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/5015031.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/5015031.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/5570809.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/5570809.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/7438426.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/7438426.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/7438475.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/7438475.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/7438490.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/7438490.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/7438497.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/7438497.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/8126466.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/8126466.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/9338886.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/9338886.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp--changelog/refactoring-notes-for-aftershop-in-ecomphp.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp--changelog/refactoring-notes-for-aftershop-in-ecomphp.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp--createpayment--rco-/16056934.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp--createpayment--rco-/16056934.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp--debit--credit--annul--aftershopflow-/16056643.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp--debit--credit--annul--aftershopflow-/16056643.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-and-localization.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-and-localization.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/16056616.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/16056616.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/22183983.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/22183983.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/22183993.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/22183993.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/ecomphp-visualization-and-backstory.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/ecomphp-visualization-and-backstory.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/getpayment-magics.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/getpayment-magics.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/important-notes-and-troubleshooting-exceptions--ecomphp-/errors-and-ecomphp/ecomphp-error-adaption.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/important-notes-and-troubleshooting-exceptions--ecomphp-/errors-and-ecomphp/ecomphp-error-adaption.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/important-notes-and-troubleshooting-exceptions--ecomphp-/errors-and-ecomphp/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/important-notes-and-troubleshooting-exceptions--ecomphp-/errors-and-ecomphp/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/recognized-metadata.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/recognized-metadata.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/rounding.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/rounding.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/broker-application-flow-denmark.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/broker-application-flow-denmark.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/merchant-api-e-commerce.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/merchant-api-e-commerce.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/merchant-api-pos.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/merchant-api-pos.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/payment-management.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/payment-management.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/physical-agreement-finland.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/physical-agreement-finland.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/simplified-flow-api/29491396.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/simplified-flow-api/29491396.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/simplified-flow-api/4653085.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/simplified-flow-api/4653085.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/simplified-flow-api/bookpayment.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/simplified-flow-api/bookpayment.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/simplified-flow-api/booksignedpayment.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/simplified-flow-api/booksignedpayment.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/simplified-flow-api/getannuityfactors.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/simplified-flow-api/getannuityfactors.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/simplified-flow-api/getcostofpurchasehtml.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/simplified-flow-api/getcostofpurchasehtml.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/simplified-flow-api/getpaymentmethods.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/simplified-flow-api/getpaymentmethods.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/simplified-flow-api/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/simplified-flow-api/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/simplified-flow-api/widget-for-information-on-installment-amounts..md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/simplified-flow-api/widget-for-information-on-installment-amounts..md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/testing/32833653.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/testing/32833653.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/testing/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/testing/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/testing/test-data---denmark.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/testing/test-data---denmark.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/testing/test-data---finland.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/testing/test-data---finland.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/testing/test-data---norway/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/testing/test-data---norway/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/testing/test-data---norway/testing-vipps.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/testing/test-data---norway/testing-vipps.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/testing/test-data---sweden.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/testing/test-data---sweden.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/testing/test-urls.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/testing/test-urls.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/testing/verify-integration.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/testing/verify-integration.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,28 +23,28 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2dJ8ZQH9mDQMPyTsi18iqDubbo8" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/nanaki/projects/github.io",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/nanaki/projects/github.io&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/_exclude" />
@@ -190,7 +65,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709714875157</updated>
-      <workItem from="1709714876203" duration="19067000" />
+      <workItem from="1709714876203" duration="21382000" />
+      <workItem from="1710137083760" duration="5073000" />
     </task>
     <servers />
   </component>

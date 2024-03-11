@@ -31,6 +31,7 @@ footer_content: "Copyright &copy; Resurs Bank AB 2024"
 logo: "/assets/resurs.svg"
 plugins:
   - jekyll-remote-theme
+heading_anchors: false
 # plugins:
 #  - jekyll-feed
 
