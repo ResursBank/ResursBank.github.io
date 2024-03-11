@@ -8,8 +8,6 @@ parent: Merchant Api 2.0
 
 ## Physical Agreement Finland 
 
-``` c-mrkdwn__pre
-```
 > ExamplePlease note that the flow is only applicable for partners and
 > customers in Finland and can only be set up in agreement with Key
 > Account Manager
