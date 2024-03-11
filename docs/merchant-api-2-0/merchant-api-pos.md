@@ -152,7 +152,7 @@ Payments](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_
 > "failUrl": "{{fail_url_customer}}", "successUrl":
 > "{{success_url_customer}}" }, "timeToLiveInMinutes": 120 } }
 
-#### Create payment responses and what to do next
+### Create payment responses and what to do next
 TASK_REDIRECTION_REQUIRED → The customer is to be redicreted to
 "customerUrl" either sent by you or by Resurs (depending whether
 options.deliverLinks is true/false). Callbacks with callback-status
@@ -168,7 +168,7 @@ If paper signing is to be used (For Finland only) for signing an
 application/payment, see [Physical Agreement
 Finland](physical-agreement-finland)
 
-#### Postman collection of the requests above
+### Postman collection of the requests above
 ```json
 {
 	"info": {
