@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="89c2e868-ebcb-4868-9efe-f7135f739443" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_sass/color_schemes/resurs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/color_schemes/resurs.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/broker-application-flow-denmark.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/broker-application-flow-denmark.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/merchant-api-e-commerce.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/merchant-api-e-commerce.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/merchant-api-pos.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/merchant-api-pos.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/payment-management.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/payment-management.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/physical-agreement-finland.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/physical-agreement-finland.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1709714875157</updated>
       <workItem from="1709714876203" duration="21382000" />
-      <workItem from="1710137083760" duration="5073000" />
+      <workItem from="1710137083760" duration="7303000" />
     </task>
     <servers />
   </component>

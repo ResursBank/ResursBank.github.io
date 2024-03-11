@@ -2,7 +2,7 @@
 layout: page
 title: Merchant Api Pos
 permalink: /merchant-api-2-0/merchant-api-pos/
-parent: Merchant Api 2 0
+parent: Merchant Api 2.0
 ---
 
 
