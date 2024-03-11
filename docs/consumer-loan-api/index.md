@@ -6,12 +6,10 @@ has_children: true
 ---
 
 
-# Consumer Loan API 
-Created by Daniel, last modified by Thomas Tornevall on 2023-11-10
-## Authentication
-Authentication is done by using http [basic authentication
-mechanism](https://en.wikipedia.org/wiki/Basic_access_authentication)
-(Authenticate pre-emptively).  
+## Consumer Loan API 
+
+### Authentication
+Authentication is done by using http basic authentication.
 Below test accounts are for generic testing only. For integrating
 anything specific for you, please use your designated test account.
 
@@ -27,20 +25,20 @@ Pwd: Resurs12345
 User: testfi  
 Pwd: Resurs12345
 
-## WSDL library
+### WSDL library
 Test: [https://test.resurs.com/cl-webservice/ApplicationService?wsdl](https://test.resurs.com/cl-webservice/ApplicationService?wsdl)  
 Production: [https://consumerloan.resurs.com/cl-webservice/ApplicationService?wsdl](https://consumerloan.resurs.com/cl-webservice/ApplicationService?wsdl)
 
-## Webservice URL
+### Webservice URL
 Test: [https://test.resurs.com/cl-webservice/ApplicationService](https://test.resurs.com/cl-webservice/ApplicationService?wsdl)  
 Production: [https://consumerloan.resurs.com/cl-webservice/ApplicationService](https://consumerloan.resurs.com/cl-webservice/ApplicationService?wsdl)
 
-## Rest base URL
+### Rest base URL
 Test: [https://](http://consumerloan.cte.loc/cl-webservice/api/callback/delivery-complete)[test.resurs.com](https://test.resurs.com/cl-webservice/ApplicationService?wsdl)[/cl-webservice/](http://consumerloan.cte.loc/cl-webservice/api/callback/delivery-complete)  
 Production:
 [https://consumerloan.resurs.com/cl-webservice/](https://consumerloan.resurs.com/cl-webservice/ApplicationService?wsdl)
 
-## IP-addresses to whitelist
+### IP-addresses to whitelist
 **Production**:
 
 91.198.202.100  
@@ -51,7 +49,7 @@ Production:
 194.68.237.250  
 192.121.110.100
 
-## **Decisions - social security numbers**
+### **Decisions - social security numbers**
 **Sweden**  
 MANUAL INSPECTION: 970415-2371  
 APPROVED: 850614-8264  
