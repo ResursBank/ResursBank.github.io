@@ -87,7 +87,7 @@ Retrieves a specified document from the payment as a pdf. [
 ### Get names of all documents for an order - [getPaymentDocumentNames](get-payment-document-names)
 Retrieves the document names available for the payment.
 
-### Issue cutomer identification token - [issueCustomerIdentificationToken](#issueCustomerIdentificationToken)
+### Issue cutomer identification token 
 Issues a customer identification token that can identify this customer
 in further operations.  
 These functions do require the customer to be identified, and they
