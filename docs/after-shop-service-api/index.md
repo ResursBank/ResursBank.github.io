@@ -7,7 +7,6 @@ has_children: true
 
 
 # After Shop Service API 
-Created by Tobias, last modified by Patric Johnsson on 2021-06-27
 **Content of this page**
 - [Annulling (Cancel order) & Crediting (Refund) - annulPayment &
   creditPayment](/after-shop-service-api/annulling/)
@@ -22,9 +21,9 @@ Created by Tobias, last modified by Patric Johnsson on 2021-06-27
 - [Get detailed information about order -
   getPayment](/after-shop-service-api/get-payment/)
 - [Get a specified document from order (PDF) -
-  getPaymentDocument](#aftershopserviceapi-getaspecifieddocumentfromorder(pdf)-getpaymentdocument)
+  getPaymentDocument](/after-shop-service-api/getpaymentdocument/)
 - [Get names of all documents for an order -
-  getPaymentDocumentNames](/after-shop-service-api/getpaymentdocument/)
+  getPaymentDocumentNames](/after-shop-service-api/get-payment-document-names/)
 - [Issue cutomer identification token -
   issueCustomerIdentificationToken](/after-shop-service-api/#issue-cutomer-identification-token)
 - [Invalidate Customer Identification Token -
