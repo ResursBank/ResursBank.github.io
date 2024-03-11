@@ -7,12 +7,10 @@ has_children: true
 
 
 # Merchant API 2.0 
-Created by Sara Wintherfrid Josefsson, last modified by Daniel on
-2023-11-21
 
-# [Swagger-documentation for Merchant API](https://merchant-api.resurs.com/)
+## [Swagger-documentation for Merchant API](https://merchant-api.resurs.com/)
 
-# Output in accounting file
+### Output in accounting file
 
 | Api                |      payment_id (set by Resurs)      | orderReference |      transactionId       |           accounting file            |
 |--------------------|:------------------------------------:|:--------------:|:------------------------:|:------------------------------------:|
