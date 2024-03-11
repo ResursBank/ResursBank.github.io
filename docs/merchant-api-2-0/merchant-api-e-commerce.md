@@ -7,7 +7,7 @@ parent: Merchant Api 2.0
 
 
 # Merchant API E-Commerce 
-Created by Patric Johnsson, last modified on 2023-07-12
+
 
 > Generic, explanational documentationPlease note that the flow and its
 > requests below is an example and other flows or variations may exist.
@@ -15,22 +15,22 @@ Created by Patric Johnsson, last modified on 2023-07-12
 > prior to mapping up any logic or beginning any coding.
 
 **What can I find here?**
-- [Basic API flow](#merchantapiecommerce-basicapiflow)
-  - [Authentication](#merchantapiecommerce-authentication)
-  - [Get Store ID](#merchantapiecommerce-getstoreid)
+- [Basic API flow](#basic-api-flow)
+  - [Authentication](#authentication)
+  - [Get Store ID](#get-store-id)
   - [Get available payment
-    methods](#merchantapiecommerce-getavailablepaymentmethods)
+    methods](#get-available-payment-methods)
 
-- [Create Payment](#merchantapiecommerce-createpayment)
-  - [Create payment](#merchantapiecommerce-createpayment)
+- [Create Payment](#create-payment)
+  - [Create payment](#create-payment)
     - [Create payment-responses and what to do
-      next](#merchantapiecommerce-createpayment-responsesandwhattodonext)
+      next](#responses-and-what-to-do-next)
 
 - [Postman-collection of the requests
-  above](#merchantapiecommerce-postman-collectionoftherequestsabove)
+  above](#postman-collection-of-the-requests-above)
 
-# **Basic API flow**
-## **Authentication**
+## Basic API flow
+### **Authentication**
 Every request requires an authorization header with a Bearer-token. A
 token lasts for 3599 seconds. To get a token you may use your
 test-credentials received from Resurs Bank.
@@ -55,7 +55,7 @@ Token](https://merchant-api.integration.resurs.com/docs/oauth2#/Oauth2%20token%2
 > client_secret' \\-data-urlencode 'scope=merchant-api'
 > \\-data-urlencode 'grant_type=client_credentials'
 
-## **Get Store ID**
+### Get Store ID
 **Get available stores**
 
 A client may have access to multiple stores, therefore we need to know
@@ -76,7 +76,7 @@ Stores](https://merchant-api.integration.resurs.com/docs/v2/merchant_stores_v2#/
 > 'https://merchant-api.integration.resurs.com/v2/stores'--header
 > 'Authorization: Bearer \<TOKEN\>'
 
-## **Get available payment methods**
+### Get available payment methods
 A store may have multiple payment methods available. The list of
 available payment methods will show what payment methods there are to
 use from at the chosen store. Do not forget to sort out the payment
@@ -104,8 +104,8 @@ Methods](https://merchant-api.integration.resurs.com/docs/v2/merchant_stores_v2#
 > 'Content-Type: application/json' \\-header 'Authorization: Bearer
 > \<TOKEN\>'
 
-# **Create Payment**
-## **Create payment**
+## **Create Payment**
+### **Create payment**
 The call below is used to create a new payment and authorize the
 payment.
 
@@ -149,13 +149,13 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 > "failUrl": "{{fail_url_customer}}", "successUrl":
 > "{{success_url_customer}}" }, "timeToLiveInMinutes": 120 } }
 
-### **Create payment-responses and what to do next**
+#### Create payment responses and what to do next
 status: TASK_REDIRECTION_REQUIRED → redirect customer to "customerUrl"
 and await callback. Callbacks with callback-status AUTHORIZED, REJECTED,
 FROZEN or CAPTURED can be received before or after redirection is
 performed. 
 
-# **Postman-collection of the requests above**
+# **Postman collection of the requests above**
 **[![](download/resources/com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-resources/images/placeholder-medium-file.png)Merchant
 API2
 Ecommerce.json](/docs/download/attachments/91029560/Merchant%20API2%20Ecommerce.json?version=1&modificationDate=1688461337000&api=v2)**
