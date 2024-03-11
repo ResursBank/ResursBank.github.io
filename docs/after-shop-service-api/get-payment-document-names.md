@@ -7,8 +7,8 @@ parent: After Shop Service Api
 
 
 # Get Payment Document Names 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-21
-# getPaymentDocumentNames
+
+## getPaymentDocumentNames
 *Retrieves the names of all documents associated with the payments.
 These include, but are not necessarily limited to, previously generated
 invoices and credit notes sent to the customer.*
@@ -17,7 +17,7 @@ invoices and credit notes sent to the customer.*
 
 | Name      | Type                      | Occurs | Nillable? | Description                  |
 |-----------|---------------------------|--------|-----------|------------------------------|
-| paymentId | **[id](simple-types...)** | 1..1   | No        | The identity of the payment. |
+| paymentId | **[id](/development/api-types/simple-types/)** | 1..1   | No        | The identity of the payment. |
 
 **Output (Literal)**
 
@@ -29,13 +29,13 @@ invoices and credit notes sent to the customer.*
 
 | Name                    | Content                                | Description                                                                  |
 |-------------------------|----------------------------------------|------------------------------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](ecommerceerror)**   | Failed to retrieve the list of payment document names. See error for details |
+| ECommerceErrorException | **[ECommerceError](/development/api-types/ecommerceerror/)**   | Failed to retrieve the list of payment document names. See error for details |
 
 ### Introduction
 This method retrieves all available documents that are associated with
 the payment, the invoice document for example. This method retrieves the
 names of the available document which you then use in the
-[**getPaymentDocument**](1474974) method along with the paymentId to
+[**getPaymentDocument**](/after-shop-service-api/getpaymentdocument/) method along with the paymentId to
 retrieve the requested document.
 
 ![](../../attachments/1476098/128286757.png)

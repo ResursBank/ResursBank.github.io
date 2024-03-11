@@ -7,7 +7,7 @@ parent: After Shop Service Api
 
 
 # Additional Debit of Payment 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-27
+
 
 # additionalDebitOfPayment
 *Makes a new, additional debit on an existing payment. This reserves the
@@ -18,15 +18,15 @@ must be room for the additional debit within the limit.*
 
 | Name         | Type                                    | Occurs | Nillable? | Description                                                       |
 |--------------|-----------------------------------------|--------|-----------|-------------------------------------------------------------------|
-| paymentId    | **[id](simple-types...)**               | 1..1   | No        | The identity of the payment to which to make an additional debit. |
-| paymentSpec  |  [**paymentSpec**](paymentspec)         | 0..1   | No        | The specification of the additional payment.                      |
-| createdBy    |  [**nonEmptyString**](simple-types...)  | 0..1   | No        | The username of the person performing the operation.              |
+| paymentId    | **[id](/development/api-types/simple-types/)**               | 1..1   | No        | The identity of the payment to which to make an additional debit. |
+| paymentSpec  |  [**paymentSpec**](/development/api-types/paymentspec/)         | 0..1   | No        | The specification of the additional payment.                      |
+| createdBy    |  [**nonEmptyString**](/development/api-types/simple-types/)  | 0..1   | No        | The username of the person performing the operation.              |
 
 **Faults**
 
 | Name                     | Content                                  | Description                                                               |
 |--------------------------|------------------------------------------|---------------------------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](ecommerceerror)**     | Failed to make an additional debit on the payment. See error for details. |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to make an additional debit on the payment. See error for details. |
 
 ### Introduction
 If the customer wants to add a product on an existing order that has not
@@ -42,8 +42,7 @@ form was filled by the customer.
 It´s also possible to make part debits of a payment. For example, if the
 customer has ordered 5 products, it's possible to debit and ship 3 of
 these products and wait for the rest of them for unknown circumstances.
-This can also be made from **[Payment administration @ Resurs
-Bank](payment-administration-gui).**
+This can also be made from **Resurs Merchant Portal.**
 
 > RestrictionsadditionalDebitOfPayment cannot be done on external
 > payment methods such as Swish and card transactions (VISA/Mastercard)
@@ -58,8 +57,8 @@ Contains elements as defined in the following table.
 
 | Component      | Type                                                                                     | Occurs | Nillable? | Description                                                                                                                                                                                                                  |
 |----------------|------------------------------------------------------------------------------------------|--------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| specLines      | **[specLine](https://test.resurs.com/docs/display/ecom/specLine)**                       | 0..\*  | No        | The list of payment lines. In the case you're sending a simple payment, without lines, this parameter should be left empty. Sending payment lines may, or may not, be mandatory, depending on the contract with Resurs Bank. |
-| totalAmount    | **[positiveDecimal](https://test.resurs.com/docs/pages/viewpage.action?pageId=1475653)** | 1..1   | No        | The total payment amount. The sum of all line amounts (if there are lines supplied) including VAT. If this payment is without lines this is the only value to be set on the payment spec.                                    |
+| specLines      | **[specLine](/development/api-types/specline/)**                       | 0..\*  | No        | The list of payment lines. In the case you're sending a simple payment, without lines, this parameter should be left empty. Sending payment lines may, or may not, be mandatory, depending on the contract with Resurs Bank. |
+| totalAmount    | **[positiveDecimal](/development/api-types/simple-types/)** | 1..1   | No        | The total payment amount. The sum of all line amounts (if there are lines supplied) including VAT. If this payment is without lines this is the only value to be set on the payment spec.                                    |
 | totalVatAmount | decimal                                                                                  | 0..1   | Yes       | The total VAT amount of the payment when there are specification lines supplied. If there are no lines this fileld must be empty (null).                                                                                     |
 
 ### Paymentspec - speclines
@@ -79,7 +78,7 @@ startPaymentSession method
 **paymentSpec example in bookPayment**
 
 ### Paymentspec - rounding
-[see Rounding](https://test.resurs.com/docs/display/ecom/Rounding)
+[see Rounding](/development/rounding/)
 
 ### additionalDebitOfPayment - code example
 **additionalDebitOfPayment**

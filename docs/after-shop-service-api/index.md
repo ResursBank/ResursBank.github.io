@@ -7,26 +7,25 @@ has_children: true
 
 
 # After Shop Service API 
-Created by Tobias, last modified by Patric Johnsson on 2021-06-27
 **Content of this page**
 - [Annulling (Cancel order) & Crediting (Refund) - annulPayment &
-  creditPayment](#aftershopserviceapi-annulling(cancelorder)&crediting(refund)-annulpayment&creditpayment)
+  creditPayment](/after-shop-service-api/annulling/)
 - [Debit order -
-  finalizePayment](#aftershopserviceapi-debitorder-finalizepayment)
+  finalizePayment](/after-shop-service-api/finalize-payment/)
 - [Make a new, additional debit on an existing order -
-  additionalDebitOfPayment](#aftershopserviceapi-makeanew,additionaldebitonanexistingorder-additionaldebitofpayment)
+  additionalDebitOfPayment](/after-shop-service-api/additional-debit-of-payment/)
 - [Add meta data to order -
-  addMetaData](#aftershopserviceapi-addmetadatatoorder-addmetadata)
+  addMetaData](/after-shop-service-api/metadata-aftershop/)
 - [Search for payments -
-  findPayments](#aftershopserviceapi-searchforpayments-findpayments)
+  findPayments](/after-shop-service-api/find-payments/)
 - [Get detailed information about order -
-  getPayment](#aftershopserviceapi-getdetailedinformationaboutorder-getpayment)
+  getPayment](/after-shop-service-api/get-payment/)
 - [Get a specified document from order (PDF) -
-  getPaymentDocument](#aftershopserviceapi-getaspecifieddocumentfromorder(pdf)-getpaymentdocument)
+  getPaymentDocument](/after-shop-service-api/getpaymentdocument/)
 - [Get names of all documents for an order -
-  getPaymentDocumentNames](#aftershopserviceapi-getnamesofalldocumentsforanorder-getpaymentdocumentnames)
+  getPaymentDocumentNames](/after-shop-service-api/get-payment-document-names/)
 - [Issue cutomer identification token -
-  issueCustomerIdentificationToken](#aftershopserviceapi-issuecutomeridentificationtoken-issuecustomeridentificationtoken)
+  issueCustomerIdentificationToken](/after-shop-service-api/#issue-cutomer-identification-token)
 - [Invalidate Customer Identification Token -
   invalidateCustomerIdentificationToken](#aftershopserviceapi-invalidatecustomeridentificationtoken-invalidatecustomeridentificationtoken)
 - [Available actions, depending on status and
@@ -87,7 +86,7 @@ Retrieves a specified document from the payment as a pdf. [
 ### Get names of all documents for an order - [getPaymentDocumentNames](get-payment-document-names)
 Retrieves the document names available for the payment.
 
-### Issue cutomer identification token - [issueCustomerIdentificationToken](/docs/pages/createpage.action?spaceKey=ecom&title=Issue+Customer+Identification+Token&linkCreation=true&fromPageId=327799)
+### Issue cutomer identification token
 Issues a customer identification token that can identify this customer
 in further operations.  
 These functions do require the customer to be identified, and they

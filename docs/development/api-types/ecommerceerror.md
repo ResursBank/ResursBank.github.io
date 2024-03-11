@@ -9,7 +9,6 @@ grand_parent: Development
 
 
 # ECommerceError 
-Created by Benny, last modified on 2017-02-22
 All errors/exception are returned as ECommerceError  
 Contains elements as defined in the following table. 
 

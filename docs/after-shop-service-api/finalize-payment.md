@@ -7,8 +7,8 @@ parent: After Shop Service Api
 
 
 # Finalize Payment 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-27
-# finalizePayment
+
+## finalizePayment
 *Finalizes a payment. When a payment is finalized, the amount will be
 transferred from the customer's account to that of the representative.
 NB: For a payment to be finalized, it must be booked and it cannot be
@@ -18,15 +18,15 @@ frozen.*
 
 | Name                    | Type                                                           | Occurs | Nillable? | Description                                                                                                                                                                                                                                                                                            |
 |-------------------------|----------------------------------------------------------------|--------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| paymentId               |  [**id**](simple-types...)                                     | 1..1   | No        | The identity of the payment.                                                                                                                                                                                                                                                                           |
+| paymentId               |  [**id**](/development/api-types/simple-types/)                                     | 1..1   | No        | The identity of the payment.                                                                                                                                                                                                                                                                           |
 | preferredTransactionId  | **id**                                                         | 0..1   | No        | Will be printed on the accounting summary. Can be used to track the transaction. If not set it will fallback on paymentId for this value. **NOT SUPPORTED** for external payment methods (VISA/Mastercard/SWISH/TRUSTLY etc)                                                                           |
-| partPaymentSpec         |  [**paymentSpec**](paymentspec)                                | 1..1   | No        | If you are to finalize an invoice, you will need to supply the partPaymentSpec with \<specLines\>. Without the \<specLines\>, the customer won't see the orderrows that has been supplied in your bookPayment/POST.For any other payment method, using partPaymentSpec with \<specLines\> is optional. |
-| createdBy               |  [**nonEmptyString**](simple-types...)                         | 0..1   | No        | The username of the person performing the operation.                                                                                                                                                                                                                                                   |
-| orderId                 | [**id**](simple-types...)                                      | 0..1   | No        | The order number.                                                                                                                                                                                                                                                                                      |
-| orderDate               | [date](http://www.w3schools.com/schema/schema_dtypes_date.asp) | 0..1   | Yes       | The order date. For payment methods other than INVOICE, setting this will generate an error. Note: use the format "yyyy-MM-dd" for date.                                                                                                                                                               |
-| invoiceId               | [**id**](simple-types...)                                      | 0..1   | Yes       | The invoice number. This will be printed on the invoice. For payment methods other than INVOICE, setting this will generate an error. An alternative is to let Resurs Bank generate the invoice ID, in this case this field is omitted.                                                                |
-| invoiceDate             | [date](http://www.w3schools.com/schema/schema_dtypes_date.asp) | 0..1   | Yes       | The invoice date. This will be printed on the invoice. For payment methods other than INVOICE, setting this will generate an error.Note: use the format "yyyy-MM-dd" for date.                                                                                                                         |
-| invoiceDeliveryType     | **[invoiceDeliveryType](invoicedeliverytype)**                 | 0..1   | Yes       | How the invoice should be delivered. **If used,** **put in: "EMAIL"**                                                                                                                                                                                                                                  |
+| partPaymentSpec         |  [**paymentSpec**](/development/api-types/paymentspec/)                                | 1..1   | No        | If you are to finalize an invoice, you will need to supply the partPaymentSpec with \<specLines\>. Without the \<specLines\>, the customer won't see the orderrows that has been supplied in your bookPayment/POST.For any other payment method, using partPaymentSpec with \<specLines\> is optional. |
+| createdBy               |  [**nonEmptyString**](/development/api-types/simple-types/)                         | 0..1   | No        | The username of the person performing the operation.                                                                                                                                                                                                                                                   |
+| orderId                 | [**id**](/development/api-types/simple-types/)                                      | 0..1   | No        | The order number.                                                                                                                                                                                                                                                                                      |
+| orderDate               | **date** | 0..1   | Yes       | The order date. For payment methods other than INVOICE, setting this will generate an error. Note: use the format "yyyy-MM-dd" for date.                                                                                                                                                               |
+| invoiceId               | [**id**](/development/api-types/simple-types/)                                      | 0..1   | Yes       | The invoice number. This will be printed on the invoice. For payment methods other than INVOICE, setting this will generate an error. An alternative is to let Resurs Bank generate the invoice ID, in this case this field is omitted.                                                                |
+| invoiceDate             | **date** | 0..1   | Yes       | The invoice date. This will be printed on the invoice. For payment methods other than INVOICE, setting this will generate an error.Note: use the format "yyyy-MM-dd" for date.                                                                                                                         |
+| invoiceDeliveryType     | **[invoiceDeliveryType](/development/api-types/invoicedeliverytype/)**                 | 0..1   | Yes       | How the invoice should be delivered. **If used,** **put in: "EMAIL"**                                                                                                                                                                                                                                  |
 
 > Find out if the payment method is an invoice by making a
 > getPaymentMethods. If \<specificType\>INVOICE\</specificType\> in
@@ -36,7 +36,7 @@ frozen.*
 
 | Name                     | Content                                  | Description                                            |
 |--------------------------|------------------------------------------|--------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](ecommerceerror)**     | Failed to finalize the payment. See error for details. |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to finalize the payment. See error for details. |
 
 ### Introduction
 This method should be called just before the goods are delivered. When a
@@ -50,18 +50,16 @@ above in the method box and what these parameters stands for.
 ### What if something need to change?
 Does something on the order need to be changed due to the customer
 contacting the web shop? This is achieved either via web services or the
-[**payment
-admin**](https://test.resurs.com/docs/display/ecom/Payment+adminstration+@+Resurs+Bank)
-.  
+**Merchant Portal.**
+  
 Does the whole order or only part of it need to be canceled? Or should
 any more items be added? For more information and how this is done,
 please see [**after shop
-flow**](https://test.resurs.com/docs/display/ecom/After+Shop+Service)
-and / or **[payment
-admin](https://test.resurs.com/docs/display/ecom/Payment+adminstration+@+Resurs+Bank)**
+flow**](/after-shop-service-api/)
+and / or **Merchant Portal**
 
 ### What is paymentSpec?
-Click to read more about paymentSpec
+
 The payment details. In it's simplest form it's just sum, i.e.
 totalAmount and totalVatAmount are set, but there are no specLines. If
 nothing else is said you shall send specLines .  
@@ -69,8 +67,8 @@ Contains elements as defined in the following table.
 
 | Component      | Type                                                                                     | Occurs | Nillable? | Description                                                                                                                                                                                                                  |
 |----------------|------------------------------------------------------------------------------------------|--------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| specLines      | **[specLine](https://test.resurs.com/docs/display/ecom/specLine)**                       | 0..\*  | No        | The list of payment lines. In the case you're sending a simple payment, without lines, this parameter should be left empty. Sending payment lines may, or may not, be mandatory, depending on the contract with Resurs Bank. |
-| totalAmount    | **[positiveDecimal](https://test.resurs.com/docs/pages/viewpage.action?pageId=1475653)** | 1..1   | No        | The total payment amount. The sum of all line amounts (if there are lines supplied) including VAT. If this payment is without lines this is the only value to be set on the payment spec.                                    |
+| specLines      | **[specLine](/development/api-types/specline/)**                       | 0..\*  | No        | The list of payment lines. In the case you're sending a simple payment, without lines, this parameter should be left empty. Sending payment lines may, or may not, be mandatory, depending on the contract with Resurs Bank. |
+| totalAmount    | **[positiveDecimal](/development/api-types/simple-types/)** | 1..1   | No        | The total payment amount. The sum of all line amounts (if there are lines supplied) including VAT. If this payment is without lines this is the only value to be set on the payment spec.                                    |
 | totalVatAmount | decimal                                                                                  | 0..1   | Yes       | The total VAT amount of the payment when there are specification lines supplied. If there are no lines this fileld must be empty (null).                                                                                     |
 
 ### Paymentspec - speclines
@@ -90,10 +88,7 @@ startPaymentSession method
 **paymentSpec example in bookPayment**
 
 ### Paymentspec - rounding
-[see Rounding](https://test.resurs.com/docs/display/ecom/Rounding)
-
-[What is the difference between a payment and a payment-diff and how are
-they related?](concepts-and-domain)
+[see Rounding](/development/rounding/)
 
 ### Finalize Payment for different payment methods
 The finalize payment differs somewhat from payment methods, for example
@@ -124,9 +119,7 @@ payment, as would be required upon delivery of half of an order.
 </soapenv:Envelope>
 ```
 If you are finalizing an invoice you might want to specify the payment
-more for a more detailed invoice. Note that you can activate an invoice
-sequence that will automatically generate an invoiceId for you, read
-more about invoice sequence [here](set-invoice-sequence). The example
+more for a more detailed invoice. The example
 below shows a more detailed form of finalization.
 
 **Detailed finalizePayment invoice**

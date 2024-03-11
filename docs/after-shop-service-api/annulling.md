@@ -7,8 +7,8 @@ parent: After Shop Service Api
 
 
 # Annulling 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-21
-#   annulPayment  * * 
+
+## annulPayment
 *Annuls the payment. This removes the reservation on the customer's
 account. NB: For a payment to be annulled, it must be booked. If it has
 been finalized, it can no longer be annulled. (Finalized payments have
@@ -18,15 +18,15 @@ to be credited.)*
 
 | Name             | Type                                    | Occurs | Nillable? | Description                                          |
 |------------------|-----------------------------------------|--------|-----------|------------------------------------------------------|
-| paymentId        | **[id](simple-types...)**               | 1..1   | No        | The identity of the payment.                         |
-| partPaymentSpec  |  [**paymentSpec**](paymentspec)         | 0..1   | No        | The specification of the payment annulment.          |
-| createdBy        |  [**nonEmptyString**](simple-types...)  | 0..1   | No        | The username of the person performing the operation. |
+| paymentId        | **[id](/development/api-types/simple-types/)**               | 1..1   | No        | The identity of the payment.                         |
+| partPaymentSpec  |  [**paymentSpec**](/development/api-types/paymentspec/)         | 0..1   | No        | The specification of the payment annulment.          |
+| createdBy        |  [**nonEmptyString**](/development/api-types/simple-types/)  | 0..1   | No        | The username of the person performing the operation. |
 
 **Faults**
 
 | Name                     | Content                                  | Description                                         |
 |--------------------------|------------------------------------------|-----------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](ecommerceerror)**     | Failed to annul the payment. See error for details. |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to annul the payment. See error for details. |
 
 ### Introduction
 Annuls the payment. This removes the reservation on the customer's
@@ -34,8 +34,6 @@ account. A payment can only be annulled if it's booked. If it has been
 booked and then finalized, it can no longer be annulled. (Finalized
 payments have to be credited).
 
-If you are unsure when to use this method, [read more about Annulment
-and Crediting.](concepts-and-domain)
 
 ![](../../attachments/1475429/128286739.png)
 
@@ -48,8 +46,8 @@ Contains elements as defined in the following table.
 
 | Component      | Type                                                                                     | Occurs | Nillable? | Description                                                                                                                                                                                                                  |
 |----------------|------------------------------------------------------------------------------------------|--------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| specLines      | **[specLine](https://test.resurs.com/docs/display/ecom/specLine)**                       | 0..\*  | No        | The list of payment lines. In the case you're sending a simple payment, without lines, this parameter should be left empty. Sending payment lines may, or may not, be mandatory, depending on the contract with Resurs Bank. |
-| totalAmount    | **[positiveDecimal](https://test.resurs.com/docs/pages/viewpage.action?pageId=1475653)** | 1..1   | No        | The total payment amount. The sum of all line amounts (if there are lines supplied) including VAT. If this payment is without lines this is the only value to be set on the payment spec.                                    |
+| specLines      | **[specLine](/development/api-types/specline/)**                       | 0..\*  | No        | The list of payment lines. In the case you're sending a simple payment, without lines, this parameter should be left empty. Sending payment lines may, or may not, be mandatory, depending on the contract with Resurs Bank. |
+| totalAmount    | **[positiveDecimal](/development/api-types/simple-types/)** | 1..1   | No        | The total payment amount. The sum of all line amounts (if there are lines supplied) including VAT. If this payment is without lines this is the only value to be set on the payment spec.                                    |
 | totalVatAmount | decimal                                                                                  | 0..1   | Yes       | The total VAT amount of the payment when there are specification lines supplied. If there are no lines this fileld must be empty (null).                                                                                     |
 
 ### Paymentspec - speclines
@@ -69,7 +67,7 @@ startPaymentSession method
 **paymentSpec example in bookPayment**
 
 ### Paymentspec - rounding
-[see Rounding](https://test.resurs.com/docs/display/ecom/Rounding)
+[see Rounding](/development/rounding/)
 
 ###  annulPayment - code example
 **annulPayment** Expand source

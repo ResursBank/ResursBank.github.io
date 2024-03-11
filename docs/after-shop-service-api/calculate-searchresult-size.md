@@ -7,8 +7,8 @@ parent: After Shop Service Api
 
 
 # Calculate Searchresult Size 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-21
-# *calculateResultSize *  
+
+## *calculateResultSize*  
 *Returns the number of payments that match the specified requirements.
 Can be used for paging of the results.*
 
@@ -16,7 +16,7 @@ Can be used for paging of the results.*
 
 | Name            | Type                                 | Occurs | Nillable? | Description          |
 |-----------------|--------------------------------------|--------|-----------|----------------------|
-| searchCriteria  | **[searchCriteria](searchcriteria)** | 1..1   | No        | The search criteria. |
+| searchCriteria  | **[searchCriteria](/development/api-types/searchcriteria/)** | 1..1   | No        | The search criteria. |
 
 **Output (Literal)**
 
@@ -28,7 +28,7 @@ Can be used for paging of the results.*
 
 | Name                     | Content                                  | Description                                                       |
 |--------------------------|------------------------------------------|-------------------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](ecommerceerror)**     | Failed to calculate the search result size. See error for details |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to calculate the search result size. See error for details |
 
 ### Introduction
 Returns the number of payments that match the specified search

@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # paymentSpec 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-21
+
 The payment details. In it's simplest form it's just sum, i.e.
 totalAmount and totalVatAmount are set, but there are no specLines. If
 nothing else is said you shall send specLines .  

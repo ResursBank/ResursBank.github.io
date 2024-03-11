@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # pdf 
-Created by Benny on 2013-06-18
+
 A PDF document  
 Contains elements as defined in the following table.
 
