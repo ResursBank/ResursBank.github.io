@@ -157,7 +157,5 @@ TASK_REDIRECTION_REQUIRED → redirect customer to "customerUrl" and await callb
 Callbacks with callback-status AUTHORIZED, REJECTED, FROZEN or CAPTURED can be received before or after redirection is performed. 
 
 ### **Postman collection of the requests above**
-**[![](download/resources/com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-resources/images/placeholder-medium-file.png)Merchant
-API2
-Ecommerce.json](/attachments/file.json)**
+**![](../../attachments/Merchant API2 Ecommerce.json)**
 
