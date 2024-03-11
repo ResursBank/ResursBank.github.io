@@ -1,13 +1,13 @@
 ---
 layout: page
 title: Get Payment Document (Pdf)
-permalink: /after-shop-service-api/g/
+permalink: /after-shop-service-api/getpaymentdocument/
 parent: After Shop Service Api
 ---
 
 
 # Get Payment Document (PDF) 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-21
+
 
 # getPaymentDocument
 *Retrieves a specified document from the payment.*
