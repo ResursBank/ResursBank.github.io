@@ -159,5 +159,5 @@ Callbacks with callback-status AUTHORIZED, REJECTED, FROZEN or CAPTURED can be r
 ### **Postman collection of the requests above**
 **[![](download/resources/com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-resources/images/placeholder-medium-file.png)Merchant
 API2
-Ecommerce.json](/docs/download/attachments/91029560/Merchant%20API2%20Ecommerce.json?version=1&modificationDate=1688461337000&api=v2)**
+Ecommerce.json](/attachments/file.json)**
 
