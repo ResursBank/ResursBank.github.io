@@ -16,25 +16,25 @@ parent: After Shop Service Api
 
 | Name          | Type                                   | Occurs | Nillable? | Description                  |
 |---------------|----------------------------------------|--------|-----------|------------------------------|
-| paymentId     | **[id](simple-types...)**              | 1..1   | No        | The identity of the payment. |
-| documentName  | [**nonEmptyString**](simple-types...)  | 1..1   | No        | The name of the document.    |
+| paymentId     | **[id](/development/api-types/simple-types/)**              | 1..1   | No        | The identity of the payment. |
+| documentName  | [**nonEmptyString**](/development/api-types/simple-types/)  | 1..1   | No        | The name of the document.    |
 
 **Output (Literal)**
 
 | Name    | Type           | Occurs | Nillable? | Description   |
 |---------|----------------|--------|-----------|---------------|
-| return  | **[pdf](pdf)** | 0..\*  | No        | The document. |
+| return  | **[pdf](/development/api-types/pdf/)** | 0..\*  | No        | The document. |
 
 **Faults**
 
 | Name                     | Content                                | Description                                                              |
 |--------------------------|----------------------------------------|--------------------------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](ecommerceerror)**   | Failed to retrieve the specified payment document. See error for details |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**   | Failed to retrieve the specified payment document. See error for details |
 
 ### Introduction
 Retrieves a specified document from the payment as a pdf, for example
 the invoice. You can get the available document names for a payment by
-calling the [**getPaymentDocumentNames**](get-payment-document-names)
+calling the [**getPaymentDocumentNames**](/after-shop-service-api/get-payment-document-names/)
 method.  
 When trying to get the requested document, the invoice for example, you
 send in the paymentId and the documentName as parameters.
