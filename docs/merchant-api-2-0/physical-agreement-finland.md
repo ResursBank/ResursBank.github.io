@@ -7,7 +7,7 @@ parent: Merchant Api 2.0
 
 
 ## Physical Agreement Finland 
-Created by Sara Wintherfrid Josefsson, last modified on 2023-01-12
+
 ``` c-mrkdwn__pre
 ```
 > ExamplePlease note that the flow is only applicable for partners and
