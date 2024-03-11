@@ -26,7 +26,7 @@ Created by Tobias, last modified by Patric Johnsson on 2021-06-27
 - [Get names of all documents for an order -
   getPaymentDocumentNames](/after-shop-service-api/getpaymentdocument/)
 - [Issue cutomer identification token -
-  issueCustomerIdentificationToken](/after-shop-service-api#issueCustomerIdentificationToken)
+  issueCustomerIdentificationToken](/after-shop-service-api/#issueCustomerIdentificationToken)
 - [Invalidate Customer Identification Token -
   invalidateCustomerIdentificationToken](#aftershopserviceapi-invalidatecustomeridentificationtoken-invalidatecustomeridentificationtoken)
 - [Available actions, depending on status and
