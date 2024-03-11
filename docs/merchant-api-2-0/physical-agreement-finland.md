@@ -6,7 +6,7 @@ parent: Merchant Api 2.0
 ---
 
 
-# Physical Agreement Finland 
+## Physical Agreement Finland 
 Created by Sara Wintherfrid Josefsson, last modified on 2023-01-12
 ``` c-mrkdwn__pre
 ```
@@ -15,10 +15,10 @@ Created by Sara Wintherfrid Josefsson, last modified on 2023-01-12
 > Account Manager
 
 **What can I find here?**
-- [Create an agreement](#physicalagreementfinland-createanagreement)
-- [Sign an agreement](#physicalagreementfinland-signanagreement)
+- [Create an agreement](#create-an-agreement)
+- [Sign an agreement](#sign-an-agreement)
 
-# **Create an agreement**
+## Create an agreement
 In order to print a physical agreement the agreement must first be
 created. 
 
@@ -37,7 +37,7 @@ agreement](https://merchant-api.integration.resurs.com/docs/v2/merchant_physical
 > "applicantIdentification": { "type": "ID", "reference": "reference" }
 > }'
 
-# **Sign an agreement**
+## Sign an agreement
 After creating an agreement, the agreement must be signed and printed. 
 
 URL to sign physical agreement:
