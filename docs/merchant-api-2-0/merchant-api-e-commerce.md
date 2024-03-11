@@ -24,7 +24,7 @@ parent: Merchant Api 2.0
 - [Create Payment](#create-payment)
   - [Create payment](#create-payment)
     - [Create payment-responses and what to do
-      next](#responses-and-what-to-do-next)
+      next](#create-payment-responses-and-what-to-do-next)
 
 - [Postman-collection of the requests
   above](#postman-collection-of-the-requests-above)
@@ -150,12 +150,11 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 > "{{success_url_customer}}" }, "timeToLiveInMinutes": 120 } }
 
 #### Create payment responses and what to do next
-status: TASK_REDIRECTION_REQUIRED → redirect customer to "customerUrl"
-and await callback. Callbacks with callback-status AUTHORIZED, REJECTED,
-FROZEN or CAPTURED can be received before or after redirection is
-performed. 
+status:
+TASK_REDIRECTION_REQUIRED → redirect customer to "customerUrl" and await callback. 
+Callbacks with callback-status AUTHORIZED, REJECTED, FROZEN or CAPTURED can be received before or after redirection is performed. 
 
-# **Postman collection of the requests above**
+### **Postman collection of the requests above**
 **[![](download/resources/com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-resources/images/placeholder-medium-file.png)Merchant
 API2
 Ecommerce.json](/docs/download/attachments/91029560/Merchant%20API2%20Ecommerce.json?version=1&modificationDate=1688461337000&api=v2)**
