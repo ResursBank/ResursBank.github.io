@@ -45,6 +45,8 @@ URL to get token:
 Link to the call in swagger documentation: **[Get
 Token](https://merchant-api.integration.resurs.com/docs/oauth2#/Oauth2%20token%20resource/authorizeObject_1_1)**
 
+![](../../attachments/image.png)
+
 **Curl to get token**
 
 > curl --location --request POST
