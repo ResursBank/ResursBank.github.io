@@ -29,6 +29,8 @@ parent: Merchant Api 2.0
 - [Postman-collection of the requests
   above](#postman-collection-of-the-requests-above)
 
+![](../../attachments/mapiEcom.png)
+
 ## Basic API flow
 ### **Authentication**
 Every request requires an authorization header with a Bearer-token. A
@@ -44,8 +46,6 @@ URL to get token:
 
 Link to the call in swagger documentation: **[Get
 Token](https://merchant-api.integration.resurs.com/docs/oauth2#/Oauth2%20token%20resource/authorizeObject_1_1)**
-
-![](../../attachments/image.png)
 
 **Curl to get token**
 
