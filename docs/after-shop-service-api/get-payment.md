@@ -7,34 +7,33 @@ parent: After Shop Service Api
 
 
 # Get Payment 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-27
-# getPayment
-*Retrieves detailed information about the payment.*
 
-* *  
+## getPayment
+*Retrieves detailed information about the payment.*
+  
 **Input (Literal)**
 
 | Name       | Type                      | Occurs | Nillable? | Description                  |
 |------------|---------------------------|--------|-----------|------------------------------|
-| paymentId  | **[id](simple-types...)** | 1..1   | No        | The identity of the payment. |
+| paymentId  | **[id](/development/api-types/simple-types/)** | 1..1   | No        | The identity of the payment. |
 
 **Output (Literal)**
 
 | Name    | Type                    | Occurs | Nillable? | Description          |
 |---------|-------------------------|--------|-----------|----------------------|
-| return  | [**payment**](payment)  | 1..1   | No        | The payment details. |
+| return  | [**payment**](/development/api-types/payment/)  | 1..1   | No        | The payment details. |
 
 **Faults**
 
 | Name                     | Content                                | Description                                                    |
 |--------------------------|----------------------------------------|----------------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](ecommerceerror)**   | Failed to retrieve the payment details. See error for details. |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**   | Failed to retrieve the payment details. See error for details. |
 
 ### Introduction
 Retrieves detailed information about a specific payment. You need the
 paymentId for the payment you want to have information about. To get all
 available payments you should use the
-**[findPayments](find-payments) **method.
+**[findPayments](/after-shop-service-api/find-payments/) **method.
 
 ### Example
 An example showing request/response for a get payment
