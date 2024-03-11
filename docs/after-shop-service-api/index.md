@@ -25,12 +25,11 @@ has_children: true
 - [Get names of all documents for an order -
   getPaymentDocumentNames](/after-shop-service-api/get-payment-document-names/)
 - [Issue cutomer identification token](#issue-cutomer-identification-token)
-- [Invalidate Customer Identification Token -
-  invalidateCustomerIdentificationToken](#invalidate-customer-identification-token)
+- [Invalidate Customer Identification Token](#invalidate-customer-identification-token)
 - [Available actions, depending on status and
-  amount.](#aftershopserviceapi-availableactions,dependingonstatusandamount.)
+  amount.](#available-actions)
 - [General setup for orderstatus at Resurs
-  Bank.](#aftershopserviceapi-generalsetupfororderstatusatresursbank.)
+  Bank.](#general-setup)
 
 When the customer completes a purchase and a order is created at Resurs
 Bank, the order is autherized and debitable.  
@@ -40,49 +39,45 @@ account the order has to be finalized (debited).
 This page describes how a order can be handled after its creation and
 how you finalize the order.
 
-You can do all this from Resurs Bank
-[**paymentAdmin**](payment-administration-gui) , a web-based
-interface.  
+You can do all this from Resurs Bank Merchant Portal, a web-based interface.  
 Or you can use the after shop webservices described below.
 
 WSDL: [https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService?wsdl  
 ](https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService?wsdl)Service
 Endpoint: [https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService](https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService)
 
-### Annulling (Cancel order) & Crediting (Refund) - [annulPayment](annulling) & [creditPayment](1474902) 
+### Annulling (Cancel order) & Crediting (Refund) - [annulPayment](/after-shop-service-api/annulling/) & [creditPayment](/after-shop-service-api/Crediting/) 
 Should you need to undo a payment, then you should use the
-[annulPayment](annulling) method.  
+[annulPayment](/after-shop-service-api/annulling/) method.  
 If the order has been **finalized** then you must use the
-[creditPayment](1474902) method instead.  
-When to use what? Learn more about [Annulment and
-Crediting](concepts-and-domain)
+[creditPayment](/after-shop-service-api/Crediting/) method instead.  
 
-### Debit order -  [finalizePayment](finalize-payment)
+
+### Debit order -  [finalizePayment](/after-shop-service-api/finalize-payment/)
 When the order is complete, you call this method, the money is then
 transferred from the customer account to yours.
 
-### Make a new, additional debit on an existing order - [additionalDebitOfPayment](additional-debit-of-payment)
+### Make a new, additional debit on an existing order - [additionalDebitOfPayment](/after-shop-service-api/additional-debit-of-payment/)
 For creating an additional debit of the payment.
 
-### Add meta data to order - [addMetaData](metadata-aftershop)
+### Add meta data to order - [addMetaData](/after-shop-service-api/metadata-aftershop/)
 If you wish to add more meta data to the payment. This can be used to
 register additional information about the payment,  
 and they may also be used for searching.
 
-### Search for payments - [findPayments](find-payments)
+### Search for payments - [findPayments](/after-shop-service-api/find-payments/)
 If you want to search for specific payments.  
 To get the size of the searchresult, use
-[**calculateResultSize**](calculate-searchresult-size) which for
+[**calculateResultSize**](/after-shop-service-api/calculate-searchresult-size/) which for
 example can be used for paging.
 
-### Get detailed information about order - [getPayment](get-payment)
+### Get detailed information about order - [getPayment](/after-shop-service-api/get-payment/)
 Returns the details of a payment.
 
-### Get a specified document from order (PDF) - [getPaymentDocument](1474974)
-Retrieves a specified document from the payment as a pdf. [  
- ](1474974)
+### Get a specified document from order (PDF) - [getPaymentDocument](/after-shop-service-api/getpaymentdocument/)
+Retrieves a specified document from the payment as a pdf.
 
-### Get names of all documents for an order - [getPaymentDocumentNames](get-payment-document-names)
+### Get names of all documents for an order - [getPaymentDocumentNames](/after-shop-service-api/get-payment-document-names/)
 Retrieves the document names available for the payment.
 
 ### Issue cutomer identification token
@@ -97,9 +92,8 @@ after the initial identification is done.
 ### Invalidate Customer Identification Token
 Invalidates customer identification token(s).
 
-** **
-
-### Available actions, depending on status and amount.
+### Available actions
+Available actions, depending on status and amount.
 
 |      **getPayment**      | getPaymentResponse\<status\>DEBITABLE\<status\> | getPaymentResponse\<status\>CREDITABLE\<status\> | getPaymentResponse \<status\>DEBITABLE\<status\>\<status\>CREDITABLE\<status\> |
 |:------------------------:|:-----------------------------------------------:|:------------------------------------------------:|:------------------------------------------------------------------------------:|
@@ -139,11 +133,12 @@ Invalidates customer identification token(s).
 | Annulment part order        |      YES       |        YES         |         YES         |       NO        |                               NO                                |
 | Additional Debit of Payment |      YES       |        YES         |         YES         |       NO        |                               NO                                |
 
-### General setup for *orderstatus* at Resurs Bank.
+### General setup
+General setup for *orderstatus* at Resurs Bank.
 You can use this when mapping your own system´s orderstatus to Resurs
 *orderstatus*.  
 Make a
-[SOAP](get-payment) or [REST](https://test.resurs.com/docs/display/ecom/Resurs+Checkout#ResursCheckout-/payments/%7BorderReference%7D-GET) for
+[SOAP](/after-shop-service-api/get-payment/) or [REST](https://rco.integration.resurs.com/docs/) for
 current order, to determine the current order status.
 
 | Orderstatus at Resurs               | Case                                                                                                       |
