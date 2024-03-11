@@ -7,8 +7,7 @@ parent: Merchant Api 2.0
 
 
 # Merchant API POS 
-Created by Sara Wintherfrid Josefsson, last modified by Patric Johnsson
-on 2024-01-25
+
 > Generic, explanational documentationPlease note that the flow and its
 > requests below is an example and other flows or variations may exist.
 > Please advice with onboarding@resurs.se regarding specific actions
