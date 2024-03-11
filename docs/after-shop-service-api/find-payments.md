@@ -8,7 +8,7 @@ parent: After Shop Service Api
 
 # Find Payments 
 
-##  findPayments
+## findPayments
 *Searches for payments that match the specified requirements.*
 
 **Input (Literal)**
