@@ -9,7 +9,7 @@ parent: After Shop Service Api
 # Additional Debit of Payment 
 
 
-# additionalDebitOfPayment
+## additionalDebitOfPayment
 *Makes a new, additional debit on an existing payment. This reserves the
 amount on the customer's account. NB: If it is a credit payment, there
 must be room for the additional debit within the limit.*

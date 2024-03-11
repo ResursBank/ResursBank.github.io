@@ -9,7 +9,7 @@ parent: After Shop Service Api
 # Get Payment Document (PDF) 
 
 
-# getPaymentDocument
+## getPaymentDocument
 *Retrieves a specified document from the payment.*
 
 **Input (Literal)**
