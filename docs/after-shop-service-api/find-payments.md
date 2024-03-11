@@ -7,35 +7,35 @@ parent: After Shop Service Api
 
 
 # Find Payments 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-21
-#  findPayments
+
+##  findPayments
 *Searches for payments that match the specified requirements.*
 
 **Input (Literal)**
 
 | Name            | Type                                  | Occurs | Nillable? | Description                             |
 |-----------------|---------------------------------------|--------|-----------|-----------------------------------------|
-| searchCriteria  | [**searchCriteria**](searchcriteria)  | 1..1   | No        | The search criteria.                    |
+| searchCriteria  | [**searchCriteria**](/development/api-types/searchcriteria/)  | 1..1   | No        | The search criteria.                    |
 | pageNumber      | positiveInteger                       | 0..1   | No        | The desired page number.                |
 | itemsPerPage    | positiveInteger                       | 0..1   | No        | The number of items to return per page. |
-| sortBy          | [**sortOrder**](sortorder)            | 0..1   | No        | The sort order of the results.          |
+| sortBy          | [**sortOrder**](/development/api-types/sortorder/)            | 0..1   | No        | The sort order of the results.          |
 
 **Output (Literal)**
 
 | Name   | Type                              | Occurs | Nillable? | Description                                             |
 |--------|-----------------------------------|--------|-----------|---------------------------------------------------------|
-| return | [**basicPayment**](basicpayment)  | 0..\*  | No        | The of payments matching the specified search criteria. |
+| return | [**basicPayment**](/development/api-types/basicpayment/)  | 0..\*  | No        | The of payments matching the specified search criteria. |
 
 **Faults**
 
 | Name                     | Content                                | Description                                           |
 |--------------------------|----------------------------------------|-------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](ecommerceerror)**   | Failed to search for payments. See error for details. |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**   | Failed to search for payments. See error for details. |
 
 Searches for payments that matches the specified requirements and
 returns the payments matching the specified search criteria. If you know
 the identity of the payment you are looking for, it is better to use the
-[getPayment method](get-payment).
+[getPayment method](/after-shop-service-api/get-payment/).
 
 The search may consist of information like governmentId, customer name,
 paymentmethodId etc. You can specify the search criteria as much or as
