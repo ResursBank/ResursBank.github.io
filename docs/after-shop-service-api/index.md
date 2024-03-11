@@ -24,9 +24,9 @@ has_children: true
   getPaymentDocument](/after-shop-service-api/getpaymentdocument/)
 - [Get names of all documents for an order -
   getPaymentDocumentNames](/after-shop-service-api/get-payment-document-names/)
-- [Issue cutomer identification token](/after-shop-service-api/#issueCustomerIdentificationToken)
+- [Issue cutomer identification token](#issue-cutomer-identification-token)
 - [Invalidate Customer Identification Token -
-  invalidateCustomerIdentificationToken](#aftershopserviceapi-invalidatecustomeridentificationtoken-invalidatecustomeridentificationtoken)
+  invalidateCustomerIdentificationToken](#invalidate-customer-identification-token)
 - [Available actions, depending on status and
   amount.](#aftershopserviceapi-availableactions,dependingonstatusandamount.)
 - [General setup for orderstatus at Resurs
@@ -85,7 +85,7 @@ Retrieves a specified document from the payment as a pdf. [
 ### Get names of all documents for an order - [getPaymentDocumentNames](get-payment-document-names)
 Retrieves the document names available for the payment.
 
-### [Issue cutomer identification token](#issueCustomerIdentificationToken)
+### Issue cutomer identification token
 Issues a customer identification token that can identify this customer
 in further operations.  
 These functions do require the customer to be identified, and they
@@ -94,7 +94,7 @@ Tokens are intended to be saved with the user profile in the webshop.
 In this way we delegate identification of the customer to the webshop
 after the initial identification is done.
 
-### Invalidate Customer Identification Token - [invalidateCustomerIdentificationToken](/docs/pages/createpage.action?spaceKey=ecom&title=Invalidate+Customer+Identification+Token&linkCreation=true&fromPageId=327799)
+### Invalidate Customer Identification Token
 Invalidates customer identification token(s).
 
 ** **
