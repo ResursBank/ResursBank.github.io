@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Get Payment Document (Pdf)
-permalink: /after-shop-service-api/1474974/
+permalink: /after-shop-service-api/g/
 parent: After Shop Service Api
 ---
 
