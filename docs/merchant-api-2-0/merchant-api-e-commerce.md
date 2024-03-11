@@ -151,7 +151,7 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 > "failUrl": "{{fail_url_customer}}", "successUrl":
 > "{{success_url_customer}}" }, "timeToLiveInMinutes": 120 } }
 
-#### Create payment responses and what to do next
+### Create payment responses and what to do next
 status:
 TASK_REDIRECTION_REQUIRED → redirect customer to "customerUrl" and await callback. 
 Callbacks with callback-status AUTHORIZED, REJECTED, FROZEN or CAPTURED can be received before or after redirection is performed. 
