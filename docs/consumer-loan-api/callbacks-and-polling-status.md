@@ -7,7 +7,7 @@ parent: Consumer Loan Api
 
 
 # Callbacks and polling status 
-Created by Patric Johnsson, last modified by Bobil Poli on 2023-03-15
+
 There are two ways to get information regarding the loan status - to
 poll the loan application reference or to register a callbackURL which
 will automatically send you an update when a change is made to the
@@ -23,7 +23,7 @@ Below is both methods explained with example requests & responses.
 > testno, testdk, testfi will not work, since integrators will overwrite
 > eachothers callback-url.
 
-## **Retrieve status change with callback**
+## Retrieve status change with callback
 ### Register the callback-URL
 To set a callbackURL, you send in the desired URL in xml-format. The
 callbackUrl is to be sent in only once! See example below.  
@@ -147,7 +147,7 @@ below;
 }
 ```
 
-### **jwsData **
+### jwsData
 > ObserveUsing jwsData is optional!All questions regarding jwsData or
 > API-key is to be sent to support@resurs.se, not our usual email
 > onboarding@resurs.se
