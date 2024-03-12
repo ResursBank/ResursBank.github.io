@@ -1,23 +1,20 @@
 ---
 layout: page
-title: Bookpayment
+title: bookPayment
 permalink: /simplified-flow-api/bookpayment/
 parent: Simplified Flow Api
 ---
 
 
 # bookPayment 
-Created by Joachim Andersson, last modified by Thomas Tornevall on
-2023-12-21
-# bookPayment
-*Books the payment.  *
+*Books the payment.*
 
 **Input (Literal)**
 
 | Name         | Type                                     | Occurs | Nillable? | Description                                                                                                           |
 |--------------|------------------------------------------|--------|-----------|-----------------------------------------------------------------------------------------------------------------------|
-| paymentData  | **[paymentData](paymentdata)**           | 1..1   | No        | The data that is for the payment, e.g. payment method etc.                                                            |
-| orderData    | **[paymentSpec](paymentspec)**           | 1..1   | No        | The payment specifications. What the payment should handle, the amounts, spec lines etc.                              |
+| paymentData  | **[paymentData](/development/api-types/paymentdata/)**           | 1..1   | No        | The data that is for the payment, e.g. payment method etc.                                                            |
+| orderData    | **[paymentSpec](/development/api-types/paymentspec/)**           | 1..1   | No        | The payment specifications. What the payment should handle, the amounts, spec lines etc.                              |
 | metaData     |  [**mapEntry**](mapentry)                | 0..\*  | Yes       | Extra meta data for the payment. [Recognized metadata](recognized-metadata).                                          |
 | customer     | **[extendedCustomer](extendedcustomer)** | 1..1   | No        | The customer data. Here you specify the billing address, delivery address etc.                                        |
 | card         | **[cardData](carddata)**                 | 0..1   | Yes       | If the payment is related to a card/account, or if you apply for a new card/account.                                  |
