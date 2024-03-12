@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Bookpaymentstatus
+title: bookPaymentStatus
 permalink: /development/api-types/bookpaymentstatus/
 parent: Api Types
 grand_parent: Development
@@ -9,9 +9,7 @@ grand_parent: Development
 
 
 # bookPaymentStatus 
-Created by Joachim Andersson, last modified by Benny on 2017-02-22
-The different status that can be returned when using the [Simplified
-Flow API](simplified-flow-api)
+The different status that can be returned when using the [Simplified Flow API](/simplified-flow-api/)
 
 | Status Code | Description                                                                                                                                            |
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
