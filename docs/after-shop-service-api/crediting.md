@@ -33,7 +33,7 @@ annulled.)*
 | ECommerceErrorException  | [**ECommerceError** ](/development/api-types/ecommerceerror/)    | Failed to credit the payment. See error for details. |
 
 ### Introduction
-Credits the payment. This returns the payment amount from the
+Credits the payment. This returns <code>the payment</code> amount from the
 representative to the customer's account. For a payment to be credited,
 it must be finalized. (Non-finalized payments have to be annulled.) If
 you are unsure when to use this method, read more about [Annulment and

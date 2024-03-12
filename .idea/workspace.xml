@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89c2e868-ebcb-4868-9efe-f7135f739443" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/css/Inter-VariableFont_slnt,wght.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/Montserrat-Italic-VariableFont_wght.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/Montserrat-VariableFont_wght.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/broker-application-flow-denmark.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/broker-application-flow-denmark.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/merchant-api-e-commerce.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/merchant-api-e-commerce.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/merchant-api-pos.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/merchant-api-pos.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/payment-management.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/payment-management.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/physical-agreement-finland.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/physical-agreement-finland.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/color_schemes/resurs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/color_schemes/resurs.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/crediting.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/crediting.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/testing/test-data---norway/testing-vipps.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/testing/test-data---norway/testing-vipps.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,21 +35,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/nanaki/projects/github.io&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/nanaki/projects/github.io/assets/css",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/css" />
+      <recent name="$PROJECT_DIR$/_sass/color_schemes" />
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/_exclude" />
     </key>
@@ -69,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1709714875157</updated>
       <workItem from="1709714876203" duration="21382000" />
-      <workItem from="1710137083760" duration="7303000" />
+      <workItem from="1710137083760" duration="14315000" />
     </task>
     <servers />
   </component>

@@ -2,7 +2,7 @@
 layout: page
 title: Testing Vipps
 permalink: /testing/test-data---norway/testing-vipps/
-parent: Test Data   Norway
+parent: Test Data - Norway
 grand_parent: Testing
 ---
 
