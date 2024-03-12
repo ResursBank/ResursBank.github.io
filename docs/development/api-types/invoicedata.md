@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Invoicedata
+title: invoiceData
 permalink: /development/api-types/invoicedata/
 parent: Api Types
 grand_parent: Development
@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # invoiceData 
-Created by Joachim Andersson, last modified by Tobias on 2019-06-24
+
 invoiceData is used when you specify the data when a paymentmethod is an
 Invoice.
 
