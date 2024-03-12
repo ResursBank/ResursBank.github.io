@@ -1,19 +1,13 @@
 ---
 layout: page
-title: Getpaymentmethods
+title: getpaymentMethods
 permalink: /simplified-flow-api/getpaymentmethods/
 parent: Simplified Flow Api
 ---
 
 
 # getPaymentMethods 
-Created by Tobias, last modified by Thomas Tornevall on 2023-10-17
-** **
-
-**getPaymentMethods**
-*Retrieves detailed information on the payment methods available to the
-**[representative](https://test.resurs.com/docs/display/DD/Terminology)**
-. *
+*Retrieves detailed information on the payment methods available to the representative(merchant, shop).*
 
 **Input (Literal)**  
 
