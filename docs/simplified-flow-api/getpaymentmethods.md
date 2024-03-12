@@ -13,7 +13,7 @@ parent: Simplified Flow Api
 
 | Name           | Type   | Occurs | Nillable? | Description                                                                                                                                                                  |
 |----------------|--------|--------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| language       | String | 0..1   | Yes       | The language code as defined by the ISO 639-1 standard, *optional*. If not specified the default language of the representatives country will be used*.'\[sv, no, da, fi\]'* |
+| language       | String | 0..1   | Yes       | The language code as defined by the ISO 639-1 standard, *optional*. If not specified the default language of the representatives country will be used (sv,no,da,fi). |
 | customerType   | String | 0..1   | Yes       | Filter Payment Methods based on the CustomerType, *optional. '\[NATURAL, LEGAL\]'*                                                                                           |
 | purchaseAmount | String | 0..1   | Yes       | Filter Payment Method based on the puarchaseAmount, *optional.*                                                                                                              |
 
@@ -21,13 +21,13 @@ parent: Simplified Flow Api
 
 | Name   | Type                                   | Occurs | Nillable? | Description                                                           |
 |--------|----------------------------------------|--------|-----------|-----------------------------------------------------------------------|
-| return | ** [paymentMethod](paymentmethod) **   | 0..\*  | No        | Return a list of all payment methods available to the representative. |
+| return | **[paymentMethod](/development/api-types/paymentmethod/)**   | 0..\*  | No        | Return a list of all payment methods available to the representative. |
 
 **Faults**
 
 | Name                    | Content                              | Description                                                    |
 |-------------------------|--------------------------------------|----------------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](ecommerceerror)** | Failed to retrieve the payment methods. See error for details. |
+| ECommerceErrorException | **[ECommerceError](/development/api-types/ecommerceerror/)** | Failed to retrieve the payment methods. See error for details. |
 
 ### Introduction
 Each payment consist of:
@@ -38,12 +38,8 @@ Each payment consist of:
 - minLimit & maxLimit: The payment method can only be used for purchases
   between these values.
 - A specificType. This might be:
-  - INVOICE: Essentially an [installment
-    credit](http://en.wikipedia.org/wiki/Installment_credit). Generates
-    a PDF invoice when [finalized](after-shop-service-api)
-  - REVOLVING_CREDIT: [Revolving
-    credit](http://en.wikipedia.org/wiki/Revolving_credit)s and
-    installment payments which do ***not*** generate invoices, in most
+  - INVOICE: Essentially an installment credit. Generates a PDF invoice when [finalized](/after-shop-service-api/finalize-payment/)
+  - REVOLVING_CREDIT: Revolving credits and installment payments which do ***not*** generate invoices, in most
     cases this is a new Resurs Bank card.
   - CARD: A Resurs Bank card
   - PART_PAYMENT: You get the first payment slip the month after the
@@ -56,7 +52,7 @@ Each payment consist of:
   This is a legal requirement.
 
 Since payment methods do not contain information such as
-[**logos**](https://test.resurs.com/docs/display/ecom/Logotypes),
+[**logos**](https://www.resursbank.se/om-oss/press-media/bildbank),
 descriptions, fees, etc., it is likely that the webshop has to store the
 information about the methods of payment locally. The payment methods
 should be cached for about 24 hours to improve user experience by
