@@ -17,6 +17,10 @@ plans per payment method.
 
 
 **Input (Literal)**
+| Name                    | Content                                  | Description                                                        |
+|-------------------------|------------------------------------------|--------------------------------------------------------------------|
+| ECommerceErrorException | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to retrieve the address information. See error for details. |
+
 
 | Name            | Type | Occurs | Nillable? | Description  |
 |-----------------|------|--------|-----------|--------------|
