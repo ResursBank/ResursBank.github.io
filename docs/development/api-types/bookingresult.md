@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # bookingResult 
-Created by Benny, last modified on 2017-02-22
+
 The result of the payment booking attempt.  
 Contains elements as defined in the following table.
 
