@@ -8,7 +8,7 @@ has_children: true
 
 # Testing 
 
-> TESTING IN PRODUCTION ENVIRONMENTSAvoid running tests in the live
+> TESTING IN PRODUCTION ENVIRONMENTS Avoid running tests in the live
 > environment. Read more below.Usually representatives and integrators
 > are tempted to run tests in the live enviroment. Please don't The main
 > consequence is that credit applications are made and these are saved
@@ -16,7 +16,7 @@ has_children: true
 > these old applications will be weighted in. A lot of credit
 > applications in a short period of time looks suspicious.  
 
-> PS!Note that the test data does not work for Store Solution API, only
+> PS! Note that the test data does not work for Store Solution API, only
 > our ecommerce flows as well as Resurs Checkout POS/PUSH.
 
 Resources for testing the integration are collected here.
