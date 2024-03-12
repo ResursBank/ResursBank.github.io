@@ -52,8 +52,7 @@ Maximum limit / purchase is € 5000.
 | 9000 0000 0000 2500 | 100370-897V     | 2500 |
 | 9000 0000 0000 5000 | 100370-897V     | 5000 |
 
-### To test VISA/Mastercard please see
-:[https://shop.nets.eu/web/partners/test-cards](https://shop.nets.eu/web/partners/test-cards)
+#### To test VISA/Mastercard please see :[https://shop.nets.eu/web/partners/test-cards](https://shop.nets.eu/web/partners/test-cards)
 
 ### Account
 Account, with the option set in the payment method to use only
