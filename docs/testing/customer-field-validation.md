@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Customer Field Validation (Regex)
-permalink: /testing/Customer Field Validation/
+permalink: /testing/customer-field-validation/
 parent: Testing
 ---
 
