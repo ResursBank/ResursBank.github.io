@@ -61,8 +61,7 @@ reducing loading time.
 **Resurs Bank may add/remove payment methods. A payment method is
 withdrawn from this listing 6 hours before it stops to work.**
 
-### Code example - response from server
-**getPaymentMethodsResponse**
+### Response: getPaymentMethodsResponse
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
