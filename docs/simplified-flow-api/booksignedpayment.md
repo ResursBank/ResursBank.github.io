@@ -13,7 +13,7 @@ parent: Simplified Flow Api
 
 | Name      | Type                        | Occurs | Nillable? | Description            |
 |-----------|-----------------------------|--------|-----------|------------------------|
-| paymentId | ** [id](/development/api-types/simple-types/) ** | 1..1   | No        | The ID for the payment |
+| paymentId | **[id](/development/api-types/simple-types/)** | 1..1   | No        | The ID for the payment |
 
 **Output (Literal)**
 
