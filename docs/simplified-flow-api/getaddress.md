@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Getaddress (Se)
+title: getaddress (Se)
 permalink: /simplified-flow-api/4653085/
 parent: Simplified Flow Api
 ---
 
 
-# getAddress (SE) 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-21
+## getAddress (SE) 
+
 **customerType**
 
 Description: The type of customer.
