@@ -43,9 +43,6 @@ optional right now, but in short notice this will be required
 | customerType      | **[customerType](/development/api-types/customertype/)** | 0..1   | No        | The type of customer to retrieve. In many cases, this is easily determined from the government identity, but for Swedish companies in sole proprietorship, the same identity is used for both the person as a natural customer, and the company as a legal customer. |
 | customerIpAddress | string                           | 0..1   | No        | The IP address from which the customer has accessed the service. To prevent bashing. This parameter is mandatory even if it has minOccurs set to zero.                                                                                                               |
 
-**  
-**
-
 **Output(Literal)**
 
 | Name   | Type                   | Occurs | Nillabel? | Description                                     |
