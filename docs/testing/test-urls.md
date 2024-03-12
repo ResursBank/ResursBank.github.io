@@ -7,28 +7,27 @@ parent: Testing
 
 
 # Test URLs 
-Created by Tobias, last modified by Thomas Tornevall on 2022-04-05
 > Looking for production/live environment?You can find the live URLs
 > here: URLs for prod/live with important checklist
 
-- [Firewalling](#testurls-firewalling)
-- [Payment Admin](#testurls-paymentadmin)
-- [Merchant Portal](#testurls-merchantportal)
-- [Test URLs](#testurls-testurls)
-  - [Resurs Checkout](#testurls-resurscheckout)
-  - [Hosted flow](#testurls-hostedflow)
-  - [Webservices](#testurls-webservices)
-    - [WSDL files](#testurls-wsdlfiles)
-      - [Simplified Shop Flow:](#testurls-simplifiedshopflow:)
-      - [After Shop Flow:](#testurls-aftershopflow:)
-      - [Configuration:](#testurls-configuration:)
-      - [Developer:](#testurls-developer:)
+- [Firewalling](#firewalling)
+- [Payment Admin](#paymentadmin)
+- [Merchant Portal](#merchant-portal)
+- [Test URLs](#testurls)
+  - [Resurs Checkout](#resurs-checkout)
+  - [Hosted flow](#hosted-flow)
+  - [Webservices](#webservices)
+    - [WSDL files](#wsdl.files)
+      - [Simplified Shop Flow](#simplified-shop-flow)
+      - [After Shop Flow](#after-shop-flow)
+      - [Configuration](#configuration)
+      - [Developer](#developer)
 
-    - [Service endpoints](#testurls-serviceendpoints)
-      - [Simplified Shop Flow:](#testurls-simplifiedshopflow:.1)
-      - [After Shop Flow:](#testurls-aftershopflow:.1)
-      - [Configuration:](#testurls-configuration:.1)
-      - [Developer:](#testurls-developer:.1)
+    - [Service endpoints](#service-end-points)
+      - [Simplified Shop Flow:](#simplified-shop-flow)
+      - [After Shop Flow:](#aftershopflow)
+      - [Configuration:](#configuration)
+      - [Developer:](#developer)
 
 # Firewalling
 > How to configure firewallsDo you have a strictly configured
@@ -69,25 +68,25 @@ Web](resurs-checkout-web).
 #### Simplified Shop Flow:
 [https://test.resurs.com/ecommerce-test/ws/V4/SimplifiedShopFlowService?wsdl](https://test.resurs.com/ecommerce-test/ws/V4/SimplifiedShopFlowService?wsdl)
 
-#### After Shop Flow:
+#### After Shop Flow
 [https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService?wsdl](https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService?wsdl)
 
-#### Configuration:
+#### Configuration
 [https://test.resurs.com/ecommerce-test/ws/V4/ConfigurationService?wsdl](https://test.resurs.com/ecommerce-test/ws/V4/ConfigurationService?wsdl)
 
-#### Developer:
+#### Developer
 [https://test.resurs.com/ecommerce-test/ws/V4/DeveloperWebService?wsdl](https://test.resurs.com/ecommerce-test/ws/V4/DeveloperWebService?wsdl)
 
 ### Service endpoints
-#### Simplified Shop Flow:
+#### Simplified Shop Flow
 [https://test.resurs.com/ecommerce-test/ws/V4/SimplifiedShopFlowService](https://test.resurs.com/ecommerce-test/ws/V4/SimplifiedShopFlowService)
 
-#### After Shop Flow:
+#### After Shop Flow
 [https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService](https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService)
 
-#### Configuration:
+#### Configuration
 [https://test.resurs.com/ecommerce-test/ws/V4/ConfigurationService](https://test.resurs.com/ecommerce-test/ws/V4/ConfigurationService)
 
-#### Developer:
+#### Developer
 [https://test.resurs.com/ecommerce-test/ws/V4/DeveloperWebService](https://test.resurs.com/ecommerce-test/ws/V4/DeveloperWebService)
 
