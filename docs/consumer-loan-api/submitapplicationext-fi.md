@@ -7,9 +7,9 @@ parent: Consumer Loan Api
 
 
 # submitApplicationExt FI 
-Created by Thomas Tornevall, last modified by Bobil Poli on 2023-11-27
-# **FI**
-Click here to expand submitApplicationExt for Finland
+
+## Finland FI
+### Request: submitApplicationExt
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:app="http://consumerloan.resurs.com/v1/msg/application">
   <soapenv:Header/>
@@ -46,7 +46,7 @@ Click here to expand submitApplicationExt for Finland
   </soapenv:Body>
 </soapenv:Envelope>
 ```
-Click here to view form validation for Finland
+### Validation for Finland
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <resurs-form>
@@ -852,7 +852,7 @@ Click here to view form validation for Finland
     </element>
 </resurs-form>
 ```
-Click here to expand submitApplicationExtResponse example for Finland
+### Response: submitApplicationExtResponse
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
     <soap:Body>
