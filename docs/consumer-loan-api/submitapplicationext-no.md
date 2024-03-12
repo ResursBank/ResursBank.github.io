@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Submitapplicationext No
+title: submitApplicationExt NO
 permalink: /consumer-loan-api/submitapplicationext-no/
 parent: Consumer Loan Api
 ---
