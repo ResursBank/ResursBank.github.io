@@ -9,8 +9,8 @@ parent: Consumer Loan Api
 ## updateApplication 
 
 ### One or several fields can be sent / updated in the request. **(This request must be done prior to accepting the offer.)**
-Fields that can be updated are:
 
+Fields that can be updated are:
 -   applicantEmail
 -   coApplicantEmail
 -   account\>clearing  
