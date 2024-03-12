@@ -7,7 +7,7 @@ parent: Simplified Flow Api
 
 
 # bookSignedPayment 
-*Books a payment that has been signed.  *
+*Books a payment that has been signed.*
 
 **Input (Literal)**
 
