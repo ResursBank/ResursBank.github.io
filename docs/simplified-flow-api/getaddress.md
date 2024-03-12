@@ -1,7 +1,7 @@
 ---
 layout: page
-title: getaddress (Se)
-permalink: /simplified-flow-api/4653085/
+title: getAddress (Se)
+permalink: /simplified-flow-api/getaddress/
 parent: Simplified Flow Api
 ---
 
@@ -28,7 +28,7 @@ LEGAL (organization/company) firstname and lastname will be null
 (empty). This address my be used as billing - and delivery address. The
 customerIpAddress is to prevent address harvesting. We allow only a
 limited number of queries within a time frame. Bashing will result in an
-[error](328078) when the threshold is exceeded.
+[error](/development/errors--problem-solving-and-corner-cases/resurs-error-codes/) when the threshold is exceeded.
 
 # *getAddress*
 *Retrieves address information. Note that the customerType parameter is
@@ -40,7 +40,7 @@ optional right now, but in short notice this will be required
 | Name              | Type                             | Occurs | Nillable? | Description                                                                                                                                                                                                                                                          |
 |-------------------|----------------------------------|--------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | governmentId      | string                           | 1..1   | No        | The government identity of the customer for which to retrieve the address.                                                                                                                                                                                           |
-| customerType      | **[customerType](customertype)** | 0..1   | No        | The type of customer to retrieve. In many cases, this is easily determined from the government identity, but for Swedish companies in sole proprietorship, the same identity is used for both the person as a natural customer, and the company as a legal customer. |
+| customerType      | **[customerType](/development/api-types/customertype/)** | 0..1   | No        | The type of customer to retrieve. In many cases, this is easily determined from the government identity, but for Swedish companies in sole proprietorship, the same identity is used for both the person as a natural customer, and the company as a legal customer. |
 | customerIpAddress | string                           | 0..1   | No        | The IP address from which the customer has accessed the service. To prevent bashing. This parameter is mandatory even if it has minOccurs set to zero.                                                                                                               |
 
 **  
@@ -50,13 +50,13 @@ optional right now, but in short notice this will be required
 
 | Name   | Type                   | Occurs | Nillabel? | Description                                     |
 |--------|------------------------|--------|-----------|-------------------------------------------------|
-| return | **[address](address)** | 1..1   | No        | If a match could be made, the customer address. |
+| return | **[address](/development/api-types/address/)** | 1..1   | No        | If a match could be made, the customer address. |
 
 **Faults**
 
 | Name                    | Content                                  | Description                                                        |
 |-------------------------|------------------------------------------|--------------------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](ecommerceerror)**     | Failed to retrieve the address information. See error for details. |
+| ECommerceErrorException | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to retrieve the address information. See error for details. |
 
 The `customerType` and `customerIpAddress` parameters are **mandatory**
 even if the schema says they're not. (They where late additions, and we
