@@ -1,15 +1,15 @@
 ---
 layout: page
 title: Customer Field Validation (Regex)
-permalink: /testing/32833653/
+permalink: /testing/customer-field-validation/
 parent: Testing
 ---
 
 
 # Customer Field Validation (regex) 
-Created by Thomas Tornevall on 2020-05-28
+
 The correct location for this is in the Development section:
 
 [Customer data - Regular
-expressions](customer-data---regular-expressions)
+expressions](/development/customer-data---regular-expressions/)
 

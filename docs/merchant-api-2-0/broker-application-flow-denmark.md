@@ -7,8 +7,7 @@ parent: Merchant Api 2.0
 
 
 # Broker Application Flow Denmark 
-Created by Sara Wintherfrid Josefsson, last modified by Patric Johnsson
-on 2023-04-04
+
 # **Basic API flow**
 ## **Authentication**
 Every request requires an authorization header with a Bearer-token. A

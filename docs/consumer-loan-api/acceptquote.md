@@ -6,10 +6,11 @@ parent: Consumer Loan Api
 ---
 
 
-# acceptQuote 
-Created by Daniel, last modified on 2020-08-12
-## To accept an offer with the ACCEPT decision, the function "acceptQuote" should be used.
-### If information needs to be updated, use the ”[updateApplication](updateapplication)” operation. (**This needs to be done before acceptQuote)**
+## acceptQuote 
+
+### To accept an offer with the ACCEPT decision, the function "acceptQuote" should be used.
+#### If information needs to be updated, use the ”[updateApplication](/consumer-loan-api/updateapplication/)” operation.
+(**This needs to be done before acceptQuote)**
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:app="http://consumerloan.resurs.com/v1/msg/application">

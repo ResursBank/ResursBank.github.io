@@ -1,43 +1,40 @@
 ---
 layout: page
-title: Bookpayment
+title: bookPayment
 permalink: /simplified-flow-api/bookpayment/
 parent: Simplified Flow Api
 ---
 
 
 # bookPayment 
-Created by Joachim Andersson, last modified by Thomas Tornevall on
-2023-12-21
-# bookPayment
-*Books the payment.  *
+*Books the payment.*
 
 **Input (Literal)**
 
 | Name         | Type                                     | Occurs | Nillable? | Description                                                                                                           |
 |--------------|------------------------------------------|--------|-----------|-----------------------------------------------------------------------------------------------------------------------|
-| paymentData  | **[paymentData](paymentdata)**           | 1..1   | No        | The data that is for the payment, e.g. payment method etc.                                                            |
-| orderData    | **[paymentSpec](paymentspec)**           | 1..1   | No        | The payment specifications. What the payment should handle, the amounts, spec lines etc.                              |
-| metaData     |  [**mapEntry**](mapentry)                | 0..\*  | Yes       | Extra meta data for the payment. [Recognized metadata](recognized-metadata).                                          |
-| customer     | **[extendedCustomer](extendedcustomer)** | 1..1   | No        | The customer data. Here you specify the billing address, delivery address etc.                                        |
-| card         | **[cardData](carddata)**                 | 0..1   | Yes       | If the payment is related to a card/account, or if you apply for a new card/account.                                  |
-| signing      | **[signing](signing-object)**            | 1..1   | No        | For when a payment requires a Signing, contains customer URLs for a successful or failed signing.                     |
-| invoiceData  | **[invoiceData](invoicedata)**           | 0..1   | Yes       | The data for the invoice.                                                                                             |
+| paymentData  | **[paymentData](/development/api-types/paymentdata/)**           | 1..1   | No        | The data that is for the payment, e.g. payment method etc.                                                            |
+| orderData    | **[paymentSpec](/development/api-types/paymentspec/)**           | 1..1   | No        | The payment specifications. What the payment should handle, the amounts, spec lines etc.                              |
+| metaData     |  [**mapEntry**](/development/api-types/mapentry/)                | 0..\*  | Yes       | Extra meta data for the payment. [Recognized metadata](/development/recognized-metadata/).                                          |
+| customer     | **[extendedCustomer](/development/api-types/customer/extendedcustomer/)** | 1..1   | No        | The customer data. Here you specify the billing address, delivery address etc.                                        |
+| card         | **[cardData](/development/api-types/carddata/)**                 | 0..1   | Yes       | If the payment is related to a card/account, or if you apply for a new card/account.                                  |
+| signing      | **[signing](/development/api-types/signing-object/)**            | 1..1   | No        | For when a payment requires a Signing, contains customer URLs for a successful or failed signing.                     |
+| invoiceData  | **[invoiceData](/development/api-types/invoicedata/)**           | 0..1   | Yes       | The data for the invoice.                                                                                             |
 | storeId      | storeId                                  | 0..1   | No        | Used with permission from Resurs Bank, if you have a chain of stores. storeID defines which store in the chain it is. |
 
 **Output (Literal)**
 
 | Name   | Type                                     | Occurs | Nillable? | Description                        |
 |--------|------------------------------------------|--------|-----------|------------------------------------|
-| return |  [bookPaymentResult](bookpaymentresult)  | 1..1   | No        | The result of the payment booking. |
+| return |  [bookPaymentResult](/development/api-types/bookpaymentresult/)  | 1..1   | No        | The result of the payment booking. |
 
 **Faults**
 
 | Name                     | Content                                  | Description                                        |
 |--------------------------|------------------------------------------|----------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](ecommerceerror)**     | Failed to book the payment. See error for details. |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to book the payment. See error for details. |
 
-**Response** Expand source
+**Response** 
 ```xml
  <soapenv:Body>
       <sim:bookPayment>

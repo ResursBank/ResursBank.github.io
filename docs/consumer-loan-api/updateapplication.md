@@ -1,16 +1,16 @@
 ---
 layout: page
-title: Updateapplication
+title: updateApplication
 permalink: /consumer-loan-api/updateapplication/
 parent: Consumer Loan Api
 ---
 
 
-# updateApplication 
-Created by Daniel, last modified on 2021-06-15
-## One or several fields can be sent / updated in the request. **(This request must be done prior to accepting the offer.)**
-Fields that can be updated are:
+## updateApplication 
 
+### One or several fields can be sent / updated in the request. **(This request must be done prior to accepting the offer.)**
+
+Fields that can be updated are:
 -   applicantEmail
 -   coApplicantEmail
 -   account\>clearing  

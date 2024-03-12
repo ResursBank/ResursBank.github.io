@@ -7,17 +7,15 @@ has_children: true
 
 
 # Simplified Flow API 
-Created by Joachim Andersson, last modified by Thomas Tornevall on
-2023-12-21
+
 ### Get started
-1.  Get [Test URLs](test-urls)
+1.  Get [Test URLs](/testing/test-urls/)
 
 2.  Download soapUI and run some of the tests.
-3.  Figure out what functionality you'll need: [Concepts and
-    Domain](concepts-and-domain)
-4.  Setup your [development environment](development)
-5.  Start coding the [Shop flow](#simplifiedflowapi-shopflow).
-6.  Implement [Callbacks](callbacks)
+3.  Figure out what functionality you'll need.
+4.  Setup your [development environment](/development/)
+5.  Start coding the [Shop flow](/simplified-flow-api/).
+6.  Implement callbacks.
 > HTTPS and certificateNote that we only support HTTPS, both in test and
 > production environment. You must have a valid and issued (not self
 > signed) certificate for this.
@@ -26,14 +24,13 @@ Created by Joachim Andersson, last modified by Thomas Tornevall on
 The examples below demonstrates how to interact with the Application
 Service.
 
-Authentication is done by using the http [basic authentication
-mechanism](https://en.wikipedia.org/wiki/Basic_access_authentication).
+Authentication is done by using the ***http basic authentication***.
 
-### **1. Get all available payment methods** - [getPaymentMethods](getpaymentmethods)
+### 1. Get all available payment methods - [getPaymentMethods](/simplified-flow-api/getpaymentmethods/)
 This call can be cached for 24 hours.
 
-Click here to expand: Request and Response for API getPaymentMethodes
-**Request getPaymentMethodes**
+#### Request and Response for API getPaymentMethodes
+Request: getPaymentMethodes
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://ecommerce.resurs.com/v4/msg/simplifiedshopflow">
     <soapenv:Header/>
@@ -49,7 +46,7 @@ Click here to expand: Request and Response for API getPaymentMethodes
     </soapenv:Body>  
 </soapenv:Envelope> 
 ```
-**Response getPaymentMethodsResponse**
+Response: getPaymentMethodsResponse
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
@@ -124,17 +121,16 @@ corresponding price information links.
 For each payment methode a "[read
 more...](https://test.resurs.com/priceinfo-mock/prisskyltning.html?countryCode=SE&authorizedBankproductId=LG686069&cardType=&storeId=107&representativeId=107&creditAmount=4995)"
 is required. Use the price information links from getPaymentMethodes or
-present html from  [getCostOfPurchaseHtml](getcostofpurchasehtml) in a
+present html from  [getCostOfPurchaseHtml](/simplified-flow-api/getcostofpurchasehtml/) in a
 pop-up.  
 Present the Payment Methods in the same order as in response from
 getPaymentMethodes.
 
-### 2. Fetch customer address:
-### - [getAddress (SE)](4653085)
+### 2. Fetch customer address: - [getAddress (SE)](/simplified-flow-api/getaddress/)
 Enter goverment id.
 
-Click here to expand: Request and Response for API getAddress
-**Request getAddress**
+#### Request and Response for API getAddress
+Request: getAddress
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://ecommerce.resurs.com/v4/msg/simplifiedshopflow">
    <soapenv:Header/>
@@ -146,7 +142,7 @@ Click here to expand: Request and Response for API getAddress
    </soapenv:Body>
 </soapenv:Envelope> 
 ```
-**Response getAddress**
+Response: getAddress
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
@@ -164,41 +160,8 @@ Click here to expand: Request and Response for API getAddress
    </soap:Body>
 </soap:Envelope> 
 ```
-### - [getAddressByPhone (NO)](https://test.resurs.com/docs/pages/viewpage.action?pageId=29491396)
-Enter phonenumber
 
-Click here to expand: Request and Response for API getAddressByPhone
-**Request getAddressByPhone**
-```xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://ecommerce.resurs.com/v4/msg/simplifiedshopflow">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <sim:getAddressByPhone>
-         <phoneNumber>40000001</phoneNumber>
-         <customerIpAddress>80.80.80.80</customerIpAddress>
-      </sim:getAddressByPhone>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-**Response getAddressByPhone**
-```xml
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-   <soap:Body>
-      <ns3:getAddressResponse xmlns:ns3="http://ecommerce.resurs.com/v4/msg/simplifiedshopflow" xmlns:ns2="http://ecommerce.resurs.com/v4/msg/exception">
-         <return>
-            <fullName>Bjarne Bock Krohg</fullName>
-            <firstName>Bjarne</firstName>
-            <lastName>Krohg</lastName>
-            <addressRow1>Prinsens Gate 14</addressRow1>
-            <postalArea>Bergen</postalArea>
-            <postalCode>5014</postalCode>
-            <country>NO</country>
-         </return>
-      </ns3:getAddressResponse>
-   </soap:Body>
-</soap:Envelope>
-```
-### 3. Book a payment - [bookPayment](bookpayment)
+### 3. Book a payment - [bookPayment](/simplified-flow-api/bookpayment/)
 Book payment flow
 ![](../../attachments/1476359/59342908.png)
 
@@ -208,14 +171,14 @@ billing address the field deliveryAddress is used. This will trigger a
 customer authentication.
 
 - Enter customer information. (See our [Customer data - Regular
-  expressions](customer-data---regular-expressions) for different
+  expressions](/development/customer-data---regular-expressions/) for different
   fields.)
 - Select a Resurs Bank payment method.
 - Enter additional information the shop might want.
 - Confirm purchase.
 
-Click here to expand: Request and Response for API bookPayment
-**Request bookPayment**
+#### Request and Response for API bookPayment
+Request: bookPayment
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
   <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -307,7 +270,7 @@ Click here to expand: Request and Response for API bookPayment
   </s:Body>
 </s:Envelope>
 ```
-**Response**
+Response: bookPaymentResponse
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
@@ -355,11 +318,11 @@ bookPaymentStatus:
   the customer and the flow stops. Another payment method without
   credit might work for the customer.
 
-### 4. Book signed payment - [bookSignedPayment](booksignedpayment)
+### 4. Book signed payment - [bookSignedPayment](/simplified-flow-api/booksignedpayment/)
 After a successful signing the order needs to be booked:
 
-Click here to expand: Request and response for bookSignedPayment
-**Request**
+#### Request and response for bookSignedPayment
+Request: bookSignedPayment
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://ecommerce.resurs.com/v4/msg/simplifiedshopflow">    
    <soapenv:Header/>    
@@ -370,7 +333,7 @@ Click here to expand: Request and response for bookSignedPayment
    </soapenv:Body> 
 </soapenv:Envelope>
 ```
-**Response**
+Response: bookPaymentResponse
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
@@ -401,11 +364,10 @@ Click here to expand: Request and response for bookSignedPayment
 </soap:Envelope>
 ```
 ### The purchase is now booked, finalized, frozen or denied.
-You can choose to manage the order in [Resurs Merchant
-Portal](manipulate-payments-in-merchant-portal) gui, or by using Resurs
-Order Management API [After Shop Service](after-shop-service-api) .
+You can choose to manage the order in Resurs Merchant
+Portal gui, or by using Resurs Order Management API [After Shop Service](/after-shop-service-api/) .
 
-### Implement [Callbacks](parameters-and-callbacks)
+### Implement Callbacks
 
 ![](../../attachments/1476359/128286761.png)
 

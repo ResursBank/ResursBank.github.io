@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # signing object 
-Created by Joachim Andersson, last modified by Gert on 2021-08-31
+
 The signing URLs when a signing is required.
 
 > The URL's must not contain pipes ("\|") since they will not work in

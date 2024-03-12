@@ -7,7 +7,7 @@ parent: Consumer Loan Api
 
 
 # getApplicationQuote 
-Created by Daniel, last modified on 2023-11-10
+
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:app="http://consumerloan.resurs.com/v1/msg/application">
    <soapenv:Header/>

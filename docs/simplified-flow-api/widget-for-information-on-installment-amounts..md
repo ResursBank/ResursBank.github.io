@@ -7,7 +7,7 @@ parent: Simplified Flow Api
 
 
 # Widget for information on installment amounts. 
-Created by Benny, last modified on 2018-06-12
+
 If you want to dislay a "pay from xx per month" information on the
 product pages, a good idea is to create a widget for configuration.
 

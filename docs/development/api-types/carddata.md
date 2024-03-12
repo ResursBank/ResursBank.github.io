@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Carddata
+title: cardData
 permalink: /development/api-types/carddata/
 parent: Api Types
 grand_parent: Development
@@ -9,8 +9,7 @@ grand_parent: Development
 
 
 # cardData 
-Created by Joachim Andersson, last modified by Thomas Tornevall on
-2023-12-27
+
  The card payment specification data. Can be used for both card and
 account.
 

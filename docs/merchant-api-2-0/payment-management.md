@@ -6,9 +6,8 @@ parent: Merchant Api 2.0
 ---
 
 
-# Payment Management 
-Created by Sara Wintherfrid Josefsson, last modified by Patric Johnsson
-on 2023-07-04
+## Payment Management 
+
 
 | Callback Status | Possible Actions                                 |
 |:----------------|:-------------------------------------------------|
@@ -17,13 +16,13 @@ on 2023-07-04
 | FROZEN          | await for callback-status AUTHORIZED or REJECTED |
 
 **What can I find here?**
-- [Capture payment](#paymentmanagement-capturepayment)
-- [Refund payment](#paymentmanagement-refundpayment)
-- [Cancel payment](#paymentmanagement-cancelpayment)
+- [Capture payment](#capture-payment)
+- [Refund payment](#refund-payment)
+- [Cancel payment](#cancel-payment)
 - [Postman-collection of the requests
-  above](#paymentmanagement-postman-collectionoftherequestsabove)
+  above](#postman-collection-of-the-requests-above)
 
-# **Capture payment**
+## Capture payment
 This call is used to capture a payment after the payment is created.  
 If no order lines are supplied, then all not yet captured order lines
 will be captured. 
@@ -44,7 +43,7 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 > "quantityUnit": "pcs", "vatRate": 25, "totalAmountIncludingVat": 500.0
 > } \] }
 
-# **Refund payment**
+## Refund payment
 This call is used to refund a payment that is captured.   
 If no order lines are supplied, then all captured not yet refunded order
 lines will be refunded. 
@@ -65,7 +64,7 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 > "quantityUnit": "pcs", "vatRate": 25, "totalAmountIncludingVat": 500.0
 > } \] }
 
-# **Cancel payment**
+## Cancel payment
 This call is used to cancel a payment that is created but not yet
 captured.   
 If no order lines are supplied, everything that can be canceled will be
@@ -87,8 +86,208 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 > "quantityUnit": "pcs", "vatRate": 25, "totalAmountIncludingVat": 500.0
 > } \] }
 
-# **Postman-collection of the requests above**
-**[![](download/resources/com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-resources/images/placeholder-medium-file.png)Merchant
-API2 Payment
-management.json](/docs/download/attachments/91029652/Merchant%20API2%20Payment%20management.json?version=1&modificationDate=1688462138000&api=v2)**
-
+### Postman collection of the requests above
+```json
+{
+	"info": {
+		"_postman_id": "57f6d60b-5681-4400-a608-29cd81f37add",
+		"name": "Payment management for partners",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Capture Payment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log('Capture payment v2');",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{myTokenPaymentV2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"creator\": \"salesperson/system\",\n  \"orderLines\": [\n    {\n        \"description\": \"Book\",\n        \"quantity\": 1,\n        \"quantityUnit\": \"pcs\",\n        \"vatRate\": 25,\n        \"totalAmountIncludingVat\": 500.0\n        }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://merchant-api.integration.resurs.com/v2/payments/{{payment_id}}/capture",
+					"protocol": "https",
+					"host": [
+						"merchant-api",
+						"integration",
+						"resurs",
+						"com"
+					],
+					"path": [
+						"v2",
+						"payments",
+						"{{payment_id}}",
+						"capture"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refund Payment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log('Capture payment v2');",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{myTokenPaymentV2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"creator\": \"salesperson/system\",\n  \"orderLines\": [\n    {\n        \"description\": \"Book\",\n        \"quantity\": 1,\n        \"quantityUnit\": \"pcs\",\n        \"vatRate\": 25,\n        \"totalAmountIncludingVat\": 500.0\n        }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://merchant-api.integration.resurs.com/v2/payments/{{payment_id}}/refund",
+					"protocol": "https",
+					"host": [
+						"merchant-api",
+						"integration",
+						"resurs",
+						"com"
+					],
+					"path": [
+						"v2",
+						"payments",
+						"{{payment_id}}",
+						"refund"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Payment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log('Cancel payment v2');",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{myTokenPaymentV2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"creator\": \"salesperson/system\",\n  \"orderLines\": [\n    {\n        \"description\": \"Book\",\n        \"quantity\": 1,\n        \"quantityUnit\": \"pcs\",\n        \"vatRate\": 25,\n        \"totalAmountIncludingVat\": 500.0\n        }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://merchant-api.integration.resurs.com/v2/payments/{{payment_id}}/cancel",
+					"protocol": "https",
+					"host": [
+						"merchant-api",
+						"integration",
+						"resurs",
+						"com"
+					],
+					"path": [
+						"v2",
+						"payments",
+						"{{payment_id}}",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
+```

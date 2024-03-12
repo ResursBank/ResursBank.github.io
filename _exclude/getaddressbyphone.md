@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Getaddressbyphone (No)
-permalink: /simplified-flow-api/29491396/
+title: getAddressByPhone (No)
+permalink: /simplified-flow-api/getaddressbyphone/
 parent: Simplified Flow Api
 ---
 
