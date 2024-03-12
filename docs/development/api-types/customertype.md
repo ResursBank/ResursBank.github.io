@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # customerType 
-Created by Benny, last modified on 2017-02-22
+
 **customerType**
 
 Description: The type of customer.
