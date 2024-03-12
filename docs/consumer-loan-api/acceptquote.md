@@ -9,7 +9,7 @@ parent: Consumer Loan Api
 ## acceptQuote 
 
 ### To accept an offer with the ACCEPT decision, the function "acceptQuote" should be used.
-#### If information needs to be updated, use the ”[updateApplication](/consumer-loan-api/updateapplication/)” operation. 
+#### If information needs to be updated, use the ”[updateApplication](/consumer-loan-api/updateapplication/)” operation.
 (**This needs to be done before acceptQuote)**
 
 ```xml
