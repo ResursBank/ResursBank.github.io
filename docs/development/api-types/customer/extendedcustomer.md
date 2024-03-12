@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Extendedcustomer
+title: extendedCustomer
 permalink: /development/api-types/customer/extendedcustomer/
 parent: Api Types
 grand_parent: Development
@@ -9,8 +9,7 @@ grand_parent: Development
 
 
 # extendedCustomer 
-Created by Joachim Andersson, last modified by Thomas Tornevall on
-2023-12-21
+
 Extended Customer is an extension of the Customer, it is used in the
 Simplified Shop Flow
 
