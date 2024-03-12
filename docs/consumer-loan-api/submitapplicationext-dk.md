@@ -1,15 +1,14 @@
 ---
 layout: page
-title: Submitapplicationext Dk
+title: submitApplicationExt DK
 permalink: /consumer-loan-api/submitapplicationext-dk/
 parent: Consumer Loan Api
 ---
 
 
 # submitApplicationExt DK 
-Created by Daniel, last modified on 2023-11-13
-# **DK**
-Click here to expand submitApplicationExt for Denmark
+
+## Denmark DK
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:app="http://consumerloan.resurs.com/v1/msg/application">
    <soapenv:Header/>
