@@ -1,15 +1,15 @@
 ---
 layout: page
-title: Submitapplicationext Se
+title: submitApplicationExt SE
 permalink: /consumer-loan-api/submitapplicationext-se/
 parent: Consumer Loan Api
 ---
 
 
 # submitApplicationExt SE 
-Created by Daniel, last modified on 2023-11-10
-# **SE**
-Click here to expand submitApplicationExt for Sweden
+
+## Sweden SE
+### Request: submitApplicationExt
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:app="http://consumerloan.resurs.com/v1/msg/application">
   <soapenv:Header/>
@@ -42,7 +42,7 @@ Click here to expand submitApplicationExt for Sweden
   </soapenv:Body>
 </soapenv:Envelope>
 ```
-Click here to view form validation for Sweden
+### Validation for Sweden
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <resurs-form>
@@ -746,7 +746,7 @@ Click here to view form validation for Sweden
     </element>
 </resurs-form>
 ```
-Click here to expand submitApplicationExtResponse example for Sweden
+### Response: submitApplicationExtResponse
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
@@ -771,7 +771,7 @@ Click here to expand submitApplicationExtResponse example for Sweden
    </soap:Body>
 </soap:Envelope>
 ```
-Click here to expand deliveryComplete for Sweden
+### deliveryComplete for Sweden
 PUT /api/callback/delivery-complete
 
 ```xml
