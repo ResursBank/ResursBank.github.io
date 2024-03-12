@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # address 
-Created by Benny, last modified on 2017-02-22
+
 The customer address details.  
 Contains elements as defined in the following table.
 
