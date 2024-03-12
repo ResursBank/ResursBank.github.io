@@ -9,6 +9,7 @@ parent: Consumer Loan Api
 # submitApplicationExt DK 
 
 ## Denmark DK
+### Request: submitApplicationExt
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:app="http://consumerloan.resurs.com/v1/msg/application">
    <soapenv:Header/>
@@ -64,7 +65,7 @@ parent: Consumer Loan Api
    </soapenv:Body>
    </soapenv:Envelope>
 ```
-Click here to expand submitApplicationExtResponse example for Denmark
+### Response: submitApplicationExtResponse
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
     <soap:Body>
