@@ -1,23 +1,19 @@
 ---
 layout: page
-title: Getcostofpurchasehtml
+title: getCostOfPurchaseHtml
 permalink: /simplified-flow-api/getcostofpurchasehtml/
 parent: Simplified Flow Api
 ---
 
 
 # getCostOfPurchaseHtml 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-27
-# *getCostOfPurchaseHtml    *   **
-
 *Retrieves detailed cost of purchase information in HTML format. Resurs
 Bank is legally obliged to show this information everywhere its payment
 methods are marketed. This information can either be fetched with this
 method or linked. If linking is preferred, the links returned by the
-payment method ([getPaymentMethods](getpaymentmethods)) are to be used.
+payment method ([getPaymentMethods](/simplified-flow-api/getpaymentmethods/)) are to be used.
 Returns a styleable HTML table containing the cost of purchase
-information.  
-*
+information.*
 
 **Input (Literal)**  
 
