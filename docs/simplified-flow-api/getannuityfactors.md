@@ -18,18 +18,18 @@ plans per payment method.
 
 **Input (Literal)**
 
-| Name            | Type | Occurs | Nillable? | Description                                                                                                                                                                                                                                                                                |
-|-----------------|------|--------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name            | Type | Occurs | Nillable? | Description  |
+|-----------------|------|--------|-----------|--------------|
 | paymentMethodId | id   | 1..1   | No        | The identity of the payment method for which to retrieve the annuity factors.  While this makes most sense for payment methods involving part payments, it is possible to use for all types. (See [paymentMethodType](/development/api-types/paymentmethodtype/) for more information about payment method types.) |
 
 **Output (Literal)**
-| Name   | Type          | Occurs | Nillable? | Description                                                                                                                                         |
-|--------|---------------|--------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name   | Type          | Occurs | Nillable? | Description |
+|--------|---------------|--------|-----------|-------------|
 | return | annuityFactor | 0..\*  | No        | A list with one annuity factor per payment plan of the payment method.  There are typically between three and six payment plans per payment method. |
 
 **Faults**
-| Name                    | Content                              | Description                                                    |
-|-------------------------|--------------------------------------|----------------------------------------------------------------|
+| Name  | Content | Description |
+|-------------------------|-----------------|-------------------|
 | EcommerceErrorException | **[EcommerceError](/development/api-types/ecommerceerror/)** | Failed to retrieve the annuity factors. See error for details. |
 
 > The data in our test environment does not always match the data you
