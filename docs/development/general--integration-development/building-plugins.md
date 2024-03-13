@@ -11,8 +11,10 @@ parent: General - Integration Development
 
 
 ## Configuration - Admin
+- [Postman-collection of the requests
+  above](#postman-collection-of-the-requests-above)
 
-![](../../attachments/configAdmin.png)
+![](../../attachments/mapiEcom.png)
 
 1.  Option to enable and disable the module.
 2.  Option to enable switch between test and production environment at
