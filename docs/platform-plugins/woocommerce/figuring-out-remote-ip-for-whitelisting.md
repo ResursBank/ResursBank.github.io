@@ -9,7 +9,6 @@ grand_parent: Platform Plugins
 
 
 # Figuring out remote ip for whitelisting 
-Created by Thomas Tornevall, last modified on 2023-05-04
 In test we sometimes need to whitelist your server ip address, for
 example when your server resides in a country that is not based in the
 nordic regions.
