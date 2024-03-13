@@ -14,8 +14,8 @@ Created by Thomas Tornevall, last modified on 2021-08-28
 - [How to handle
   errors](#errors,problemsolvingandcornercases-howtohandleerrors)
 
-- [EComPHP custom errorcodes](ecomphp-custom-errorcodes)
-- [Error handling (Resurs error codes)](328078)
+- [EComPHP custom errorcodes](/development/errors--problem-solving-and-corner-cases/ecomphp-custom-errorcodes/)
+- [Error handling (Resurs error codes)](/development/errors--problem-solving-and-corner-cases/resurs-error-codes/)
 
 This section covers known problems, fixes for them, workarounds and
 other things related to solving problems.
@@ -45,9 +45,9 @@ should consider checking for SoapExceptions too. In th body, details
 about the errors usually reside in the detail element, under an
 ECommerceError tag. Extracting this value could give you further
 information about the error. Such errors are documented at [Error
-handling (Resurs error codes)](328078). EComPHP extracts this kind of
+handling (Resurs error codes)](/development/errors--problem-solving-and-corner-cases/resurs-error-codes/). EComPHP extracts this kind of
 errors to find the root cause, and when unable to find an error it uses
-its own - see [EComPHP custom errorcodes](ecomphp-custom-errorcodes).
+its own - see [EComPHP custom errorcodes](/development/errors--problem-solving-and-corner-cases/ecomphp-custom-errorcodes/).
 
 For the rest section, you could normally just check the http head
 responses.
