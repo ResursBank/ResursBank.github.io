@@ -9,7 +9,6 @@ grand_parent: Platform Plugins
 
 
 # MAPI Checkout Flow 
-Created by Thomas Tornevall, last modified on 2022-12-21
 Reserved space for the described MAPI-flow. It very much looks like the
 prior flow, with a few enhancements.
 
