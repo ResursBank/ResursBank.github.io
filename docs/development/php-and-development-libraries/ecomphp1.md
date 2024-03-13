@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Version 1.X (Ecomphp)
-permalink: /development/php-and-development-libraries/87393094/
+permalink: /development/php-and-development-libraries/ecomphp1/
 parent: Php And Development Libraries
 grand_parent: Development
 ---
