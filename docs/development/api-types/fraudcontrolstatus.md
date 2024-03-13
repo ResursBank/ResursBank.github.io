@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Fraudcontrolstatus
+title: fraudControlStatus
 permalink: /development/api-types/fraudcontrolstatus/
 parent: Api Types
 grand_parent: Development
@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # fraudControlStatus 
-Created by Benny, last modified on 2017-02-27
+
 The status of the payment fraud control.
 
 | Value               | Description                                                                                                                                                                                                             |
