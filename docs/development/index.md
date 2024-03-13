@@ -61,7 +61,7 @@ To report any problems and view our current projects and issues, please
 visit JIRA
 at [https://resursbankplugins.atlassian.net/secure/Dashboard.jspa](https://resursbankplugins.atlassian.net/secure/Dashboard.jspa).
 
-> [!NOTE]  
+
 Are you building your platform with callbacks? Be cautious; callbacks
 can be sent to your platform ***rapidly***. By means, several callbacks
 can arrive to your platform the exact same time, causing race conditions
