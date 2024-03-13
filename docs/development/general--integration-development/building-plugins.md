@@ -1,18 +1,18 @@
 ---
 layout: page
 title: Building Plugins (Settings)
-permalink: /development/general--integration-development/16056677/
+permalink: /development/general--integration-development/Building Plugins/
 grand_parent: Development
 parent: General - Integration Development
 ---
 
 
 # Building plugins (settings) 
-Created by Gert, last modified by Thomas Tornevall on 2019-01-15
-- [Configuration -
-  Admin](#buildingplugins(settings)-configuration-admin)
+
 
 ## Configuration - Admin
+
+![](../../attachments/configAdmin.png)
 
 1.  Option to enable and disable the module.
 2.  Option to enable switch between test and production environment at
