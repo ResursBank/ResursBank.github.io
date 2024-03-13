@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Ecommerceerror
+title: eCommerceError
 permalink: /development/api-types/ecommerceerror/
 parent: Api Types
 grand_parent: Development
