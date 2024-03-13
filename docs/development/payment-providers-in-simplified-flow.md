@@ -7,12 +7,11 @@ parent: Development
 
 
 # Payment providers in simplified flow 
-Created by Thomas Tornevall, last modified on 2019-01-15
 ## Field validation with PAYMENT_PROVIDER
 In normal cases, for Resurs "internal" payment methods, fields that is
 shown in the store during the checkout process should be validated
 against [our regular expression
-schemes](customer-data---regular-expressions). However, there is a
+schemes](/development/customer-data---regular-expressions/). However, there is a
 condition for payment methods with the type PAYMENT_PROVIDER (PSP) that
 does not need such validation: government id/SSN. Since PSP redirects
 customers to external partners the government id does not need to
