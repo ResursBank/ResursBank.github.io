@@ -9,7 +9,6 @@ grand_parent: Platform Plugins
 
 
 # MAPI-WC - Customizations 
-Created by Thomas Tornevall, last modified on 2023-08-23
 This section contains a set of examples of how you can code with the
 module on your own. Much of the codebase is modular which means that you
 practically can use the same hooks as we do. Please be aware of the fact
@@ -20,9 +19,6 @@ customizations.
 The methods and examples on this page is not actually supported by
 Resurs and reside here only to be initial examples of other ways of
 coding.
-
-- [Custom customer type
-  handling](#mapiwccustomizations-customcustomertypehandling)
 
 ## Custom customer type handling
 Normally, in at least Sweden, we use a widget called getAddress that we
