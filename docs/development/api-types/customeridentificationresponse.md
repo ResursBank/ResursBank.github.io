@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Customeridentificationresponse
+title: customerIdentificationResponse
 permalink: /development/api-types/customeridentificationresponse/
 parent: Api Types
 grand_parent: Development
@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # customerIdentificationResponse 
-Created by User2, last modified by Benny on 2017-02-22
+
 
 | Component      | Type                | Occurs | Nillable? | Description                                                                                                               |
 |----------------|---------------------|--------|-----------|---------------------------------------------------------------------------------------------------------------------------|

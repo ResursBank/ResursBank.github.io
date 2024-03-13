@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Sortalternative
+title: sortAlternative
 permalink: /development/api-types/sortalternative/
 parent: Api Types
 grand_parent: Development
@@ -9,7 +9,6 @@ grand_parent: Development
 
 
 # sortAlternative 
-Created by Benny on 2013-06-18
 The sort columns available.
 
 | Value                  | Description                                                                                |

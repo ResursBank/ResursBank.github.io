@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Weblink
+title: webLink
 permalink: /development/api-types/weblink/
 parent: Api Types
 grand_parent: Development
@@ -9,7 +9,6 @@ grand_parent: Development
 
 
 # webLink 
-Created by Benny, last modified on 2017-02-27
 
 Represents a link to be placed on a page. Usage (if appendPriceLast is
 `false`): \<a href="url"\>endUserDescription\</a\>. If appendPriceLast
@@ -22,6 +21,6 @@ Contains elements as defined in the following table.
 | Component          | Type                                   | Occurs | Nillable? | Description                                                                                                                                                                                                                                                                                                                            |
 |--------------------|----------------------------------------|--------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | appendPriceLast    | boolean                                | 1..1   | No        |  Whether or not the URL needs to be suffixed by an amount. Note: the amount is an integer! The web link URL "[http://site.com/cgi?param1=1&price=](http://site.com/cgi?param1=1&price=)" and an amount of SEK 999.90 would give the complete URL "[http://site.com/cgi?param1=1&price=1000](http://site.com/cgi?param1=1&price=1000)". |
-| endUserDescription | **[nonEmptyString](simple-types...)**  | 1..1   | No        |  The link description. (\<a href="url"\>endUserDescription\</a\>)                                                                                                                                                                                                                                                                      |
-| url                | [**nonEmptyString**](simple-types...)  | 1..1   | No        | The possibly incomplete URL to link to. See appendPriceLast for more details!                                                                                                                                                                                                                                                          |
+| endUserDescription | **[nonEmptyString](/development/api-types/simple-types/)**  | 1..1   | No        |  The link description. (\<a href="url"\>endUserDescription\</a\>)                                                                                                                                                                                                                                                                      |
+| url                | [**nonEmptyString**](/development/api-types/simple-types/)  | 1..1   | No        | The possibly incomplete URL to link to. See appendPriceLast for more details!                                                                                                                                                                                                                                                          |
 

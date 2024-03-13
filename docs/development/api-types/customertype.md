@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Customertype
+title: customerType
 permalink: /development/api-types/customertype/
 parent: Api Types
 grand_parent: Development

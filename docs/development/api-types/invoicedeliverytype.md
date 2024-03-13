@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Invoicedeliverytype
+title: invoicedeliveryType
 permalink: /development/api-types/invoicedeliverytype/
 parent: Api Types
 grand_parent: Development

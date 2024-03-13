@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Sortorder
+title: sortOrder
 permalink: /development/api-types/sortorder/
 parent: Api Types
 grand_parent: Development
@@ -9,14 +9,13 @@ grand_parent: Development
 
 
 # sortOrder 
-Created by Benny, last modified by Gert on 2016-12-13
 How the search results should be ordered.  
 Contains elements as defined in the following table.
 
 | Component   | Type                                   | Occurs | Nillable? | Description                                                                     |
 |-------------|----------------------------------------|--------|-----------|---------------------------------------------------------------------------------|
 | ascending   | boolean                                | 1..1   | No        | Whether or not the results are to be sorted in ascending order.                 |
-| sortColumns | **[sortAlternative](sortalternative)** | 1..\*  | No        | On which columns, and in which order of importance, the result is to be sorted. |
+| sortColumns | **[sortAlternative](/development/api-types/sortalternative/)** | 1..\*  | No        | On which columns, and in which order of importance, the result is to be sorted. |
 
 ### SortAlternativie
 The sort columns available.

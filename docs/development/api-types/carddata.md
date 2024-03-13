@@ -9,8 +9,7 @@ grand_parent: Development
 
 
 # cardData 
-
- The card payment specification data. Can be used for both card and
+The card payment specification data. Can be used for both card and
 account.
 
 > Only set one of CardNumber and Amount, both should never be
@@ -23,5 +22,5 @@ account.
 | Component  | Type                                  | Occurs | Nillable? | Description                                                                                                                                    |
 |------------|---------------------------------------|--------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | cardNumber | string                                | 0..1   | Yes       | If it is a purchase with an existing card specify the card/account number here.                                                                |
-| amount     | **[nonEmptyString](simple-types...)** | 0..1   | Yes       | If customer applies for a new card/account, specify the credit amount that is applied for. If it is purchase with existing card omit this tag. |
+| amount     | **[nonEmptyString](/development/api-types/simple-types/)** | 0..1   | Yes       | If customer applies for a new card/account, specify the credit amount that is applied for. If it is purchase with existing card omit this tag. |
 
