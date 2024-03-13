@@ -9,11 +9,7 @@ has_toc: false
 
 
 # Errors, problem solving and corner cases 
-Created by Thomas Tornevall, last modified on 2021-08-28
 **Table of contents**
-- [How to handle
-  errors](#errors,problemsolvingandcornercases-howtohandleerrors)
-
 - [EComPHP custom errorcodes](/development/errors--problem-solving-and-corner-cases/ecomphp-custom-errorcodes/)
 - [Error handling (Resurs error codes)](/development/errors--problem-solving-and-corner-cases/resurs-error-codes/)
 
