@@ -32,6 +32,7 @@ has_toc: false
 - [Permissions and passwords - Platform
   access](/development/permissions-and-passwords---platform-access/)
 
+> [!IMPORTANT]
 > Important about staging versus productionIf you are planning to
 > develop (or install) plugins, it is required that you are running both
 > a test and a production environment. In this way you will first be
@@ -60,7 +61,7 @@ To report any problems and view our current projects and issues, please
 visit JIRA
 at [https://resursbankplugins.atlassian.net/secure/Dashboard.jspa](https://resursbankplugins.atlassian.net/secure/Dashboard.jspa).
 
-> [!IMPORTANT]  
+> [!NOTE]  
 Are you building your platform with callbacks? Be cautious; callbacks
 can be sent to your platform ***rapidly***. By means, several callbacks
 can arrive to your platform the exact same time, causing race conditions
