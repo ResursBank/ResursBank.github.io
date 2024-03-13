@@ -7,14 +7,11 @@ parent: Development
 
 
 # Permissions and passwords - Platform access 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-27
 > This page only talks about web service security, not Payment
 > administration GUI security.
 
 ## Authentication
-The Resurs e-Commerce service is protected by the simple [http basic
-authentication
-mechanism](http://en.wikipedia.org/wiki/Basic_access_authentication).
+The Resurs e-Commerce service is protected by the simple [http basic authentication.
 Behind a TLS/SSL protected channel this is an acceptable level of
 security.
 
