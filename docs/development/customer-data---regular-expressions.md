@@ -7,7 +7,6 @@ parent: Development
 
 
 # Customer data - Regular expressions 
-Created by Joachim Andersson, last modified by Benny on 2021-09-17
 > Note!If you are using Resurs Checkout, note that the customer input is
 > country specific for the test-/production account that you are using.
 > If you are unsure of which country your account is setup for, please
