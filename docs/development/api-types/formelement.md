@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Formelement
+title: formElement
 permalink: /development/api-types/formelement/
 parent: Api Types
 grand_parent: Development
@@ -9,10 +9,9 @@ grand_parent: Development
 
 
 # formElement 
-Created by Benny, last modified on 2017-02-27
+
 The detailed specification of the form element. While new form elements
-might pop up, [we have a few which you can look out
-for](concepts-and-domain) (if you happen to have the data the form
+might pop up (if you happen to have the data the form
 element requests, or need the data from a particular form element). 
 
 # Attributes
