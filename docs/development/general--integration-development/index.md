@@ -185,7 +185,7 @@ Different payment methods require different kind of form form field
 elements. They are listed below. Application full name is only used in
 the really old flow and can be removed.
 
-**Please take note on the optional phone number fields below. It is
+**Please take note on the $\color{blue}{	extsf{OPTIONAL}}$ phone number fields below. It is
 strongly recommended to always force a phone number at some point when
 calling the shopflow-API's even though they are not entirely required.
 IF the numbers are left out of the payload, Resurs will redirect
@@ -195,22 +195,20 @@ better that you handle this in your codebase.**
 
 | Payment Method SpecificType     | Applicant Government ID |   Applicant Telephone Number    |     Applicant Mobile Number     | Applicant Email Address | Contact Government ID | Card number | Applicant Full Name |
 |---------------------------------|:-----------------------:|:-------------------------------:|:-------------------------------:|:-----------------------:|:---------------------:|:-----------:|:-------------------:|
-| **INVOICE***Natural*** **       |        REQUIRED         | OPTIONAL**(Read the red note)** | OPTIONAL**(Read the red note)** |        REQUIRED         |                       |             |      OBSOLETE       |
-| **INVOICE***Legal*** **         |        REQUIRED         | OPTIONAL**(Read the red note)** | OPTIONAL**(Read the red note)** |        REQUIRED         |       REQUIRED        |             |  REQUIRED/OBSOLETE  |
-| **CARD***Existing card *        |        REQUIRED         |                                 |                                 |                         |                       |  REQUIRED   |      OBSOLETE       |
-| **REVOLVING_CREDIT***New card*  |        REQUIRED         |                                 |            REQUIRED             |        REQUIRED         |                       |             |      OBSOLETE       |
-| **PART_PAYMENT***Part payment*  |        REQUIRED         |            REQUIRED             |            REQUIRED             |        REQUIRED         |                       |             |      OBSOLETE       |
+| **INVOICE** Natural       |  $\color{green}{\textsf{REQUIRED}}$    | $\color{blue}{\textsf{OPTIONAL}}$**(Read the red note)** | $\color{blue}{\textsf{OPTIONAL}}$**(Read the red note)** |        $\color{green}{\textsf{REQUIRED}}$         |                       |             |      $\color{red}{\textsf{OBSOLETE}}$       |
+| **INVOICE** Legal         |        $\color{green}{\textsf{REQUIRED}}$          | $\color{blue}{\textsf{OPTIONAL}}$**(Read the red note)** | $\color{blue}{\textsf{OPTIONAL}}$**(Read the red note)** |        $\color{green}{\textsf{REQUIRED}}$         |       $\color{green}{\textsf{REQUIRED}}$        |             |  $\color{green}{\textsf{REQUIRED}}$/$\color{red}{\textsf{OBSOLETE}}$  |
+| **CARD** Existing card        |        $\color{green}{\textsf{REQUIRED}}$         |                                 |                                 |                         |                       |  $\color{green}{\textsf{REQUIRED}}$   |      $\color{red}{\textsf{OBSOLETE}}$       |
+| **REVOLVING_CREDIT** New card  |        $\color{green}{\textsf{REQUIRED}}$         |                                 |            $\color{green}{\textsf{REQUIRED}}$             |        $\color{green}{\textsf{REQUIRED}}$         |                       |             |      $\color{red}{\textsf{OBSOLETE}}$       |
+| **PART_PAYMENT** Part payment  |        $\color{green}{\textsf{REQUIRED}}$         |            $\color{green}{\textsf{REQUIRED}}$             |            $\color{green}{\textsf{REQUIRED}}$             |        $\color{green}{\textsf{REQUIRED}}$         |                       |             |      $\color{red}{\textsf{OBSOLETE}}$       |
 
 *When creating forms for payment, make sure that you are also adding
 content validation (regex) to the fields ([see
-here](customer-data---regular-expressions))*.
+here](/development/customer-data---regular-expressions/))*.
 
 Address completion for filling in address data on an order page is
 available through [Get
-address](https://test.resurs.com/docs/pages/viewpage.action?pageId=5013938).
-Currently, the service is only available for Sweden. Code examples for
-PHP (Magento) can be found at the [OldFlow Plugin - Coding examples for
-getAddress](oldflow-plugin---coding-examples-for-getaddress)-section.
+address](/simplified-flow-api/getaddress/).
+Currently, the service is only available for Sweden. 
 
 ## Callbacks
 > Callback noticesCallbacks must be reachable externally. If you are
