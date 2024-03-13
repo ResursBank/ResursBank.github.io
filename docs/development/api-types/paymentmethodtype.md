@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Paymentmethodtype
+title: paymentMethodType
 permalink: /development/api-types/paymentmethodtype/
 parent: Api Types
 grand_parent: Development
@@ -9,7 +9,6 @@ grand_parent: Development
 
 
 # paymentMethodType 
-Created by Benny on 2013-06-18
 Payment methods are divided into groups. This information can be used to
 retrieve orders based on which payment method type was used.
 
