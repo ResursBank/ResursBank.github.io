@@ -8,22 +8,23 @@ grand_parent: Development
 
 
 # Error handling (Resurs error codes) 
-Created by Tobias, last modified by Thomas Tornevall on 2022-05-09
-- [Other errors](#errorhandling(resurserrorcodes)-othererrors)
-- [SOAP related
-  errors](#errorhandling(resurserrorcodes)-soaprelatederrors)
-  - [Remarks](#errorhandling(resurserrorcodes)-remarks)
 
-# Other errors
+## Other errors
 We do have another collection of errors that might be good to take a
 look at that covers internal server problems and external errorhandlers
 that might warn you about the internal errors. See the list below.
 
-[Error handling (Resurs error codes)](328078)
+## The "not a bug" list
 
-[The "not a bug" list](16056903)
+| Error / Code | Description | Solution (Eventually) |
+|-----|-----|-----|
+|error: **14090086**: SSL routines: ssl3_get_server_certificate:certificate verify failed|Root certificate bundles are missing on your server, or is placed in a path where your server is not looking.|For PHP cases, this can be fixed by editing your server's php.ini: See the variables for openssl.cafile, openssl.capath. Another solution is to try to add the missing files. In many cases, the missing file is ca-certificates.crt, and in a "standard" Ubuntu platform, they are located in /etc/ssl/certs - openssl usually delivers this file by the dependency ca-certificates (apt-get install ca-certificates).|
+|error: **14094410**: SSL routines:ssl3_read_bytes: sslv3 alert handshake failure|SSL handshake errors due to unsupported SSL version. This usually happens when your client tries to communicate with a disabled or non-existent SSL version.|Upgrade openssl and/or your platform.|
+|ERROR: Error 35: error: **14077458**: SSL routines: SSL23_GET_SERVER_HELLO:reason(1112)|Almost like the one above. SSL protocol error.|Make sure your ssl supports the right protocol.|
+|SOAP-ERROR: Parsing WSDL: Couldn't load from 'url?wsdl' : failed to load external entity "url?wsdl"|If this error is a "standalone" where only this message is visible, there might be an SSL problem again.|This is normally either a credential error or a sign that your system is missing enabled ssl-drivers. The [EComPHP-library]( /development/php-and-development-libraries/) is normally trying to defeat this error message by revealing the "true" error since credential errors, especially on older PHP-systems, tend to hide such error messages when credentials are used. This is a bug in PHP, known since 2006 where 401-Unauthorized errors are being handled as notices rather than a "real" exceptions, and is normally not catched by PHP. This is probably not fixed since PHP 7+ should be able to handle this better (unconfirmed).|
 
-# SOAP related errors
+
+## SOAP related errors
 All errors/exception are returned as ECommerceError  
 Contains elements as defined in the following table. 
 
