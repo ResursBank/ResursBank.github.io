@@ -12,7 +12,7 @@
 }
 
 @font-face {
-  font-family: Inter;
+  font-family: 'Inter';
   src: url('./Inter-VariableFont_slnt,wght.ttf');
 }
 
@@ -50,6 +50,7 @@ html {
       scrollbar-width: thin;
 
       .site-header {
+        margin-top: 30px;
         width: 400px;
         border-bottom: none !important;
 
@@ -59,13 +60,14 @@ html {
 
         .site-title {
           .site-logo {
-            width: 100px;
+            width: 98px;
           }
         }
       }
 
       .site-nav {
         padding-top: 0;
+        margin-top: -10px;
         width: 400px;
 
         .nav-list {
@@ -85,11 +87,22 @@ html {
 
             .nav-list {
               .nav-list-link::before {
-                content: "> ";
+                content: "> \00a0";
               }
 
               .nav-list-link {
                 font-size: .875rem;
+                font-weight: 300;
+              }
+
+              .nav-list-link.active {
+                font-weight: 500;
+              }
+
+              .nav-list {
+                .nav-list-link::before {
+                  content: ">> \00a0";
+                }
               }
             }
 
@@ -100,7 +113,6 @@ html {
             .nav-list-link.active {
               background: #e5f2f2;
               color: #005050;
-              font-weight: 700;
             }
           }
         }
@@ -121,6 +133,12 @@ html {
         max-width: 1460px;
         padding-top: 15px;
         color: #343a40 !important;
+        font-weight: 400;
+        -moz-osx-font-smoothing: grayscale;
+
+        blockquote {
+          border-left: .25rem solid #d0d7de;
+        }
 
         code {
           background: rgba(0,0,0,.05);
@@ -167,6 +185,7 @@ html {
           font-size: .938rem;
           line-height: 1.313rem;
           font-family: Inter, Helvetica, Arial, sans-serif;
+          margin-bottom: 16px;
         }
 
         .highlight {
@@ -219,13 +238,13 @@ html {
             }
           }
 
-          tr:nth-child(even) {
+          tr:nth-child(odd) {
             td {
-              background-color: #EFF1F5;
+              background-color: #EBECED;
             }
           }
 
-          tr:nth-child(odd) {
+          tr:nth-child(even) {
             td {
               background-color: #EFF1F5;
             }

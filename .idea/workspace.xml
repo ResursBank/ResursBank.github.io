@@ -5,22 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89c2e868-ebcb-4868-9efe-f7135f739443" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/81887258.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/87393094.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/12189822.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/12190271.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/5015031.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/5570809.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/7438426.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/7438475.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/7438490.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/7438497.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/8126466.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/9338886.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp--changelog/refactoring-notes-for-aftershop-in-ecomphp.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp--createpayment--rco-/16056934.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp--debit--credit--annul--aftershopflow-/16056643.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-and-localization.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/16056616.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/22183983.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/22183993.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/ecomphp-visualization-and-backstory.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/getpayment-magics.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/important-notes-and-troubleshooting-exceptions--ecomphp-/errors-and-ecomphp/ecomphp-error-adaption.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_exclude/development/php-and-development-libraries/version-1-x--ecomphp-/important-notes-and-troubleshooting-exceptions--ecomphp-/errors-and-ecomphp/index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_sass/color_schemes/resurs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/color_schemes/resurs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/consumer-loan-api/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/consumer-loan-api/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/16056453.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/5014037.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/general--integration-development/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/api-types/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases/ecomphp-custom-errorcodes.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases/ecomphp-custom-errorcodes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases/resurs-error-codes.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases/resurs-error-codes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/general--integration-development/16056677.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/general--integration-development/16056677.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/general--integration-development/handling-checkout-flows-bottle-necks.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/general--integration-development/handling-checkout-flows-bottle-necks.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/simplified-flow-api/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/simplified-flow-api/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/testing/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/testing/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/12189822.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/12190271.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/5015031.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/5570809.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/7438426.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/7438475.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/7438490.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/7438497.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/8126466.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/9338886.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp--changelog/refactoring-notes-for-aftershop-in-ecomphp.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp--createpayment--rco-/16056934.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp--debit--credit--annul--aftershopflow-/16056643.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-and-localization.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/16056616.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/22183983.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/22183993.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/ecomphp-visualization-and-backstory.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/getpayment-magics.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/ecomphp-features-and-tips/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/important-notes-and-troubleshooting-exceptions--ecomphp-/errors-and-ecomphp/ecomphp-error-adaption.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/version-1-x--ecomphp-/important-notes-and-troubleshooting-exceptions--ecomphp-/errors-and-ecomphp/index.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +82,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/nanaki/projects/github.io/assets/css",
+    "last_opened_file_path": "/Users/nanaki/projects/github.io/_exclude/development",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,6 +93,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/_exclude/development" />
       <recent name="$PROJECT_DIR$/assets/css" />
       <recent name="$PROJECT_DIR$/_sass/color_schemes" />
       <recent name="$PROJECT_DIR$/assets/fonts" />
@@ -86,7 +120,7 @@
       <option name="presentableId" value="Default" />
       <updated>1709714875157</updated>
       <workItem from="1709714876203" duration="21382000" />
-      <workItem from="1710137083760" duration="19474000" />
+      <workItem from="1710137083760" duration="20322000" />
     </task>
     <servers />
   </component>
