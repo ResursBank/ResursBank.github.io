@@ -9,21 +9,11 @@ grand_parent: Platform Plugins
 
 
 # Manually installing plugin 
-Created by Thomas Tornevall, last modified on 2023-04-27
 If you plan to install a development version **or** not directly from
 WordPress plugin manager, this is the place to look at. If you plan to
 run this plugin in a "production state", please install it properly
 within the WordPress plugin manager. This page currently only has
 information for git installs.
-
-- [Installations with zip file (most similar to the WordPress Plugin
-  Repository)](#manuallyinstallingplugin-installationswithzipfile(mostsimilartothewordpresspluginrepository))
-- [Installations with
-  git](#manuallyinstallingplugin-installationswithgit)
-  - [Dual plugins (how to act on
-    it)](#manuallyinstallingplugin-dualplugins(howtoactonit))
-  - [Creating your own zip-release from
-    git](#manuallyinstallingplugin-creatingyourownzip-releasefromgit)
 
 # Installations with zip file (most similar to the WordPress Plugin Repository)
 > About the current-zip fileCurrently, there are no stable tag present
