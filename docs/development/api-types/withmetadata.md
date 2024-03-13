@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Withmetadata
+title: withMetaData
 permalink: /development/api-types/withmetadata/
 parent: Api Types
 grand_parent: Development
@@ -9,7 +9,6 @@ grand_parent: Development
 
 
 # withMetaData 
-Created by Benny on 2013-06-18
 A set of meta data for searching.  
 Contains elements as defined in the following table.
 
