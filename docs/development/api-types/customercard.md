@@ -9,12 +9,12 @@ grand_parent: Development
 
 
 # customerCard 
-Created by User2, last modified by Benny on 2017-02-22
+
 
 | Component    | Type                         | Occurs | Nillable? | Description                                                                 |
 |--------------|------------------------------|--------|-----------|-----------------------------------------------------------------------------|
 | SEQUENCE     |                              | 1..1   |           |                                                                             |
 | governmentId | string                       | 1..1   | No        | The government identity of the customer for which to retrieve bonus points. |
-| customerType | [customerType](customertype) | 0..1   | No        | The type of customer to retrieve.                                           |
+| customerType | [customerType](/development/api-types/customertype/) | 0..1   | No        | The type of customer to retrieve.                                           |
 | cardNumber   | string                       | 1..1   | No        | A card number tied to the supplied government ID in Resurs Bank.            |
 
