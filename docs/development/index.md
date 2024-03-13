@@ -8,22 +8,20 @@ has_toc: false
 
 
 # Development 
-Created by Tobias, last modified by Thomas Tornevall on 2022-03-25
 **Getting started with self made integrations.**
 
 **Table of contents**
 **Table of contents**
 
-- [Downloadables](#development-downloadables)
-- [Source code and support](#development-sourcecodeandsupport)
-- [Heads up, please!](#development-headsup,please!)
+- [Downloadables](#downloadables)
+- [Source code and support](#source-code-and-support)
 
 **Subpages**
 
-- [Errors, problem solving and corner cases](errors--problem-solving-and-corner-cases/16056453.md)
-- [General: Integration development](general--integration-development/5014037.md)
-- [PHP and development libraries](php-and-development-libraries)
-- [API Types](api-types)
+- [Errors, problem solving and corner cases](/development/16056453/)
+- [General: Integration development](/development/5014037/)
+- [PHP and development libraries](/development/php-and-development-libraries/)
+- [API Types](/development/api-types/)
 - [Create part payment widget](create-part-payment-widget)
 - [Customer data - Regular
   expressions](customer-data---regular-expressions)
@@ -63,7 +61,7 @@ To report any problems and view our current projects and issues, please
 visit JIRA
 at [https://resursbankplugins.atlassian.net/secure/Dashboard.jspa](https://resursbankplugins.atlassian.net/secure/Dashboard.jspa).
 
-# Heads up, please!
+> [!IMPORTANT]  
 Are you building your platform with callbacks? Be cautious; callbacks
 can be sent to your platform ***rapidly***. By means, several callbacks
 can arrive to your platform the exact same time, causing race conditions
