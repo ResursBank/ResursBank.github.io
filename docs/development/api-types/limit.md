@@ -9,16 +9,15 @@ grand_parent: Development
 
 
 # limit 
-Created by Benny, last modified on 2017-02-27
 Detailed information about the limit.  
 Contains elements as defined in the following table.
 
 | Component      | Type                                   | Occurs | Nillable? | Description                                                                                                                                                                         |
 |----------------|----------------------------------------|--------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| approvedAmount | **[positiveDecimal](simple-types...)** | 1..1   | No        | The amount that has been approved.                                                                                                                                                  |
-| decision       | **[limitDecision](limitdecision)**     | 1..1   | No        | The limit decision.                                                                                                                                                                 |
-| customer       | **[customer](customer)**               | 1..1   | No        | The customer details.                                                                                                                                                               |
-| limitRequestId | **[id](simple-types...)**              | 1..1   | No        | Identifies this limit request uniquely, whether it's granted or not. It can be used to request more information, by phone, about the application from Resurs Bank in special cases. |
+| approvedAmount | **[positiveDecimal](/development/api-types/simple-types/)** | 1..1   | No        | The amount that has been approved.                                                                                                                                                  |
+| decision       | **[limitDecision](/development/api-types/limitdecision/)**     | 1..1   | No        | The limit decision.                                                                                                                                                                 |
+| customer       | **[customer](/development/api-types/customer/)**               | 1..1   | No        | The customer details.                                                                                                                                                               |
+| limitRequestId | **[id](/development/api-types/simple-types/)**              | 1..1   | No        | Identifies this limit request uniquely, whether it's granted or not. It can be used to request more information, by phone, about the application from Resurs Bank in special cases. |
 
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
