@@ -3,6 +3,7 @@ layout: page
 title: Simplified Flow Api
 permalink: /simplified-flow-api/
 has_children: true
+has_toc: false
 ---
 
 

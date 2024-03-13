@@ -3,6 +3,7 @@ layout: page
 title: Development
 permalink: /development/
 has_children: true
+has_toc: false
 ---
 
 
@@ -19,8 +20,8 @@ Created by Tobias, last modified by Thomas Tornevall on 2022-03-25
 
 **Subpages**
 
-- [Errors, problem solving and corner cases](16056453)
-- [General: Integration development](5014037)
+- [Errors, problem solving and corner cases](errors--problem-solving-and-corner-cases/16056453.md)
+- [General: Integration development](general--integration-development/5014037.md)
 - [PHP and development libraries](php-and-development-libraries)
 - [API Types](api-types)
 - [Create part payment widget](create-part-payment-widget)

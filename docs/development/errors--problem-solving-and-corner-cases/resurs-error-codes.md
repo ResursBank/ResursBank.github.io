@@ -2,7 +2,8 @@
 layout: page
 title: Error Handling (Resurs Error Codes)
 permalink: /development/errors--problem-solving-and-corner-cases/resurs-error-codes/
-parent: Development
+parent: Errors, Problem Solving And Corner Cases
+grand_parent: Development
 ---
 
 

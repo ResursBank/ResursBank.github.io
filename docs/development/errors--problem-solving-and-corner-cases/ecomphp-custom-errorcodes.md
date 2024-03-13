@@ -2,7 +2,8 @@
 layout: page
 title: Ecomphp Custom Errorcodes
 permalink: /development/errors--problem-solving-and-corner-cases/ecomphp-custom-errorcodes/
-parent: Development
+parent: Errors, Problem Solving And Corner Cases
+grand_parent: Development
 ---
 
 

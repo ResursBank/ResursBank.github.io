@@ -2,7 +2,8 @@
 layout: page
 title: Handling Checkout-Flows Bottle Necks
 permalink: /development/general--integration-development/handling-checkout-flows-bottle-necks/
-parent: Development
+grand_parent: Development
+parent: General - Integration Development
 ---
 
 

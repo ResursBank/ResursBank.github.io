@@ -1,8 +1,10 @@
 ---
 layout: page
-title: General- Integration Development
+title: General - Integration Development
 permalink: /development/5014037/
 parent: Development
+has_children: true
+has_toc: false
 ---
 
 
@@ -55,7 +57,7 @@ information customers has to fill in, the better.
 - If you're building your own checkout from scratch, where all payments
   are controlled by your checkout, make sure you'll handle both
   shipping, fees, discounts and article types that the shop provides.  
-  ![](../../attachments/5014037/7438447.png) 
+  ![](../../../attachments/5014037/7438447.png) 
 
 # Where to start
 ## Configuration - Admin
@@ -71,7 +73,7 @@ points at our test environment. In the screen dump you see the initial
 configuration from Prestashop.
 
 ![Prestashop Admin
-View](../../attachments/5014037/5014040.png?effects=border-simple,blur-border "Prestashop Admin View")
+View](../../../attachments/5014037/5014040.png?effects=border-simple,blur-border "Prestashop Admin View")
 
 As soon as the credentials are filled in, the example plugin are
 starting to look for the current payment methods set up and the goal
@@ -111,7 +113,7 @@ with the plugin is to make it as optionless as possible.
   handle orders, you should let the store's own API's do the job for you
   as much as possible (like in the screenshot attached, from the Magento
   control panel).  
-  *![](../../attachments/5014037/5014045.png?effects=border-simple,blur-border)* *
+  *![](../../../attachments/5014037/5014045.png?effects=border-simple,blur-border)* *
 
 Web services are based on SOAP. It's recommended from this point to
 never add wsdl-parameters or URLs directly to each service provided by
@@ -153,7 +155,7 @@ so no queries has to be made to e-commerce for each checkout-request.
 > time, etc), and they are still shown by mistake in a checkout, this
 > generates an error from Resurs.
 
-![](../../attachments/5014037/5014050.png?effects=border-simple,blur-border)
+![](../../../attachments/5014037/5014050.png?effects=border-simple,blur-border)
 
 ## The checkout and forms that needs to be filled in
 > Important noticesWhen payment methods are shown to customers in a

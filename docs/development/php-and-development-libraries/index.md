@@ -4,6 +4,7 @@ title: Php And Development Libraries
 permalink: /development/php-and-development-libraries/
 parent: Development
 has_children: true
+has_toc: false
 ---
 
 

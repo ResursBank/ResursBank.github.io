@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89c2e868-ebcb-4868-9efe-f7135f739443" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/css/Inter-VariableFont_slnt,wght.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/Montserrat-Italic-VariableFont_wght.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/Montserrat-VariableFont_wght.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_sass/color_schemes/resurs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/color_schemes/resurs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/crediting.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/crediting.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/testing/test-data---norway/testing-vipps.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/testing/test-data---norway/testing-vipps.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/after-shop-service-api/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/after-shop-service-api/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/consumer-loan-api/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/consumer-loan-api/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/16056453.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/5014037.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/general--integration-development/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/api-types/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/api-types/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases/ecomphp-custom-errorcodes.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases/ecomphp-custom-errorcodes.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases/resurs-error-codes.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases/resurs-error-codes.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/general--integration-development/16056677.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/general--integration-development/16056677.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/general--integration-development/handling-checkout-flows-bottle-necks.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/general--integration-development/handling-checkout-flows-bottle-necks.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/development/php-and-development-libraries/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/development/php-and-development-libraries/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/merchant-api-2-0/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/merchant-api-2-0/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/simplified-flow-api/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/simplified-flow-api/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/testing/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/testing/index.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +65,8 @@
       <recent name="$PROJECT_DIR$/assets/fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/development/general--integration-development" />
+      <recent name="$PROJECT_DIR$/docs/development/errors--problem-solving-and-corner-cases" />
       <recent name="$PROJECT_DIR$/_exclude" />
     </key>
   </component>
@@ -75,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1709714875157</updated>
       <workItem from="1709714876203" duration="21382000" />
-      <workItem from="1710137083760" duration="14315000" />
+      <workItem from="1710137083760" duration="19474000" />
     </task>
     <servers />
   </component>
