@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Paymentstatus
+title: paymentStatus
 permalink: /development/api-types/paymentstatus/
 parent: Api Types
 grand_parent: Development
@@ -9,7 +9,6 @@ grand_parent: Development
 
 
 # paymentStatus 
-Created by Benny, last modified on 2013-06-18
 
 | Status Code | Description      |
 |-------------|------------------|
