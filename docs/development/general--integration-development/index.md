@@ -9,26 +9,26 @@ has_toc: false
 
 
 # General: Integration development 
-Created by Thomas Tornevall, last modified on 2022-05-08
+
 - [Shared plugins -
-  Contribution](#general:integrationdevelopment-sharedplugins-contribution)
+  Contribution](#shared-plugins-contribution)
 - [New shared plugin - step by step
-  building](#general:integrationdevelopment-newsharedplugin-stepbystepbuilding)
+  building](#new-shared-plugin-step-by-step-building)
 - [What to keep in
-  mind](#general:integrationdevelopment-whattokeepinmind)
-- [Where to start](#general:integrationdevelopment-wheretostart)
+  mind](#what-to-keep-in-mind)
+- [Where to start](#where-to-start)
   - [Configuration -
-    Admin](#general:integrationdevelopment-configuration-admin)
+    Admin](#configuration-admin)
     - [Sections to create in the admin control
-      panel](#general:integrationdevelopment-sectionstocreateintheadmincontrolpanel)
+      panel](#sections-to-create-in-the-admin-control-panel)
       - [The payment methods
-        section](#general:integrationdevelopment-thepaymentmethodssection)
+        section](#the-payment-methods-section)
 
   - [The checkout and forms that needs to be filled
-    in](#general:integrationdevelopment-thecheckoutandformsthatneedstobefilledin)
-  - [Callbacks](#general:integrationdevelopment-callbacks)
+    in](#the-checkout-and-forms-that-needs-to-be-filled-in)
+  - [Callbacks](#callbacks)
 
-# Shared plugins - Contribution
+# Shared plugins Contribution
 The following text covers one way to create a shared plugin (meaning, a
 plugin that everybody can use), from scratch. It may also change over
 time as we find new ways to optimize our plugin-making. Our own goal
@@ -37,10 +37,10 @@ means, we are trying to make all plugins act as much in the same way, in
 all platforms, as possible.
 
 If you want to contribute, you may want to take a look at
-[Development](development) - this page summarizes our plugins and where
+[Development](/development/) - this page summarizes our plugins and where
 they are located.
 
-# New shared plugin - step by step building
+# New shared plugin step by step building
 For example, when generating form fields for a checkout, we are always
 trying to utilize the e-commerce platform's own form fields as much as
 we can, so when a customer fills in address data, the parts of the
@@ -60,7 +60,7 @@ information customers has to fill in, the better.
   ![](../../../attachments/5014037/7438447.png) 
 
 # Where to start
-## Configuration - Admin
+## Configuration Admin
 If you are already familiar with the platform where you are going to
 create your plugin, our suggestion is to first prepare the
 administration interface to handle, for example, the payment methods
