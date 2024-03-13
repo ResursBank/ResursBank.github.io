@@ -15,41 +15,40 @@ Source code is located at
 
 ECom2 (or EComPHP version 2) is ecommerce library built for PHP starting
 with v8.1, with the intention to only support the Resurs REST-backend
-[MAPI Checkout Flow](mapi-checkout-flow). None of the older API's
+[MAPI Checkout Flow](/merchant-api-2.0/). None of the older API's
 (except for RCO) is included, so SOAP is no longer required. The library
 is also built to be an independent stand-alone library. 
 
 # Table of contents
-- [Table of contents](#version2.x(ecomphp)-tableofcontents)
-- [Requirements](#version2.x(ecomphp)-requirements)
-- [Getting started](#version2.x(ecomphp)-gettingstarted)
-  - [Config](#version2.x(ecomphp)-config)
-  - [Exceptions](#version2.x(ecomphp)-exceptions)
-    - [Exceptions](#version2.x(ecomphp)-exceptions.1)
-    - [Exceptions/Validation](#Version2.x(EComPHP)-Exceptions/Validation)
+- [Requirements](#requirements)
+- [Getting started](#getting-started)
+  - [Config](#config)
+  - [Exceptions](#exceptions)
+    - [Exceptions](#exceptions-1)
+    - [Exceptions/Validation](#exceptionsvalidation)
 
-  - [Libraries](#version2.x(ecomphp)-libraries)
-    - [Api](#version2.x(ecomphp)-api)
-    - [Cache](#version2.x(ecomphp)-cache)
-    - [Collection](#version2.x(ecomphp)-collection)
-    - [DataStorage](#version2.x(ecomphp)-datastorage)
-    - [Event](#version2.x(ecomphp)-event)
-    - [Locale](#version2.x(ecomphp)-locale)
-    - [Log](#version2.x(ecomphp)-log)
-    - [Model](#version2.x(ecomphp)-model)
-    - [Network](#version2.x(ecomphp)-network)
-    - [Simplified](#version2.x(ecomphp)-simplified)
-    - [Utilities](#version2.x(ecomphp)-utilities)
-    - [Validation](#version2.x(ecomphp)-validation)
+  - [Libraries](#libraries)
+    - [Api](#api)
+    - [Cache](#cache)
+    - [Collection](#collection)
+    - [DataStorage](#datastorage)
+    - [Event](#event)
+    - [Locale](#locale)
+    - [Log](#log)
+    - [Model](#model)
+    - [Network](#network)
+    - [Simplified](#simplified)
+    - [Utilities](#utilities)
+    - [Validation](#validation)
 
-  - [Modules](#version2.x(ecomphp)-modules)
-    - [Annuity](#version2.x(ecomphp)-annuity)
-    - [PaymentMethod](#version2.x(ecomphp)-paymentmethod)
-    - [RCO](#version2.x(ecomphp)-rco)
-    - [RCO Callback](#version2.x(ecomphp)-rcocallback)
-    - [Store](#version2.x(ecomphp)-store)
+  - [Modules](#modules)
+    - [Annuity](#annuity)
+    - [PaymentMethod](#paymentmethod)
+    - [RCO](#rco)
+    - [RCO Callback](#rco-callback)
+    - [Store](#store)
 
-  - [Callbacks](#version2.x(ecomphp)-callbacks)
+  - [Callbacks](#callbacks)
 
 # Requirements
 - PHP 8.1
@@ -276,6 +275,7 @@ In its simplest form (as the callback types are not auto discovered),
 you can use the following code to fetch the proper callback model for
 Authorization (where the repository itself also handles the data
 received via [php://input](php://input)).
+
 
     use Resursbank\Ecom\Module\Callback\Repository;
     $this->callbackModel = (new Repository(CallbackType::AUTHORIZATION))->getCallbackModel();
