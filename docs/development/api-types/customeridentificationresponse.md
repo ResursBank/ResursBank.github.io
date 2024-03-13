@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Customeridentificationresponse
+title: customerIdentificationResponse
 permalink: /development/api-types/customeridentificationresponse/
 parent: Api Types
 grand_parent: Development
