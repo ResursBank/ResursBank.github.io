@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Paymentmethod
+title: paymentMethod
 permalink: /development/api-types/paymentmethod/
 parent: Api Types
 grand_parent: Development
