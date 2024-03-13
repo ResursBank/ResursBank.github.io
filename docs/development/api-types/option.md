@@ -9,7 +9,6 @@ grand_parent: Development
 
 
 # option 
-Created by Benny, last modified on 2017-02-27
 An option in a list of predefined values.
 
 ### Attributes
