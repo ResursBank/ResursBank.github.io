@@ -11,30 +11,27 @@ parent: General - Integration Development
 
 
 ## Configuration - Admin
-- [Postman-collection of the requests
-  above](#postman-collection-of-the-requests-above)
-
-![](../../attachments/mapiEcom.png)
+![](../../../attachments/configAdmin.png)
 
 1.  Option to enable and disable the module.
 2.  Option to enable switch between test and production environment at
     Resurs Bank.
-3.  End points for [production](3440987) and [test](test-urls)
+3.  End points for [production](/prod-urls/) and [test](/testing/test-urls/)
     environment.
 4.  Country of merchant credentials.\*
 5.  Usernamn provided by Resurs Bank.
 6.  Password provided by Resurs Bank.
 7.  Callback implementation.\*\*  
-    You can use either [SOAP](register-event-callback) or
-    [REST](resurs-checkout-web) to register callback.  
-    [Read more](callbacks) how to use and implement callbacks.
+    
+    
 
+> [!NOTE] 
 > \* Country settingResurs Bank merchant credentials only supports one
 > country per credential account. Merchants that allow shopping from
 > multiple countries need to have one credential for each country
 > (Sweden, Norway, Finland or Denmark). I.e., a Norwegian customer can
 > not shop with payment methods in a Swedish store.
-
+>
 > \*\* Callback noticesCallbacks must be reachable externally. If you
 > are testing your web store in a protected environment and you want to
 > test callback functionality, you have to make sure that Resurs can
