@@ -18,19 +18,19 @@ has_toc: false
 
 **Subpages**
 
-- [Errors, problem solving and corner cases](/development/16056453/)
-- [General: Integration development](/development/5014037/)
+- [Errors, problem solving and corner cases](/development/errorsproblemsolvingandcornercases/)
+- [General: Integration development](/development/generalintegrationdevelopment/)
 - [PHP and development libraries](/development/php-and-development-libraries/)
 - [API Types](/development/api-types/)
-- [Create part payment widget](create-part-payment-widget)
+- [Create part payment widget](/development/create-part-payment-widget/)
 - [Customer data - Regular
-  expressions](customer-data---regular-expressions)
-- [Rounding](rounding)
-- [Recognized metadata](recognized-metadata)
+  expressions](/development/customer-data---regular-expressions/)
+- [Rounding](/development/rounding/)
+- [Recognized metadata](/development/recognized-metadata/)
 - [Payment providers in simplified
-  flow](payment-providers-in-simplified-flow)
+  flow](/development/payment-providers-in-simplified-flow/)
 - [Permissions and passwords - Platform
-  access](permissions-and-passwords---platform-access)
+  access](/development/permissions-and-passwords---platform-access/)
 
 > Important about staging versus productionIf you are planning to
 > develop (or install) plugins, it is required that you are running both
@@ -44,9 +44,8 @@ has_toc: false
 > unexpected results depending on the product you are using.
 
 # Downloadables
-We're hosting a bunch of logos and images for our markdown documents
-that follows in our bitbucket-repos
-via [https://test.resurs.com/plugindevelopers/](https://test.resurs.com/plugindevelopers/)
+We're hosting logos and images for our markdown documents
+that follows in our bitbucket-repos.
 
 # Source code and support
 We
