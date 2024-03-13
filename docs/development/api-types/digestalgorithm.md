@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Digestalgorithm
+title: digestAlgorithm
 permalink: /development/api-types/digestalgorithm/
 parent: Api Types
 grand_parent: Development
