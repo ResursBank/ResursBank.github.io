@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Urls For Prod/Live With Important Checklist
-permalink: /3440987/
+permalink: /prod-urls/
 ---
 
 # URLs for prod/live with important checklist 

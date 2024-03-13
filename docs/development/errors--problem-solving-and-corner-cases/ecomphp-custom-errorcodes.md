@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Ecomphp Custom Errorcodes
+title: EComPHP Custom ErrorCodes
 permalink: /development/errors--problem-solving-and-corner-cases/ecomphp-custom-errorcodes/
 parent: Errors, Problem Solving And Corner Cases
 grand_parent: Development
@@ -13,7 +13,7 @@ EComPHP, when errors occurs, renders own fault codes when something goes
 wrong. A sample of what codes that is used can be read [from this
 point](https://bitbucket.org/resursbankplugins/resurs-ecomphp/src/master/source/classes/rbapiloader/ResursException.php).
 A part of this list includes the SOAP faultcodes
-[here](https://test.resurs.com/docs/x/jgEF).
+[here](/development/errors--problem-solving-and-corner-cases/resurs-error-codes/).
 
 Except for this EComPHP passes errors from the engine that handles the
 communication with ecommerce rest/soap. Those exceptions can be found

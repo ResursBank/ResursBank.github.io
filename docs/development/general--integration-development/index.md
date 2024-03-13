@@ -9,26 +9,26 @@ has_toc: false
 
 
 # General: Integration development 
-Created by Thomas Tornevall, last modified on 2022-05-08
+
 - [Shared plugins -
-  Contribution](#general:integrationdevelopment-sharedplugins-contribution)
+  Contribution](#shared-plugins-contribution)
 - [New shared plugin - step by step
-  building](#general:integrationdevelopment-newsharedplugin-stepbystepbuilding)
+  building](#new-shared-plugin-step-by-step-building)
 - [What to keep in
-  mind](#general:integrationdevelopment-whattokeepinmind)
-- [Where to start](#general:integrationdevelopment-wheretostart)
+  mind](#what-to-keep-in-mind)
+- [Where to start](#where-to-start)
   - [Configuration -
-    Admin](#general:integrationdevelopment-configuration-admin)
+    Admin](#configuration-admin)
     - [Sections to create in the admin control
-      panel](#general:integrationdevelopment-sectionstocreateintheadmincontrolpanel)
+      panel](#sections-to-create-in-the-admin-control-panel)
       - [The payment methods
-        section](#general:integrationdevelopment-thepaymentmethodssection)
+        section](#the-payment-methods-section)
 
   - [The checkout and forms that needs to be filled
-    in](#general:integrationdevelopment-thecheckoutandformsthatneedstobefilledin)
-  - [Callbacks](#general:integrationdevelopment-callbacks)
+    in](#the-checkout-and-forms-that-needs-to-be-filled-in)
+  - [Callbacks](#callbacks)
 
-# Shared plugins - Contribution
+# Shared plugins Contribution
 The following text covers one way to create a shared plugin (meaning, a
 plugin that everybody can use), from scratch. It may also change over
 time as we find new ways to optimize our plugin-making. Our own goal
@@ -37,10 +37,10 @@ means, we are trying to make all plugins act as much in the same way, in
 all platforms, as possible.
 
 If you want to contribute, you may want to take a look at
-[Development](development) - this page summarizes our plugins and where
+[Development](/development/) - this page summarizes our plugins and where
 they are located.
 
-# New shared plugin - step by step building
+# New shared plugin step by step building
 For example, when generating form fields for a checkout, we are always
 trying to utilize the e-commerce platform's own form fields as much as
 we can, so when a customer fills in address data, the parts of the
@@ -60,7 +60,7 @@ information customers has to fill in, the better.
   ![](../../../attachments/5014037/7438447.png) 
 
 # Where to start
-## Configuration - Admin
+## Configuration Admin
 If you are already familiar with the platform where you are going to
 create your plugin, our suggestion is to first prepare the
 administration interface to handle, for example, the payment methods
@@ -185,7 +185,7 @@ Different payment methods require different kind of form form field
 elements. They are listed below. Application full name is only used in
 the really old flow and can be removed.
 
-**Please take note on the optional phone number fields below. It is
+**Please take note on the $\color{blue}{	extsf{OPTIONAL}}$ phone number fields below. It is
 strongly recommended to always force a phone number at some point when
 calling the shopflow-API's even though they are not entirely required.
 IF the numbers are left out of the payload, Resurs will redirect
@@ -195,22 +195,20 @@ better that you handle this in your codebase.**
 
 | Payment Method SpecificType     | Applicant Government ID |   Applicant Telephone Number    |     Applicant Mobile Number     | Applicant Email Address | Contact Government ID | Card number | Applicant Full Name |
 |---------------------------------|:-----------------------:|:-------------------------------:|:-------------------------------:|:-----------------------:|:---------------------:|:-----------:|:-------------------:|
-| **INVOICE***Natural*** **       |        REQUIRED         | OPTIONAL**(Read the red note)** | OPTIONAL**(Read the red note)** |        REQUIRED         |                       |             |      OBSOLETE       |
-| **INVOICE***Legal*** **         |        REQUIRED         | OPTIONAL**(Read the red note)** | OPTIONAL**(Read the red note)** |        REQUIRED         |       REQUIRED        |             |  REQUIRED/OBSOLETE  |
-| **CARD***Existing card *        |        REQUIRED         |                                 |                                 |                         |                       |  REQUIRED   |      OBSOLETE       |
-| **REVOLVING_CREDIT***New card*  |        REQUIRED         |                                 |            REQUIRED             |        REQUIRED         |                       |             |      OBSOLETE       |
-| **PART_PAYMENT***Part payment*  |        REQUIRED         |            REQUIRED             |            REQUIRED             |        REQUIRED         |                       |             |      OBSOLETE       |
+| **INVOICE** Natural       |  $\color{green}{\textsf{REQUIRED}}$    | $\color{blue}{\textsf{OPTIONAL}}$**(Read the red note)** | $\color{blue}{\textsf{OPTIONAL}}$**(Read the red note)** |        $\color{green}{\textsf{REQUIRED}}$         |                       |             |      $\color{red}{\textsf{OBSOLETE}}$       |
+| **INVOICE** Legal         |        $\color{green}{\textsf{REQUIRED}}$          | $\color{blue}{\textsf{OPTIONAL}}$**(Read the red note)** | $\color{blue}{\textsf{OPTIONAL}}$**(Read the red note)** |        $\color{green}{\textsf{REQUIRED}}$         |       $\color{green}{\textsf{REQUIRED}}$        |             |  $\color{green}{\textsf{REQUIRED}}$/$\color{red}{\textsf{OBSOLETE}}$  |
+| **CARD** Existing card        |        $\color{green}{\textsf{REQUIRED}}$         |                                 |                                 |                         |                       |  $\color{green}{\textsf{REQUIRED}}$   |      $\color{red}{\textsf{OBSOLETE}}$       |
+| **REVOLVING_CREDIT** New card  |        $\color{green}{\textsf{REQUIRED}}$         |                                 |            $\color{green}{\textsf{REQUIRED}}$             |        $\color{green}{\textsf{REQUIRED}}$         |                       |             |      $\color{red}{\textsf{OBSOLETE}}$       |
+| **PART_PAYMENT** Part payment  |        $\color{green}{\textsf{REQUIRED}}$         |            $\color{green}{\textsf{REQUIRED}}$             |            $\color{green}{\textsf{REQUIRED}}$             |        $\color{green}{\textsf{REQUIRED}}$         |                       |             |      $\color{red}{\textsf{OBSOLETE}}$       |
 
 *When creating forms for payment, make sure that you are also adding
 content validation (regex) to the fields ([see
-here](customer-data---regular-expressions))*.
+here](/development/customer-data---regular-expressions/))*.
 
 Address completion for filling in address data on an order page is
 available through [Get
-address](https://test.resurs.com/docs/pages/viewpage.action?pageId=5013938).
-Currently, the service is only available for Sweden. Code examples for
-PHP (Magento) can be found at the [OldFlow Plugin - Coding examples for
-getAddress](oldflow-plugin---coding-examples-for-getaddress)-section.
+address](/simplified-flow-api/getaddress/).
+Currently, the service is only available for Sweden. 
 
 ## Callbacks
 > Callback noticesCallbacks must be reachable externally. If you are
