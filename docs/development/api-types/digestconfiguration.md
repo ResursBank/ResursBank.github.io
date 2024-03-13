@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Digestconfiguration
+title: digestConfiguration
 permalink: /development/api-types/digestconfiguration/
 parent: Api Types
 grand_parent: Development
