@@ -1,6 +1,6 @@
 ---
 layout: page
-title: limitApplicationFormasCompiledForm
+title: limitApplicationFormAsCompiledForm
 permalink: /development/api-types/limitapplicationformascompiledform/
 parent: Api Types
 grand_parent: Development
