@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Paymentdifftype
+title: paymentDiffType
 permalink: /development/api-types/paymentdifftype/
 parent: Api Types
 grand_parent: Development
@@ -9,7 +9,6 @@ grand_parent: Development
 
 
 # paymentDiffType 
-Created by Benny, last modified on 2017-02-15
 #### The type of payment part.
 
 | Value     | Description                                   |
