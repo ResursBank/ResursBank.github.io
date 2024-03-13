@@ -1,7 +1,7 @@
 ---
 layout: page
 title: General - Integration Development
-permalink: /development/5014037/
+permalink: /development/generalintegrationdevelopment/
 parent: Development
 has_children: true
 has_toc: false
