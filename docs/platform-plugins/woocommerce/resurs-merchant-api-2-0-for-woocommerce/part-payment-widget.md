@@ -9,7 +9,6 @@ grand_parent: Platform Plugins
 
 
 # Part payment widget 
-Created by Mikael Jacobson, last modified by Gert on 2023-01-05
 This feature of the plugin allows your store to display a small widget
 on individual product pages with information about available part
 payment options including a modal iframe popup with more detailed
