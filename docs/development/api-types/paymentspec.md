@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Paymentspec
+title: paymentSpec
 permalink: /development/api-types/paymentspec/
 parent: Api Types
 grand_parent: Development
@@ -17,8 +17,8 @@ Contains elements as defined in the following table.
 
 | Component      | Type                                   | Occurs | Nillable? | Description                                                                                                                                                                                                                  |
 |----------------|----------------------------------------|--------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| specLines      | **[specLine](specline)**               | 0..\*  | No        | The list of payment lines. In the case you're sending a simple payment, without lines, this parameter should be left empty. Sending payment lines may, or may not, be mandatory, depending on the contract with Resurs Bank. |
-| totalAmount    | **[positiveDecimal](simple-types...)** | 1..1   | No        | The total payment amount. The sum of all line amounts (if there are lines supplied) including VAT. If this payment is without lines this is the only value to be set on the payment spec.                                    |
+| specLines      | **[specLine](/development/api-types/specline/)**               | 0..\*  | No        | The list of payment lines. In the case you're sending a simple payment, without lines, this parameter should be left empty. Sending payment lines may, or may not, be mandatory, depending on the contract with Resurs Bank. |
+| totalAmount    | **[positiveDecimal](/development/api-types/simple-types/)** | 1..1   | No        | The total payment amount. The sum of all line amounts (if there are lines supplied) including VAT. If this payment is without lines this is the only value to be set on the payment spec.                                    |
 | totalVatAmount | decimal                                | 0..1   | Yes       | The total VAT amount of the payment when there are specification lines supplied. If there are no lines this fileld must be empty (null).                                                                                     |
 
 ### Paymentspec - speclines
@@ -38,5 +38,5 @@ startPaymentSession method
 **paymentSpec example in bookPayment**
 
 ### Paymentspec - rounding
-[see Rounding](rounding)
+[see Rounding](/development/rounding/)
 
