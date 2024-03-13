@@ -9,8 +9,7 @@ grand_parent: Development
 
 
 # cardData 
-## Hej hej hej
- The card payment specification data. Can be used for both card and
+The card payment specification data. Can be used for both card and
 account.
 
 > Only set one of CardNumber and Amount, both should never be
