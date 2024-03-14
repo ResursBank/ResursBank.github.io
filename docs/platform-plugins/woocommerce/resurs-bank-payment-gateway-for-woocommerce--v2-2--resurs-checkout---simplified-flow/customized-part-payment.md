@@ -16,18 +16,6 @@ on the method you prefer display on separate product pages.
 
 ![](../../../../attachments/32833795/32833789.png)
 
-When activated, simply pick a part payment period like this:
-
-![Denna bild har ett alt-attribut som är tomt. Dess filnamn är
-image-1-1024x77.png](https://woocommerce.ecommerceweb.se/wp-content/uploads/2020/09/image-1-1024x77.png)
-
-Activation of this feature normally looks like this (the notification
-text just above the text *"Delbetala från" *will always display in
-staging mode):
-
-![Denna bild har ett alt-attribut som är tomt. Dess filnamn är
-image.png](https://woocommerce.ecommerceweb.se/wp-content/uploads/2020/09/image.png)
-
 ## The customization
 If this text isn't enough for you (note that this is not a multilingual
 feature today), you can customize this text by creating your own page
