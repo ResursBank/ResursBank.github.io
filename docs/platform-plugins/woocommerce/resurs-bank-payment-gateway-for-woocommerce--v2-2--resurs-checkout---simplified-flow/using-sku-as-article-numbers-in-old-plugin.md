@@ -6,10 +6,7 @@ parent: Woocommerce
 grand_parent: Platform Plugins
 ---
 
-
-
 # Using sku as article numbers in old plugin 
-Created by Thomas Tornevall, last modified on 2023-09-13
 The old module once **had** support for sku-values as articlenumbers on
 order rows, but has since the evolving of our plugins been removed from
 the configuration panel due to decisions. The old plugin is currently
