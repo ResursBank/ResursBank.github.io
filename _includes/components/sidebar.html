@@ -23,10 +23,5 @@ Should not be cached, because nav_footer_custom.html might depend on page.
     {% endcapture %}
     {% if nav_footer_custom != "" %}
     {{ nav_footer_custom }}
-    {% else %}
-    <footer class="site-footer">
-        <div class="footer-logo"></div>
-        <p>&copy; 2024 Resurs Bank AB</p>
-    </footer>
     {% endif %}
 </div>
