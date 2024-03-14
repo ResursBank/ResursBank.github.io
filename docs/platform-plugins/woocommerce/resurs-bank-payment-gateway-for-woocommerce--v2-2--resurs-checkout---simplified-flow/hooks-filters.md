@@ -1,12 +1,10 @@
 ---
 layout: page
 title: Hooks/Filters V2.2 (And Core Tweaks)
-permalink: /platform-plugins/woocommerce/resurs-bank-payment-gateway-for-woocommerce--v2-2--resurs-checkout---simplified-flow/7208965/
+permalink: /platform-plugins/woocommerce/resurs-bank-payment-gateway-for-woocommerce--v2-2--resurs-checkout---simplified-flow/hooks-filters/
 parent: Woocommerce
 grand_parent: Platform Plugins
 ---
-
-
 
 # Hooks/filters v2.2 (and core tweaks) 
 Created by Thomas Tornevall, last modified on 2022-04-07
