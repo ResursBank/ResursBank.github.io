@@ -7,7 +7,6 @@ grand_parent: Platform Plugins
 ---
 
 # Hooks/filters v2.2 (and core tweaks) 
-Created by Thomas Tornevall, last modified on 2022-04-07
 - [Filter: Sending storeId into the
   payload](#filter-sending-storeid-into-the-payload)
 - [Filter: Handling of payment methods prefix
@@ -17,34 +16,34 @@ Created by Thomas Tornevall, last modified on 2022-04-07
 - [Filter: Part payment widget
   string](#filter-part-payment-widget-string)
 - [Action: Order
-  info](#Hooks/filtersv2.2(andcoretweaks)-Action:Orderinfo)
+  info](#action-order-info)
 - [Action: Handling
-  sessions](#Hooks/filtersv2.2(andcoretweaks)-Action:Handlingsessions)
+  sessions](#action-handling-sessions)
 - [Partial refunds (on price level) -
-  resurs_refund_price_override](#Hooks/filtersv2.2(andcoretweaks)-Partialrefunds(onpricelevel)-resurs_refund_price_override)
+  resurs_refund_price_override](#partial-refunds-on-price-level--resurs_refund_price_override)
 - [Front end hooks for country
-  changes](#Hooks/filtersv2.2(andcoretweaks)-Frontendhooksforcountrychanges)
+  changes](#front-end-hooks-for-country-changes)
 
-[Core Tweaks](#Hooks/filtersv2.2(andcoretweaks)-CoreTweaks)
+[Core Tweaks](#core-tweaks)
 - [The old row editor for partial annul/crediting is no longer
-  available](#Hooks/filtersv2.2(andcoretweaks)-Theoldroweditorforpartialannul/creditingisnolongeravailable)
+  available](#the-old-row-editor-for-partial-annulcrediting-is-no-longer-available)
 - [Performance issues and plugin breaks within wp-admin
-  (2.2.24+)](#Hooks/filtersv2.2(andcoretweaks)-Performanceissuesandpluginbreakswithinwp-admin(2.2.24+))
+  (2.2.24+)](#performance-issues-and-plugin-breaks-within-wp-admin-2224))
 
 [Settable advanced
-flags](#Hooks/filtersv2.2(andcoretweaks)-Settableadvancedflags)
-- [GIT_BIN](#Hooks/filtersv2.2(andcoretweaks)-GIT_BIN)
-- [ECOM_CACHE_TIME](#Hooks/filtersv2.2(andcoretweaks)-ECOM_CACHE_TIME)
-- [CURL_TIMEOUT](#Hooks/filtersv2.2(andcoretweaks)-CURL_TIMEOUT)
-- [DISABLE_SSL_VALIDATION](#Hooks/filtersv2.2(andcoretweaks)-DISABLE_SSL_VALIDATION)
+flags](#settable-advanced-flags)
+- [GIT_BIN](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
+- [ECOM_CACHE_TIME](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
+- [CURL_TIMEOUT](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
+- [DISABLE_SSL_VALIDATION](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
 
-[Miscellaneous](#Hooks/filtersv2.2(andcoretweaks)-Miscellaneous)
-- [FEE_EDITOR](#Hooks/filtersv2.2(andcoretweaks)-FEE_EDITOR)
-- [DEBUG](#Hooks/filtersv2.2(andcoretweaks)-DEBUG)
-- [NONCE_ERRORS](#Hooks/filtersv2.2(andcoretweaks)-NONCE_ERRORS)
-- [SKIP_DIGEST_VALIDATION](#Hooks/filtersv2.2(andcoretweaks)-SKIP_DIGEST_VALIDATION)
-- [XDEBUG_SESSION_START](#Hooks/filtersv2.2(andcoretweaks)-XDEBUG_SESSION_START)
-- [PTEUSERS](#Hooks/filtersv2.2(andcoretweaks)-PTEUSERS)
+[Miscellaneous](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
+- [FEE_EDITOR](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
+- [DEBUG](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
+- [NONCE_ERRORS](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
+- [SKIP_DIGEST_VALIDATION](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
+- [XDEBUG_SESSION_START](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
+- [PTEUSERS](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
 
 The filters described on this page always requires that you keep our
 plugin updated.
