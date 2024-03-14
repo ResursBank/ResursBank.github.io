@@ -9,7 +9,6 @@ grand_parent: Platform Plugins
 
 
 # Order management 
-Created by Mikael Jacobson, last modified by Gert on 2023-10-11
 The plugin has functionality built into it for automatically updating
 the payment at Resurs Bank when the order is manually edit/updated in
 WooCommerce order view.

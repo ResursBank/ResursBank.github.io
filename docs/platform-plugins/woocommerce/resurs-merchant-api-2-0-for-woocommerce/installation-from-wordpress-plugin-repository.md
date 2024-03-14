@@ -9,7 +9,6 @@ grand_parent: Platform Plugins
 
 
 # Installation from WordPress plugin repository 
-Created by Thomas Tornevall, last modified on 2023-04-28
 This page contains information about how to install the plugin properly.
 
 The official release is located at

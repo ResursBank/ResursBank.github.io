@@ -21,7 +21,7 @@ Simplified Shop Flow
 |---------------------|--------------------|--------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | cellPhone           | string             | 0..1   | false     | The customer's cell phone number is specified here. Is mandatory if you are using Swish payment method via Resurs Bank                                                                           |
 | yourCustomerId      | string             | 0..1   | true      | Your internal customer ID, if you want it on invoice etc.                                                                                                                                        |
-| deliveryAddress     | [address](address) | 0..1   | true      | If the delivery address should be changed, specify a new delivery address here else leave it empty.                                                                                              |
+| deliveryAddress     | [address](/development/api-types/address/) | 0..1   | true      | If the delivery address should be changed, specify a new delivery address here else leave it empty.                                                                                              |
 | contactGovernmentId | string             | 0..1   | true      | If your customer is of LEGAL type (company), set the contact person for the payment. If a none LEGAL (i.e. NATURAL) leave it empty.Contact civic number. **Company applicable only for Sweden**. |
 
 Details about a (potential) customer, be it natural or legal.  
@@ -29,11 +29,11 @@ Contains elements as defined in the following table.
 
 | Component    | Type                                                                                    | Occurs | Nillable? | Description                                                                                                                                    |
 |--------------|-----------------------------------------------------------------------------------------|--------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| governmentId | **[nonEmptyString](https://test.resurs.com/docs/pages/viewpage.action?pageId=1475653)** | 0..1   | No        | Identifies a customer uniquely within the country.• SE: Personnummer/Organisationsnummer• DK: CPR-number• NO: Fødselsnummer• FI: Henkilötunnus |
-| address      | **[address](https://test.resurs.com/docs/display/ecom/address)**                        | 1..1   | No        | The customer address. It's only used for fraud control. billingAddress will always be the customers registered address.                        |
+| governmentId | **[nonEmptyString](/development/api-types/simple-types/)** | 0..1   | No        | Identifies a customer uniquely within the country.• SE: Personnummer/Organisationsnummer• DK: CPR-number• NO: Fødselsnummer• FI: Henkilötunnus |
+| address      | **[address](/development/api-types/address/)**                        | 1..1   | No        | The customer address. It's only used for fraud control. billingAddress will always be the customers registered address.                        |
 | cellPhone    | string                                                                                  | 0..1   | No        | The customer's cell phone number is specified here. Mandatory if Swish is to be used as payment method                                         |
-| email        | **[nonEmptyString](https://test.resurs.com/docs/pages/viewpage.action?pageId=1475653)** | 0..1   | No        | The customer email address.                                                                                                                    |
-| type         | **[customerType](https://test.resurs.com/docs/display/ecom/customerType)**              | 1..1   | No        | The customer type.                                                                                                                             |
+| email        | **[nonEmptyString](/development/api-types/simple-types/)** | 0..1   | No        | The customer email address.                                                                                                                    |
+| type         | **[customerType](/development/api-types/customertype/)**              | 1..1   | No        | The customer type.                                                                                                                             |
 
 ```xml
  <customer>

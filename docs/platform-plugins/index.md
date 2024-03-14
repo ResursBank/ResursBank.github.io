@@ -10,58 +10,57 @@ has_children: true
 Created by Benny, last modified by Gert on 2023-10-16
 **Content of this page**
 - [Supported open source e-commerce website
-  platforms](#platformplugins-supportedopensourcee-commercewebsiteplatforms)
-- [E-Commerce Platforms](#platformplugins-e-commerceplatforms)
-  - [SSL Certificate, https and
-    certificates](#platformplugins-sslcertificate,httpsandcertificates)
-    - [Do not forget to check your certificates! See FAQ for more
-      information.](#platformplugins-donotforgettocheckyourcertificates!seeformoreinformation.)
+  platforms](#supported-open-source-e-commerce-website-platforms)
+- [SSL Certificate, https and
+    certificates](#ssl-certificate-https-and-certificates)
+- [Do not forget to check your certificates! See FAQ for more
+      information.](#do-not-forget-to-check-your-certificates-see-faq-for-more-information)
 
-  - [Maintaining
-    Compatibility](#platformplugins-maintainingcompatibility)
-  - [PHP Platform
-    Requirements](#platformplugins-phpplatformrequirements)
-    - [Avoid PHP 5.6, try push your PHP platform upwards - not
-      downwards.](#platformplugins-avoidphp5.6,trypushyourphpplatformupwards-notdownwards.)
+- [Maintaining
+    Compatibility](#maintaining-compatibility)
+- [PHP Platform
+    Requirements](#php-platform-requirements)
+- [Avoid PHP 5.6, try push your PHP platform upwards - not
+      downwards.](#avoid-php-56-try-push-your-php-platform-upwards---not-downwards)
 
-  - [Autotesting](#platformplugins-autotesting)
+  - [Autotesting](#autotesting)
 
-[Issue tracking](#platformplugins-issuetracking)
+[Issue tracking](#issue-tracking)
 
-- [Magento modules](magento-modules)
-- [OpenCart](opencart)
-- [PrestaShop Payment Gateways](prestashop-payment-gateways)
-- [WooCommerce](woocommerce)
+- [Magento modules](/magento-modules/)
+- [OpenCart](/opencart/)
+- [PrestaShop Payment Gateways](/prestashop-payment-gateways/)
+- [WooCommerce](/woocommerce/)
 
 # Supported open source e-commerce website platforms
 
-| E-Commerce Platforms                                        | Magentov2.3.x-v2.4.x                                    | WooCommerceRead more                          | OpenCartv1.5.x - v3.x End of life: September, 2023     | PrestaShopv1.6.1.x / v1.7.7.x End of life: October 1, 2022 | PrestaShopv1.7.7.xEnd of life: September, 2023 |
+| E-Commerce Platforms                                        | Magentov2.3.x-v2.4.x                                    | WooCommerceRead more                          | OpenCartv1.5.x - v3.x End of life: September, 2023     | PrestaShopv1.6.1.x / v1.7.7.x End of life: October 1, 2022 | PrestaShopv1.7.7.x End of life: September, 2023 |
 |-------------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------|--------------------------------------------------------|------------------------------------------------------------|------------------------------------------------|
 | **Shop flow**                                               |                                                         |                                               |                                                        |                                                            |                                                |
-| [Resurs Checkout](resurs-checkout-web)                      | ![(tick)](images/icons/emoticons/check.svg)Not Denmark  | ![(error)](images/icons/emoticons/error.svg)  | ![(tick)](images/icons/emoticons/check.svg)Not Denmark | ![(tick)](images/icons/emoticons/check.svg)Not Denmark     | ![(error)](images/icons/emoticons/error.svg)   |
-| [Simplified Flow](simplified-flow-api)End of life: Q1, 2024 | ![(tick)](images/icons/emoticons/check.svg)             | ![(error)](images/icons/emoticons/error.svg)  | ![(error)](images/icons/emoticons/error.svg)           | ![(error)](images/icons/emoticons/error.svg)               | ![(tick)](images/icons/emoticons/check.svg)    |
-| [Resurs Merchant API 2.0](merchant-api-2.0)                 | ![(error)](images/icons/emoticons/error.svg)            | ![(tick)](images/icons/emoticons/check.svg)   | ![(error)](images/icons/emoticons/error.svg)           | ![(error)](images/icons/emoticons/error.svg)               | ![(error)](images/icons/emoticons/error.svg)   |
+| Resurs Checkout                      | YES (Not Denmark)  | NO   | YES (Not Denmark) | YES (Not Denmark)     | NO    |
+| Simplified Flow  | YES              | NO   | NO            | NO                | YES     |
+| Resurs Merchant API 2.0](merchant-api-2.0)                 | NO             | YES    | NO            | NO                | NO    |
 |  **After shop**                                             |                                                         |                                               |                                                        |                                                            |                                                |
-|  Debiting whole order                                       | ![(tick)](images/icons/emoticons/check.svg)             | ![(tick)](images/icons/emoticons/check.svg)   | ![(error)](images/icons/emoticons/error.svg)           | ![(error)](images/icons/emoticons/error.svg)               | ![(tick)](images/icons/emoticons/check.svg)    |
-|  Debiting part order                                        | ![(error)](images/icons/emoticons/error.svg)            | ![(error)](images/icons/emoticons/error.svg)  | ![(error)](images/icons/emoticons/error.svg)           | ![(error)](images/icons/emoticons/error.svg)               | ![(error)](images/icons/emoticons/error.svg)   |
-| Crediting whole order                                       | ![(tick)](images/icons/emoticons/check.svg)             | ![(tick)](images/icons/emoticons/check.svg)   | ![(error)](images/icons/emoticons/error.svg)           | ![(error)](images/icons/emoticons/error.svg)               | ![(tick)](images/icons/emoticons/check.svg)    |
-|  Crediting part order                                       | ![(tick)](images/icons/emoticons/check.svg)             | ![(tick)](images/icons/emoticons/check.svg)\* | ![(error)](images/icons/emoticons/error.svg)           | ![(error)](images/icons/emoticons/error.svg)               | ![(tick)](images/icons/emoticons/check.svg)    |
-|  Annulment whole order                                      | ![(tick)](images/icons/emoticons/check.svg)             | ![(tick)](images/icons/emoticons/check.svg)   | ![(error)](images/icons/emoticons/error.svg)           | ![(error)](images/icons/emoticons/error.svg)               | ![(tick)](images/icons/emoticons/check.svg)    |
-|  Annulment part order                                       | ![(error)](images/icons/emoticons/error.svg)            | ![(tick)](images/icons/emoticons/check.svg)\* | ![(error)](images/icons/emoticons/error.svg)           | ![(error)](images/icons/emoticons/error.svg)               | ![(tick)](images/icons/emoticons/check.svg)    |
-|  Additional Debit of Payment                                | ![(error)](images/icons/emoticons/error.svg)            | ![(error)](images/icons/emoticons/error.svg)  | ![(error)](images/icons/emoticons/error.svg)           | ![(error)](images/icons/emoticons/error.svg)               | ![(error)](images/icons/emoticons/error.svg)   |
+|  Debiting whole order                                       | YES              | YES    | NO            | NO                | YES     |
+|  Debiting part order                                        | NO             | NO   | NO            | NO                | NO    |
+| Crediting whole order                                       | YES              | YES    | NO            | NO                | YES     |
+|  Crediting part order                                       | YES              | YES \* | NO            | NO                | YES     |
+|  Annulment whole order                                      | YES              | YES    | NO            | NO                | YES     |
+|  Annulment part order                                       | NO             | YES \* | NO            | NO                | YES     |
+|  Additional Debit of Payment                                | NO             | NO   | NO            | NO                | NO    |
 | ** Callback support**                                       |                                                         |                                               |                                                        |                                                            |                                                |
-|  Callbacks report to shop                                   | ![(tick)](images/icons/emoticons/check.svg)             | ![(tick)](images/icons/emoticons/check.svg)   | ![(tick)](images/icons/emoticons/check.svg)            | ![(tick)](images/icons/emoticons/check.svg)                | ![(tick)](images/icons/emoticons/check.svg)    |
+|  Callbacks report to shop                                   | YES              | YES    | YES             | YES                 | YES     |
 | **Discounts and fees  **                                    |                                                         |                                               |                                                        |                                                            |                                                |
-|  Handle gift card                                           | ![(error)](images/icons/emoticons/error.svg)            | ![(error)](images/icons/emoticons/error.svg)  |  ![(tick)](images/icons/emoticons/check.svg)           | ![(error)](images/icons/emoticons/error.svg)               | ![(error)](images/icons/emoticons/error.svg)   |
-|  Handle invoice fee                                         | ![(error)](images/icons/emoticons/error.svg)            | ![(tick)](images/icons/emoticons/check.svg)   |  ![(error)](images/icons/emoticons/error.svg)          | ![(error)](images/icons/emoticons/error.svg)               | ![(error)](images/icons/emoticons/error.svg)   |
-|  Handle discount                                            | ![(tick)](images/icons/emoticons/check.svg)             | ![(tick)](images/icons/emoticons/check.svg)   |  ![(tick)](images/icons/emoticons/check.svg)           | ![(tick)](images/icons/emoticons/check.svg)                | ![(tick)](images/icons/emoticons/check.svg)    |
-|  Handle shipping fee                                        | ![(tick)](images/icons/emoticons/check.svg)             | ![(tick)](images/icons/emoticons/check.svg)   |  ![(tick)](images/icons/emoticons/check.svg)           | ![(tick)](images/icons/emoticons/check.svg)                | ![(tick)](images/icons/emoticons/check.svg)    |
+|  Handle gift card                                           | NO             | NO   |  YES            | NO                | NO    |
+|  Handle invoice fee                                         | NO             | YES    |  NO           | NO                | NO    |
+|  Handle discount                                            | YES              | YES    |  YES            | YES                 | YES     |
+|  Handle shipping fee                                        | YES              | YES    |  YES            | YES                 | YES     |
 | **Other**                                                   |                                                         |                                               |                                                        |                                                            |                                                |
-| Display monthly cost with Resurs Bank in product catalog    | ![(tick)](images/icons/emoticons/check.svg)             | ![(tick)](images/icons/emoticons/check.svg)   | ![(tick)](images/icons/emoticons/check.svg)            | ![(tick)](images/icons/emoticons/check.svg)                | ![(tick)](images/icons/emoticons/check.svg)    |
-| Use platform order number as reference in Resurs Bank       | ![(tick)](images/icons/emoticons/check.svg)             | ![(tick)](images/icons/emoticons/check.svg)   | ![(tick)](images/icons/emoticons/check.svg)            | ![(tick)](images/icons/emoticons/check.svg)                | ![(tick)](images/icons/emoticons/check.svg)    |
-|  Supports multistore                                        | ![(tick)](images/icons/emoticons/check.svg)             | ![(error)](images/icons/emoticons/error.svg)  | ![(tick)](images/icons/emoticons/check.svg)            | ![(error)](images/icons/emoticons/error.svg)               | ![(error)](images/icons/emoticons/error.svg)   |
+| Display monthly cost with Resurs Bank in product catalog    | YES              | YES    | YES             | YES                 | YES     |
+| Use platform order number as reference in Resurs Bank       | YES              | YES    | YES             | YES                 | YES     |
+|  Supports multistore                                        | YES              | NO   | YES             | NO                | NO    |
 
-## SSL Certificate, https and certificates
+## SSL Certificate https and certificates
 ### Do not forget to check your certificates! See [FAQ](faq) for more information.
 ## Maintaining Compatibility
 **The more plugins you activate that handles your layout - and changes

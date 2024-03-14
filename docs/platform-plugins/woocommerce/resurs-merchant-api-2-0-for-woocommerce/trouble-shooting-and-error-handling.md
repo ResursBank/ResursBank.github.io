@@ -9,7 +9,6 @@ grand_parent: Platform Plugins
 
 
 # Trouble shooting and error handling 
-Created by Thomas Tornevall, last modified on 2023-05-08
 From time to time, you'll need to handle problems with the plugin.
 Before you contact us with error reporting, make sure the below settings
 tab are correctly filled in. To avoid us to break your platform, the

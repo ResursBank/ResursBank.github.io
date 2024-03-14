@@ -8,32 +8,31 @@ has_toc: false
 
 
 # Development 
-Created by Tobias, last modified by Thomas Tornevall on 2022-03-25
 **Getting started with self made integrations.**
 
 **Table of contents**
 **Table of contents**
 
-- [Downloadables](#development-downloadables)
-- [Source code and support](#development-sourcecodeandsupport)
-- [Heads up, please!](#development-headsup,please!)
+- [Downloadables](#downloadables)
+- [Source code and support](#source-code-and-support)
 
 **Subpages**
 
-- [Errors, problem solving and corner cases](errors--problem-solving-and-corner-cases/16056453.md)
-- [General: Integration development](general--integration-development/5014037.md)
-- [PHP and development libraries](php-and-development-libraries)
-- [API Types](api-types)
-- [Create part payment widget](create-part-payment-widget)
+- [Errors, problem solving and corner cases](/development/errorsproblemsolvingandcornercases/)
+- [General: Integration development](/development/generalintegrationdevelopment/)
+- [PHP and development libraries](/development/php-and-development-libraries/)
+- [API Types](/development/api-types/)
+- [Create part payment widget](/development/create-part-payment-widget/)
 - [Customer data - Regular
-  expressions](customer-data---regular-expressions)
-- [Rounding](rounding)
-- [Recognized metadata](recognized-metadata)
+  expressions](/development/customer-data---regular-expressions/)
+- [Rounding](/development/rounding/)
+- [Recognized metadata](/development/recognized-metadata/)
 - [Payment providers in simplified
-  flow](payment-providers-in-simplified-flow)
+  flow](/development/payment-providers-in-simplified-flow/)
 - [Permissions and passwords - Platform
-  access](permissions-and-passwords---platform-access)
+  access](/development/permissions-and-passwords---platform-access/)
 
+> [!IMPORTANT]
 > Important about staging versus productionIf you are planning to
 > develop (or install) plugins, it is required that you are running both
 > a test and a production environment. In this way you will first be
@@ -46,9 +45,8 @@ Created by Tobias, last modified by Thomas Tornevall on 2022-03-25
 > unexpected results depending on the product you are using.
 
 # Downloadables
-We're hosting a bunch of logos and images for our markdown documents
-that follows in our bitbucket-repos
-via [https://test.resurs.com/plugindevelopers/](https://test.resurs.com/plugindevelopers/)
+We're hosting logos and images for our markdown documents
+that follows in our bitbucket-repos.
 
 # Source code and support
 We
@@ -63,7 +61,7 @@ To report any problems and view our current projects and issues, please
 visit JIRA
 at [https://resursbankplugins.atlassian.net/secure/Dashboard.jspa](https://resursbankplugins.atlassian.net/secure/Dashboard.jspa).
 
-# Heads up, please!
+
 Are you building your platform with callbacks? Be cautious; callbacks
 can be sent to your platform ***rapidly***. By means, several callbacks
 can arrive to your platform the exact same time, causing race conditions

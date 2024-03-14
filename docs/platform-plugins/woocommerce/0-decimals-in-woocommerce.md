@@ -11,16 +11,16 @@ grand_parent: Platform Plugins
 # 0 decimals in WooCommerce 
 Created by Thomas Tornevall, last modified by Gert on 2023-01-19
 - [Decimals in
-  WooCommerce](#id-0decimalsinwoocommerce-decimalsinwoocommerce)
+  WooCommerce](#decimals-in-woocommerce)
 - [Why doesn’t the payment gateways calculate as
-  WooCommerce?](#id-0decimalsinwoocommerce-whydoesn’tthepaymentgatewayscalculateaswoocommerce?)
-- [Time for some math](#id-0decimalsinwoocommerce-timeforsomemath)
+  WooCommerce?](#why-doesnt-the-payment-gateways-calculate-as-woocommerce)
+- [Time for some math](#time-for-some-math)
 - [Order row quantity and
-  coupons](#id-0decimalsinwoocommerce-orderrowquantityandcoupons)
+  coupons](#order-row-quantity-and-coupons)
 - [But I don’t want to display decimals in my store – how do I
-  do?](#id-0decimalsinwoocommerce-butidon’twanttodisplaydecimalsinmystore–howdoido?)
+  do?](#but-i-dont-want-to-display-decimals-in-my-store--how-do-i-do)
 - [I want to do this as a plugin - how would it
-  look?](#id-0decimalsinwoocommerce-iwanttodothisasaplugin-howwoulditlook?)
+  look?](#i-want-to-do-this-as-a-plugin---how-would-it-look)
 
 Under *General settings* in WooCommerce there is a section
 called *Currency options*. Here you can set the store currency and how
@@ -113,5 +113,14 @@ Plugin Name: WooCommerce price trim zeros
 ```
 Download:
 
-[![](download/resources/com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-resources/images/placeholder-small-file.png)woocommerce-price-trim-zeros.php](/docs/download/attachments/91029828/woocommerce-price-trim-zeros.php?version=1&modificationDate=1674130461000&api=v2)
+```php
+<?php
+ /*
+Plugin Name: WooCommerce price trim zeros
+*/
+ /**
+ * Trim zeros in price decimals
+ **/
+ add_filter( 'woocommerce_price_trim_zeros', '__return_true' );
+```
 

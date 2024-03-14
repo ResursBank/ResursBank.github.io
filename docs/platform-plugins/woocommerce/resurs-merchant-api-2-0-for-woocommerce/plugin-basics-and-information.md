@@ -9,7 +9,6 @@ grand_parent: Platform Plugins
 
 
 # Plugin basics and information 
-Created by Thomas Tornevall on 2023-04-11
 This is planned space for Resurs for WooCommerce MAPI Release v1.0. The
 MAPI-Commerce package is a rebuild of Resurs for WooCommerce that is
 adapted into the latest Resurs API (MAPIv2, as of 2022). All old flows
