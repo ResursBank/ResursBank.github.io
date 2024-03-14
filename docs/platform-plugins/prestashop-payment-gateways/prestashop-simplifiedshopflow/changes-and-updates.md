@@ -6,10 +6,10 @@ parent: Prestashop Payment Gateways
 grand_parent: Platform Plugins
 ---
 
-
+Changes And Updates
 
 # PrestaShop Simplified: Changes and updates 
-Created by Thomas Tornevall, last modified on 2022-06-08
+
 ## About the RCO module
 The prior module that handled Resurs Checkout will over time be replaced
 with this new module and is therefore no longer maintained the same way
