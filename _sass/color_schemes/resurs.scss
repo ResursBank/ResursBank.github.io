@@ -16,23 +16,6 @@
   src: url('./Inter-VariableFont_slnt,wght.ttf');
 }
 
-.side-bar {
-  /*background-color: #C85F00 !important;*/ // Orange
-  /*background-color: #006464 !important;*/ // Dark green
-  /*background-color: #E1BE00 !important;*/ // Yellow
-  //background-color: #009B96 !important;
-}
-
-//.
-//.site-header .site-title:hover {
-//  background: linear-gradient(to right, rgba(3, 134, 134, 0), rgba(3, 134, 134, 1)) !important;
-//}
-
-
-.site-footer {
-  display: none !important;
-}
-
 html {
   font-size: 16px;
   font-family: Inter,Helvetica,Arial,sans-serif;
@@ -50,7 +33,10 @@ html {
       scrollbar-width: thin;
 
       .site-header {
-        margin-top: 30px;
+        @media (min-width: 50rem) {
+          display: none;
+        }
+
         width: 400px;
         border-bottom: none !important;
 
