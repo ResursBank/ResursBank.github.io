@@ -9,7 +9,7 @@ grand_parent: Platform Plugins
 
 
 # PrestaShop Simplified Described 
-Created by Thomas Tornevall, last modified on 2021-11-25
+
 The simplified shopflow is from an integration perspective much more
 friendlier to apply to PrestaShop than Resurs Checkout since the payment
 flow itself does not require much frontend editing. When credentials and
