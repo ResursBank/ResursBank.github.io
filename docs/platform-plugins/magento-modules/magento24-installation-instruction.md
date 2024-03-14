@@ -6,24 +6,7 @@ parent: Magento Modules
 grand_parent: Platform Plugins
 ---
 
-
-
 # Resurs Bank Magento 2.4+ Installation Instruction 
-Created by Gert, last modified by Patric Johnsson on 2023-01-02
-#####  Contents
-- [System
-  Requirements](#resursbankmagento2.4+installationinstruction-systemrequirements)
-- [Packages](#resursbankmagento2.4+installationinstruction-packages)
-  - [Core](#resursbankmagento2.4+installationinstruction-core)
-  - [Order
-    Management](#resursbankmagento2.4+installationinstruction-ordermanagement)
-  - [Simplified](#resursbankmagento2.4+installationinstruction-simplified)
-  - [RCO](#resursbankmagento2.4+installationinstruction-rco)
-  - [Part
-    Payment](#resursbankmagento2.4+installationinstruction-partpayment)
-
-- [Installation
-  Procedure](#resursbankmagento2.4+installationinstruction-installationprocedure)
 
 # System Requirements
 Outside of Magento’s own requirements you will need the PHP SOAP and
