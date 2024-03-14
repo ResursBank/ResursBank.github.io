@@ -9,8 +9,7 @@ grand_parent: Platform Plugins
 
 
 # Status updates and callbacks 
-Created by Thomas Tornevall, last modified on 2022-06-07
-Orders are very much handled through [callbacks](callbacks) from Resurs.
+Orders are very much handled through callbacks from Resurs.
 The way callbacks works has less meaning as of today, even if PrestaShop
 has some exceptions for them. When Resurs is sending out a callback, the
 order management module will check for the current order status (via
