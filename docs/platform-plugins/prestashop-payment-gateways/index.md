@@ -9,9 +9,6 @@ has_children: true
 
 
 # PrestaShop Payment Gateways 
-Created by Benny, last modified by Thomas Tornevall on 2023-10-17
-- [Prestashop Resurs Checkout](prestashop-resurs-checkout)
-- [PrestaShop SimplifiedShopFlow](prestashop-simplifiedshopflow)
 
 ## Internal errorhandling i Cart parts
 To make sure we can separate "common errors" from the unknown exceptions
