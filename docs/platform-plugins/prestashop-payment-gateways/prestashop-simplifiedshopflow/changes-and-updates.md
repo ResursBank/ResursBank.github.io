@@ -6,8 +6,6 @@ parent: Prestashop Payment Gateways
 grand_parent: Platform Plugins
 ---
 
-Changes And Updates
-
 # PrestaShop Simplified: Changes and updates 
 
 ## About the RCO module
