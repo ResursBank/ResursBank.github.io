@@ -8,20 +8,6 @@ grand_parent: Platform Plugins
 
 # Presta-Simplified: Frequently Discussed Issues and Important Notes 
 
-- [Notes about
-  nginx](#prestasimplified:frequentlydiscussedissuesandimportantnotes-notesaboutnginx)
-- [getApiFunctions()](#prestasimplified:frequentlydiscussedissuesandimportantnotes-getapifunctions())
-- [Resurs Bank plugin needs own statuses for pending/processing orders -
-  why?](#PrestaSimplified:FrequentlyDiscussedIssuesandImportantNotes-ResursBankpluginneedsownstatusesforpending/processingorders-why?)
-- [When are the order/payment considered
-  paid?](#PrestaSimplified:FrequentlyDiscussedIssuesandImportantNotes-Whenaretheorder/paymentconsideredpaid?)
-- [Language and
-  translations](#prestasimplified:frequentlydiscussedissuesandimportantnotes-languageandtranslations)
-- [Commits and merges not taking effect in development
-  mode](#prestasimplified:frequentlydiscussedissuesandimportantnotes-commitsandmergesnottakingeffectindevelopmentmode)
-- [Are we using session data at any point in the
-  modules?](#prestasimplified:frequentlydiscussedissuesandimportantnotes-areweusingsessiondataatanypointinthemodules?)
-
 ## Notes about nginx
 When the PrestaShop development started, we noted a few moments that
 nginx could cause errors unrelated to the plugin.
