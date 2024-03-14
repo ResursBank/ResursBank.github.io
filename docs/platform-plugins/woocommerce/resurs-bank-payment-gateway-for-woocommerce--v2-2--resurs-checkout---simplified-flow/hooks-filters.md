@@ -9,13 +9,13 @@ grand_parent: Platform Plugins
 # Hooks/filters v2.2 (and core tweaks) 
 Created by Thomas Tornevall, last modified on 2022-04-07
 - [Filter: Sending storeId into the
-  payload](#Hooks/filtersv2.2(andcoretweaks)-Filter:SendingstoreIdintothepayload)
+  payload](#filter-sending-storeid-into-the-payload)
 - [Filter: Handling of payment methods prefix
-  paths](#Hooks/filtersv2.2(andcoretweaks)-Filter:Handlingofpaymentmethodsprefixpaths)
+  paths](#filter-handling-of-payment-methods-prefix-paths)
 - [Filter: Sort order of payment methods in
-  wp-admin](#Hooks/filtersv2.2(andcoretweaks)-Filter:Sortorderofpaymentmethodsinwp-admin)
+  wp-admin](#filter-sort-order-of-payment-methods-in-wp-admin)
 - [Filter: Part payment widget
-  string](#Hooks/filtersv2.2(andcoretweaks)-Filter:Partpaymentwidgetstring)
+  string](#filter-part-payment-widget-string)
 - [Action: Order
   info](#Hooks/filtersv2.2(andcoretweaks)-Action:Orderinfo)
 - [Action: Handling
