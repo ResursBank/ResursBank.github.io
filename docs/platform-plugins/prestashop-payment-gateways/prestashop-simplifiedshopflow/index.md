@@ -9,19 +9,6 @@ grand_parent: Platform Plugins
 
 
 # PrestaShop SimplifiedShopFlow 
-Created by Thomas Tornevall, last modified on 2022-08-04
-
-- [System
-  requirements](#prestashopsimplifiedshopflow-systemrequirements)
-- [Installing and
-  uninstalling](#prestashopsimplifiedshopflow-installinganduninstalling)
-  - [Preferred Installation
-    Method](#prestashopsimplifiedshopflow-preferredinstallationmethod)
-  - [Unsupported Installation
-    Method](#prestashopsimplifiedshopflow-unsupportedinstallationmethod)
-
-- [Upgrading and other "self helping"
-  support](#prestashopsimplifiedshopflow-upgradingandother%22selfhelping%22support)
 
 *Simplified ShopFlow for PrestaShop is intended to be built as a
 stand-alone checkout module for PrestaShop 1.7.7 and above. It is
