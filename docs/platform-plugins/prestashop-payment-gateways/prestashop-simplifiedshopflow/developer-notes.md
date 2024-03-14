@@ -6,13 +6,7 @@ parent: Prestashop Payment Gateways
 grand_parent: Platform Plugins
 ---
 
-
-
 # Developer Notes 
-Created by Thomas Tornevall, last modified on 2022-04-13
-- [Forwarding specific errors to front
-  end](#developernotes-forwardingspecificerrorstofrontend)
-- [Customer Data Fields](#developernotes-customerdatafields)
 
 ## Forwarding specific errors to front end
 The below pull request may be a perfect example of how to forward
