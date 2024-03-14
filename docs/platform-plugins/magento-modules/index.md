@@ -9,18 +9,6 @@ has_children: true
 
 
 # Magento modules 
-Created by Benny, last modified by Gert on 2022-12-08
-**Table of contents**
-- [Plugin versions](#magentomodules-pluginversions)
-  - [Flags](#magentomodules-flags)
-    - [END OF LIFE](#magentomodules-redendoflife)
-
-- [Deprecation notice\*](#magentomodules-deprecationnotice*)
-- [Requirements and support](#magentomodules-requirementsandsupport)
-  - [Magento 2.0](#magentomodules-magento2.0)
-
-- [Known problems](#magentomodules-knownproblems)
-  - [Slow BOOKED callback](#magentomodules-slowbookedcallback)
 
 Modules in this section is used for integrating Resurs Bank payment
 solutions with Magento based e-commerce stores.
@@ -29,10 +17,10 @@ solutions with Magento based e-commerce stores.
 
 | Flow/Name                                                                                      | Magento Version | PHP        | Details                                     | Country    | Documentation                                                                                                                   | Links and downloadables                                                        | Support     |
 |------------------------------------------------------------------------------------------------|-----------------|------------|---------------------------------------------|------------|---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|-------------|
-| **[Resurs Checkout Web](resurs-checkout-web)** - Magento 1                                     | CE 1.9.x        | \>= 5.6    | [Resurs Checkout Docs](resurs-checkout-web) | SE, FI, NO | [ResursCheckout/Magento 1.7-1.9](https://test.resurs.com/docs/display/ecom/Resurs+Bank+Magento+1+module+Checkout+documentation) | [Bitbucket](https://bitbucket.org/resursbankplugins/resurs-checkout-magento1)  | END OF LIFE |
-| **[Resurs Checkout Web](resurs-checkout-web)** - Magento 2                                     | CE 2.2-2.3      | \>= 5.5.22 | [Resurs Checkout Docs](resurs-checkout-web) | SE, FI, NO | [ResursCheckout/Magento 2.x](https://test.resurs.com/docs/display/ecom/Resurs+Bank+Magento+2+payment+gateway+documentation)     | [Bitbucket](https://bitbucket.org/resursbankplugins/resurs-checkout-magento2)  | END OF LIFE |
-| **[Resurs Checkout Web](resurs-checkout-web)** - Magento 2                                     | CE 2.4+         | \>= 8.1    | [Resurs Checkout Docs](resurs-checkout-web) | SE, FI, NO | [ResursCheckout/Magento 2.4+](71794717)[RB/Magento 2.4+ Installation Instruction](71794809)                                     | [Marketplace](https://marketplace.magento.com/resursbank-magento-all.html)     | SUPPORTED   |
-| **[Resurs Hosted Flow](https://test.resurs.com/docs/display/ecom/Hosted+Payment+Flow)** Plugin | CE 1.7-1.9      | \>= 5.4    |                                             | DK         |                                                                                                                                 | [Bitbucket](https://bitbucket.org/resursbankplugins/resurs-hostedflow-magento) | END OF LIFE |
+| ~~Resurs Checkout - Magento 1~~                                     | CE 1.9.x        | \>= 5.6    | Resurs Checkout | SE, FI, NO | [ResursCheckout/Magento 1.7-1.9](https://test.resurs.com/docs/display/ecom/Resurs+Bank+Magento+1+module+Checkout+documentation) | [Bitbucket](https://bitbucket.org/resursbankplugins/resurs-checkout-magento1)  | END OF LIFE |
+| Resurs Checkout - Magento 2                                     | CE 2.2-2.3      | \>= 5.5.22 | Resurs Checkout | SE, FI, NO | [ResursCheckout/Magento 2.x](https://test.resurs.com/docs/display/ecom/Resurs+Bank+Magento+2+payment+gateway+documentation)     | [Bitbucket](https://bitbucket.org/resursbankplugins/resurs-checkout-magento2)  | END OF LIFE |
+| Resurs Checkout - Magento 2                                     | CE 2.4+         | \>= 8.1    | Resurs Checkout | SE, FI, NO | [ResursCheckout/Magento 2.4+](71794717)[RB/Magento 2.4+ Installation Instruction](71794809)                                     | [Marketplace](https://marketplace.magento.com/resursbank-magento-all.html)     | SUPPORTED   |
+| ~~Resurs Hosted Flow Plugin~~ | CE 1.7-1.9      | \>= 5.4    |                                             | DK         |                                                                                                                                 | [Bitbucket](https://bitbucket.org/resursbankplugins/resurs-hostedflow-magento) | END OF LIFE |
 
 ### Flags
 #### END OF LIFE
