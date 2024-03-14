@@ -6,10 +6,7 @@ parent: Opencart
 grand_parent: Platform Plugins
 ---
 
-
-
 # Changelog 
-Created by Joachim Andersson, last modified on 2015-05-06
 ## Version 1.1
 - Callback URL:s, spelling error.
 - Updated getAddress to work for different templates.
