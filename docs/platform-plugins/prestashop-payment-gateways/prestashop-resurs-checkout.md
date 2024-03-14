@@ -9,29 +9,6 @@ grand_parent: Platform Plugins
 
 
 # Prestashop Resurs Checkout 
-Created by Thomas Tornevall, last modified on 2023-03-14
-- [CUSTOMIZABLE
-  PRODUCTS](#prestashopresurscheckout-customizableproducts)
-- [Compatibility](#prestashopresurscheckout-compatibility)
-- [Plugin versions](#prestashopresurscheckout-pluginversions)
-  - [END OF LIFE (EOL)](#prestashopresurscheckout-endoflife(eol))
-
-- [Requirements](#prestashopresurscheckout-requirements)
-- [Upgrading](#prestashopresurscheckout-upgrading)
-- [Installation](#prestashopresurscheckout-installation)
-  - [Module configuration
-    example](#prestashopresurscheckout-moduleconfigurationexample)
-  - [Registered payment methods and
-    callbacks](#prestashopresurscheckout-registeredpaymentmethodsandcallbacks)
-
-- [Known problems and (eventually) the
-  solutions](#prestashopresurscheckout-knownproblemsand(eventually)thesolutions)
-  - [Handling unfinished
-    orders](#prestashopresurscheckout-handlingunfinishedorders)
-  - [SSN/Government ID's and direct debiting methods (like
-    SWISH)](#PrestashopResursCheckout-SSN/GovernmentID'sanddirectdebitingmethods(likeSWISH))
-  - [Going from cart to checkout has weird
-    URL](#prestashopresurscheckout-goingfromcarttocheckouthasweirdurl)
 
 > Problem solvingThere are a few known problems in the core functions of
 > Prestashop, some of them are not related to our module at all. Take a
