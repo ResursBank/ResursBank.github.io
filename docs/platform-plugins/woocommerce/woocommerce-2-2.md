@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Resurs Bank Payment Gateway For Woocommerce (V2.2) Resurs Checkout & Simplified Flow
-permalink: /platform-plugins/woocommerce/91030050/
+permalink: /platform-plugins/woocommerce/woocommerce-2-2/
 parent: Woocommerce
 grand_parent: Platform Plugins
 ---
