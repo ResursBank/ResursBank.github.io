@@ -6,10 +6,8 @@ parent: Prestashop Payment Gateways
 grand_parent: Platform Plugins
 ---
 
-
-
 # Presta-Simplified: Frequently Discussed Issues and Important Notes 
-Created by Thomas Tornevall, last modified on 2022-06-09
+
 - [Notes about
   nginx](#prestasimplified:frequentlydiscussedissuesandimportantnotes-notesaboutnginx)
 - [getApiFunctions()](#prestasimplified:frequentlydiscussedissuesandimportantnotes-getapifunctions())
