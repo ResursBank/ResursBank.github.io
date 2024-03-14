@@ -9,31 +9,6 @@ has_children: true
 
 
 # OpenCart 
-Created by e-Commerce Support, last modified by Thomas Tornevall on
-2022-04-25
-- [Requirements](#opencart-requirements)
-- [Support & Help](#opencart-support&help)
-- [Installation](#opencart-installation)
-  - [Downloading](#opencart-downloading)
-  - [Default method](#opencart-defaultmethod)
-  - [Upgrading using default
-    method](#opencart-upgradingusingdefaultmethod)
-  - [Installing and/or upgrading using developer
-    mindset](#OpenCart-Installingand/orupgradingusingdevelopermindset)
-
-- [Payment method administration](#opencart-paymentmethodadministration)
-- [Order Totals Admin - Resurs Bank
-  Fee](#opencart-ordertotalsadmin-resursbankfee)
-- [Sales Order](#opencart-salesorder)
-- [Get Address](#opencart-getaddress)
-- [Log](#opencart-log)
-- [Not supported](#opencart-notsupported)
-  - [Changing default checkout to Resurs
-    Checkout](#opencart-changingdefaultcheckouttoresurscheckout)
-  - [Usage](#opencart-usage)
-  - [Adding shipping, gift cards etc on the checkout
-    page](#opencart-addingshipping,giftcardsetconthecheckoutpage)
-  - [Giftvoucher](#opencart-giftvoucher)
 
 ## Requirements
 - Working with localhost/127.0.0.1 or any local IP while testing will
