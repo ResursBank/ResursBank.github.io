@@ -9,7 +9,6 @@ grand_parent: Platform Plugins
 Problems With Wpmu
 
 # The problems with WPMU (Wordpress Network) and Resurs webservices 
-Created by Thomas Tornevall, last modified on 2022-04-06
 This page has been added to describe why multisite setups - where
 **several sites handles one webservice account** - will never work
 properly. Please be aware that this is not the same solution as if you
