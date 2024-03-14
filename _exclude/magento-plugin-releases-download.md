@@ -1,12 +1,12 @@
 ---
 layout: page
 title: Magento Plugin Releases (Download)
-permalink: /platform-plugins/magento-modules/5014614/
+permalink: /platform-plugins/magento-modules/magento-plugin-releases-download/
 parent: Magento Modules
 grand_parent: Platform Plugins
 ---
 
-
+magento-plugin-releases-download 
 
 # Magento Plugin Releases (Download) 
 Created by Thomas Tornevall, last modified on 2017-05-08
