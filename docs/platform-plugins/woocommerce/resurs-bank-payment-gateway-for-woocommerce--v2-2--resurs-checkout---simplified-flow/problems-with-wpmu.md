@@ -1,6 +1,7 @@
 ---
 layout: page
 title: The Problems With Wpmu (Wordpress Network) And Resurs Webservices
+nav_exclude: true
 permalink: /platform-plugins/woocommerce/resurs-bank-payment-gateway-for-woocommerce--v2-2--resurs-checkout---simplified-flow/71794948/
 parent: Woocommerce
 grand_parent: Platform Plugins
