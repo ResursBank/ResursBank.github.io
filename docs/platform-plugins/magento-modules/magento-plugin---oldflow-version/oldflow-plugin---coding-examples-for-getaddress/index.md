@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Oldflow Plugin - Coding Examples For Getaddress
+nav_exclude: true
 permalink: /platform-plugins/magento-modules/magento-plugin---oldflow-version/oldflow-plugin---coding-examples-for-getaddress/
 parent: Magento Modules
 grand_parent: Platform Plugins
