@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Manually Installing Plugin
+nav_exclude: true
 permalink: /platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/manually-installing-plugin/
 parent: Resurs Merchant Api 2.0 For Woocommerce
 grand_parent: Woocommerce
