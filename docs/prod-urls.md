@@ -44,9 +44,12 @@ Link:
 ### Resurs Checkout
 For Resurs Checkout go to:  
 [https://checkout.resurs.com/checkout](https://checkout.resurs.com/checkout)
+
+<!---  
 ## Hosted Flow
 For hosted flow go to:  
 [https://ecommerce-hosted.resurs.com/back-channel](https://ecommerce-hosted.resurs.com/back-channel)
+---> 
 ## Webservices
 ### WSDL files
 #### Simplified Shop Flow:
