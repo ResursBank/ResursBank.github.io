@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Installation From Wordpress Plugin Repository
+nav_exclude: true
 permalink: /platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/installation-from-wordpress-plugin-repository/
 parent: Resurs Merchant Api 2.0 For Woocommerce
 grand_parent: Woocommerce
