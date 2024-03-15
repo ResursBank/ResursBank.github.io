@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Magento Plugin - Oldflow Version
+nav_exclude: true
 permalink: /platform-plugins/magento-modules/magento-plugin---oldflow-version/
 parent: Magento Modules
 grand_parent: Platform Plugins
