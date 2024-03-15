@@ -2,6 +2,7 @@
 layout: page
 title: Woocommerce
 permalink: /platform-plugins/woocommerce/
+av_order: 41
 parent: Platform Plugins
 has_children: true
 ---
