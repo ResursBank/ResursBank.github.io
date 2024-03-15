@@ -2,6 +2,7 @@
 layout: page
 title: Platform Plugins
 permalink: /platform-plugins/
+nav_order: 31
 has_children: true
 ---
 
