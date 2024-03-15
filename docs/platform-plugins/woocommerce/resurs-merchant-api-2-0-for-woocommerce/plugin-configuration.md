@@ -3,7 +3,7 @@ layout: page
 title: Plugin Configuration
 permalink: /platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/plugin-configuration/
 parent: Resurs Merchant Api 2.0 For Woocommerce
-grand_parent: Platform Plugins
+grand_parent: Woocommerce
 ---
 
 
