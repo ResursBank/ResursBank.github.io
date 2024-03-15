@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Plugin Hotfixes
+nav_exclude: true
 permalink: /platform-plugins/magento-modules/magento-plugin---oldflow-version/plugin-hotfixes/
 parent: Magento Modules
 grand_parent: Platform Plugins
