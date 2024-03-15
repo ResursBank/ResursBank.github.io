@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Using Sku As Article Numbers In Old Plugin
+nav_exclude: true
 permalink: /platform-plugins/woocommerce/resurs-bank-payment-gateway-for-woocommerce--v2-2--resurs-checkout---simplified-flow/using-sku-as-article-numbers-in-old-plugin/
 parent: Woocommerce
 grand_parent: Platform Plugins
