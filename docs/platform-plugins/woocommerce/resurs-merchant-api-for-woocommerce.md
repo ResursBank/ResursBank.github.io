@@ -10,29 +10,6 @@ grand_parent: Platform Plugins
 
 
 # Resurs Merchant API 2.0 for WooCommerce 
-Created by Thomas Tornevall, last modified on 2023-12-07
-- [Plugin basics and information](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/plugin-basics-and-information/)
-- [Trouble shooting and error
-  handling](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/trouble-shooting-and-error-handling/)
-- [Installation from WordPress plugin
-  repository](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/installation-from-wordpress-plugin-repository/)
-- [Manually installing plugin](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/manually-installing-plugin/)
-- [Store configuration requirements](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/store-configuration-requirements/)
-- [Plugin configuration](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/plugin-configuration/)
-- [Order management](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/order-management/)
-- [Part payment widget](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/part-payment-widget/)
-- [MAPI Checkout Flow](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/mapi-checkout-flow/)
-- [MAPI-WC - Customizations](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/mapi-wc---customizations/)
-
-- [Requirements](#requirements)
-- [Upgrade
-  information](#upgrade-information)
-- [Download/install the
-  plugin](#downloadinstall-the-plugin)
-- [FAQ & Generic
-  questions](#faq--generic-questions)
-  - [Can I change the order number
-    sequence?](#can-i-change-the-order-number-sequence)
 
 This section is reserved for the new WooCommerce plugin from Resurs
 bank.
