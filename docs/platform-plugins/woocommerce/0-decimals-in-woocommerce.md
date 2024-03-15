@@ -2,7 +2,7 @@
 layout: page
 title: 0 Decimals In Woocommerce
 permalink: /platform-plugins/woocommerce/0-decimals-in-woocommerce/
-av_order: 21
+nav_order: 21
 parent: Woocommerce
 grand_parent: Platform Plugins
 ---
