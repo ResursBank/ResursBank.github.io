@@ -2,6 +2,7 @@
 layout: page
 title: Prestashop Payment Gateways
 permalink: /platform-plugins/prestashop-payment-gateways/
+av_order: 31
 parent: Platform Plugins
 has_children: true
 ---
