@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Multiple Stores With The Plugin
+nav_exclude: true
 permalink: /platform-plugins/magento-modules/magento-plugin---oldflow-version/release--and-installation-notes--error-logging-and-development-for-magento-oldflow/multiple-stores-with-the-plugin/
 parent: Magento Modules
 grand_parent: Platform Plugins
