@@ -2,7 +2,7 @@
 layout: page
 title: Order Management
 permalink: /platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/order-management/
-parent: Woocommerce
+parent: Resurs Merchant Api 2.0 For Woocommerce
 grand_parent: Platform Plugins
 ---
 
