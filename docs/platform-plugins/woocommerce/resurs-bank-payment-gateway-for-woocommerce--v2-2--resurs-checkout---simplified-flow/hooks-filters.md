@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Hooks/Filters V2.2 (And Core Tweaks)
+nav_exclude: true
 permalink: /platform-plugins/woocommerce/resurs-bank-payment-gateway-for-woocommerce--v2-2--resurs-checkout---simplified-flow/hooks-filters/
 parent: Woocommerce
 grand_parent: Platform Plugins
