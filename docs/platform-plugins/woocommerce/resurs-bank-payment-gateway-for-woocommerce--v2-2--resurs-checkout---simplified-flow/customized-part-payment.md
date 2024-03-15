@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Customized Part Payment Information On Product Pages (Woocommerce)
+nav_exclude: true
 permalink: /platform-plugins/woocommerce/resurs-bank-payment-gateway-for-woocommerce--v2-2--resurs-checkout---simplified-flow/customized-part-payment/
 parent: Woocommerce
 grand_parent: Platform Plugins
