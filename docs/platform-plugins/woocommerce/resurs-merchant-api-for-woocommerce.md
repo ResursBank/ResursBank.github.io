@@ -2,7 +2,7 @@
 layout: page
 title: Resurs Merchant Api for Woocommerce
 permalink: /platform-plugins/woocommerce/resurs-merchant-api-for-woocommerce/
-av_order: 11
+nav_order: 11
 parent: Woocommerce
 grand_parent: Platform Plugins
 ---
