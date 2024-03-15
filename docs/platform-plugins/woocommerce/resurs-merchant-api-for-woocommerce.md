@@ -79,7 +79,7 @@ ALTER TABLE `wp-database`.`wp_posts` AUTO_INCREMENT = 200000000;
 Change **wp-database** to your database name and set the
 **AUTO_INCREMENT** number to something that suits you.
 
---gela--
+ 
 
 
 # Installation from WordPress plugin repository 
@@ -92,7 +92,7 @@ WordPress.
 
 ![](../../../../attachments/91029967/91030037.png)
 
---gela--
+ 
 
 
 # Manually installing plugin 
@@ -185,7 +185,7 @@ echo "Archiving ..."
 zip -r resurs-bank-payment-gateway-for-woocommerce.zip resurs-bank-payment-gateway-for-woocommerce
 ```
 
---gela--
+ 
 
 
 # Store configuration requirements 
@@ -213,7 +213,7 @@ This setting can be changed by going to `WooCommerce` → `Settings`  →
 ![Currency options
 section](../../../../attachments/91029884/91029883.png "Currency options section")  
 
---gela--
+ 
 
 
 # Plugin basics and information 
@@ -266,7 +266,7 @@ When making any changes to payment methods at Resurs Bank it is strongly
 recommended that you clear the cache in the [Plugin
 configuration](plugin-configuration) to avoid potential problems.
 
---gela-- 
+  
 
 
 
@@ -316,7 +316,7 @@ thus improves performance under most circumstances).
 
 ![](../../../../attachments/91029886/131006469.png)
 
---gela--
+ 
 
 
 # Part payment widget 
@@ -365,7 +365,7 @@ your settings.
 You should set this value high enough that the monthly cost is at least
 SEK 150 (Sweden) or EUR 15 (Finland).
 
---gela--
+ 
 
 
 # Order management 
@@ -435,7 +435,7 @@ also pushes the order update to the payment at Resurs.
 > not reflect back to the WooCommerce system and have to be made there
 > as well.
 
---gela--
+ 
 
 
 # MAPI Checkout Flow 
@@ -481,7 +481,7 @@ result - updated to *Processing*. The procedure looks like this:
     cause of on-hold) and will be pushed further (to *processing*) when
     ready to handle.
 
---gela--
+ 
 
 
 # Trouble shooting and error handling 
