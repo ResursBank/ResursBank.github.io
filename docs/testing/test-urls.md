@@ -7,25 +7,24 @@ parent: Testing
 
 
 # Test URLs 
-> Looking for production/live environment?You can find the live URLs
-> here: URLs for prod/live with important checklist
+[Go Live URLs](/prod-urls/)
 
 - [Firewalling](#firewalling)
-- [Payment Admin](#paymentadmin)
+- [Payment Admin](#payment-admin)
 - [Merchant Portal](#merchant-portal)
-- [Test URLs](#testurls)
+- [Test URLs](#test-urls)
   - [Resurs Checkout](#resurs-checkout)
   - [Hosted flow](#hosted-flow)
   - [Webservices](#webservices)
-    - [WSDL files](#wsdl.files)
+    - [WSDL files](#wsdl-files)
       - [Simplified Shop Flow](#simplified-shop-flow)
       - [After Shop Flow](#after-shop-flow)
       - [Configuration](#configuration)
       - [Developer](#developer)
 
-    - [Service endpoints](#service-end-points)
+    - [Service endpoints](#service-endpoints)
       - [Simplified Shop Flow:](#simplified-shop-flow)
-      - [After Shop Flow:](#aftershopflow)
+      - [After Shop Flow:](#after-shop-flow)
       - [Configuration:](#configuration)
       - [Developer:](#developer)
 
