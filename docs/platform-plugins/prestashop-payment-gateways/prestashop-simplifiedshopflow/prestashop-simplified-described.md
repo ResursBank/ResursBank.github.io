@@ -2,8 +2,8 @@
 layout: page
 title: Prestashop Simplified Described
 permalink: /platform-plugins/prestashop-payment-gateways/prestashop-simplifiedshopflow/prestashop-simplified-described/
-parent: Prestashop Payment Gateways
-grand_parent: Platform Plugins
+parent: Prestashop Simplifiedshopflow
+grand_parent: Prestashop Payment Gateways
 ---
 
 
