@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Mapi-Wc - Customizations
+nav_exclude: true
 permalink: /platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/mapi-wc---customizations/
 parent: Resurs Merchant Api 2.0 For Woocommerce
 grand_parent: Woocommerce
