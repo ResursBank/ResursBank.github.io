@@ -5,7 +5,7 @@ permalink: /prod-urls/
 ---
 
 # Go Live URLs
-Test URLs: [Test URLs](/testing/test-urls/)
+[Test URLs](/testing/test-urls/)
 
 ## Checklist for go live
 - Request user name and password to services and to Resurs Payment Admin
