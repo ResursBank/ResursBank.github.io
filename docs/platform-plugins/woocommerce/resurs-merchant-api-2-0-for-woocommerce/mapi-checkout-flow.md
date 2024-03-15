@@ -2,7 +2,7 @@
 layout: page
 title: Mapi Checkout Flow
 permalink: /platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/mapi-checkout-flow/
-parent: Woocommerce
+parent: Resurs Merchant Api 2.0 For Woocommerce
 grand_parent: Platform Plugins
 ---
 
