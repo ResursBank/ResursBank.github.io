@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Part Payment Widget
+nav_exclude: true
 permalink: /platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/part-payment-widget/
 parent: Resurs Merchant Api 2.0 For Woocommerce
 grand_parent: Woocommerce
