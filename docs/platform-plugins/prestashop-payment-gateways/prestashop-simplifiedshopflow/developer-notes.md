@@ -2,8 +2,8 @@
 layout: page
 title: Developer Notes
 permalink: /platform-plugins/prestashop-payment-gateways/prestashop-simplifiedshopflow/developer-notes/
-parent: Prestashop Payment Gateways
-grand_parent: Platform Plugins
+parent: Prestashop Simplifiedshopflow
+grand_parent: Prestashop Payment Gateways
 ---
 
 # Developer Notes 
