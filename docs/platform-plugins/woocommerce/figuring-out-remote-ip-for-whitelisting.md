@@ -2,6 +2,7 @@
 layout: page
 title: Figuring Out Remote Ip For Whitelisting
 permalink: /platform-plugins/woocommerce/figuring-out-remote-ip-for-whitelisting/
+av_order: 31
 parent: Woocommerce
 grand_parent: Platform Plugins
 ---
