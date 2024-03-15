@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Manually Patching Onestep Checkout
+nav_exclude: true
 permalink: /platform-plugins/magento-modules/magento-plugin---oldflow-version/oldflow-plugin---coding-examples-for-getaddress/manually-patching-onestep-checkout/
 parent: Magento Modules
 grand_parent: Platform Plugins
