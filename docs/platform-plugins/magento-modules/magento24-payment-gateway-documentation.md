@@ -2,6 +2,7 @@
 layout: page
 title: Resurs Bank Magento 2 Ce 2.4+ Payment Gateway Documentation
 permalink: /platform-plugins/magento-modules/magento24-payment-gateway-documentation/
+nav_order: 21
 parent: Magento Modules
 grand_parent: Platform Plugins
 ---
