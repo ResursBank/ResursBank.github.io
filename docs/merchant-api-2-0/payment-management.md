@@ -3,6 +3,7 @@ layout: page
 title: Payment Management
 permalink: /merchant-api-2-0/payment-management/
 parent: Merchant Api 2.0
+nav_order: 31
 ---
 
 
