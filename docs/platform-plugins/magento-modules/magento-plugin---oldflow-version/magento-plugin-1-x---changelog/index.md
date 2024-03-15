@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Magento Plugin 1.X - Changelog
+nav_exclude: true
 permalink: /platform-plugins/magento-modules/magento-plugin---oldflow-version/magento-plugin-1.x---changelog/
 parent: Magento Modules
 grand_parent: Platform Plugins
