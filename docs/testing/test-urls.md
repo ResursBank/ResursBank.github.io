@@ -59,9 +59,10 @@ API:
 For more information about the usage, see [Resurs Checkout
 Web](resurs-checkout-web).
 
+<!--- 
 ## Hosted flow
 [https://test.resurs.com/ecommerce-test/hostedflow/back-channel](https://test.resurs.com/ecommerce-test/hostedflow/back-channel)
-
+---> 
 ## Webservices
 ### WSDL files
 #### Simplified Shop Flow:
