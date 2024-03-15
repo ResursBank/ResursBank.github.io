@@ -2,7 +2,7 @@
 layout: page
 title: Store Configuration Requirements
 permalink: /platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/store-configuration-requirements/
-parent: Woocommerce
+parent: Resurs Merchant Api 2.0 For Woocommerce
 grand_parent: Platform Plugins
 ---
 
