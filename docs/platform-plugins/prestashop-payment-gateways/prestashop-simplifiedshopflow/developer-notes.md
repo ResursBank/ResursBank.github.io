@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Developer Notes
+nav_exclude: true
 permalink: /platform-plugins/prestashop-payment-gateways/prestashop-simplifiedshopflow/developer-notes/
 parent: Prestashop Simplifiedshopflow
 grand_parent: Prestashop Payment Gateways
