@@ -6,6 +6,7 @@ permalink: /platform-plugins/woocommerce/resurs-merchant-api-2.0-for-woocommerce
 av_order: 11
 parent: Woocommerce
 grand_parent: Platform Plugins
+has_toc: false
 ---
 
 

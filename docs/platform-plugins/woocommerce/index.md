@@ -5,6 +5,7 @@ permalink: /platform-plugins/woocommerce/
 nav_order: 41
 parent: Platform Plugins
 has_children: true
+has_toc: false
 ---
 
 

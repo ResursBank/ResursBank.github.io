@@ -5,6 +5,7 @@ permalink: /platform-plugins/opencart/
 av_order: 21
 parent: Platform Plugins
 has_children: true
+has_toc: false
 ---
 
 
