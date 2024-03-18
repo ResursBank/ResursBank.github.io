@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Presta-Simplified- Frequently Discussed Issues And Important Notes
+nav_exclude: true
 permalink: /platform-plugins/prestashop-payment-gateways/prestashop-simplifiedshopflow/77365432/
 parent: Prestashop Simplifiedshopflow
 grand_parent: Prestashop Payment Gateways
