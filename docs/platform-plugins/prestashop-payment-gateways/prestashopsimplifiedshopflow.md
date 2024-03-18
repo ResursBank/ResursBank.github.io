@@ -89,17 +89,7 @@ The method though is straight forward.
   implemented since the last release. Without this, your newly upgraded
   plugin will run without all such features.
 
-  --gela
-
-
----
-layout: page
-title: Developer Notes
-permalink: /platform-plugins/prestashop-payment-gateways/prestashop-simplifiedshopflow/developer-notes/
-parent: Prestashop Simplifiedshopflow
-grand_parent: Prestashop Payment Gateways
----
-
+  
 # Developer Notes 
 
 ## Forwarding specific errors to front end
@@ -157,14 +147,6 @@ To properly handle phone numbers as mandatory, it is highly recommended
 to configure the fields in PrestaShop to be enforcing, not optional.
 
 
---gela 
-  ---
-layout: page
-title: Prestashop Simplified- Changes And Updates
-permalink: /platform-plugins/prestashop-payment-gateways/prestashop-simplifiedshopflow/77365438/
-parent: Prestashop Simplifiedshopflow
-grand_parent: Prestashop Payment Gateways
----
 
 # PrestaShop Simplified: Changes and updates 
 
@@ -208,18 +190,6 @@ UPDATE-callback since there is high risk of race conditions when several
 callbacks are sent simultaneously and there's currently no solution for
 handle them in order (queue by cron for example), since this method is
 more or less a non-standard solution.
-
---gela
-
-
----
-layout: page
-title: Prestashop Simplified Described
-permalink: /platform-plugins/prestashop-payment-gateways/prestashop-simplifiedshopflow/prestashop-simplified-described/
-parent: Prestashop Simplifiedshopflow
-grand_parent: Prestashop Payment Gateways
----
-
 
 
 # PrestaShop Simplified Described 
@@ -271,18 +241,6 @@ works fine in the postProcess-method, we will pick up the current order
 created and extract the order reference from it. This is the reference
 being used to create the order within Resurs simplified API.
 
---gela
-
-
----
-layout: page
-title: Presta-Simplified And Translations
-permalink: /platform-plugins/prestashop-payment-gateways/prestashop-simplifiedshopflow/presta-simplified-and-translations/
-parent: Prestashop Simplifiedshopflow
-grand_parent: Prestashop Payment Gateways
----
-
-
 
 # Presta-Simplified and translations 
 
@@ -293,18 +251,6 @@ can be automated.
 The summary is based on
 [![](https://resursbankplugins.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium)P17-307](https://resursbankplugins.atlassian.net/browse/P17-307?src=confmacro) -
 Synka betalmetodernas texter del 3 Done .
-
---gela
-
-
----
-layout: page
-title: Status Updates And Callbacks
-permalink: /platform-plugins/prestashop-payment-gateways/prestashop-simplifiedshopflow/status-updates-and-callbacks/
-parent: Prestashop Simplifiedshopflow
-grand_parent: Prestashop Payment Gateways
----
-
 
 
 # Status updates and callbacks 
