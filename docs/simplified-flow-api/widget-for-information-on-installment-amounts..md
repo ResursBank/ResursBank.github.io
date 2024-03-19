@@ -32,7 +32,7 @@ The widget must:
     displayed for products which price, including VAT, is within the
     price range of this given minimum price and the amount from tag
     maxLimit from getPaymentMethods. This minimum price is to ensure
-    that the monthly installment isn't below 150 Kr, which is the lower
+    that the monthly installment isn't below SEK 150, which is the lower
     limit for which a bill is sent from Resurs.
 The prices should be rounded up to the next even amount.
 
