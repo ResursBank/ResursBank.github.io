@@ -51,7 +51,7 @@ Production:
 > 194.68.237.250  
 > 192.121.110.100
 
-### **Decisions - social security numbers**
+### Decisions - social security numbers
 **Sweden**  
 > MANUAL INSPECTION: 970415-2371  
 > APPROVED: 850614-8264  
