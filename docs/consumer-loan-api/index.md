@@ -43,13 +43,13 @@ Production:
 ### IP-addresses to whitelist
 **Production**:
 
-91.198.202.100  
-192.121.110.100
+> 91.198.202.100  
+> 192.121.110.100
 
 **CTE Integration:**
 
-194.68.237.250  
-192.121.110.100
+> 194.68.237.250  
+> 192.121.110.100
 
 ### **Decisions - social security numbers**
 **Sweden**  
