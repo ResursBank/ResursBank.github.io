@@ -9,9 +9,9 @@ parent: After Shop Service Api
 # Get Payment Document Names 
 
 ## getPaymentDocumentNames
-*Retrieves the names of all documents associated with the payments.
-These include, but are not necessarily limited to, previously generated
-invoices and credit notes sent to the customer.*
+> Retrieves the names of all documents associated with the payments.
+> These include, but are not necessarily limited to, previously generated
+> invoices and credit notes sent to the customer.
 
 **Input (Literal)**
 
