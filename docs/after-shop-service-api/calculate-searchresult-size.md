@@ -9,8 +9,8 @@ parent: After Shop Service Api
 # Calculate Searchresult Size 
 
 ## *calculateResultSize*  
-*Returns the number of payments that match the specified requirements.
-Can be used for paging of the results.*
+> Returns the number of payments that match the specified requirements.
+> Can be used for paging of the results.
 
 **Input (Literal)**
 
