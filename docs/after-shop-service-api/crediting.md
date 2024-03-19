@@ -9,10 +9,10 @@ parent: After Shop Service Api
 # Crediting / Refunding 
 
 # creditPayment
-*Credits the payment. This returns the payment amount from the
-representative to the customer's account. NB: For a payment to be
-credited, it must be finalized. (Non-finalized payments have to be
-annulled.)*
+> Credits the payment. This returns the payment amount from the
+> representative to the customer's account. NB: For a payment to be
+> credited, it must be finalized. (Non-finalized payments have to be
+> annulled.)
 
 **Input (Literal)**
 
