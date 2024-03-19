@@ -11,7 +11,7 @@ grand_parent: Platform Plugins
 
 # Installation
 Start by reading through the separate document detailing our
-[installation instructions](71794809).  
+[installation instructions](/platform-plugins/magento-modules/magento24-installation-instruction/).  
 This document also covers system requirements, a brief description of
 each individual module package and instructions for initial settings.
 
