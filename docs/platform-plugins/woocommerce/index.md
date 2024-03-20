@@ -27,7 +27,7 @@ WooCommerce](resurs-merchant-api-2.0-for-woocommerce) (Documentation and
 download).
 
 ## Version 2.2-series (*Revoked: Resurs Bank Payment Gateway for WooCommerce*)
-**[Version 2.2.x has been moved to this page.](91030050)**
+**[Version 2.2.x has been moved to this page.](resurs-bank-payment-gateway-for-woocommerce--v2-2--resurs-checkout---simplified-flow)**
 
 > This plugin has been replacedResurs Bank Payment Gateway for
 > WooCommerce has been revoked from WordPress plugin registry. Do not
