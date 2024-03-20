@@ -20,5 +20,4 @@ ehandel@resurs.se
 onboarding@resurs.se
 
 ### Sales
-https://www.resursbank.se/foretag/driving-retail-sales/
-
+> [Sales](https://www.resursbank.se/betallosningar)
