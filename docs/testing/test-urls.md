@@ -31,7 +31,7 @@ parent: Testing
 # Firewalling
 > How to configure firewalls - Do you have a strictly configured
 > environment? Take a look here to get proper settings for your
-> firewall/web services. [Link to faq](/docs/faq/index.md)
+> firewall/web services. [Link to faq](/faq/)
 
 # Payment Admin
 For the Payment Admin go to: 
