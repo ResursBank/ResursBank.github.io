@@ -35,7 +35,7 @@ How to configure firewalls
 look **](https://test.resurs.com/docs/display/ecom/FAQ#FAQ-HowdoIconfiguremyfirewall/network)**[here](FAQ_328016.html) to
 get proper settings for your firewall/web services.**  
 Link:
-[FAQ#HowdoIconfiguremyfirewall/network](FAQ_328016.html#FAQ-HowdoIconfiguremyfirewall/network)
+[FAQ](faq/index.md)
   
   
 ## Payment Admin

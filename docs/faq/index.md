@@ -199,7 +199,7 @@ If you wonder for how long we try to resend callbacks to you, [look here
 instead](https://test.resurs.com/docs/display/ecom/Callbacks#Callbacks-Fallback-resendingfailedcallbacks).
 # Troubleshooting
 ## First step of error checking
-Make sure that you're checked with [The "not a bug" list](16056903.html)
+Make sure that you're checked with [The "not a bug" list](16056903.md)
 before considering the problem as a remote error. You can also take a
 look at [Errors, problem solving and corner cases](16056453.html), to
 see if it might be other problems that can be "self solvable".
