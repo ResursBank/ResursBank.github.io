@@ -31,8 +31,9 @@ permalink: /prod-urls/
 
 ## Firewalling
 How to configure firewalls
-**Do you have a strictly configured environment?** [**Take a
-look **](https://test.resurs.com/docs/display/ecom/FAQ#FAQ-HowdoIconfiguremyfirewall/network)**[here](FAQ_328016.html) to
+**Do you have a strictly configured environment?** [Take a
+look here](faq/ind
+ex.md) to
 get proper settings for your firewall/web services.**  
 Link:
 [FAQ](faq/index.md)
