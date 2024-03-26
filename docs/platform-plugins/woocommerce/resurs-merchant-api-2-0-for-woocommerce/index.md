@@ -40,11 +40,12 @@ This section is reserved for the new WooCommerce plugin from Resurs
 bank.
 
 # Requirements
-- **At least** PHP 8.1
-- **At least** WooCommerce 7.6.0
-- SSL-connectivity (preferably OpenSSL)
-- CURL (ext-curl with necessary libraries) 7.61.0 or higher
-- **Curl with CURLAUTH_BEARER-support**
+- **At least** PHP 8.1.
+- **At least** WooCommerce 7.6.0.
+- A WooCommerce compatible theme.
+- SSL-connectivity (preferably OpenSSL).
+- CURL (ext-curl with necessary libraries) 7.61.0 or higher.
+- **Curl with CURLAUTH_BEARER-support!**
 
 *If you run Ubuntu (bionic) the lowest available curl version will
 probably be 7.58.0 (focal is currently - aug22 - on 7.68) and in many
