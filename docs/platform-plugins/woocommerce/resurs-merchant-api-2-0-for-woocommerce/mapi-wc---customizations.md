@@ -7,15 +7,13 @@ parent: Resurs Merchant Api 2.0 For Woocommerce
 grand_parent: Woocommerce
 ---
 
-
-
 # MAPI-WC - Customizations 
 This section contains a set of examples of how you can code with the
 module on your own. Much of the codebase is modular which means that you
 practically can use the same hooks as we do. Please be aware of the fact
 that our module follows a lot of standard practices, so some things may
-not be supported or compatible with your platform **if** you have own
-customizations.
+not be supported or compatible with your platform **if** you have own
+customizations.SP
 
 The methods and examples on this page is not actually supported by
 Resurs and reside here only to be initial examples of other ways of
@@ -37,13 +35,13 @@ frontend variable set called **rbCustomerTypeData**. In our basic front
 end we usually look up the customer type by what's entered in the
 company name (in the billing forms). Like this:
 
-```xml
+```php
 rbCustomerTypeData['apiUrl'] + '&customerType=' + (rbIsCompany() ? 'LEGAL' : 'NATURAL'),
 ```
 If you know how to set up frontend-hooks by binding html-elements you
 can easily bind your own request like this:
 
-```xml
+```php
 // Code to bind a function, for example radio button triggers goes here.
 //
 // In your header with scripts or similar put up function like the one below.

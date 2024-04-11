@@ -7,8 +7,6 @@ parent: Resurs Merchant Api 2.0 For Woocommerce
 grand_parent: Woocommerce
 ---
 
-
-
 # MAPI Checkout Flow 
 Reserved space for the described MAPI-flow. It very much looks like the
 prior flow, with a few enhancements.

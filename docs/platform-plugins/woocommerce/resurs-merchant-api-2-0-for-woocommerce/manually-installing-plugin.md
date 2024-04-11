@@ -22,7 +22,7 @@ information for git installs.
 > always contain the most recent release. While waiting, the code
 > structure in this zip is based on the master branch.
 
-1\. Upload the plugin
+1. Upload the plugin
 ([resurs-bank-payment-gateway-for-woocommerce-current.zip](../../../../attachments/91029909/91030034.zip) -
 1.0.0, **last update 2023-04-27**) archive to the "/wp-content/plugins/"
 directory.  
@@ -33,7 +33,7 @@ directory.
 Go to your WordPress plugin structure (normally located in
 **\[WP-ROOT\]**/wp-content/plugins and run this command:
 
-```xml
+```shell
 git clone --recurse-submodules -j8 https://bitbucket.org/resursbankplugins/resursbank-woocommerce.git
 ```
 The slug (path) used by this repository is not the proper name standard
@@ -72,7 +72,7 @@ make sure that the latest ecom2-release is present. **Currently, ecom2
 don't have any stable tag!**
 
 **Example script**
-```xml
+```shell
 #!/bin/bash
 branch="master"
 if [ "" = "$1" ] ; then
@@ -98,4 +98,3 @@ cd ..
 echo "Archiving ..."
 zip -r resurs-bank-payment-gateway-for-woocommerce.zip resurs-bank-payment-gateway-for-woocommerce
 ```
-

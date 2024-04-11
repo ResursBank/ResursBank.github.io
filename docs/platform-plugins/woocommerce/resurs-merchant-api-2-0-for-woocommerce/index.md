@@ -9,7 +9,7 @@ grand_parent: Platform Plugins
 has_toc: false
 ---
 
-# Resurs Bank Payments for WooCommerce 
+# Resurs Bank Payments for WooCommerce
 
 - [Plugin basics and information](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/plugin-basics-and-information/)
 - [Trouble shooting and error
@@ -33,7 +33,6 @@ has_toc: false
   questions](#faq--generic-questions)
     - [Can I change the order number
       sequence?](#can-i-change-the-order-number-sequence)
-
 
 ## Resurs Merchant API 2.0 for WooCommerce - Requirements
 
@@ -84,10 +83,9 @@ number like this:
 
 **UPDATE database**
 
-```xml
-ALTER TABLE `wp-database`.`wp_posts` AUTO_INCREMENT = 200000000;
+```sql
+    ALTER TABLE `wp-database`.`wp_posts` AUTO_INCREMENT = 200000000;
 ```
 
 Change **wp-database** to your database name and set the
 **AUTO_INCREMENT** number to something that suits you.
-
