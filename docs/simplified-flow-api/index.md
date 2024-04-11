@@ -123,7 +123,7 @@ corresponding price information links.
 For each payment methode a "[read
 more...](https://test.resurs.com/priceinfo-mock/prisskyltning.html?countryCode=SE&authorizedBankproductId=LG686069&cardType=&storeId=107&representativeId=107&creditAmount=4995)"
 is required. Use the price information links from getPaymentMethodes or
-present html from  [getCostOfPurchaseHtml](/simplified-flow-api/getcostofpurchasehtml/) in a
+present html from  [getCostOfPurchaseHtml](/simplified-flow-api/getcostofpurchasehtml/) in a
 pop-up.  
 Present the Payment Methods in the same order as in response from
 getPaymentMethodes.
@@ -173,7 +173,7 @@ billing address the field deliveryAddress is used. This will trigger a
 customer authentication.
 
 - Enter customer information. (See our [Customer data - Regular
-  expressions](/development/customer-data---regular-expressions/) for different
+  expressions](/development/customer-data---regular-expressions/) for different
   fields.)
 - Select a Resurs Bank payment method.
 - Enter additional information the shop might want.
@@ -317,8 +317,8 @@ bookPaymentStatus:
   URL. After a successful signing the order needs to be booked with
   bookSignedPayment.
 - DENIED - The payment is denied. The payment method can't be used for
-  the customer and the flow stops. Another payment method without
-  credit might work for the customer.
+  the customer and the flow stops. Another payment method without
+  credit might work for the customer.
 
 ### 4. Book signed payment - [bookSignedPayment](/simplified-flow-api/booksignedpayment/)
 After a successful signing the order needs to be booked:

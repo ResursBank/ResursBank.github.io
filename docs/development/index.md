@@ -51,20 +51,20 @@ that follows in our bitbucket-repos.
 
 # Source code and support
 We
-use [Bitbucket](https://bitbucket.org/resursbankplugins/?visibility=public)
+use [Bitbucket](https://bitbucket.org/resursbankplugins/?visibility=public)
 and
 [JIRA](https://resursbankplugins.atlassian.net/secure/Dashboard.jspa).
 
 You can find our public source code repositories
-at [https://bitbucket.org/resursbankplugins/?visibility=public](https://bitbucket.org/resursbankplugins/?visibility=public).
+at [https://bitbucket.org/resursbankplugins/?visibility=public](https://bitbucket.org/resursbankplugins/?visibility=public).
 
 To report any problems and view our current projects and issues, please
 visit JIRA
-at [https://resursbankplugins.atlassian.net/secure/Dashboard.jspa](https://resursbankplugins.atlassian.net/secure/Dashboard.jspa).
+at [https://resursbankplugins.atlassian.net/secure/Dashboard.jspa](https://resursbankplugins.atlassian.net/secure/Dashboard.jspa).
 
 
 Are you building your platform with callbacks? Be cautious; callbacks
-can be sent to your platform ***rapidly***. By means, several callbacks
+can be sent to your platform ***rapidly***. By means, several callbacks
 can arrive to your platform the exact same time, causing race conditions
 in your platform - either in your backend parts or directly with your
 database. If you are fortunate, callbacks will be handled separately in

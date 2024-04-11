@@ -26,13 +26,13 @@ parent: After Shop Service Api
 
 | Name                     | Content                                  | Description                                                               |
 |--------------------------|------------------------------------------|---------------------------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to make an additional debit on the payment. See error for details. |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to make an additional debit on the payment. See error for details. |
 
 ### Introduction
 If the customer wants to add a product on an existing order that has not
 yet been shipped, you can add it with help of additionalDebitOfPayment.
 
-AdditionalDebitOfPayment makes a new, additional debit on an existing
+AdditionalDebitOfPayment makes a new, additional debit on an existing
 payment/order. This reserves the amount on the customer's account. If it
 is a credit payment, there must be room for the additional debit within
 the limit. If the payment method on the other hand is not a card there
@@ -41,7 +41,7 @@ form was filled by the customer.
 
 It´s also possible to make part debits of a payment. For example, if the
 customer has ordered 5 products, it's possible to debit and ship 3 of
-these products and wait for the rest of them for unknown circumstances.
+these products and wait for the rest of them for unknown circumstances.
 This can also be made from **Resurs Merchant Portal.**
 
 > RestrictionsadditionalDebitOfPayment cannot be done on external
@@ -50,7 +50,7 @@ This can also be made from **Resurs Merchant Portal.**
 
 ### What is paymentSpec?
 Click here to read more about paymentSpec
-The payment details. In it's simplest form it's just sum, i.e.
+The payment details. In it's simplest form it's just sum, i.e.
 totalAmount and totalVatAmount are set, but there are no specLines. If
 nothing else is said you shall send specLines .  
 Contains elements as defined in the following table.

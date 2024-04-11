@@ -12,7 +12,7 @@ nav_order: 31
 
 | Callback Status | Possible Actions                                 |
 |:----------------|:-------------------------------------------------|
-| AUTHORIZED      | CAPTURE CANCEL                                   |
+| AUTHORIZED      | CAPTURE CANCEL                                   |
 | CAPTURED        | REFUND                                           |
 | FROZEN          | await for callback-status AUTHORIZED or REJECTED |
 
@@ -26,12 +26,12 @@ nav_order: 31
 ## Capture payment
 This call is used to capture a payment after the payment is created.  
 If no order lines are supplied, then all not yet captured order lines
-will be captured. 
+will be captured. 
 
 URL to capture payment:
 [https://merchant-api.integration.resurs.com/v2/payments/](https://merchant-api.integration.resurs.com/v2/payments/){payment_id}/capture/captureture
 
-Link to the call in swagger documentation: **[Capture
+Link to the call in swagger documentation: **[Capture
 Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v2#/Payment%20management/capturePayment)**
 
 **Curl to capture the payment**
@@ -45,9 +45,9 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 > } \] }
 
 ## Refund payment
-This call is used to refund a payment that is captured.   
+This call is used to refund a payment that is captured.   
 If no order lines are supplied, then all captured not yet refunded order
-lines will be refunded. 
+lines will be refunded. 
 
 URL to refund payment:
 [https://merchant-api.integration.resurs.com/v2/payments/](https://merchant-api.integration.resurs.com/v2/payments/){payment_id}[/](https://web-integration-mock-merchant-api-portal.integration.resurs.com/v2/payments/%7Bpayment_id%7D/capture)refund
@@ -67,14 +67,14 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 
 ## Cancel payment
 This call is used to cancel a payment that is created but not yet
-captured.   
+captured.   
 If no order lines are supplied, everything that can be canceled will be
 canceled.  
 
 URL to cancel payment:
 [https://merchant-api.integration.resurs.com/v2/payments/](https://merchant-api.integration.resurs.com/v2/payments/){payment_id}[/ca](https://web-integration-mock-merchant-api-portal.integration.resurs.com/v2/payments/%7Bpayment_id%7D/capture)ncel
 
-Link to the call in swagger documentation: **[Cancel
+Link to the call in swagger documentation: **[Cancel
 Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v2#/Payment%20management/cancel)**
 
 **Curl to cancel the payment**

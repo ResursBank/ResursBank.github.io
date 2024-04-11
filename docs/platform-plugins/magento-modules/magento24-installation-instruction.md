@@ -105,7 +105,7 @@ reach your website. Please note that in order for any callbacks to
 function at all, including the test callback, your website **must be
 exposed to the Internet**, otherwise the API can’t reach it.
 
- ![](../../../attachments/71794809/71794813.png)
+ ![](../../../attachments/71794809/71794813.png)
 
 **Upgrading from the resursbank/checkout module**
 
@@ -114,21 +114,21 @@ old module before installing the new one.
 
 You may encounter an SQL error when executing the setup:upgrade command,
 a constraint error caused by a duplicate foreign key in
-the **resursbank_checkout_account_method_annuity **table. This can be
+the **resursbank_checkout_account_method_annuity **table. This can be
 resolved by executing the following query:
 
-alter table **\[DATABASE\]**.resursbank_checkout_account_method_annuity
-drop foreign key **\[FOREIGN_KEY\]**;
+alter table **\[DATABASE\]**.resursbank_checkout_account_method_annuity
+drop foreign key **\[FOREIGN_KEY\]**;
 
-- Replace **\[DATABASE\] **with the name of your database.
-- Replace **\[FOREIGN_KEY\] **with the name of the present foreign key
+- Replace **\[DATABASE\] **with the name of your database.
+- Replace **\[FOREIGN_KEY\] **with the name of the present foreign key
   as supplied by the error message (normally this would
-  be **method_id**)."
+  be **method_id**)."
 
-You can then re-run the **setup:upgrade **command to proceed with the
+You can then re-run the **setup:upgrade **command to proceed with the
 upgrade.  
 **Please remember to always backup your database before executing any
-queries manually! **
+queries manually! **
 
 **  
 **

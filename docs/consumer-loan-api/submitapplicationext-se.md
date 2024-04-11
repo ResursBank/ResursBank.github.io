@@ -491,7 +491,7 @@ parent: Consumer Loan Api
         <format>^[\\d]{6,12}$</format>
         <format-message>Vänligen fyll i ett giltigt kontonummer (utan bindestreck eller punkter)</format-message>
     </element> 
-    <!-- ***** Medsökande - Personalia -->
+    <!-- ***** Medsökande - Personalia -->
     <element>
         <label>Eventuell medsökande</label>
         <name>subtitle-coapplicant</name>

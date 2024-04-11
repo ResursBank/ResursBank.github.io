@@ -89,15 +89,15 @@ currently not possible yet.
     can't guarantee full production support at this level).
 2.  Unzip the downloaded file into \<primary folder of your
     shop\>/modules (the downloaded file may look like
-    this: **resursbankplugins-resurs-checkout-prestashop16-ff8652e77e83.zip**)
-3.  Make sure you rename the primary directory that you unzipped to the
+    this: **resursbankplugins-resurs-checkout-prestashop16-ff8652e77e83.zip**)
+3.  Make sure you rename the primary directory that you unzipped to the
     modules directory.  
     If the zip looks like above
     (resursbankplugins-resurs-checkout-prestashop16-ff8652e77e83.zip),
     the directory that the module will land under may look like
-    this: *resursbankplugins-resurs-checkout-prestashop16-ff8652e77e83*
+    this: *resursbankplugins-resurs-checkout-prestashop16-ff8652e77e83*
 4.  Make sure your cloned or extracted directory under modules is
-    renamed to ***resursbankcheckout***, or the module won't be found by
+    renamed to ***resursbankcheckout***, or the module won't be found by
     prestashop therefore not work.
 5.  Activate the module and configure it through the admin module panel.
     Do not forget to put the username and password in the credentials

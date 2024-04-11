@@ -145,7 +145,7 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 > "vatRate": 25, "totalAmountIncludingVat": 500.0 } \],
 > "orderReference": "orderref-12345" }, "customer": { "customerType":
 > "NATURAL", "governmentId": "xxxxx", "email": "xxx@yyy.com",
-> "mobilePhone": "xxxxx"   }, "options": { "initiatedOnCustomersDevice":
+> "mobilePhone": "xxxxx"   }, "options": { "initiatedOnCustomersDevice":
 > true, "handleFrozenPayments": true, "callbacks": { "authorization": {
 > "url": "{{callback_url_authorization}}" }, "management": { "url":
 > "{{callback_url_management}}" } }, "redirectionUrls": { "customer": {
@@ -155,7 +155,7 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 ### Create payment responses and what to do next
 status:
 TASK_REDIRECTION_REQUIRED → redirect customer to "customerUrl" and await callback. 
-Callbacks with callback-status AUTHORIZED, REJECTED, FROZEN or CAPTURED can be received before or after redirection is performed. 
+Callbacks with callback-status AUTHORIZED, REJECTED, FROZEN or CAPTURED can be received before or after redirection is performed. 
 
 ### Postman collection of the requests above
 ```json

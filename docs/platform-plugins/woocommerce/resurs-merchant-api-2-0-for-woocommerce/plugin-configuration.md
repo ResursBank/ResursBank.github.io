@@ -15,8 +15,8 @@ This page contains information on the configuration of the plugin.
 ## Basic configuration
 1.  Go to `WooCommerce` → `Settings` and click on the `Resurs Bank` tab
 
-2.  Enter your credentials in the `API Settings`  tab
-3.  Choose the correct Store ID for your store from the dropdown 
+2.  Enter your credentials in the `API Settings`  tab
+3.  Choose the correct Store ID for your store from the dropdown 
 
 4.  Save the settings
 ## Detailed configuration information

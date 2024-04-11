@@ -30,15 +30,15 @@ parent: Testing
 
 # Firewalling
 > How to configure firewalls - Do you have a strictly configured
-> environment? Take a look here to get proper settings for your
+> environment? Take a look here to get proper settings for your
 > firewall/web services. [Link to faq](/faq/)
 
 # Payment Admin
-For the Payment Admin go to: 
+For the Payment Admin go to: 
 
 [https://test.resurs.com/ecommerce-test/paymentadmin-v4/](https://test.resurs.com/ecommerce-test/paymentadmin-v4/)
 
-You can see the generated invoice for payment method INVOICE in Payment
+You can see the generated invoice for payment method INVOICE in Payment
 Admin, since the invoice is not sent by mail in the test-environment.
 
 # Merchant Portal
@@ -56,7 +56,7 @@ API:
 
 [https://omnitest.resurs.com/](https://omnitest.resurs.com/)
 
-For more information about the usage, see [Resurs Checkout
+For more information about the usage, see [Resurs Checkout
 Web](resurs-checkout-web).
 
 <!--- 

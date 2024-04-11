@@ -361,7 +361,7 @@ parent: Consumer Loan Api
         <unit>money</unit>
         <format-message>Tarkista kuukausitulosi (0-99 999 €).</format-message>
     </element>
-      <!-- ***** Huvudsökande - Arbete -->
+      <!-- ***** Huvudsökande - Arbete -->
     <element java-property="applicant.employmentType">
         <label>Hakijan työsuhteen muoto</label>
         <description>Valitse työmuoto valikon vaihtoehdoista</description>
@@ -875,7 +875,7 @@ parent: Consumer Loan Api
                 <totalFeesAndInterest>8700.00</totalFeesAndInterest>
                 <topUpAmount>9000.0</topUpAmount>
                 <monthlyCostTopUp>169.0</monthlyCostTopUp>
-                </submitApplicationExtResult>
+                </submitApplicationExtResult>
         </ns2:submitApplicationExtResponse>
     </soap:Body>
 </soap:Envelope>  

@@ -29,7 +29,7 @@ parent: After Shop Service Api
 
 | Name                    | Content                                | Description                                                                  |
 |-------------------------|----------------------------------------|------------------------------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](/development/api-types/ecommerceerror/)**   | Failed to retrieve the list of payment document names. See error for details |
+| ECommerceErrorException | **[ECommerceError](/development/api-types/ecommerceerror/)**   | Failed to retrieve the list of payment document names. See error for details |
 
 ### Introduction
 This method retrieves all available documents that are associated with

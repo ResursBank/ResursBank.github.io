@@ -40,7 +40,7 @@ and similar). This might give a part of the error, so in this case, you
 should consider checking for SoapExceptions too. In th body, details
 about the errors usually reside in the detail element, under an
 ECommerceError tag. Extracting this value could give you further
-information about the error. Such errors are documented at [Error
+information about the error. Such errors are documented at [Error
 handling (Resurs error codes)](/development/errors--problem-solving-and-corner-cases/resurs-error-codes/). EComPHP extracts this kind of
 errors to find the root cause, and when unable to find an error it uses
 its own - see [EComPHP custom errorcodes](/development/errors--problem-solving-and-corner-cases/ecomphp-custom-errorcodes/).

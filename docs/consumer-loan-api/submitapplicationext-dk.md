@@ -34,9 +34,9 @@ parent: Consumer Loan Api
         <applicant-marital-status>SEPERATED</applicant-marital-status>
         <applicant-number-of-children-in-age-group1>2</applicant-number-of-children-in-age-group1>
         <applicant-number-of-children-in-age-group3>1</applicant-number-of-children-in-age-group3>
-        <applicant-habitation-form>WITH_PARENTS</applicant-habitation-form>
+        <applicant-habitation-form>WITH_PARENTS</applicant-habitation-form>
         <applicant-share-of-expenses>50</applicant-share-of-expenses>
-        <applicant-employment-type>TRAINEE</applicant-employment-type>
+        <applicant-employment-type>TRAINEE</applicant-employment-type>
         <applicant-employment-year-from>0101</applicant-employment-year-from>
 
         <applicant-monthly-income-gross>10000</applicant-monthly-income-gross>
@@ -50,9 +50,9 @@ parent: Consumer Loan Api
         <credit-cards-master-card>true</credit-cards-master-card>
         <credit-cards-visa>true</credit-cards-visa>
         <credit-cards-diners-club></credit-cards-diners-club>
-        <credit-cards-petrol>true</credit-cards-petrol>                
+        <credit-cards-petrol>true</credit-cards-petrol>                
         <finance-other-loans-balance-of-loans>100000</finance-other-loans-balance-of-loans>
-        <finance-other-loans-monthly-cost-of-loans>3000</finance-other-loans-monthly-cost-of-loans>
+        <finance-other-loans-monthly-cost-of-loans>3000</finance-other-loans-monthly-cost-of-loans>
         <payout-clearing-number>1234</payout-clearing-number>
         <payout-account-number>1234567891</payout-account-number>
         <approve-conditions>true</approve-conditions>

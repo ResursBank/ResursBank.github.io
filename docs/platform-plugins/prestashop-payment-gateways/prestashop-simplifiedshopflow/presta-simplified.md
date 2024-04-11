@@ -61,7 +61,7 @@ will cause the race conditions that is doubling the invoice amount.
 ***Best practice*** to avoid this is to simply **create separate order
 statuses** where the "paid" value is set to 0.
 
-the 
+the 
 
 ## When are the order/payment considered paid?
 When you choose an order state that is considering an order/payment as

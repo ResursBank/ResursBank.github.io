@@ -19,12 +19,12 @@ parent: After Shop Service Api
 | Name                    | Type                                                           | Occurs | Nillable? | Description                                                                                                                                                                                                                                                                                            |
 |-------------------------|----------------------------------------------------------------|--------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | paymentId               |  [**id**](/development/api-types/simple-types/)                                     | 1..1   | No        | The identity of the payment.                                                                                                                                                                                                                                                                           |
-| preferredTransactionId  | **id**                                                         | 0..1   | No        | Will be printed on the accounting summary. Can be used to track the transaction. If not set it will fallback on paymentId for this value. **NOT SUPPORTED** for external payment methods (VISA/Mastercard/SWISH/TRUSTLY etc)                                                                           |
+| preferredTransactionId  | **id**                                                         | 0..1   | No        | Will be printed on the accounting summary. Can be used to track the transaction. If not set it will fallback on paymentId for this value. **NOT SUPPORTED** for external payment methods (VISA/Mastercard/SWISH/TRUSTLY etc)                                                                           |
 | partPaymentSpec         |  [**paymentSpec**](/development/api-types/paymentspec/)                                | 1..1   | No        | If you are to finalize an invoice, you will need to supply the partPaymentSpec with \<specLines\>. Without the \<specLines\>, the customer won't see the orderrows that has been supplied in your bookPayment/POST.For any other payment method, using partPaymentSpec with \<specLines\> is optional. |
 | createdBy               |  [**nonEmptyString**](/development/api-types/simple-types/)                         | 0..1   | No        | The username of the person performing the operation.                                                                                                                                                                                                                                                   |
-| orderId                 | [**id**](/development/api-types/simple-types/)                                      | 0..1   | No        | The order number.                                                                                                                                                                                                                                                                                      |
+| orderId                 | [**id**](/development/api-types/simple-types/)                                      | 0..1   | No        | The order number.                                                                                                                                                                                                                                                                                      |
 | orderDate               | **date** | 0..1   | Yes       | The order date. For payment methods other than INVOICE, setting this will generate an error. Note: use the format "yyyy-MM-dd" for date.                                                                                                                                                               |
-| invoiceId               | [**id**](/development/api-types/simple-types/)                                      | 0..1   | Yes       | The invoice number. This will be printed on the invoice. For payment methods other than INVOICE, setting this will generate an error. An alternative is to let Resurs Bank generate the invoice ID, in this case this field is omitted.                                                                |
+| invoiceId               | [**id**](/development/api-types/simple-types/)                                      | 0..1   | Yes       | The invoice number. This will be printed on the invoice. For payment methods other than INVOICE, setting this will generate an error. An alternative is to let Resurs Bank generate the invoice ID, in this case this field is omitted.                                                                |
 | invoiceDate             | **date** | 0..1   | Yes       | The invoice date. This will be printed on the invoice. For payment methods other than INVOICE, setting this will generate an error.Note: use the format "yyyy-MM-dd" for date.                                                                                                                         |
 | invoiceDeliveryType     | **[invoiceDeliveryType](/development/api-types/invoicedeliverytype/)**                 | 0..1   | Yes       | How the invoice should be delivered. **If used,** **put in: "EMAIL"**                                                                                                                                                                                                                                  |
 
@@ -36,7 +36,7 @@ parent: After Shop Service Api
 
 | Name                     | Content                                  | Description                                            |
 |--------------------------|------------------------------------------|--------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to finalize the payment. See error for details. |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to finalize the payment. See error for details. |
 
 ### Introduction
 This method should be called just before the goods are delivered. When a
@@ -60,7 +60,7 @@ and / or **Merchant Portal**
 
 ### What is paymentSpec?
 
-The payment details. In it's simplest form it's just sum, i.e.
+The payment details. In it's simplest form it's just sum, i.e.
 totalAmount and totalVatAmount are set, but there are no specLines. If
 nothing else is said you shall send specLines .  
 Contains elements as defined in the following table.
@@ -155,7 +155,7 @@ below shows a more detailed form of finalization.
             </specLines>
             <totalAmount>55.00</totalAmount>
             <totalVatAmount>11.00</totalVatAmount>
-        </partPaymentSpec>
+        </partPaymentSpec>
         <orderId>Ord-23456</orderId>
         <orderDate>2012-10-02</orderDate>
         <invoiceId>DebInv-34567</invoiceId>

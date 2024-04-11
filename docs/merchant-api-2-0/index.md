@@ -19,7 +19,7 @@ has_toc: false
 | **Create Payment** | 8b9dab18-e1fe-430e-891b-42edb89ba77a |    ORDER001    |                          |                                      |
 | **Capture**        |                                      |                |  transactionId-DEBIT001  |        transactionId-DEBIT001        |
 | **Capture**        |                                      |                |  transactionId-DEBIT002  |        transactionId-DEBIT002        |
-| **Refund**         |                                      |                |  transactionId-CREDIT001 |       transactionId-CREDIT001        |
+| **Refund**         |                                      |                |  transactionId-CREDIT001 |       transactionId-CREDIT001        |
 |                    |                                      |                |                          |                                      |
 | **Create Payment** | 8b9dab18-e1fe-430e-891b-42edb89ba77a |    ORDER001    |                          |                                      |
 | **Capture**        |                                      |                |           N/A            |               ORDER001               |

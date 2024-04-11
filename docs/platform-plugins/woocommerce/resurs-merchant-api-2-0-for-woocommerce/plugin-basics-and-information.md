@@ -28,7 +28,7 @@ separately from the old plugin.
 ![](../../../../attachments/91029973/91029969.png)
 
 As of the latest master branch it is possible to run both the new
-version and old version side by side. It is however **not** recommended
+version and old version side by side. It is however **not** recommended
 to do so as both modules are fetching and handling payment methods
 differently. Best practice is to never run the plugins simultaneous, to
 avoid problems such as duplicate getAddress-fields and/or payment

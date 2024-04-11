@@ -16,7 +16,7 @@ to that rule.
 
 | Key name      | Expected format   | Description                                                                                                                                                                                                    |
 |---------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| invoiceExtRef | String. 46 chars. | In the case that the payment generates invoices and credit notes this value will be printed as 'Your reference', for example the sales person responsible. Mostly for company invoices. |
+| invoiceExtRef | String. 46 chars. | In the case that the payment generates invoices and credit notes this value will be printed as 'Your reference', for example the sales person responsible. Mostly for company invoices. |
 | CustomerId    | String. 20 chars. | In the case that the payment generates invoices and credit notes this value will be printed as 'Customer Id'                                                                            |
 
 ![](../../attachments/3440674/5570827.png)

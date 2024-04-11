@@ -26,7 +26,7 @@ that might warn you about the internal errors. See the list below.
 
 ## SOAP related errors
 All errors/exception are returned as ECommerceError  
-Contains elements as defined in the following table. 
+Contains elements as defined in the following table. 
 
 | Component            | Type                                                                                    | Occurs | Nillable? | Description                                                                           |
 |----------------------|-----------------------------------------------------------------------------------------|--------|-----------|---------------------------------------------------------------------------------------|
@@ -39,7 +39,7 @@ Always use `user ErrorMessage` to inform the customer about the error.
 It's translated to the shops language. The fault string should be logged
 to help the shop owner to diagnose errors.
 
-Do not under *any* circumstance show the `faultString` to the customer.
+Do not under *any* circumstance show the `faultString` to the customer.
 It may contain sensitive information. But do log it!
 
 ```xml
@@ -111,7 +111,7 @@ some other input could have prevented the error from happening. For
 example, a customer not having enough funds on his card account renders
 an ECommerceException with the fixableByYou set to `true`. If, on the
 other hand, we have problems communicating with the database, the
-fixableByYou flag should be `false`. When this flag is `false` there is
+fixableByYou flag should be `false`. When this flag is `false` there is
 nothing you can do except showing the customer the error
 userErrorMessage.
 
@@ -120,6 +120,6 @@ message, the faultString, is a technical description of what went wrong,
 and it´s not suitable to show to the end user. Just log it, and use it
 for diagnosing and development. The userErrorMessage on the other hand,
 we more or less require you to show to the customer if something went
-wrong. The reason for requiring you to show it is that some of the
+wrong. The reason for requiring you to show it is that some of the
 messages we return have a legal meaning not to be fiddle with.
 

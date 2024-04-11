@@ -32,9 +32,9 @@ parent: Simplified Flow Api
 
 | Name                     | Content                                  | Description                                        |
 |--------------------------|------------------------------------------|----------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to book the payment. See error for details. |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to book the payment. See error for details. |
 
-**Response** 
+**Response** 
 ```xml
  <soapenv:Body>
       <sim:bookPayment>

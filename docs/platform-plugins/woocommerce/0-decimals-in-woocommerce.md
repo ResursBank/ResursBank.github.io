@@ -23,8 +23,8 @@ Created by Thomas Tornevall, last modified by Gert on 2023-01-19
 - [I want to do this as a plugin - how would it
   look?](#i-want-to-do-this-as-a-plugin---how-would-it-look)
 
-Under *General settings* in WooCommerce there is a section
-called *Currency options*. Here you can set the store currency and how
+Under *General settings* in WooCommerce there is a section
+called *Currency options*. Here you can set the store currency and how
 the currency symbol should be positioned. There is also a setting that
 lets you choose how many decimal points you want prices to be displayed
 with.

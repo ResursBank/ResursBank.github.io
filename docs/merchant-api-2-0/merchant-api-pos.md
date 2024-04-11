@@ -10,7 +10,7 @@ parent: Merchant Api 2.0
 
 > Generic, explanational documentationPlease note that the flow and its
 > requests below is an example and other flows or variations may exist.
-> Please advice with onboarding@resurs.se regarding specific actions
+> Please advice with onboarding@resurs.se regarding specific actions
 > prior to mapping up any logic or beginning any coding.
 
 **What can I find here?**
@@ -82,7 +82,7 @@ A store may have multiple payment methods available. The list of
 available payment methods will show what payment methods there are to
 apply from at the chosen store.  
 Each payment method has a paymentmethod id, wich will be used in the
-next step, when the application is created. 
+next step, when the application is created. 
 
 URL to get available payment methods:
 [https://merchant-api.integration.resurs.com/v2/stores/{store_id}/payment_methods](https://merchant-api.integration.resurs.com/v2/stores/%7Bstore_id%7D/payment_methods)
@@ -115,7 +115,7 @@ information.
   customer in case customer interaction like consents or contract
   signing is required
 - handleFrozenPayments = payments may be frozen for a short time due to
-  fraud controls. When a payment is frozen  the goods shall not be
+  fraud controls. When a payment is frozen  the goods shall not be
   delivered to the customer until the payment is captured
 - handlemanualinspection = if handling manual inspection, the flow may
   be stopped and the customer must talk to Resurs Bank personnel before
@@ -143,7 +143,7 @@ Payments](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_
 > "vatRate": 25, "totalAmountIncludingVat": 500.0 } \],
 > "orderReference": "{{orderref}}" }, "customer": { "customerType":
 > "NATURAL", "governmentId": "xxxxx", "email": "test@resurs.com",
-> "mobilePhone": "xxxxx"   }, "options": { "initiatedOnCustomersDevice":
+> "mobilePhone": "xxxxx"   }, "options": { "initiatedOnCustomersDevice":
 > true, "deliverLinks": true, "handleManualInspection":
 > false,"automaticCapture": true, "callbacks": { "authorization": {
 > "url": "{{callback_url_authorization}}" }, "management": { "url":
@@ -156,7 +156,7 @@ TASK_REDIRECTION_REQUIRED → The customer is to be redicreted to
 "customerUrl" either sent by you or by Resurs (depending whether
 options.deliverLinks is true/false). Callbacks with callback-status
 AUTHORIZED, REJECTED, FROZEN or CAPTURED can be received before or after
-redirection is performed. 
+redirection is performed. 
 
 If you want to check if the payment has been *Authorized* without
 redirecting (it may be that successUrl is shown directly in the

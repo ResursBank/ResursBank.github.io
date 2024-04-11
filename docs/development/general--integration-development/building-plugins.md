@@ -26,11 +26,11 @@ parent: General - Integration Development
     
 
 > [!NOTE] 
-> \* Country settingResurs Bank merchant credentials only supports one
-> country per credential account. Merchants that allow shopping from
+> \* Country settingResurs Bank merchant credentials only supports one
+> country per credential account. Merchants that allow shopping from
 > multiple countries need to have one credential for each country
-> (Sweden, Norway, Finland or Denmark). I.e., a Norwegian customer can
-> not shop with payment methods in a Swedish store.
+> (Sweden, Norway, Finland or Denmark). I.e., a Norwegian customer can
+> not shop with payment methods in a Swedish store.
 >
 > \*\* Callback noticesCallbacks must be reachable externally. If you
 > are testing your web store in a protected environment and you want to

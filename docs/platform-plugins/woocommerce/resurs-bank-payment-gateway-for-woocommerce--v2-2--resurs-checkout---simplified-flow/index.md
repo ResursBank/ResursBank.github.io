@@ -53,7 +53,7 @@ This is an expected behaviour and normall occurs when you have mixed payment met
 
 ### Handling decimals
 
-Setting decimals to 0 in WooCommerce will result in an incorrect rounding of product prices. It is therefore adviced to set decimal points to 2.  [Read more about it here](../0-decimals-in-woocommerce.md).
+Setting decimals to 0 in WooCommerce will result in an incorrect rounding of product prices. It is therefore adviced to set decimal points to 2.  [Read more about it here](../0-decimals-in-woocommerce.md).
 
 ### Handling discounts and coupons with hosted flow
 

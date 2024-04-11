@@ -9,9 +9,9 @@ parent: Simplified Flow Api
 # getAnnuityFactors 
 
 Retrieves the annuity factors for a given payment method. The duration
-is given is months. While this makes most sense for payment methods that
+is given is months. While this makes most sense for payment methods that
 consist of part payments (i.e. new account), it is possible to use for
-all types. It returns a list of with one annuity factor per payment plan
+all types. It returns a list of with one annuity factor per payment plan
 of the payment method. There are typically between three and six payment
 plans per payment method.  
 
@@ -20,14 +20,14 @@ plans per payment method.
 
 | Name            | Type | Occurs | Nillable? | Description  |
 |-----------------|------|--------|-----------|--------------|
-| paymentMethodId | id   | 1..1   | No        | The identity of the payment method for which to retrieve the annuity factors.  While this makes most sense for payment methods involving part payments, it is possible to use for all types. (See [paymentMethodType](/development/api-types/paymentmethodtype/) for more information about payment method types.) |
+| paymentMethodId | id   | 1..1   | No        | The identity of the payment method for which to retrieve the annuity factors.  While this makes most sense for payment methods involving part payments, it is possible to use for all types. (See [paymentMethodType](/development/api-types/paymentmethodtype/) for more information about payment method types.) |
 
 
 ### Response
 
 | Name   | Type          | Occurs | Nillable? | Description |
 |--------|---------------|--------|-----------|-------------|
-| return | annuityFactor | 0..\*  | No        | A list with one annuity factor per payment plan of the payment method.  There are typically between three and six payment plans per payment method. |
+| return | annuityFactor | 0..\*  | No        | A list with one annuity factor per payment plan of the payment method.  There are typically between three and six payment plans per payment method. |
 
 ### Faults
 

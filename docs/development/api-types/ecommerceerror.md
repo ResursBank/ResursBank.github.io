@@ -10,7 +10,7 @@ grand_parent: Development
 
 # ECommerceError 
 All errors/exception are returned as ECommerceError  
-Contains elements as defined in the following table. 
+Contains elements as defined in the following table. 
 
 | Component            | Type                                  | Occurs | Nillable? | Description                                                                           |
 |----------------------|---------------------------------------|--------|-----------|---------------------------------------------------------------------------------------|

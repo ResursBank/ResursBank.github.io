@@ -28,7 +28,7 @@ parent: After Shop Service Api
 
 | Name                     | Content                                  | Description                                                       |
 |--------------------------|------------------------------------------|-------------------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to calculate the search result size. See error for details |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to calculate the search result size. See error for details |
 
 ### Introduction
 Returns the number of payments that match the specified search

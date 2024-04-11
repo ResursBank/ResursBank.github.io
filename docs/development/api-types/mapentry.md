@@ -10,7 +10,7 @@ grand_parent: Development
 
 # mapEntry 
 A representation of a simple map. WebService frameworks are not good at
-supporting maps natively. An instance of this object must be unique in
+supporting maps natively. An instance of this object must be unique in
 regard to the key within the list.  
 Contains elements as defined in the following table.
 

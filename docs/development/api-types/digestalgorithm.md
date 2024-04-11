@@ -13,6 +13,6 @@ grand_parent: Development
 
 | Value | Description |
 |-------|-------------|
-| MD5   |             |
-| SHA1  |             |
+| MD5   |             |
+| SHA1  |             |
 

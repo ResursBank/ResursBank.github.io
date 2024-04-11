@@ -52,7 +52,7 @@ If you are using local networks during tests, be aware that all
 teststings does not work. There are a few rules to consider for
 "locals":
 - Local networks like 192.168.0.0/16,172.16.0.0/16, 10.0.0.0/8, etc
-  (see [https://en.wikipedia.org/wiki/Private_network](https://en.wikipedia.org/wiki/Private_network))
+  (see [https://en.wikipedia.org/wiki/Private_network](https://en.wikipedia.org/wiki/Private_network))
   are unreachable. Testing callbacks on such networks won't work.
 - Hostnames assigned by local isolated DNS servers only does not work -
   we won't be able to resolve them unless they reside on a reachable
@@ -62,16 +62,16 @@ teststings does not work. There are a few rules to consider for
 
 ## First step of error checking
 Make sure that you're checked with [The "not a bug" list](16056903.md)
-before considering the problem as a remote error. You can also take a
-look at [Errors, problem-solving and corner cases](16056453.html), to
+before considering the problem as a remote error. You can also take a
+look at [Errors, problem-solving and corner cases](16056453.html), to
 see if it might be other problems that can be "self solvable".
 XML validation
 When using our services live, do not enable strict XML Schema validation
 as minor changes on our side can cause the integration to fail.
 Signing troubles
-When you implement our signing requirement, please *redirect* the
-customer to the link the `prepareSigning` function provides. **Do
-not** try to embed the signing page in the webshop as an `iframe`.
+When you implement our signing requirement, please *redirect* the
+customer to the link the `prepareSigning` function provides. **Do
+not** try to embed the signing page in the webshop as an `iframe`.
 
 ## The jungle of SSL
 Do NOT use TLS 1.1 or lower!
@@ -98,7 +98,7 @@ make sure you get it from a verified issuer. But here's some examples:
 - [Godaddy / Starfield Technologies](https://www.godaddy.com)
 - [Letsencrypt](https://letsencrypt.org/) (Issues free certificates,
 supports wildcard certificates, but requires renewal every three
-months) 
+months) 
 
 ### Where do I find a verified issuer?
 There's a lots of issuers available on the internet, so there's nearly

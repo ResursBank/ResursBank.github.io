@@ -33,15 +33,15 @@ where we can define which of the exceptions that should be handled
 specifically eas "customer messages".
 
 ## Customer Data Fields
-As of 
+As of 
 [![](https://resursbankplugins.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium)P17-226](https://resursbankplugins.atlassian.net/browse/P17-226?src=confmacro) -
 Få ordning på setCustomer Done we are changing the way customer data
 fields are behaving in the checkout. We usually don't have to collect
 both phone and mobile in the checkout steps, and as phone number is the
 absolute default in a newly installed PrestaShop store we use the
-internal phone-field as the primary target. 
+internal phone-field as the primary target. 
 [![](https://resursbankplugins.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium)P17-223](https://resursbankplugins.atlassian.net/browse/P17-223?src=confmacro) -
-Do we really need 2 phone numbers on validation? Done and 
+Do we really need 2 phone numbers on validation? Done and 
 [![](https://resursbankplugins.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium)P17-225](https://resursbankplugins.atlassian.net/browse/P17-225?src=confmacro) -
 RCO streamline phone numbers Done also includes requests for being more
 streamlined in the checkout, the same way as Resurs Checkout.
