@@ -20,7 +20,7 @@ has_toc: false
 
 -------------------
 
-#### Resurs Bank Payment Gateway for WooCommerce v2.2.x (end of life)
+### Resurs Bank Payment Gateway for WooCommerce v2.2.x (**end of life**)
 
 Resurs Bank Payment Gateway for WooCommerce 2.2 has been revoked. 2.2.105 is the last official release and is no longer supported.
 
