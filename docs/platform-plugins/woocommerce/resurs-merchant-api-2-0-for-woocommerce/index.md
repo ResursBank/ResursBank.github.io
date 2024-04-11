@@ -9,7 +9,7 @@ grand_parent: Platform Plugins
 has_toc: false
 ---
 
-# Resurs Merchant API 2.0 for WooCommerce 
+# Resurs Merchant API 2.0 for WooCommerce
 
 - [Plugin basics and information](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/plugin-basics-and-information/)
 - [Trouble shooting and error
@@ -31,13 +31,14 @@ has_toc: false
   plugin](#downloadinstall-the-plugin)
 - [FAQ & Generic
   questions](#faq--generic-questions)
-  - [Can I change the order number
-    sequence?](#can-i-change-the-order-number-sequence)
+    - [Can I change the order number
+      sequence?](#can-i-change-the-order-number-sequence)
 
 This section is reserved for the new WooCommerce plugin from Resurs
 bank.
 
 # Requirements
+
 - **At least** PHP 8.1.
 - **At least** WooCommerce 7.6.0.
 - A WooCommerce compatible theme.
@@ -63,24 +64,31 @@ the both plugins are active side by side.
 
 Install the plugin via WordPress plugin repository (the plugin manager
 in wp-admin). It is NOT recommended to install the plugin manually since
-you will miss all automatic upgrades. The new name to look for in the repository (from WP) is **Resurs Bank Payments for WooCommerce**.
+you will miss all automatic upgrades. The new name to look for in the repository (from WP) is **Resurs Bank Payments for
+WooCommerce**.
 
 ## Manually installing the plugin
 
 If you prefer to install the plugin manually, you can always find the latest version in the official location at
-[https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/](https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/). However it is not recommended to do any installation manually since you may miss the opportunity to automatically upgrade the plugin when new releases are commited.
+[https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/](https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/).
+However it is not recommended to do any installation manually since you may miss the opportunity to automatically
+upgrade the plugin when new releases are commited.
 
 # FAQ & Generic questions
+
 ## Can I change the order number sequence?
+
 Yes!
 
 To update the order number sequence, update the database auto increment
 number like this:
 
 **UPDATE database**
+
 ```xml
 ALTER TABLE `wp-database`.`wp_posts` AUTO_INCREMENT = 200000000;
 ```
+
 Change **wp-database** to your database name and set the
 **AUTO_INCREMENT** number to something that suits you.
 
