@@ -9,10 +9,8 @@ grand_parent: Platform Plugins
 has_toc: false
 ---
 
-
-
 # Resurs Merchant API 2.0 for WooCommerce 
-Created by Thomas Tornevall, last modified on 2023-12-07
+
 - [Plugin basics and information](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/plugin-basics-and-information/)
 - [Trouble shooting and error
   handling](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/trouble-shooting-and-error-handling/)
