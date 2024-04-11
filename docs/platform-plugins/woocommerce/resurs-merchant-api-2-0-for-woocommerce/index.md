@@ -50,21 +50,25 @@ probably be 7.58.0 (focal is currently - aug22 - on 7.68) and in many
 systems bearers was introduced in 7.61.0 - however, you need to make
 sure it is really present in newer releases too.*
 
-# Upgrade information
+# Upgrade from a prior package
+
 Are you installing this module over the prior release (2.2-series)? Make
-sure you uninstall the old plugin before installing this. We've seen
+sure you **uninstall** the old plugin before installing this. We've seen
 conflicts between the both releases, for where the old plugin overrides
 parts of the new by stating that the CURLAUTH_BEARER is missing, even
 though the old wp-admin layout is still seen. This is very common when
 the both plugins are active side by side.
 
 # Download/install the plugin
+
 Install the plugin via WordPress plugin repository (the plugin manager
 in wp-admin). It is NOT recommended to install the plugin manually since
-you will miss all automatic upgrades.
+you will miss all automatic upgrades. The new name to look for in the repository (from WP) is **Resurs Bank Payments for WooCommerce**.
 
-Url to the plugin itself is
-[https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/](https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/)
+## Manually installing the plugin
+
+If you prefer to install the plugin manually, you can always find the latest version in the official location at
+[https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/](https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/). However it is not recommended to do any installation manually since you may miss the opportunity to automatically upgrade the plugin when new releases are commited.
 
 # FAQ & Generic questions
 ## Can I change the order number sequence?
