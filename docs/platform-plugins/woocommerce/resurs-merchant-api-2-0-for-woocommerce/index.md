@@ -9,7 +9,7 @@ grand_parent: Platform Plugins
 has_toc: false
 ---
 
-# Resurs Merchant API 2.0 for WooCommerce
+# Resurs Bank Payments for WooCommerce 
 
 - [Plugin basics and information](/platform-plugins/woocommerce/resurs-merchant-api-2-0-for-woocommerce/plugin-basics-and-information/)
 - [Trouble shooting and error
@@ -34,10 +34,8 @@ has_toc: false
     - [Can I change the order number
       sequence?](#can-i-change-the-order-number-sequence)
 
-This section is reserved for the new WooCommerce plugin from Resurs
-bank.
 
-# Requirements
+## Resurs Merchant API 2.0 for WooCommerce - Requirements
 
 - **At least** PHP 8.1.
 - **At least** WooCommerce 7.6.0.
@@ -64,7 +62,8 @@ the both plugins are active side by side.
 
 Install the plugin via WordPress plugin repository (the plugin manager
 in wp-admin). It is NOT recommended to install the plugin manually since
-you will miss all automatic upgrades. The new name to look for in the repository (from WP) is **Resurs Bank Payments for
+you will miss all automatic upgrades. The new name to look for in the
+plugin search (in wp-admin) is **Resurs Bank Payments for
 WooCommerce**.
 
 ## Manually installing the plugin
