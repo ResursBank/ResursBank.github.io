@@ -74,6 +74,14 @@ upgrade the plugin when new releases are commited.
 
 # FAQ & Generic questions
 
+## Can I translate the plugin by myself?
+
+No. All phrases in the plugin are generic and selected by Resurs Bank. They are
+centralized through our library "ECom2" to make all our plugins uniform and
+display the same types of translations. If you really need to revise a
+translation, please contact us and submit a suggestion for consideration.
+Since the translations appear in multiple locations, it's crucial that they fit all our solutions.
+
 ## Can I change the order number sequence?
 
 Yes!
