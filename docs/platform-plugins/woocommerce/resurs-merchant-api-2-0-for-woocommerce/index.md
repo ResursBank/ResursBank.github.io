@@ -48,6 +48,11 @@ probably be 7.58.0 (focal is currently - aug22 - on 7.68) and in many
 systems bearers was introduced in 7.61.0 - however, you need to make
 sure it is really present in newer releases too.*
 
+# Can I customize the plugin?
+
+Partially, you can. [There are features reachable for some tweaks documented here](mapi-wc---customizations.md).
+Just have in mind that translations (look below) is not a part of this.
+
 # Upgrade from a prior package
 
 Are you installing this module over the prior release (2.2-series)? Make
