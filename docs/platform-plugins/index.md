@@ -12,7 +12,7 @@ has_toc: false
 
 # Supported open source e-commerce website platforms
 
-| E-Commerce Platforms                                        | Magentov2.3.x-v2.4.x                                    | WooCommerce                          |
+| E-Commerce Platforms                                        | Magento v2.3.x-v2.4.x                                    | WooCommerce                          |
 |-------------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------|
 | **Shop flow**                                               |                                                         |                                               | 
 | Resurs Checkout                      | YES (Not Denmark)  | NO   |
