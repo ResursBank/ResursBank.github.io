@@ -68,7 +68,7 @@ has_toc: false
 -->
 
 ## SSL Certificate https and certificates
-### Do not forget to check your certificates! [Faq](/faq/)
+### Do not forget to check your certificates! [FAQ](/faq/)
 ## Maintaining Compatibility
 **The more plugins you activate that handles your layout - and changes
 the default** **behavior** **of regular styling - the more the risk that
