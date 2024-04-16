@@ -9,30 +9,6 @@ has_toc: false
 
 
 # Platform Plugins 
-Created by Benny, last modified by Gert on 2023-10-16
-**Content of this page**
-- [Supported open source e-commerce website
-  platforms](#supported-open-source-e-commerce-website-platforms)
-- [SSL Certificate, https and
-    certificates](#ssl-certificate-https-and-certificates)
-- [Do not forget to check your certificates! See FAQ for more
-      information.](#do-not-forget-to-check-your-certificates-see-faq-for-more-information)
-
-- [Maintaining
-    Compatibility](#maintaining-compatibility)
-- [PHP Platform
-    Requirements](#php-platform-requirements)
-- [Avoid PHP 5.6, try push your PHP platform upwards - not
-      downwards.](#avoid-php-56-try-push-your-php-platform-upwards---not-downwards)
-
-  - [Autotesting](#autotesting)
-
-[Issue tracking](#issue-tracking)
-
-- [Magento modules](/magento-modules/)
-- [OpenCart](/opencart/)
-- [PrestaShop Payment Gateways](/prestashop-payment-gateways/)
-- [WooCommerce](/woocommerce/)
 
 # Supported open source e-commerce website platforms
 
@@ -118,7 +94,6 @@ Since the market changes rapidly we realized that we had to drop all old
 tests, as the started to break while we were going forward.
 
 # Issue tracking
-Have a look at the landing page for [Development](development).
 
 > The plugins listed and provided from this page are open source and
 > community-driven software. By means, it is software that could be used
