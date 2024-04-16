@@ -6,6 +6,7 @@ av_order: 31
 parent: Platform Plugins
 has_children: true
 has_toc: false
+nav_exclude: true
 ---
 
 
