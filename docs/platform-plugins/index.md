@@ -36,31 +36,31 @@ Created by Benny, last modified by Gert on 2023-10-16
 
 # Supported open source e-commerce website platforms
 
-| E-Commerce Platforms                                        | Magentov2.3.x-v2.4.x                                    | WooCommerce                          | 
+| E-Commerce Platforms                                        | Magentov2.3.x-v2.4.x                                    | WooCommerce                          |
 |-------------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------|
 | **Shop flow**                                               |                                                         |                                               | 
-| Resurs Checkout                      | YES (Not Denmark)  | NO   | 
-| Simplified Flow  | YES              | NO   | 
+| Resurs Checkout                      | YES (Not Denmark)  | NO   |
+| Simplified Flow  | YES              | NO   |
 | Resurs Merchant API 2.0                 | NO             | YES    |
-|  **After shop**                                             |                                                         |                                               |                                                        
-|  Debiting whole order                                       | YES              | YES    | 
-|  Debiting part order                                        | NO             | NO   | 
-| Crediting whole order                                       | YES              | YES    | 
-|  Crediting part order                                       | YES              | YES \* | 
-|  Annulment whole order                                      | YES              | YES    | 
-|  Annulment part order                                       | NO             | YES \* | 
-|  Additional Debit of Payment                                | NO             | NO   | 
-| ** Callback support**                                       |                                                         |                                               | 
-|  Callbacks report to shop                                   | YES              | YES    | 
-| **Discounts and fees  **                                    |                                                         |                                               | 
-|  Handle gift card                                           | NO             | NO   |  
-|  Handle invoice fee                                         | NO             | YES    | 
-|  Handle discount                                            | YES              | YES    |  
-|  Handle shipping fee                                        | YES              | YES    |  
-| **Other**                                                   |                                                         |                                               |  
-| Display monthly cost with Resurs Bank in product catalog    | YES              | YES    | 
-| Use platform order number as reference in Resurs Bank       | YES              | YES    | 
-|  Supports multistore                                        | YES              | NO   | 
+|  **After shop**                                             |                                                         |                                               |                                               
+|  Debiting whole order                                       | YES              | YES    |
+|  Debiting part order                                        | NO             | NO   |
+| Crediting whole order                                       | YES              | YES    |
+|  Crediting part order                                       | YES              | YES \* |
+|  Annulment whole order                                      | YES              | YES    |
+|  Annulment part order                                       | NO             | YES \* |
+|  Additional Debit of Payment                                | NO             | NO   |
+| ** Callback support**                                       |                                                         |                                               |
+|  Callbacks report to shop                                   | YES              | YES    |
+| **Discounts and fees  **                                    |                                                         |                                               |
+|  Handle gift card                                           | NO             | NO   |
+|  Handle invoice fee                                         | NO             | YES    |
+|  Handle discount                                            | YES              | YES    |
+|  Handle shipping fee                                        | YES              | YES    |
+| **Other**                                                   |                                                         |                                               |
+| Display monthly cost with Resurs Bank in product catalog    | YES              | YES    |
+| Use platform order number as reference in Resurs Bank       | YES              | YES    |
+|  Supports multistore                                        | YES              | NO   |
 
 
 <!---
