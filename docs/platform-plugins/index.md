@@ -36,6 +36,34 @@ Created by Benny, last modified by Gert on 2023-10-16
 
 # Supported open source e-commerce website platforms
 
+| E-Commerce Platforms                                        | Magentov2.3.x-v2.4.x                                    | WooCommerce                          | 
+|-------------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------|
+| **Shop flow**                                               |                                                         |                                               | 
+| Resurs Checkout                      | YES (Not Denmark)  | NO   | 
+| Simplified Flow  | YES              | NO   | 
+| Resurs Merchant API 2.0                 | NO             | YES    |
+|  **After shop**                                             |                                                         |                                               |                                                        
+|  Debiting whole order                                       | YES              | YES    | 
+|  Debiting part order                                        | NO             | NO   | 
+| Crediting whole order                                       | YES              | YES    | 
+|  Crediting part order                                       | YES              | YES \* | 
+|  Annulment whole order                                      | YES              | YES    | 
+|  Annulment part order                                       | NO             | YES \* | 
+|  Additional Debit of Payment                                | NO             | NO   | 
+| ** Callback support**                                       |                                                         |                                               | 
+|  Callbacks report to shop                                   | YES              | YES    | 
+| **Discounts and fees  **                                    |                                                         |                                               | 
+|  Handle gift card                                           | NO             | NO   |  
+|  Handle invoice fee                                         | NO             | YES    | 
+|  Handle discount                                            | YES              | YES    |  
+|  Handle shipping fee                                        | YES              | YES    |  
+| **Other**                                                   |                                                         |                                               |  
+| Display monthly cost with Resurs Bank in product catalog    | YES              | YES    | 
+| Use platform order number as reference in Resurs Bank       | YES              | YES    | 
+|  Supports multistore                                        | YES              | NO   | 
+
+
+<!---
 | E-Commerce Platforms                                        | Magentov2.3.x-v2.4.x                                    | WooCommerceRead more                          | OpenCartv1.5.x - v3.x End of life: September, 2023     | PrestaShopv1.6.1.x / v1.7.7.x End of life: October 1, 2022 | PrestaShopv1.7.7.x End of life: September, 2023 |
 |-------------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------|--------------------------------------------------------|------------------------------------------------------------|------------------------------------------------|
 | **Shop flow**                                               |                                                         |                                               |                                                        |                                                            |                                                |
@@ -61,6 +89,7 @@ Created by Benny, last modified by Gert on 2023-10-16
 | Display monthly cost with Resurs Bank in product catalog    | YES              | YES    | YES             | YES                 | YES     |
 | Use platform order number as reference in Resurs Bank       | YES              | YES    | YES             | YES                 | YES     |
 |  Supports multistore                                        | YES              | NO   | YES             | NO                | NO    |
+-->
 
 ## SSL Certificate https and certificates
 ### Do not forget to check your certificates! See [FAQ](faq) for more information.
