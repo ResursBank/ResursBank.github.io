@@ -87,12 +87,27 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 > "quantityUnit": "pcs", "vatRate": 25, "totalAmountIncludingVat": 500.0
 > } \] }
 
+<details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details>
+
 ### Postman collection of the requests above
 
 <details>
   <summary>Expand</summary>
 
-Json code
 ```json
 {
 	"info": {
