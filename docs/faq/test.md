@@ -8,14 +8,14 @@ parent: Faq
 <details>
   <summary>Click me</summary>
 
-### Heading
+### Heading (indenting test)
 
 1. Foo
 2. Bar
     * Baz
     * Qux
 
-### Some Javascript
+### Javascript
 
   ```js
   function logSomething(something) {
