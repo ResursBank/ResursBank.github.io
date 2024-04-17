@@ -88,9 +88,10 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 > } \] }
 
 ### Postman collection of the requests above
+
 <details>
   <summary>Expand</summary>
-
+	
 ```json
 {
 	"info": {
@@ -295,4 +296,5 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 	]
 }
 ```
+
 </details>
