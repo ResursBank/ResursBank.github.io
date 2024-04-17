@@ -92,7 +92,7 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 <details>
   <summary>Expand</summary>
 
-
+Json code
 ```json
 {
 	"info": {
