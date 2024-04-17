@@ -6,21 +6,27 @@ parent: Faq
 ---
 
 <details>
-  <summary>Click me</summary>
+  <summary>Click to reveal</summary>
+  <div>
 
-### Heading (indenting test)
+<h3>Heading</h3>
 
-1. Foo
-2. Bar
-    * Baz
-    * Qux
+<ol>
+  <li>Foo</li>
+  <li>Bar
+    <ul>
+      <li>Baz</li>
+      <li>Qux</li>
+    </ul>
+  </li>
+</ol>
 
-### Javascript
+<h3>Javascript</h3>
 
-  ```js
-  function logSomething(something) {
-    console.log('Something', something);
+<pre><code class="language-js">function logSomething(something) {
+  console.log('Something', something);
 }
-  ```
+</code></pre>
 
+  </div>
 </details>
