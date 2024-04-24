@@ -8,11 +8,12 @@ parent: Configuration Service
 # Set Invoice Data 
   
 # setInvoiceData
+
 Sets the representative data that will be used on the invoices. The data
 will be set once and will be used on all future invoices until the
 representative calls setInvoice again.
 The invoice is generated after you finalize the payment and will contain
-the invoiceData and the speclines submitted in the finalization.
+the invoiceData and the specLines submitted in the finalization.
  
 **Input(Literal)**
   

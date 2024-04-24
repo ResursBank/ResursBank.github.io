@@ -23,19 +23,23 @@ invoice numbers.*
   
 | Name                    | Content                                             | Description                                                       |
 |-------------------------|-----------------------------------------------------|-------------------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to set the invoice number sequence. See error for details. |
+| ECommerceErrorException | **[ECommerceError](/development/api-types/ecommerceerror)**   | Failed to set the invoice number sequence. See error for details. |
   
 ### Introduction
+
 You can set the next number to be used for invoices. The new number can
 not be lower than the existing, it must be a higher unused number. For
 example if the current invoice number is 223 you can´t set the next
 invoice number to be 220. You can do this operation from
-the [**paymentAdmin**](Payment-administration-GUI_327748.html), a
+the **paymentAdmin**, a
 web-based interface to handle payments and orders or by using the
 webservice
+
 ### Example
+
 **Request**
-``` syntaxhighlighter-pre
+
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://ecommerce.resurs.com/v4/msg/configuration">
    <soapenv:Header/>
    <soapenv:Body>
@@ -45,8 +49,10 @@ webservice
    </soapenv:Body>
 </soapenv:Envelope> 
 ```
+
 **Response - void**
-``` syntaxhighlighter-pre
+
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
       <ns3:setInvoiceSequenceResponse xmlns:ns3="http://ecommerce.resurs.com/v4/msg/configuration" xmlns:ns2="http://ecommerce.resurs.com/v4/msg/exception"/>
@@ -55,10 +61,13 @@ webservice
 ```
   
 ### Example Error
+
 When trying to set the invoice number lower or equal to the previous
 number
+
 **Error**
-``` syntaxhighlighter-pre
+
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
       <soap:Fault>

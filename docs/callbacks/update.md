@@ -14,12 +14,13 @@ parent: Callbacks
 | Parameter | `paymentId` | Payment ID (was sent to us as` `**`preferredPaymentId`**` ` in the `bookPayment` call) |
   
 ### Trigger
-Will be sent when a payment is updated. 
+Will be sent when a payment is updated. 
   
-Resurs Bank will do a HTTP/POST call with parameter `paymentId` and the
-JSON for [paymentDiff](paymentDiff_1475855.html) to the registered URL.
+Resurs Bank will do a HTTP/POST call with parameter `paymentId` and the
+JSON for [paymentDiff](/development/api-types/paymentdiff) to the registered URL.
+
 **Example registerEventCallback**
-``` syntaxhighlighter-pre
+```xml
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
   <S:Body>
     <ns0:registerEventCallback xmlns:ns0="http://ecommerce.resurs.com/v4/msg/configuration" xmlns:ns1="http://ecommerce.resurs.com/v4/msg/exception">
@@ -34,14 +35,16 @@ JSON for [paymentDiff](paymentDiff_1475855.html) to the registered URL.
       </digestConfiguration>
     </ns0:registerEventCallback>
   </S:Body>
-</S:Envelope>   
+</S:Envelope>   
 ```
   
 Resurs Bank will make a HTTP/POST call:
 *https://host.com/rest/resursbank_checkout/update/paymentId/10000016/digest/C60345B6E58FD0B363FD2904A39EBB03442CF778*
 [](https://host.com/rest/resursbank_checkout/update/paymentId/10000016/digest/C60345B6E58FD0B363FD2904A39EBB03442CF778)
+
 **Example of a POST call**
-``` syntaxhighlighter-pre
+
+```json lines
 --* Example 1 *--
 {
     "paymentDiff": {
@@ -100,5 +103,3 @@ Resurs Bank will make a HTTP/POST call:
     }
 }
 ```
-  
-  

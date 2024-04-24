@@ -16,16 +16,18 @@ requests](#BOOKED-Callbackwithdualrequests) \]
 | Parameter | `paymentId` | Payment ID (was sent to us as` `**`preferredPaymentId`**` ` in the `bookPayment` call or *orderReference* in the POST for Resurs Checkout) |
   
 ### Trigger
+
 The order has been created in Resurs Bank system.
 Resurs Bank will do a both a conditional POST and GET request call to a
 system with this callback registered. By means, if the POST request is
 successful, the GET won't fire up.
-Parameters added to the URL is **`paymentId`** and the JSON below for
-[paymentSpec](paymentSpec_1474947.html) (when the callback is based on
+Parameters added to the URL is **`paymentId`** and the JSON below for
+[paymentSpec](/development/api-types/paymentspec) (when the callback is based on
 method POST).
   
 **Example registerEventCallback**
-``` syntaxhighlighter-pre
+
+```xml
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
   <S:Body>
     <ns0:registerEventCallback xmlns:ns0="http://ecommerce.resurs.com/v4/msg/configuration" xmlns:ns1="http://ecommerce.resurs.com/v4/msg/exception">
@@ -40,14 +42,16 @@ method POST).
       </digestConfiguration>
     </ns0:registerEventCallback>
   </S:Body>
-</S:Envelope> 
+</S:Envelope> 
 ```
   
 Resurs Bank will make a HTTP/POST
-call: https://host.com/rest/resursbank_checkout/booked/paymentId/11111111/digest/digest123xyz
- Content-Type application/Json
+call: https://host.com/rest/resursbank_checkout/booked/paymentId/11111111/digest/digest123xyz
+ Content-Type application/Json
+
 **Example of a POST call**
-``` syntaxhighlighter-pre
+
+```json lines
 {
     "addedPaymentSpecificationLines": []
 }
@@ -67,8 +71,9 @@ call: https://host.com/rest/resursbank_checkout/booked/paymentId/11111111/diges
         }
     ]
 }
- 
+ 
 ```
+
 ## Callback with dual requests
 The dual calls from this callback thay may be observed in webserver logs
 is much about not breaking compatibility, where POST is a bit modern

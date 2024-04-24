@@ -26,17 +26,21 @@ invoice numbers.*
 | ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to return invoice number sequence. See error for details |
   
 ### Introduction
+
 This function returns the next invoice number that will be used for
 automatic generation of invoice number. You can change the invoice
 number manually by calling
-**[setInvoiceSequence](Set-Invoice-Sequence_1475889.html) **with the
+**[setInvoiceSequence](set-invoice-sequence) **with the
 wanted invoice number. You can do this from
-the [**paymentAdmin**](Payment-administration-GUI_327748.html), a
+the paymentAdmin, a
 web-based interface to handle payments and orders or by using the
 webservice.
+
 ### Example
+
 **Request**
-``` syntaxhighlighter-pre
+
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://ecommerce.resurs.com/v4/msg/configuration">
    <soapenv:Header/>
    <soapenv:Body>
@@ -44,8 +48,9 @@ webservice.
    </soapenv:Body>
 </soapenv:Envelope>
 ```
+
 **Response**
-``` syntaxhighlighter-pre
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
       <ns3:peekInvoiceSequenceResponse xmlns:ns3="http://ecommerce.resurs.com/v4/msg/configuration" xmlns:ns2="http://ecommerce.resurs.com/v4/msg/exception">

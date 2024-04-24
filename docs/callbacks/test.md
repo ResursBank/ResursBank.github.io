@@ -9,31 +9,38 @@ parent: Callbacks
 # TEST 
 Test the callback mechanism. Can be used in integration testing to
 assure that communication works. A call is made
-to [DeveloperService](https://test.resurs.com/docs/x/XIUW) (`triggerTestEvent`)
-and Resurs Bank immediately does a callback. Note that TEST callback
+to [DeveloperService](https://test.resurs.com/docs/x/XIUW) (`triggerTestEvent`)
+and Resurs Bank immediately does a callback. Note that TEST callback
 must be registered in the same way as all the other callbacks before it
 can be used.
   
 |           | Name                                             | Description                                          |
 |-----------|--------------------------------------------------|------------------------------------------------------|
 | ID        | `TEST`                                           | The test event ID.                                   |
-| Parameter | `param1`, `param2`, `param3`, `param4`, `param5` | Parameters to test a succesful roundtrip (see below) |
+| Parameter | `param1`, `param2`, `param3`, `param4`, `param5` | Parameters to test a succesful roundtrip (see below) |
   
 ### Using the test callback
-If a representative calls `DeveloperService.triggerTestEvent(...)` with
+
+If a representative calls `DeveloperService.triggerTestEvent(...)` with
 param1 = 1 param2 = 2, param3 = 3, param4 = 4, param5 = 5, and he has
 previously registered the following URL:
+
 ``` syntaxhighlighter-pre
 http://hosten.se/kontexten/funktionen.html?first={param1}&nr2={param2}&nr3={param3}&nr4={param4}&last={param5}
 ```
+
 with no digest or checksum, then he will get a call to:
+
 ``` syntaxhighlighter-pre
 http://hosten.se/kontexten/funktionen.html?first=1&nr2=2&nr3=3&nr4=4&last=5
 ```
+
 Note that the test event is placed in the queue, just like all other
 events. If they can not be delivered immediately, the system continues
 to try for a month ...
+
 **Example**
+
 ``` syntaxhighlighter-pre
 <!--Register callback TEST-->
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://ecommerce.resurs.com/v4/msg/configure">
@@ -45,7 +52,7 @@ to try for a month ...
        </con1:registerEventCallback>
    </soapenv:Body>
 </soapenv:Envelope>
- 
+ 
 <!--Get callback TEST-->
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://ecommerce.resurs.com/v4/msg/configuration">
    <soapenv:Header/>
