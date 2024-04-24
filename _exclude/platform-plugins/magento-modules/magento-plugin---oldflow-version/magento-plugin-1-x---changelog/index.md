@@ -10,7 +10,7 @@ grand_parent: Platform Plugins
 
 
 # Magento Plugin 1.x - Changelog 
-Created by Thomas Tornevall, last modified by Tobias on 2016-07-15
+
 # Changelog for Resurs Bank Magento plugin
 Deprecated versions can be [viewed here](5014601)
 

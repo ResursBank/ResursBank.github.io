@@ -7,7 +7,7 @@ parent: Invoice Service 2 0
 
 
 # Sample calls with cURL 
-Created by User2, last modified by User10 on 2015-01-26
+
 ## Initial store configuration
 Before an invoice can be generated the contact information and logotype
 must be configured for the store. The logotype must be encoded in

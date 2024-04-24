@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # Refactoring Notes for AfterShop in EComPHP 
-Created by Thomas Tornevall, last modified on 2017-09-21
+
 There is currently a plan of refactor EComPHP regarding to how it
 handles the AfterShop flow today. This page is a bunch of notes, that
 documents the old behaviour and the upcoming solution for a new flow.

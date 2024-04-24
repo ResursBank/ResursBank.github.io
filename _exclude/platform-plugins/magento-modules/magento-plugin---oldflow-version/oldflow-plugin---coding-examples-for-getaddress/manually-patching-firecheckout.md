@@ -10,7 +10,7 @@ grand_parent: Platform Plugins
 
 
 # Manually patching Firecheckout 
-Created by Thomas Tornevall, last modified on 2015-09-10
+
 1.  In the folder firecheckout/controllers, edit IndexController.php,
     and find saveOrderAction() (In firecheckout 2.57 it's around row
     1244):

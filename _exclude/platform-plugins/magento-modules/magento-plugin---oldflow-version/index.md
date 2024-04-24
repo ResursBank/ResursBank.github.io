@@ -10,7 +10,7 @@ grand_parent: Platform Plugins
 
 
 # Magento Plugin - OldFlow version 
-Created by Thomas Tornevall, last modified by Benny on 2017-02-20
+
 The "OldFlow version" is a plugin for Magento CE 1.7-1.9.2 that works
 with Resurs Bank deprecated flow. This page covers information about
 that plugin, features and installation instructions.

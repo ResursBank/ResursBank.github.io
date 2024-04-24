@@ -7,7 +7,7 @@ parent: Resurs Checkout Web
 
 
 # Pre-filling customer data in Resurs Checkout 
-Created by Patric Johnsson, last modified by Gert on 2019-09-19
+
   
 ### Optimize the Checkout for Returning Customers
 Customers are more likely to complete purchases if they can checkout

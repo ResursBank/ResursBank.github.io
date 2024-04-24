@@ -10,7 +10,7 @@ grand_parent: Platform Plugins
 
 
 # Manually patching Onestep checkout 
-Created by Thomas Tornevall, last modified on 2015-09-17
+
 1.  In
     app/design/frontend/base/default/template/onestepcheckout/checkout.phtml, Look
     around line 181, After ...  

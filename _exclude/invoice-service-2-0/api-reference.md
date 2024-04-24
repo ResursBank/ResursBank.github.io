@@ -7,7 +7,7 @@ parent: Invoice Service 2 0
 
 
 # API Reference 
-Created by User2, last modified by Tobias on 2016-05-25
+
  
 - [Methods](#APIReference-Methods)
   - [List payment alternatives](#APIReference-Listpaymentalternatives)

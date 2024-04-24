@@ -5,7 +5,7 @@ permalink: /legal-requirements/
 ---
 
 # Legal requirements 
-Created by Benny, last modified by Gert on 2019-05-07
+
 When presenting a Resurs Bank payment method there are some legal
 requirements that should be adhered to:
 1.  The customer should be warned that a credit check might be done when

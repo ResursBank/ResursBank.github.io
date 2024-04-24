@@ -10,7 +10,7 @@ grand_parent: Platform Plugins
 
 
 # Plugin Hotfixes 
-Created by Thomas Tornevall, last modified on 2016-11-07
+
 This page contains hotfixes for the OldFlow release.
 
 # 2016-02-11

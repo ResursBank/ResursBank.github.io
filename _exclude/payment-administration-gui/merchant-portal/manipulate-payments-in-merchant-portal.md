@@ -9,7 +9,7 @@ grand_parent: Payment Administration Gui
 
 
 # Manipulate Payments in Merchant Portal 
-Created by Daniel, last modified by Patric Johnsson on 2019-09-13
+
 The Merchant Portal web-GUI is offered in Swedish, Norwegian, Finnish
 and Danish.
   

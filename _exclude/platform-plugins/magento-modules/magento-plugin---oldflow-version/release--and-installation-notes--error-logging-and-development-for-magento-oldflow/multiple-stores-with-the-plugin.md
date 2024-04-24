@@ -10,7 +10,7 @@ grand_parent: Platform Plugins
 
 
 # Multiple stores with the plugin 
-Created by Thomas Tornevall, last modified by Benny on 2017-02-20
+
 Since Resurs Bank plugin v1.2.0 the behaviour has changed to support
 more than one scope/channel/store - here is some information on how it
 works.

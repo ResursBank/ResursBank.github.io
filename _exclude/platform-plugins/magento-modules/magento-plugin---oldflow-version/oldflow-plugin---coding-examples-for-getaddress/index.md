@@ -10,7 +10,7 @@ grand_parent: Platform Plugins
 
 
 # OldFlow Plugin - Coding examples for getAddress 
-Created by Thomas Tornevall, last modified on 2016-11-07
+
 # Validation of Social Security Numbers (Personnummer)
 *Example to enable getAddress to autofill address-forms in Firecheckout,
 Onestepcheckout and Vanilla checkout (the standard checkout). This is

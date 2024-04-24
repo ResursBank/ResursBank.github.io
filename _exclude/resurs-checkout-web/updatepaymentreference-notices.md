@@ -7,7 +7,7 @@ parent: Resurs Checkout Web
 
 
 # updatePaymentReference notices 
-Created by Thomas Tornevall, last modified on 2019-05-10
+
 The rest call updatePaymentReference usually accept updates of
 references without any further notices except for a HTTP code 200
 (success). However, there's a few ways to handle exceptions at it throws

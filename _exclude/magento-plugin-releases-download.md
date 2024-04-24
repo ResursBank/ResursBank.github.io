@@ -9,7 +9,7 @@ grand_parent: Platform Plugins
 magento-plugin-releases-download 
 
 # Magento Plugin Releases (Download) 
-Created by Thomas Tornevall, last modified on 2017-05-08
+
 Since we do have more than one Magento-plugin (depending on which
 Magento and flow you need), all plugin releases are documented in the
 primary space of [Magento modules](magento-modules).

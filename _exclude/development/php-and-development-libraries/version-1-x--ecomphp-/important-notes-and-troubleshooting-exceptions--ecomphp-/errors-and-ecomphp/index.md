@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # Errors and EComPHP 
-Created by Thomas Tornevall, last modified on 2018-05-24
+
 EComPHP is not only a ecommerce wrapper/helper, for making orders. It
 also assures that you get as accurate error information as properly.
 Different flows has different ways to handle errors. We will try to

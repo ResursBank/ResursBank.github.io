@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # basicPayment 
-Created by Benny, last modified on 2017-02-22
+
 The basic payment information returned by a search. It does not contain
 all payment details, but enough to be presented in a list of links to
 the full details.  
