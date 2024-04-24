@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # getPayment-magics 
-Created by Thomas Tornevall, last modified on 2021-09-25
+
 When using our API's you'll soon realize that the checkout/hosted-flow
 API contains most of the functions you actually need. There are however
 exceptions when you have to fall over to SOAP-calls - getPaymentMethods,

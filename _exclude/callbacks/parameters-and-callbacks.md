@@ -7,7 +7,6 @@ parent: Callbacks
 
 
 # Parameters and Callbacks 
-Created by Benny, last modified on 2017-02-21
 Depending on what value you use for the parameter
 `waitForFraudControl` in `bookPayment` you will have to implement
 different callbacks, if you are not monitoring the orders manually with

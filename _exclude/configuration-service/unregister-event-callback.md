@@ -7,7 +7,7 @@ parent: Configuration Service
 
 
 # Unregister Event Callback 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-27
+
 # unregisterEventCallback
 Unregisters an existing event callback.
   

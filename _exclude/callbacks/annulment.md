@@ -7,7 +7,6 @@ parent: Callbacks
 
 
 # ANNULMENT 
-Created by Tobias, last modified by Thomas Tornevall on 2023-12-21
   
 |           | Name        | Description                                                                            |
 |-----------|-------------|----------------------------------------------------------------------------------------|

@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # searchCriteria 
-Created by Benny, last modified by Daniel on 2020-02-10
+
 A set of search criteria.  
 Contains elements as defined in the following table.
 

@@ -7,7 +7,6 @@ parent: Callbacks
 
 
 # TEST 
-Created by Tobias, last modified by Thomas Tornevall on 2023-12-21
 Test the callback mechanism. Can be used in integration testing to
 assure that communication works. A call is made
 to [DeveloperService](https://test.resurs.com/docs/x/XIUW) (`triggerTestEvent`)

@@ -7,7 +7,6 @@ parent: Callbacks
 
 
 # UNFREEZE 
-Created by Tobias, last modified by Gert on 2019-07-03
 Informs when an payment is unfrozen after manual fraud screening. This
 means that the payment may be debited (captured) and the goods can be
 delivered.

@@ -7,8 +7,6 @@ has_children: true
 
 
 # Callbacks 
-Created by Tobias, last modified by Thomas Tornevall on 2023-12-21
-  
   
 - [Status and callback chart](#Callbacks-Statusandcallbackchart)
 - [Available Callbacks](#Callbacks-AvailableCallbacks)

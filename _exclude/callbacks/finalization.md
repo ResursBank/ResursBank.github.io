@@ -7,8 +7,6 @@ parent: Callbacks
 
 
 # FINALIZATION 
-Created by Joachim Andersson, last modified by Thomas Tornevall on
-2023-12-27
 This event is triggered when a paymnet is automatically finalized at
 Resurs Bank.  
 i.e.:

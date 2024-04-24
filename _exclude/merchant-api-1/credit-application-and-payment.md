@@ -7,7 +7,7 @@ parent: Merchant Api 1
 
 
 # Credit Application and Payment 
-Created by Sara Wintherfrid Josefsson, last modified on 2022-08-18
+
 The credit application and payment flow is used when a customer wants to
 apply for an account and making a purchase at the same time. 
 ![](../../attachments/71794850/71794869.png)

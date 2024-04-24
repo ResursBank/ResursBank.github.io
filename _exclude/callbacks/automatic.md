@@ -7,7 +7,6 @@ parent: Callbacks
 
 
 # AUTOMATIC_FRAUD_CONTROL 
-Created by Tobias, last modified by Gert on 2019-07-03
 Occurs when the automatic fraud control has been preformed. This will
 occur seconds after the `bookPayment` call.
 If the shop needs this information the representative can either listen

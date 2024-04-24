@@ -75,7 +75,7 @@ Now, say that the following is set within one “specLines” XML tag:
 \* 0,25 \* 1000 \* 12,568 = 3142,00 = 3142,00
 
 The difference between the received and calculated net price is:  12,57
-– 12,568 = 0,002.  
+– 12,568 = 0,002. 
 This difference, being within the error margin, leads to 12,568 being
 used instead of 12,57. 
 

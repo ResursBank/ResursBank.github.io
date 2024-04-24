@@ -10,7 +10,7 @@ grand_parent: Platform Plugins
 
 
 # Customized part payment information on product pages (WooCommerce) 
-Created by Thomas Tornevall, last modified on 2020-09-29
+
 When you set up your woocommerce platform there may be payment methods
 available for part payments. They could be easily activated by clicking
 on the method you prefer display on separate product pages.

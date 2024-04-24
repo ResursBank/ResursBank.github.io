@@ -5,7 +5,7 @@ permalink: /reporting-files-example/
 ---
 
 # Reporting files example 
-Created by Tobias, last modified by Daniel on 2023-11-10
+
 Partners will receive reporting files from the different channels
 depending on payment method. Note that the csv-file below is only an
 example. To setup what your csv-file should contain, please discuss this

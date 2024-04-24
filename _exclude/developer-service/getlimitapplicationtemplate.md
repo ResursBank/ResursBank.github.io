@@ -7,7 +7,7 @@ parent: Developer Service
 
 
 # getLimitApplicationTemplate 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-27
+
 # *getLimitApplicationTemplate*
 *Retrieves the limit application response template. Normally this is not
 necessary, as the form creates this itself. However, if the*

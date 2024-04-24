@@ -7,7 +7,7 @@ has_children: true
 
 
 # Invoice Service 2.0 
-Created by User2, last modified by Thomas Tornevall on 2023-12-21
+
 The invoice web service offers an API to sell and credit invoice
 payments from Resurs Bank.
 ## Authentication

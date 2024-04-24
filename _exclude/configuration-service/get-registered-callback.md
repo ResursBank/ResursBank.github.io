@@ -7,7 +7,7 @@ parent: Configuration Service
 
 
 # Get registered callback 
-Created by Thomas Tornevall, last modified on 2023-12-27
+
 # getRegisteredEventCallback
 *Retrieves a new event callback.*
   

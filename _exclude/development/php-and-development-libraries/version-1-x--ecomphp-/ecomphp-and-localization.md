@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # EComPHP and localization 
-Created by Thomas Tornevall, last modified on 2022-05-10
+
 **Table of contents**
 
 - [Current (May 2022) translation string

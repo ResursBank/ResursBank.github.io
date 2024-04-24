@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # Version 2.x (EComPHP) 
-Created by Thomas Tornevall, last modified on 2023-06-09
+
 Source code is located at
 [https://bitbucket.org/resursbankplugins/ecom2](https://bitbucket.org/resursbankplugins/ecom2)
 

@@ -10,7 +10,7 @@ grand_parent: Platform Plugins
 
 
 # 0 decimals in WooCommerce 
-Created by Thomas Tornevall, last modified by Gert on 2023-01-19
+
 - [Decimals in
   WooCommerce](#decimals-in-woocommerce)
 - [Why doesn’t the payment gateways calculate as

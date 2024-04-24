@@ -7,7 +7,7 @@ parent: Developer Service
 
 
 # triggerEvent 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-27
+
 # *triggerEvent*
 *Triggers a test event. This is for testing the callback functionality.*
 **Input (Literal)**

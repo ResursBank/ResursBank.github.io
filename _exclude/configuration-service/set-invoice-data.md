@@ -7,7 +7,7 @@ parent: Configuration Service
 
 
 # Set Invoice Data 
-Created by User2, last modified by Thomas Tornevall on 2023-12-27
+
   
 # setInvoiceData
 Sets the representative data that will be used on the invoices. The data

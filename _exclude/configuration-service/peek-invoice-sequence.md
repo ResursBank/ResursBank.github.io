@@ -7,7 +7,7 @@ parent: Configuration Service
 
 
 # Peek Invoice Sequence 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-27
+
 # peekInvoiceSequence
 *Returns the next invoice number to be used for automatic generation of
 invoice numbers.*

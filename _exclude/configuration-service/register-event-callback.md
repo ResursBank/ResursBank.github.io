@@ -7,7 +7,7 @@ parent: Configuration Service
 
 
 # Register Event Callback 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-27
+
 # registerEventCallback
 *Registers a new event callback.*
   

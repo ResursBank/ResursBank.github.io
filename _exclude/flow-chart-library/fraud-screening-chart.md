@@ -7,7 +7,7 @@ parent: Flow Chart Library
 
 
 # Fraud Screening Chart 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-21
+
 Agent represent both agent and customer in this flow
   
   

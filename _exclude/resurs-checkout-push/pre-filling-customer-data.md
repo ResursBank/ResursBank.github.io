@@ -7,7 +7,7 @@ parent: Resurs Checkout Push
 
 
 # Pre-filling customer data 
-Created by Gert, last modified by Patric Johnsson on 2020-10-19
+
   
 ### Optimize the Checkout for Returning Customers
 Customers are more likely to complete purchases if they can checkout

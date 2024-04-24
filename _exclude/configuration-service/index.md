@@ -7,7 +7,7 @@ has_children: true
 
 
 # Configuration Service 
-Created by Benny, last modified by Patric Johnsson on 2020-05-12
+
 Here you will find information about the settings of your web services
 such as authentication, etc.
 ### See next invoice number - [peekInvoiceSequence](Peek-Invoice-Sequence_1475487.html)

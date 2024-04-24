@@ -7,7 +7,6 @@ parent: Testing
 
 
 # Verify integration 
-Created by Gert, last modified by Benny on 2017-03-07
 The following page is a checklist to define when an integration can
 be considered "Done".
 

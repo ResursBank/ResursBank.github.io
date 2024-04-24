@@ -7,7 +7,6 @@ parent: Callbacks
 
 
 # BOOKED 
-Created by Benny, last modified by Patric Johnsson on 2021-07-23
 \[ [Trigger](#BOOKED-Trigger) \] \[ [Callback with dual
 requests](#BOOKED-Callbackwithdualrequests) \]
   

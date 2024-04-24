@@ -9,7 +9,7 @@ grand_parent: Platform Plugins
 
 
 # Resurs Bank Payment Gateway for WooCommerce (v2.2) Resurs Checkout & Simplified Flow 
-Created by Thomas Tornevall, last modified on 2023-06-08
+
 This space is reserved for the prior WooCommerce plugin named "Resurs
 Bank Payment Gateway for WooCommerce". If you are looking for the new
 Merchant API-plugin named "Resurs Bank Payments for WooCommerce", [you

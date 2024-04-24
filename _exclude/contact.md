@@ -5,7 +5,7 @@ permalink: /contact/
 ---
 
 # Contact 
-Created by Tobias, last modified by Daniel on 2023-11-15
+
 # Production Support (incident):
 s[upport@resurs.se](mailto:support@resurs.se)
 # After sales support

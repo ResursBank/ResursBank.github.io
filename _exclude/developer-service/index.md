@@ -7,7 +7,7 @@ has_children: true
 
 
 # Developer Service 
-Created by Benny, last modified on 2017-02-21
+
 The Developer WebService provides miscellaneous services that can be
 useful during the representative integration. The methods provided in
 here are not for use during normal service operation and are only
