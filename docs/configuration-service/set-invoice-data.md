@@ -5,9 +5,7 @@ permalink: /configuration-service/set-invoice-data/
 parent: Configuration Service
 ---
 
-
 # Set Invoice Data 
-
   
 # setInvoiceData
 Sets the representative data that will be used on the invoices. The data
@@ -15,9 +13,7 @@ will be set once and will be used on all future invoices until the
 representative calls setInvoice again.
 The invoice is generated after you finalize the payment and will contain
 the invoiceData and the speclines submitted in the finalization.
-*  
-*
-  
+ 
 **Input(Literal)**
   
 | Name           | Type           | Occurs | Nillable? | Description                                                                  |
@@ -36,6 +32,3 @@ the invoiceData and the speclines submitted in the finalization.
 | companytaxnote | boolean        | 1..1   | No        | Whether or not the company has a company tax note (Not available in Norway). |
 | logotype       | base64Binary   | 1..1   | No        | The representative's logotype.                                               |
 | modifiedby     | string         | 1..1   | No        | The name of the user that last modified the data.                            |
-  
-  
-  

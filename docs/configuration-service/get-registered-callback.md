@@ -22,7 +22,7 @@ parent: Configuration Service
   
 | Name                    | Content                                               | Description                                               |
 |-------------------------|-------------------------------------------------------|-----------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**     | Failed to register event callback. See error for details. |
+| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**     | Failed to register event callback. See error for details. |
   
 ### Callbacks
 Read more about callbacks **[here.](Callbacks_327724.html)**

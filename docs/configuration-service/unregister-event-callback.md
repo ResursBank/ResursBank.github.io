@@ -22,8 +22,8 @@ Unregisters an existing event callback.
   
 | Name                    | Content                                             | Description                                                 |
 |-------------------------|-----------------------------------------------------|-------------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to unregister event callback. See error for details. |
+| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to unregister event callback. See error for details. |
   
 ### Introduction
 This method is to unregister a callback event. For more on how this is
-done please read about Callbacks **[here](Callbacks_327724.html)**.
+done please read about Callbacks **[here](Callbacks_327724.html)**.

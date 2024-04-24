@@ -23,14 +23,14 @@ invoice numbers.*
   
 | Name                    | Content                                             | Description                                                       |
 |-------------------------|-----------------------------------------------------|-------------------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to set the invoice number sequence. See error for details. |
+| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to set the invoice number sequence. See error for details. |
   
 ### Introduction
 You can set the next number to be used for invoices. The new number can
 not be lower than the existing, it must be a higher unused number. For
 example if the current invoice number is 223 you can´t set the next
 invoice number to be 220. You can do this operation from
-the [**paymentAdmin**](Payment-administration-GUI_327748.html), a
+the [**paymentAdmin**](Payment-administration-GUI_327748.html), a
 web-based interface to handle payments and orders or by using the
 webservice
 ### Example
@@ -43,7 +43,7 @@ webservice
          <nextInvoiceNumber>445</nextInvoiceNumber>
       </con:setInvoiceSequence>
    </soapenv:Body>
-</soapenv:Envelope> 
+</soapenv:Envelope> 
 ```
 **Response - void**
 ``` syntaxhighlighter-pre

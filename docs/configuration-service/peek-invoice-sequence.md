@@ -23,15 +23,15 @@ invoice numbers.*
   
 | Name                    | Content                                             | Description                                                     |
 |-------------------------|-----------------------------------------------------|-----------------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to return invoice number sequence. See error for details |
+| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to return invoice number sequence. See error for details |
   
 ### Introduction
 This function returns the next invoice number that will be used for
 automatic generation of invoice number. You can change the invoice
 number manually by calling
-**[setInvoiceSequence](Set-Invoice-Sequence_1475889.html) **with the
-wanted invoice number. You can do this from
-the [**paymentAdmin**](Payment-administration-GUI_327748.html), a
+**[setInvoiceSequence](Set-Invoice-Sequence_1475889.html) **with the
+wanted invoice number. You can do this from
+the [**paymentAdmin**](Payment-administration-GUI_327748.html), a
 web-based interface to handle payments and orders or by using the
 webservice.
 ### Example
