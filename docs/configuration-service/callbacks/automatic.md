@@ -3,6 +3,7 @@ layout: page
 title: Automatic_Fraud_Control
 permalink: /configuration-service/callbacks/automatic/
 parent: Callbacks
+grand_parent: Configuration Service
 ---
 
 # AUTOMATIC_FRAUD_CONTROL 
