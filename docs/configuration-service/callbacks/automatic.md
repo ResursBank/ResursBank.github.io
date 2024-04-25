@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Automatic_Fraud_Control
-permalink: /callbacks/automatic/
+permalink: /configuration-service/callbacks/automatic/
 parent: Callbacks
 ---
 
