@@ -3,6 +3,7 @@ layout: page
 title: Booked
 permalink: /configuration-service/callbacks/booked/
 parent: Callbacks
+grand_parent: Configuration Service
 ---
 
 
