@@ -3,6 +3,7 @@ layout: page
 title: Finalization
 permalink: /configuration-service/callbacks/finalization/
 parent: Callbacks
+grand_parent: Configuration Service
 ---
 
 # FINALIZATION 
