@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Booked
-permalink: /callbacks/booked/
+permalink: /configuration-service/callbacks/booked/
 parent: Callbacks
 ---
 
