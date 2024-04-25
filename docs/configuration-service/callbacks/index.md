@@ -23,32 +23,6 @@ callbacks, simple HTTP calls initiated by Resurs Bank.
 ![](../../attachments/1475264/128286751.png)
   
   
-### Status and callback chart
-Click here to expand flow chart for callback events with
-waitForFraudControl set to FALSE in bookPayment...
- 
-  
-|     |
-|-----|
-  
-Click here to expand flow chart for callback events with
-waitForFraudControl set to TRUE in bookPayment...
-  
-|     |
-|-----|
-  
-  
-Click here to expand flow chart for callback events with Resurs
-Checkout...
-  
-|     |
-|-----|
-  
-Click here to expand flow chart for callback events with Resurs self
-service checkout...
-  
-|     |
-|-----|
   
 ### Available Callbacks
 - [BOOKED ](https://test.resurs.com/docs/display/ecom/BOOKED)- The order
