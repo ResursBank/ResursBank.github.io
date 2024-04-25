@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Callbacks
-permalink: /configuration-service//callbacks/
+permalink: /configuration-service/callbacks/
 has_children: true
 ---
 
