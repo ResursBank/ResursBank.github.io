@@ -6,8 +6,9 @@ parent: Configuration Service
 ---
 
 # Get registered callback 
-
-# getRegisteredEventCallback
+````
+getRegisteredEventCallback
+````
 *Retrieves a new event callback.*
   
 **Input(Literal)**
