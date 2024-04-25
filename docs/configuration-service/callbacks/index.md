@@ -10,14 +10,6 @@ has_toc: false
 
 # Callbacks 
   
-- [Status and callback chart](#Callbacks-Statusandcallbackchart)
-- [Available Callbacks](#Callbacks-AvailableCallbacks)
-- [What's a callback?](#Callbacks-What'sacallback?)
-- [Digest and checksum](#Callbacks-Digestandchecksumdigest)
-- [Register Callback](#Callbacks-RegisterCallback)
-- [Authentication](#Callbacks-Authentication)
-- [Fallback - resending failed
-  callbacks](#Callbacks-Fallback-resendingfailedcallbacks)
 User-Agent notice
 Generally callbacks are also sent with two different user-agents, to
 secure that callbacks are really delivered. Some hosting providers
