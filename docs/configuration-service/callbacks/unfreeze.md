@@ -3,6 +3,7 @@ layout: page
 title: Unfreeze
 permalink: /configuration-service/callbacks/unfreeze/
 parent: Callbacks
+grand_parent: Configuration Service
 ---
 
 # UNFREEZE 
