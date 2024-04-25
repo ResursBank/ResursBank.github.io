@@ -6,9 +6,9 @@ parent: Configuration Service
 ---
 
 # Set Invoice Data 
-  
-# setInvoiceData
-
+````
+setInvoiceData
+````
 Sets the representative data that will be used on the invoices. The data
 will be set once and will be used on all future invoices until the
 representative calls setInvoice again.
