@@ -3,6 +3,7 @@ layout: page
 title: Configuration Service
 permalink: /configuration-service/
 has_children: true
+has_toc: false
 ---
 
 # Configuration Service 
