@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Test
-permalink: /callbacks/test/
+permalink: /configuration-service/callbacks/test/
 parent: Callbacks
 ---
 
