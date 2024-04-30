@@ -42,6 +42,10 @@ Persons to use when testing. 
 ###  Organisations
 Organisations to use when testing.
 
+> The first two digits of the organization number are optional:
+>   - for legal entity: 16 + the company's assigned organization number (10 digits)
+>   - for a natural person: century digits 18, 19 or 20 + social security number (10 digits)
+
 | Organisation number | Gender | Civic number |                   Get address                   | [Simplified shop flow](/simplified-flow-api/)                     | ~~Shop Flow~~ (deprecated)                             |
 |---------------------|--------|--------------|:-----------------------------------------------:|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | 166997368573        | M      | 198305147715 | Pilsnerbolaget HBGlassgatan 1725024 Helsingborg |                                                                 |                                                                                                                     |
