@@ -39,4 +39,4 @@ By executing (and understanding) these test cases, you will gain a good
 understanding of how the Resurs Bank eCommerce service works, which will
 make the actual integrat ion much easier.
 
-Click here to view the testing suite [xml](soapui-testing-suite.xml) for SOAPUI.
+Download the SOAPUI testing suite here: [xml](soapui-testing-suite.xml).
