@@ -6,8 +6,6 @@ parent: Prestashop Payment Gateways
 grand_parent: Platform Plugins
 ---
 
-
-
 # PrestaShop SimplifiedShopFlow 
 
 *Simplified ShopFlow for PrestaShop is intended to be built as a

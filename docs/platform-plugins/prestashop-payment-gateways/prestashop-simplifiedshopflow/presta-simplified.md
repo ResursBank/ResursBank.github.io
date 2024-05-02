@@ -10,6 +10,7 @@ grand_parent: Prestashop Payment Gateways
 # Presta-Simplified: Frequently Discussed Issues and Important Notes 
 
 ## Notes about nginx
+
 When the PrestaShop development started, we noted a few moments that
 nginx could cause errors unrelated to the plugin.
 
@@ -19,10 +20,11 @@ Köp med "Faktura företag" får 502 Bad gateway. Done , requests to
 prestashop can sometimes render errors due to big headers:
 
     upstream sent too big header while reading response header from upstream
+
 This could be solved by adding similar rows to your server
 configuration:
 
-```xml
+```
     fastcgi_buffers 16 16k;
     fastcgi_buffer_size 32k;
 ```
@@ -61,7 +63,7 @@ will cause the race conditions that is doubling the invoice amount.
 ***Best practice*** to avoid this is to simply **create separate order
 statuses** where the "paid" value is set to 0.
 
-the 
+the
 
 ## When are the order/payment considered paid?
 When you choose an order state that is considering an order/payment as
@@ -114,4 +116,3 @@ validate section. If errors occurred in the prior action, we can now
 forwarad them to the next section where either successful payments takes
 over, or the payment failure redirect. It is in the lastly mentioned
 functions we need the error messages at most.
-

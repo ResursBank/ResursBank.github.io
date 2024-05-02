@@ -6,25 +6,26 @@ parent: Prestashop Payment Gateways
 grand_parent: Platform Plugins
 ---
 
-
-
-# Prestashop Resurs Checkout 
-
-> Problem solvingThere are a few known problems in the core functions of
-> Prestashop, some of them are not related to our module at all. Take a
-> look at the bottom at this page for more information.
-
-> Before installationCUSTOMIZABLE PRODUCTSIn PrestaShop 1.7, the store
-> offers customizable products (for example, you can add custom texts on
-> your products; in the sample store, it is possible to add custom text
-> to a mug).This is not yet (june 2020) supported by the module for
-> version 1.7.6.
+# Prestashop Resurs Checkout
 
 This extension helps merchants to integrate Resurs Bank Payment Gateway
 to their PrestaShop based e-commerce stores. There are two versions of
 this plugin and they are currecntly only supporting Resurs Checkout.
 
+## KNOWN PROBLEMS
+
+> There are a few known problems in the core functions of
+> Prestashop, some of them are not related to our module at all. Take a
+> look at the bottom at this page for more information.
+>
+> ### CUSTOMIZABLE PRODUCTS for PrestaShop 1.7
+>
+> Prestashop offers customizable products. For example, you can add custom texts on
+> your products in the sample store. This product type is not (as of june 2020) **not**
+> supported by the module for version 1.7.6.
+
 ## Compatibility
+
 This plugin is tested in "vanilla environments", which means that the
 plugin is installed with a default installed store. If there are plugins
 installed, they are usually installed from for example a marketplace. We
@@ -33,11 +34,11 @@ installed, that uses overriders and such.
 
 ## Plugin versions
 
-| Name                                                        | Tested with    | PHP     | Details                                                                                                                                                                                             | Country        | Repos                                                                                                                                                                                                                                                                                                                                                | Download                                                                                                          | Dev Tracking                                                                                                       | Status              |
-|-------------------------------------------------------------|----------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------|
-| Resurs Checkout - PrestaShop | 1.6            | \>= 5.4 | Resurs Checkout                                                                                                                                                         | SE (Confirmed) | [Master branch (1.6)](https://bitbucket.org/resursbankplugins/resurs-checkout-prestashop16/src/master/)                                                                                                                                                                                                                                              | [Release-tags for v1.6](https://bitbucket.org/resursbankplugins/resurs-checkout-prestashop16/downloads/?tab=tags) | [JIRA for v1.6](https://resursbankplugins.atlassian.net/projects/PRESTA16/issues/?filter=allopenissues)            | NO LONGER SUPPORTED |
-| Resurs Checkout - PrestaShop | 1.7.6.x1.7.7.x | \>= 5.4 | Resurs Checkout                                                                                                                                                         | SE (Confirmed) | [Master branch (1.7)](https://bitbucket.org/resursbankplugins/resurs-checkout-prestashop17/src/master/)                                                                                                                                                                                                                                              | [Release-tags for v1.7](https://bitbucket.org/resursbankplugins/resurs-checkout-prestashop17/downloads/?tab=tags) | [JIRA for v1.7](https://resursbankplugins.atlassian.net/projects/PRESTA17/issues/PRESTA17-64?filter=allopenissues) | MAINTENANCE         |
-| Resurs Simplified Flow (SOAP)                           | \>= 1.7.7      | \>= 7.4 | INSTALL WITH COMPOSER | SE (Confirmed) | [Core](https://bitbucket.org/resursbankplugins/psrbcore/src/master/)[Simplified Addon](https://bitbucket.org/resursbankplugins/psrbsimplified/src/master/)[Partpayment Widget](https://bitbucket.org/resursbankplugins/psrbpartpayment/src/master/)[Order Management Addon](https://bitbucket.org/resursbankplugins/psrbordermanagement/src/master/) |                                                                                                                   |                                                                                                                    | NEWLY RELEASED      |
+| Name                          | Tested with    | PHP     | Details               | Country        | Repos                                                                                                                                                                                                                                                                                                                                                | Download                                                                                                          | Dev Tracking                                                                                                       | Status      |
+|-------------------------------|----------------|---------|-----------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|-------------|
+| Resurs Checkout - PrestaShop  | 1.6            | \>= 5.4 | Resurs Checkout       | SE (Confirmed) | [Master branch (1.6)](https://bitbucket.org/resursbankplugins/resurs-checkout-prestashop16/src/master/)                                                                                                                                                                                                                                              | [Release-tags for v1.6](https://bitbucket.org/resursbankplugins/resurs-checkout-prestashop16/downloads/?tab=tags) | [JIRA for v1.6](https://resursbankplugins.atlassian.net/projects/PRESTA16/issues/?filter=allopenissues)            | END OF LIFE |
+| Resurs Checkout - PrestaShop  | 1.7.6.x1.7.7.x | \>= 5.4 | Resurs Checkout       | SE (Confirmed) | [Master branch (1.7)](https://bitbucket.org/resursbankplugins/resurs-checkout-prestashop17/src/master/)                                                                                                                                                                                                                                              | [Release-tags for v1.7](https://bitbucket.org/resursbankplugins/resurs-checkout-prestashop17/downloads/?tab=tags) | [JIRA for v1.7](https://resursbankplugins.atlassian.net/projects/PRESTA17/issues/PRESTA17-64?filter=allopenissues) | END OF LIFE |
+| Resurs Simplified Flow (SOAP) | \>= 1.7.7      | \>= 7.4 | INSTALL WITH COMPOSER | SE (Confirmed) | [Core](https://bitbucket.org/resursbankplugins/psrbcore/src/master/)[Simplified Addon](https://bitbucket.org/resursbankplugins/psrbsimplified/src/master/)[Partpayment Widget](https://bitbucket.org/resursbankplugins/psrbpartpayment/src/master/)[Order Management Addon](https://bitbucket.org/resursbankplugins/psrbordermanagement/src/master/) |                                                                                                                   |                                                                                                                    | END OF LIFE |
 
 The above RCO-1.6/1.7 was splitted into separate modules when the
 development of the module for Prestashop v1.7 was initiated. The module
@@ -45,14 +46,26 @@ for v1.6 went up to 2.6.5 with some updates that was brought into the
 v1.7-module - and the 1.7 module became 2.7.0
 
 ### END OF LIFE (EOL)
-The status flag above indicates how our support works and when there's
-eventually an **E**nd **O**f **L**ife for each plugin. As for the
-maintenance flag, we tend to stop supporting PrestaShop 1.6 in the
-future as development for both PrestaShop 1.7.5 and 1.7.6 (april 2019)
-is moving foward. Leaving older deprecated versions is a way to maintain
+
+End Of Life plugins are no longer supported due to End Of Life states for the platform releases and PrestaShop 1.7 is
+such release. Therefore, support for Prestashop 1.6 and 1.7 has ended. This is a way to maintain
 stability with fewer glitches than if we supported long range versions.
 
+#### PrestaShop Lifecycle
+
+The support for PrestaShop 1.7.7 ended when version 1.7.8 was released.
+[According to the PrestaShop development documentation](https://devdocs.prestashop-project.org/8/project/release/patch-release-lifecycle/),
+when a new minor version is released, the previous version reaches its end of life, meaning no more patch releases for
+bug fixes or security issues.
+
+[PrestaShop 1.7 entered extended support after the release of PrestaShop 8.0 in October 2022](https://build.prestashop-project.org/news/2021/prestashop-1-7-7-7-maintenance-release/),
+which included only
+critical security fixes. This extended support is expected to continue until the release of PrestaShop 9.0, estimated by
+the end of 2023. Therefore, it is advisable for users of PrestaShop 1.7.7 to upgrade to a newer version to ensure
+continued support and updates.
+
 ## Requirements
+
 - Supported platforms should follow the PrestaShop requirements.
   However, as of april 2019, none of those plugins supports PHP 5.3
   anymore.
@@ -62,6 +75,7 @@ stability with fewer glitches than if we supported long range versions.
 - PHP module activated to support soapclient and XML .
 
 ## Upgrading
+
 For each upgrade you do, make sure you clear all cache data in
 PrestaShop admin (Via the Advanced-\>Performance tab). As there are
 front end scripts that may require extra cleanups, this is also
@@ -70,6 +84,7 @@ necessary.
 ![](../../../attachments/59342864/59342934.png)
 
 ## Installation
+
 *The below instruction is based on a basic installation, where you have
 direct access to the server. By means, you probably have ssh access at
 the hosting provider or something similar. If you're using ftp, it's
@@ -83,38 +98,43 @@ distributed. When this part is fulfilled, it may be possible to install
 it directly from there. Unfortunately, as of april 2019, this is
 currently not possible yet.
 
-1.  **For both Prestashop 1.6 and 1.7, grab a tagged release** from our
-    repos (**do not use the master-branch** as this usually is a
-    development branch - and even if it's for the moment stable, we
-    can't guarantee full production support at this level).
-2.  Unzip the downloaded file into \<primary folder of your
-    shop\>/modules (the downloaded file may look like
-    this: **resursbankplugins-resurs-checkout-prestashop16-ff8652e77e83.zip**)
-3.  Make sure you rename the primary directory that you unzipped to the
-    modules directory.  
-    If the zip looks like above
-    (resursbankplugins-resurs-checkout-prestashop16-ff8652e77e83.zip),
-    the directory that the module will land under may look like
-    this: *resursbankplugins-resurs-checkout-prestashop16-ff8652e77e83*
-4.  Make sure your cloned or extracted directory under modules is
-    renamed to ***resursbankcheckout***, or the module won't be found by
-    prestashop therefore not work.
-5.  Activate the module and configure it through the admin module panel.
-    Do not forget to put the username and password in the credentials
-    field.
-6.  **Also do not forget to register payment methods and callbacks (see
-    screen dump below)!**
-7.  **Before going production mode, make sure you test the module so you
-    know it covers your needs!**
+1. **For both Prestashop 1.6 and 1.7, grab a tagged release** from our
+   repos (**do not use the master-branch** as this usually is a
+   development branch - and even if it's for the moment stable, we
+   can't guarantee full production support at this level).
+2. Unzip the downloaded file into \<primary folder of your
+   shop\>/modules (the downloaded file may look like
+   this:**resursbankplugins-resurs-checkout-prestashop16-ff8652e77e83.zip**)
+3. Make sure you rename the primary directory that you unzipped to the
+   modules directory.  
+   If the zip looks like above
+   (resursbankplugins-resurs-checkout-prestashop16-ff8652e77e83.zip),
+   the directory that the module will land under may look like
+   this:*resursbankplugins-resurs-checkout-prestashop16-ff8652e77e83*
+4. Make sure your cloned or extracted directory under modules is
+   renamed to***resursbankcheckout***, or the module won't be found by
+   prestashop therefore not work.
+5. Activate the module and configure it through the admin module panel.
+   Do not forget to put the username and password in the credentials
+   field.
+6. **Also do not forget to register payment methods and callbacks (see
+   screen dump below)!**
+7. **Before going production mode, make sure you test the module so you
+   know it covers your needs!**
+
 ### Module configuration example
+
 ![](../../../attachments/59342864/59342866.png)
 
 ### Registered payment methods and callbacks
+
 **![](../../../attachments/59342864/59342867.png)  
 **
 
 ## Known problems and (eventually) the solutions
+
 ### Handling unfinished orders
+
 Sometimes, customers decide to not fullfill their payments and shuts
 down their payment session/browsers faster than we can handle the
 cancellation. This means that some orders may look active, but in
@@ -131,15 +151,19 @@ it is fine running it once per hour:
 ```xml
 0 * * * * /bin/php /var/www/prestashop/modules/resursbankcheckout/shell/Cleaner.php
 ```
+
 From /etc/cron.d it could also be added as a generic cronjob:
 
 ```xml
-0 * * * * <owner> /bin/php /var/www/prestashop/modules/resursbankcheckout/shell/Cleaner.php
+0 * * * *
+<owner>/bin/php /var/www/prestashop/modules/resursbankcheckout/shell/Cleaner.php
 ```
+
 Do not forget to change the paths, binaries and the ownership for both
 above examples.
 
 ### SSN/Government ID's and direct debiting methods (like SWISH)
+
 If a customer chooses to change their billing/delivery address in the
 checkout without using the getPayment-features (meaning there may be
 some missing government id's through the checkout), Prestashop will be
@@ -150,6 +174,7 @@ especially insurance-features, if the customer somehow are not required
 to enter this information during the payment.
 
 ### Going from cart to checkout has weird URL
+
 [![](https://resursbankplugins.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium)PRESTA17-68](https://resursbankplugins.atlassian.net/browse/PRESTA17-68?src=confmacro) -
 (Not a bug) Problems with /För in cart-to-checkout-url (Documentation
 only) Done
@@ -172,6 +197,7 @@ something like this:
 ```xml
 SELECT * FROM ps_meta_lang WHERE url_rewrite = 'För'
 ```
+
 If you find a row that contains "För" in the url_rewrite-field, change
 it to "order". If you only have access to prestashop admin and the sql
 editor there, you could run something that looks like the query below.
@@ -182,5 +208,6 @@ just so nothing else is changed by mistake.**
 ```xml
 UPDATE ps_meta_lang SET url_rewrite = 'order' WHERE url_rewrite = 'För'
 ```
+
 Just make sure your tables are not prefixed as something else.
 
