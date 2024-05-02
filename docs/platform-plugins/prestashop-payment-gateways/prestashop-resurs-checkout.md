@@ -6,6 +6,11 @@ parent: Prestashop Payment Gateways
 grand_parent: Platform Plugins
 ---
 
+>
+> This plugin has reached END OF LIFE support. Therefore, it is no longer maintained.
+> The documentation is here for historical references only.
+> 
+
 # Prestashop Resurs Checkout
 
 This extension helps merchants to integrate Resurs Bank Payment Gateway
