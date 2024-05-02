@@ -1,8 +1,9 @@
 ---
 layout: page
 title: Parameters And Callbacks
-permalink: /callbacks/parameters-and-callbacks/
+permalink: /configuration-service/callbacks/parameters-and-callbacks/
 parent: Callbacks
+grand_parent: Configuration Service
 ---
 
 # Parameters and Callbacks 

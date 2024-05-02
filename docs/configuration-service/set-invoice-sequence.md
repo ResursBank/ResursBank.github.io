@@ -7,8 +7,9 @@ parent: Configuration Service
 
 
 # Set Invoice Sequence 
-
-# setInvoiceSequence
+````
+setInvoiceSequence
+````
 *Sets the next invoice number to be used for automatic generation of
 invoice numbers.*
   

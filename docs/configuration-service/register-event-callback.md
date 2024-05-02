@@ -7,8 +7,9 @@ parent: Configuration Service
 
 
 # Register Event Callback 
-
-# registerEventCallback
+````
+registerEventCallback
+````
 *Registers a new event callback.*
   
 **Input(Literal)**

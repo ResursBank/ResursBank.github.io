@@ -1,8 +1,9 @@
 ---
 layout: page
 title: Annulment
-permalink: /callbacks/annulment/
+permalink: /configuration-service/callbacks/annulment/
 parent: Callbacks
+grand_parent: Configuration Service
 ---
 
 # ANNULMENT 

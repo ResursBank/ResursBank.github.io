@@ -6,8 +6,9 @@ parent: Configuration Service
 ---
 
 # Unregister Event Callback 
-
-# unregisterEventCallback
+````
+unregisterEventCallback
+````
 Unregisters an existing event callback.
   
 **Input(Literal)**

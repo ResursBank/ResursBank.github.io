@@ -7,8 +7,9 @@ parent: Configuration Service
 
 
 # Peek Invoice Sequence 
-
-# peekInvoiceSequence
+````
+peekInvoiceSequence
+````
 *Returns the next invoice number to be used for automatic generation of
 invoice numbers.*
   

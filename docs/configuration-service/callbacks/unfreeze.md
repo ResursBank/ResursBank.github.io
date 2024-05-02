@@ -1,8 +1,9 @@
 ---
 layout: page
 title: Unfreeze
-permalink: /callbacks/unfreeze/
+permalink: /configuration-service/callbacks/unfreeze/
 parent: Callbacks
+grand_parent: Configuration Service
 ---
 
 # UNFREEZE 

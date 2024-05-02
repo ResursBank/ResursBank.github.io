@@ -1,8 +1,9 @@
 ---
 layout: page
 title: Update
-permalink: /callbacks/update/
+permalink: /configuration-service/callbacks/update/
 parent: Callbacks
+grand_parent: Configuration Service
 ---
 
 
