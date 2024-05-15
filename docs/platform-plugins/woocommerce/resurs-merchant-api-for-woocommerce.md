@@ -304,7 +304,7 @@ information.
 
 ![Widget
 appearance](../../../../attachments/91029758/91029756.png "Widget appearance")![Modal
-appearance](../../../../attachments/91029758/91029757.png "Modal appearance")
+appearance](../../../../attachments/91029758/regexp.png "Modal appearance")
 
 ## Configuration
 The widget configuration options can be found on the `Part payment` tab
