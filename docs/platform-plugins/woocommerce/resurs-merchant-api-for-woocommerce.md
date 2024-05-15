@@ -67,7 +67,7 @@ The official release is located at
 and can be installed directly from the plugin installation system in
 WordPress.
 
-![](../../../../attachments/91029967/91030037.png)
+![](../../../../attachments/91029967/wp_download.png)
 
  
 
