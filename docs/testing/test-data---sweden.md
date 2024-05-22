@@ -7,7 +7,6 @@ parent: Testing
 
 # Test Data - Sweden 
 
-**Quick find**
 \[ [Persons](#testdatasweden-persons) \] \[
 [Organisations](#testdatasweden-organisations) \] \[
 [Cards](#testdatasweden-cards) \] \[ [Account](#testdatasweden-account)
