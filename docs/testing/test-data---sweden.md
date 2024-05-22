@@ -5,10 +5,8 @@ permalink: /testing/test-data---sweden/
 parent: Testing
 ---
 
-
 # Test Data - Sweden 
-Created by Joachim Andersson, last modified by Sara Wintherfrid
-Josefsson on 2024-01-15
+
 **Quick find**
 \[ [Persons](#testdatasweden-persons) \] \[
 [Organisations](#testdatasweden-organisations) \] \[
