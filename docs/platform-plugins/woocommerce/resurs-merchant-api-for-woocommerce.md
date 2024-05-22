@@ -67,7 +67,7 @@ The official release is located at
 and can be installed directly from the plugin installation system in
 WordPress.
 
-![](../../../../attachments/91029967/91030037.png)
+![](../../../../attachments/91029967/wp_download.png)
 
  
 
@@ -304,7 +304,7 @@ information.
 
 ![Widget
 appearance](../../../../attachments/91029758/91029756.png "Widget appearance")![Modal
-appearance](../../../../attachments/91029758/91029757.png "Modal appearance")
+appearance](../../../../attachments/91029758/regexp.png "Modal appearance")
 
 ## Configuration
 The widget configuration options can be found on the `Part payment` tab
