@@ -25,19 +25,19 @@ callbacks, simple HTTP calls initiated by Resurs Bank.
   
   
 ### Available Callbacks
-- [BOOKED ](https://test.resurs.com/docs/display/ecom/BOOKED)- The order
+- [BOOKED ](booked)- The order
   is created in Resurs Bank system. (Note! Order can be in a FROZEN
   state.)
-- [AUTOMATIC_FRAUD_CONTROL](AUTOMATIC_FRAUD_CONTROL_1147049.html) - A
+- [AUTOMATIC_FRAUD_CONTROL](automatic) - A
   payment has automatically been fraud screened
-- [UNFREEZE](UNFREEZE_1147040.html) - A payment is "thawed" from a
+- [UNFREEZE](unfreeze) - A payment is "thawed" from a
   FROZEN status.
-- [ANNULMENT ](ANNULMENT_1147045.html)- A payment is fully annulled.
-- [FINALIZATION](FINALIZATION_1476415.html) - Resurs Bank finalizes a
+- [ANNULMENT ](annulment)- A payment is fully annulled.
+- [FINALIZATION](finalization) - Resurs Bank finalizes a
   payment. (Note! Only applicable if finilizedIfBooked parameter is set
   to true.)
-- [UPDATE](UPDATE_5013983.html) - A payment is updated. 
-- [TEST](TEST_1147047.html) - Is used to test the callback machinery
+- [UPDATE](update) - A payment is updated. 
+- [TEST](test) - Is used to test the callback machinery
 ### What's a callback?
 A callback is a simple HTTP call **from** Resurs Bank **to** the
 representative (not necessary the shop). This is in opposite direction
