@@ -104,4 +104,14 @@ months)
 There's a lots of issuers available on the internet, so there's nearly
 impossible to recommend a verified issuer.
 
+### Swish för Handel - Resurs Technical supplier
+In order to offer Swish for the customers, there are a few steps that needs to be done prior to the payment method is available on your production account;
+1. Verify with your salesperson that Swish is available for your chosen/designated integration
+2. Sign an agreement with your bank for Swish för Handel and choose Resurs as technical supplier at your bank. (Selecting Resurs bank as
+technical provider is done through the bank that you have an agreement with.)
+3. When done, Swish will automatically send an email to the Integration-team (onboarding@resurs.se) that your organizational number now has
+connected to Resurs for Swish för Handel
+4. Resurs configures the payment method and uploads it to your production account
+Depending on your integration, you may need to update/fetch your payment methods in order for the payment method to appear. If uncertain that is required in your unique case, please email onboarding@resurs.se
+
 ## Missing a question? [Contact us!](Contact_327926.html)
