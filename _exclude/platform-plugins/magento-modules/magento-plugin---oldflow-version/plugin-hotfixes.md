@@ -13,7 +13,7 @@ grand_parent: Platform Plugins
 
 This page contains hotfixes for the OldFlow release.
 
-# 2016-02-11
+## 2016-02-11
 A problem discovered in the finalization process that affects payment
 methods that is not of the type "INVOICE". This can be manually fixed by
 editing the file
