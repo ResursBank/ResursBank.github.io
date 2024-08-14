@@ -36,12 +36,14 @@ Resurs Bank Payment Gateway for WooCommerce 2.2 has been revoked. 2.2.105 is the
 In the deprecated WooCommerce plugin, there is a known issue with the calculation of tax rates involving decimals (e.g., 25.5% in Finland, which will be updated in September 2024). This issue primarily affects shipping calculations and, in rare cases, coupons. For more details, [read here](https://resursbankplugins.atlassian.net/browse/WOO-1320).
 
 If you are using version 2.2.105 or older, it is crucial to upgrade to the latest MAPI-supported plugin as soon as possible - do not patch your current release unless you really need it.
-[v2.2.106](/attachments/resurs-bank-payment-gateway-for-woocommerce-2.2.106.zip)
 
 ### Emergency upgrading to 2.2.106
 
 **Plan for Full Upgrade: While this patch provides a temporary fix, it is essential to plan for a complete upgrade to the latest MAPI-supported plugin version to ensure full compatibility and continued support.**
 
+You can either upload the zip file to WordPress and let WordPress handle the magics or, if you have a customized site with plugin uploading/installing disabled - do it manually:
+
+* Download the zip file: [v2.2.106](/attachments/resurs-bank-payment-gateway-for-woocommerce-2.2.106.zip)
 * Unzip the File: Extract the contents of the downloaded ZIP file. Inside, you will find a directory named /resurs-bank-payment-gateway-for-woocommerce.
 * Navigate to your WordPress installation directory on your server.
 * Go to /wp-content/plugins/.
