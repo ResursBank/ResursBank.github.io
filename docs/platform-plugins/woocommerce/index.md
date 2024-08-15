@@ -31,11 +31,14 @@ Resurs Bank Payment Gateway for WooCommerce 2.2 has been revoked. 2.2.105 is the
 >
 > [For old references - docs for v2.2 has been moved here.](resurs-bank-payment-gateway-for-woocommerce--v2-2--resurs-checkout---simplified-flow/index.md)
 
-### Tax rate in finland (25.5%) and WooCommerce
+### Tax rate in Finland (25.5%) and WooCommerce
 
 In the deprecated WooCommerce plugin, there is a known issue with the calculation of tax rates involving decimals (e.g., 25.5% in Finland, which will be updated in September 2024). This issue primarily affects shipping calculations and, in rare cases, coupons. For more details, [read here](https://resursbankplugins.atlassian.net/browse/WOO-1320).
 
 If you are using version 2.2.105 or older, it is crucial to upgrade to the latest MAPI-supported plugin as soon as possible - do not patch your current release unless you really need it.
+
+** DO NOT UPGRADE BELOW IF YOUR STORE IS OUTSIDE FINLAND **
+
 
 ### Emergency upgrading to 2.2.106
 
