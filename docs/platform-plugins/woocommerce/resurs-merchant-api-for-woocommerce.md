@@ -235,21 +235,6 @@ When making any changes to payment methods at Resurs Bank it is strongly
 recommended that you clear the cache in the [Plugin
 configuration](plugin-configuration) to avoid potential problems.
 
-# Plugin configuration 
-This page contains information on the configuration of the plugin.
-
-## Basic configuration
-1.  Go to `WooCommerce` → `Settings` and click on the `Resurs Bank` tab
-
-2.  Enter your credentials in the `API Settings`  tab
-3.  Choose the correct Store ID for your store from the dropdown 
-
-4.  Save the settings
-
-## Detailed configuration information
-
-Då kan vi justera formuleringen för att bättre förklara konceptet utan att kalla det "Customer Links Expiration" som en faktisk inställning. Här är en förbättrad version:
-
 ### Understanding Customer Link Expiration (TTL)
 
 Customer links will, by default, expire after 120 minutes. If a customer attempts to complete a payment after this time, the transaction will be rejected. This expiration can be handled through WooCommerce's stock management system, specifically using the **Hold Stock (minutes)** setting.
@@ -263,6 +248,18 @@ The default TTL can be configured between 1 and 43200 minutes (up to 30 days), d
 This setting can be found under:
 **WooCommerce > Settings > Products > Inventory > Hold Stock (minutes)**.
 
+
+## Basic configuration
+1.  Go to `WooCommerce` → `Settings` and click on the `Resurs Bank` tab
+
+2.  Enter your credentials in the `API Settings`  tab
+3.  Choose the correct Store ID for your store from the dropdown 
+
+4.  Save the settings
+
+## Detailed configuration information
+
+Då kan vi justera formuleringen för att bättre förklara konceptet utan att kalla det "Customer Links Expiration" som en faktisk inställning. Här är en förbättrad version:
 
 ### API Settings
 This tab is for basic connection settings and is where you enter your
