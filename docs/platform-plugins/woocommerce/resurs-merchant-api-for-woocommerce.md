@@ -261,7 +261,18 @@ This setting can be found under:
 
 ## Detailed configuration information
 
-Då kan vi justera formuleringen för att bättre förklara konceptet utan att kalla det "Customer Links Expiration" som en faktisk inställning. Här är en förbättrad version:
+### Understanding Customer Link Expiration (TTL)
+
+Customer links will, by default, expire after 120 minutes. If a customer attempts to complete a payment after this time, the transaction will be rejected. This expiration can be handled through WooCommerce's stock management system, specifically using the **Hold Stock (minutes)** setting.
+
+When stock management is enabled, WooCommerce reserves the product for the specified time in the **Hold Stock** setting, preventing others from purchasing the item while the order remains unpaid. Once the set time (e.g., 120 minutes) elapses, WooCommerce automatically cancels the unpaid order and releases the reserved stock back into inventory.
+
+If stock management is **not** enabled, the system defaults to 120 minutes. This ensures that the reserved stock doesn't remain indefinitely held for unpaid orders, providing a balanced and controlled inventory management system.
+
+The default TTL can be configured between 1 and 43200 minutes (up to 30 days), depending on the store’s requirements.
+
+This setting can be found under:
+**WooCommerce > Settings > Products > Inventory > Hold Stock (minutes)**.
 
 ### API Settings
 This tab is for basic connection settings and is where you enter your
