@@ -8,6 +8,8 @@ Each individual version tag is also available from bitbucket if you have needs t
 
 **Download the latest plugin version below**
 
+_Avoid this if possible. Go for the new MAPI based plugin instead._
+
 [2.2.105.zip](/attachments/2588830/2.2.105.zip)
 
 All older versions are considered unstable and no longer available here.

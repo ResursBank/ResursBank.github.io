@@ -37,7 +37,7 @@ In the deprecated WooCommerce plugin, there is a known issue with the calculatio
 
 If you are using version 2.2.105 or older, it is crucial to upgrade to the latest MAPI-supported plugin as soon as possible - do not patch your current release unless you really need it.
 
-** DO NOT UPGRADE BELOW IF YOUR STORE IS OUTSIDE FINLAND **
+** **DO NOT UPGRADE BELOW IF YOUR STORE IS OUTSIDE FINLAND** **
 
 
 ### Emergency upgrading to 2.2.106

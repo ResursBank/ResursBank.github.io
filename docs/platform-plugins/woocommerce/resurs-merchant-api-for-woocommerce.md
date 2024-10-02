@@ -7,8 +7,6 @@ parent: Woocommerce
 grand_parent: Platform Plugins
 ---
 
-
-
 # Resurs Merchant API 2.0 for WooCommerce 
 
 This section is reserved for the new WooCommerce plugin from Resurs
@@ -55,8 +53,6 @@ ALTER TABLE `wp-database`.`wp_posts` AUTO_INCREMENT = 200000000;
 ```
 Change **wp-database** to your database name and set the
 **AUTO_INCREMENT** number to something that suits you.
-
- 
 
 
 # Installation from WordPress plugin repository 
@@ -162,8 +158,6 @@ echo "Archiving ..."
 zip -r resurs-bank-payment-gateway-for-woocommerce.zip resurs-bank-payment-gateway-for-woocommerce
 ```
 
- 
-
 
 # Store configuration requirements 
 ## Stock Keeping Unit (SKU)
@@ -189,8 +183,6 @@ This setting can be changed by going to `WooCommerce` → `Settings`  →
 
 ![Currency options
 section](../../../../attachments/91029884/91029883.png "Currency options section")  
-
- 
 
 
 # Plugin basics and information 
@@ -243,10 +235,6 @@ When making any changes to payment methods at Resurs Bank it is strongly
 recommended that you clear the cache in the [Plugin
 configuration](plugin-configuration) to avoid potential problems.
 
-  
-
-
-
 # Plugin configuration 
 This page contains information on the configuration of the plugin.
 
@@ -257,7 +245,25 @@ This page contains information on the configuration of the plugin.
 3.  Choose the correct Store ID for your store from the dropdown 
 
 4.  Save the settings
+
 ## Detailed configuration information
+
+Då kan vi justera formuleringen för att bättre förklara konceptet utan att kalla det "Customer Links Expiration" som en faktisk inställning. Här är en förbättrad version:
+
+### Understanding Customer Link Expiration (TTL)
+
+Customer links will, by default, expire after 120 minutes. If a customer attempts to complete a payment after this time, the transaction will be rejected. This expiration can be handled through WooCommerce's stock management system, specifically using the **Hold Stock (minutes)** setting.
+
+When stock management is enabled, WooCommerce reserves the product for the specified time in the **Hold Stock** setting, preventing others from purchasing the item while the order remains unpaid. Once the set time (e.g., 120 minutes) elapses, WooCommerce automatically cancels the unpaid order and releases the reserved stock back into inventory.
+
+If stock management is **not** enabled, the system defaults to 120 minutes. This ensures that the reserved stock doesn't remain indefinitely held for unpaid orders, providing a balanced and controlled inventory management system.
+
+The default TTL can be configured between 1 and 43200 minutes (up to 30 days), depending on the store’s requirements.
+
+This setting can be found under:
+**WooCommerce > Settings > Products > Inventory > Hold Stock (minutes)**.
+
+
 ### API Settings
 This tab is for basic connection settings and is where you enter your
 credential from Resurs Bank, whether to use the Production or Test API.
