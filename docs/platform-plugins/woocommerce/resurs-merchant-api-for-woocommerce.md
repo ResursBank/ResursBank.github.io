@@ -248,6 +248,8 @@ The default TTL can be configured between 1 and 43200 minutes (up to 30 days), d
 This setting can be found under:
 **WooCommerce > Settings > Products > Inventory > Hold Stock (minutes)**.
 
+![](../../../../attachments/woocommerce-stock-management-ttl.jpg)
+
 
 ## Basic configuration
 1.  Go to `WooCommerce` → `Settings` and click on the `Resurs Bank` tab
