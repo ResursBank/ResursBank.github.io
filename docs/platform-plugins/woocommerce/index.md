@@ -27,4 +27,4 @@ has_toc: false
 
 Development has ended. Last update was for FI Taxes only (aug 2024). Plugin has not been updated since 2023-03-27. Please use the MAPI version (above) instead.
 
-[For further information: Page has moved to this place](version22.md)
+For further information: [Check out the legacy page here](version22.md).
