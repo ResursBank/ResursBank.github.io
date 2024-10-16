@@ -14,11 +14,24 @@ has_toc: false
 
 **Please note that there is a known problem with WooCommerce blocks for the checkout for which payment methods are not properly displayed. This can be fixed by removing the content in the checkout-page blocks and add the shortcode [woocommerce_checkout] instead.**
 
-## Latest version (**Resurs Bank Payments for WooCommerce**)
+## Resurs Merchant API 2.0 for WooCommerce
 
-> This is the lastest version of the plugin for WooCommerce
+> This is the latest version of the plugin for WooCommerce.
 
 [Click **here** for full documentation and installation instructions for Resurs Merchant API 2.0 for WooCommerce](resurs-merchant-api-for-woocommerce.md).
+
+### Requirements
+- **At least** PHP 8.1
+- **At least** WooCommerce 7.6.0
+- SSL-connectivity (preferably OpenSSL)
+- CURL (ext-curl with necessary libraries) 7.61.0 or higher
+- **Curl with CURLAUTH_BEARER-support**
+
+### Download/install the plugin
+
+Install the plugin via WordPress plugin repository (the plugin manager
+in wp-admin). It is NOT recommended to install the plugin manually since
+you will miss all automatic upgrades.
 
 
 -------------------
