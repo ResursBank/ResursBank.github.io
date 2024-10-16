@@ -2,9 +2,9 @@
 layout: page
 title: Woocommerce
 permalink: /platform-plugins/woocommerce/version-2.2
-nav_order: 41
+nav_order: 42
 parent: Platform Plugins
-has_children: true
+has_children: false
 has_toc: false
 ---
 
