@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Woocommerce
-permalink: /platform-plugins/woocommerce/version-2.2
+permalink: /platform-plugins/woocommerce/version22
 nav_order: 42
 parent: Platform Plugins
 has_children: false
