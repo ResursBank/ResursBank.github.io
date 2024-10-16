@@ -18,7 +18,7 @@ has_toc: false
 
 > This is the lastest version of the plugin for WooCommerce
 
-[Click **here** for full documentation and installation instructions for Resurs Merchant API 2.0 for WooCommerce](resurs-merchant-api-2-0-for-woocommerce/index.md).
+[Click **here** for full documentation and installation instructions for Resurs Merchant API 2.0 for WooCommerce](resurs-merchant-api-for-woocommerce).
 
 
 -------------------
