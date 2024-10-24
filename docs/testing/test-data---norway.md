@@ -72,15 +72,3 @@ To test Vipps, please follow the steps on the below link. When completed, you ca
 > **Phone number:** +47 93089608
 
 
-#### Parameters when using Hosted flow
-The flag `allowCardPaymentWithoutCardNumber` set to `true `will only
-display the input field for government ID.  
-`allowCardPaymentWithoutCardNumber` set to `false` will display both the
-government ID and card number fields and the customer must enter a card
-number.
-
-| Government IDAccount  | Phone number  | Account number     | Result                                                                    |
-|-----------------------|---------------|--------------------|---------------------------------------------------------------------------|
-|  25019218190          | 40000011      |  9578305010835835  | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=BOOKED or FINALIZED  |
-| 01046017362           | 40000012      | 9578105010831111   | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED               |
-
