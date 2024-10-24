@@ -64,12 +64,14 @@ Card to use when testing.
 **To test VISA/Mastercard ** please see:
 [https://shop.nets.eu/web/partners/test-cards](https://shop.nets.eu/web/partners/test-cards)
 
-### Account
-Account, with the option set in the payment method to use only
-government ID: If agreed upon with Resurs Bank, the merchant can let the
-customer use an existing account without entering an account number, the
-government ID will fetch the account number and signing is mandatory in
-this case.
+### Vipps
+To test Vipps, please follow the steps on the below link. When completed, you can create a new Vipps-payment via Resurs and complete the purchase in your installed Vipps Test-app: [App installation Vipps MobilePay ](https://developer.vippsmobilepay.com/docs/knowledge-base/test-environment/#test-apps)
+
+> [!NOTE]
+> When installing the Vipps Test-app use:
+> **Social security number:** 48076734537;
+> **Phone number:** +47 93089608
+
 
 #### Parameters when using Hosted flow
 The flag `allowCardPaymentWithoutCardNumber` set to `true `will only
