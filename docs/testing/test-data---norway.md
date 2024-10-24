@@ -43,10 +43,10 @@ Resurs Bank sales representative if you want to support Norwegian
 organisations.
 
 | Organisation number | Gender | Civic number | ~~[Shop Flow](https://test.resurs.com/docs/display/DD/Shop+Flow+Service)~~                                             | [Simplified shop flow](simplified-flow-api)                 |
-|---------------------|--------|--------------|--------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
-| 892831270           | M      | 180872-48794 |                                                                                                                    |                                                             |
-| 996030962           | M      | 180872-48794 | submitLimitApplication returns decision=DENIED | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED |
-| 950576839           | M      | 180872-48794 | submitLimitApplication returns decision=TRIAL  | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED |
+|-------------------|--------|--------------|--------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| 892831270         | M      | 180872-48794 |                                                                                                                    |                                                             |
+| 996030962         | M      | 180872-48794 | submitLimitApplication returns decision=DENIED | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED |
+| 950576839         | M      | 180872-48794 | submitLimitApplication returns decision=TRIAL  | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED |
 
 ### Cards
 Card to use when testing.
@@ -64,22 +64,11 @@ Card to use when testing.
 **To test VISA/Mastercard ** please see:
 [https://shop.nets.eu/web/partners/test-cards](https://shop.nets.eu/web/partners/test-cards)
 
-### Account
-Account, with the option set in the payment method to use only
-government ID: If agreed upon with Resurs Bank, the merchant can let the
-customer use an existing account without entering an account number, the
-government ID will fetch the account number and signing is mandatory in
-this case.
+### Vipps
+To test Vipps, please follow the steps on the below link. When completed, you can create a new Vipps-payment via Resurs and complete the purchase in your installed Vipps Test-app: [App installation Vipps MobilePay ](https://developer.vippsmobilepay.com/docs/knowledge-base/test-environment/#test-apps)
 
-#### Parameters when using Hosted flow
-The flag`allowCardPaymentWithoutCardNumber` set to `true`will only
-display the input field for government ID.
-`allowCardPaymentWithoutCardNumber` set to `false` will display both the
-government ID and card number fields and the customer must enter a card
-number.
+> When installing the Vipps Test-app use:
+> **Social security number:** 48076734537;
+> **Phone number:** +47 93089608
 
-| Government IDAccount  | Phone number  | Account number     | Result                                                                    |
-|-----------------------|---------------|--------------------|---------------------------------------------------------------------------|
-|  25019218190          | 40000011      |  9578305010835835  | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=BOOKED or FINALIZED  |
-| 01046017362           | 40000012      | 9578105010831111   | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED               |
 
