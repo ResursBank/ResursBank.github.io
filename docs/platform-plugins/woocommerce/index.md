@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Woocommerce
+title: Woocommerce Full Documentation
 permalink: /platform-plugins/woocommerce/
 nav_order: 41
 parent: Platform Plugins
