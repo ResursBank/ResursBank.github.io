@@ -42,6 +42,7 @@ Url to the plugin itself is
 [https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/](https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/)
 
 # FAQ & Generic questions
+
 ## Can I change the order number sequence?
 Yes!
 
@@ -57,6 +58,7 @@ Change **wp-database** to your database name and set the
 
 
 # Installation from WordPress plugin repository 
+
 This page contains information about how to install the plugin properly.
 
 The official release is located at
@@ -66,98 +68,21 @@ WordPress.
 
 ![](../../../../attachments/91029967/wp_download.png)
 
- 
-
-
 # Manually installing plugin 
-If you plan to install a development version **or** not directly from
-WordPress plugin manager, this is the place to look at. If you plan to
-run this plugin in a "production state", please install it properly
-within the WordPress plugin manager. This page currently only has
-information for git installs.
 
-# Installations with zip file (most similar to the WordPress Plugin Repository)
-> About the current-zip fileCurrently, there are no stable tag present
-> in the repository. When there is a stable tag, the "current" file will
-> always contain the most recent release. While waiting, the code
-> structure in this zip is based on the master branch.
+Manually installing WordPress plugins can be risky because changing the plugin slug can prevent crucial updates from being applied. This opens up vulnerabilities that hackers can exploit, potentially giving them access to your site through outdated versions. You should avoid this if possible.
 
-1\. Upload the plugin
-([resurs-bank-payment-gateway-for-woocommerce-current.zip](../../../../attachments/91029909/91030034.zip) -
-1.0.0, **last update 2023-04-27**) archive to the "/wp-content/plugins/"
-directory.  
-2. Activate the plugin through the "Plugins" menu in WordPress.  
-3. Configure the plugin via Resurs Bank control panel in admin.
-
-# Installations with git
-Go to your WordPress plugin structure (normally located in
-**\[WP-ROOT\]**/wp-content/plugins and run this command:
-
-```xml
-git clone --recurse-submodules -j8 https://bitbucket.org/resursbankplugins/resursbank-woocommerce.git
-```
-The slug (path) used by this repository is not the proper name standard
-for the module. While writing this, the official slug is not entirely
-set yet, but there should be no problems installing it with another slug
-name than the default. However, if you use another path than the
-default, [be aware of the security issues that may come with
-this](https://vavkamil.cz/2021/11/25/wordpress-plugin-confusion-update-can-get-you-pwned/).
-
-The above command will ensure you get all requirements installed in your
-structure, but primarily with the master branch installed. You should
-consider checking out a stable tag if you really need to use this
-install method. In this case you'll also need to check for updates
-manually and do manual checkouts.
-
-This kind of installation neither guarantee that submodules are updated
-properly. In some cases, you'll need to update lib/ecom manually, with
-an extra git pull.
+1. Download the plugin from a trusted source.
+2. Extract the ZIP file locally.
+3. Upload the plugin folder to `wp-content/plugins/` via FTP.
+4. Activate the plugin via the WordPress dashboard.
+5. Verify the plugin slug to ensure updates work correctly.
 
 ## Dual plugins (how to act on it)
-This is how it may look if you run the old version and just installed
-the new one. It is always recommended to deactivate the old one before
-activating the new one (and vice versa) before you start running them.
-The namespaces in the plugins are different to each other, so they
-should not crash the platform **if** you enable both of them in the same
-time.
+
+Did you run the old simplified version? Please don't. Uninstall it completely.
 
 ![](../../../../attachments/91029909/91029913.png)
-
-## Creating your own zip-release from git
-Clone the repository as shown above. Run a script similar like this. You
-need rsync and git installed. Observe that this is only a simplified
-example. The important thing is to make sure that the codebase has both
-the module and lib/ecom merged. The script below will do this, and also
-make sure that the latest ecom2-release is present. **Currently, ecom2
-don't have any stable tag!**
-
-**Example script**
-```xml
-#!/bin/bash
-branch="master"
-if [ "" = "$1" ] ; then
-    branch="$1"
-fi
-src="resurs-bank-payments-for-woocommerce-bitbucket"
-dest="zip/resurs-bank-payment-gateway-for-woocommerce"
-if [ ! -d $dest ] ; then
-    mkdir $dest
-fi
-echo "Synchronize $src with $dest"
-rsync -a --info=progress1,progress2 --delete $src/ $dest
-cd $dest
-git checkout $branch
-git pull
-cd lib/ecom
-git pull origin master
-cd ../..
-echo "Bundle by cleanup ..."
-find . -name .gitignore -exec rm -v {} \; >/dev/null 2>&1
-find . -type d -name .git -exec rm -rvf {} \; >/dev/null 2>&1
-cd ..
-echo "Archiving ..."
-zip -r resurs-bank-payment-gateway-for-woocommerce.zip resurs-bank-payment-gateway-for-woocommerce
-```
 
 
 # Store configuration requirements 
@@ -187,6 +112,7 @@ section](../../../../attachments/91029884/91029883.png "Currency options section
 
 
 # Plugin basics and information 
+
 This is planned space for Resurs for WooCommerce MAPI Release v1.0. The
 MAPI-Commerce package is a rebuild of Resurs for WooCommerce that is
 adapted into the latest Resurs API (MAPIv2, as of 2022). All old flows
@@ -276,10 +202,83 @@ This setting can be found under:
 **WooCommerce > Settings > Products > Inventory > Hold Stock (minutes)**.
 
 ### API Settings
-This tab is for basic connection settings and is where you enter your
-credential from Resurs Bank, whether to use the Production or Test API.
+This manual provides detailed instructions on how to manage credentials in the WooCommerce admin view for seamless functionality between environments and to ensure proper handling of user credentials.
 
 ![](../../../../attachments/91029886/91029981.png)
+
+#### ACCESSING THE CREDENTIALS SECTION
+To manage credentials in WooCommerce:
+
+1. Navigate to the WooCommerce settings.
+2. Locate the **Credentials** section, where you will be able to input, update, and verify your credentials.
+3. The credentials fields include **API Key**, **API Secret**, and **Store ID**. These are essential for connecting the WooCommerce store to the external system.
+
+#### INPUTTING CREDENTIALS
+
+When entering your credentials:
+1. **Fill in the API Key, API Secret, and Store ID** fields.
+    - Ensure that the credentials you enter are correct and valid, as incorrect credentials will prevent the store from functioning properly.
+
+2. **Fetching Store Data**:
+    - After entering the credentials, click the **Fetch Stores** button to retrieve the store list associated with the entered credentials.
+    - The store list will appear if the credentials are valid. If the credentials are invalid, an error message will display, and no stores will be fetched.
+
+#### SAVE BUTTON BEHAVIOR
+
+The save button behaves dynamically based on the actions you take:
+1. **Initial State**:
+    - When you first access the credentials section, the **Save** button is hidden.
+    - The save button will remain hidden until the store data has been successfully retrieved.
+
+2. **After Fetching Stores**:
+    - Once you have successfully fetched the store data using valid credentials, the **Save** button will appear, allowing you to save the credentials.
+    - The store data is now validated, and you can proceed to save your changes.
+
+3. **Switching Environments**:
+    - If you switch between **Test** and **Production** environments, the store data needs to be fetched again to reflect the new environment.
+    - Once the store list for the new environment has been fetched, the **Save** button will become visible again, allowing you to save the updated information.
+
+   Note: If you attempt to switch environments without fetching the store list again, the **Save** button will not be enabled, and no changes can be saved.
+
+#### HANDLING ERRORS WITH CREDENTIALS
+
+If you enter incorrect credentials:
+1. **Fetching Store Failure**:
+    - An error message will display, indicating that the credentials are incorrect.
+    - The store list will not appear, and you will be unable to save your credentials until valid credentials are provided.
+
+2. **Session Handling**:
+    - Incorrect credentials may also impact session handling. If the session fails due to invalid credentials, the admin view will alert you, and no further actions can be taken until the correct credentials are entered.
+
+3. **Invalid Scope Warnings**:
+    - If you switch between environments (Test and Production), there may be warnings about scope. These occur when WooCommerce tries to use previously saved data that conflicts with the current environment.
+    - Fetching the store list again with the correct credentials will resolve these issues, ensuring that the correct environment data is stored.
+
+#### SWITCHING BETWEEN ENVIRONMENTS
+
+When switching from **Test** to **Production** or vice versa:
+1. You must fetch the store data again using the **Fetch Stores** button.
+2. Ensure that the correct environment credentials are entered before fetching the store data.
+3. Once the store list is successfully retrieved, you can proceed to save the credentials for the new environment.
+4. The store list for the previous environment will no longer be available, and you must fetch new store data before proceeding.
+
+#### REMEMBER!
+
+1. **Always Verify Credentials**: Ensure that the credentials you enter are accurate before attempting to fetch store data. This avoids unnecessary errors and ensures smooth functionality.
+
+2. **Fetch Stores After Environment Switch**: Whenever you switch between environments, remember to fetch the store data again to ensure that the credentials are properly updated for the selected environment.
+
+3. **Check Error Messages**: If you encounter any issues while saving or fetching stores, check for error messages related to invalid credentials or session handling. Address these issues before proceeding.
+
+#### SUMMARY OF WORKFLOW
+1. Enter credentials in the appropriate fields.
+2. Fetch store data to verify the credentials.
+3. Once the store list is retrieved, save the credentials.
+4. If switching environments, fetch the store data for the new environment before saving.
+5. Ensure no "invalid scope" or "bad credentials" warnings appear after saving. If these occur, re-enter credentials and fetch the store data again.
+
+By following these guidelines, the credentials management process in WooCommerce will be streamlined, ensuring smooth transitions between environments and avoiding common credential-related errors.
+
 
 ### Payment Methods
 This tab has no settings on it but allows you to see which payment
