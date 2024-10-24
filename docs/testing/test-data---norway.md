@@ -67,7 +67,6 @@ Card to use when testing.
 ### Vipps
 To test Vipps, please follow the steps on the below link. When completed, you can create a new Vipps-payment via Resurs and complete the purchase in your installed Vipps Test-app: [App installation Vipps MobilePay ](https://developer.vippsmobilepay.com/docs/knowledge-base/test-environment/#test-apps)
 
-> [!NOTE]
 > When installing the Vipps Test-app use:
 > **Social security number:** 48076734537;
 > **Phone number:** +47 93089608
