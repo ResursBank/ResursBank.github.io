@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Resurs Merchant Api for Woocommerce
+title: WooCommerce Quick-Start
 permalink: /platform-plugins/woocommerce/resurs-merchant-api-for-woocommerce
 nav_order: 11
 parent: Platform Plugins
