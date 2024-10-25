@@ -209,7 +209,7 @@ This setting can be found under:
 This manual provides detailed instructions on how to manage credentials in the WooCommerce admin view for seamless
 functionality between environments and to ensure proper handling of user credentials.
 
-![](../../../../attachments/91029886/91029981.png)
+![](../../../../attachments/files/wp_credentials.png)
 
 #### ACCESSING THE CREDENTIALS SECTION
 
