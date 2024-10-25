@@ -1,11 +1,10 @@
 ---
 layout: page
-title: Woocommerce Full Documentation
+title: Woocommerce
 permalink: /platform-plugins/woocommerce/
 nav_order: 41
 parent: Platform Plugins
 has_children: true
-has_toc: false
 ---
 
 # WooCommerce 
