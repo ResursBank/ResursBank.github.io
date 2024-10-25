@@ -18,7 +18,7 @@ For full documentation, see [this section](resurs-merchant-api-for-woocommerce.m
 - CURL (ext-curl with necessary libraries) 7.61.0 or higher
 - **Curl with CURLAUTH_BEARER-support**
 
-# Proper installation
+# Installing the plugin
 
 Install the plugin via WordPress plugin repository (the plugin manager
 in wp-admin). It is NOT recommended to install the plugin manually since
