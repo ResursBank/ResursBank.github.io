@@ -28,14 +28,3 @@ you will miss all automatic upgrades.
 
 Url to the plugin itself is
 [https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/](https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/)
-
-
-### Manually installing the plugin
-
-Manually installing WordPress plugins can be risky because changing the plugin slug can prevent crucial updates from being applied. This opens up vulnerabilities that hackers can exploit, potentially giving them access to your site through outdated versions. You should avoid this if possible.
-
-1. Download the plugin from a trusted source.
-2. Extract the ZIP file locally.
-3. Upload the plugin folder to `wp-content/plugins/` via FTP.
-4. Activate the plugin via the WordPress dashboard.
-5. Verify the plugin slug to ensure updates work correctly.

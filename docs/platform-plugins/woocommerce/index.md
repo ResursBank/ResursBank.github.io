@@ -30,9 +30,7 @@ has_toc: false
 ### Download/install the plugin
 
 Install the plugin via WordPress plugin repository (the plugin manager
-in wp-admin). It is NOT recommended to install the plugin manually since
-you will miss all automatic upgrades.
-
+in wp-admin).
 
 -------------------
 
