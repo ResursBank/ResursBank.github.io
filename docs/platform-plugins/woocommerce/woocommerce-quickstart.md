@@ -1,6 +1,6 @@
 ---
 layout: page
-title: WooCommerce Quick-Start
+title: WooCommerce Quickstart
 permalink: /platform-plugins/woocommerce/woocommerce-quickstart
 parent: Woocommerce
 grand_parent: Platform Plugins
@@ -9,7 +9,7 @@ has_children: false
 has_toc: false
 ---
 
-# Quick Installing WooCommerce
+# Quick Install WooCommerce
 
 For full documentation, see [this section](resurs-merchant-api-for-woocommerce.md)
 
