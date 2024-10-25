@@ -1,7 +1,7 @@
 ---
 layout: page
 title: WooCommerce Quick-Start
-permalink: /platform-plugins/woocommerce/resurs-merchant-api-for-woocommerce
+permalink: /platform-plugins/woocommerce/woocommerce-quickstart
 nav_order: 11
 parent: Platform Plugins
 ---
