@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Resurs Merchant Api for Woocommerce
+title: Woocommerce Full Documentation
 permalink: /platform-plugins/woocommerce/resurs-merchant-api-for-woocommerce
 parent: Woocommerce
 grand_parent: Platform Plugins
@@ -8,7 +8,6 @@ nav_order: 12
 has_children: false
 has_toc: false
 ---
-
 
 # Resurs Merchant API 2.0 for WooCommerce
 
@@ -515,3 +514,18 @@ see the logs inside the wordpress platform under WooCommerce logs
 section like this:
 
 ![](../../../../attachments/91030061/91030064.png)
+
+
+# Figuring out remote ip for whitelisting
+
+In tests, we sometimes need to whitelist your server's IP address, for example when your server is located in a country
+outside the Nordic region.
+
+Normally, it is not very difficult to figure out which IP address needs to be whitelisted. There are many services
+available on the internet that can fetch the proper address, or you could simply run a console-based command like this
+from your server. Example:
+
+```html
+curl https://ipv4.netcurl.org/ip.php
+91.198.202.76
+```

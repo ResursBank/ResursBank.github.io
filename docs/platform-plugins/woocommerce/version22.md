@@ -1,9 +1,10 @@
 ---
 layout: page
-title: Resurs Bank Payment Gateway for WooCommerce v2.2
-permalink: /platform-plugins/woocommerce/resurs-merchant-api-for-woocommerce/version22
+title: WooCommerce v2.2 Deprecated Notes
+permalink: /platform-plugins/woocommerce/version22
 nav_order: 42
-parent: resurs-merchant-api-for-woocommerce
+parent: Woocommerce
+grand_parent: Platform Plugins
 has_children: false
 has_toc: false
 ---
