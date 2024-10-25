@@ -1,10 +1,10 @@
 ---
 layout: page
 title: WooCommerce v2.2 Deprecated Notes
-permalink: /platform-plugins/woocommerce/version22
+permalink: /platform-plugins/woocommerce/resurs-merchant-api-for-woocommerce/version22
 nav_order: 42
-parent: Woocommerce
-grand_parent: Platform Plugins
+parent: Woocommerce Full Documentation
+grand_parent: Woocommerce
 has_children: false
 has_toc: false
 ---
