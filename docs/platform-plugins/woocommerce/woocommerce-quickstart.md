@@ -2,9 +2,11 @@
 layout: page
 title: WooCommerce Quick-Start
 permalink: /platform-plugins/woocommerce/woocommerce-quickstart
-nav_order: 11
 parent: Woocommerce
 grand_parent: Platform Plugins
+nav_order: 11
+has_children: false
+has_toc: false
 ---
 
 # Quick Installing WooCommerce
