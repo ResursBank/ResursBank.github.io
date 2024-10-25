@@ -10,14 +10,6 @@ parent: Platform Plugins
 
 For full documentation, see [this section](resurs-merchant-api-for-woocommerce.md)
 
-# Requirements
-
-- **At least** PHP 8.1
-- **At least** WooCommerce 7.6.0
-- SSL-connectivity (preferably OpenSSL)
-- CURL (ext-curl with necessary libraries) 7.61.0 or higher
-- **Curl with CURLAUTH_BEARER-support**
-
 # Installing the plugin
 
 Install the plugin via WordPress plugin repository (the plugin manager
