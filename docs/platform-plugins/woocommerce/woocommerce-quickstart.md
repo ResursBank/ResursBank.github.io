@@ -13,7 +13,7 @@ has_toc: false
 
 # 1. Acquire test credentials
 
-Contact Resurs Bank to get your test credentials for MAPI.
+Contact Resurs Bank to get your test credentials.
 
 # 2. Installation
 
