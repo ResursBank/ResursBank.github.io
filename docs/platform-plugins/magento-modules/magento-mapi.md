@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Resurs Bank Magento 2 module for MAPI integration
+title: Full Documentation
 permalink: /platform-plugins/magento-modules/resurs-bank-magento2-module-for-mapi/
 nav_order: 11
 parent: Magento Modules
