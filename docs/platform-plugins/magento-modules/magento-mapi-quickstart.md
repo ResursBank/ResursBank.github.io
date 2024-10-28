@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Magento 2 for MAPI QuickStart
-permalink: /platform-plugins/magento-modules/magento24-installation-instruction/
+permalink: /platform-plugins/magento-modules/magento-mapi-quickstart/
 nav_order: 11
 parent: Magento Modules
 grand_parent: Platform Plugins
