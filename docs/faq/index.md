@@ -7,6 +7,12 @@ has_children: true
 
 # FAQ 
 
+## How do I start using MAPI?
+
+[Magento Quick Start Guide](platform-plugins/magento-modules/resurs-bank-magento2-module-for-mapi-quick-start)
+
+[WooCommerce Quick Start Guide](platform-plugins/woocommerce/resurs-merchant-api-for-woocommerce)
+
 ## My environment seems to be unavailable for Resurs
 Here's a checklist for what you should test before reporting problems to
 Resurs
