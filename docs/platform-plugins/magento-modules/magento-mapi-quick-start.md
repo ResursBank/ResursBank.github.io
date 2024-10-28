@@ -7,7 +7,7 @@ grand_parent: Platform Plugins
 nav_order: 11
 ---
 
-# Magento 2 with MAPI Quick Start Guide
+# Quick Start Guide Magento
 
 [Full documentation](/platform-plugins/magento-modules/resurs-bank-magento2-module-for-mapi),
 refer to this for more detailed explanations of the various installation
@@ -15,7 +15,7 @@ and configuration options.
 
 # 1. Acquire test credentials
 
-Contact Resurs Bank to get your test credentials for MAPI.
+Contact Resurs Bank to get your test credentials.
 
 # 2. Installation
 
@@ -27,7 +27,7 @@ composer require resursbank/magento-all
 composer update
 ```
 
-If you only require the MAPI package and its requirements you can replace
+If you only require the Resurs Merchant-API package and its requirements you can replace
 `magento-all` with `magento-mapi`.
 
 # 3. Configuration
