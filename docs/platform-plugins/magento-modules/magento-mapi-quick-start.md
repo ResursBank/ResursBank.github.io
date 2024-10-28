@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Quick Start Guide
+title: QuickStart Guide
 permalink: /platform-plugins/magento-modules/resurs-bank-magento2-module-for-mapi-quick-start/
 parent: Magento Modules
 grand_parent: Platform Plugins
