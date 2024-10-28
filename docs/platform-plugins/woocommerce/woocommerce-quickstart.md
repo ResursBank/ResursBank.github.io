@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Quick Start Guide
+title: QuickStart Guide
 permalink: /platform-plugins/woocommerce/woocommerce-quickstart
 parent: Woocommerce
 grand_parent: Platform Plugins
