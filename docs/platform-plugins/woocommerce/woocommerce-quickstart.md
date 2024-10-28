@@ -9,11 +9,11 @@ has_children: false
 has_toc: false
 ---
 
-# Quick Install WooCommerce
+# QuickStart Guide WooCommerce
 
-For full documentation, see [this section](resurs-merchant-api-for-woocommerce.md)
+## Request test credentials from Resurs Bank.
 
-# Installing the plugin
+## Installing the plugin
 
 Install the plugin via WordPress plugin repository (the plugin manager
 in wp-admin). It is NOT recommended to install the plugin manually since
@@ -36,20 +36,22 @@ functionality between environments and to ensure proper handling of user credent
 To manage credentials in WooCommerce:
 
 1. Navigate to the Resurs API section.
-2. Locate the **Credentials** section, where you will be able to input, update, and verify your credentials.
+2. WooCommerce > Settings > Resurs Bank > API Settings
 3. The credentials fields include **API Key**, **API Secret**, and **Store ID**. These are essential for connecting the
    WooCommerce store to the external system.
 
 #### INPUTTING CREDENTIALS
 
-When entering your credentials:
+1. **Fill in the API Key, API Secret** provided by Resurs Bank
 
-1. **Fill in the API Key, API Secret, and Store ID** fields.
-    - Ensure that the credentials you enter are correct and valid, as incorrect credentials will prevent the store from
-      functioning properly.
+2. **Fetching Store Data**
 
-2. **Fetching Store Data**:
-    - After entering the credentials, click the **Fetch Stores** button to retrieve the store list associated with the
-      entered credentials.
-    - The store list will appear if the credentials are valid. If the credentials are invalid, an error message will
-      display, and no stores will be fetched.
+3. **Save settings**
+
+For full documentation, see [this section](resurs-merchant-api-for-woocommerce.md)
+
+### Perform test purchase using our test data to ensure everything works
+
+[Resurs Bank Test Data](https://developers.resurs.com/testing/)
+
+### Sign an agreement with Resurs Bank to get credentials for production.
