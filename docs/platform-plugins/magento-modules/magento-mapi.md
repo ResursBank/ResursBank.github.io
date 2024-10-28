@@ -2,7 +2,7 @@
 layout: page
 title: Full Documentation
 permalink: /platform-plugins/magento-modules/resurs-bank-magento2-module-for-mapi/
-nav_order: 11
+nav_order: 12
 parent: Magento Modules
 grand_parent: Platform Plugins
 ---
