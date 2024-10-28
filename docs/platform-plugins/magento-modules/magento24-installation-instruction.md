@@ -5,6 +5,7 @@ permalink: /platform-plugins/magento-modules/magento24-installation-instruction/
 nav_order: 21
 parent: Magento Modules
 grand_parent: Platform Plugins
+nav_exclude: true
 ---
 
 # Resurs Bank Magento 2.4+ Installation Instruction 
