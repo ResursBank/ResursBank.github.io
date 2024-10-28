@@ -36,7 +36,7 @@ functionality between environments and to ensure proper handling of user credent
 To manage credentials in WooCommerce:
 
 1. Navigate to the Resurs API section.
-2. Locate the **Credentials** section, where you will be able to input, update, and verify your credentials.
+2. WooCommerce > Settings > Resurs Bank > API Settings
 3. The credentials fields include **API Key**, **API Secret**, and **Store ID**. These are essential for connecting the
    WooCommerce store to the external system.
 
