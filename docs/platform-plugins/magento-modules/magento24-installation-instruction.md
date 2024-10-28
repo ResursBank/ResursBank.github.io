@@ -2,7 +2,7 @@
 layout: page
 title: Resurs Bank Magento 2.4+ Installation Instruction
 permalink: /platform-plugins/magento-modules/magento24-installation-instruction/
-nav_order: 11
+nav_order: 21
 parent: Magento Modules
 grand_parent: Platform Plugins
 ---
