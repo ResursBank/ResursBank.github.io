@@ -43,7 +43,11 @@ the configuration options you should check
 [the complete manual](/platform-plugins/magento-modules/resurs-bank-magento2-module-for-mapi)
 for the module.
 
-# 4. Acquire production credentials
+# 4. Perform test purchase using our test data to ensure everything works
+
+[Resurs Bank Test Data](https://developers.resurs.com/testing/)
+
+# 5. Acquire production credentials
 
 When you have finished testing the integration and Resurs Bank have cleared
 your store to go live you should also have received your production credentials.
