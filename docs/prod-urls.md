@@ -5,7 +5,7 @@ permalink: /prod-urls/
 ---
 
 # Go Live URLs
-Test URLs: [Test URLs](Test-URLs_2097164.html)
+[Test URLs](/testing/test-urls/)
 
 ## Checklist for go live
 - Request user name and password to services and to Resurs Payment Admin
@@ -31,11 +31,11 @@ Test URLs: [Test URLs](Test-URLs_2097164.html)
 
 ## Firewalling
 How to configure firewalls
-**Do you have a strictly configured environment?** [**Take a
-look **](https://test.resurs.com/docs/display/ecom/FAQ#FAQ-HowdoIconfiguremyfirewall/network)**[here](FAQ_328016.html) to
+**Do you have a strictly configured environment? [Take a
+look here](faq/index.md) to
 get proper settings for your firewall/web services.**  
 Link:
-[FAQ#HowdoIconfiguremyfirewall/network](FAQ_328016.html#FAQ-HowdoIconfiguremyfirewall/network)
+[FAQ](faq/index.md)
   
   
 ## Payment Admin
@@ -44,9 +44,12 @@ Link:
 ### Resurs Checkout
 For Resurs Checkout go to:  
 [https://checkout.resurs.com/checkout](https://checkout.resurs.com/checkout)
+
+<!---  
 ## Hosted Flow
 For hosted flow go to:  
 [https://ecommerce-hosted.resurs.com/back-channel](https://ecommerce-hosted.resurs.com/back-channel)
+---> 
 ## Webservices
 ### WSDL files
 #### Simplified Shop Flow:

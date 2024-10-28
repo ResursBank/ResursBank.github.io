@@ -2,38 +2,42 @@
 layout: page
 title: Platform Plugins
 permalink: /platform-plugins/
+nav_order: 31
 has_children: true
+has_toc: false
 ---
 
 
 # Platform Plugins 
-Created by Benny, last modified by Gert on 2023-10-16
-**Content of this page**
-- [Supported open source e-commerce website
-  platforms](#supported-open-source-e-commerce-website-platforms)
-- [SSL Certificate, https and
-    certificates](#ssl-certificate-https-and-certificates)
-- [Do not forget to check your certificates! See FAQ for more
-      information.](#do-not-forget-to-check-your-certificates-see-faq-for-more-information)
-
-- [Maintaining
-    Compatibility](#maintaining-compatibility)
-- [PHP Platform
-    Requirements](#php-platform-requirements)
-- [Avoid PHP 5.6, try push your PHP platform upwards - not
-      downwards.](#avoid-php-56-try-push-your-php-platform-upwards---not-downwards)
-
-  - [Autotesting](#autotesting)
-
-[Issue tracking](#issue-tracking)
-
-- [Magento modules](/magento-modules/)
-- [OpenCart](/opencart/)
-- [PrestaShop Payment Gateways](/prestashop-payment-gateways/)
-- [WooCommerce](/woocommerce/)
 
 # Supported open source e-commerce website platforms
 
+| E-Commerce Platforms                                        | Magento v2.4.4+                                    | WooCommerce v7.6.0-                         |
+|-------------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------|
+| **Shop flow**                                               |                                                         |                                               | 
+| Resurs Merchant API 2.0                 | YES             | YES    |
+| **After shop**                                             |                                                         |                                               |                                               
+| Debiting whole order                                       | YES              | YES    |
+| Debiting part order                                        | NO             | NO   |
+| Crediting whole order                                       | YES              | YES    |
+| Crediting part order                                       | YES              | YES \* |
+| Annulment whole order                                      | YES              | YES    |
+| Annulment part order                                       | NO             | YES \* |
+| Additional Debit of Payment                                | NO             | NO   |
+| **Callback support**                                       |                                                         |                                               |
+| Callbacks report to shop                                   | YES              | YES    |
+| **Discounts and fees**                                    |                                                         |                                               |
+| Handle gift card                                           | NO             | NO   |
+| Handle invoice fee                                         | NO             | YES    |
+| Handle discount                                            | YES              | YES    |
+| Handle shipping fee                                        | YES              | YES    |
+| **Other**                                                   |                                                         |                                               |
+| Display monthly cost with Resurs Bank in product catalog    | YES              | YES    |
+| Use platform order number as reference in Resurs Bank       | YES              | YES    |
+| Supports multistore                                        | YES              | NO   |
+
+
+<!---
 | E-Commerce Platforms                                        | Magentov2.3.x-v2.4.x                                    | WooCommerceRead more                          | OpenCartv1.5.x - v3.x End of life: September, 2023     | PrestaShopv1.6.1.x / v1.7.7.x End of life: October 1, 2022 | PrestaShopv1.7.7.x End of life: September, 2023 |
 |-------------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------|--------------------------------------------------------|------------------------------------------------------------|------------------------------------------------|
 | **Shop flow**                                               |                                                         |                                               |                                                        |                                                            |                                                |
@@ -59,9 +63,10 @@ Created by Benny, last modified by Gert on 2023-10-16
 | Display monthly cost with Resurs Bank in product catalog    | YES              | YES    | YES             | YES                 | YES     |
 | Use platform order number as reference in Resurs Bank       | YES              | YES    | YES             | YES                 | YES     |
 |  Supports multistore                                        | YES              | NO   | YES             | NO                | NO    |
+-->
 
 ## SSL Certificate https and certificates
-### Do not forget to check your certificates! See [FAQ](faq) for more information.
+### Do not forget to check your certificates! [FAQ](/faq/)
 ## Maintaining Compatibility
 **The more plugins you activate that handles your layout - and changes
 the default** **behavior** **of regular styling - the more the risk that
@@ -87,7 +92,6 @@ Since the market changes rapidly we realized that we had to drop all old
 tests, as the started to break while we were going forward.
 
 # Issue tracking
-Have a look at the landing page for [Development](development).
 
 > The plugins listed and provided from this page are open source and
 > community-driven software. By means, it is software that could be used

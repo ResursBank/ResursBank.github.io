@@ -9,7 +9,7 @@ parent: After Shop Service Api
 # Find Payments 
 
 ## findPayments
-*Searches for payments that match the specified requirements.*
+> Searches for payments that match the specified requirements.
 
 **Input (Literal)**
 

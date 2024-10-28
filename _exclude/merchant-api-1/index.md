@@ -7,7 +7,7 @@ has_children: true
 
 
 # Merchant API 1 
-Created by Gert, last modified by Patric Johnsson on 2023-03-21
+
 NOTE!
 This API is generally not to be implemented as of 2023. Instead, see
 Merchant API 2 here: [Merchant API 2.0](Merchant-API-2.0_91029586.html)

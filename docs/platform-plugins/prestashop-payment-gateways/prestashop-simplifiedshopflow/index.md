@@ -1,12 +1,11 @@
 ---
 layout: page
 title: Prestashop Simplifiedshopflow
+nav_exclude: true
 permalink: /platform-plugins/prestashop-payment-gateways/prestashop-simplifiedshopflow/
 parent: Prestashop Payment Gateways
 grand_parent: Platform Plugins
 ---
-
-
 
 # PrestaShop SimplifiedShopFlow 
 

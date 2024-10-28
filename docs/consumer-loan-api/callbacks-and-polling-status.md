@@ -68,7 +68,7 @@ below;
 
 ### Example callbacks - all sent in JSON-format
 #### SIGNED – when the signed agreement is received
-**SIGNED**
+> SIGNED
 ```xml
 {
   "externalApplicationEvent" : {
@@ -80,7 +80,7 @@ below;
 ```
 
 #### CREDIT_DECISION_UPDATED – APPROVED – when initial credit decision manual_inspection is changed to approved
-**CREDIT_DECISION_UPDATED – APPROVED**
+> CREDIT_DECISION_UPDATED – APPROVED
 ```xml
 {
   "externalApplicationEvent" : {
@@ -107,7 +107,7 @@ below;
 ```
 
 #### CREDIT_DECISION_UPDATED – REJECTED – when initial credit decision manual_inspection is changed to rejected
-**CREDIT_DECISION_UPDATED – REJECTED**
+> CREDIT_DECISION_UPDATED – REJECTED
 ```xml
 {
   "externalApplicationEvent" : {
@@ -123,7 +123,7 @@ below;
 ```
 
 #### WAITING_FOR_ADDITION – when we are awaiting additional information from the customer
-**WAITING_FOR_ADDITION**
+> WAITING_FOR_ADDITION
 ```xml
 {
   "externalApplicationEvent" : {
@@ -136,7 +136,7 @@ below;
 ```
 
 #### PAID_OUT - When Resurs has paid out the loan. (Disclaimer! This callback cannot be generated in test environment)
-**PAID_OUT**
+> PAID_OUT
 ```xml
 {
   "externalApplicationEvent" : {

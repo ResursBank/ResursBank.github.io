@@ -7,7 +7,7 @@ parent: Merchant Api 1
 
 
 # Credit Application 
-Created by Sara Wintherfrid Josefsson, last modified on 2022-08-18
+
 The credit application flow is used when a customer wants to apply for
 an account without making a purchase at the same time as the application
 is made. 

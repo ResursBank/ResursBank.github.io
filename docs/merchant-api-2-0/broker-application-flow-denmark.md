@@ -3,13 +3,14 @@ layout: page
 title: Broker Application Flow Denmark
 permalink: /merchant-api-2-0/broker-application-flow-denmark/
 parent: Merchant Api 2.0
+nav_order: 11
 ---
 
 
 # Broker Application Flow Denmark 
 
-# **Basic API flow**
-## **Authentication**
+# Basic API flow
+## Authentication
 Every request requires an authorization header with a Bearer-token. A
 token lasts for 3600 seconds (1 hour). To get a token you may use your
 test-credentials received from Resurs Bank.
@@ -34,8 +35,8 @@ Token](https://merchant-api.integration.resurs.com/docs/oauth2#/Oauth2%20token%2
 > client_secret' \\-data-urlencode 'scope=mock-merchant-api'
 > \\-data-urlencode 'grant_type=client_credentials'
 
-## **Get Store ID**
-**Get available stores**
+## Get Store ID
+Get available stores
 
 A client may have access to multiple stores, therefore we need to know
 which store to make the application or payment for.  
@@ -55,7 +56,7 @@ Stores](https://merchant-api.integration.resurs.com/docs/v2/merchant_stores_v2#/
 > 'https://merchant-api.integration.resurs.com/v2/stores'--header
 > 'Authorization: Bearer \<TOKEN\>'
 
-## **Get available payment methods**
+## Get available payment methods
 A store may have multiple payment methods available. The list of
 available payment methods will show what payment methods there are to
 apply from at the chosen store.  
@@ -79,6 +80,6 @@ Methods](https://merchant-api.integration.resurs.com/docs/v2/merchant_stores_v2#
 > 'Content-Type: application/json' \\-header 'Authorization: Bearer
 > \<TOKEN\>'
 
-## **Get payment specification**
+## Get payment specification
 To get an overview of what the API 
 

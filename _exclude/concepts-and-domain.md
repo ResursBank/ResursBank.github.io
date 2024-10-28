@@ -5,7 +5,7 @@ permalink: /concepts-and-domain/
 ---
 
 # Concepts and Domain 
-Created by Tobias, last modified by Thomas Tornevall on 2023-12-27
+
 Like any other system, Resurs Bank eCommerce has a couple of concepts
 defining its domain. Understanding this domain reduces the risk of
 misunderstanding what functions do, and speeds up development. Thus we

@@ -2,15 +2,19 @@
 layout: page
 title: Prestashop Payment Gateways
 permalink: /platform-plugins/prestashop-payment-gateways/
+av_order: 31
 parent: Platform Plugins
 has_children: true
+has_toc: false
+nav_exclude: true
 ---
 
 
 
 # PrestaShop Payment Gateways 
 
-## Internal errorhandling i Cart parts
+## Internal error handling i Cart parts
+
 To make sure we can separate "common errors" from the unknown exceptions
 we've added a bunch of error codes in the Cart.php-section of the
 Prestashop-RCO module. They are mostly self explained, but we're listing

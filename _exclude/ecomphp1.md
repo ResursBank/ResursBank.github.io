@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # Version 1.x (EComPHP) 
-Created by Thomas Tornevall, last modified on 2023-05-12
+
 This document covers information about EComPHP 1.x (Currently 1.3.x).
 
 > Resurs Bank in the communityIf something does not work properly in

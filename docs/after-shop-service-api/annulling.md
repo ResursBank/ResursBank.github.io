@@ -9,10 +9,10 @@ parent: After Shop Service Api
 # Annulling 
 
 ## annulPayment
-*Annuls the payment. This removes the reservation on the customer's
-account. NB: For a payment to be annulled, it must be booked. If it has
-been finalized, it can no longer be annulled. (Finalized payments have
-to be credited.)*
+> Annuls the payment. This removes the reservation on the customer's
+> account. NB: For a payment to be annulled, it must be booked. If it has
+> been finalized, it can no longer be annulled. (Finalized payments have
+> to be credited.)
 
 **Input (Literal)**
 

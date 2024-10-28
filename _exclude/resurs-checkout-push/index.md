@@ -7,7 +7,7 @@ has_children: true
 
 
 # Resurs Checkout PUSH 
-Created by Gert, last modified by Patric Johnsson on 2023-08-17
+
 ------
 # Overview
 Resurs self service Checkout is a POS-service where you send in the cart

@@ -10,7 +10,7 @@ has_toc: false
 
 
 # PHP and development libraries 
-Created by Thomas Tornevall, last modified on 2023-05-12
+
 - [Supported code and
   links](#phpanddevelopmentlibraries-supportedcodeandlinks)
 - [Discontinued

@@ -5,7 +5,7 @@ permalink: /the-resurs-bank-e-commerce-platform/
 ---
 
 # ![Home Page](images/icons/contenttypes/home_page_16.png)  Resurs Bank e-Commerce Platform : The Resurs Bank E-Commerce Platform 
-Created by Tobias, last modified by Daniel on 2023-01-03
+
  
 [![](../attachments/327701/5571515.jpg?effects=border-simple,shadow-kn)](https://www.resursbank.se/foretag/betallosningar/)
 Search

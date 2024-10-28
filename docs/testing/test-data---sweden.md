@@ -5,11 +5,8 @@ permalink: /testing/test-data---sweden/
 parent: Testing
 ---
 
-
 # Test Data - Sweden 
-Created by Joachim Andersson, last modified by Sara Wintherfrid
-Josefsson on 2024-01-15
-**Quick find**
+
 \[ [Persons](#testdatasweden-persons) \] \[
 [Organisations](#testdatasweden-organisations) \] \[
 [Cards](#testdatasweden-cards) \] \[ [Account](#testdatasweden-account)
@@ -30,7 +27,7 @@ Persons to use when testing. 
 | Birthday       | Gender | Civic number |                     Get address response                     |  [Simplified shop flow](/simplified-flow-api/)                                                                                                      | Merchant API                                                                                                                                                                                                              | Exception                                                         |
 |----------------|--------|--------------|:------------------------------------------------------------:|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
 | 1983-05-14     | M      | 198305147715 | Vincent Williamsson AlexanderssonGlassgatan 1541655 Göteborg | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=BOOKED or FINALIZED                                                                          | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status = ACCEPTEDCallback AUTHORIZED is received if callbacks are in use                            | Do not use this civic number when testing new- and existing card. |
-| 1950-12-02     | M      | 195012026430 |   Oliver Liamsson WilliamssonMakadamg 1 25024 Helsingborg    | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED                                                                                       | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status =Callback REJECTED is received if callbacks are in use                                       |                                                                   |
+| 1950-12-02     | M      | 197211072793 |   Oliver Williamsson Alexandersson Makadamg 5 25024 Helsingborg    | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED                                                                                       | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status =Callback REJECTED is received if callbacks are in use                                       |                                                                   |
 | 1982-09-12     | F      | 198209123705 |     Julia Liamsson LiamssonMakadamg 1725024 Helsingborg      | [bookPayment](/simplified-flow-api/bookpayment/)  returns bookPaymentStatus=FROZENThe payment will never be unfrozen.                                                   | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status = FROZEN                                                                                     | Do not use this civic number when testing new- and existing card. |
 | 1980-01-01     | F      | 198001010001 |      Stella Liamsson EliasssonMakadamg 3 41655 Göteborg      | [bookPayment](/simplified-flow-api/bookpayment/)  returns bookPaymentStatus=FROZENAfter 5 seconds the payment is **unfrozen.** Requires `waitForFraudControl=true`      | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status = FROZENAfter 5 seconds the payment is **unfrozen**.Requires handleFrozenPayments= true      | Do not use this civic number when testing new- and existing card. |
 | 1978-01-06     | F      | 197801069241 |    Elsa Liamsson AlexanderssonEkslingan 2011521 Stockholm    | [bookPayment](/simplified-flow-api/bookpayment/)  returns bookPaymentStatus=FROZENAfter 5 seconds the payment is **annulled.**                                          | [Create payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20authorization/createPayment) returns status =After 5 seconds the payment is **annulled.**Requires handleFrozenPayments= true     | Do not use this civic number when testing new- and existing card. |
@@ -41,6 +38,10 @@ Persons to use when testing. 
 
 ###  Organisations
 Organisations to use when testing.
+
+> The first two digits of the organization number are optional:
+>   - for legal entity: 16 + the company's assigned organization number (10 digits)
+>   - for a natural person: century digits 18, 19 or 20 + social security number (10 digits)
 
 | Organisation number | Gender | Civic number |                   Get address                   | [Simplified shop flow](/simplified-flow-api/)                     | ~~Shop Flow~~ (deprecated)                             |
 |---------------------|--------|--------------|:-----------------------------------------------:|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|

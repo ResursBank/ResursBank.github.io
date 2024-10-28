@@ -7,32 +7,31 @@ parent: Testing
 
 
 # Test URLs 
-> Looking for production/live environment?You can find the live URLs
-> here: URLs for prod/live with important checklist
+[Go Live URLs](/prod-urls/)
 
 - [Firewalling](#firewalling)
-- [Payment Admin](#paymentadmin)
+- [Payment Admin](#payment-admin)
 - [Merchant Portal](#merchant-portal)
-- [Test URLs](#testurls)
+- [Test URLs](#test-urls)
   - [Resurs Checkout](#resurs-checkout)
   - [Hosted flow](#hosted-flow)
   - [Webservices](#webservices)
-    - [WSDL files](#wsdl.files)
+    - [WSDL files](#wsdl-files)
       - [Simplified Shop Flow](#simplified-shop-flow)
       - [After Shop Flow](#after-shop-flow)
       - [Configuration](#configuration)
       - [Developer](#developer)
 
-    - [Service endpoints](#service-end-points)
+    - [Service endpoints](#service-endpoints)
       - [Simplified Shop Flow:](#simplified-shop-flow)
-      - [After Shop Flow:](#aftershopflow)
+      - [After Shop Flow:](#after-shop-flow)
       - [Configuration:](#configuration)
       - [Developer:](#developer)
 
 # Firewalling
-> How to configure firewallsDo you have a strictly configured
+> How to configure firewalls - Do you have a strictly configured
 > environment? Take a look here to get proper settings for your
-> firewall/web services.Link: FAQ#HowdoIconfiguremyfirewall/network
+> firewall/web services. [Link to faq](/faq/)
 
 # Payment Admin
 For the Payment Admin go to: 
@@ -60,9 +59,10 @@ API:
 For more information about the usage, see [Resurs Checkout
 Web](resurs-checkout-web).
 
+<!--- 
 ## Hosted flow
 [https://test.resurs.com/ecommerce-test/hostedflow/back-channel](https://test.resurs.com/ecommerce-test/hostedflow/back-channel)
-
+---> 
 ## Webservices
 ### WSDL files
 #### Simplified Shop Flow:

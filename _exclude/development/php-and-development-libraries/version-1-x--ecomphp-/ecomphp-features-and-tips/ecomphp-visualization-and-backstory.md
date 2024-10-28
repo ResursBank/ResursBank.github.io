@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # EComPHP Visualization and backstory 
-Created by Thomas Tornevall, last modified on 2021-08-21
+
 
 **Table of contents**
 \[ [Communication

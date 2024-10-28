@@ -9,10 +9,10 @@ parent: After Shop Service Api
 # Finalize Payment 
 
 ## finalizePayment
-*Finalizes a payment. When a payment is finalized, the amount will be
-transferred from the customer's account to that of the representative.
-NB: For a payment to be finalized, it must be booked and it cannot be
-frozen.*
+> Finalizes a payment. When a payment is finalized, the amount will be
+> transferred from the customer's account to that of the representative.
+> NB: For a payment to be finalized, it must be booked and it cannot be
+> frozen.
 
 **Input (Literal)**
 

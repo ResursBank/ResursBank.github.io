@@ -7,7 +7,7 @@ has_children: true
 
 
 # Payment administration GUI 
-Created by User2, last modified by Thomas Tornevall on 2023-12-27
+
 Merchant Portal is Resurs Banks new web-GUI for administrating orders.
 Merchant Portal has been built with an omni-state of mind where you can
 have information regarding both e-commerce orders and your in

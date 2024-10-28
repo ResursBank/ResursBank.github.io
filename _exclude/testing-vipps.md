@@ -9,7 +9,7 @@ grand_parent: Testing
 
 
 # Testing Vipps 
-Created by Patric Johnsson, last modified on 2022-08-19
+
 ## Installing the Vipps test app on your phone
 In order to test Vipps payments, we need to use the test app "Vipps MT"
 on a phone. Follow these instructions to install it: [Vipps test

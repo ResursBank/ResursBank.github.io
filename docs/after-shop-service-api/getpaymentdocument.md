@@ -10,7 +10,7 @@ parent: After Shop Service Api
 
 
 ## getPaymentDocument
-*Retrieves a specified document from the payment.*
+> Retrieves a specified document from the payment.
 
 **Input (Literal)**
 

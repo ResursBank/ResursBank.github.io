@@ -1,9 +1,10 @@
 ---
 layout: page
 title: Prestashop Simplified- Changes And Updates
+nav_exclude: true
 permalink: /platform-plugins/prestashop-payment-gateways/prestashop-simplifiedshopflow/77365438/
-parent: Prestashop Payment Gateways
-grand_parent: Platform Plugins
+parent: Prestashop Simplifiedshopflow
+grand_parent: Prestashop Payment Gateways
 ---
 
 # PrestaShop Simplified: Changes and updates 

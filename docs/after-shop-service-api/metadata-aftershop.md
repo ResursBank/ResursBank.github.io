@@ -9,10 +9,10 @@ parent: After Shop Service Api
 # MetaData AfterShop 
 
 ## addMetaData
-*Adds meta data to the payment. The meta data can be used to register
-additional information about the payment, and they may also be used for
-searching. Currently, meta data cannot be removed from a payment.
-However, existing values can be over-written.*
+> Adds meta data to the payment. The meta data can be used to register
+> additional information about the payment, and they may also be used for
+> searching. Currently, meta data cannot be removed from a payment.
+> However, existing values can be over-written.
 
 **Input (Literal)**
 

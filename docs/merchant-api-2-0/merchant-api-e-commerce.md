@@ -3,6 +3,7 @@ layout: page
 title: Merchant Api E-Commerce
 permalink: /merchant-api-2-0/merchant-api-e-commerce/
 parent: Merchant Api 2.0
+nav_order: 21
 ---
 
 
@@ -32,7 +33,7 @@ parent: Merchant Api 2.0
 ![](../../attachments/mapiEcom.png)
 
 ## Basic API flow
-### **Authentication**
+### Authentication
 Every request requires an authorization header with a Bearer-token. A
 token lasts for 3599 seconds. To get a token you may use your
 test-credentials received from Resurs Bank.
@@ -58,7 +59,7 @@ Token](https://merchant-api.integration.resurs.com/docs/oauth2#/Oauth2%20token%2
 > \\-data-urlencode 'grant_type=client_credentials'
 
 ### Get Store ID
-**Get available stores**
+Get available stores
 
 A client may have access to multiple stores, therefore we need to know
 which store to make the application or payment for.  
@@ -106,8 +107,8 @@ Methods](https://merchant-api.integration.resurs.com/docs/v2/merchant_stores_v2#
 > 'Content-Type: application/json' \\-header 'Authorization: Bearer
 > \<TOKEN\>'
 
-## **Create Payment**
-### **Create payment**
+## Create Payment
+### Create payment
 The call below is used to create a new payment and authorize the
 payment.
 
@@ -156,7 +157,7 @@ status:
 TASK_REDIRECTION_REQUIRED → redirect customer to "customerUrl" and await callback. 
 Callbacks with callback-status AUTHORIZED, REJECTED, FROZEN or CAPTURED can be received before or after redirection is performed. 
 
-### **Postman collection of the requests above**
+### Postman collection of the requests above
 ```json
 {
 	"info": {

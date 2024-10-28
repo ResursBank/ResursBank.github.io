@@ -1,9 +1,10 @@
 ---
 layout: page
 title: Presta-Simplified And Translations
+nav_exclude: true
 permalink: /platform-plugins/prestashop-payment-gateways/prestashop-simplifiedshopflow/presta-simplified-and-translations/
-parent: Prestashop Payment Gateways
-grand_parent: Platform Plugins
+parent: Prestashop Simplifiedshopflow
+grand_parent: Prestashop Payment Gateways
 ---
 
 

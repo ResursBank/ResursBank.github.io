@@ -7,7 +7,7 @@ parent: Developer Service
 
 
 # isSigned 
-Created by Benny, last modified by Thomas Tornevall on 2023-12-27
+
 # *isSigned*
 *Determines whether or not a specific agreement has been successfully
 signed.*

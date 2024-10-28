@@ -7,7 +7,7 @@ parent: Resurs Checkout Web
 
 
 # API for retrieving masked card number 
-Created by Patric Johnsson on 2019-07-16
+
 Note!
 The payment has to been made thru our PSP-partner NETS and the merchant
 has be registrered in our interface Merchant Portal. If you are

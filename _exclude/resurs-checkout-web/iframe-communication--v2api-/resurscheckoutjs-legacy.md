@@ -7,7 +7,7 @@ parent: Resurs Checkout Web
 
 
 # ResursCheckoutJS Legacy 
-Created by Thomas Tornevall, last modified on 2022-05-09
+
 **Table of contents**
 - [Requirements](#ResursCheckoutJSLegacy-Requirements)
   - [Dependencies and script

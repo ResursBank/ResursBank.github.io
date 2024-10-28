@@ -9,7 +9,7 @@ grand_parent: Payment Administration Gui
 
 
 # Configuration Merchant Portal 
-Created by Daniel, last modified by Thomas Tornevall on 2023-12-27
+
 ### Invoice number (Fakturanummer)
 This is an invoice sequence that can help the store to generate unique
 invoice numbers. If you choose to use this, you set a desired start

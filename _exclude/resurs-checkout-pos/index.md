@@ -7,7 +7,7 @@ has_children: true
 
 
 # Resurs Checkout POS 
-Created by Daniel, last modified by Patric Johnsson on 2022-12-06
+
 ------
 # Overview
 Resurs Checkout POS is an iFrame browser-based payment gateway that can

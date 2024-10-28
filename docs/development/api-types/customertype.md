@@ -12,7 +12,7 @@ grand_parent: Development
 
 **customerType**
 
-Description: The type of customer.
+Description: The type of customer.
 
 | Value   | Description                                        |
 |---------|----------------------------------------------------|

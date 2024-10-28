@@ -132,7 +132,11 @@ parent: Simplified Flow Api
    </soapenv:Body>
 ```
 
-> Using Swish payment method?Note that if you are using Swish as a
+
+> [!IMPORTANT]
+> When using payment method Swish.
+> 
+> Note that if you are using Swish as a
 > payment method via Resurs, you must include the customer's cellphone
 > number in the \<cellPhone\>-row. Using \<phone\> will result in an
 > error in production

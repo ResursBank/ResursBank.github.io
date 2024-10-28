@@ -3,6 +3,7 @@ layout: page
 title: Payment Management
 permalink: /merchant-api-2-0/payment-management/
 parent: Merchant Api 2.0
+nav_order: 31
 ---
 
 
@@ -86,7 +87,9 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
 > "quantityUnit": "pcs", "vatRate": 25, "totalAmountIncludingVat": 500.0
 > } \] }
 
+
 ### Postman collection of the requests above
+
 ```json
 {
 	"info": {

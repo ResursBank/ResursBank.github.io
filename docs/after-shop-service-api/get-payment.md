@@ -9,7 +9,7 @@ parent: After Shop Service Api
 # Get Payment 
 
 ## getPayment
-*Retrieves detailed information about the payment.*
+> Retrieves detailed information about the payment.
   
 **Input (Literal)**
 

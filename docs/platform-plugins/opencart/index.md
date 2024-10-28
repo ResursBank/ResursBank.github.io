@@ -2,8 +2,11 @@
 layout: page
 title: Opencart
 permalink: /platform-plugins/opencart/
+av_order: 21
 parent: Platform Plugins
 has_children: true
+has_toc: false
+nav_exclude: true
 ---
 
 

@@ -7,7 +7,7 @@ parent: Resurs Checkout Pos
 
 
 # Pre-filling customer data in Resurs Checkout POS 
-Created by Daniel, last modified by Patric Johnsson on 2020-12-07
+
   
 ### Optimize the Checkout for Returning Customers
 Customers are more likely to complete purchases if they can checkout

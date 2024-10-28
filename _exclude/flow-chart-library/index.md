@@ -7,7 +7,7 @@ has_children: true
 
 
 # Flow Chart Library 
-Created by Benny, last modified on 2017-03-09
+
 Here are all the flow charts for the e-Commerce. Flow charts are a
 perfect way to get a better understanding on how the e-Commerce works,
 how to implement and consume its services.

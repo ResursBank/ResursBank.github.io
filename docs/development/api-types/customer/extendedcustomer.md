@@ -10,7 +10,7 @@ grand_parent: Development
 
 # extendedCustomer 
 
-Extended Customer is an extension of the Customer, it is used in the
+Extended Customer is an extension of the Customer, it is used in the
 Simplified Shop Flow
 
 > Occurrences of fields below adhere to the xsd requirements.Beware that

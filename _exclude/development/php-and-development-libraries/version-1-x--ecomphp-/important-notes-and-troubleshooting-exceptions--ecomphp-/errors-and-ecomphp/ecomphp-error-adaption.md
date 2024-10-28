@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # EComPHP Error Adaption 
-Created by Thomas Tornevall on 2019-05-10
+
 EComPHP has been built to follow and normalize Resurs flows (and when
 it's needed convert unsupported data to valid supported data), so that
 we in the end always get the same kind of answers regardless of what

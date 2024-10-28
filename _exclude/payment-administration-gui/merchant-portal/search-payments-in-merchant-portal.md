@@ -9,7 +9,7 @@ grand_parent: Payment Administration Gui
 
 
 # Search Payments in Merchant Portal 
-Created by Daniel, last modified by Patric Johnsson on 2022-12-06
+
 ### Search payments
 To search for a specific order, simply enter the customers civic number
 (social security number), order-Id or invoice number.

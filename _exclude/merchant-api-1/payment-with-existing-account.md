@@ -7,7 +7,7 @@ parent: Merchant Api 1
 
 
 # Payment with Existing Account 
-Created by Sara Wintherfrid Josefsson, last modified on 2022-03-16
+
 ![](../../attachments/71794852/71794899.png)
 ## **Typical flow **
 ### **Authentication**

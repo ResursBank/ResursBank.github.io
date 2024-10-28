@@ -8,7 +8,7 @@ grand_parent: Development
 
 
 # EComPHP custom errorcodes 
-Created by Thomas Tornevall, last modified on 2019-10-08
+
 EComPHP, when errors occurs, renders own fault codes when something goes
 wrong. A sample of what codes that is used can be read [from this
 point](https://bitbucket.org/resursbankplugins/resurs-ecomphp/src/master/source/classes/rbapiloader/ResursException.php).

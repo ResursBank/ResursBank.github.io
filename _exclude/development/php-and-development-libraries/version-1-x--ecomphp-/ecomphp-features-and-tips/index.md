@@ -9,7 +9,7 @@ grand_parent: Development
 
 
 # EComPHP features and tips 
-Created by Thomas Tornevall, last modified on 2022-03-01
+
 This page will contain all special features that is not always obvious
 that EComPHP supports
 

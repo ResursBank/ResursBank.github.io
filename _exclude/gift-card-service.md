@@ -5,7 +5,7 @@ permalink: /gift-card-service/
 ---
 
 # Gift Card Service 
-Created by Benny, last modified by Tobias on 2017-12-12
+
 The Gift Card Service provides services for gift card related operations
 such as loading and canceling a gift card.
 The examples below demonstrates how to interact with the Gift Card

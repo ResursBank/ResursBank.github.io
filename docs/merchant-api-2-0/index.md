@@ -2,6 +2,7 @@
 layout: page
 title: Merchant Api 2.0
 permalink: /merchant-api-2.0/
+nav_order: 21
 has_children: true
 has_toc: false
 ---
