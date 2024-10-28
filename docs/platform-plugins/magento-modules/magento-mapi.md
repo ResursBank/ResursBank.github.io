@@ -9,7 +9,7 @@ grand_parent: Platform Plugins
 
 # Resurs Bank - Magento 2 module for MAPI integration
 
-This module integrates MAPI (**M**erchant **API**) with Magento 2. It use the
+This module integrates MAPI (**M**erchant **API**) with Magento 2. It uses the
 **Ecom** library (https://bitbucket.org/resursbankplugins/ecom2/) for this.
 
 This document describes how to install and configure the module, and various
