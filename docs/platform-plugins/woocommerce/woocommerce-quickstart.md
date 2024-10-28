@@ -11,7 +11,7 @@ has_toc: false
 
 # Quick Install WooCommerce
 
-For full documentation, see [this section](resurs-merchant-api-for-woocommerce.md)
+# Request credentials from Resurs Bank.
 
 # Installing the plugin
 
@@ -47,3 +47,5 @@ To manage credentials in WooCommerce:
 2. **Fetching Store Data**
 
 3. **Save settings**
+
+For full documentation, see [this section](resurs-merchant-api-for-woocommerce.md)
