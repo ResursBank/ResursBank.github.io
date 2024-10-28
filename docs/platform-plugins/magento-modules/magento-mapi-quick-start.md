@@ -8,7 +8,7 @@ grand_parent: Platform Plugins
 
 # Magento 2 with MAPI Quick Start Guide
 
-[Full documentation](platform-plugins/magento-modules/resurs-bank-magento2-module-for-mapi),
+[Full documentation](resurs-bank-magento2-module-for-mapi),
 refer to this for more detailed explanations of the various installation
 and configuration options.
 
@@ -39,7 +39,7 @@ the Checkout Type, Environment, Client ID, Client Secret and Store.
 
 If you are unsure of any of
 the configuration options you should check
-[the complete manual](platform-plugins/magento-modules/resurs-bank-magento2-module-for-mapi)
+[the complete manual](resurs-bank-magento2-module-for-mapi)
 for the module.
 
 # 4. Acquire production credentials
