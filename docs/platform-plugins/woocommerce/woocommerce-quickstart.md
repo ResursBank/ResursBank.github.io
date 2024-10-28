@@ -42,14 +42,8 @@ To manage credentials in WooCommerce:
 
 #### INPUTTING CREDENTIALS
 
-When entering your credentials:
+1. **Fill in the API Key, API Secret** provided by Resurs Bank
 
-1. **Fill in the API Key, API Secret, and Store ID** fields.
-    - Ensure that the credentials you enter are correct and valid, as incorrect credentials will prevent the store from
-      functioning properly.
+2. **Fetching Store Data**
 
-2. **Fetching Store Data**:
-    - After entering the credentials, click the **Fetch Stores** button to retrieve the store list associated with the
-      entered credentials.
-    - The store list will appear if the credentials are valid. If the credentials are invalid, an error message will
-      display, and no stores will be fetched.
+3. **Save settings**
