@@ -55,7 +55,7 @@ The official release is located at
 and can be installed directly from the plugin installation system in
 WordPress.
 
-![](../../../../attachments/91029967/wp_download.png)
+![](../../../../attachments/files/rb_plugin_install.png)
 
 # Manually installing plugin
 
