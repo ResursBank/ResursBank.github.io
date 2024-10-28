@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Woocommerce Full Documentation
+title: Full Documentation
 permalink: /platform-plugins/woocommerce/resurs-merchant-api-for-woocommerce
 parent: Woocommerce
 grand_parent: Platform Plugins
