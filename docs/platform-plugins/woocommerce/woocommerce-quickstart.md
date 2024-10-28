@@ -49,3 +49,9 @@ To manage credentials in WooCommerce:
 3. **Save settings**
 
 For full documentation, see [this section](resurs-merchant-api-for-woocommerce.md)
+
+### Perform test purchase using our test data to ensure everything works
+
+[Resurs Bank Test Data](https://developers.resurs.com/testing/)
+
+### Sign an agreement with Resurs Bank to get credentials for production.
