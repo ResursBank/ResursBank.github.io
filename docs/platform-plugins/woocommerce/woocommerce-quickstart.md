@@ -31,8 +31,9 @@ Url to the plugin itself is
 ![](../../../../attachments/files/wp_credentials.png)
 
 1. Navigate to the Resurs API section: **WooCommerce > Settings > Resurs Bank > API Settings**
-2. **Fetch Store Data**
-3. **Save changes**
+2. Fill in the **API Key**, **API Secret** provided by Resurs Bank
+3. **Fetch Store Data**
+4. **Save changes**
 
 For full documentation, see [this section](resurs-merchant-api-for-woocommerce.md)
 
