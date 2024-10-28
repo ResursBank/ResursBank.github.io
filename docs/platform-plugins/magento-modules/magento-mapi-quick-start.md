@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Resurs Bank Magento 2 Module for MAPI Integration Quick Start Guide
+title: Quick Start Guide
 permalink: /platform-plugins/magento-modules/resurs-bank-magento2-module-for-mapi-quick-start/
 parent: Magento Modules
 grand_parent: Platform Plugins
