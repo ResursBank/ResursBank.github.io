@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Magento 2 for MAPI QuickStart
-permalink: /platform-plugins/magento-modules/magento-mapi-quickstart/
+title: Resurs Bank Magento 2 module for MAPI integration
+permalink: /platform-plugins/magento-modules/resurs-bank-magento2-module-for-mapi/
 nav_order: 11
 parent: Magento Modules
 grand_parent: Platform Plugins
