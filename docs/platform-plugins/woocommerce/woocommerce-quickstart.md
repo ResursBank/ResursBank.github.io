@@ -11,7 +11,7 @@ has_toc: false
 
 # QuickStart Guide WooCommerce
 
-## Request credentials from Resurs Bank.
+## Request test credentials from Resurs Bank.
 
 ## Installing the plugin
 
