@@ -91,10 +91,10 @@ box](../../../../attachments/91029884/91029882.png "Product data box")
 
 ## Number of decimals
 
-By default WooCommerce is configured to show prices with zero decimals,
-for certain technical reasons this can occasionally cause rounding
-errors so we strongly recommend that you change this setting so to two
-decimals.
+In some platforms WooCommerce is configured to show prices with zero decimals.
+For certain technical reasons this can occasionally cause rounding
+errors, so we **strongly recommend that you change this setting so to two
+decimals**.
 
 This setting can be changed by going to `WooCommerce` → `Settings`  →
 `General`  and scrolling to the `Currency options`  section. It's called
