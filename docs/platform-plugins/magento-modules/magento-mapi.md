@@ -57,7 +57,7 @@ Payment Method configuration page in the Magento Admin Panel:
 
 Please configure the following:
 
-* Checkout Type: Select **MAPI**
+* Checkout Type: Select **Resurs Merchant API**
 * Environment: Select **Production** or **Test**, depending on whether this is
   a production or test environment.
 * Client ID: Enter your Resurs Bank *API Client ID*.
