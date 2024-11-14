@@ -26,4 +26,4 @@ Unregisters an existing event callback.
   
 ### Introduction
 This method is to unregister a callback event. For more on how this is
-done please read about Callbacks **[here](/callbacks)**.
+done please read about Callbacks **[here](/configuration-service/callbacks/)**.
