@@ -117,7 +117,8 @@ you can send in an unique SALT with every call.
 ## Use safe characters in URLs
 The Internet Engineering Task Force (IETF) defines the specification for Uniform Resource Locators (URLs) to provide a standard method to request, identify, and resolve resources on the Internet.
 
-It is important to adhere to this standard when developing configuration services. We strongly recommend to only use “safe” characters and URL encode “unsafe” characters. URL encoding replaces unsafe ASCII characters with a "%" followed by two hexadecimal digits.
+It is important to adhere to this standard when developing. We strongly recommend to only use “safe” characters and URL encode “unsafe” characters. URL encoding replaces unsafe ASCII characters with a "%" followed by two hexadecimal digits.
+
 |  | Characters | Encoding | 
 |:-------:|:----------------------:| :----------------------:|
 |    Safe characters |   Alphanumeric [0-9a-zA-Z], special characters $-_.+!*'(),   |     No   |
