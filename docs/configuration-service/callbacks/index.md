@@ -122,10 +122,10 @@ It is important to adhere to this standard when developing. We strongly recommen
 |  | Characters | Encoding | 
 |:-------:|:----------------------:| :----------------------:|
 |    Safe characters |   Alphanumeric [0-9a-zA-Z], special characters $-_.+!*'(),   |     No   |
-|    Reserved characters |   ; / ? : @ = &   |     Yes    |
+|    Reserved characters |   ; / ? : @ = &   |     Yes*    |
 |    Unsafe characters |   Includes the blank/empty space and " < > # % { } \| \ ^ ~ [ ] `    |    Yes   |
 
-* Based on the specification “reserved” characters also need to be encoded if they are not being used for a reserved purpose. For example, the question mark is reserved to denote a query string.
+*Based on the specification “reserved” characters also need to be encoded if they are not being used for a reserved purpose. For example, the question mark is reserved to denote a query string.
 
 This is an example URL containing unsafe characters that are not properly encoded:
 ``` https://foo.com/projects?$filter=id eq guid'{DA172A8F-1F5C-4CED-85F1-C844BEAD66E1}' ```
