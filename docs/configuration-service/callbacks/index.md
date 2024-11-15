@@ -113,6 +113,25 @@ Other authentication methods are not supported. Please note that the
 usage of a salt will be more secure if the channel isn't encrypted
 (SSL/TLS) (since basic authentication is plain text). For extra safety
 you can send in an unique SALT with every call.
+ 
+## Use safe characters in URLs
+The Internet Engineering Task Force (IETF) defines the specification for Uniform Resource Locators (URLs) to provide a standard method to request, identify, and resolve resources on the Internet.
+
+It is important to adhere to this standard when developing configuration services. We strongly recommend to only use “safe” characters and URL encode “unsafe” characters. URL encoding replaces unsafe ASCII characters with a "%" followed by two hexadecimal digits.
+|  | Characters | Encoding | 
+|:-------:|:----------------------:| :----------------------:|
+|    Safe characters |   Alphanumeric [0-9a-zA-Z], special characters $-_.+!*'(),   |     No   |
+|    Reserved characters |   ; / ? : @ = &   |     Yes    |
+|    Unsafe characters |   Includes the blank/empty space and " < > # % { } \| \ ^ ~ [ ] `    |    Yes   |
+
+* Based on the specification “reserved” characters also need to be encoded if they are not being used for a reserved purpose. For example, the question mark is reserved to denote a query string.
+
+This is an example URL containing unsafe characters that are not properly encoded:
+``` https://foo.com/projects?$filter=id eq guid'{DA172A8F-1F5C-4CED-85F1-C844BEAD66E1}' ```
+
+The same URL, now it is correctly encoded:
+``` https://foo.com/projects?$filter=id%20eq%20guid'%7BDA172A8F-1F5C-4CED-85F1-C844BEAD66E1%7D' ```
+
 ### Fallback - resending failed callbacks
 When we try to send a callback and it fails, either if we can't contact
 the callback service or the correct status aren’t returned, we will try
