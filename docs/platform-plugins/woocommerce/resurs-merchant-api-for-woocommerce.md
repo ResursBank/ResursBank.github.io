@@ -572,12 +572,11 @@ Here's an outline of what happens during a payment:
    callback to the shop.
 
 3. **Callback process and status update instead of customer success page:**
-   A callback registers the payment completion in the system, but it is not processed instantly after the purchase is
-   signed. Instead, the plugin introduces a short cooldown period before handling the callback to avoid conflicts with
-   the customer's actions. This delay ensures that if the customer completes the purchase and arrives at the "Thank You"
-   page during this time, the callback does not interfere with or duplicate the process. The system is designed to
-   gracefully manage both scenarios, updating the order status correctly and triggering the WooCommerce confirmation
-   email without errors or overlap.
+   The callback registers the payment completion in the system but is delayed briefly to avoid conflicts with the
+   customer's actions. This cooldown ensures that if the customer reaches the "Thank You" page during this time, the
+   callback and customer actions do not interfere, allowing the order status to update correctly and the confirmation
+   email to send without errors. This system is built to prevent duplicate email sending without the use
+   of [WC Worker Queue](https://github.com/woocommerce/woocommerce/wiki/WC_Queue---WooCommerce-Worker-Queue).
 
 ### A Third Scenario Based on Merchant Error:
 
