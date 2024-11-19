@@ -552,13 +552,13 @@ Here's an outline of what happens during a payment:
 
 1. **Customer initiates checkout and completes the payment:**
 
-The order is first created in WooCommerce.
+   The order is first created in WooCommerce.
 
 2. **Customer is redirected to an external page:**
 
-On this page, the customer completes tasks such as signing or confirming the payment. During this process, the order
-is already created in WooCommerce and is automatically set to "Pending Payment," which is the default initial status
-for an order.
+   On this page, the customer completes tasks such as signing or confirming the payment. During this process, the order
+   is already created in WooCommerce and is automatically set to "Pending Payment," which is the default initial status
+   for an order.
 
 3. **No further action occurs until the payment is completed:**
 
@@ -569,30 +569,30 @@ for an order.
 
 1. **Customer is redirected to an external page:**
 
-On this page, the customer completes signing, payment via credit card (e.g., Visa/Mastercard), etc.
+   On this page, the customer completes signing, payment via credit card (e.g., Visa/Mastercard), etc.
 
 2. **Customer exits the browser before returning to the success page:**
 
-If the customer closes their browser before being redirected back to the "Thank You" page, Resurs Bank initiates a
-callback to the shop.
+   If the customer closes their browser before being redirected back to the "Thank You" page, Resurs Bank initiates a
+   callback to the shop.
 
 3. **Callback process and status update instead of customer success page:**
 
-A callback registers the payment completion in the system but is delayed briefly to avoid conflicts with the
-customer's actions. This cooldown ensures that if the customer reaches the "Thank You" page during this time, the
-callback and customer actions do not interfere, allowing the order status to update correctly and the confirmation
-email to send without errors. This system is built to prevent duplicate email sending without the use
-of [WC Worker Queue](https://github.com/woocommerce/woocommerce/wiki/WC_Queue---WooCommerce-Worker-Queue).
+   A callback registers the payment completion in the system but is delayed briefly to avoid conflicts with the
+   customer's actions. This cooldown ensures that if the customer reaches the "Thank You" page during this time, the
+   callback and customer actions do not interfere, allowing the order status to update correctly and the confirmation
+   email to send without errors. This system is built to prevent duplicate email sending without the use
+   of [WC Worker Queue](https://github.com/woocommerce/woocommerce/wiki/WC_Queue---WooCommerce-Worker-Queue).
 
 ### A Third Scenario Based on Merchant Errors:
 
 1. **Customer begins the process as described above:**
 
-The customer is redirected to an internal page but decides to abandon the process without explicitly canceling the
-payment. As a result, the payment remains in a "Pending" state in the system.
+   The customer is redirected to an internal page but decides to abandon the process without explicitly canceling the
+   payment. As a result, the payment remains in a "Pending" state in the system.
 
 2. **Merchant manually changes the order status incorrectly:**
 
-If the merchant mistakenly updates the order status to "Processing" in the WooCommerce order editor, WooCommerce will
-send a confirmation email to the customer. However, since the payment remains incomplete, the transaction is not
-finalized until the customer confirms and completes the payment.
+   If the merchant mistakenly updates the order status to "Processing" in the WooCommerce order editor, WooCommerce will
+   send a confirmation email to the customer. However, since the payment remains incomplete, the transaction is not
+   finalized until the customer confirms and completes the payment.
