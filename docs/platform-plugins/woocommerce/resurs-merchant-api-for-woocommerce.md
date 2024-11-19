@@ -567,15 +567,17 @@ Here's an outline of what happens during a payment:
 1. **Customer is redirected to an external page:**
    On this page, the customer completes signing, payment via credit card (e.g., Visa/Mastercard), etc.
 
-2. **Customer exits the browser before returning to the success page:**  
+2. **Customer exits the browser before returning to the success page:**
    If the customer closes their browser before being redirected back to the "Thank You" page, Resurs Bank initiates a
    callback to the shop.
 
-3. **Callback process and status update:**  
-   The callback registers the payment completion in the system. To avoid conflicts, the plugin introduces a slight delay
-   in responding to ensure the customer and the callback do not attempt to update the order simultaneously.  
-   Once the callback is successfully processed, the order status is updated to "Processing," and WooCommerce triggers
-   the confirmation email.
+3. **Callback process and status update instead of customer success page:**
+   A callback registers the payment completion in the system, but it is not processed instantly after the purchase is
+   signed. Instead, the plugin introduces a short cooldown period before handling the callback to avoid conflicts with
+   the customer's actions. This delay ensures that if the customer completes the purchase and arrives at the "Thank You"
+   page during this time, the callback does not interfere with or duplicate the process. The system is designed to
+   gracefully manage both scenarios, updating the order status correctly and triggering the WooCommerce confirmation
+   email without errors or overlap.
 
 ### A Third Scenario Based on Merchant Error:
 
