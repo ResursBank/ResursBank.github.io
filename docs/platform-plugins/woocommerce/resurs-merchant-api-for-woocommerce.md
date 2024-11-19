@@ -546,8 +546,8 @@ curl https://ipv4.netcurl.org/ip.php
 This section explains how the mail flow is integrated with the plugin. The plugin itself does not trigger or manipulate
 emails but relies on WooCommerce order status updates to control when emails are sent. These updates help prevent issues
 such as orders being canceled if left in "Pending Payment" for too long, depending on how WooCommerce is configured. For
-example, stock handling may automatically cancel orders in pending status after a set period. We also avoid using the "
-On Hold" status to pause orders while waiting for customer action, ensuring a smoother and more reliable order flow.
+example, stock handling may automatically cancel orders in pending status after a set period. We also avoid using the
+"On Hold" status to pause orders while waiting for customer action, ensuring a smoother and more reliable order flow.
 Here's an outline of what happens during a payment:
 
 1. **Customer initiates checkout and completes the payment:**
@@ -557,12 +557,12 @@ Here's an outline of what happens during a payment:
 2. **Customer is redirected to an external page:**
 
    On this page, the customer completes tasks such as signing or confirming the payment. During this process, the order
-   is already created in WooCommerce and is automatically set to "Pending Payment," which is the default initial status
+   is already created in WooCommerce and is automatically set to "Pending Payment", which is the default initial status
    for an order.
 
 3. **No further action occurs until the payment is completed:**
 
-   Once the customer returns to the "Thank You" page, the WooCommerce order is updated to "Processing." At this point,
+   Once the customer returns to the "Thank You" page, the WooCommerce order is updated to "Processing". At this point,
    WooCommerce automatically sends the first confirmation email to the customer.
 
 ### Alternative Scenario:
