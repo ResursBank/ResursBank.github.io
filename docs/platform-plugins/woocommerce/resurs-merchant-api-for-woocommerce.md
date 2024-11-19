@@ -23,7 +23,6 @@ has_toc: false
 * [MAPI Checkout Flow](#mapi-checkout-flow)
 * [Resurs Mail Flow Explained](#resurs-mail-flow-explained)
 
-
 # Requirements
 
 - **At least** PHP 8.1
@@ -565,7 +564,7 @@ Here's an outline of what happens during a payment:
 
 ### Alternative Scenario:
 
-1. **Customer is redirected to an internal page:**  
+1. **Customer is redirected to an external page:**
    On this page, the customer completes signing, payment via credit card (e.g., Visa/Mastercard), etc.
 
 2. **Customer exits the browser before returning to the success page:**  
