@@ -11,6 +11,19 @@ has_toc: false
 
 # Resurs Merchant API 2.0 for WooCommerce
 
+## Table of Contents
+
+* [Requirements](#requirements)
+* [Download/install the plugin](#downloadinstall-the-plugin)
+* [Installation from WordPress plugin repository](#installation-from-wordpress-plugin-repository)
+* [Manually installing plugin](#manually-installing-plugin)
+* [Store configuration requirements](#store-configuration-requirements)
+* [Plugin basics and information](#plugin-basics-and-information)
+* [Order management](#order-management)
+* [MAPI Checkout Flow](#mapi-checkout-flow)
+* [Resurs Mail Flow Explained](#resurs-mail-flow-explained)
+
+
 # Requirements
 
 - **At least** PHP 8.1
@@ -515,7 +528,6 @@ section like this:
 
 ![](../../../../attachments/91030061/91030064.png)
 
-
 # Figuring out remote ip for whitelisting
 
 In tests, we sometimes need to whitelist your server's IP address, for example when your server is located in a country
@@ -529,3 +541,50 @@ from your server. Example:
 curl https://ipv4.netcurl.org/ip.php
 91.198.202.76
 ```
+
+# Resurs Mail Flow Explained
+
+This section explains how the mail flow is integrated with the plugin. The plugin itself does not trigger or manipulate
+emails but relies on WooCommerce order status updates to control when emails are sent. These updates help prevent issues
+such as orders being canceled if left in "Pending Payment" for too long, depending on how WooCommerce is configured. For
+example, stock handling may automatically cancel orders in pending status after a set period. We also avoid using the "
+On Hold" status to pause orders while waiting for customer action, ensuring a smoother and more reliable order flow.
+Here's an outline of what happens during a payment:
+
+1. **Customer initiates checkout and completes the payment:**  
+   The order is first created in WooCommerce.
+
+2. **Customer is redirected to an external page:**  
+   On this page, the customer completes tasks such as signing or confirming the payment. During this process, the order
+   is already created in WooCommerce and is automatically set to "Pending Payment," which is the default initial status
+   for an order.
+
+3. **No further action occurs until the payment is completed:**  
+   Once the customer returns to the "Thank You" page, the WooCommerce order is updated to "Processing." At this point,
+   WooCommerce automatically sends the first confirmation email to the customer.
+
+### Alternative Scenario:
+
+1. **Customer is redirected to an internal page:**  
+   On this page, the customer completes signing, payment via credit card (e.g., Visa/Mastercard), etc.
+
+2. **Customer exits the browser before returning to the success page:**  
+   If the customer closes their browser before being redirected back to the "Thank You" page, Resurs Bank initiates a
+   callback to the shop.
+
+3. **Callback process and status update:**  
+   The callback registers the payment completion in the system. To avoid conflicts, the plugin introduces a slight delay
+   in responding to ensure the customer and the callback do not attempt to update the order simultaneously.  
+   Once the callback is successfully processed, the order status is updated to "Processing," and WooCommerce triggers
+   the confirmation email.
+
+### A Third Scenario Based on Merchant Error:
+
+1. **Customer begins the process as described above:**  
+   The customer is redirected to an internal page but decides to abandon the process without explicitly canceling the
+   payment. As a result, the payment remains in a "Pending" state in the system.
+
+2. **Merchant manually changes the order status incorrectly:**  
+   If the merchant mistakenly updates the order status to "Processing" in the WooCommerce order editor, WooCommerce will
+   send a confirmation email to the customer. However, since the payment remains incomplete, the transaction is not
+   finalized until the customer confirms and completes the payment.
