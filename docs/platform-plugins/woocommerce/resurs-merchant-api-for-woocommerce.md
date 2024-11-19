@@ -584,7 +584,7 @@ callback and customer actions do not interfere, allowing the order status to upd
 email to send without errors. This system is built to prevent duplicate email sending without the use
 of [WC Worker Queue](https://github.com/woocommerce/woocommerce/wiki/WC_Queue---WooCommerce-Worker-Queue).
 
-### A Third Scenario Based on Merchant Error:
+### A Third Scenario Based on Merchant Errors:
 
 1. **Customer begins the process as described above:**
 
