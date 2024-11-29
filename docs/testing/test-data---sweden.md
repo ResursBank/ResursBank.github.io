@@ -44,12 +44,12 @@ Organisations to use when testing.
 >   - for legal entity: 16 + the company's assigned organization number (10 digits)
 >   - for a natural person: century digits 18, 19 or 20 + social security number (10 digits)
 
-| Organisation number | Gender | Civic number |                   Get address                   | [Simplified shop flow](/simplified-flow-api/)                     | ~~Shop Flow~~ (deprecated)                             |
-|---------------------|--------|--------------|:-----------------------------------------------:|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| 166997368573        | M      | 198305147715 | Pilsnerbolaget HBGlassgatan 1725024 Helsingborg |                                                                 |                                                                                                                     |
-| 169468958195        | M      | 198305147715 |      Grisfarmen Makadamg 1211521 Stockholm      | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED     | submitLimitApplication returns decision=DENIED  |
-| 162177385255        | M      | 198305147715 | Pilsnerbolaget HB Glassgatan 525024 Helsingborg |  [bookPayment](/simplified-flow-api/bookpayment/)   returns bookPaymentStatus=DENIED  | submitLimitApplication returns decision=TRIAL   |
-| 162830419400        | M      | 198305147715 |       GrisfarmenMakadamg 1541655 Göteborg       |  [bookPayment](/simplified-flow-api/bookpayment/)  returns bookPaymentStatus=FROZEN   |                                                                                                                     |
+| Organisation number | Civic number |                   Get address                   | [Simplified shop flow](/simplified-flow-api/)                     | ~~Shop Flow~~ (deprecated)                             |
+|---------------------|--------------|:-----------------------------------------------:|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| 166997368573        | 198305147715 | Pilsnerbolaget HB<br>Glassgatan 17<br>25024 Helsingborg |                                                                 |                                                                                                                     |
+| 169468958195        | 198305147715 |      Grisfarmen<br>Makadamg 12<br>11521 Stockholm      | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED     | submitLimitApplication returns decision=DENIED  |
+| 162177385255        | 198305147715 | Pilsnerbolaget HB<br>Glassgatan 5<br>25024 Helsingborg |  [bookPayment](/simplified-flow-api/bookpayment/)   returns bookPaymentStatus=DENIED  | submitLimitApplication returns decision=TRIAL   |
+| 162830419400        | 198305147715 |       Grisfarmen<br>Makadamg 15<br>41655 Göteborg       |  [bookPayment](/simplified-flow-api/bookpayment/)  returns bookPaymentStatus=FROZEN   |                                                                                                                     |
 
 ## Cards
 Card to use when testing.
