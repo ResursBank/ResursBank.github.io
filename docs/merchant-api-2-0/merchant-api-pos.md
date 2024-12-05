@@ -498,5 +498,5 @@ Finland](physical-agreement-finland)
 	]
 }
 ```
-[Merchant_API_POS_Flowchart.pdf](https://github.com/user-attachments/files/18023277/Merchant_API_POS_Flowchart.pdf)
 
+![Merchant_API_POS_Flowchart](https://github.com/user-attachments/assets/1db6fb91-bb67-4638-a865-71990bade038)
