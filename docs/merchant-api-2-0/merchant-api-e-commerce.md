@@ -135,7 +135,7 @@ Link to the call in swagger documentation: **[Create
 Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v2#/Payment%20authorization/createPayment)**
 
 #### Create payment
-**Payload: application/json**
+##### Payload: application/json
 ```json
 {
   "storeId": "b7f88ac4-baa7-493b-a0a7-d4e14f91f555",
