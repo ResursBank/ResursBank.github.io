@@ -207,5 +207,5 @@ If paper signing is to be used (For Finland only) for signing an
 application/payment, see [Physical Agreement
 Finland](physical-agreement-finland)
 
-### POS flowhart
+### POS flowchart
 ![Merchant_API_POS_Flowchart - finder](https://github.com/user-attachments/assets/604d7466-8e60-4358-af5e-990b1d9ecd5d)
