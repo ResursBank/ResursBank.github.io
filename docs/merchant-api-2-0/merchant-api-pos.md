@@ -132,11 +132,12 @@ URL to create payment:
 Link to the call in swagger documentation: **[Create
 Payments](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v2#/Payment%20authorization/createPayment)**
 
-**JSON to create payment**
-```
+#### Create payment
+**Payload: application/json**
+```json
 {
-  "storeId": "{{storeId}}",
-    "paymentMethodId": "{{paymentMethodId}}",
+  "storeId": "b7f88ac4-baa7-493b-a0a7-d4e14f91f555",
+    "paymentMethodId": "7d63eb50-94b4-4238-8c0d-22d095bfe46b",
   "order": {
     "orderLines": [
       {
@@ -156,19 +157,19 @@ Payments](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_
         "totalAmountIncludingVat": 800.00
       }
     ],
-    "orderReference": "{{orderReference}}"
+    "orderReference": "order6789"
              },
    "customer": {
-    "customerType": "{{customerType}}",
-     "email": "{{email}}",
-    "mobilePhone": "{{mobilePhone}}",
+    "customerType": "NATURAL",
+     "email": "testpurchase@testing.se",
+    "mobilePhone": "0707132456",
     "deviceInfo": {
-      "ip": "{{IP of where request is sent from}}",
-      "userAgent": "{{requesting system}}"
+      "ip": "192.168.0.1",
+      "userAgent": "POS-system ABC"
     }
   },
  "metadata": {
-   "creator": "{{Person creating payment}}"
+   "creator": "Sellercode 789"
   },
   "options": {
     "initiatedOnCustomersDevice": false,
@@ -178,16 +179,15 @@ Payments](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_
       "automaticCapture": true,
     "callbacks": {
       "authorization": {
-        "url": "{{callbackUrl}}"
+        "url": "https://webhook.site/399ae8da-bffc-4286-9e9a-66cb78e3d7a7"
       },
       "management": {
-        "url": "{{callbackUrl}}"
+        "url": "https://webhook.site/399ae8da-bffc-4286-9e9a-66cb78e3d7a7"
       }
     },
-    "timeToLiveInMinutes": {{timeToLiveInMinutes}}
+    "timeToLiveInMinutes": 5
   }
 }
-
 ```
 
 
