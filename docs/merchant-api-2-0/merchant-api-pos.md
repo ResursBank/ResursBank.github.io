@@ -133,7 +133,7 @@ Link to the call in swagger documentation: **[Create
 Payments](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v2#/Payment%20authorization/createPayment)**
 
 #### Create payment
-**Payload: application/json**
+##### Payload: application/json
 ```json
 {
   "storeId": "b7f88ac4-baa7-493b-a0a7-d4e14f91f555",
@@ -191,7 +191,7 @@ Payments](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_
 ```
 
 
-### Create payment responses and what to do next
+#### Create payment responses and what to do next
 TASK_REDIRECTION_REQUIRED → The customer is to be redicreted to
 "customerUrl" either sent by you or by Resurs (depending whether
 options.deliverLinks is true/false). Callbacks with callback-status
