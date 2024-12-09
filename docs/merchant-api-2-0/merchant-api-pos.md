@@ -133,7 +133,7 @@ Link to the call in swagger documentation: **[Create
 Payments](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v2#/Payment%20authorization/createPayment)**
 
 **JSON to create payment**
-```json
+```
 {
   "storeId": "{{storeId}}",
     "paymentMethodId": "{{paymentMethodId}}",
@@ -159,45 +159,29 @@ Payments](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_
     "orderReference": "{{orderReference}}"
              },
    "customer": {
-    "customerType": "{{customerType}}", 
-     "governmentId": "{{governmentId}}",
+    "customerType": "{{customerType}}",
      "email": "{{email}}",
     "mobilePhone": "{{mobilePhone}}",
-    "deliveryAddress": {
-      "fullName": "{{fullName}}",
-      "firstName": "{{firstName}}",
-      "lastName": "{{lastName}}",
-      "addressRow1": "{{addressRow1}}",
-      "postalArea": "{{psotalArea}}",
-      "postalCode": "{{postalCode}}",
-      "countryCode": "{{countryCode}}"
-    },
     "deviceInfo": {
-      "ip": "{{customer's ip}}",
-      "userAgent": "{{customer's userAgent}}"
+      "ip": "{{IP of where request is sent from}}",
+      "userAgent": "{{requesting system}}"
     }
   },
  "metadata": {
-   "creator": "{{system/person creating payment}}"
+   "creator": "{{Person creating payment}}"
   },
   "options": {
-    "initiatedOnCustomersDevice": true,
-    "deliverLinks": false,
-      "handleFrozenPayments": true,
+    "initiatedOnCustomersDevice": false,
+    "deliverLinks": true,
+      "handleFrozenPayments": false,
       "handleManualInspection": false,
-      "automaticCapture": false,
+      "automaticCapture": true,
     "callbacks": {
       "authorization": {
         "url": "{{callbackUrl}}"
       },
       "management": {
         "url": "{{callbackUrl}}"
-      }
-    },
-    "redirectionUrls": {
-      "customer": {
-        "failUrl": "{{failUrl}}",
-        "successUrl": "{{successUrl}}"
       }
     },
     "timeToLiveInMinutes": {{timeToLiveInMinutes}}
