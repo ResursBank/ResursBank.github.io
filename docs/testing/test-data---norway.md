@@ -26,7 +26,7 @@ has_children: true
 Persons to use when testing.
 
 | Civic number | [Simplified shop flow](/simplified-flow-api/)   | Merchant API  |
-| -------------|------------------------------------------------|------------------------------|
+| ------------:| :-----------------------------------------------| :-----------------|
 | 180872-48794 | [bookPayment](/simplified-flow-api/bookpayment/)   returns bookPaymentStatus=BOOKED or FINALIZED | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status ACCEPTED<br>Callback AUTHORIZATION will be sent with status AUTHORIZED  |
 | 010249-24986 | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status REJECTED<br>Callback AUTHORIZATION will be sent with status REJECTED |
 | 020849-29428 | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=FROZEN | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>Callback AUTHORIZATION will be sent with status FROZEN |
