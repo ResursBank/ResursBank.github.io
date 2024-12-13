@@ -53,7 +53,7 @@ encoded credentials
 ### How to trigger a callback in test environment with Postman-example
 On the following Swagger-link, you can find how to setup the triggering
 of a callback with a GET -
-[https://apigw.integration.resurs.com/api_docs/external_test_utils](https://apigw.integration.resurs.com/api_docs/external_test_utils)  
+[https://cl-callback-test-util.integration.resurs.com/api_docs](https://cl-callback-test-util.integration.resurs.com/api_docs)  
 To trigger a specific callback, the applicationReference from the
 submitApplicationExt-response must be provided.  
 If you run your test thru Postman, simply configure GET and insert the
