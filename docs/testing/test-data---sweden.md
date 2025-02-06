@@ -7,13 +7,6 @@ parent: Testing
 
 # Test Data - Sweden 
 
-\[ [Persons](#testdatasweden-persons) \] \[
-[Organisations](#testdatasweden-organisations) \] \[
-[Cards](#testdatasweden-cards) \] \[ [Account](#testdatasweden-account)
-\] \[ [Parameters when using Hosted
-flow](#testdatasweden-parameterswhenusinghostedflow) \] \[ [Cards
-Payment Providers](#testdatasweden-cardspaymentproviders) \]
-
 > Phone number 0701-112233
 
 ### Persons
