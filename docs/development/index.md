@@ -25,7 +25,6 @@ has_toc: false
 - [API Types](/development/api-types/)
 - [Create part payment widget](/development/create-part-payment-widget/)
 - [Customer data - Regular
-  expressions](/development/customer-data---regular-expressions/)
 - [Rounding](/development/rounding/)
 - [Recognized metadata](/development/recognized-metadata/)
 - [Payment providers in simplified
