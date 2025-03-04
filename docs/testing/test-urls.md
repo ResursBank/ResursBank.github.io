@@ -30,18 +30,20 @@ parent: Testing
 
 # Firewalling
 > How to configure firewalls - Do you have a strictly configured
-> environment? Take a look here to get proper settings for your
+> environment? Take a look here to get proper settings for your
 > firewall/web services. [Link to faq](/faq/)
 
 # Payment Admin
-For the Payment Admin go to: 
+
+For the Payment Admin go to: 
 
 [https://test.resurs.com/ecommerce-test/paymentadmin-v4/](https://test.resurs.com/ecommerce-test/paymentadmin-v4/)
 
-You can see the generated invoice for payment method INVOICE in Payment
+You can see the generated invoice for payment method INVOICE in Payment
 Admin, since the invoice is not sent by mail in the test-environment.
 
 # Merchant Portal
+
 For the Merchant Portal go to:
 
 [https://merchantportal.integration.resurs.com/login](https://merchantportal.integration.resurs.com/login)
@@ -50,13 +52,21 @@ You can see the generated invoice for payment method INVOICE in Merchant
 Portal, since the invoice is not sent by mail in the test-environment.
 
 # Test URLs
+
+# MAPI / Merchant API
+
+See [MAPI documentation here](/merchant-api-2-0) for more information.
+
+https://merchant-api.integration.resurs.com/
+
+
 ## Resurs Checkout
 The following entry points can be used to access the Resurs Checkout
 API:
 
 [https://omnitest.resurs.com/](https://omnitest.resurs.com/)
 
-For more information about the usage, see [Resurs Checkout
+For more information about the usage, see [Resurs Checkout
 Web](resurs-checkout-web).
 
 <!--- 

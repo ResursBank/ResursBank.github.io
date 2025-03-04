@@ -15,7 +15,7 @@ has_toc: false
 > consequence is that credit applications are made and these are saved
 > by credit agencies (like UC). Later, when new credits are considered,
 > these old applications will be weighted in. A lot of credit
-> applications in a short period of time looks suspicious.  
+> applications in a short period of time looks suspicious.  
 
 > PS! Note that the test data does not work for Store Solution API, only
 > our ecommerce flows as well as Resurs Checkout POS/PUSH.

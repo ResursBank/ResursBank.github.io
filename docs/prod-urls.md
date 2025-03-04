@@ -5,6 +5,7 @@ permalink: /prod-urls/
 ---
 
 # Go Live URLs
+
 [Test URLs](/testing/test-urls/)
 
 ## Checklist for go live
@@ -36,11 +37,20 @@ look here](faq/index.md) to
 get proper settings for your firewall/web services.**  
 Link:
 [FAQ](faq/index.md)
-  
-  
+
+
+# MAPI / Merchant API
+
+See [MAPI documentation here](/merchant-api-2-0) for more information.
+
+https://merchant-api.resurs.com
+
 ## Payment Admin
+
 [Resurs Merchant Portal](https://merchantportal.resurs.com/login)
+
 ## Live URLs
+
 ### Resurs Checkout
 For Resurs Checkout go to:  
 [https://checkout.resurs.com/checkout](https://checkout.resurs.com/checkout)

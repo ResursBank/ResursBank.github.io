@@ -17,7 +17,7 @@ Invoice.
 > getPaymentMethods. If \<specificType\>INVOICE\</specificType\> in
 > getPaymentMethodsResponse, payment methode is an invoice.
 
-This should only be used when the finalizeIfBooked
+This should only be used when the finalizeIfBooked
 in [paymentData](/development/api-types/paymentdata/) is set to true.
 
 | Component           | Type                                           | Occurs | Nillable? | Description                                                                                                                                                                            |

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Testing
+title: SoapUI Test Suite (XML)
 permalink: /testing/soapui-testing-suite
 has_toc: false
 parent: Testing

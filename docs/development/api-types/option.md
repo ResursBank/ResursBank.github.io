@@ -23,5 +23,5 @@ Contains elements as defined in the following table.
 |-------------|--------|--------|-----------|---------------------------------------------------------------------------------------------------------------------------------|
 | label       | string | 0..1   | No        | The list option label. Typically, this is displayed as the option name.                                                         |
 | value       | string | 0..1   | No        | The list option value. Typically, this not shown to the customer.                                                               |
-| description | string | 0..1   | No        |  A textual description of the list option. Typically, this is displayed when the user hovers the mouse pointer over the option. |
+| description | string | 0..1   | No        |  A textual description of the list option. Typically, this is displayed when the user hovers the mouse pointer over the option. |
 
