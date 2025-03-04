@@ -63,9 +63,9 @@ below.
 
 Callbacks has historically been sent from 192.121.110.100 but after some network changes, callbacks may now also come from the listed IP's below.
 
-> 192.121.110.100
-> 13.50.187.51
-> 51.21.32.255
+    192.121.110.100
+    13.50.187.51
+    51.21.32.255
 
 ## Local networks / Hosts (or "your callbacks is not working")
 
