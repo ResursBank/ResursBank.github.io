@@ -47,13 +47,13 @@ onestepcheckout-numbers"
 
 **Vanilla Checkout
 (**app/design/frontend/base/default/template/persistent/checkout/onepage/billing.phtml
-and/or **app/design/frontend/base/default/template/checkout/onepage/billing.phtml)**
+and/or **app/design/frontend/base/default/template/checkout/onepage/billing.phtml)**
 
 Around line 39, just after the first endif tag (above li for
 "billing-new-address-form")
 
 For Magento 1.9 you may also want to look
-at app/design/frontend/rwd/default/template/persistent/checkout/onepage/billing.phtml,
+at app/design/frontend/rwd/default/template/persistent/checkout/onepage/billing.phtml,
 in case of different templates.
 
 **Notes:**

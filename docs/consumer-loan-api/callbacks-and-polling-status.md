@@ -14,7 +14,7 @@ will automatically send you an update when a change is made to the
 status.
 
 The following events will trigger a callback; CREDIT_DECISION_UPDATED,
-SIGNED, WAITING_FOR_ADDITION and PAID_OUT.
+SIGNED, WAITING_FOR_ADDITION and PAID_OUT.
 
 Below is both methods explained with example requests & responses.  
 
@@ -38,7 +38,7 @@ encoded credentials
             <callbackUrl>http://agent.com/url-to-callback</callbackUrl>
             <callbackCredentials>#The base64 encoded credentials#</callbackCredentials>
             <callbackAuthMethod>(BASIC|BEARER)</callbackAuthMethod>
-     </callbackConfiguration>
+     </callbackConfiguration>
 </setCallback>
 ```
 **setCallback-example response**
@@ -53,7 +53,7 @@ encoded credentials
 ### How to trigger a callback in test environment with Postman-example
 On the following Swagger-link, you can find how to setup the triggering
 of a callback with a GET -
-[https://apigw.integration.resurs.com/api_docs/external_test_utils](https://apigw.integration.resurs.com/api_docs/external_test_utils)  
+[https://cl-callback-test-util.integration.resurs.com/api_docs](https://cl-callback-test-util.integration.resurs.com/api_docs)  
 To trigger a specific callback, the applicationReference from the
 submitApplicationExt-response must be provided.  
 If you run your test thru Postman, simply configure GET and insert the
@@ -153,20 +153,20 @@ below;
 > onboarding@resurs.se
 
 The value in jwsData is a signed and serialized JWT, known as a JWS
-(JSON Web Signature). jwsData is a data structure cryptographically
+(JSON Web Signature). jwsData is a data structure cryptographically
 securing a JWS Header and a JWS Payload with a JWS Signature
 (graphically explained below).
 
 ![](../../attachments/29491203/29491242.png)
 
 If you want to verify the JWS, you are to download our public keys
-from *[https://apigw.resurs.com/api/auth_service/jwks](https://apigw.resurs.com/api/auth_service/jwks)*.
+from *[https://apigw.resurs.com/api/auth_service/jwks](https://apigw.resurs.com/api/auth_service/jwks)*.
 Note that you must use an API-key, which is handed out by us, in order
 to call the mentioned URL.  
 For test environment, you can download the public key
-from [https://apigw.integration.resurs.com/api/auth_service/jwks](https://apigw.integration.resurs.com/api/auth_service/jwks). 
+from [https://apigw.integration.resurs.com/api/auth_service/jwks](https://apigw.integration.resurs.com/api/auth_service/jwks). 
 
-Below is an example of verification 
+Below is an example of verification 
 
 **Example-request for verification**
 ```xml

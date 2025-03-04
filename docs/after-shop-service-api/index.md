@@ -33,29 +33,29 @@ has_toc: false
 - [General setup for orderstatus at Resurs
   Bank.](#general-setup)
 
-When the customer completes a purchase and a order is created at Resurs
-Bank, the order is autherized and debitable.  
+When the customer completes a purchase and a order is created at Resurs
+Bank, the order is autherized and debitable.  
 In order for the money to be transferred to the merchant's bank
-account the order has to be finalized (debited).
+account the order has to be finalized (debited).
 
-This page describes how a order can be handled after its creation and
+This page describes how a order can be handled after its creation and
 how you finalize the order.
 
-You can do all this from Resurs Bank Merchant Portal, a web-based interface.  
+You can do all this from Resurs Bank Merchant Portal, a web-based interface.  
 Or you can use the after shop webservices described below.
 
-WSDL: [https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService?wsdl  
+WSDL: [https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService?wsdl  
 ](https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService?wsdl)Service
-Endpoint: [https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService](https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService)
+Endpoint: [https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService](https://test.resurs.com/ecommerce-test/ws/V4/AfterShopFlowService)
 
-### Annulling (Cancel order) & Crediting (Refund) - [annulPayment](/after-shop-service-api/annulling/) & [creditPayment](/after-shop-service-api/Crediting/) 
+### Annulling (Cancel order) & Crediting (Refund) - [annulPayment](/after-shop-service-api/annulling/) & [creditPayment](/after-shop-service-api/Crediting/) 
 Should you need to undo a payment, then you should use the
 [annulPayment](/after-shop-service-api/annulling/) method.  
 If the order has been **finalized** then you must use the
 [creditPayment](/after-shop-service-api/Crediting/) method instead.  
 
 
-### Debit order -  [finalizePayment](/after-shop-service-api/finalize-payment/)
+### Debit order -  [finalizePayment](/after-shop-service-api/finalize-payment/)
 When the order is complete, you call this method, the money is then
 transferred from the customer account to yours.
 
@@ -71,15 +71,15 @@ and they may also be used for searching.
 If you want to search for specific payments.  
 To get the size of the searchresult, use
 [**calculateResultSize**](/after-shop-service-api/calculate-searchresult-size/) which for
-example can be used for paging.
+example can be used for paging.
 
 ### Get detailed information about order - [getPayment](/after-shop-service-api/get-payment/)
 Returns the details of a payment.
 
-### Get a specified document from order (PDF) - [getPaymentDocument](/after-shop-service-api/getpaymentdocument/)
+### Get a specified document from order (PDF) - [getPaymentDocument](/after-shop-service-api/getpaymentdocument/)
 Retrieves a specified document from the payment as a pdf.
 
-### Get names of all documents for an order - [getPaymentDocumentNames](/after-shop-service-api/get-payment-document-names/)
+### Get names of all documents for an order - [getPaymentDocumentNames](/after-shop-service-api/get-payment-document-names/)
 Retrieves the document names available for the payment.
 
 ### Issue cutomer identification token
@@ -114,7 +114,7 @@ Available actions, depending on status and amount.
 > In order to be able to charge more than the authenticated amount
 > (maximum up to the requested limit) you must first make an
 > additionalDebitOfPayment,this will increase the authenticated amount.
-> Note that to update existing order line, "artNo", "description" and
+> Note that to update existing order line, "artNo", "description" and
 > "unitAmountWithoutVat" have to match.Example:The order is
 > authenticated for 2 products at a price of 100 sek / pcs, ie a total
 > of 200 sek.To increase the number of products to 3, you send
@@ -140,12 +140,12 @@ General setup for *orderstatus* at Resurs Bank.
 You can use this when mapping your own system´s orderstatus to Resurs
 *orderstatus*.  
 Make a
-[SOAP](/after-shop-service-api/get-payment/) or [REST](https://rco.integration.resurs.com/docs/) for
+[SOAP](/after-shop-service-api/get-payment/) or [REST](https://rco.integration.resurs.com/docs/) for
 current order, to determine the current order status.
 
-| Orderstatus at Resurs               | Case                                                                                                       |
+| Orderstatus at Resurs               | Case                                                                                                       |
 |-------------------------------------|------------------------------------------------------------------------------------------------------------|
-| On-Hold (Pending)                   | getPaymentResponse.frozen=true                                                                             |
+| On-Hold (Pending)                   | getPaymentResponse.frozen=true                                                                             |
 | Processing (Ready/Confirmed Resurs) | getPaymentResponse.status:"DEBITABLE"=true                                                                 |
 | Completed                           | getPaymentResponse.status: "IS_DEBITED"=true AND"DEBITABLE"=false ANDgetPaymentResponse.totalAmount \> 0   |
 | Cancelled (Annulled)                | getPaymentResponse.status:"IS_ANNULLED"=true AND"IS_CREDITED"=false AND getPaymentResponse.totalAmount = 0 |

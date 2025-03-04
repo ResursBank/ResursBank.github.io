@@ -62,8 +62,8 @@ way to catch errors is through SoapClient standard error interface
 (which can be handled as a regualr Exception or a SoapFault).
 
 ### Extended SoapFaults
-SoapFaults might in some cases be extended by ecommerce itself (See the
-constant codes at [Error handling (Resurs error codes)](328078)). If
+SoapFaults might in some cases be extended by ecommerce itself (See the
+constant codes at [Error handling (Resurs error codes)](328078)). If
 this part of the exception exists in a SoapFault, EComPHP will set its
 priority to those parts. It will also add the popular string
 "fixableByYou", that might indicate if the problem has been created by

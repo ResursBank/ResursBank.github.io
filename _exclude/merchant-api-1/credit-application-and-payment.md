@@ -9,12 +9,12 @@ parent: Merchant Api 1
 # Credit Application and Payment 
 
 The credit application and payment flow is used when a customer wants to
-apply for an account and making a purchase at the same time. 
+apply for an account and making a purchase at the same time. 
 ![](../../attachments/71794850/71794869.png)
 ### **Authentication**
 Every request requires an authorization header with a Bearer-token. A
 token lasts for 3600 seconds (1 hour). To get a token you may use your
-test-credentials received from Resurs Bank: 
+test-credentials received from Resurs Bank: 
 client_id  
 client_secret  
 scope= mock-merchant-api

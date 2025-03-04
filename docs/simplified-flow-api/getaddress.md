@@ -10,7 +10,7 @@ parent: Simplified Flow Api
 
 **customerType**
 
-Description: The type of customer.
+Description: The type of customer.
 
 | Value   | Description                                        |
 |---------|----------------------------------------------------|
@@ -53,7 +53,7 @@ optional right now, but in short notice this will be required
 
 | Name                    | Content                                  | Description                                                        |
 |-------------------------|------------------------------------------|--------------------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to retrieve the address information. See error for details. |
+| ECommerceErrorException | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to retrieve the address information. See error for details. |
 
 The `customerType` and `customerIpAddress` parameters are **mandatory**
 even if the schema says they're not. (They where late additions, and we
@@ -74,9 +74,9 @@ had to do this way not to break compatibility)
 </soapenv:Envelope>
 ```
 
-If the customer exists, its registered address is returned. If the
+If the customer exists, its registered address is returned. If the
 customer is of type LEGAL (an
-organization/comapny) `firstName` and `lastName` will be null
+organization/comapny) `firstName` and `lastName` will be null
 
 **getAddressResponse**
 ```xml

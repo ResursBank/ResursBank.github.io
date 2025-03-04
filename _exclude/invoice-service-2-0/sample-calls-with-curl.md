@@ -12,7 +12,7 @@ parent: Invoice Service 2 0
 Before an invoice can be generated the contact information and logotype
 must be configured for the store. The logotype must be encoded in
 base64.
-**POST configuration/store** Expand source
+**POST configuration/store** Expand source
 ``` syntaxhighlighter-pre
 $ curl -v <endpoint>/configuration/store -H 'Content-Type:application/json' -H 'Authorization:<credentials>' -d
 '{
@@ -37,10 +37,10 @@ resource:
 ``` syntaxhighlighter-pre
 $ curl -v -X GET <endpoint>/configuration/store -H "Content-Type:application/json" -H"Authorization:<credentials>"
 ```
- 
+ 
 Continue to the next step if everything went ok.
- 
- 
+ 
+ 
 ## Sell invoice
 Start by listing the payment alternatives:
 **GET payment_alternatives**
@@ -112,10 +112,10 @@ $ curl -v <endpoint>/invoice/sell -H 'Content-Type:application/json' -H 'Authori
 ```
 The response contains the [invoice PDF](../../attachments/3441365/3801167.pdf)
 encoded in base 64.
- 
+ 
 **POST invoice/sell Response**
 ``` syntaxhighlighter-pre
- {"pdf":{"pdfData":<base64 encoded PDF>}}
+ {"pdf":{"pdfData":<base64 encoded PDF>}}
 ```
 ## Credit invoice
 To credit the invoice a sell reference must be supplied. This is the
@@ -149,5 +149,5 @@ And the response contains the [invoice
 PDF](../../attachments/3441365/3801168.pdf) encoded in base 64.
 **POST invoice/credit Response**
 ``` syntaxhighlighter-pre
- {"pdf":{"pdfData":<base64 encoded PDF>}}
+ {"pdf":{"pdfData":<base64 encoded PDF>}}
 ```

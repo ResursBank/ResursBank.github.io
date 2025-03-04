@@ -65,12 +65,12 @@ documents the old behaviour and the upcoming solution for a new flow.
     ***PARAMS( \$paymentId, ResursAfterShopRenderTypes::FINALIZE,
     \$paymentArray, \$clientPaymentSpec, \$finalizeParams,
     \$quantityMatch, \$useSpecifiedQuantity )***  
-    renderPaymentSpecContainer() - What does this do? See below in the 
+    renderPaymentSpecContainer() - What does this do? See below in the 
 
 5.  The new rendered payment container are posted to the
     finalizePayment-service during a try-catch moment
 
-##  Things that happens during the renderPaymentSpecContainer() \[deprecation\] in a finalization
+##  Things that happens during the renderPaymentSpecContainer() \[deprecation\] in a finalization
 **Parameters received**
 
 *( \$paymentId, ResursAfterShopRenderTypes::FINALIZE, \$paymentArray,
@@ -113,9 +113,9 @@ The renderer should not only render a correct payment specification.
 ###  sanitizeAfterShopSpec()
 This sanitizing function should, at least for unmanaged payment specs
 (full handling), make sure that each orderLine-bulk are clean.
-Sanitizing works much like getPaymentSpecByStatus(). However, this
+Sanitizing works much like getPaymentSpecByStatus(). However, this
 function should match a payment and filter out a specific set of
-orderLines. For example - for finalization, there's only one valid list
+orderLines. For example - for finalization, there's only one valid list
 of orderLines, and therefore each AUTHORIZE should be matched against
 what's in the other status blocks (DEBIT, ANNUL, CREDIT) - and if they
 do exist there in those blocks, they should not be added into the final
@@ -151,6 +151,6 @@ ANNUL, CREDIT)
 **DEBIT**, **ANNUL**, **CREDIT** (Everything that is not yet DEBIT,
 ANNUL, CREDIT
 
-#### ~~UPDATE (OBSOLETE)~~
+#### ~~UPDATE (OBSOLETE)~~
 *Returns AUTHORIZE (is still even active?)*
 

@@ -21,7 +21,7 @@ grand_parent: Platform Plugins
     {
     ```
 2.  Put the code from
-    [MagentoFC_Patch.txt](../../../../../attachments/3440805/5013600.txt) (last update
+    [MagentoFC_Patch.txt](../../../../../attachments/3440805/5013600.txt) (last update
     2015-09-10) right after this code:
 
     **expireAjax**

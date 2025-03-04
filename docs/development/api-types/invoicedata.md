@@ -18,7 +18,7 @@ Invoice.
 > getPaymentMethodsResponse, payment methode is an invoice.
 
 This should only be used when the finalizeIfBooked
-in [paymentData](/development/api-types/paymentdata/) is set to true.
+in [paymentData](/development/api-types/paymentdata/) is set to true.
 
 | Component           | Type                                           | Occurs | Nillable? | Description                                                                                                                                                                            |
 |---------------------|------------------------------------------------|--------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -39,12 +39,12 @@ nav_exclude: true
 
 ## Installation
 ### Downloading
-The git repo used is [located
+The git repo used is [located
 here](https://bitbucket.org/resursbankplugins/resurs-checkout-opencart2/).
 You can either clone the repository, checkout a specific tag or simply
-download a specific version. Downloading specific versions [can be done
+download a specific version. Downloading specific versions [can be done
 from this
-location](https://bitbucket.org/resursbankplugins/resurs-checkout-opencart2/downloads/?tab=tags) where
+location](https://bitbucket.org/resursbankplugins/resurs-checkout-opencart2/downloads/?tab=tags) where
 the latest tag should be considered the latest stable.
 
 ### Default method
@@ -122,11 +122,11 @@ the latest tag should be considered the latest stable.
   and on the Check Out line.
 
 ## Sales Order
-You can view the Resurs Bank payment flow for an order under history.
+You can view the Resurs Bank payment flow for an order under history.
 ## Get Address
 Instructions about our getAdress-functionality is located in the
 getAddress folder, both how to enable it manually and how to enable it
-with VQmod. Only Sweden is supported.
+with VQmod. Only Sweden is supported.
 ## Log
 The Resurs Bank OpenCart-plugin logs to "System-\>Error Loggs"
 ## Not supported
@@ -216,7 +216,7 @@ $data['resurs_partial_payment'] = $this->load->controller('product/resurs_partia
 
 ### Usage
 Go to the Resurs Checkout by going
-to [`www.example.com/extension/payments/resurs_checkout`](http://www.example.com/extension/payments/resurs_checkout) or [`www.example.com/index.php?route=extension/payment/resurs_checkout`](http://www.example.com/index.php?route=extension/payment/resurs_checkout) depending
+to [`www.example.com/extension/payments/resurs_checkout`](http://www.example.com/extension/payments/resurs_checkout) or [`www.example.com/index.php?route=extension/payment/resurs_checkout`](http://www.example.com/index.php?route=extension/payment/resurs_checkout) depending
 on what type of Url structure is set up. This is the checkout that you
 should link all of your links like "Proceed to checkout". Important to
 notice is that you can't add shipping, gift cards or update your cart on
@@ -228,10 +228,10 @@ Natively the plugin do not let you change anything about your order
 while on the checkout page. This page only shows an order summary and
 adds the Resurs Checkout iframe to capture the payment. If you want to
 add support for shipping method or other things that will affect the
-price you can make use of the function `updateCheckout` that is located
-in `upload\catalog\controller\extension\payment\resurs_checkout.php`. By
-calling this method with the `reference` that you have access to
-as `$reference` in `upload\catalog\view\theme\default\template\extension\resurs_checkout.tpl|twig` it
+price you can make use of the function `updateCheckout` that is located
+in `upload\catalog\controller\extension\payment\resurs_checkout.php`. By
+calling this method with the `reference` that you have access to
+as `$reference` in `upload\catalog\view\theme\default\template\extension\resurs_checkout.tpl|twig` it
 will update the iframe to use the new price.
 
 ### Giftvoucher

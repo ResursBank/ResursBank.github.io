@@ -38,7 +38,7 @@ Older releases:
 - [2.2.101.zip](../../../attachments/2588830/91029996.zip)
 - [2.2.100.zip](../../../attachments/2588830/91029995.zip)
 
-### irements 
+### irements 
 - At least 1 GB memory or above. Preferrably give php (via php.ini) a
   free amount of memory to play with by setting memory_limit to -1.
 - At least PHP 7.1 since WooCommerce itself requires it in newer
@@ -67,7 +67,7 @@ depending on your needs (and country)
 - Hosted flow (Paypal-like checkout)
 - Resurs Checkout
 
-It is also recommended that you read about the [concepts and
+It is also recommended that you read about the [concepts and
 domain](https://test.resurs.com/docs/pages/viewpage.action?pageId=950279),
 order status FROZEN and its handling is important in the fraud and order
 concept.
@@ -96,9 +96,9 @@ the radio buttons used at the get address forms is still required or you
 will be stuck with NATURAL-customers.
 
 #### Handling decimals
-Setting decimals to 0 in WooCommerce will result in an incorrect
-rounding of product prices. It is therefore adviced to set decimal
-points to 2.  [Read more about it here](0-decimals-in-woocommerce).
+Setting decimals to 0 in WooCommerce will result in an incorrect
+rounding of product prices. It is therefore adviced to set decimal
+points to 2.  [Read more about it here](0-decimals-in-woocommerce).
 
 #### Handling discounts and coupons with hosted flow
 If you plan to handle discounts and coupons within the hosted flow, make

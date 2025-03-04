@@ -9,7 +9,7 @@ permalink: /legal-requirements/
 When presenting a Resurs Bank payment method there are some legal
 requirements that should be adhered to:
 1.  The customer should be warned that a credit check might be done when
-    using payment methods of type NEW_ACCOUNT and type INVOICE but not
+    using payment methods of type NEW_ACCOUNT and type INVOICE but not
     when using type CARD.
 2.  If data returned by
     [getCostOfPurchaseHtml](getCostOfPurchaseHtml_4653091.html) are
@@ -21,5 +21,5 @@ requirements that should be adhered to:
     marketed.
 ![](../attachments/1476296/16057070.png)
 For further information and an example of legal documents and other
-credit cost information, please see: [Credit cost
+credit cost information, please see: [Credit cost
 information](Concepts-and-Domain_950279.html#ConceptsandDomain-Anchor_CreditCostInformation)

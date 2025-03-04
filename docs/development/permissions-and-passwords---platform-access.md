@@ -16,7 +16,7 @@ Behind a TLS/SSL protected channel this is an acceptable level of
 security.
 
 We've chosen this solution in favour of the more
-complex [WS-Security](http://en.wikipedia.org/wiki/WS-Security) which
+complex [WS-Security](http://en.wikipedia.org/wiki/WS-Security) which
 still have some compatibility issues. With our solution the
 authorization is configured in a layer separate from the web service
 client.
@@ -24,7 +24,7 @@ client.
 Please, **enable preemptive authentication** to avoid unnecessary
 roundtrips (request, response). The standard mode in most HTTP client
 implementations is to try accessing the HTTP resource, and first when
-confronted with a 401, redo the request *with* credentials. This double
+confronted with a 401, redo the request *with* credentials. This double
 roundtrip is a waste of precious milliseconds which risks make your
 webshop seem sluggish.
 

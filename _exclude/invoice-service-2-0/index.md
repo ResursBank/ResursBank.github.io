@@ -11,7 +11,7 @@ has_children: true
 The invoice web service offers an API to sell and credit invoice
 payments from Resurs Bank.
 ## Authentication
-The Resurs shop service is protected by the simple [http basic
+The Resurs shop service is protected by the simple [http basic
 authentication
 mechanism](http://en.wikipedia.org/wiki/Basic_access_authentication).
 Behind a TLS/SSL protected channel this can be considered secure.

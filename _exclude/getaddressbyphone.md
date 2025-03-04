@@ -19,7 +19,7 @@ Created by Patric Johnsson, last modified by Thomas Tornevall on
 | Name              | Type   | Occurs | Nillable? | Description                                                                           |
 |-------------------|--------|--------|-----------|---------------------------------------------------------------------------------------|
 | phoneNumber       | string | 1..1   | No        | The government identity of the customer for which to retrieve the address.            |
-| customerIpAddress | string | 0..1   | Yes       | The IP address from which the customer has accessed the service. To prevent bashing.  |
+| customerIpAddress | string | 0..1   | Yes       | The IP address from which the customer has accessed the service. To prevent bashing.  |
 
 **  
 **
@@ -34,7 +34,7 @@ Created by Patric Johnsson, last modified by Thomas Tornevall on
 
 | Name                    | Content                                  | Description                                                        |
 |-------------------------|------------------------------------------|--------------------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](ecommerceerror)**     | Failed to retrieve the address information. See error for details. |
+| ECommerceErrorException | **[ECommerceError](ecommerceerror)**     | Failed to retrieve the address information. See error for details. |
 
 ### Introduction
 This function is offered as a service, since most webshops collect
@@ -60,9 +60,9 @@ exceeded.
 </soapenv:Envelope>
 ```
 
-If the customer exists, its registered address is returned. If the
+If the customer exists, its registered address is returned. If the
 customer is of type LEGAL (an
-organization/comapny) `firstName` and `lastName` will be null
+organization/comapny) `firstName` and `lastName` will be null
 
 **getAddressResponse**
 ```xml

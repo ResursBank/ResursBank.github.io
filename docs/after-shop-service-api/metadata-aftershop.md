@@ -26,7 +26,7 @@ parent: After Shop Service Api
 
 | Name                     | Content                                  | Description                                                    |
 |--------------------------|------------------------------------------|----------------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to add meta data to the payment. See error for details. |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to add meta data to the payment. See error for details. |
 
 ### What & why
 Key/value data and its additional information in an order, determined by

@@ -17,7 +17,7 @@ When the customer completes a purchase, a payment is created. In order
 for the money to be transferred to the merchants bank account, the order
 has to be finalized. This page describes how a payment can be changed
 after its creation and how you finalize the order. You can do all this
-from your platform, Resurs Banks web-based interface, or by using the
+from your platform, Resurs Banks web-based interface, or by using the
 [Aftershop
 Flow](https://test.resurs.com/docs/display/ecom/After+Shop+Service+API)
 With Merchant Portal, you can adjust the Resurs payment after an order
@@ -68,7 +68,7 @@ You can add an order row in the following ways:
 row, follow the instructions above.
   
 *Try it out
-here: [https://merchantportal.integration.resurs.com/login](https://merchantportal.integration.resurs.com/login)*
+here: [https://merchantportal.integration.resurs.com/login](https://merchantportal.integration.resurs.com/login)*
 **Search bar**
 ![](../../../attachments/16057107/16057131.png)
   

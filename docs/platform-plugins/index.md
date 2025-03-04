@@ -18,22 +18,22 @@ has_toc: false
 | Resurs Merchant API 2.0                 | YES             | YES    |
 | **After shop**                                             |                                                         |                                               |                                               
 | Debiting whole order                                       | YES              | YES    |
-| Debiting part order                                        | NO             | NO   |
+| Debiting part order                                        | NO             | NO   |
 | Crediting whole order                                       | YES              | YES    |
-| Crediting part order                                       | YES              | YES \* |
+| Crediting part order                                       | YES              | YES \* |
 | Annulment whole order                                      | YES              | YES    |
-| Annulment part order                                       | NO             | YES \* |
+| Annulment part order                                       | NO             | YES \* |
 | Additional Debit of Payment                                | NO             | NO   |
 | **Callback support**                                       |                                                         |                                               |
 | Callbacks report to shop                                   | YES              | YES    |
-| **Discounts and fees**                                    |                                                         |                                               |
-| Handle gift card                                           | NO             | NO   |
-| Handle invoice fee                                         | NO             | YES    |
-| Handle discount                                            | YES              | YES    |
-| Handle shipping fee                                        | YES              | YES    |
+| **Discounts and fees**                                    |                                                         |                                               |
+| Handle gift card                                           | NO             | NO   |
+| Handle invoice fee                                         | NO             | YES    |
+| Handle discount                                            | YES              | YES    |
+| Handle shipping fee                                        | YES              | YES    |
 | **Other**                                                   |                                                         |                                               |
 | Display monthly cost with Resurs Bank in product catalog    | YES              | YES    |
-| Use platform order number as reference in Resurs Bank       | YES              | YES    |
+| Use platform order number as reference in Resurs Bank       | YES              | YES    |
 | Supports multistore                                        | YES              | NO   |
 
 
@@ -41,28 +41,28 @@ has_toc: false
 | E-Commerce Platforms                                        | Magentov2.3.x-v2.4.x                                    | WooCommerceRead more                          | OpenCartv1.5.x - v3.x End of life: September, 2023     | PrestaShopv1.6.1.x / v1.7.7.x End of life: October 1, 2022 | PrestaShopv1.7.7.x End of life: September, 2023 |
 |-------------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------|--------------------------------------------------------|------------------------------------------------------------|------------------------------------------------|
 | **Shop flow**                                               |                                                         |                                               |                                                        |                                                            |                                                |
-| Resurs Checkout                      | YES (Not Denmark)  | NO   | YES (Not Denmark) | YES (Not Denmark)     | NO    |
+| Resurs Checkout                      | YES (Not Denmark)  | NO   | YES (Not Denmark) | YES (Not Denmark)     | NO    |
 | Simplified Flow  | YES              | NO   | NO            | NO                | YES     |
 | Resurs Merchant API 2.0](merchant-api-2.0)                 | NO             | YES    | NO            | NO                | NO    |
-|  **After shop**                                             |                                                         |                                               |                                                        |                                                            |                                                |
-|  Debiting whole order                                       | YES              | YES    | NO            | NO                | YES     |
-|  Debiting part order                                        | NO             | NO   | NO            | NO                | NO    |
+|  **After shop**                                             |                                                         |                                               |                                                        |                                                            |                                                |
+|  Debiting whole order                                       | YES              | YES    | NO            | NO                | YES     |
+|  Debiting part order                                        | NO             | NO   | NO            | NO                | NO    |
 | Crediting whole order                                       | YES              | YES    | NO            | NO                | YES     |
-|  Crediting part order                                       | YES              | YES \* | NO            | NO                | YES     |
-|  Annulment whole order                                      | YES              | YES    | NO            | NO                | YES     |
-|  Annulment part order                                       | NO             | YES \* | NO            | NO                | YES     |
-|  Additional Debit of Payment                                | NO             | NO   | NO            | NO                | NO    |
-| ** Callback support**                                       |                                                         |                                               |                                                        |                                                            |                                                |
-|  Callbacks report to shop                                   | YES              | YES    | YES             | YES                 | YES     |
-| **Discounts and fees  **                                    |                                                         |                                               |                                                        |                                                            |                                                |
-|  Handle gift card                                           | NO             | NO   |  YES            | NO                | NO    |
-|  Handle invoice fee                                         | NO             | YES    |  NO           | NO                | NO    |
-|  Handle discount                                            | YES              | YES    |  YES            | YES                 | YES     |
-|  Handle shipping fee                                        | YES              | YES    |  YES            | YES                 | YES     |
+|  Crediting part order                                       | YES              | YES \* | NO            | NO                | YES     |
+|  Annulment whole order                                      | YES              | YES    | NO            | NO                | YES     |
+|  Annulment part order                                       | NO             | YES \* | NO            | NO                | YES     |
+|  Additional Debit of Payment                                | NO             | NO   | NO            | NO                | NO    |
+| ** Callback support**                                       |                                                         |                                               |                                                        |                                                            |                                                |
+|  Callbacks report to shop                                   | YES              | YES    | YES             | YES                 | YES     |
+| **Discounts and fees  **                                    |                                                         |                                               |                                                        |                                                            |                                                |
+|  Handle gift card                                           | NO             | NO   |  YES            | NO                | NO    |
+|  Handle invoice fee                                         | NO             | YES    |  NO           | NO                | NO    |
+|  Handle discount                                            | YES              | YES    |  YES            | YES                 | YES     |
+|  Handle shipping fee                                        | YES              | YES    |  YES            | YES                 | YES     |
 | **Other**                                                   |                                                         |                                               |                                                        |                                                            |                                                |
 | Display monthly cost with Resurs Bank in product catalog    | YES              | YES    | YES             | YES                 | YES     |
-| Use platform order number as reference in Resurs Bank       | YES              | YES    | YES             | YES                 | YES     |
-|  Supports multistore                                        | YES              | NO   | YES             | NO                | NO    |
+| Use platform order number as reference in Resurs Bank       | YES              | YES    | YES             | YES                 | YES     |
+|  Supports multistore                                        | YES              | NO   | YES             | NO                | NO    |
 -->
 
 ## SSL Certificate https and certificates
@@ -86,8 +86,8 @@ runs with 7.3, 7.4 and 8.0.
 **[Bamboo](http://bamboo.resurs.it/browse/RB-RBT)** dropped all tests,
 except for 7.3 for several reasons.
 
-We have dropped all our testings for older PHP releases.  only runs with
-PHP 7.3, 7.4 and 8.0 - ** **as an extra test suite, only runs  on 7.3.
+We have dropped all our testings for older PHP releases.  only runs with
+PHP 7.3, 7.4 and 8.0 - ** **as an extra test suite, only runs  on 7.3.
 Since the market changes rapidly we realized that we had to drop all old
 tests, as the started to break while we were going forward.
 

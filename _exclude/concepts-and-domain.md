@@ -23,7 +23,7 @@ final integration.
 - [Payments](#ConceptsandDomain-Payments)
 - [Signing](#ConceptsandDomain-Signing)
   
-### High level chart of shop flow
+### High level chart of shop flow
 **Simplified Shop Flow**
 ![](../attachments/950279/128286764.png)
 ### Annulment and crediting
@@ -57,7 +57,7 @@ Annulment vs. Crediting
 | Money, agent     | No money has been shifted at this point, hence no impact.                       | When the agent actually has got paid for a (part) payment when it was finalized, a credit means that a correction must be made by taking money waiting to be paid to the agent and pay to the customer. (Doesn't have to be the same for the customer.) If there are no such payments to the agent then the correction will wait until one comes, or the correction must be handled manually. |
   
   
-Completely or partially, annulment / credit.
+Completely or partially, annulment / credit.
 whether if it´s a annulment or credit, it can be made either completely
 or partially.
 - AfterShopService.annulPayment(...) - full - or part annulment of a
@@ -68,7 +68,7 @@ or partially.
 ![](../attachments/1475429/128286739.png)
   
   
-### Associated metadata 
+### Associated metadata 
 Additional information in an order...
 #### What & why
 The metadata is key/value data and its additional information in an
@@ -118,7 +118,7 @@ For example.
 You as the agent are forced to link to us for further price information
 when you show this kind of "prices".
   
- [![](../attachments/950279/16057253.png)](https://test.resurs.com/priceinfo-mock/prisskyltning.html?countryCode=SE&authorizedBankproductId=LG686069&cardType=&storeId=107&representativeId=107&creditAmount=4995)
+ [![](../attachments/950279/16057253.png)](https://test.resurs.com/priceinfo-mock/prisskyltning.html?countryCode=SE&authorizedBankproductId=LG686069&cardType=&storeId=107&representativeId=107&creditAmount=4995)
 ### Fraud screening
 What is fraud screening...
 Fraud screening is about asserting the identity of the buyer, while the
@@ -176,7 +176,7 @@ available to choose from are:
 Every paymentmethod except card has a limit. The limit, the
 amount/payment span + standard increment, must be within for example
 5,000 - 50,000 SEK. Note that the limit of the payment methods differs
-from each other. Read more about** [limit
+from each other. Read more about** [limit
 applications](#ConceptsandDomain-Anchor_LimitApplications)**
 #### Invoices
 We support multiple types/settings of invoices: invoice for an
@@ -201,7 +201,7 @@ events:
 3.  Annul half (500 SEK)
 4.  Credit of 25% of the sold portion (250 SEK)
 5.  Buy additional things for 300 SEK
- ![](../attachments/1147021/1572887.png)
+ ![](../attachments/1147021/1572887.png)
 #### The type of payment part.
   
 | Value     | Description                                   |
@@ -218,8 +218,8 @@ Today, the system supports the following types of payment diffs:
 |-----------|----------------------------------------------------|---------------------------------------------------------------------------------|-------------|-----------------------------------------|--------------------------------------------------------------------------------------------|
 | AUTHORIZE | Reservation of part / whole of the allotted limit. | Authorization of amounts in accounts.                                           | Increases   | When a purchase is booked.              | In earlier drafts DEBIT has had dual functions, authorization and billing has been done by |
 | DEBIT     | Making of a debit.                                 | Transaction of the amount on account.New authorization on the remaining amount. | Unchanged   | When goods are shipped to the customer. | See above                                                                                  |
-| CREDIT    | Effecting a crediting.                             | Crediting the amount of the account.                                            | Reduced     | When a return is received.              |                                                                                            |
-| ANNUL     | Annulment of the reservation amount.               | New authorization on the remaining amount.                                      | Reduced     | When a booked purchase is canceled.     |                                                                                            |
+| CREDIT    | Effecting a crediting.                             | Crediting the amount of the account.                                            | Reduced     | When a return is received.              |                                                                                            |
+| ANNUL     | Annulment of the reservation amount.               | New authorization on the remaining amount.                                      | Reduced     | When a booked purchase is canceled.     |                                                                                            |
   
 #### Payment Status
   
@@ -234,7 +234,7 @@ Today, the system supports the following types of payment diffs:
 ### Signing
 Whether or not signing is required...
 Signing is a way for the buyer to identify him-/herself and therefor
-reduces risk for **[fraud
+reduces risk for **[fraud
 screening](#ConceptsandDomain-Anchor_FraudScreening).** When signing is
 required varies depending on the purchase amount and other
 circumstances. Below you can see how the signing works.

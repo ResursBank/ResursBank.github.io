@@ -26,7 +26,7 @@ want to use (.png and .jpg is supported). When you click the upload
 button the logotype should appear next to the form if the upload was
 successful.
 The setting is found at Settings → Business→
-Business information (Inställningar → Företaget → Företagsuppgifter)
+Business information (Inställningar → Företaget → Företagsuppgifter)
   
   
 If the buttons dont work as expected try to clear your browser's cache

@@ -17,7 +17,7 @@ A part of this list includes the SOAP faultcodes
 
 Except for this EComPHP passes errors from the engine that handles the
 communication with ecommerce rest/soap. Those exceptions can be found
-[here](https://docs.tornevall.net/x/EgCNAQ) and will not be included
+[here](https://docs.tornevall.net/x/EgCNAQ) and will not be included
 here as third party applications might change over time. This list does
 not cover the section ECOMMERCEERROR either, as that section covers
 external errors for Resurs Ecommerce.

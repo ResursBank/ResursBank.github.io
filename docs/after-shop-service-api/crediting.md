@@ -19,10 +19,10 @@ parent: After Shop Service Api
 | Name                    | Type                                                             | Occurs | Nillable? | Description                                                                                                                                                                            |
 |-------------------------|------------------------------------------------------------------|--------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | paymentId               |  [**id**](/development/api-types/simple-types/)                                       | 1..1   | No        | The identity of the payment.                                                                                                                                                           |
-| preferredTransactionId  | [**id**](/development/api-types/simple-types/)                                        | 0..1   | No        | Will be printed on the accounting summary. Can be used to track the transaction. If not set it will fallback on paymentId for this value.                                              |
+| preferredTransactionId  | [**id**](/development/api-types/simple-types/)                                        | 0..1   | No        | Will be printed on the accounting summary. Can be used to track the transaction. If not set it will fallback on paymentId for this value.                                              |
 | partPaymentSpec         |  [**paymentSpec**](/development/api-types/paymentspec/)                                  | 0..1   | No        | The specification of the payment crediting. **PS! Mandatory if payment method is INVOICE**                                                                                             |
 | createdBy               |  [**nonEmptyString**](/development/api-types/simple-types/)                           | 0..1   | No        | The username of the person performing the operation.                                                                                                                                   |
-| creditNoteId            | [**id**](/development/api-types/simple-types/)                                        | 0..1   | No        | The credit note number. This will be printed on the credit note. For payment methods other than INVOICE, setting this will generate an error.                                          |
+| creditNoteId            | [**id**](/development/api-types/simple-types/)                                        | 0..1   | No        | The credit note number. This will be printed on the credit note. For payment methods other than INVOICE, setting this will generate an error.                                          |
 | creditNoteDate          |  date  | 0..1   | No        | The credit note date. This will be printed on the credit note. For payment methods other than INVOICE, setting this will generate an error.Note: use the format "yyyy-MM-dd" for date. |
 | invoiceDeliveryType     | [**invoiceDeliveryType**](/development/api-types/invoicedeliverytype/)                   | 0..1   | Yes       | How the credit invoice should be delivered to the customer. **Default: EMAIL**                                                                                                         |
 
@@ -30,10 +30,10 @@ parent: After Shop Service Api
 
 | Name                     | Content                                  | Description                                          |
 |--------------------------|------------------------------------------|------------------------------------------------------|
-| ECommerceErrorException  | [**ECommerceError** ](/development/api-types/ecommerceerror/)    | Failed to credit the payment. See error for details. |
+| ECommerceErrorException  | [**ECommerceError** ](/development/api-types/ecommerceerror/)    | Failed to credit the payment. See error for details. |
 
 ### Introduction
-Credits the payment. This returns <code>the payment</code> amount from the
+Credits the payment. This returns <code>the payment</code> amount from the
 representative to the customer's account. For a payment to be credited,
 it must be finalized. (Non-finalized payments have to be annulled.) If
 you are unsure when to use this method, read more about [Annulment and
@@ -43,7 +43,7 @@ Crediting.](concepts-and-domain)
 
 ### What is a paymentSpec
 Expand to read more about paymentSpec
-The payment details. In it's simplest form it's just sum, i.e.
+The payment details. In it's simplest form it's just sum, i.e.
 totalAmount and totalVatAmount are set, but there are no specLines. If
 nothing else is said you shall send specLines .  
 Contains elements as defined in the following table.
@@ -73,7 +73,7 @@ startPaymentSession method
 ### Paymentspec - rounding
 [see Rounding](/development/rounding/)
 
-### Credit Payment - code example
+### Credit Payment - code example
 **creditPayment**
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ecommerce.resurs.com/v4/msg/aftershopflow">   

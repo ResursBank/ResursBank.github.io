@@ -38,11 +38,11 @@ Each payment consist of:
 - minLimit & maxLimit: The payment method can only be used for purchases
   between these values.
 - A specificType. This might be:
-  - INVOICE: Essentially an installment credit. Generates a PDF invoice when [finalized](/after-shop-service-api/finalize-payment/)
+  - INVOICE: Essentially an installment credit. Generates a PDF invoice when [finalized](/after-shop-service-api/finalize-payment/)
   - REVOLVING_CREDIT: Revolving credits and installment payments which do ***not*** generate invoices, in most
     cases this is a new Resurs Bank card.
   - CARD: A Resurs Bank card
-  - PART_PAYMENT: You get the first payment slip the month after the
+  - PART_PAYMENT: You get the first payment slip the month after the
     purchase and you choose the payment plan then. The payment type does
     not generate an invoice.
 
@@ -89,7 +89,7 @@ withdrawn from this listing 6 hours before it stops to work.**
             <type>INVOICE</type>
             <specificType>INVOICE</specificType>
             <customerType>LEGAL</customerType>
-         </return>
+         </return>
          <return>
             <id>7</id>
             <description>Resurskort</description>
@@ -99,7 +99,7 @@ withdrawn from this listing 6 hours before it stops to work.**
             <specificType>CARD</specificType>
             <customerType>NATURAL</customerType>
             <customerType>LEGAL</customerType>
-         </return>
+         </return>
          <return>
             <id>8</id>
             <description>New card</description>
@@ -123,7 +123,7 @@ withdrawn from this listing 6 hours before it stops to work.**
             <type>REVOLVING_CREDIT</type>
             <specificType>REVOLVING_CREDIT</specificType>
             <customerType>NATURAL</customerType>
-         </return>
+         </return>
          <return>
             <id>9</id>
             <description>Invoice</description>
@@ -147,8 +147,8 @@ withdrawn from this listing 6 hours before it stops to work.**
             <type>INVOICE</type>
             <specificType>REVOLVING_CREDIT</specificType>
             <customerType>NATURAL</customerType>
-         </return>
+         </return>
       </ns3:getPaymentMethodsResponse>
    </soap:Body>
-</soap:Envelope> 
+</soap:Envelope> 
 ```

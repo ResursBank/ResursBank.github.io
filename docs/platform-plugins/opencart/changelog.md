@@ -13,7 +13,7 @@ grand_parent: Platform Plugins
 - Works when only one payment method is returned from Resurs Bank
 - Determents payment method based on specificType from webservice.
 - Javascript when setting governmentId on payment method, fixed when
-  government uses  -
+  government uses  -
 - Delivery Address corrected.
 - Updated Regex for Sweden, to work with century , 19YYMMDD-XXXX and
   YYMMDD-XXXX

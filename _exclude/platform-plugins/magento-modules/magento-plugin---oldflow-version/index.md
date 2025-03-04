@@ -17,7 +17,7 @@ that plugin, features and installation instructions.
 
 ## Checkout Compatibility
 - Standard checkout (This is what we call "Vanilla")
-- [Templates master](http://templates-master.com/) Fire Checkout
+- [Templates master](http://templates-master.com/) Fire Checkout
 - [One step checkout](http://www.onestepcheckout.com/)
 
 ## Features
@@ -28,11 +28,11 @@ that plugin, features and installation instructions.
   Resurs Bank Server.
 
 - Extension will fetch customer address via API and update their cart
-  billing address if a customer is from Sweden.
+  billing address if a customer is from Sweden.
 
 - Extension is compatible with the standard Magento
-  Checkout, [Firecheckout](http://firecheckout.com/) third party
-  extension and [OneStepCheckout](http://www.onestepcheckout.com/) third
+  Checkout, [Firecheckout](http://firecheckout.com/) third party
+  extension and [OneStepCheckout](http://www.onestepcheckout.com/) third
   party extension.
 
 - Merchant can configure additional "Payment Fee" to each payment
@@ -41,7 +41,7 @@ that plugin, features and installation instructions.
 - The Invoice Fee rate can be applied to all the payment methods.
 
 - Customized Payment description can be added to each payment method by
-  Merchant from back end
+  Merchant from back end
 
 - This extension supports five languages – English, Danish, Finnish,
   Norwegian and Swedish
@@ -51,13 +51,13 @@ that plugin, features and installation instructions.
 - Multiple webshops (scopes)
 
 - Flow for finalize, annul, credit from Magento instead of
-  Betalningsadmin/Payment admin (Read more about this at [Magento:
+  Betalningsadmin/Payment admin (Read more about this at [Magento:
   Finalize-, credit- and annulpayment details (v1.3.8.1)](3441540))
 
 ## Current flow
-Magento uses Resurs' [deprecated
+Magento uses Resurs' [deprecated
 flow](https://test.resurs.com/docs/display/DD/Shop+Flow+Chart), be sure
-to understand this. Also read about the [concepts and
+to understand this. Also read about the [concepts and
 domain](concepts-and-domain), order status FROZEN and its handling are
 important in the fraud and order concept.
 
@@ -71,7 +71,7 @@ important in the fraud and order concept.
 > solved by reading there.
 
 The ZIP archive package will have the content below:  
-The extension archive file named **Resursbank-X.X.X.tgz** and patches
+The extension archive file named **Resursbank-X.X.X.tgz** and patches
 are located in the patch-path.  
 This can be installed directly using Magento Connect option in back end
 (which is recommended since we do not support manual installations).
@@ -102,19 +102,19 @@ installed manually but we do not officially support this, since you are
 responsible yourself for setting up all file permissions correctly, etc
 
 - Extract the extension archive file under the root directory,
-- Click overwrite option to yes, 
-- Now the extension has been installed successfully. 
+- Click overwrite option to yes, 
+- Now the extension has been installed successfully. 
 - After manual installation, the first time the website may take some
   time for loading of the extension as it needs to set up database
-  tables and all other default configurations. 
+  tables and all other default configurations. 
 - After installation, provide proper write permissions to this Resurs
-  Bank Extension directory. 
+  Bank Extension directory. 
 - Then clear Magento and Browser Cache once from back end.
 
 ### Upgrade
 Since no files can be overwritten, these steps has to be done on
 upgrading/reinstallation of the plugin, if using Magento Connect
-Manager. *See Package Content above for other details about patches*
+Manager. *See Package Content above for other details about patches*
 
 - Uninstall Resurs Bank plugin
 - Check if there are any files left in app/code/local/Resursbank (this

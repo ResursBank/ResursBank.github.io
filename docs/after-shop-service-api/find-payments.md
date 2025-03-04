@@ -30,16 +30,16 @@ parent: After Shop Service Api
 
 | Name                     | Content                                | Description                                           |
 |--------------------------|----------------------------------------|-------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**   | Failed to search for payments. See error for details. |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**   | Failed to search for payments. See error for details. |
 
 Searches for payments that matches the specified requirements and
 returns the payments matching the specified search criteria. If you know
 the identity of the payment you are looking for, it is better to use the
 [getPayment method](/after-shop-service-api/get-payment/).
 
-The search may consist of information like governmentId, customer name,
+The search may consist of information like governmentId, customer name,
 paymentmethodId etc. You can specify the search criteria as much or as
-little you want to help you find what payment(s) you are looking for. 
+little you want to help you find what payment(s) you are looking for. 
 
 ### Sort order
 Can be sorted by these options:

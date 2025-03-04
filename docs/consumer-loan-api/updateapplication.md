@@ -11,16 +11,16 @@ parent: Consumer Loan Api
 ### One or several fields can be sent / updated in the request. **(This request must be done prior to accepting the offer.)**
 
 Fields that can be updated are:
--   applicantEmail
--   coApplicantEmail
--   account\>clearing  
-     - If the clearing consists of 5 digits and where the last digit is
+-   applicantEmail
+-   coApplicantEmail
+-   account\>clearing  
+     - If the clearing consists of 5 digits and where the last digit is
   a control number it must be included, the control number cannot be
   omitted.
--   account\>number  
-     - Control number must be included, it cannot be omitted.
--   iban 
--   requestedSigningMethod
+-   account\>number  
+     - Control number must be included, it cannot be omitted.
+-   iban 
+-   requestedSigningMethod
 
   > E_SIGN Clearing- & account numberIf customer is to choose E_SIGN as
   > signing method, it is mandatory to input clearing- and account

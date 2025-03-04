@@ -26,7 +26,7 @@ parent: After Shop Service Api
 
 | Name                     | Content                                  | Description                                         |
 |--------------------------|------------------------------------------|-----------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to annul the payment. See error for details. |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**     | Failed to annul the payment. See error for details. |
 
 ### Introduction
 Annuls the payment. This removes the reservation on the customer's
@@ -39,7 +39,7 @@ payments have to be credited).
 
 ### What is a PaymentSpec
 Expand to learn more about paymentSpec
-The payment details. In it's simplest form it's just sum, i.e.
+The payment details. In it's simplest form it's just sum, i.e.
 totalAmount and totalVatAmount are set, but there are no specLines. If
 nothing else is said you shall send specLines .  
 Contains elements as defined in the following table.
@@ -69,8 +69,8 @@ startPaymentSession method
 ### Paymentspec - rounding
 [see Rounding](/development/rounding/)
 
-###  annulPayment - code example
-**annulPayment** Expand source
+###  annulPayment - code example
+**annulPayment** Expand source
 ```xml
 <!-- Fully Specified -->
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">   
@@ -97,7 +97,7 @@ startPaymentSession method
   </soap:Body> 
 </soap:Envelope>
 
-<!-- Unspecified --> 
+<!-- Unspecified --> 
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aft="http://ecommerce.resurs.com/v4/msg/aftershopflow">
    <soapenv:Header/>
    <soapenv:Body>

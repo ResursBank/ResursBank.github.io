@@ -22,6 +22,6 @@ Contains elements as defined in the following table.
 
 | Value | Description |
 |-------|-------------|
-| MD5   |             |
-| SHA1  |             |
+| MD5   |             |
+| SHA1  |             |
 

@@ -24,8 +24,6 @@ has_toc: false
 - [PHP and development libraries](/development/php-and-development-libraries/)
 - [API Types](/development/api-types/)
 - [Create part payment widget](/development/create-part-payment-widget/)
-- [Customer data - Regular
-  expressions](/development/customer-data---regular-expressions/)
 - [Rounding](/development/rounding/)
 - [Recognized metadata](/development/recognized-metadata/)
 - [Payment providers in simplified

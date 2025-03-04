@@ -6,16 +6,16 @@ permalink: /gift-card-service/
 
 # Gift Card Service 
 
-The Gift Card Service provides services for gift card related operations
-such as loading and canceling a gift card.
+The Gift Card Service provides services for gift card related operations
+such as loading and canceling a gift card.
 The examples below demonstrates how to interact with the Gift Card
-Service. For a full description of the API, please refer to the [Gift
+Service. For a full description of the API, please refer to the [Gift
 Card
-Service](https://test.resurs.com/docs/download/attachments/327709/ResursBank_GiftCardService.pdf?version=1&modificationDate=1464702737000&api=v2) manual.
+Service](https://test.resurs.com/docs/download/attachments/327709/ResursBank_GiftCardService.pdf?version=1&modificationDate=1464702737000&api=v2) manual.
 Giftcard
-Test: [https://](http://bs.cte.loc/ws-22/giftcard/GiftCardService)[test.resurs.com](https://test.resurs.com/ws-22/application/ApplicationService)[/ws-22/giftcard/GiftCardService](http://bs.cte.loc/ws-22/giftcard/GiftCardService)
+Test: [https://](http://bs.cte.loc/ws-22/giftcard/GiftCardService)[test.resurs.com](https://test.resurs.com/ws-22/application/ApplicationService)[/ws-22/giftcard/GiftCardService](http://bs.cte.loc/ws-22/giftcard/GiftCardService)
 Giftcard
-Prod: [https://ws.butiksservice.resurs.com/ws-22/giftcard/GiftCardService](https://ws.butiksservice.resurs.com/ws-22/giftcard/GiftCardService)
+Prod: [https://ws.butiksservice.resurs.com/ws-22/giftcard/GiftCardService](https://ws.butiksservice.resurs.com/ws-22/giftcard/GiftCardService)
 Basic Auth:  
 Username: User#StoreNbr#SE  
 Pw: password set for user
@@ -25,10 +25,10 @@ Pw: password set for user
 4.  Annul a load
 #### 1. Loading a card with a specified amount
 This example shows how to load a card with a specified amount. To load a
-card you need to specify two parameters, *cardNumber* and *amount*.
-The *cardNumber* parameters is the card's identity which is typically
+card you need to specify two parameters, *cardNumber* and *amount*.
+The *cardNumber* parameters is the card's identity which is typically
 found on the card.
-The *amount* parameters specifies the amount.
+The *amount* parameters specifies the amount.
 **Load request**
 ``` syntaxhighlighter-pre
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:giftcard="http://butiksservice.resurs.com/msg/giftcard">
@@ -60,13 +60,13 @@ the one below:
 The response contains the card's current amount, the card's expire date
 and an authorization id. The authorization id can be used annul the
 load.
-*It's a good idea to store the authorizationId to a persistent storage
+*It's a good idea to store the authorizationId to a persistent storage
 for later retrieval if needed.*
 #### 2. Canceling a card, making it non-usable
 This example shows how to cancel a card. After a successful call to
-the *cancel* operation, the card is not usable anymore.
+the *cancel* operation, the card is not usable anymore.
 The *cancel* operation takes one parameter, *cardNumber*, which
-specifies the card that should be cancelled. 
+specifies the card that should be cancelled. 
 **Cancel request**
 ``` syntaxhighlighter-pre
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:giftcard="http://butiksservice.resurs.com/msg/giftcard">
@@ -96,7 +96,7 @@ The response contains an authorization id for the cancellation.
 #### 3. Getting a card's balance
 This example shows how to read out the card's current balance. The
 operation will also return the card's expire date.
-The *getBalance* operation takes one parameter, cardNumber, which
+The *getBalance* operation takes one parameter, cardNumber, which
 specifies the card.
 **Get Balance request**
 ``` syntaxhighlighter-pre
@@ -110,7 +110,7 @@ specifies the card.
 </soapenv:Envelope>
 ```
 If the request was successful you should receive a response similar to
-the one below: 
+the one below: 
 **getBalance response**
 ``` syntaxhighlighter-pre
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -125,13 +125,13 @@ the one below: 
 </soap:Envelope>
 ```
 The response contains the card's balance and expire date. The expire
-date is formatted according to [ISO
+date is formatted according to [ISO
 8601](http://en.wikipedia.org/wiki/ISO_8601).
 #### 4. Annul a load
 This example shows how to annul a load. Two parameters is required to
 annul a load, *cardNumber* and *authorizationId*.
-*AuthorizationId* should be the authorization id you received from a
-*load* request.
+*AuthorizationId* should be the authorization id you received from a
+*load* request.
 **Annul request**
 ``` syntaxhighlighter-pre
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:giftcard="http://butiksservice.resurs.com/msg/giftcard">

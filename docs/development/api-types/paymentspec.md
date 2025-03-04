@@ -10,7 +10,7 @@ grand_parent: Development
 
 # paymentSpec 
 
-The payment details. In it's simplest form it's just sum, i.e.
+The payment details. In it's simplest form it's just sum, i.e.
 totalAmount and totalVatAmount are set, but there are no specLines. If
 nothing else is said you shall send specLines .  
 Contains elements as defined in the following table.

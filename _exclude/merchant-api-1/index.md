@@ -33,7 +33,7 @@ API.postman_collection.json](../../attachments/59342921/59342929.json)
 I Postman:
 1.  *Import* top left --\> select file --\> Import
 2.  Högerklicka i *Collections*-fliken --\> Edit
-3.  *Variables*-fliken --\> sätt ett värde på client_id och
+3.  *Variables*-fliken --\> sätt ett värde på client_id och
     client_secret
 4.  *Authorization*-fliken --\> klicka *Get New Access Token*
   

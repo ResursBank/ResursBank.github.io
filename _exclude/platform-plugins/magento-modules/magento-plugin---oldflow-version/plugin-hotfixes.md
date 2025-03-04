@@ -90,7 +90,7 @@ For Firecheckout, [patch files are updated
 here](manually-patching-firecheckout).
 
 For Vanilla and the Onestep-checkout, edit
-app/code/local/Resursbank/Resursbank/Block/Checkout.php around line 36,
+app/code/local/Resursbank/Resursbank/Block/Checkout.php around line 36,
 find following code:
 
 **Original code \< 1.3.6**
@@ -119,10 +119,10 @@ Replace with:
                     if (isset($_POST['billing']['country_id']) && trim($_POST['billing']['country_id']) != "") {$slaAddress['country'] = $_POST['billing']['country_id'];}
 ```
 *Do the same for
-app/code/local/Resursbank/Resursbank/controllers/Checkout/OnepageController.php* 
+app/code/local/Resursbank/Resursbank/controllers/Checkout/OnepageController.php* 
 (around line 259)
 
-You can also download the updated files [here
-(Checkout.php)](../../../../attachments/3441280/4161547.php) and [here
+You can also download the updated files [here
+(Checkout.php)](../../../../attachments/3441280/4161547.php) and [here
 (OnepageController.php)](../../../../attachments/3441280/4161546.php)  
 

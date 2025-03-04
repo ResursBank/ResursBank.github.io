@@ -35,5 +35,5 @@ method and continue with the purchase, see below;
 2.  Select "Vipps" as the payment option and pay.
 3.  Enter the test number if it is not autofilled:  
     ![](https://confluence.resurs.com/download/thumbnails/284134441/image2022-1-18_14-43-10.png?version=1&modificationDate=1642513390000&api=v2)
-4.  Press "Next" and open the app on your phone. 
-5.  Using the code (1236), log in and confirm the payment. 
+4.  Press "Next" and open the app on your phone. 
+5.  Using the code (1236), log in and confirm the payment. 

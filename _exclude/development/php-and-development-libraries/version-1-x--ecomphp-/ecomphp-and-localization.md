@@ -34,7 +34,7 @@ to be taken care with caution. If the languages in future releases are
 changing it is highly important that the requesting methods can handle
 them as of today.
 
-Below is an explanation of how the phrases are built *today*. The
+Below is an explanation of how the phrases are built *today*. The
 translation place is entirely depending on the internal location,
 country and system in use:
 
@@ -63,7 +63,7 @@ country and system in use:
   But we usually do a failovercheck on this too, in case there is
   changes for this in the future.
 - Is the payment trustly? Go for pspTrustly instead of pspInternet,
-  since the info string is **currently** located in the
+  since the info string is **currently** located in the
   pspTrustly-block.
 
 For more information of how this is digged through, most of the above

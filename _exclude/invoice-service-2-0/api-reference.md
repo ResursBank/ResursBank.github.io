@@ -8,7 +8,7 @@ parent: Invoice Service 2 0
 
 # API Reference 
 
- 
+ 
 - [Methods](#APIReference-Methods)
   - [List payment alternatives](#APIReference-Listpaymentalternatives)
   - [Verify credit](#APIReference-Verifycredit)
@@ -35,7 +35,7 @@ Use this to get a list of all available payment alternatives. This
 should be called before making a purchase.
 The payment alternatives can change (the id, description, etc.) and
 should not be cached.
- 
+ 
 #### Operation
 ``` syntaxhighlighter-pre
 GET /payment_alternatives?amount={amount}
@@ -44,13 +44,13 @@ GET /payment_alternatives?amount={amount}
   
 | Name   | Type    | Mandatory | Constraints     | Description                                                                   |
 |--------|---------|-----------|-----------------|-------------------------------------------------------------------------------|
-| amount | decimal |           | Positive number | If specified, only payment alternatives matching the amount will be returned. |
+| amount | decimal |           | Positive number | If specified, only payment alternatives matching the amount will be returned. |
   
 #### Response
   
 | Name                 | Type                                                             | Mandatory | Constraints | Description |
 |----------------------|------------------------------------------------------------------|-----------|-------------|-------------|
-| payment_alternatives | array of [payment_alternative](#APIReference-PaymentAlternative) |           |             |             |
+| payment_alternatives | array of [payment_alternative](#APIReference-PaymentAlternative) |           |             |             |
   
 #### Response sample
 ``` syntaxhighlighter-pre
@@ -86,8 +86,8 @@ should be made before submitting a sell request in order to verify that
 the customer is ok. If the returned decision is "APPROVED" the purchase
 flow can be continued and a subsequent sell request can be made. Making
 a sell request when verify credibility returns a decision of anything
-else than APPROVED will result in an error.  If the returned decision is
-"MANUAL_INSPECTION" the PoS-system should inform the store staff  to
+else than APPROVED will result in an error.  If the returned decision is
+"MANUAL_INSPECTION" the PoS-system should inform the store staff  to
 contact Resurs Bank customer service for inspection of the application.
 If the application is approved this will be reflected on further calls
 to verify credibility.
@@ -99,10 +99,10 @@ POST /customer/verify_credibility
   
 | Name                   | Type                                                     | Mandatory |      Constraints      | Description                                                                                                                                                                                                                                                                                      |
 |------------------------|----------------------------------------------------------|:---------:|:---------------------:|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| payment_alternative_id | string                                                   |    x      |                       | The id of [payment_alternative](#APIReference-PaymentAlternative)                                                                                                                                                                                                                                |
+| payment_alternative_id | string                                                   |    x      |                       | The id of [payment_alternative](#APIReference-PaymentAlternative)                                                                                                                                                                                                                                |
 | requested_amount       | decimal                                                  |     x     |    Positive number    | The requested amount of the credit application                                                                                                                                                                                                                                                   |
 | government_id          | string                                                   |     x     | A valid government id | The government id of the liable payer. Either an organisation number or a national identification number. Use [www.personnummer.nu](http://www.personnummer.nu) to generate numbers. Please note that a date in the second, or higher, quarter shall be used due to test filter characteristics. |
-| contact_information    | [contact_information](#APIReference-ContactInformation)  |     x     |                       | The contact persons information                                                                                                                                                                                                                                                                  |
+| contact_information    | [contact_information](#APIReference-ContactInformation)  |     x     |                       | The contact persons information                                                                                                                                                                                                                                                                  |
   
 #### Request sample
 ``` syntaxhighlighter-pre
@@ -140,7 +140,7 @@ Do not call sell invoice if verify credibility returned anything else
 than APPROVED.
 The amount fields on the invoice lines are not validated against total
 amount.
- 
+ 
 **Operation  
 **
 ``` syntaxhighlighter-pre
@@ -150,17 +150,17 @@ POST /invoice/sell
   
 | Name                     | Type                                                    | Mandatory | Constraints                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |--------------------------|---------------------------------------------------------|:---------:|-----------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| external_reference       | string                                                  |    x      | Unique per chain.a-z, A-Z, 0-9, "\_" and "-" are allowed. | Payment reference.**This identifier will be reported back in economic reports.Use an identifier that can easily be traced back to your system, such as order id.**                                                                                                                                                                                                                                                                       |
-| payment_alternative_id   | string                                                  |     x     |                                                           | The id of [payment_alternative](#APIReference-PaymentAlternative)                                                                                                                                                                                                                                                                                                                                                                        |
+| external_reference       | string                                                  |    x      | Unique per chain.a-z, A-Z, 0-9, "\_" and "-" are allowed. | Payment reference.**This identifier will be reported back in economic reports.Use an identifier that can easily be traced back to your system, such as order id.**                                                                                                                                                                                                                                                                       |
+| payment_alternative_id   | string                                                  |     x     |                                                           | The id of [payment_alternative](#APIReference-PaymentAlternative)                                                                                                                                                                                                                                                                                                                                                                        |
 | government_id            | string                                                  |     x     | A valid government id                                     | The government id of the liable payer. Either an organisation number or a national identification number                                                                                                                                                                                                                                                                                                                                 |
-| contact_information      | [contact_information](#APIReference-ContactInformation) |     x     |                                                           | The contact persons information                                                                                                                                                                                                                                                                                                                                                                                                          |
-| invoice_lines            | array of [invoice_line](#APIReference-InvoiceLine)      |     x     | Must contain at least one element                         |                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| total_amount_without_vat | decimal                                                 |     x     |                                                           | Total amount without VAT                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| total_vat_amount         | decimal                                                 |     x     |                                                           | Total VAT amount                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| total_amount_with_vat    | decimal                                                 |     x     |                                                           | Total amount with VAT                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| invoice_number           | long                                                    |     x     | Positive number                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| contact_information      | [contact_information](#APIReference-ContactInformation) |     x     |                                                           | The contact persons information                                                                                                                                                                                                                                                                                                                                                                                                          |
+| invoice_lines            | array of [invoice_line](#APIReference-InvoiceLine)      |     x     | Must contain at least one element                         |                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| total_amount_without_vat | decimal                                                 |     x     |                                                           | Total amount without VAT                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| total_vat_amount         | decimal                                                 |     x     |                                                           | Total VAT amount                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| total_amount_with_vat    | decimal                                                 |     x     |                                                           | Total amount with VAT                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| invoice_number           | long                                                    |     x     | Positive number                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | invoice_delivery_option  | string                                                  |     x     | "POSTAL", "EMAIL", "NONE"                                 | This determines how the invoice will be delivered to the customer. The "POSTAL"-option means that the invoice will be mailed by postal mail to the customer's address. The "EMAIL"-option means that the invoice will be delivered by e-mail to the supplied customer email. The "NONE"-option will not do any of the above. This option does not affect the response, which always contains the invoice PDF if the call was successful. |
-| invoice_extra_data       | string                                                  |           |                                                           | Free-text field on the invoice                                                                                                                                                                                                                                                                                                                                                                                                           |
+| invoice_extra_data       | string                                                  |           |                                                           | Free-text field on the invoice                                                                                                                                                                                                                                                                                                                                                                                                           |
   
 #### Request sample
 ``` syntaxhighlighter-pre
@@ -203,13 +203,13 @@ POST /invoice/sell
     "invoice_number" : "103",
     "invoice_delivery_option" : "NONE",
     "invoice_extra_data" : "Data från kunden"
- }
+ }
 ```
 #### Response
   
 | Name | Type                     | Mandatory | Constraints | Description                    |
 |------|--------------------------|:---------:|-------------|--------------------------------|
-| pdf  | [Pdf](#APIReference-Pdf) |     x     |             | Invoice PDF encoded in base 64 |
+| pdf  | [Pdf](#APIReference-Pdf) |     x     |             | Invoice PDF encoded in base 64 |
   
 #### Sample response
 ``` syntaxhighlighter-pre
@@ -229,15 +229,15 @@ POST /invoice/credit
   
 | Name                     | Type                                               | Mandatory | Constraints                                                                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |--------------------------|----------------------------------------------------|:---------:|--------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| external_reference       | string                                             |    x      | This can be the same as the external reference from the sell request, but it must be unique otherwise. |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| sell_reference           | string                                             |     x     |                                                                                                        | External reference from the invoice sell request                                                                                                                                                                                                                                                                                                                                                                                                             |
-| invoice_lines            | array of [invoice_line](#APIReference-InvoiceLine) |     x     | Must contain at least one element                                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| total_amount_without_vat | decimal                                            |     x     | Total amount without VAT                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| total_vat_amount         | decimal                                            |     x     | Total VAT amount                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| total_amount_with_vat    | decimal                                            |     x     | Total amount with VAT                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| invoice_number           | long                                               |     x     | Must be a positive number                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| external_reference       | string                                             |    x      | This can be the same as the external reference from the sell request, but it must be unique otherwise. |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| sell_reference           | string                                             |     x     |                                                                                                        | External reference from the invoice sell request                                                                                                                                                                                                                                                                                                                                                                                                             |
+| invoice_lines            | array of [invoice_line](#APIReference-InvoiceLine) |     x     | Must contain at least one element                                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| total_amount_without_vat | decimal                                            |     x     | Total amount without VAT                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| total_vat_amount         | decimal                                            |     x     | Total VAT amount                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| total_amount_with_vat    | decimal                                            |     x     | Total amount with VAT                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| invoice_number           | long                                               |     x     | Must be a positive number                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | invoice_delivery_option  | string                                             |     x     | "POSTAL", "EMAIL", "NONE"                                                                              | This determines how the invoice will be delivered to the customer. The "POSTAL"-option means that the invoice will be mailed by postal mail to the customer's address. The "EMAIL"-option means that the invoice will be delivered by e-mail to the supplied customer email in the sell request. The "NONE"-option will not do any of the above. This option does not affect the response, which always contains the invoice PDF if the call was successful. |
-| invoice_extra_data       | string                                             |           |                                                                                                        | Free-text field on the invoice                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| invoice_extra_data       | string                                             |           |                                                                                                        | Free-text field on the invoice                                                                                                                                                                                                                                                                                                                                                                                                                               |
   
 #### Sample request
 ``` syntaxhighlighter-pre
@@ -272,15 +272,15 @@ POST /invoice/credit
     "total_vat_amount" : 275.98,
     "total_amount_with_vat" : 1379.9,
     "invoice_number" : 104
-    "invoice_delivery_option" : "EMAIL",
+    "invoice_delivery_option" : "EMAIL",
     "invoice_extra_data" : "Data från kunden"
- }
+ }
 ```
 #### Response
   
 | Name | Type                     | Mandatory | Constraints | Description                    |
 |------|--------------------------|:---------:|-------------|--------------------------------|
-| pdf  | [Pdf](#APIReference-Pdf) |     x     |             | Invoice PDF encoded in base 64 |
+| pdf  | [Pdf](#APIReference-Pdf) |     x     |             | Invoice PDF encoded in base 64 |
   
 #### Sample response
 ``` syntaxhighlighter-pre
@@ -302,19 +302,19 @@ POST /configuration/store
   
 | Name           | Type     | Mandatory | Constraints  | Description          |
 |----------------|----------|:---------:|:------------:|----------------------|
-| name           | string   |    x      |              |                      |
-| street         | string   |     x     |              |                      |
-| zipcode        | string   |     x     | Only numbers |                      |
-| city           | string   |     x     |              |                      |
-| country        | string   |     x     |              |                      |
-| phone          | string   |     x     |              |                      |
-| fax            | string   |           |              |                      |
-| email          | string   |     x     |              |                      |
-| homepage       | string   |     x     |              |                      |
-| vatreg         | string   |     x     |              |                      |
-| orgnr          | string   |     x     | Only numbers |                      |
-| companytaxnote | boolean  |     x     |              |                      |
-| logotype       | byte\[\] |     x     |              | base64 encoded image |
+| name           | string   |    x      |              |                      |
+| street         | string   |     x     |              |                      |
+| zipcode        | string   |     x     | Only numbers |                      |
+| city           | string   |     x     |              |                      |
+| country        | string   |     x     |              |                      |
+| phone          | string   |     x     |              |                      |
+| fax            | string   |           |              |                      |
+| email          | string   |     x     |              |                      |
+| homepage       | string   |     x     |              |                      |
+| vatreg         | string   |     x     |              |                      |
+| orgnr          | string   |     x     | Only numbers |                      |
+| companytaxnote | boolean  |     x     |              |                      |
+| logotype       | byte\[\] |     x     |              | base64 encoded image |
   
 #### Sample request
 ``` syntaxhighlighter-pre
@@ -364,11 +364,11 @@ Payment alternative
   
 | Property Name | Type    | Mandatory | Constraints    | Description                                                                                                                                              |
 |---------------|---------|-----------|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id            | string  | x         |                | Payment alternative id. Use this id to specify payment alternative id in verify credibility and sell call.                                               |
-| description   | string  | x         |                | Description of the payment alternative                                                                                                                   |
-| customer_type | string  | x         | NATURAL, LEGAL |                                                                                                                                                          |
-| min_amount    | decimal | x         |                | The minimum allowed amount for this payment alternative. Applying for an amount with a payment alternative less than min_amount will result in an error. |
-| max_amount    | decimal | x         |                | The maximum allowed amount for this payment alternative. Applying for an amount with a payment alternative more than max_amount will result in an error. |
+| id            | string  | x         |                | Payment alternative id. Use this id to specify payment alternative id in verify credibility and sell call.                                               |
+| description   | string  | x         |                | Description of the payment alternative                                                                                                                   |
+| customer_type | string  | x         | NATURAL, LEGAL |                                                                                                                                                          |
+| min_amount    | decimal | x         |                | The minimum allowed amount for this payment alternative. Applying for an amount with a payment alternative less than min_amount will result in an error. |
+| max_amount    | decimal | x         |                | The maximum allowed amount for this payment alternative. Applying for an amount with a payment alternative more than max_amount will result in an error. |
   
 ## Contact information
 Holds information about the contact person.
@@ -379,7 +379,7 @@ different from the liable payer.
 |--------------------------------|--------|-----------|------------------------|-----------------------------------------------------|
 | email                          | string | x         | A valid email address. | The contact persons email address.                  |
 | phone                          | string | x         | A valid phone number.  | The contact persons phone number.                   |
-| national_identification_number | string |           |                        | The contact persons national identification number. |
+| national_identification_number | string |           |                        | The contact persons national identification number. |
   
 #### Sample
 ``` syntaxhighlighter-pre
@@ -397,12 +397,12 @@ Representation of an invoice line.
 | article_id              | string | x         | Min length: 1                | The line identity                             |
 | article_number          | string | x         | Min length: 1Max length: 30  | Article number of the item.                   |
 | description             | string | x         | Min length: 1Max length: 100 | A description of the product.                 |
-| quantity                | double | x         |                              | The quantity of the product.                  |
+| quantity                | double | x         |                              | The quantity of the product.                  |
 | unit_measure            | string | x         | Min length: 1Max length: 10  | The unit the product quantity is measured in. |
-| unit_amount_without_vat | double | x         |                              | The amount with VAT per unit.                 |
-| vat_percentage          | double | x         | Min value: 0Max value: 100   |                                               |
-| total_vat_amount        | double | x         |                              | The total item VAT amount.                    |
-| total_amount_with_vat   | double | x         |                              | The total item amount, including VAT.         |
+| unit_amount_without_vat | double | x         |                              | The amount with VAT per unit.                 |
+| vat_percentage          | double | x         | Min value: 0Max value: 100   |                                               |
+| total_vat_amount        | double | x         |                              | The total item VAT amount.                    |
+| total_amount_with_vat   | double | x         |                              | The total item amount, including VAT.         |
   
 #### Example
 ``` syntaxhighlighter-pre
@@ -422,7 +422,7 @@ Representation of an invoice line.
   
 | Property Name | Type   | Mandatory | Constraints | Description            |
 |---------------|--------|-----------|-------------|------------------------|
-| pdfData       | string | x         |             | base 64 encoded string |
+| pdfData       | string | x         |             | base 64 encoded string |
   
 #### Example
 ``` syntaxhighlighter-pre
@@ -436,6 +436,6 @@ following structure.
   
 | Property Name | Type   | Mandatory | Constraints                                                                                                                              | Description                  |
 |---------------|--------|:---------:|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| error_type    | string |     x     | "SELL_INVOICE_ERROR", "PAYMENT_ALTERNATIVE_ERROR", "CREDIT_INVOICE_ERROR", "VERIFY_CREDIBILITY_ERROR", "ARGUMENT_ERROR", "UNKNOWN_ERROR" |                              |
-| error_message | string |     x     |                                                                                                                                          | Message describing the error |
+| error_type    | string |     x     | "SELL_INVOICE_ERROR", "PAYMENT_ALTERNATIVE_ERROR", "CREDIT_INVOICE_ERROR", "VERIFY_CREDIBILITY_ERROR", "ARGUMENT_ERROR", "UNKNOWN_ERROR" |                              |
+| error_message | string |     x     |                                                                                                                                          | Message describing the error |
   

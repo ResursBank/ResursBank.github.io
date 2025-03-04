@@ -46,7 +46,7 @@ again.
  * Version: 1.0.0
  * Author:
  */
-  add_action('plugins_loaded', function () {
+  add_action('plugins_loaded', function () {
     add_filter('resurs_bank_form_fields', function ($formFields, $sectionName) {
         if (
             (preg_match('/resurs_bank/i', $sectionName) || $sectionName === 'defaults') &&

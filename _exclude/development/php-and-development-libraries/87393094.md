@@ -21,20 +21,20 @@ This document covers information about EComPHP 1.x (Currently 1.3.x).
 # Description
 Resurs EComPHP Gateway is a simplifier for our webservices, with
 functionality enough to getting started fast. It communicates with
-the [Simplified Flow API](simplified-flow-api) for booking
-payments, [Configuration Service](configuration-service) and the [After
+the [Simplified Flow API](simplified-flow-api) for booking
+payments, [Configuration Service](configuration-service) and the [After
 Shop Service API](after-shop-service-api) for finalizing, crediting and
 annulments etc. This full version of the gateway communicates
-with [Hosted Payment
+with [Hosted Payment
 Flow](https://test.resurs.com/docs/display/ecom/Hosted+Payment+Flow)
-and [Resurs Checkout Web](resurs-checkout-web) (supporting both REST and
-SOAP). A PHP-reference for EComPHP is located
-at [https://test.resurs.com/autodocs](https://test.resurs.com/autodocs/),
+and [Resurs Checkout Web](resurs-checkout-web) (supporting both REST and
+SOAP). A PHP-reference for EComPHP is located
+at [https://test.resurs.com/autodocs](https://test.resurs.com/autodocs/),
 if you want to take a look at our automatically generated documentation.
 
 As EComPHP is continuously developed, you should take a look at our
 bitbucket repo to keep this information updated. It can be found
-at [https://bitbucket.org/resursbankplugins/resurs-ecomphp](https://bitbucket.org/resursbankplugins/resurs-ecomphp).
+at [https://bitbucket.org/resursbankplugins/resurs-ecomphp](https://bitbucket.org/resursbankplugins/resurs-ecomphp).
 
 # Branches
 **Red branches is obsolete and no longer officially maintained.**  
@@ -56,7 +56,7 @@ some major non-breaking changes that takes us closer to such compliance.
 # Preparing the library
 ## Download
 Take a look at the ongoing project
-at [https://bitbucket.org/resursbankplugins/resurs-ecomphp](https://bitbucket.org/resursbankplugins/resurs-ecomphp)
+at [https://bitbucket.org/resursbankplugins/resurs-ecomphp](https://bitbucket.org/resursbankplugins/resurs-ecomphp)
 
 ## Requirements and dependencies
 - Use composer

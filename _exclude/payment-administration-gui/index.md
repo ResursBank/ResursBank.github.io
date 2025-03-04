@@ -24,5 +24,5 @@ common questions.
 [![](../../attachments/327748/22184042.png)](Merchant-Portal_16057099.html)
 Merchant Portal is offered in Swedish, Finnish, Norwegian and Danish.
 If you prefer to use your own business system, you can choose to
-integrate our** [after shop
+integrate our** [after shop
 webservices](After-Shop-Service-API_327799.html).**

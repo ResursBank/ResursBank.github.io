@@ -19,7 +19,7 @@ nav_order: 51
 
 ## Create an agreement
 In order to print a physical agreement the agreement must first be
-created. 
+created. 
 
 URL to create physical agreement:
 [https://merchant-api.integration.resurs.com/v2/agreements](https://merchant-api.integration.resurs.com/v2/agreements)
@@ -37,7 +37,7 @@ agreement](https://merchant-api.integration.resurs.com/docs/v2/merchant_physical
 > }'
 
 ## Sign an agreement
-After creating an agreement, the agreement must be signed and printed. 
+After creating an agreement, the agreement must be signed and printed. 
 
 URL to sign physical agreement:
 [https://merchant-api.integration.resurs.com/v2/agreements](https://merchant-api.integration.resurs.com/v2/agreements)/sign

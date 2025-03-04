@@ -10,7 +10,7 @@ parent: Merchant Api 2.0
 
 > Generic, explanational documentationPlease note that the flow and its
 > requests below is an example and other flows or variations may exist.
-> Please advice with onboarding@resurs.se regarding specific actions
+> Please advice with onboarding@resurs.se regarding specific actions
 > prior to mapping up any logic or beginning any coding.
 
 **What can I find here?**
@@ -82,7 +82,7 @@ A store may have multiple payment methods available. The list of
 available payment methods will show what payment methods there are to
 apply from at the chosen store.  
 Each payment method has a paymentmethod id, wich will be used in the
-next step, when the application is created. 
+next step, when the application is created. 
 
 URL to get available payment methods:
 [https://merchant-api.integration.resurs.com/v2/stores/{store_id}/payment_methods](https://merchant-api.integration.resurs.com/v2/stores/%7Bstore_id%7D/payment_methods)
@@ -115,7 +115,7 @@ information.
   customer in case customer interaction like consents or contract
   signing is required
 - handleFrozenPayments = payments may be frozen for a short time due to
-  fraud controls. When a payment is frozen  the goods shall not be
+  fraud controls. When a payment is frozen  the goods shall not be
   delivered to the customer until the payment is captured
 - handlemanualinspection = if handling manual inspection, the flow may
   be stopped and the customer must talk to Resurs Bank personnel before
@@ -132,31 +132,71 @@ URL to create payment:
 Link to the call in swagger documentation: **[Create
 Payments](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v2#/Payment%20authorization/createPayment)**
 
-**Curl to create payment**
+#### Create payment
+##### Payload: application/json
+```json
+{
+  "storeId": "b7f88ac4-baa7-493b-a0a7-d4e14f91f555",
+    "paymentMethodId": "7d63eb50-94b4-4238-8c0d-22d095bfe46b",
+  "order": {
+    "orderLines": [
+      {
+        "description": "Product 1",
+        "quantity": 1,
+        "type": "NORMAL",
+        "quantityUnit": "st",
+        "vatRate": 25,
+        "totalAmountIncludingVat": 5000.00
+      },
+       {
+        "description": "Product 2",
+        "quantity": 1,
+        "type": "NORMAL",
+        "quantityUnit": "st",
+        "vatRate": 25,
+        "totalAmountIncludingVat": 800.00
+      }
+    ],
+    "orderReference": "order6789"
+             },
+   "customer": {
+    "customerType": "NATURAL",
+     "email": "testpurchase@testing.se",
+    "mobilePhone": "0707132456",
+    "deviceInfo": {
+      "ip": "192.168.0.1",
+      "userAgent": "POS-system ABC"
+    }
+  },
+ "metadata": {
+   "creator": "Sellercode 789"
+  },
+  "options": {
+    "initiatedOnCustomersDevice": false,
+    "deliverLinks": true,
+      "handleFrozenPayments": false,
+      "handleManualInspection": false,
+      "automaticCapture": true,
+    "callbacks": {
+      "authorization": {
+        "url": "https://webhook.site/399ae8da-bffc-4286-9e9a-66cb78e3d7a7"
+      },
+      "management": {
+        "url": "https://webhook.site/399ae8da-bffc-4286-9e9a-66cb78e3d7a7"
+      }
+    },
+    "timeToLiveInMinutes": 5
+  }
+}
+```
 
-> curl --location --request POST
-> 'https://merchant-api.integration.resurs.com/v2/payments' \\-header
-> 'Authorization: Bearer \<TOKEN\>' \\-header 'Content-Type:
-> application/json' \\-data-raw { "storeId": "{{store_id}}",
-> "paymentMethodId": "{{payment_method_id}}", "order": { "orderLines":
-> \[ { "description": "Book", "quantity": 1, "quantityUnit": "pcs",
-> "vatRate": 25, "totalAmountIncludingVat": 500.0 } \],
-> "orderReference": "{{orderref}}" }, "customer": { "customerType":
-> "NATURAL", "governmentId": "xxxxx", "email": "test@resurs.com",
-> "mobilePhone": "xxxxx"   }, "options": { "initiatedOnCustomersDevice":
-> true, "deliverLinks": true, "handleManualInspection":
-> false,"automaticCapture": true, "callbacks": { "authorization": {
-> "url": "{{callback_url_authorization}}" }, "management": { "url":
-> "{{callback_url_management}}" } }, "redirectionUrls": { "customer": {
-> "failUrl": "{{fail_url_customer}}", "successUrl":
-> "{{success_url_customer}}" }, "timeToLiveInMinutes": 120 } }
 
-### Create payment responses and what to do next
+#### Create payment responses and what to do next
 TASK_REDIRECTION_REQUIRED → The customer is to be redicreted to
 "customerUrl" either sent by you or by Resurs (depending whether
 options.deliverLinks is true/false). Callbacks with callback-status
 AUTHORIZED, REJECTED, FROZEN or CAPTURED can be received before or after
-redirection is performed. 
+redirection is performed. 
 
 If you want to check if the payment has been *Authorized* without
 redirecting (it may be that successUrl is shown directly in the
@@ -167,335 +207,5 @@ If paper signing is to be used (For Finland only) for signing an
 application/payment, see [Physical Agreement
 Finland](physical-agreement-finland)
 
-### Postman collection of the requests above
-```json
-{
-	"info": {
-		"_postman_id": "1059649d-edb4-4985-a114-6000f25b1f2f",
-		"name": "MAPI2-POS for partners",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "Get token",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"const response = pm.response.json();",
-							"pm.globals.set(\"myTokenPaymentV2\", response.access_token);",
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"console.log('Create Token');",
-							"",
-							"        ",
-							"        ",
-							"        "
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"client_id\": \"see testaccount\",\n    \"client_secret\": \"see test account\",\n    \"scope\": \"merchant-api\",\n    \"grant_type\": \"client_credentials\"\n}\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://merchant-api.integration.resurs.com/oauth2/token",
-					"protocol": "https",
-					"host": [
-						"merchant-api",
-						"integration",
-						"resurs",
-						"com"
-					],
-					"path": [
-						"oauth2",
-						"token"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get available stores",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"console.log('Hämta StoreId');",
-							"pm.globals.unset(\"myaddressRow2PaymentV2\");",
-							"pm.globals.unset(\"mycountryCodePaymentV2\");",
-							"pm.globals.unset(\"myfirstNamePaymentV2\");",
-							"pm.globals.unset(\"mylastNamePaymentV2\");",
-							"pm.globals.unset(\"mycustomerTypePayment2\");",
-							"pm.globals.unset(\"mypostalCodePaymentV2\");",
-							"pm.globals.unset(\"mygovernmentIdPayment2\");",
-							"pm.globals.unset(\"myfindPaymentIdPaymentV2\");",
-							"pm.globals.unset(\"myPaymentMethodPaymentV2\");",
-							"pm.globals.unset(\"myOrderReferencePayment2\");",
-							"pm.globals.unset(\"myPaymentIdPaymentV2\");",
-							"pm.globals.unset(\"mysearchPaymentIdPaymentV2\");",
-							"",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://merchant-api.integration.resurs.com/v2/stores?sort=popularName,asc&sort=nationalStoreId,desc&size=2000",
-					"protocol": "https",
-					"host": [
-						"merchant-api",
-						"integration",
-						"resurs",
-						"com"
-					],
-					"path": [
-						"v2",
-						"stores"
-					],
-					"query": [
-						{
-							"key": "sort",
-							"value": "popularName,asc",
-							"description": "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
-						},
-						{
-							"key": "sort",
-							"value": "nationalStoreId,desc",
-							"description": "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
-						},
-						{
-							"key": "page",
-							"value": "0",
-							"description": "Zero-based page index (0..N)",
-							"disabled": true
-						},
-						{
-							"key": "size",
-							"value": "2000"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get available payment methods by store and purchase amount",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"console.log('Get PaymentMethodId');"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{myTokenPaymentV2}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://merchant-api.integration.resurs.com/v2/stores/{{store_id}}/payment_methods",
-					"protocol": "https",
-					"host": [
-						"merchant-api",
-						"integration",
-						"resurs",
-						"com"
-					],
-					"path": [
-						"v2",
-						"stores",
-						"{{store_id}}",
-						"payment_methods"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create payment",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"const response = pm.response.json();",
-							"pm.globals.set(\"myPaymentIdPaymentV2\", response.id);",
-							""
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"console.log('Create payment v2');",
-							"",
-							"pm.globals.set(\"myOrderReferencePayment2\", _.random(000001, 999999));"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{myTokenPaymentV2}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"storeId\": \"{{store_id}}\",\n  \"paymentMethodId\": \"{{payment_method_id}}\",\n  \"order\": {\n    \"orderLines\": [\n      {\n        \"description\": \"Test product\",\n        \"quantity\": 1,\n        \"quantityUnit\": \"pcs\",\n        \"vatRate\": 25,\n        \"totalAmountIncludingVat\": 5000.0\n      }\n    ],\n    \"orderReference\": \"orderref-12345\"\n  },\n  \"customer\": {\n    \"customerType\": \"NATURAL\",\n    \"governmentId\": \"8305147715\",\n    \"email\": \"testing@domain.com\",\n    \"mobilePhone\": \"0707123456\"   \n    },    \n  \"options\": {\n    \"initiatedOnCustomersDevice\": false,\n    \"deliverLinks\": true,\n    \"handleManualInspection\": false,\n    \"callbacks\": {\n      \"authorization\": {\n        \"url\": \"https://webhook.site/orderref-12345\"\n      },\n      \"management\": {\n        \"url\": \"https://webhook.site/orderref-12345\"\n      }\n    },\n    \"redirectionUrls\": {\n      \"customer\": {\n        \"failUrl\": \"https://merchant-api.integration.resurs.com/\",\n        \"successUrl\": \"https://www.resursbank.se/\"\n    },\n    \"timeToLiveInMinutes\": 120\n  }\n}\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://merchant-api.integration.resurs.com/v2/payments",
-					"protocol": "https",
-					"host": [
-						"merchant-api",
-						"integration",
-						"resurs",
-						"com"
-					],
-					"path": [
-						"v2",
-						"payments"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Payment",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"console.log('Get PaymentMethodId');"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{myTokenPaymentV2}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://merchant-api.integration.resurs.com/v2/payments/{{payment_Id}}",
-					"protocol": "https",
-					"host": [
-						"merchant-api",
-						"integration",
-						"resurs",
-						"com"
-					],
-					"path": [
-						"v2",
-						"payments",
-						"{{payment_Id}}"
-					]
-				}
-			},
-			"response": []
-		}
-	]
-}
-```
-
+### POS flowchart
+![Merchant_API_POS_Flowchart - finder](https://github.com/user-attachments/assets/604d7466-8e60-4358-af5e-990b1d9ecd5d)

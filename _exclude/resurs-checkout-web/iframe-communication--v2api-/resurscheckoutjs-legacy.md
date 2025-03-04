@@ -45,20 +45,20 @@ RCOJS continuity
 **Project is discontinued.**
 ## Requirements
 - A pre-set
-  js-variable: `RESURSCHECKOUT_IFRAME_URL` (*`OMNICHECKOUT_IFRAME_URL` are
+  js-variable: `RESURSCHECKOUT_IFRAME_URL` (*`OMNICHECKOUT_IFRAME_URL` are
   kept for backwards compatibility*) needs to be set from your store, to
   define where events are sent from.  
   ***Note: If you're using a
-  document.ready-control, RESURSCHECKOUT_IFRAME_URL must be set before
+  document.ready-control, RESURSCHECKOUT_IFRAME_URL must be set before
   this***
 - Make sure that shopUrl is sent and matches with the target iframe URL
   (not the complete one, you only need the first parts for
-  example ***[https://http.host.name](https://http.host.name)*** without
+  example ***[https://http.host.name](https://http.host.name)*** without
   trailing slashes), when creating the iframe at API level.
 - A html element, with an id, that holds the iframe (default id:
   resurs-checkout-container)
 ### Dependencies and script support
-ResursCheckoutJS has *no external* dependencies like jQuery, etc, since
+ResursCheckoutJS has *no external* dependencies like jQuery, etc, since
 we want to be sure that the script fits in any web store you implement
 it in. The target browser must however support JSON-parsing
 ([JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)).
@@ -99,7 +99,7 @@ live completely without this interactivity.
 ## What this script can't do
 - It does not update the iframe summary if the cart changes. This should
   be backend
-  (See https://test.resurs.com/docs/x/BoJM#ResursCheckout-/checkout/payments/{orderReference}-PUT)
+  (See https://test.resurs.com/docs/x/BoJM#ResursCheckout-/checkout/payments/{orderReference}-PUT)
 ## What you should be careful with
 Be aware of expected behaviour glitches
 Running in "interceptor"-mode might be, if you do not take some
@@ -115,9 +115,9 @@ while it is open, it is highly recommended to secure this.
 ## Can I use updatePaymentReference?
 Yes. If you have needs to update your payment reference (orderid) before
 sending order confirmation to ecommerce (via the confirm order button),
-you can do an updatePaymentReference call first in, for example, your
+you can do an updatePaymentReference call first in, for example, your
 backend environment. As this reference has to be created before the
-order is created in Resurs Bank, you could use the setBookingCallback()
+order is created in Resurs Bank, you could use the setBookingCallback()
 function in ResursCheckoutJS to trigger this update event, when your
 order has been created locally.
 ## Can I change the look of the iframe?
@@ -135,14 +135,14 @@ sent from the checkout):
   loaded and is ready  
   Available callback function: ***resursCheckoutIframeReady***
 - **checkout:user-info-change** - Stored until checkout is finished  
-  Available callback function: **setCustomerChangedEventCallback**
+  Available callback function: **setCustomerChangedEventCallback**
 - **checkout:payment-method-change** - Stored until checkout is
   finished  
-  Available callback function: ***setCustomerChangedEventCallback***
+  Available callback function: ***setCustomerChangedEventCallback***
 - **checkout:booking-order** - Passed with necessary customer data to a
   callback, or dropped if no callback is set  
-  Available callback function: ***setBookingCallback***
-- **checkout:purchase-failed** - If there is a problem with the payment
+  Available callback function: ***setBookingCallback***
+- **checkout:purchase-failed** - If there is a problem with the payment
   at Resurs Bank, this event will be sent back from the iframe**  
   **Available callback function:* **setPurchaseFailCallback***
 - **checkout:purchase-denied**- If there is a problem with the payment
@@ -154,7 +154,7 @@ sent from the checkout):
   name that is sent from the checkout)***.
 # Download
 Latest version is always available
-at [https://bitbucket.org/resursbankplugins/resurscheckoutjs](https://bitbucket.org/resursbankplugins/resurscheckoutjs)
+at [https://bitbucket.org/resursbankplugins/resurscheckoutjs](https://bitbucket.org/resursbankplugins/resurscheckoutjs)
 # CHANGELOG
 ### Version 0.09
   

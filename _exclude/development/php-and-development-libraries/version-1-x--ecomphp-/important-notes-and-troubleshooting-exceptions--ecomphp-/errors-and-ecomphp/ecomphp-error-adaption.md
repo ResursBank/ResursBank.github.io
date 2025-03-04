@@ -15,12 +15,12 @@ it's needed convert unsupported data to valid supported data), so that
 we in the end always get the same kind of answers regardless of what
 we'd like to do with Resurs API.
 
-As described in [the notices about
+As described in [the notices about
 updatePaymentReference-section](updatepaymentreference-notices) it is
 highly valued that everything looks the same way all the time. However,
 depending on the flow, the acting might differ a bit. This also includes
 error handling. The later versions of EComPHP is written to be able to
-handle stringified exception codes. Normally, [the Exception-class in
+handle stringified exception codes. Normally, [the Exception-class in
 PHP](https://www.php.net/manual/en/exception.construct.php) only accept
 long integers as a valid error code when exceptions are thrown. In some
 cases Resurs Bank may throw exceptions that is against this standard,
@@ -28,9 +28,9 @@ with alpha numeric instead. EComPHP tries to handle this, with an
 extended exception class.
 
 ## Default exception constructor
-public Exception::\_\_construct (\[ string `$message` =
-"" \[, int `$code` =
-0 \[, [Throwable](https://www.php.net/manual/en/class.throwable.php) `$previous` = `NULL` \]\]\]
+public Exception::\_\_construct (\[ string `$message` =
+"" \[, int `$code` =
+0 \[, [Throwable](https://www.php.net/manual/en/class.throwable.php) `$previous` = `NULL` \]\]\]
 )
 
 ## EComPHP exception constructor

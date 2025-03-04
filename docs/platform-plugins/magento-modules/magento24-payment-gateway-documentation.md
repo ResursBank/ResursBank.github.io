@@ -40,7 +40,7 @@ enabled.
 These settings are supplied by the **core** module and provide
 integration with the API.
 
- ![](../../../attachments/71794717/71794721.png)
+ ![](../../../attachments/71794717/71794721.png)
 
 ### **Checkout type**
 Which API integration to utilize. The values are supplied by the
@@ -61,7 +61,7 @@ environments upon need.
 API account password, supplied by Resurs Bank. There is a separate
 password field for each **Environment** value, we display the related
 one depending on your selection. This allows you to quickly swap between
-environments upon need. 
+environments upon need. 
 
 Please note that the value will become encrypted when you save the
 configuration.
@@ -76,7 +76,7 @@ When you click this button the module will;
     table.
 4.  Enable the payment methods that were available at Resurs Bank
     (leaving methods which no longer exist disabled).
- Please note that: 
+ Please note that: 
 
 -  This process is executed once for each API account you have specified
   in your various websites / stores / store views.
@@ -104,7 +104,7 @@ recorded in your local database. The list also details the **min** /
 
 ## **Callback Settings**
 *Requires the Order Management module package
-(resursbank/magento-ordermanagement).*** **
+(resursbank/magento-ordermanagement).*** **
 
 This section provides buttons to register and test your callbacks. The
 section also details when a test was last dispatched / completed as well
@@ -131,7 +131,7 @@ is described in detail in a later section of this document).
 -  UPDATE
 -  TEST
 
- While there are more callback types available, UPDATE will be executed
+ While there are more callback types available, UPDATE will be executed
 alongside them, and thus these other callbacks are considered needless
 overhead.
 
@@ -178,7 +178,7 @@ applied at will to suit your specific needs.
 ![](../../../attachments/71794717/109805583.png)
 
 #### **Logging**
- Whether or not to enable logging. There is a separate log for each
+ Whether or not to enable logging. There is a separate log for each
 package, and that package will only write information to its own log.
 The logs contain metadata, errors and any information relevant to debug
 problems.
@@ -190,9 +190,9 @@ The log files are named with the following scheme:
 Some packages may produce additional log files. Log files are detailed
 in their own section later in this document.
 
-We recommend you leave logging enabled but adjust the `Log Level` 
-setting to fit your requirements (e.g. only log `ERROR`  and
-`EXCEPTION`  messages in production).
+We recommend you leave logging enabled but adjust the `Log Level` 
+setting to fit your requirements (e.g. only log `ERROR`  and
+`EXCEPTION`  messages in production).
 
 It is also advisable to rotate the log files regularly to avoid disk
 space issues developing over time, especially if `Log Level` is set to
@@ -200,10 +200,10 @@ space issues developing over time, especially if `Log Level` is set to
 
 #### Log Level
 Sets the lowest level of message that will be logged. So for example if
-set to the default `INFO` level then `DEBUG`  level messages will not be
-logged while `INFO`, `WARNING`, `ERROR` and `EXCEPTION`  messages are
+set to the default `INFO` level then `DEBUG`  level messages will not be
+logged while `INFO`, `WARNING`, `ERROR` and `EXCEPTION`  messages are
 logged while if set to `ERROR` no messages with a level of `DEBUG`,
-`INFO` and `WARNING`  will be logged.
+`INFO` and `WARNING`  will be logged.
 
 #### **Delete aborted orders**
 Magento will produce an order prior to payments being completed, which
@@ -294,7 +294,7 @@ procedure included in Magento.
 ![](../../../attachments/71794717/71794748.png)
 
 #### **Swish maximum order total**
- The maximum cart value allowed to utilize the **Swish** payment method
+ The maximum cart value allowed to utilize the **Swish** payment method
 where applicable.
 
 #### **Wait for fraud control**
@@ -349,12 +349,12 @@ cause the API requests, and ultimately the purchase, to fail.
 
 Payment methods function the same as for any other gateway.
 
- Some methods require the customer to supply additional information
+ Some methods require the customer to supply additional information
 (this depends on the method in question, and whether the customer is a
 company or private citizen). This is the case with invoices, as
 illustrated below.
 
- The **Read More** link displayed with each payment method will open a
+ The **Read More** link displayed with each payment method will open a
 dialog with additional information about the payment method.
 
 ![](../../../attachments/71794717/71794757.png)
@@ -396,7 +396,7 @@ open a dialog with information.
 *Requires the Order Management module package
 (resursbank/magento-ordermanagement).*
 
-### **Payment information** 
+### **Payment information** 
 On the order, invoice and credit memo views, we append a block
 reflecting the current state of the payment at Resurs Bank.
 
@@ -414,19 +414,19 @@ that have occurred for the payment associated with the order.
 ![](../../../attachments/71794717/71794767.png)
 
 ### **Callbacks**
- Callbacks are essentially notifications submitted to your website from
+ Callbacks are essentially notifications submitted to your website from
 Resurs Bank whenever something happens to a payment, for example when it
 becomes debited or annulled.
 
- The provided callback integration will update the state and status of
+ The provided callback integration will update the state and status of
 the order in Magento to reflect the current state of the payment at
 Resurs Bank. It will also record the events in your logs and within the
 **payment history** (described above).
 
- Note that if a payment is annulled at Resurs Bank the corresponding
+ Note that if a payment is annulled at Resurs Bank the corresponding
 order in Magento will be canceled.
 
- Callbacks are designed to be adaptable and your developers will easily
+ Callbacks are designed to be adaptable and your developers will easily
 be able to execute any number of custom actions whenever you receive
 these notifications without needing to modify the module itself.
 
@@ -454,29 +454,29 @@ section.
 The **Order Management** module will affect how the order confirmation
 email is dispatched.
 
- The module will prevent the email from being submitted during the
+ The module will prevent the email from being submitted during the
 checkout process (by setting the flag **can_send_new_email** to
 **false**). The module calls the method to submit the email when the
 callback **BOOKED** is received from Resurs Bank.
 
- Under normal circumstances this callback will be submitted from Resurs
+ Under normal circumstances this callback will be submitted from Resurs
 Bank moments after the purchase has been accepted regardless of method
 of payment.
 
- This may however be affected by the flags to modify the payment process
+ This may however be affected by the flags to modify the payment process
 (see the section **Advanced Settings - Two step Magento Checkout with
 Resurs payment methods** above for more details), or by settings applied
 on the payment methods at Resurs Bank.
 
- When using **asynchronous** emails please be aware of the time limit
+ When using **asynchronous** emails please be aware of the time limit
 imposed by Magento in **vendor/magento/module-sales/etc/di.xml**
 
-** **Magento will dismiss order confirmations which have not been
+** **Magento will dismiss order confirmations which have not been
 submitted within **24 hours** of order placement. This means that if the
 **BOOKED** callback would take longer than **24 hours** to be submitted
 the order confirmation emails would not be processed by Magento.
 
- This is an unlikely scenario, but depending on your specific
+ This is an unlikely scenario, but depending on your specific
 configuration and circumstances you may wish to increase this time
 limit. For your convenience we have included the code extract below
 which applies the limit explained above (from Magento 2.4.3).
@@ -497,20 +497,20 @@ original email submission:
 (**resursbank_ordermanagement_stop_order_confirmation_email**) specified
 in **vendor/resursbank/magento-ordermanagement/etc/di.xml**
 
-** **
+** **
 
 # Problems, debugging and support
 ### **Orders**
- Before suspecting a problem with the module due to unexpected behavior
+ Before suspecting a problem with the module due to unexpected behavior
 with your orders you should consult the **payment history** (please see
 the **Order Management** section above).
 
- This information will let you know what actions have been taken by the
+ This information will let you know what actions have been taken by the
 client and / or module. It will also detail when the order state and
 status have been modified by the module, and whether the module has
 canceled the order.
 
- A few relevant notes regarding this information:
+ A few relevant notes regarding this information:
 
 - If your order has been canceled, but it’s not detailed in the payment
   history, then our module **did not** cancel the order. Remember that
@@ -522,9 +522,9 @@ canceled the order.
   browser window and thus not complete their purchase.
 -  If your order has obtained an unexpected state or status, but this
   change is not detailed in our payment history, then the module **did
-  not** apply said state / status to your order directl 
+  not** apply said state / status to your order directl 
 
-### **Discount tax** 
+### **Discount tax** 
 There are multiple ways to define tax calculations in Magento and Resurs
 Bank supports most use cases. The only use case which isn’t supported is
 a combination of **Apply customer tax** set to **After discount** in
@@ -548,7 +548,7 @@ vendor/resursbank/magento-core/Model/Api/Payment/Converter/AbstractConverter.php
 :: getDiscountData()
 
 ### **Contacting the support staff**
- Before you contact our support staff please consider the following: 
+ Before you contact our support staff please consider the following: 
 
 -  Magento is a modular system and most setups have hundreds of modules
   and modifications to make the system fit your specific needs. Ask your
@@ -573,43 +573,43 @@ vendor/resursbank/magento-core/Model/Api/Payment/Converter/AbstractConverter.php
   patch from us. If no patch is made, for whatever reason, it’s at least
   already fixed on your end.
 
- For these reasons it’s advisable you start by reporting problems to
+ For these reasons it’s advisable you start by reporting problems to
 your development team and let them investigate the problem before they
 engage us. It’s always better for us to discuss technical problems
 directly with a developer since it will speed up the process. The
 developer can then relay any relevant information back to you.
 
- Below follows technical information for your developer(s) to assist
+ Below follows technical information for your developer(s) to assist
 them when researching problems, as well as guidelines for what
 information to include when contacting us to speed up the process.
 
 ### **Logs**
- For log files to be created you will need to enable the **Debug**
+ For log files to be created you will need to enable the **Debug**
 setting in the module configuration (see the **Advanced Settings -
 General** described earlier in this document).
 
- The module writes log files directly to **var/log** within the Magento
+ The module writes log files directly to **var/log** within the Magento
 directory, named according to the following scheme:
 **resursbank\_\[package_name\].log**
 
-** **For example, the **Simplified Flow (simplified)** module will
+** **For example, the **Simplified Flow (simplified)** module will
 create a log named **resursbank_simplified.log** containing all
 information produced specifically by the **Simplified Flow** module
 package.
 
- Some packages will produce additional log files with information
+ Some packages will produce additional log files with information
 related to specific operations, at the time of writing the only
 implemented example of this can be found in the **Order Management**
 module which produces a separate log detailing incoming callbacks.
 
- If you have the **Order Management** package installed we also track
+ If you have the **Order Management** package installed we also track
 information about the payment process to the database
 (**resursbank_checkout_payment_history**) and you can later view this
 directly from the order view in the administration panel by clicking on
 the **View Payment History** button located at the bottom of the order
 view.
 
- Remember to always consult your normal error logs since we do not /
+ Remember to always consult your normal error logs since we do not /
 cannot log all exceptions, errors and other information directly in our
 own logs.
 
@@ -629,13 +629,13 @@ php bin/magento module:disable Vendor_Module
 ```
 
 ### **Callbacks**
-** **Callbacks are implemented through the **Order Management** package.
+** **Callbacks are implemented through the **Order Management** package.
 These are URLs invoked by Resurs Bank whenever an event occurs for a
 payment. For example, when a payment is **booked** (accepted by Resurs
 Bank) the **BOOKED** callback URL will be triggered.
 
- If you suspect callbacks aren’t working properly for you please do the
-following: 
+ If you suspect callbacks aren’t working properly for you please do the
+following: 
 
 -  Check that your registered URLs are accurate through the
   corresponding section in the configuration (see **Callback Settings**
@@ -656,7 +656,7 @@ following: 
   server administrator that callbacks aren’t being blocked by a
   firewall.
 
- Whenever the module accepts a callback we manipulate the state / status
+ Whenever the module accepts a callback we manipulate the state / status
 of the order to match the status of the payment at Resurs Bank (please
 note you can see what state / status an order has obtained from any
 given callback through the **Payment History** feature described above).

@@ -10,7 +10,7 @@ has_children: true
 
 The Developer WebService provides miscellaneous services that can be
 useful during the representative integration. The methods provided in
-here are not for use during normal service operation and are only
+here are not for use during normal service operation and are only
 available for simulation.
 ### Get limit application template - [getLimitApplicationTemplate](getLimitApplicationTemplate_1475924.html)
 Retrieves the limit application response template for local use.

@@ -29,12 +29,12 @@ parent: After Shop Service Api
 
 | Name                     | Content                                | Description                                                              |
 |--------------------------|----------------------------------------|--------------------------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**   | Failed to retrieve the specified payment document. See error for details |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**   | Failed to retrieve the specified payment document. See error for details |
 
 ### Introduction
 Retrieves a specified document from the payment as a pdf, for example
 the invoice. You can get the available document names for a payment by
-calling the [**getPaymentDocumentNames**](/after-shop-service-api/get-payment-document-names/)
+calling the [**getPaymentDocumentNames**](/after-shop-service-api/get-payment-document-names/)
 method.  
 When trying to get the requested document, the invoice for example, you
 send in the paymentId and the documentName as parameters.

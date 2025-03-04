@@ -143,7 +143,7 @@ starting to use session variables, so some of the flags can be passed
 between different calls in a web application. The internal flags and
 their usage are presented below, and can be set by **setFlag(\$key,
 \$value)**, **getFlag(\$key)**, **deleteFlag(\$key)**. Using session
-variables, is being made with **setSessionVar(\$key,  \$value)**,
+variables, is being made with **setSessionVar(\$key,  \$value)**,
 **getSessionVar(\$key)** and **deleteSessionVar(\$key)**.
 
 *As NetCURL 6.1 was released a "generation 2 flagset" became available
@@ -159,8 +159,8 @@ through the Flag::class.*
 | CREATED_BY_NO_CLIENT_NAME      | *true*    | N/A               | Allow clients to skip clientname (if the client name is confusing in payment admin) by setting flag CREATED_BY_NO_CLIENT_NAME. If flag is unset ecomphp\_\<DECIMAL_VERSION_NUMBER\_ will be shown. If unset EComPHP will first try to use a name by a logged in user (if set by client) and then fall back to the username **EComPHP-RemoteClientAction**. |
 | ALWAYS_RENDER_TOTALS           | *true*    | N/A               | Makes EComPHP, in renderPaymentSpec(), to always render new total amounts instead of trusting inbound payload data. However, the new functions that handles paymentDiffs usually also recalculates the totals (since 1.3.23) since quantity often tend to change during aftershop actions.                                                                 |
 | USE_AFTERSHOP_RENDERING        | *true*    | N/A               | Internally used by EComPHP to be able to skip exceptions when there are no payload set, where the internal methods still needs the rest of the payload (specLines, etc).                                                                                                                                                                                   |
-| KEEP_RCO_BILLING               | *true*    | N/A               | In Resurs Checkout mode, make EComPHP not strip off \['customer'=\>\['billing'\]\] from the payload. Currently not in use, just prepared. The fields used is the same as those that you can find in the simplified flow.                                                                                                                                   |
-| KEEP_RCO_DELIVERY              | *true*    | N/A               | In Resurs Checkout mode, make EComPHP not strip off \['customer'=\>\['deliveryAddress'\]\] from the payload. Use to prefill (push in own customer information) the iframe.The fields used is the same as those that you can find in the simplified flow.                                                                                                   |
+| KEEP_RCO_BILLING               | *true*    | N/A               | In Resurs Checkout mode, make EComPHP not strip off \['customer'=\>\['billing'\]\] from the payload. Currently not in use, just prepared. The fields used is the same as those that you can find in the simplified flow.                                                                                                                                   |
+| KEEP_RCO_DELIVERY              | *true*    | N/A               | In Resurs Checkout mode, make EComPHP not strip off \['customer'=\>\['deliveryAddress'\]\] from the payload. Use to prefill (push in own customer information) the iframe.The fields used is the same as those that you can find in the simplified flow.                                                                                                   |
 | SKIP_AFTERSHOP_VALIDATION      | *true*    | N/A               | Used to override getPayment orderrows during aftershop handling (for example, when you have own prices on prior rows that has to be forcefully changed).                                                                                                                                                                                                   |
 | HEAL_URL                       | *true*    | 1.3.47            | If you during a payment creation in hosted flow gets a landingpage-url from the API that contains http instead of https, this flag will rewrite the url to a proper https-link before returning it to the client. The features is currently only for hosted flow as we've only seen it there.                                                              |
 
@@ -174,13 +174,13 @@ called from ECom is still honoring PSP methods. This happens since
 payment providers supports government-id-less submission forms, which
 Resurs internals require. To activate full support for all payment
 methods (requires that you can handle the lack of government id), you
-can use **setSimplifiedPsp(true)**.
+can use **setSimplifiedPsp(true)**.
 
 ```xml
 $connection->setSimplifiedPsp(true);
 ```
 if you'd like to follow the prior restrictions in simplified even when
-you run RCO-mode, you can use the **setStrictPsp(true)** instead. As we
+you run RCO-mode, you can use the **setStrictPsp(true)** instead. As we
 today support PSP in the simplified shopflow, those parts are deprecated
 but still active. This could change in future releases.
 
@@ -276,7 +276,7 @@ unexisten on the side of Resurs Bank. Next time aftershop are running,
 ECom won't force any more invoice id into the system as it this could
 potentially stop stores not increment id's properly. To restore the old
 behaviour you could use the practically undocumented flag
-features AFTERSHOP_RESCUE_INVOICE and AFTERSHOP_RESCUE_INCREMENT but
+features AFTERSHOP_RESCUE_INVOICE and AFTERSHOP_RESCUE_INCREMENT but
 normally, this should not be necessary.
 
 ### Reachable curl handle
@@ -299,7 +299,7 @@ public function __setUp() {
 ```
 
 ### Other fixes
-The full changelog could be found here: [EComPHP: ChangeLog](5015031).
+The full changelog could be found here: [EComPHP: ChangeLog](5015031).
 
 ### Debugging createPayment
 You can do a createPayment() without really creating it - by simply
@@ -315,10 +315,10 @@ absolutely not necessary, but to make the features constantly open and
 reachable for developers EComPHP sets up this for you, in the format:
 **PROTOCOL://HTTP_HOST**. The protocol is based on what's returned in
 the web server HTTPS-variable, and if it is set, the URL might for
-example look like this **https://test.com** - you shoule here note that
+example look like this **https://test.com** - you shoule here note that
 trailing slashed and eventually the following full uri is stripped from
 the url, så even if you have a site laying on
-https://test.com/this/sub/structure the shopUrl should still be
+https://test.com/this/sub/structure the shopUrl should still be
 https://test.com.
 
 You can customize this URL to point to another domain name. For example,
@@ -377,7 +377,7 @@ function allows you to pass \$unitMeasure empty. Doing this, will change
 
 ## Special payment functions and aftershop features
 This section is mostly made for the aftershop functions. You might also
-take a look at the bottom section for [EComPHP: DEBIT, CREDIT, ANNUL
+take a look at the bottom section for [EComPHP: DEBIT, CREDIT, ANNUL
 \[afterShopFlow\]](12189822), where there are some functions listed for
 which you can find out which status an order is set in.
 
@@ -385,10 +385,10 @@ which you can find out which status an order is set in.
 EComPHP has special features that should make it easy to show how much a
 customer needs to pay monthly (usually shown at single-product
 pageviews). This method is called getAnnuityPriceByDuration and is in
-details described at the section [Calculations with
+details described at the section [Calculations with
 getAnnuityFactors/part payments (EComPHP)](22183993).
 
-### getPaymentDiffByStatus 
+### getPaymentDiffByStatus 
 This is a master renderer and has replaced the prior method name
 **getPaymentSpecByStatus**, which sorts out what happened to each
 paymentDiff in the getPayment service API. It will list all authorized,
@@ -396,7 +396,7 @@ debited, credited and annulled orderrows separately. The newer release
 not only give you statuses from the paymentDiff (of what happened to the
 order). It also renders a per-product-row-table where it shows what's
 left in the order referring to debiting, annulling and crediting.
-Together with **getPaymentDiffByAbility** it has a high value when it
+Together with **getPaymentDiffByAbility** it has a high value when it
 comes to partially crediting and annulling orders which EComPHP hasn't
 entirely supported before. This comes to a reality in v1.3.23+
 (1.0.48/1.1.48) for prior setups.
@@ -404,10 +404,10 @@ entirely supported before. This comes to a reality in v1.3.23+
 It looks like this:
 
 \$orderLinesByStatus = array(  
- 'AUTHORIZE' =\> array(),  
- 'DEBIT' =\> array(),  
- 'CREDIT' =\> array(),  
- 'ANNUL' =\> array(),  
+ 'AUTHORIZE' =\> array(),  
+ 'DEBIT' =\> array(),  
+ 'CREDIT' =\> array(),  
+ 'ANNUL' =\> array(),  
 );  
 
 The formatted table itself can look like the table below, where the new
@@ -416,7 +416,7 @@ that is left in for each item row. So, if you plan to credit PR01, this
 table tells you that there are 50 more in the quantity that you can
 credit, etc. There's also a bunch of new features for which ECom can
 handle paymentdiffs and compare items. We primarily
-use [array_intersect](https://www.php.net/manual/en/function.array-intersect.php)
+use [array_intersect](https://www.php.net/manual/en/function.array-intersect.php)
 to compare valid orderrows those days instead of the prior
 "removeFromArray" that is from v1.3.23 completely removed from the
 source.  
@@ -492,10 +492,10 @@ returns each diff-status-object with the total count of rows for each
 status:
 
     $orderLinesByStatus = array(
-     'AUTHORIZE' => count,
-     'DEBIT' => count,
-     'CREDIT' => count,
-     'ANNUL' => count,
+     'AUTHORIZE' => count,
+     'DEBIT' => count,
+     'CREDIT' => count,
+     'ANNUL' => count,
     );
 ### sanitizeAfterShopSpec
 Sanitizes a payment spec from a payment id or a prepared getPayment
@@ -518,7 +518,7 @@ $rb->setUserAgent('MyPlugin-2.1.77 Magento-XXX.YYY');
 #### Client Identification - SubFeature
 If you have great needs of also transmitting the end user web-browser
 with this USER-AGENT-header, you can also activate another feature by
-using setPushCustomerUserAgent(true). In this case, EComPHP will also
+using setPushCustomerUserAgent(true). In this case, EComPHP will also
 add the end user HTTP_USER_AGENT into the user-agent string, as a
 compressed string, base64-encoded.
 
@@ -580,7 +580,7 @@ the callback control. The returned value is based on
 **RESURS_PAYMENT_STATUS_RETURNCODES**.
 
 ### RESURS_PAYMENT_STATUS_RETURNCODES and how they are used
-The calculations below are based on [the advices from the aftershop
+The calculations below are based on [the advices from the aftershop
 service API here](after-shop-service-api) (scroll to the bottom). From
 around v1.3.16 the behaviour of the return codes has changed to bitwise
 data, as SWISH payment method practically introduced a new kind of
@@ -623,7 +623,7 @@ plugin):
                        }
 ```
 Or you can use EComPHP internal validation (available
-from 1.0.33/1.1.33/1.2.6/1.3.6):
+from 1.0.33/1.1.33/1.2.6/1.3.6):
 
 ```xml
 $currentSalt = get_transient( 'resurs_bank_digest_salt' );
@@ -657,7 +657,7 @@ page content, so it could be easily designed with a standard look.
 | callCss       | string  | URL to the CSS layout                                                                                                                                                                                                                                                                  |
 | hrefTarget    | string  | Sets up, for each href element in the html body, a target="\_blank" (default) so that each click in the information box opens a new window rather that just redirects them.To change the \_blank-behaviour to somehing else, the string can just simple be replaced to a custom value. |
 
-#### setCostOfPurchaseHtmlBefore and setCostOfPurchaseHtmlAfter
+#### setCostOfPurchaseHtmlBefore and setCostOfPurchaseHtmlAfter
 If you have greater needs to add data into the getCostOfPurchase, that
 is prepended or appended to the returned body you can use those two
 functions to add additional data to the returned html body.
@@ -666,7 +666,7 @@ functions to add additional data to the returned html body.
 This feature is very out of the box of EComPHP and uses a third party
 API, that do not belong to Resurs Bank. In some cases, there have been
 problems with site reachability - for example, when callbacks are
-running  there is a web hosting company that blocks the connectivity to
+running  there is a web hosting company that blocks the connectivity to
 your store. Or, another one, where you use internal links that is
 normally not reachable at all for our callback services. For such cases,
 you can run this function to find out whether your site is reachable or

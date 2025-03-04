@@ -63,7 +63,7 @@ add_filter( 'resursbank_set_storeid', 'setResursStoreId', 10, 1 );
 ```
 A sample plugin for testings, including (almost) the above example can
 be found
-at [https://bitbucket.org/resursbankplugins/resurs-storeid-test/overview](https://bitbucket.org/resursbankplugins/resurs-storeid-test/overview)
+at [https://bitbucket.org/resursbankplugins/resurs-storeid-test/overview](https://bitbucket.org/resursbankplugins/resurs-storeid-test/overview)
 
 ## Filter: Handling of payment methods prefix paths
 As of 2.2.18 we have changed the path structure for where payment method
@@ -89,7 +89,7 @@ this should not be a problem for future versions.
 
 ## Filter: Sort order of payment methods in wp-admin
 The filer **resurs_admin_sort_methods_by_value** makes it possible to
-change the content of  the default payment method "name" in the
+change the content of  the default payment method "name" in the
 WP-admin. Since version 2.2.17.
 
 ```xml
@@ -191,7 +191,7 @@ whether session_start() should be invoked by the plugin, or not.
 | resursbank_start_session_before             | Using this filter and setting return value to true will be the same as disabling the session during this phase.This filter can disable the session creation completely. Use at your own risk, if you believe that you need to handle this by yourself. |
 | resursbank_start_session_outside_admin_only | Disable session creation when in admin if true (will make a !is_admin()-check).Activation of this filter will turn session_start() off, when in admin.                                                                                                 |
 
-## Partial refunds (on price level) - resurs_refund_price_override
+## Partial refunds (on price level) - resurs_refund_price_override
 Normally, partial refunds in woocommerce are supported on quantity level
 (as of 2.2.21). This means that you now only can remove entire rows from
 an order, you can also for example change the quantity (i.e. if you by
@@ -200,7 +200,7 @@ annul/credit one of them). However, when it comes to manipulation of
 pricing per row, we usually do not allow such things. But there is a
 override filter for this, if you want to take further risks with the
 partial annullment/refunding
-functions; **resurs_refund_price_override**. Doing something like below,
+functions; **resurs_refund_price_override**. Doing something like below,
 with your own plugin you can make our plugin override the price
 manipulation protection.
 
@@ -292,7 +292,7 @@ not belong. But the road is quite long to make this perfect.
 
 For wp-admin, this is where the filter comes in. If works like this -
 and you can build your own plugin that lifts or restricts access in the
-same way we did. The filter itself is called **allow_resurs_run** and is
+same way we did. The filter itself is called **allow_resurs_run** and is
 activated by a setting in the control panel. As we have a lot more store
 managers than just you, we don't want to ruin life for them by always
 having this feature active.

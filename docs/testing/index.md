@@ -28,7 +28,6 @@ Resources for testing the integration are collected here.
 - [Test Data - Denmark](/testing/test-data---denmark/)
 - [Test Data - Finland](/testing/test-data---finland/)
 - [Test Data - Norway](/testing/test-data---norway/)
-- [Customer Field Validation (regex)](/testing/customer-field-validation/)
 
 ### SoapUI testing
 Resurs Bank provides a set of public soapUI test cases to get you up and

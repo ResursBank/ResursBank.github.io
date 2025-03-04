@@ -10,13 +10,13 @@ parent: Merchant Api 1
 
 The credit application flow is used when a customer wants to apply for
 an account without making a purchase at the same time as the application
-is made. 
+is made. 
 ![](../../attachments/71794848/71794865.png)
-## **Typical flow **
+## **Typical flow **
 ### **Authentication**
 Every request requires an authorization header with a Bearer-token. A
 token lasts for 3600 seconds (1 hour). To get a token you may use your
-test-credentials received from Resurs Bank: 
+test-credentials received from Resurs Bank: 
 client_id  
 client_secret  
 scope= mock-merchant-api
@@ -48,7 +48,7 @@ curl --location --request GET 'https://apigw.integration.resurs.com/api/mock_mer
 available payment methods will show what payment methods there are to
 apply from at the chosen store. Each payment method has a paymentmethod
 id, wich will be used in the next step, when the application is
-created. 
+created. 
 **Curl to get available payment methods**
 ``` syntaxhighlighter-pre
 curl --location --request POST 'https://apigw.integration.resurs.com/api/mock_merchant_api_service/stores/{store_id}/payment_methods'
@@ -110,7 +110,7 @@ curl --location --request POST 'https://apigw.integration.resurs.com/api/mock_me
   
 **5. Redirect to signature  
 **The success- and fail-URLs will be called when the customer is done
-and the application is approved or rejected. 
+and the application is approved or rejected. 
 **Curl to redirect to signature**
 ``` syntaxhighlighter-pre
 curl --location --request POST 'https://apigw.integration.resurs.com/api/mock_merchant_cre

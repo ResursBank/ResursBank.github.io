@@ -23,31 +23,31 @@ governmentId, mobile number, email, name and address.
 **POST-example containing customer data**
 POST-example containing customer data
 `{`  
-`    ``"orderLines"``: [`  
-`        ``{`  
-`            ``"artNo"``:`` ``"ART123"``,`  
-`            ``"description"``:`` ``"Product description"``,`  
-`            ``"quantity"``:`` ``2``,`  
-`            ``"unitMeasure"``:`` ``"kg"``,`  
-`            ``"unitAmountWithoutVat"``:`` ``200``,`  
-`            ``"vatPct"``:`` ``25`  
-`        ``}`  
-`    ``],`  
-`    ``"customer"``: {`  
-`        ``"governmentId"``:`` ``"``198305147715``"``,`  
-`        ``"mobile"``:`` ``"``0771112233``"``,`  
-`        ``"email"``:`` ``"test@`[`resurs.se`](http://resurs.se)`"``,`  
-`        ``"deliveryAddress"``: {`  
-`            ``"fullName"``:`` ``"``Vincent Williamsson Alexandersson``"` `,`  
-`            ``"firstName"``:`` ``"``Vincent ``"``,`  
-`            ``"lastName"``:`` ``"``Williamsson Alexandersson``"``,`  
-`            ``"addressRow1"``:`` ``"``Glassgatan 15``"``,`  
-`            ``"addressRow2"``:`` ``null``,`  
-`            ``"postalArea"``:`` ``"``Göteborg``"``,`  
-`            ``"postalCode"``:`` ``"``41655``"``,`  
-`            ``"countryCode"``:`` ``"SE"`  
-`        ``}`  
-`    ``},`  
-`    ``"successUrl"``:`` ``"`[`http://google.com`](http://google.com/)`"``,`  
-`    ``"backUrl"``:`` ``"`[`http://failblog.cheezburger.com/`](http://failblog.cheezburger.com/)`"`  
+`    ``"orderLines"``: [`  
+`        ``{`  
+`            ``"artNo"``:`` ``"ART123"``,`  
+`            ``"description"``:`` ``"Product description"``,`  
+`            ``"quantity"``:`` ``2``,`  
+`            ``"unitMeasure"``:`` ``"kg"``,`  
+`            ``"unitAmountWithoutVat"``:`` ``200``,`  
+`            ``"vatPct"``:`` ``25`  
+`        ``}`  
+`    ``],`  
+`    ``"customer"``: {`  
+`        ``"governmentId"``:`` ``"``198305147715``"``,`  
+`        ``"mobile"``:`` ``"``0771112233``"``,`  
+`        ``"email"``:`` ``"test@`[`resurs.se`](http://resurs.se)`"``,`  
+`        ``"deliveryAddress"``: {`  
+`            ``"fullName"``:`` ``"``Vincent Williamsson Alexandersson``"` `,`  
+`            ``"firstName"``:`` ``"``Vincent ``"``,`  
+`            ``"lastName"``:`` ``"``Williamsson Alexandersson``"``,`  
+`            ``"addressRow1"``:`` ``"``Glassgatan 15``"``,`  
+`            ``"addressRow2"``:`` ``null``,`  
+`            ``"postalArea"``:`` ``"``Göteborg``"``,`  
+`            ``"postalCode"``:`` ``"``41655``"``,`  
+`            ``"countryCode"``:`` ``"SE"`  
+`        ``}`  
+`    ``},`  
+`    ``"successUrl"``:`` ``"`[`http://google.com`](http://google.com/)`"``,`  
+`    ``"backUrl"``:`` ``"`[`http://failblog.cheezburger.com/`](http://failblog.cheezburger.com/)`"`  
 `}`

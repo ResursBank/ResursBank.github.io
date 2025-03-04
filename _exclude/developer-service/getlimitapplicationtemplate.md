@@ -32,7 +32,7 @@ show* *the format of a valid response.*
   
 | Name                    | Content                                             | Description                                                                       |
 |-------------------------|-----------------------------------------------------|-----------------------------------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to retrieve the limit application response template. Seeerror for details. |
+| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to retrieve the limit application response template. Seeerror for details. |
   
   
   

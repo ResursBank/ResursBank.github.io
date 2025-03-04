@@ -57,7 +57,7 @@ information customers has to fill in, the better.
 - If you're building your own checkout from scratch, where all payments
   are controlled by your checkout, make sure you'll handle both
   shipping, fees, discounts and article types that the shop provides.  
-  ![](../../../attachments/5014037/7438447.png) 
+  ![](../../../attachments/5014037/7438447.png) 
 
 # Where to start
 ## Configuration Admin
@@ -113,7 +113,7 @@ with the plugin is to make it as optionless as possible.
   handle orders, you should let the store's own API's do the job for you
   as much as possible (like in the screenshot attached, from the Magento
   control panel).  
-  *![](../../../attachments/5014037/5014045.png?effects=border-simple,blur-border)* *
+  *![](../../../attachments/5014037/5014045.png?effects=border-simple,blur-border)* *
 
 Web services are based on SOAP. It's recommended from this point to
 never add wsdl-parameters or URLs directly to each service provided by
@@ -126,7 +126,7 @@ pre-loaded like below, so each of them can be called if they exists.
 chosen in the admin panel. By doing this, all calls to webservices will
 be much easier to handle.
 
-**Services loader class (Example)** Expand source
+**Services loader class (Example)** Expand source
 ```xml
          if (class_exists('Resurs_SimplifiedShopFlowService')) {$this->simplifiedShopFlowService = new Resurs_SimplifiedShopFlowService($this->soapOptions, $this->environment . "SimplifiedShopFlowService?wsdl");}
          if (class_exists('Resurs_ConfigurationService')) {$this->configurationService = new Resurs_ConfigurationService($this->soapOptions, $this->environment . "ConfigurationService?wsdl");}
@@ -140,7 +140,7 @@ Later on, this information will be used to display the correct methods
 in the checkout. This may differ from the "normal" behaviour in an
 e-commerce platform where payment service providers normally offers one
 (or a few) static payment methods and therefore only generates a simple
-form with configuration settings for the methods. The image below shows
+form with configuration settings for the methods. The image below shows
 you the settings from Magento, and that's the primary configuration you
 probably need, building your settings base a plugin - and the best
 practice here is, as shown, to store data about them locally (cached),
@@ -199,14 +199,14 @@ better that you handle this in your codebase.**
 | **INVOICE** Legal         |        $\color{green}{\textsf{REQUIRED}}$          | $\color{blue}{\textsf{OPTIONAL}}$**(Read the red note)** | $\color{blue}{\textsf{OPTIONAL}}$**(Read the red note)** |        $\color{green}{\textsf{REQUIRED}}$         |       $\color{green}{\textsf{REQUIRED}}$        |             |  $\color{green}{\textsf{REQUIRED}}$/$\color{red}{\textsf{OBSOLETE}}$  |
 | **CARD** Existing card        |        $\color{green}{\textsf{REQUIRED}}$         |                                 |                                 |                         |                       |  $\color{green}{\textsf{REQUIRED}}$   |      $\color{red}{\textsf{OBSOLETE}}$       |
 | **REVOLVING_CREDIT** New card  |        $\color{green}{\textsf{REQUIRED}}$         |                                 |            $\color{green}{\textsf{REQUIRED}}$             |        $\color{green}{\textsf{REQUIRED}}$         |                       |             |      $\color{red}{\textsf{OBSOLETE}}$       |
-| **PART_PAYMENT** Part payment  |        $\color{green}{\textsf{REQUIRED}}$         |            $\color{green}{\textsf{REQUIRED}}$             |            $\color{green}{\textsf{REQUIRED}}$             |        $\color{green}{\textsf{REQUIRED}}$         |                       |             |      $\color{red}{\textsf{OBSOLETE}}$       |
+| **PART_PAYMENT** Part payment  |        $\color{green}{\textsf{REQUIRED}}$         |            $\color{green}{\textsf{REQUIRED}}$             |            $\color{green}{\textsf{REQUIRED}}$             |        $\color{green}{\textsf{REQUIRED}}$         |                       |             |      $\color{red}{\textsf{OBSOLETE}}$       |
 
 *When creating forms for payment, make sure that you are also adding
 content validation (regex) to the fields ([see
 here](/development/customer-data---regular-expressions/))*.
 
 Address completion for filling in address data on an order page is
-available through [Get
+available through [Get
 address](/simplified-flow-api/getaddress/).
 Currently, the service is only available for Sweden. 
 
@@ -220,5 +220,5 @@ Currently, the service is only available for Sweden.
 An important thing, when building a plugin for Resurs Bank, is to make
 sure you are creating support for callbacks, so that Resurs' e-commerce
 services will be able to process the order after for example fraud
-controls on Resurs' side, when orders normally should get thawed. 
+controls on Resurs' side, when orders normally should get thawed. 
 

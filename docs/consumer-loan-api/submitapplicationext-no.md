@@ -237,7 +237,7 @@ parent: Consumer Loan Api
         <format-message>Velg et av alternativene.</format-message>
     </element>
     <element java-property="coApplicant.grossMonthlyIncome">
-        <label>Månedsinntekt før skatt </label>
+        <label>Månedsinntekt før skatt </label>
         <description>Oppgi din månedsinntekt før skatt.</description>
         <name>coapplicant-monthly-income-gross</name>
         <is-mandatory>false</is-mandatory>
@@ -653,7 +653,7 @@ parent: Consumer Loan Api
         <format>^(NORWEGIAN|FOREIGN)$</format>
     </element>
     <element java-property="applicant.grossMonthlyIncome">
-        <label>Månedsinntekt før skatt </label>
+        <label>Månedsinntekt før skatt </label>
         <description>Oppgi din månedsinntekt før skatt.</description>
         <name>applicant-monthly-income-gross</name>
         <is-mandatory>true</is-mandatory>
@@ -1001,5 +1001,5 @@ parent: Consumer Loan Api
             </submitApplicationExtResult>
         </ns2:submitApplicationExtResponse>
     </soap:Body>
-</soap:Envelope>  
+</soap:Envelope>  
 ```

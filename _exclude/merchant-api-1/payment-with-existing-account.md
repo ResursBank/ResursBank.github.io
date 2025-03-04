@@ -9,11 +9,11 @@ parent: Merchant Api 1
 # Payment with Existing Account 
 
 ![](../../attachments/71794852/71794899.png)
-## **Typical flow **
+## **Typical flow **
 ### **Authentication**
 Every request requires an authorization header with a Bearer-token. A
 token lasts for 3600 seconds (1 hour). To get a token you may use your
-test-credentials received from Resurs Bank: 
+test-credentials received from Resurs Bank: 
 client_id  
 client_secret  
 scope= mock-merchant-api
@@ -45,7 +45,7 @@ curl --location --request GET 'https://apigw.integration.resurs.com/api/mock_mer
 available payment methods will show what payment methods there are to
 apply from at the chosen store. Each payment method has a paymentmethod
 id, wich will be used in the next step, when the application is
-created. 
+created. 
 **Curl to get available payment methods**
 ``` syntaxhighlighter-pre
 curl --location --request POST 'https://apigw.integration.resurs.com/api/mock_merchant_api

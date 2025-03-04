@@ -24,18 +24,18 @@ parent: Development
     Only show payment methods that are eligible for installment.  
     Where \<specificType\>PART_PAYMENT\</specificType\> or
     \<specificType\>REVOLVING_CREDIT\</specificType\>  
-    Get specificType using api [getPaymentMethods](/simplified-flow-api/getpaymentmethods/)
+    Get specificType using api [getPaymentMethods](/simplified-flow-api/getpaymentmethods/)
 4.  **Months:**  
     Choose number of months for the selected payment method in step 3.  
-    Get available annuity factors using api
+    Get available annuity factors using api
     [getAnnuityFactors](/simplified-flow-api/getannuityfactors/)
 
 ### On product pages.
-"Installment from 129 SEK - 12 month. *Read more...*"
+"Installment from 129 SEK - 12 month. *Read more...*"
 
 - The payment method used for part payments include a min. max. amount
   on its own, which we also need to check before displaying the widget.
 - Prices should be rounded to next integer.
 - Read more.. can be a Pop-Up window
-  populated using [getCostOfPurchaseHtml](/simplified-flow-api/getcostofpurchasehtml/).
+  populated using [getCostOfPurchaseHtml](/simplified-flow-api/getcostofpurchasehtml/).
 

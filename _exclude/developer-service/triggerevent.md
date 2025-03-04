@@ -18,15 +18,15 @@ parent: Developer Service
 | param     | string                                                               | 0..\*  | No        | The data to be used when triggering the event. |
   
 **Output (Literal)  
-***None** ***
+***None** ***
 **Faults**
   
 | Name                    | Content                                             | Description                                                   |
 |-------------------------|-----------------------------------------------------|---------------------------------------------------------------|
-| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to trigger the specified event. See error for details. |
+| ECommerceErrorException | **[ECommerceError](ECommerceError_1475945.html)**   | Failed to trigger the specified event. See error for details. |
   
   
   
 For available callback-types please see the [**callback
-page**](Callbacks_327724.html) and scroll down to Available
+page**](Callbacks_327724.html) and scroll down to Available
 callback-type

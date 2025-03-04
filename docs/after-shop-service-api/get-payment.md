@@ -27,13 +27,13 @@ parent: After Shop Service Api
 
 | Name                     | Content                                | Description                                                    |
 |--------------------------|----------------------------------------|----------------------------------------------------------------|
-| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**   | Failed to retrieve the payment details. See error for details. |
+| ECommerceErrorException  | **[ECommerceError](/development/api-types/ecommerceerror/)**   | Failed to retrieve the payment details. See error for details. |
 
 ### Introduction
 Retrieves detailed information about a specific payment. You need the
-paymentId for the payment you want to have information about. To get all
+paymentId for the payment you want to have information about. To get all
 available payments you should use the
-**[findPayments](/after-shop-service-api/find-payments/) **method.
+**[findPayments](/after-shop-service-api/find-payments/) **method.
 
 ### Example
 An example showing request/response for a get payment
