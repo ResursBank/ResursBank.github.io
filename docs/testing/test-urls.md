@@ -57,8 +57,7 @@ Portal, since the invoice is not sent by mail in the test-environment.
 
 See [MAPI documentation here](/merchant-api-2-0) for more information.
 
-https://merchant-api.integration.resurs.com/
-
+[https://merchant-api.integration.resurs.com/](https://merchant-api.integration.resurs.com/)
 
 ## Resurs Checkout
 The following entry points can be used to access the Resurs Checkout

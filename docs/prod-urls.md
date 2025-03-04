@@ -43,7 +43,7 @@ Link:
 
 See [MAPI documentation here](/merchant-api-2-0) for more information.
 
-https://merchant-api.resurs.com
+[https://merchant-api.resurs.com](https://merchant-api.resurs.com)
 
 ## Payment Admin
 
