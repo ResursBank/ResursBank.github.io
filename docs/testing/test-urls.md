@@ -9,7 +9,7 @@ parent: Testing
 # Test URLs 
 [Go Live URLs](/prod-urls/)
 
-- [Firewalling](#firewalling)
+- [Firewall](#firewall)
 - [Payment Admin](#payment-admin)
 - [Merchant Portal](#merchant-portal)
 - [Test URLs](#test-urls)
@@ -28,7 +28,8 @@ parent: Testing
       - [Configuration:](#configuration)
       - [Developer:](#developer)
 
-# Firewalling
+# Firewall
+
 > How to configure firewalls - Do you have a strictly configured
 > environment? Take a look here to get proper settings for your
 > firewall/web services. [Link to faq](/faq/)
