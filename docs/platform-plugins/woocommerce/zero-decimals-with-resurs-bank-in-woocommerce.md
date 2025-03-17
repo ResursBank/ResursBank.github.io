@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Full Documentation
+title: Zero Decimals with Resurs Bank in WooCommerce
 permalink: /platform-plugins/woocommerce/zero-decimals-with-resurs-bank-in-woocommerce
 parent: Woocommerce
 grand_parent: Platform Plugins
