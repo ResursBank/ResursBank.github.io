@@ -17,7 +17,7 @@ Under *General settings* in WooCommerce, there is a section called *Currency opt
 
 At first glance, this setting may seem like just a display option - making your prices look a bit fancier. However, setting decimals to 0 can cause real issues for your store.
 
-## Why doesn't the payment gateways calculate like WooCommerce?
+## Why don't the payment gateways calculate like WooCommerce?
 
 If you are using a payment gateway that sends each order row individually to the payment provider, or have an extension that connects to your accounting/ERP system, then the calculation of the order total might differ between the systems.
 
@@ -46,11 +46,11 @@ Luckily, there are ways to avoid displaying decimals as long as it's about price
 add_filter( 'woocommerce_price_trim_zeros', '__return_true' );
 ```
 
-With this code, 49.00 will be displayed as 49. If you only have prices with whole numbers in your store and you're displaying prices including VAT, then it's only the VAT that will actually be displayed with 2 decimals. This results in a more accurate calculation of prices and VAT in your store while avoiding unnecessary decimal points.
+With this code, 49.00 will be displayed as 49. If you only have prices with whole numbers in your store and you're displaying prices including VAT, then it's only the VAT that will actually be displayed with two decimal places. This results in a more accurate calculation of prices and VAT in your store while avoiding unnecessary decimal points.
 
 ## I want to do this as a plugin - how would it look?
 
-This is how a plugin could look like. A file like this can be placed directly in `wp-content/plugins/` and then activated from the plugin manager.
+This is how a plugin could look. A file like this can be placed directly in `wp-content/plugins/` and then activated from the plugin manager.
 
 **Example: `<WP-root>/wp-content/plugins/woocommerce-price-trim-zeros.php`**
 
