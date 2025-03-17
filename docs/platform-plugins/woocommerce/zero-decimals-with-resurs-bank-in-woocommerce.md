@@ -9,12 +9,6 @@ has_children: false
 has_toc: true
 ---
 
-# Disclaimer
-
-This section of the documentation is not endorsed or supported by Resurs Bank. However, the underlying case is explained
-for informational purposes. In general, this method is not recommended. The information provided here is for reference
-only and should not be considered official guidance.
-
 ## Table of Contents
 
 * [Zero decimals with Resurs Bank in WooCommerce](#zero-decimals-with-resurs-bank-in-woocommerce)
@@ -24,6 +18,12 @@ only and should not be considered official guidance.
     * [How quantity and discounts impact rounding](#how-quantity-and-discounts-impact-rounding)
     * [What if I don’t want to display decimals in my store—how can I achieve this?](#what-if-i-dont-want-to-display-decimals-in-my-store-how-can-i-achieve-this)
     * [Example plugin implementation](#example-plugin-implementation)
+
+# Disclaimer
+
+This section of the documentation is not endorsed or supported by Resurs Bank. However, the underlying case is explained
+for informational purposes. In general, this method is not recommended. The information provided here is for reference
+only and should not be considered official guidance.
 
 # Understanding rounding with decimals in WooCommerce
 
