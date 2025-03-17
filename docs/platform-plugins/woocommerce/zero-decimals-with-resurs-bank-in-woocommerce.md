@@ -12,12 +12,12 @@ has_toc: true
 ## Table of Contents
 
 * [Zero decimals with Resurs Bank in WooCommerce](#zero-decimals-with-resurs-bank-in-woocommerce)
-  * [Decimals in WooCommerce](#decimals-in-woocommerce)
-  * [Why don't the payment gateways calculate like WooCommerce?](#why-dont-the-payment-gateways-calculate-like-woocommerce)
-    * [Understanding the rounding issue](#understanding-the-rounding-issue)
-  * [How quantity and discounts impact rounding](#how-quantity-and-discounts-impact-rounding)
-  * [What if I don’t want to display decimals in my store—how can I achieve this?](#what-if-i-dont-want-to-display-decimals-in-my-store-how-can-i-achieve-this)
-  * [Example plugin implementation](#example-plugin-implementation)
+    * [Decimals in WooCommerce](#decimals-in-woocommerce)
+    * [Why don't the payment gateways calculate like WooCommerce?](#why-dont-the-payment-gateways-calculate-like-woocommerce)
+        * [Understanding the rounding issue](#understanding-the-rounding-issue)
+    * [How quantity and discounts impact rounding](#how-quantity-and-discounts-impact-rounding)
+    * [What if I don’t want to display decimals in my store—how can I achieve this?](#what-if-i-dont-want-to-display-decimals-in-my-store-how-can-i-achieve-this)
+    * [Example plugin implementation](#example-plugin-implementation)
 
 # Understanding rounding with decimals in WooCommerce
 
@@ -29,7 +29,10 @@ At first glance, this setting may appear to be purely cosmetic—simply making y
 decimals to 0 can cause real issues for your store.
 
 When the price for a product is rounded and stored in the order, it can be difficult to recreate the same kind of
-rounding in an external system, as it adheres closely to WooCommerce's rounding rules. However, Resurs doesn't support decimals over 2, so changing the value to either too high or too low (0 decimals) may cause discrepancies in order totals, incorrect tax calculations, or mismatches between WooCommerce and payment provider expectations, potentially leading to transaction failures.
+rounding in an external system, as it adheres closely to WooCommerce's rounding rules. However, Resurs doesn't support
+decimals over 2, so changing the value to either too high or too low (0 decimals) may cause discrepancies in order
+totals, incorrect tax calculations, or mismatches between WooCommerce and payment provider expectations, potentially
+leading to transaction failures.
 
 A product has a price of 49 EUR including 25% VAT. This means a net price of 39.2 EUR with a tax of 9.8 EUR. If you set
 the decimal points to 0, WooCommerce will round this to a net price of 39 and a tax of 10.
@@ -61,9 +64,12 @@ to 2 in the currency settings and then add this code snippet to your theme's `fu
 add_filter( 'woocommerce_price_trim_zeros', '__return_true' );
 ```
 
-With this code, 49.00 will be displayed as 49. If your store only has whole-number prices and displays prices including
-VAT, then only the VAT will appear with two decimal places. This ensures accurate price and VAT calculations while
-eliminating unnecessary decimal points.
+With this code, 49.00 will be displayed as 49. This applies regardless of the currency. However, in currencies where
+smaller decimal values are significant—such as JPY (Japanese Yen) or IDR (Indonesian Rupiah), which use large numerical
+values—even small rounding differences can have a noticeable impact. Similarly, when comparing EUR with SEK, small
+decimal changes in EUR can translate into more significant rounding differences in SEK due to currency exchange rates.
+If your store only has whole-number prices and displays prices including VAT, then only the VAT will appear with two
+decimal places. This ensures accurate price and VAT calculations while eliminating unnecessary decimal points.
 
 ## Example plugin implementation
 
