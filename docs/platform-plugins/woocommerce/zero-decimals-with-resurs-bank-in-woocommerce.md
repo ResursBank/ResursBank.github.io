@@ -8,6 +8,16 @@ nav_order: 12
 has_children: true
 has_toc: true
 ---
+x
+## Table of Contents
+
+* [Zero decimals with Resurs Bank in WooCommerce](#zero-decimals-with-resurs-bank-in-woocommerce)
+    * [Decimals in WooCommerce](#decimals-in-woocommerce)
+    * [Why don't the payment gateways calculate like WooCommerce?](#why-dont-the-payment-gateways-calculate-like-woocommerce)
+        * [Understanding the rounding issue](#understanding-the-rounding-issue)
+    * [How quantity and discounts impact rounding](#how-quantity-and-discounts-impact-rounding)
+    * [What if I don’t want to display decimals in my store—how can I achieve this?](#what-if-i-dont-want-to-display-decimals-in-my-store—how-can-i-achieve-this)
+    * [Example plugin implementation](#example-plugin-implementation)
 
 # Zero decimals with Resurs Bank in WooCommerce
 
