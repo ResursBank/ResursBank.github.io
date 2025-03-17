@@ -5,7 +5,7 @@ permalink: /platform-plugins/woocommerce/zero-decimals-with-resurs-bank-in-wooco
 parent: Woocommerce
 grand_parent: Platform Plugins
 nav_order: 12
-has_children: true
+has_children: false
 has_toc: true
 ---
 
