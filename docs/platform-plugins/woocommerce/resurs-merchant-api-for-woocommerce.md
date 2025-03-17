@@ -163,7 +163,7 @@ This setting can be changed by going to `WooCommerce` → `Settings`  →
 ![Currency options
 section](../../../../attachments/91029884/91029883.png "Currency options section")
 
-#### Zero decimals in WooCommerce
+### Zero decimals in WooCommerce
 
 In newer installs of WooCommerce the setting for number of decimals to
 use in the checkout may be set to 0 as the default value. This is
@@ -218,7 +218,7 @@ To manage credentials in WooCommerce:
 3. The credentials fields include **API Key**, **API Secret**, and **Store ID**. These are essential for connecting the
    WooCommerce store to the external system.
 
-#### INPUTTING CREDENTIALS
+### INPUTTING CREDENTIALS
 
 When entering your credentials:
 
@@ -232,7 +232,7 @@ When entering your credentials:
     - The store list will appear if the credentials are valid. If the credentials are invalid, an error message will
       display, and no stores will be fetched.
 
-#### HANDLING ERRORS WITH CREDENTIALS
+### HANDLING ERRORS WITH CREDENTIALS
 
 If you enter incorrect credentials:
 
@@ -250,7 +250,7 @@ If you enter incorrect credentials:
     - Fetching the store list again with the correct credentials will resolve these issues, ensuring that the correct
       environment data is stored.
 
-#### SWITCHING BETWEEN ENVIRONMENTS
+### SWITCHING BETWEEN ENVIRONMENTS
 
 When switching from **Test** to **Production** or vice versa:
 
@@ -260,7 +260,7 @@ When switching from **Test** to **Production** or vice versa:
 4. The store list for the previous environment will no longer be available, and you must fetch new store data before
    proceeding.
 
-#### REMEMBER!
+### REMEMBER!
 
 1. **Always Verify Credentials**: Ensure that the credentials you enter are accurate before attempting to fetch store
    data. This avoids unnecessary errors and ensures smooth functionality.
@@ -271,7 +271,7 @@ When switching from **Test** to **Production** or vice versa:
 3. **Check Error Messages**: If you encounter any issues while saving or fetching stores, check for error messages
    related to invalid credentials or session handling. Address these issues before proceeding.
 
-#### SUMMARY OF WORKFLOW
+### SUMMARY OF WORKFLOW
 
 1. Enter credentials in the appropriate fields.
 2. Fetch store data to verify the credentials.
@@ -300,7 +300,7 @@ information.
 ![Widget appearance](../../../../attachments/91029758/91029756.png "Widget appearance")
 ![Modal appearance](../../../../attachments/91029758/regexp.png "Modal appearance")
 
-#### Configuration
+### Configuration
 
 The widget configuration options can be found on the `Part payment` tab
 *under* `WooCommerce → Settings → Resurs Bank`.
@@ -310,25 +310,25 @@ configuration on the `API` Settings tab.
 
 ![Configuration form](../../../../attachments/91029758/91029759.png "Configuration form")
 
-#### Part payment widget enabled
+### Part payment widget enabled
 
 Toggle this setting to enable or disable the widget.
 
-#### Payment method
+### Payment method
 
 This option allows you to choose which of your payment method to use for
 the widget.
 
 Only payment methods that support part payment will be available here.
 
-#### Annuity period
+### Annuity period
 
 Controls how long of a payment period to calculate the monthly cost for.
 
 Like with the payment method setting only supported periods will be
 shown.
 
-#### Limit
+### Limit
 
 Sets a lower monthly installment limit under which the widget will not
 be displayed.
@@ -356,7 +356,7 @@ but can be disabled in the settings under
 
 ![](../../../../attachments/91029950/91029949.png)
 
-#### Enable Capture
+### Enable Capture
 
 When this setting is enabled the payment will be automatically captured
 when the order status is set to `Completed` in WooCommerce.
@@ -369,7 +369,7 @@ another status.
 An order which has been partially captured using the Merchant Portal can
 still have the remaining order amount captured from WooCommerce.
 
-#### Enable Cancel
+### Enable Cancel
 
 This feature works much like the `Enable Capture `setting in that it
 automatically cancels the payment when an order is cancelled in
@@ -378,7 +378,7 @@ reverted to another status but a payment that's been partially cancelled
 through the Merchant Portal can still have its remaining order lines
 cancelled through the order view.
 
-#### Enable Refund
+### Enable Refund
 
 Like the `Enable Capture `and `Enable Cancel `features this feature will
 both automatically handle refunds of the payment when a refund is
@@ -387,7 +387,7 @@ it can't be reverted to another status and allow complete refunds of the
 payment when a partial refund has already been applied through the
 Merchant Portal.
 
-#### Enable Modify
+### Enable Modify
 
 With this feature enabled changes you make to an order will be reflected
 on the payment.
@@ -469,7 +469,7 @@ Here's an outline of what happens during a payment:
    Once the customer returns to the "Thank You" page, the WooCommerce order is updated to "Processing". At this point,
    WooCommerce automatically sends the first confirmation email to the customer.
 
-#### Alternative Scenario:
+### Alternative Scenario:
 
 1. **Customer is redirected to an external page:**
 
@@ -488,7 +488,7 @@ Here's an outline of what happens during a payment:
    email to send without errors. This system is built to prevent duplicate email sending without the use
    of [WC Worker Queue](https://github.com/woocommerce/woocommerce/wiki/WC_Queue---WooCommerce-Worker-Queue).
 
-#### A Third Scenario Based on Merchant Errors:
+### A Third Scenario Based on Merchant Errors:
 
 1. **Customer begins the process as described above:**
 
