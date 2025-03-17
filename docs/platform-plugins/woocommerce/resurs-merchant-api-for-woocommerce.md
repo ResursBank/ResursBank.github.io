@@ -6,54 +6,10 @@ parent: Woocommerce
 grand_parent: Platform Plugins
 nav_order: 12
 has_children: true
-has_toc: false
+has_toc: true
 ---
 
 # Resurs Merchant API 2.0 for WooCommerce
-
-## Table of Contents
-
-* [Requirements](#requirements)
-* [Download/Install the Plugin](#downloadinstall-the-plugin)
-    * [Installing from WordPress Plugin Repository](#installing-from-wordpress-plugin-repository)
-    * [Manually Installing the Plugin](#manually-installing-the-plugin)
-        * [Dual Plugins (How to Handle Them)](#dual-plugins-how-to-handle-them)
-* [Store Configuration Requirements](#store-configuration-requirements)
-    * [Stock Keeping Unit (SKU)](#stock-keeping-unit-sku)
-    * [Number of Decimals](#number-of-decimals)
-        * [Zero Decimals in WooCommerce](#zero-decimals-in-woocommerce)
-* [Plugin Basics and Information](#plugin-basics-and-information)
-* [Order Management](#order-management)
-    * [Enable Capture](#enable-capture)
-    * [Enable Cancel](#enable-cancel)
-    * [Enable Refund](#enable-refund)
-    * [Enable Modify](#enable-modify)
-* [MAPI Checkout Flow](#mapi-checkout-flow)
-* [Resurs Mail Flow Explained](#resurs-mail-flow-explained)
-* [FAQ & General Questions](#faq--general-questions)
-    * [Can I Change the Order Number Sequence?](#can-i-change-the-order-number-sequence)
-    * [Figuring Out Remote IP for Whitelisting in Firewalls](#figuring-out-remote-ip-for-whitelisting-in-firewalls)
-    * [Detailed Configuration Information and Store Configuration](#detailed-configuration-information-and-store-configuration)
-    * [Understanding Customer Link Expiration (TTL)](#understanding-customer-link-expiration-ttl)
-    * [API Settings](#api-settings)
-        * [Changing the Payment Method Configuration](#changing-the-payment-method-configuration)
-        * [Accessing the Credentials Section](#accessing-the-credentials-section)
-            * [Inputting Credentials](#inputting-credentials)
-            * [Handling Errors with Credentials](#handling-errors-with-credentials)
-            * [Switching Between Environments](#switching-between-environments)
-            * [Remember!](#remember)
-            * [Summary of Workflow](#summary-of-workflow)
-        * [Payment Methods](#payment-methods)
-        * [Part Payment](#part-payment)
-            * [Configuration](#configuration)
-            * [Part Payment Widget Enabled](#part-payment-widget-enabled)
-            * [Payment Method](#payment-method)
-            * [Annuity Period](#annuity-period)
-            * [Limit](#limit)
-    * [Callbacks](#callbacks)
-    * [Advanced](#advanced)
-    * [Purchasing with the New Merchant API](#purchasing-with-the-new-merchant-api)
-* [Troubleshooting and Error Handling](#troubleshooting-and-error-handling)
 
 # Requirements
 
