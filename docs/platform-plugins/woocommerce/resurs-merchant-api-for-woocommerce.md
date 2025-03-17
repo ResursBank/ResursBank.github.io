@@ -172,7 +172,7 @@ setting and change it if necessary. The recommended setting here is 2 decimals (
 fully support more than 2 and payments are normally getting inaccurate when setting them to 0***).
 
 If you want to run with 0 decimals regardless of the warnings, you can
-[check out this page](0-decimals-in-woocommerce) for a proper solution.
+[check out this page](zero-decimals-with-resurs-bank-in-woocommerce) for a proper solution.
 
 ![](../../../../attachments/91029973/91029972.png)
 

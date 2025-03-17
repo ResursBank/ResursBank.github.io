@@ -6,9 +6,7 @@ parent: Woocommerce
 grand_parent: Platform Plugins
 ---
 
-
-
-# Resurs Bank Payment Gateway for WooCommerce (v2.2) Resurs Checkout & Simplified Flow 
+# Resurs Bank Payment Gateway for WooCommerce (v2.2) Resurs Checkout & Simplified Flow
 
 This space is reserved for the prior WooCommerce plugin named "Resurs
 Bank Payment Gateway for WooCommerce". If you are looking for the new
@@ -16,6 +14,7 @@ Merchant API-plugin named "Resurs Bank Payments for WooCommerce", [you
 should look here](resurs-merchant-api-2.0-for-woocommerce)!
 
 ### Download
+
 This plugin is not available at the official WordPress registry as it is
 not allowed to have two similar plugins available at the same time. This
 plugin has instead been replaced with a plugin that supports Resurs
@@ -38,7 +37,8 @@ Older releases:
 - [2.2.101.zip](../../../attachments/2588830/91029996.zip)
 - [2.2.100.zip](../../../attachments/2588830/91029995.zip)
 
-### irements 
+### Requirements
+
 - At least 1 GB memory or above. Preferrably give php (via php.ini) a
   free amount of memory to play with by setting memory_limit to -1.
 - At least PHP 7.1 since WooCommerce itself requires it in newer
@@ -52,6 +52,7 @@ You can also see [PHP and development
 libraries](php-and-development-libraries)
 
 ### Multisite/WordPress Networks
+
 The plugin **do** support WordPress networks (aka multisite), however it
 does not support running one webservice account over many sites at once.
 The main rule that Resurs Bank works with is that one webservice account
@@ -60,6 +61,7 @@ webservice accounts! Read more about this at [The problems with WPMU
 (Wordpress Network) and Resurs webservices](71794948).
 
 ### The flow behind the plugin
+
 This WooCommerce-plugin support multiple flows from Resurs Bank
 depending on your needs (and country)
 
@@ -73,6 +75,7 @@ order status FROZEN and its handling is important in the fraud and order
 concept.
 
 ### Plugin installation - versions, requirements and issue tracking
+
 It is *recommended* that you install the plugin via the plugin manager
 in Wordpress (Example:
 \<site-url\>/wp-admin/plugin-install.php?s=Resurs+Bank&tab=search&type=term).
@@ -81,7 +84,9 @@ Using the search terms "Resurs Bank" should lead you right:
 ![](../../../attachments/91030050/91030046.jpg)
 
 ### Internal behaviours, troubleshooting and known issues
+
 #### Compatibility
+
 The plugin are compatible and works together with most of WooCommerce
 and WordPress platforms. Discoveries has been made, that a few modules
 might be conflicting, but as of february 2022 we've removed the old list
@@ -89,6 +94,7 @@ of compatiblity issues as they are outdated. If you find any new
 conflicts, feel free to report this.
 
 #### Disabling fields for getAddress, but some fields are still showing?
+
 This is an expected behaviour and normall occurs when you have mixed
 payment methods (by means, you have payment methods that covers both
 NATURAL and LEGAL customers). To be able to switch over to "Legal mode",
@@ -96,22 +102,26 @@ the radio buttons used at the get address forms is still required or you
 will be stuck with NATURAL-customers.
 
 #### Handling decimals
+
 Setting decimals to 0 in WooCommerce will result in an incorrect
 rounding of product prices. It is therefore adviced to set decimal
-points to 2.  [Read more about it here](0-decimals-in-woocommerce).
+points to 2.  [Read more about it here](zero-decimals-with-resurs-bank-in-woocommerce).
 
 #### Handling discounts and coupons with hosted flow
+
 If you plan to handle discounts and coupons within the hosted flow, make
 sure that the setting for handling VAT is disabled. Hosted flow does not
 allow payments with negative tax values.
 
 #### Webhosting companies and blocked callbacks
+
 Some web hosting companies tend to block access from web-browsers like
 "Java". As our callbacks are sent from a Java-client from Resurs Bank,
 Callbacks might not work properly if your hosting provider blocks access
 based on the browser identification.
 
 #### Aftershop, handling completed orders and discount
+
 In a normal state, without discounts and customized orders in the order
 administration, each action that renders debiting, refunds, annulments
 and so on is based on the order content on Resurs Bank side. In short,
@@ -133,11 +143,13 @@ does not have to pay for it. If you see such cases, that happens because
 the plugin consider the order customized by woocommerce.
 
 #### Site caching
+
 Sites that uses caching, to get better performance, may experience
 problems at for example upgrades or code updates - in cases where
 javascripts are cached by mistake in renderers and browsers.
 
 #### Can't update user credentials in wp-admin
+
 From time to time, especially when you do a lot of actions in admin for
 the Resurs plugin, updates seem to suddenly stop working. Normally, many
 functions in the admin control is reached but protected by [wordpress
@@ -150,6 +162,7 @@ When those flags are enabled, you can save your data safely again.
 ![](../../../attachments/91030050/91030047.png)
 
 #### **Do the plugin handle any e-mail sending**
+
 **tldr;**
 
 No.
@@ -167,6 +180,7 @@ differently (see below).
 ![](../../../attachments/91030050/91030048.png)
 
 #### Order statuses on callbacks
+
 Some payment methods causes the plugin to instantly finalize the order.
 By default, this will put the order in "completed" which for some
 merchants also means that is is delivered. This is more common among
