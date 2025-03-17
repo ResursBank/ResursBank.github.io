@@ -8,7 +8,7 @@ nav_order: 12
 has_children: true
 has_toc: true
 ---
-x
+
 ## Table of Contents
 
 * [Zero decimals with Resurs Bank in WooCommerce](#zero-decimals-with-resurs-bank-in-woocommerce)
