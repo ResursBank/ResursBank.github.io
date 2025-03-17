@@ -14,18 +14,46 @@ has_toc: false
 ## Table of Contents
 
 * [Requirements](#requirements)
-* [Download/install the plugin](#downloadinstall-the-plugin)
-    * [Installation from WordPress plugin repository](#installation-from-wordpress-plugin-repository)
-    * [Manually installing plugin](#manually-installing-plugin)
-        * [Dual plugins (how to act on it)](#dual-plugins-how-to-act-on-it)
-* [Store configuration requirements](#store-configuration-requirements)
+* [Download/Install the Plugin](#downloadinstall-the-plugin)
+    * [Installing from WordPress Plugin Repository](#installing-from-wordpress-plugin-repository)
+    * [Manually Installing the Plugin](#manually-installing-the-plugin)
+        * [Dual Plugins (How to Handle Them)](#dual-plugins-how-to-handle-them)
+* [Store Configuration Requirements](#store-configuration-requirements)
     * [Stock Keeping Unit (SKU)](#stock-keeping-unit-sku)
-* [Plugin basics and information](#plugin-basics-and-information)
-* [Order management](#order-management)
+    * [Number of Decimals](#number-of-decimals)
+        * [Zero Decimals in WooCommerce](#zero-decimals-in-woocommerce)
+* [Plugin Basics and Information](#plugin-basics-and-information)
+* [Order Management](#order-management)
+    * [Enable Capture](#enable-capture)
+    * [Enable Cancel](#enable-cancel)
+    * [Enable Refund](#enable-refund)
+    * [Enable Modify](#enable-modify)
 * [MAPI Checkout Flow](#mapi-checkout-flow)
 * [Resurs Mail Flow Explained](#resurs-mail-flow-explained)
-* [FAQ & Generic questions](#faq--generic-questions)
-    * [Can I change the order number sequence?](#can-i-change-the-order-number-sequence)
+* [FAQ & General Questions](#faq--general-questions)
+    * [Can I Change the Order Number Sequence?](#can-i-change-the-order-number-sequence)
+    * [Figuring Out Remote IP for Whitelisting in Firewalls](#figuring-out-remote-ip-for-whitelisting-in-firewalls)
+    * [Detailed Configuration Information and Store Configuration](#detailed-configuration-information-and-store-configuration)
+    * [Understanding Customer Link Expiration (TTL)](#understanding-customer-link-expiration-ttl)
+    * [API Settings](#api-settings)
+        * [Changing the Payment Method Configuration](#changing-the-payment-method-configuration)
+        * [Accessing the Credentials Section](#accessing-the-credentials-section)
+            * [Inputting Credentials](#inputting-credentials)
+            * [Handling Errors with Credentials](#handling-errors-with-credentials)
+            * [Switching Between Environments](#switching-between-environments)
+            * [Remember!](#remember)
+            * [Summary of Workflow](#summary-of-workflow)
+        * [Payment Methods](#payment-methods)
+        * [Part Payment](#part-payment)
+            * [Configuration](#configuration)
+            * [Part Payment Widget Enabled](#part-payment-widget-enabled)
+            * [Payment Method](#payment-method)
+            * [Annuity Period](#annuity-period)
+            * [Limit](#limit)
+    * [Callbacks](#callbacks)
+    * [Advanced](#advanced)
+    * [Purchasing with the New Merchant API](#purchasing-with-the-new-merchant-api)
+* [Troubleshooting and Error Handling](#troubleshooting-and-error-handling)
 
 # Requirements
 
@@ -35,14 +63,14 @@ has_toc: false
 - CURL (ext-curl with necessary libraries) 7.61.0 or higher
 - **Curl with CURLAUTH_BEARER-support**
 
-# Download/install the plugin
+# Download/Install the Plugin
 
 Install the plugin via WordPress plugin repository (the plugin manager
 in wp-admin). It is NOT recommended to install the plugin manually since
 you will miss all automatic upgrades.
 
 Url to the plugin itself is
-[https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/](https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/)
+[https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce /](https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/)
 
 # Installation
 
@@ -57,7 +85,7 @@ WordPress.
 
 ![](../../../../attachments/files/rb_plugin_install.png)
 
-# Manually installing plugin
+# Manually Installing the Plugin
 
 Manually installing WordPress plugins can be risky because changing the plugin slug can prevent crucial updates from
 being applied. This opens up vulnerabilities that hackers can exploit, potentially giving them access to your site
@@ -82,16 +110,14 @@ through outdated versions. You should avoid this if possible.
 
 Yes!
 
-To update the order number sequence, update the database auto increment
-number like this:
+To update the order number sequence, modify the database auto-increment number like this
 
-**UPDATE database**
-
-```xml
-ALTER TABLE `wp-database`.`wp_posts` AUTO_INCREMENT = 200000000;
+```mysql
+ALTER TABLE `[WP_DATABASE]`.`wp_posts`
+    AUTO_INCREMENT = 200000000;
 ```
 
-Change **wp-database** to your database name and set the
+Change **[WP_DATABASE]** to your database name and set the
 **AUTO_INCREMENT** number to something that suits you.
 
 ## Figuring out remote ip for whitelisting in firewalls
@@ -99,11 +125,10 @@ Change **wp-database** to your database name and set the
 In tests, we sometimes need to whitelist your server's IP address, for example when your server is located in a country
 outside the Nordic region.
 
-Normally, it is not very difficult to figure out which IP address needs to be whitelisted. There are many services
-available on the internet that can fetch the proper address, or you could simply run a console-based command like this
-from your server. Example:
+Normally, it is not very difficult to figure out which IP address needs to be whitelisted. Several online services can
+fetch your public IP address, or you can use this command from your server terminal. Example:
 
-```html
+```bash
 curl https://api.ipify.org/?format=txt
 91.198.202.76
 ```
@@ -142,10 +167,9 @@ section](../../../../attachments/91029884/91029883.png "Currency options section
 
 In newer installs of WooCommerce the setting for number of decimals to
 use in the checkout may be set to 0 as the default value. This is
-usually what you *do not want*, due to problems with roundings. If you
-are new to WooCommerce, make sure to look this up and change it if
-necessary. The recommended settings here is 2 decimals (***Resurs do not
-fully support more than 2***).
+usually what you *do not want*, due to problems with roundings. If you are new to WooCommerce, make sure to check this
+setting and change it if necessary. The recommended setting here is 2 decimals (***Resurs do not
+fully support more than 2 and payments are normally getting inaccurate when setting them to 0***).
 
 If you want to run with 0 decimals regardless of the warnings, you can
 [check out this page](0-decimals-in-woocommerce) for a proper solution.
@@ -154,8 +178,8 @@ If you want to run with 0 decimals regardless of the warnings, you can
 
 ## Understanding Customer Link Expiration (TTL)
 
-Customer links will, by default, expire after 120 minutes. If a customer attempts to complete a payment after this time,
-the transaction will be rejected. This expiration can be handled through WooCommerce's stock management system,
+Customer links expire by default after 120 minutes. If a customer tries to complete a payment after this period, the
+transaction will be rejected. This expiration can be handled through WooCommerce's stock management system,
 specifically using the **Hold Stock (minutes)** setting.
 
 When stock management is enabled, WooCommerce reserves the product for the specified time in the **Hold Stock** setting,
@@ -185,7 +209,7 @@ When making any changes to payment methods at Resurs Bank it is strongly
 recommended that you clear the cache in the [Plugin
 configuration](plugin-configuration) to avoid potential problems.
 
-### ACCESSING THE CREDENTIALS SECTION
+### Accessing the Credentials Section
 
 To manage credentials in WooCommerce:
 
@@ -309,9 +333,8 @@ shown.
 Sets a lower monthly installment limit under which the widget will not
 be displayed.
 
-If you to set the limit higher than the payment method's maximum
-configured purchase price you will see a warning message after saving
-your settings.
+If you set the limit higher than the payment method's maximum configured purchase price, you will see a warning message
+after saving your settings.
 
 You should set this value high enough that the monthly cost is at least
 SEK 150 (Sweden) or EUR 15 (Finland).
@@ -405,9 +428,7 @@ reaches a certain status, such as authorization or rejection.
    Resurs. You can see the flow and more information [about the
    callbacks
    here](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v2/options#callbacks).
-2. To make sure that the callback received from Resurs is correct, the
-   plugin will make a secure request with Resurs to confirm the order
-   status, before handling the order locally at WooCommerce side.
+2. To verify callback accuracy, the plugin makes a secure request to Resurs before processing the order in WooCommerce.
 3. When an order is synchronized with Resurs, the order status will
    update to either *processing, on-hold* or *failed*. If t he order is
    set to *on-hold*, this means that more actions could follow. For
@@ -483,10 +504,9 @@ Here's an outline of what happens during a payment:
 ### Purchasing with the new Merchant API.
 
 The Merchant API is, like the former simplified shopflow, made to go
-with a platform default rules but with some improvements. The
-WooCommerce order will (as before) be created first (in *Pending*
-status), then Resurs order is placed and finally - depending on the
-result - updated to *Processing*. The procedure looks like this:
+with a platform default rules but with some improvements. The WooCommerce order will (as before) first be created in
+*Pending* status, then the Resurs order will be placed, and finally-depending on the result-updated to *Processing*. The
+procedure looks like this:
 
 1. Purchase button is clicked. WooCommerce starts handling the order,
    setting the first Pending status.
