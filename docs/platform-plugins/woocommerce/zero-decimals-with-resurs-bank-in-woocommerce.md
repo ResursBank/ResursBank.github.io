@@ -6,7 +6,7 @@ parent: Woocommerce
 grand_parent: Platform Plugins
 nav_order: 12
 has_children: true
-has_toc: false
+has_toc: true
 ---
 
 # Zero decimals with Resurs Bank in WooCommerce
