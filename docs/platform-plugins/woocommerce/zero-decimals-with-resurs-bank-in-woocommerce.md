@@ -9,6 +9,12 @@ has_children: false
 has_toc: true
 ---
 
+# Disclaimer
+
+This section of the documentation is not endorsed or supported by Resurs Bank. However, the underlying case is explained
+for informational purposes. In general, this method is not recommended. The information provided here is for reference
+only and should not be considered official guidance.
+
 ## Table of Contents
 
 * [Zero decimals with Resurs Bank in WooCommerce](#zero-decimals-with-resurs-bank-in-woocommerce)
