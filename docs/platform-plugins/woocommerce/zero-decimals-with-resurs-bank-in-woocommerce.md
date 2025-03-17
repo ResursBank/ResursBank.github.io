@@ -21,21 +21,16 @@ has_toc: true
 
 # Understanding rounding with decimals in WooCommerce
 
-Under *General settings* in WooCommerce, there is a section called *Currency options*. Here you can set the store
-currency and how the currency symbol should be positioned. There is also a setting that lets you choose how many decimal
-points you want prices to be displayed with.
+In *General settings* under *Currency options*, WooCommerce lets you set the store currency and decimal precision. While
+it may seem cosmetic, setting decimals to 0 can cause issues.
 
-At first glance, this setting may appear to be purely cosmetic—simply making your prices look neater. However, setting
-decimals to 0 can cause real issues for your store.
+WooCommerce rounds prices using its internal rules, but Resurs Bank doesn't support more than 2 decimals. If values are
+rounded too high or too low, order totals may not match, leading to incorrect tax calculations and potential payment
+failures.
 
-When the price for a product is rounded and stored in the order, it can be difficult to recreate the same kind of
-rounding in an external system, as it adheres closely to WooCommerce's rounding rules. However, Resurs doesn't support
-decimals over 2, so changing the value to either too high or too low (0 decimals) may cause discrepancies in order
-totals, incorrect tax calculations, or mismatches between WooCommerce and payment provider expectations, potentially
-leading to transaction failures.
-
-A product has a price of 49 EUR including 25% VAT. This means a net price of 39.2 EUR with a tax of 9.8 EUR. If you set
-the decimal points to 0, WooCommerce will round this to a net price of 39 and a tax of 10.
+For example, a product priced at 49 EUR (including 25% VAT) has a net price of 39.2 EUR and a tax of 9.8 EUR. If
+decimals are set to 0, WooCommerce rounds it to 39 EUR net and 10 EUR tax, which may cause discrepancies with the
+payment.
 
 Now, let's consider a payment provider that requires each order row to be sent with the product price excluding tax
 along with the applicable tax rate. In this case, it would be 39 EUR and 25%. However, adding 25% tax to 39 EUR results
@@ -64,12 +59,9 @@ to 2 in the currency settings and then add this code snippet to your theme's `fu
 add_filter( 'woocommerce_price_trim_zeros', '__return_true' );
 ```
 
-With this code, 49.00 will be displayed as 49. This applies regardless of the currency. However, in currencies where
-smaller decimal values are significant—such as JPY (Japanese Yen) or IDR (Indonesian Rupiah), which use large numerical
-values—even small rounding differences can have a noticeable impact. Similarly, when comparing EUR with SEK, small
-decimal changes in EUR can translate into more significant rounding differences in SEK due to currency exchange rates.
-If your store only has whole-number prices and displays prices including VAT, then only the VAT will appear with two
-decimal places. This ensures accurate price and VAT calculations while eliminating unnecessary decimal points.
+This ensures that 49.00 appears as 49. However, some currencies (e.g., JPY, IDR) use large numerical values, making
+small rounding differences significant. When comparing EUR to SEK, minor decimal shifts in EUR can result in larger
+rounding differences due to exchange rates.
 
 ## Example plugin implementation
 
