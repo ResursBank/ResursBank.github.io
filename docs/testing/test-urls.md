@@ -56,7 +56,7 @@ Portal, since the invoice is not sent by mail in the test-environment.
 
 # MAPI / Merchant API
 
-See [MAPI documentation here](/merchant-api-2-0/) for more information.
+See [MAPI documentation here](/merchant-api-2.0/) for more information.
 
 [https://merchant-api.integration.resurs.com/](https://merchant-api.integration.resurs.com/)
 
