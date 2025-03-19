@@ -29,22 +29,22 @@ be considered "Done".
 - StoreId management: Get StoreId using Mapi, or buit-in StoreId
 - PaymentMethodId management: Get PaymentMethodId using Mapi, or buit-in PaymentMethodId.
 
-### Billing and Delivery Address:
+#### Billing and Delivery Address:
 - Enter customer information. (Regular expressions / pattern is used for different fields)
 - Is it possible to enter shipping address
 
-### Payment Method:
+#### Payment Method:
 - Display Payment methodes depending on order value and min- and max- purchase limit
 - Sortorder payment methodes according to MP/SA (debit first if used)
 - Legal requirements, payment methodes with the corresponding price information links
 - Konsumentverket (SE) regulations on merchants obligation to provide information when marketing consumer credit. [Read more](https://publikationer.konsumentverket.se/produkter-och-tjanster/finansiella-tjanster/kovfs-20251-konsumentverkets-foreskrifter-om-naringsidkares-upplysningsskyldighet-vid-marknadsforing-av-konsumentkrediter)
 
-### Complete Purchase:
+#### Complete Purchase:
 - Confirm of purchase with checkbox, text or by mandatory open legal links
 - Success page
 - Handle "falied" payment. Like "Credit denied", with fail page or message in chckout with necessary information for customer and with the option of trying to complete the purchase again.
 
-### Specifics for a completed purchase:
+#### Specifics for a completed purchase:
 - Check payment in Resurs Merchant Portal
 - Customized orderReference
 - Handle frozen payments is set to true: Check if the order is handled correct, namely the order is set to "pending Resurs", waiting for outcome from Resurs and then updated to AUTHORIZED, CAPTURED or REJECTED.
@@ -53,7 +53,7 @@ be considered "Done".
 - Ip-address mandatory
 - timeToLiveInMinutes setting or default
 
-### Order management:
+#### Order management:
 - Confirm payment: Using callback / get payments / webhook
 - Confirm order managenent status
 - Capture is successful (check in MP)
@@ -61,6 +61,6 @@ be considered "Done".
 - Refund is successful (check in MP)
 - It is not possible to capture when the order status at Resurs is frozen
 
-### Optional for order management:
+#### Optional for order management:
 - Part capture
 - Part refund
