@@ -25,7 +25,7 @@ be considered "Done".
 ### 1. Go-live checklist Resurs e-commerce Integration
 
 #### General Settings:
-- JWT (token) management: Get new token on every request to Resurs, or using "expires_in".
+- JWT (token) management: Get a new token when "expires_in" expires.
 - StoreId management: Get StoreId using Merchant API, or buit-in StoreId
 - PaymentMethodId management: Get PaymentMethodId using Merchant API, or buit-in PaymentMethodId.
 
