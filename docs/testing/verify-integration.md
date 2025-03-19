@@ -42,7 +42,7 @@ be considered "Done".
 #### Complete Purchase:
 - Confirm of purchase with checkbox, text or by mandatory open legal links
 - Success page
-- Handle "falied" payment. Like "Credit denied", with fail page or message in chckout with necessary information for customer and with the option of trying to complete the purchase again.
+- Handle "failed" payment. Like "Credit denied", with fail page or message in chckout with necessary information for customer and with the option of trying to complete the purchase again.
 
 #### Specifics for a completed purchase:
 - Check payment in Resurs Merchant Portal
