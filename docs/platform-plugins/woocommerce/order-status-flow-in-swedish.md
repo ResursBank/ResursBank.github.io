@@ -9,6 +9,10 @@ has_children: false
 has_toc: false
 ---
 
+### OrderStatusFlöde (Förenklad)
+
+Full dokumentation för orderstatusflödet i WooCommerce finns [här](https://developers.resurs.com/platform-plugins/woocommerce/resurs-merchant-api-for-woocommerce#order-status-flow).
+
 Pluginet uppdaterar orderstatusar baserat på betalningssvar från Resurs Bank. Processen ser ut så här:
 
 1. **Validering:**
