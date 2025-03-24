@@ -530,12 +530,18 @@ procedure looks like this:
 
 # Order Status Flow
 
-The order status flow is a crucial part of the plugin. Statuses are primarily updated during callbacks and customer payments. The order status flow is as follows:
+The order status flow is a crucial part of the plugin. Statuses are primarily updated during callbacks and customer
+payments. The order status flow is as follows:
 
 - The customer initiates checkout and completes the payment.
-- Callbacks are initiated after the customer's interactions are either complete or abandoned. Abandonment can occur, for example, when payments are initiated but authorization/signing with third parties are incomplete or cancelled.
+- Callbacks are initiated after the customer's interactions are either complete or abandoned. Abandonment can occur, for
+  example, when payments are initiated but authorization/signing with third parties are incomplete or cancelled.
 
-Callbacks may be triggered at the same time the customer completes the payment. This could potentially cause conflicts, like race conditions where the order status changes incorrectly. This is easily prevented by ensuring that the plugin's callbacks are not allowed to respond to requests from Resurs Bank until after a certain period of time has passed. Meanwhile, the customer is given the opportunity to reach the thank-you page in time. The period is set to 60 seconds from the moment the order was created or updated. Thereafter, status updates for Resurs are executed as follows:
+Callbacks may be triggered at the same time the customer completes the payment. This could potentially cause conflicts,
+like race conditions where the order status changes incorrectly. This is easily prevented by ensuring that the plugin's
+callbacks are not allowed to respond to requests from Resurs Bank until after a certain period of time has passed.
+Meanwhile, the customer is given the opportunity to reach the thank-you page in time. The period is set to 60 seconds
+from the moment the order was created or updated. Thereafter, status updates for Resurs are executed as follows:
 
 ```
 Status::update(order: $order);
@@ -543,52 +549,46 @@ Status::update(order: $order);
 
 ## Status Control Process
 
-The status control process ensures that order statuses are correctly updated based on payment statuses returned from Resurs Bank. The implementation follows these steps:
+The status control process ensures that order statuses are correctly updated based on payment statuses returned from
+Resurs Bank. The implementation follows these steps:
 
 1. **Validation Check:**
-    - Before any processing, the plugin checks if the payment is a valid Resurs payment via:
-      ```
-      if (!Metadata::isValidResursPayment(order: $order)) {
-          return;
-      }
-      ```
+    - Before any processing, the plugin checks if the payment is a valid Resurs Payment (isValidResursPayment).
 
 2. **Fetching Payment Details:**
-    - The payment details are fetched from the repository:
-      ```
-      $payment = PaymentRepository::get(paymentId: Metadata::getPaymentId(order: $order));
-      ```
+    - The payment details are fetched from the repository (getPayment):
 
 3. **Order Status Validation:**
-    - The plugin verifies if the payment status matches the expected order status:
-      ```
-      BeforeOrderStatusChange::validatePaymentAction(status: self::orderStatusFromPaymentStatus(payment: $payment, order: $order), order: $order);
-      ```
+    - The plugin verifies if the current payment status matches the expected order status (BeforeOrderStatusChange::
+      validatePaymentAction), under förutsättning att befintlig orderstatus inte är **pending**. Om kriterierna inte
+      uppfylls kommer pluginet inte att utföra några ytterligare åtärder.
 
-4. **Order Status Handling:**
-    - Status handling is performed through a `match` statement depending on the payment status:
-      ```
-      match ($payment->status) {
-          PaymentStatus::ACCEPTED => $order->payment_complete(),
-          PaymentStatus::REJECTED => self::updateRejected(payment: $payment, order: $order),
-          default => $order->update_status(new_status: 'on-hold', note: Translator::translate(phraseId: 'payment-status-on-hold'))
-      };
-      ```
-
-5. **Status Mapping:**
-    - Payment statuses are mapped to order statuses via the method:
-      ```
-      public static function orderStatusFromPaymentStatus(Payment $payment, WC_Order $order): string
-      ```
+4. validatePaymentAction:
+    - The plugin checks if the payment status at Resurs Bank is `ACCEPTED` or `REJECTED` and if the order status
+      is `pending`. Om dessa kriterier inte uppfylls kommer pluginet inte att utföra några ytterligare åtgärder.
+    - During the validation process, the plugin figures out though orderStatusFromPaymentStatus which status the order
+      shoule get if everything is OK.
         - For `ACCEPTED` status, the order is marked as `processing`.
-        - For `REJECTED`, a check determines whether the status should be `failed` or `cancelled` based on task status details.
+        - For `REJECTED`, a check determines whether the status should be `failed` or `cancelled` based on task status
+          details.
         - Otherwise, the status is set to `on-hold`.
 
-6. **Error Handling:**
+5. **Order Status Update (from  `match ($payment->status) {`):**
+    - The plugin updates the order status based on the payment status from Resurs Bank.
+        - If the payment status is `ACCEPTED`, the order status is set to `processing`.
+        - If the payment status is `REJECTED`, the order status is set to `failed` or `cancelled` based on task status
+          details (this will be triggered from the `updateRejected` method).
+        - If any other status than the expected are set in `$payment->status` the order status is set to `on-hold`.
+
+6. **The `updateRejected` method:**
+   - This is the conditional checker, for which all `REJECTED` orders gets their proper status. It is either `failed` or
+     `cancelled` depending on the task status details which will be executed from here (`Repository::getTaskStatusDetails(paymentId: $payment->id)`)).
+   - In the task status details from Resurs we will look at the completed flag (https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getTaskStatuses).
+   - If the completed flag is set to true, the order status will be set to `failed`.
+   - If the completed flag is set to false, the order status will be set to `cancelled`.
+
+7. **Error Handling:**
     - If an error occurs during the status determination process, it is logged and a default status is returned.
-
-This flow ensures that the order status is correctly updated and aligned with the payment status returned from Resurs Bank.
-
 
 
 # Troubleshooting and error handling
