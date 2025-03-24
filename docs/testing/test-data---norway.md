@@ -10,7 +10,7 @@ has_children: true
 
 # Test Data - Norway 
 
-> Phone number 22563733
+> Phone number 49999999
 
 > All phone numbers are intended for test of functionality between the
 > merchant and Resurs, not for tests between the merchant and end
