@@ -573,7 +573,7 @@ Resurs Bank. The implementation follows these steps:
           details.
         - Otherwise, the status is set to `on-hold`.
 
-5. **Order Status Update (from  `match ($payment->status) {`):**
+5. **Order Status Update (from `match ($payment->status) {`):**
     - The plugin updates the order status based on the payment status from Resurs Bank.
         - If the payment status is `ACCEPTED`, the order status is set to `processing`.
         - If the payment status is `REJECTED`, the order status is set to `failed` or `cancelled` based on task status
@@ -590,7 +590,11 @@ Resurs Bank. The implementation follows these steps:
       to [Resurs API Documentation](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getTaskStatuses)).
     - If the `completed` flag is set to true, the order status will be set to `failed`.
     - If the `completed` flag is set to false, the order status will be set to `cancelled`.
-    - We are aware that this method is not ideal and will be improved in future updates. As for now we also have a rejectedReason https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment
+    - We acknowledge that the above method is not ideal and will be improved in future updates. Currently, we can take
+      advantage of the `rejectedReason`
+      in [MAPI's getPayment request](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment)
+      to assist in providing better feedback or error logging. At a very basic level, however, all orders marked
+      as `REJECTED` by Resurs Bank should be treated as pure `cancelled`.
 
 7. **Error Handling:**
     - If an error occurs during the status determination process, it is logged, and a default status is returned.
