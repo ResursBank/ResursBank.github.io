@@ -34,4 +34,4 @@ Pluginet uppdaterar orderstatusar baserat på betalningssvar från Resurs Bank. 
 
 5. **updateRejected-metoden:**
   - Kontrollerar task status details (`completed`-flaggan) från Resurs för att avgöra om statusen ska vara `failed` (om true) eller `cancelled` (om false).
-  - `rejectedReason` används för bättre felsökning och loggas endast.
+  - `rejectedReason` kan användas för bättre felsökning men detta görs inte i dagsläget.
