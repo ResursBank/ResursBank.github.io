@@ -9,7 +9,8 @@ grand_parent: Platform Plugins
 
 Problems With Wpmu
 
-# The problems with WPMU (Wordpress Network) and Resurs webservices 
+# The problems with WPMU (Wordpress Network) and Resurs webservices
+
 This page has been added to describe why multisite setups - where
 **several sites handles one webservice account** - will never work
 properly. Please be aware that this is not the same solution as if you
@@ -21,6 +22,7 @@ multisite accounts. There are some issues that is simply not supported
 here:
 
 ## Order ID numbering
+
 Normally, the plugin are connecting an order to its order ID in the
 platform by a datestamp. You can also run the plugin by setting the
 order id as the incremental post ID for the multisite. If you tend to
@@ -39,6 +41,7 @@ this is only an example. However, at some point - mentioned above -
 there might be a risk of conflicts between your sites.
 
 ## Callbacks: Only one site will be able to handle callbacks as the database tables are split up to be running each site separately
+
 When the plugin are registering callbacks it is very site specific. In a
 WP Network only one URL will be registered without the ability to
 identify which site the callback is intended to land on. In theory you
@@ -46,6 +49,7 @@ may make this work by handling each callback by its order id. However,
 this is not recommended (see the section about Order ID numbering).
 
 ### The callback URLs is also a problem
+
 When callbacks are registered, salt keys are also registered at the
 webservice endpoint. Those salt keys are stored at the site where they
 were registered. By means, if you have four sites and register callback

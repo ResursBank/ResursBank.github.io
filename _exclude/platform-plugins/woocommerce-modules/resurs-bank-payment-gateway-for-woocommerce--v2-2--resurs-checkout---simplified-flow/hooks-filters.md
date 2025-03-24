@@ -7,7 +7,8 @@ parent: Woocommerce
 grand_parent: Platform Plugins
 ---
 
-# Hooks/filters v2.2 (and core tweaks) 
+# Hooks/filters v2.2 (and core tweaks)
+
 - [Filter: Sending storeId into the
   payload](#filter-sending-storeid-into-the-payload)
 - [Filter: Handling of payment methods prefix
@@ -26,6 +27,7 @@ grand_parent: Platform Plugins
   changes](#front-end-hooks-for-country-changes)
 
 [Core Tweaks](#core-tweaks)
+
 - [The old row editor for partial annul/crediting is no longer
   available](#the-old-row-editor-for-partial-annulcrediting-is-no-longer-available)
 - [Performance issues and plugin breaks within wp-admin
@@ -33,12 +35,14 @@ grand_parent: Platform Plugins
 
 [Settable advanced
 flags](#settable-advanced-flags)
+
 - [GIT_BIN](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
 - [ECOM_CACHE_TIME](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
 - [CURL_TIMEOUT](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
 - [DISABLE_SSL_VALIDATION](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
 
 [Miscellaneous](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
+
 - [FEE_EDITOR](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
 - [DEBUG](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
 - [NONCE_ERRORS](#performance-issues-and-plugin-breaks-within-wp-admin-2224)
@@ -50,22 +54,25 @@ The filters described on this page always requires that you keep our
 plugin updated.
 
 ## Filter: Sending storeId into the payload
+
 As of the release of v2.1.x we not only deliver the plugin with EComPHP
 1.1.x, we also support storeids in the shop, via the filter
 **resursbank_set_storeid**-filter.
 
 ```xml
 function setResursStoreId() {
-    $return = 107999;  // Enter your code here, to fetch or generate the storeId to return.
-    return $return;
-}
-add_filter( 'resursbank_set_storeid', 'setResursStoreId', 10, 1 );
+        $return = 107999;  // Enter your code here, to fetch or generate the storeId to return.
+        return $return;
+        }
+        add_filter( 'resursbank_set_storeid', 'setResursStoreId', 10, 1 );
 ```
+
 A sample plugin for testings, including (almost) the above example can
 be found
 at [https://bitbucket.org/resursbankplugins/resurs-storeid-test/overview](https://bitbucket.org/resursbankplugins/resurs-storeid-test/overview)
 
 ## Filter: Handling of payment methods prefix paths
+
 As of 2.2.18 we have changed the path structure for where payment method
 models are stored. From now on, since they are files, the are stored in
 subpaths within the includes structure and the directories are created
@@ -77,33 +84,36 @@ to an external plugin for your site:
 
 ```xml
 function altPrefix($return) {
-    global $table_prefix;
-    $return = preg_replace('/[^0-9]/', '', $table_prefix);
-    return $return;
-}
-add_filter('resurs_bank_model_prefix', 'altPrefix');
+        global $table_prefix;
+        $return = preg_replace('/[^0-9]/', '', $table_prefix);
+        return $return;
+        }
+        add_filter('resurs_bank_model_prefix', 'altPrefix');
 ```
+
 The function example could actually contain whatever you need to adapt a
 multisite solution. In newer versions, we do not use models like this so
 this should not be a problem for future versions.
 
 ## Filter: Sort order of payment methods in wp-admin
+
 The filer **resurs_admin_sort_methods_by_value** makes it possible to
-change the content of  the default payment method "name" in the
+change the content of the default payment method "name" in the
 WP-admin. Since version 2.2.17.
 
 ```xml
 /**
- * @param string $description
- * @param stdClass $paymentMethodContent
- * @return mixed
- */
-function resursMethodValue($description, $paymentMethodContent)
-{
- return $paymentMethodContent->id;
-}
-add_filter('resurs_admin_sort_methods_by_value', 'resursMethodValue', 10, 2);
+        * @param string $description
+        * @param stdClass $paymentMethodContent
+        * @return mixed
+        */
+        function resursMethodValue($description, $paymentMethodContent)
+        {
+        return $paymentMethodContent->id;
+        }
+        add_filter('resurs_admin_sort_methods_by_value', 'resursMethodValue', 10, 2);
 ```
+
 The above example will change the output from the default description
 order:
 
@@ -116,6 +126,7 @@ to sort methods by their id names:
 The way this is handled should not affect anything but the list itself.
 
 ## Filter: Part payment widget string
+
 We have seen moments where the part payment widget text data is not
 translated properly. In earlier versions (\< 2.2.18) this data had to be
 hard coded if you had to replace the string in the widget (in cases
@@ -124,18 +135,21 @@ with this, without the necessary hard coding. This filter works from
 2.2.18+
 
 **Part payment text replacer**
+
 ```xml
 /**
- * @param $defaultString The html content string created by the plugin.
- * @param $annuityData The data values from annuity factors.
- * @return string Your new string.
- */
-function resursPartPaymentStringReplace($defaultString, $annuityData){
-    return sprintf("Pröjsa från %s spänn", $annuityData);
-}
-add_filter('resursbank_custom_annuity_string', 'resursPartPaymentStringReplace', 10, 2);
+        * @param $defaultString The html content string created by the plugin.
+        * @param $annuityData The data values from annuity factors.
+        * @return string Your new string.
+        */
+        function resursPartPaymentStringReplace($defaultString, $annuityData){
+        return sprintf("Pröjsa från %s spänn", $annuityData);
+        }
+        add_filter('resursbank_custom_annuity_string', 'resursPartPaymentStringReplace', 10, 2);
 ```
+
 ## Action: Order info
+
 In version 2.0 of our WooCommerce plugin you are able to integrate with
 a few hooks in our plugin. The hooks are recently introduced and
 therefore considered experimental, and there might be more of them in
@@ -145,14 +159,15 @@ be a forwarding hook, that is able to registered what happaned in the
 callback.
 
 **Coding example**
+
 ```xml
 function resurs_hook_orderinfo($paymentInfo) {
 
-/*
-    What we get from here:
+        /*
+        What we get from here:
 
-    Array
-    (
+        Array
+        (
         [id] => resursOrderReference
         [fraud] => 1
         [frozen] => 1
@@ -160,13 +175,14 @@ function resurs_hook_orderinfo($paymentInfo) {
         [booked] => time()
         [finalized] => time()
         [callback] => ANNULMENT
-    )
-*/
+        )
+        */
 
-    // Do what you need to do here
-}
-add_action('resurs_hook_callback', 'resurs_hook_orderinfo', 1, 1);
+        // Do what you need to do here
+        }
+        add_action('resurs_hook_callback', 'resurs_hook_orderinfo', 1, 1);
 ```
+
 The example above is very simple - the callback hook takes one argument
 and contains data about the received callback in an array (See the
 example).
@@ -182,6 +198,7 @@ example).
 | *callback*  | **string**  | If the hook was triggered by a [callback](callbacks), this is the name of the callback  |
 
 ## Action: Handling sessions
+
 In very rare cases, there might be a need of controlling how the session
 is handled. There are two new filters in the latest version that handles
 whether session_start() should be invoked by the plugin, or not.
@@ -192,6 +209,7 @@ whether session_start() should be invoked by the plugin, or not.
 | resursbank_start_session_outside_admin_only | Disable session creation when in admin if true (will make a !is_admin()-check).Activation of this filter will turn session_start() off, when in admin.                                                                                                 |
 
 ## Partial refunds (on price level) - resurs_refund_price_override
+
 Normally, partial refunds in woocommerce are supported on quantity level
 (as of 2.2.21). This means that you now only can remove entire rows from
 an order, you can also for example change the quantity (i.e. if you by
@@ -206,12 +224,13 @@ manipulation protection.
 
 ```xml
 function refundFunction() {
-    return true;
-}
-add_filter('resurs_refund_price_override', 'refundFunction');
+        return true;
+        }
+        add_filter('resurs_refund_price_override', 'refundFunction');
 ```
 
 ## Front end hooks for country changes
+
 In prior versions of the plugin there had been no relations between the
 getAddress-form and the country changes, if the store has several
 delivery countries, mostly due to the codebase. As the codebase is not
@@ -230,13 +249,15 @@ billing_country can be bound to an onChange-event via jQuery:
 
 ```xml
 $('#billing_country').on('change', function () {
-    $('body').trigger('resursCountryChange', {newCountry: this.value});});
+        $('body').trigger('resursCountryChange', {newCountry: this.value});});
 ```
+
 **How it is catched:**
 
 ```xml
 $RB(document).on('resursCountryChange', function(e, data) {});
 ```
+
 This specific event is used internally by our own plugin on the
 condition that the government id field is forced to be shown in the last
 parts of the checkout, mostly to demonstrate how it works. This setting
@@ -247,7 +268,9 @@ show the billing data fields, and the importance lies within that
 \#billing_country must be present at the document-ready event.
 
 # Core Tweaks
+
 ## The old row editor for partial annul/crediting is no longer available
+
 It actually is. But for a while this function is moved into the status
 type of the order. By means, editing order to partially credit/annul
 rows on an order is only available as long as WooCommerce has a pending
@@ -259,24 +282,27 @@ add the code below. Note: In future 2.2-releases, this function will be
 added to the plugin.
 
 **Editable order code**
+
 ```xml
 /**
- * @param bool $isEditable
- * @param $that WC_Admin_Order
- *
- * @return bool
- */
-function resurs_order_is_editable($isEditable, $that)
-{
-    $resursOrderId = wc_get_payment_id_by_order_id($that->get_id());
-    if (!empty($resursOrderId)) {
+        * @param bool $isEditable
+        * @param $that WC_Admin_Order
+        *
+        * @return bool
+        */
+        function resurs_order_is_editable($isEditable, $that)
+        {
+        $resursOrderId = wc_get_payment_id_by_order_id($that->get_id());
+        if (!empty($resursOrderId)) {
         return true;
-    }
-    return $isEditable;
-}
-add_filter('wc_order_is_editable', 'resurs_order_is_editable', 10, 2);
+        }
+        return $isEditable;
+        }
+        add_filter('wc_order_is_editable', 'resurs_order_is_editable', 10, 2);
 ```
+
 ## Performance issues and plugin breaks within wp-admin (2.2.24+)
+
 There are rare moments when our plugin may interfere with parts of
 wp-admin which causes strange untraceable errors. As long as we can't
 find error logs that indicates what's wrong, we've added an extremely
@@ -314,16 +340,18 @@ feature first!
 
 ```xml
 add_filter('allow_resurs_run', 'wp_admin_resurs_limitations', 10, 2);
-/**
- * @param $allow Current inbound allow state.
- * @param $info Very basic requests from _REQUEST and _POST parameters that could easily be analyzed.
- * @return bool If true, the plugin is allowed to proceed.
- */
-function wp_admin_resurs_limitations($allow,$info) {
-   return true;
-}
+        /**
+        * @param $allow Current inbound allow state.
+        * @param $info Very basic requests from _REQUEST and _POST parameters that could easily be analyzed.
+        * @return bool If true, the plugin is allowed to proceed.
+        */
+        function wp_admin_resurs_limitations($allow,$info) {
+        return true;
+        }
 ```
+
 # Settable advanced flags
+
 In some cases we think it is not necessary to have a setting for each
 detailed setting that can be done. In v2 there are also, unfortunayely,
 a very limited count hooks and filters so when it is really necessary to

@@ -7,7 +7,8 @@ parent: Woocommerce
 grand_parent: Platform Plugins
 ---
 
-# Using sku as article numbers in old plugin 
+# Using sku as article numbers in old plugin
+
 The old module once **had** support for sku-values as articlenumbers on
 order rows, but has since the evolving of our plugins been removed from
 the configuration panel due to decisions. The old plugin is currently
@@ -26,6 +27,7 @@ if you still manage to enable the setting.
 Yes. There is a solution.
 
 ## Temporary override sku feature plugin
+
 Create a file in your plugin directory (**/wp-content/plugins**) in your
 platform, for example named resurs-force-sku.php - the file should
 contain the code below.
@@ -38,45 +40,46 @@ manager. Then go to the Resurs Bank-tabs and save the configuration
 again.
 
 **resurs-force-sku.php**
+
 ```xml
 <?php
-/**
- * Plugin Name: Force sku usage for resurs-bank-payment-gateway-for-woocommerce (v2.2.105 and above)
- * Description: Restores the usage of sku names in orders.
- * Version: 1.0.0
- * Author:
- */
-  add_action('plugins_loaded', function () {
-    add_filter('resurs_bank_form_fields', function ($formFields, $sectionName) {
+        /**
+        * Plugin Name: Force sku usage for resurs-bank-payment-gateway-for-woocommerce (v2.2.105 and above)
+        * Description: Restores the usage of sku names in orders.
+        * Version: 1.0.0
+        * Author:
+        */
+        add_action('plugins_loaded', function () {
+        add_filter('resurs_bank_form_fields', function ($formFields, $sectionName) {
         if (
-            (preg_match('/resurs_bank/i', $sectionName) || $sectionName === 'defaults') &&
-            !isset($formFields['useSku'])
+        (preg_match('/resurs_bank/i', $sectionName) || $sectionName === 'defaults') &&
+        !isset($formFields['useSku'])
         ) {
-            $ns = 'woocommerce_resurs-bank_settings';
-            // Validate prior options in case useSku has been saved as disabled.
-            $optionCheck = get_option($ns);
-            if (isset($optionCheck['useSku']) && $optionCheck['useSku'] === 'no') {
-                $optionCheck['useSku'] = 'yes';
-                // Update the options if that's the case.
-                update_option($ns, $optionCheck);
-            }
-            // Return useSku to the plugin as if it was still configurable, to convince
-            // woocommece to bring it to storefront.
-            $formFields['useSku'] = [
-                'id' => 'useSku',
-                'title' => __(
-                    'Use sku instead of id, when available',
-                    'resurs-bank-payment-gateway-for-woocommerce'
-                ),
-                'type' => 'checkbox',
-                'default' => 'yes',
-                'description' => __(
-                    'Enforcing sku as artno instead of id, when it is available.',
-                    'resurs-bank-payment-gateway-for-woocommerce'
-                ),
-            ];
+        $ns = 'woocommerce_resurs-bank_settings';
+        // Validate prior options in case useSku has been saved as disabled.
+        $optionCheck = get_option($ns);
+        if (isset($optionCheck['useSku']) && $optionCheck['useSku'] === 'no') {
+        $optionCheck['useSku'] = 'yes';
+        // Update the options if that's the case.
+        update_option($ns, $optionCheck);
+        }
+        // Return useSku to the plugin as if it was still configurable, to convince
+        // woocommece to bring it to storefront.
+        $formFields['useSku'] = [
+        'id' => 'useSku',
+        'title' => __(
+        'Use sku instead of id, when available',
+        'resurs-bank-payment-gateway-for-woocommerce'
+        ),
+        'type' => 'checkbox',
+        'default' => 'yes',
+        'description' => __(
+        'Enforcing sku as artno instead of id, when it is available.',
+        'resurs-bank-payment-gateway-for-woocommerce'
+        ),
+        ];
         }
         return $formFields;
-    }, 11, 2);
-});
+        }, 11, 2);
+        });
 ```
