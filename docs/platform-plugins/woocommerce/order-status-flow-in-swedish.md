@@ -35,7 +35,8 @@ Pluginet uppdaterar orderstatusar baserat på betalningssvar från Resurs Bank. 
     - Om statusen är något annat än förväntat sätts orderstatusen
       till `on-hold` (`TASK_REDIRECTION_REQUIRED`, `INSPECTION`, `SUPPLEMENTING_REQUIRED`, `FROZEN`).
 5. **updateRejected-metoden:**
-    - Kontrollerar task status details (`completed`-flaggan) från Resurs för att avgöra om statusen ska vara `failed` (
-      om
-      true) eller `cancelled` (om false).
+    - `updateRejected` kör `getFailedOrCancelled` som avgör med hjälp av completed-flaggan huruvida köpet ska
+      bli `failed` eller `cancelled`.
+    - Om `completed` true sätts ordern som `failed`.
+    - Om `completed` false sätts ordern som `cancelled`.
     - `rejectedReason` kan användas för bättre felsökning men detta görs inte i dagsläget.
