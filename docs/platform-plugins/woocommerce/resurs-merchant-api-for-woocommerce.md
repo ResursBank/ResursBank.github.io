@@ -570,7 +570,8 @@ Resurs Bank. The implementation follows these steps:
         - For `ACCEPTED` status, the order is marked as `processing`.
         - For `REJECTED`, a check determines whether the status should be `failed` or `cancelled` based on task status
           details.
-        - Otherwise, the status is set to `on-hold`.
+        - Otherwise, the status is set to `on-hold` (Other statusen can
+          be `TASK_REDIRECTION_REQUIRED`, `INSPECTION`, `SUPPLEMENTING_REQUIRED`, `FROZEN`).
 
 4. **Order Status Update (from `match ($payment->status) {`):**
     - The plugin updates the order status based on the payment status from Resurs Bank.
