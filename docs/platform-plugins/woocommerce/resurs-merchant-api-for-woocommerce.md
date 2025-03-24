@@ -553,21 +553,21 @@ The status control process ensures that order statuses are correctly updated bas
 Resurs Bank. The implementation follows these steps:
 
 1. **Validation Check:**
-    - Before any processing, the plugin checks if the payment is a valid Resurs Payment (isValidResursPayment).
+    - Before any processing, the plugin checks if the payment is a valid Resurs Payment (`isValidResursPayment`).
 
 2. **Fetching Payment Details:**
-    - The payment details are fetched from the repository (getPayment):
+    - The payment details are fetched from the repository (`getPayment`).
 
 3. **Order Status Validation:**
-    - The plugin verifies if the current payment status matches the expected order status (BeforeOrderStatusChange::
-      validatePaymentAction), under förutsättning att befintlig orderstatus inte är **pending**. Om kriterierna inte
-      uppfylls kommer pluginet inte att utföra några ytterligare åtärder.
+    - The plugin verifies if the current payment status matches the expected order
+      status (`BeforeOrderStatusChange::validatePaymentAction`), provided that the existing order status is
+      not `pending`. If the criteria are not met, the plugin will not proceed with any further actions.
 
-4. validatePaymentAction:
+4. **validatePaymentAction:**
     - The plugin checks if the payment status at Resurs Bank is `ACCEPTED` or `REJECTED` and if the order status
-      is `pending`. Om dessa kriterier inte uppfylls kommer pluginet inte att utföra några ytterligare åtgärder.
-    - During the validation process, the plugin figures out though orderStatusFromPaymentStatus which status the order
-      shoule get if everything is OK.
+      is `pending`. If these criteria are not met, the plugin will not proceed with any further actions.
+    - During the validation process, the plugin determines through `orderStatusFromPaymentStatus` which status the order
+      should receive if everything is correct.
         - For `ACCEPTED` status, the order is marked as `processing`.
         - For `REJECTED`, a check determines whether the status should be `failed` or `cancelled` based on task status
           details.
@@ -578,18 +578,22 @@ Resurs Bank. The implementation follows these steps:
         - If the payment status is `ACCEPTED`, the order status is set to `processing`.
         - If the payment status is `REJECTED`, the order status is set to `failed` or `cancelled` based on task status
           details (this will be triggered from the `updateRejected` method).
-        - If any other status than the expected are set in `$payment->status` the order status is set to `on-hold`.
+        - If any other status than expected is found in `$payment->status`, the order status is set to `on-hold`.
 
-6. **The `updateRejected` method:**
-   - This is the conditional checker, for which all `REJECTED` orders gets their proper status. It is either `failed` or
-     `cancelled` depending on the task status details which will be executed from here (`Repository::getTaskStatusDetails(paymentId: $payment->id)`)).
-   - In the task status details from Resurs we will look at the completed flag (https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getTaskStatuses).
-   - If the completed flag is set to true, the order status will be set to `failed`.
-   - If the completed flag is set to false, the order status will be set to `cancelled`.
+6. **The `updateRejected` Method:**
+    - This method determines the appropriate status for all `REJECTED` orders, which will be set to either `failed`
+      or `cancelled` depending on task status details retrieved from:
+      ```
+      Repository::getTaskStatusDetails(paymentId: $payment->id)
+      ```
+    - The task status details from Resurs are examined for the `completed` flag (refer
+      to [Resurs API Documentation](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getTaskStatuses)).
+    - If the `completed` flag is set to true, the order status will be set to `failed`.
+    - If the `completed` flag is set to false, the order status will be set to `cancelled`.
+    - We are aware that this method is not ideal and will be improved in future updates. As for now we also have a rejectedReason https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment
 
 7. **Error Handling:**
-    - If an error occurs during the status determination process, it is logged and a default status is returned.
-
+    - If an error occurs during the status determination process, it is logged, and a default status is returned.
 
 # Troubleshooting and error handling
 
