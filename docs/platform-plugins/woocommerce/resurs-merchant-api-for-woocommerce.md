@@ -178,7 +178,7 @@ If you want to run with 0 decimals regardless of the warnings, you can
 
 ![](../../../../attachments/91029973/91029972.png) 
 
-### What if...? (Solving decimals issues) {#solving-decimal-issues}
+### Solving too many decimals issues {#solving-decimal-issues}
 
 One issue that may occur in some cases with the plugin is not directly caused by the plugin itself, but still affects
 the outcome of what is sent to our API. For instance, you may receive an error in the checkout related
