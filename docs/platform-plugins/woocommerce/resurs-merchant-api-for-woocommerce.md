@@ -176,7 +176,7 @@ fully support more than 2 and payments are normally getting inaccurate when sett
 If you want to run with 0 decimals regardless of the warnings, you can
 [check out this page](zero-decimals-with-resurs-bank-in-woocommerce) for a proper solution.
 
-![](../../../../attachments/91029973/91029972.png)  
+![](../../../../attachments/91029973/91029972.png) 
 
 ### What if...? (Solving decimals issues) {#solving-decimal-issues}
 

@@ -19,8 +19,7 @@ shortcode [woocommerce_checkout] instead.**
 
 > This is the latest version of the plugin for WooCommerce.
 
-[Click **here
-** for full documentation and installation instructions for Resurs Merchant API 2.0 for WooCommerce](resurs-merchant-api-for-woocommerce.md).
+[Click **here** for full documentation and installation instructions for Resurs Merchant API 2.0 for WooCommerce](resurs-merchant-api-for-woocommerce.md).
 
 ### Requirements
 
