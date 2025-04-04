@@ -22,6 +22,7 @@ has_toc: true
     * [Stock Keeping Unit (SKU)](#stock-keeping-unit-sku)
     * [Number of Decimals](#number-of-decimals)
         * [Zero Decimals in WooCommerce](#zero-decimals-in-woocommerce)
+        * [Solving Decimal Issues](#solving-decimal-issues)
 * [Plugin Basics and Information](#plugin-basics-and-information)
 * [Order Management](#order-management)
     * [Enable Capture](#enable-capture)
@@ -175,7 +176,56 @@ fully support more than 2 and payments are normally getting inaccurate when sett
 If you want to run with 0 decimals regardless of the warnings, you can
 [check out this page](zero-decimals-with-resurs-bank-in-woocommerce) for a proper solution.
 
-![](../../../../attachments/91029973/91029972.png)
+![](../../../../attachments/91029973/91029972.png)  
+
+### What if...? (Solving decimals issues) {#solving-decimal-issues}
+
+One issue that may occur in some cases with the plugin is not directly caused by the plugin itself, but still affects
+the outcome of what is sent to our API. For instance, you may receive an error in the checkout related
+to `totalAmountIncludingVat` being too high or, as shown in our example image, resulting in an "out of bounds" message.
+When the decimal precision of a field like `totalAmountIncludingVat` is too high, it can trigger validation errors from
+Resurs Bank’s API.
+
+A value that looks visually correct may, for example, still be submitted to us like this:
+
+"totalAmountIncludingVat":1310.259999999999990905052982270717620849609375
+
+This is a typical floating-point precision issue that originates from how PHP handles decimal numbers internally. Even
+if WooCommerce is set to 2 decimals, if your server environment uses an overly high `precision` value in `php.ini`,
+numbers can be serialized with an excessive number of decimals when encoded into JSON. In addition, it's possible that
+other plugins, filters or theme functions in your WooCommerce installation are affecting the final precision of price or
+tax fields by altering them before the payload is constructed.
+
+If this happens, you may see errors such as:
+
+**{"order.orderLines[1].totalAmountIncludingVat":"numeric value out of bounds (<10 digits>.<2 digits> expected)"}**
+
+This is not caused by the plugin itself but rather by the environment or platform surrounding WooCommerce. Here’s what
+you should check:
+
+1. **WooCommerce Decimal Setting**
+
+    - Navigate to *WooCommerce > Settings > General > Number of decimals* and verify that the value is set to 2.
+
+2. **PHP Precision**
+
+    - Check the `precision` directive in your PHP configuration (php.ini). A common default is `14`, but for
+      WooCommerce/Resurs integrations we recommend lowering it to something like `10` to avoid these edge cases.
+
+   Example in php.ini:
+
+   ```ini
+   precision = 10
+   ```
+
+3. **Custom Filters or Themes**
+
+    - Ensure no plugins or themes are manipulating price or tax values before they're sent. Some themes hook into price
+      display and can inadvertently tamper with raw totals.
+
+Once corrected, the numeric output should fall within the accepted decimal limits supported by Resurs Bank. If you
+continue to experience issues, enable WooCommerce logging and inspect the order payloads closely for floating point
+anomalies.
 
 ## Understanding Customer Link Expiration (TTL)
 
