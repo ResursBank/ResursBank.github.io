@@ -64,6 +64,9 @@ has_toc: true
 - SSL-connectivity (preferably OpenSSL)
 - CURL (ext-curl with necessary libraries) 7.61.0 or higher
 - **Curl with CURLAUTH_BEARER-support**
+- **Decimal precision:** PHP’s default precision (php.ini precision = 14) is usually sufficient. Increasing this value
+  too high may cause unexpected rounding errors due to floating point representation issues. Recommended to keep
+  precision at standard levels to ensure correct two-decimal rounding.
 
 # Download/Install the Plugin
 
@@ -176,7 +179,7 @@ fully support more than 2 and payments are normally getting inaccurate when sett
 If you want to run with 0 decimals regardless of the warnings, you can
 [check out this page](zero-decimals-with-resurs-bank-in-woocommerce) for a proper solution.
 
-![](../../../../attachments/91029973/91029972.png) 
+![](../../../../attachments/91029973/91029972.png)
 
 ### Solving too many decimals issues {#solving-decimal-issues}
 
