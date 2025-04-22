@@ -13,7 +13,8 @@ has_toc: false
 
 # 1. Acquire test credentials
 
-Contact Resurs Bank to get your test credentials.
+Contact Resurs Bank to request your test credentials. Make sure that your system meets all technical requirements before
+proceeding with the integration.
 
 # 2. Installation
 
