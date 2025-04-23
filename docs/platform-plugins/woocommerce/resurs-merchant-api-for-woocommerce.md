@@ -23,6 +23,7 @@ has_toc: true
     * [Number of Decimals](#number-of-decimals)
         * [Zero Decimals in WooCommerce](#zero-decimals-in-woocommerce)
         * [Solving Decimal Issues](#solving-decimal-issues)
+        * [Rounding to nearest quarter](#rounding-to-nearest-quarter)
 * [Plugin Basics and Information](#plugin-basics-and-information)
 * [Order Management](#order-management)
     * [Enable Capture](#enable-capture)
@@ -64,7 +65,8 @@ has_toc: true
 - SSL-connectivity (preferably OpenSSL)
 - CURL (ext-curl with necessary libraries) 7.61.0 or higher
 - **Curl with CURLAUTH_BEARER-support**
-- **Decimal precision:** PHP’s default precision (php.ini default precision = 14) is usually sufficient. Increasing this value
+- **Decimal precision:** PHP’s default precision (php.ini default precision = 14) is usually sufficient. Increasing this
+  value
   too high may cause unexpected rounding errors due to floating point representation issues. Recommended to keep
   precision at standard levels to ensure correct two-decimal rounding.
 
@@ -229,6 +231,26 @@ you should check:
 Once corrected, the numeric output should fall within the accepted decimal limits supported by Resurs Bank. If you
 continue to experience issues, enable WooCommerce logging and inspect the order payloads closely for floating point
 anomalies.
+
+If you still feel that you are unable to follow the instructions above, i.e., you can't lower the precision in PHP core,
+you can try another solution.
+
+#### Alternative: Rounding to nearest quarter {#rounding-to-nearest-quarter}
+
+**Please note:** Since this is a non-standard solution and not part of the official plugin features, we do not actively
+provide support for it. However, we have documented the method in detail for those who wish to implement it at their own
+discretion.
+
+If you are unable to lower the PHP core precision as recommended above, another solution is to round product prices
+directly before WooCommerce calculates the totals.
+
+This workaround targets floating-point artifacts by rounding prices to the nearest quarter, specifically when using the
+Resurs Bank payment method. The approach helps prevent mismatches between WooCommerce totals and what the Resurs API
+expects.
+
+You can find the full documentation and example implementation here:
+
+[Rounding to nearest quarter in WooCommerce](rounding-to-nearest-quarter-in-woocommerce)
 
 ## Understanding Customer Link Expiration (TTL)
 
