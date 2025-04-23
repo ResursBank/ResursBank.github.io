@@ -235,7 +235,7 @@ anomalies.
 If you still feel that you are unable to follow the instructions above, i.e., you can't lower the precision in PHP core,
 you can try another solution.
 
-#### Alternative: Rounding to nearest quarter {#rounding-to-nearest-quarter}
+### Alternative: Rounding to nearest quarter {#rounding-to-nearest-quarter}
 
 **Please note:** Since this is a non-standard solution and not part of the official plugin features, we do not actively
 provide support for it. However, we have documented the method in detail for those who wish to implement it at their own
