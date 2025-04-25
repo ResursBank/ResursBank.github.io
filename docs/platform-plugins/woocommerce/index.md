@@ -28,6 +28,9 @@ shortcode [woocommerce_checkout] instead.**
 - SSL-connectivity (preferably OpenSSL)
 - CURL (ext-curl with necessary libraries) 7.61.0 or higher
 - **Curl with CURLAUTH_BEARER-support**
+- **Decimal precision:** PHP’s default precision (php.ini default precision = 14) is usually sufficient. Increasing this
+  value too high may cause unexpected rounding errors due to floating point representation issues. Recommended to keep
+  precision at standard levels to ensure correct two-decimal rounding.
 
 ### Download/install the plugin
 

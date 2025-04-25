@@ -23,6 +23,9 @@ This section of the documentation is not endorsed or supported by Resurs Bank. H
 for informational purposes. The provided example is intended as a workaround and should not be considered official
 guidance.
 
+**This section is written for those that are unable, due to business logic, to change the precision settings
+in php.ini (for which the default precision is 14 decimals).**
+
 # Rounding issues with high PHP precision settings
 
 When working with WooCommerce integrations and certain payment gateways like Resurs Bank, you might encounter rounding
