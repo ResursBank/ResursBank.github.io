@@ -30,6 +30,7 @@ has_toc: true
     * [Enable Cancel](#enable-cancel)
     * [Enable Refund](#enable-refund)
     * [Enable Modify](#enable-modify)
+    * [External integrations and hook requirements](#external-integrations-and-hook-requirements)
 * [MAPI Checkout Flow](#mapi-checkout-flow)
 * [Resurs Mail Flow Explained](#resurs-mail-flow-explained)
 * [FAQ & General Questions](#faq--general-questions)
@@ -430,6 +431,33 @@ but can be disabled in the settings under
 `WooCommerce → Settings → Resurs Bank → Order Management`.
 
 ![](../../../../attachments/91029950/91029949.png)
+
+#### External integrations and hook requirements
+
+The automatic capture, modification and refund logic depends entirely on WooCommerce’s own action and filter hooks. The
+plugin subscribes to the following hooks and uses them to keep the Resurs Bank payment state in sync:
+
+- `transition_post_status` – invoked just before WooCommerce changes an order’s
+  status ([developer.wordpress.org](https://developer.wordpress.org/reference/hooks/transition_post_status/?utm_source=chatgpt.com))
+- `woocommerce_order_status_changed` – invoked immediately after the status change has been
+  committed ([wp-kama.com](https://wp-kama.com/plugin/woocommerce/hook/woocommerce_order_status_changed?utm_source=chatgpt.com))
+- `woocommerce_update_order` – invoked when an order is saved after being edited in the admin
+  interface ([wp-kama.com](https://wp-kama.com/plugin/woocommerce/hook/woocommerce_update_order?utm_source=chatgpt.com))
+
+If an external system such as an ERP, POS or warehouse management platform updates orders directly in the database, via
+direct REST calls or any other pathway that bypasses the hooks above, the plugin will not receive the events it needs
+and the order management features (capture, refund, cancellation, modification) will not be executed against Resurs
+Bank.
+
+**To ensure reliable synchronisation you must either:**
+
+1. Extend the external integration so that it uses the official WooCommerce APIs, calling `$order->update_status()`
+   and `$order->save()` (or equivalent) so that WooCommerce dispatches its hooks, eller
+2. Disable "Automatic capture", "Automatic refund" and "Allow order modifications" under the plugin’s Order Management
+   settings and carry out these actions manually in Resurs Bank’s Merchant Portal.
+
+Leaving the integration unchanged will lead to mismatches between WooCommerce and Resurs Bank that may prevent future
+captures or refunds and require manual intervention.
 
 ### Enable Capture
 
