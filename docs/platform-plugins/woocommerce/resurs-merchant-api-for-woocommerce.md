@@ -432,7 +432,7 @@ but can be disabled in the settings under
 
 ![](../../../../attachments/91029950/91029949.png)
 
-#### External integrations and hook requirements
+### External integrations and hook requirements
 
 The automatic capture, modification and refund logic depends entirely on WooCommerce’s own action and filter hooks. The
 plugin subscribes to the following hooks and uses them to keep the Resurs Bank payment state in sync:
