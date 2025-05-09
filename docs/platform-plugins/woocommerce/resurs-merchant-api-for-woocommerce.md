@@ -500,11 +500,11 @@ The automatic capture, modification and refund logic depends entirely on WooComm
 plugin subscribes to the following hooks and uses them to keep the Resurs Bank payment state in sync:
 
 - `transition_post_status` – invoked just before WooCommerce changes an order’s
-  status ([developer.wordpress.org](https://developer.wordpress.org/reference/hooks/transition_post_status/?utm_source=chatgpt.com))
+  status ([developer.wordpress.org](https://developer.wordpress.org/reference/hooks/transition_post_status/))
 - `woocommerce_order_status_changed` – invoked immediately after the status change has been
-  committed ([wp-kama.com](https://wp-kama.com/plugin/woocommerce/hook/woocommerce_order_status_changed?utm_source=chatgpt.com))
+  committed ([wp-kama.com](https://wp-kama.com/plugin/woocommerce/hook/woocommerce_order_status_changed))
 - `woocommerce_update_order` – invoked when an order is saved after being edited in the admin
-  interface ([wp-kama.com](https://wp-kama.com/plugin/woocommerce/hook/woocommerce_update_order?utm_source=chatgpt.com))
+  interface ([wp-kama.com](https://wp-kama.com/plugin/woocommerce/hook/woocommerce_update_order))
 
 If an external system such as an ERP, POS or warehouse management platform updates orders directly in the database, via
 direct REST calls or any other pathway that bypasses the hooks above, the plugin will not receive the events it needs
@@ -520,6 +520,20 @@ Bank.
 
 Leaving the integration unchanged will lead to mismatches between WooCommerce and Resurs Bank that may prevent future
 captures or refunds and require manual intervention.
+
+#### Conditions required for capturing payments
+
+The plugin only allows capturing a Resurs Bank payment if certain conditions are met:
+
+- The order must have an attached `Payment` object with a valid `Order` structure.
+- The payment must **not** be in a `REJECTED`, `FROZEN`, or `INSPECTION` state.
+- The list of `possibleActions` provided by Resurs Bank must contain either `CAPTURE` or `PARTIAL_CAPTURE`.
+- The payment must not yet be fully captured.
+
+These rules are enforced through the Resurs Bank API. If the payment fails any of the checks above, capture
+functionality will not be available through the plugin and must instead be handled manually in the Resurs Bank Merchant
+Portal.
+
 
 ### Callbacks
 
