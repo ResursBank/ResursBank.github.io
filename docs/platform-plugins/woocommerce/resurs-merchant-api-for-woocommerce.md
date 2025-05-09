@@ -521,6 +521,20 @@ Bank.
 Leaving the integration unchanged will lead to mismatches between WooCommerce and Resurs Bank that may prevent future
 captures or refunds and require manual intervention.
 
+#### Conditions required for capturing payments
+
+The plugin only allows capturing a Resurs Bank payment if certain conditions are met:
+
+- The order must have an attached `Payment` object with a valid `Order` structure.
+- The payment must **not** be in a `REJECTED`, `FROZEN`, or `INSPECTION` state.
+- The list of `possibleActions` provided by Resurs Bank must contain either `CAPTURE` or `PARTIAL_CAPTURE`.
+- The payment must not yet be fully captured.
+
+These rules are enforced through the Resurs Bank API. If the payment fails any of the checks above, capture
+functionality will not be available through the plugin and must instead be handled manually in the Resurs Bank Merchant
+Portal.
+
+
 ### Callbacks
 
 Callbacks are notifications sent to a specified URL when a payment
