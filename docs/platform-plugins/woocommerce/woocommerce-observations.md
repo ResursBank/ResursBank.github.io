@@ -23,7 +23,7 @@ document is made for this kind of information.
 
 Running WooCommerce with both legacy and blocks as checkout normally works quite fine. It is however never recommended using direct links to blocks if you use legacy, or vice versa. As you select the page template in the wp-admin console (advanced tab under WooCommerce settings), WooCommerce tracks which checkout page is set to be active. Bypassing this may lead to unexpected behaviour, even though Resurs’ own plugin works with this setup too. You should however avoid this, as other plugins may not behave correctly.
 
-If you like to switch often between legacy and blocks (mostly to maintain compatibility for the plugin), you'll notice that the checkout fields may act strange. For example: disabling the "Company" field in the Blocks checkout editor will also remove the "Company" field from the legacy hardcoded templates.
+If you like to switch often between legacy and blocks (mostly to maintain compatibility for the plugin), you'll notice that the checkout fields may act strange. For example: disabling the "Company" field in the Blocks checkout editor will also remove the "Company" field from the legacy "hardcoded" templates. As most of the customer input fields are dynamically rendered, the block checkout will have priority over the legacy content too.
 
 According to deeper investigation, this is **not** a bug, but expected behaviour introduced in WooCommerce 9.6 (January 2025).
 
