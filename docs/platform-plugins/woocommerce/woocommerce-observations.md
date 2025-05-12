@@ -2,10 +2,10 @@
 layout: page
 title: Woocommerce Observations
 parent: Woocommerce
-grand\_parent: Platform Plugins
+grand_parent: Platform Plugins
 permalink: /platform-plugins/woocommerce/woocommerce-observations
-nav\_order: 999
-has\_children: false
+nav_order: 999
+has_children: false
 --------------------
 
 # WooCommerce Observations
