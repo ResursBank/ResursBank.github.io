@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Prestashop Resurs Checkout
-permalink: /platform-plugins/prestashop-payment-gateways/prestashop-resurs-checkout/
+permalink: /platform-plugins/prestashop-payment-gateways/prestashop-rco/prestashop-resurs-checkout/
 parent: Prestashop Payment Gateways
 grand_parent: Platform Plugins
 ---
@@ -86,7 +86,7 @@ PrestaShop admin (Via the Advanced-\>Performance tab). As there are
 front end scripts that may require extra cleanups, this is also
 necessary.
 
-![](../../../attachments/59342864/59342934.png)
+![](../../../../../attachments/59342864/59342934.png)
 
 ## Installation
 
@@ -129,11 +129,11 @@ currently not possible yet.
 
 ### Module configuration example
 
-![](../../../attachments/59342864/59342866.png)
+![](../../../../../attachments/59342864/59342866.png)
 
 ### Registered payment methods and callbacks
 
-**![](../../../attachments/59342864/59342867.png)  
+**![](../../../../../attachments/59342864/59342867.png)  
 **
 
 ## Known problems and (eventually) the solutions
@@ -190,7 +190,7 @@ may show up as "[https://your-site/](https://your-site/)**För**". The
 was installed in the database. It looks ugly but is normally not
 destroying anything.
 
-![](../../../attachments/59342864/59342868.png)
+![](../../../../../attachments/59342864/59342868.png)
 
 Solution:
 

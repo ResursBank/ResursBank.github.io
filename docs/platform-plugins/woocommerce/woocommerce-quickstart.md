@@ -11,6 +11,8 @@ has_toc: false
 
 # QuickStart Guide WooCommerce
 
+_Sign an agreement with Resurs Bank to get credentials for production._
+
 # 1. Acquire test credentials
 
 Contact Resurs Bank to request your test credentials. Make sure that your system meets all technical requirements before
@@ -41,5 +43,3 @@ For full documentation, see [this section](resurs-merchant-api-for-woocommerce.m
 # 4. Perform test purchase using our test data to ensure everything works
 
 [Resurs Bank Test Data](https://developers.resurs.com/testing/)
-
-# 5. Sign an agreement with Resurs Bank to get credentials for production.

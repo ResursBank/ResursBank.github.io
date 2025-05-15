@@ -9,8 +9,6 @@ has_toc: false
 nav_exclude: true
 ---
 
-
-
 # PrestaShop Payment Gateways 
 
 ## Internal error handling i Cart parts

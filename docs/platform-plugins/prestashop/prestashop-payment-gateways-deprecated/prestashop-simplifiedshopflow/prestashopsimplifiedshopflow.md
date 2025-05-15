@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Prestashop Simplifiedshopflow
-permalink: /platform-plugins/prestashop-payment-gateways/prestashopsimplifiedshopflow/
+permalink: /platform-plugins/prestashop-payment-gateways/prestashop-simplifiedshopflow/prestashopsimplifiedshopflow/
 parent: Prestashop Payment Gateways
 grand_parent: Platform Plugins
 ---
@@ -202,16 +202,16 @@ page explains how. The described flow is based on a multi-step checkout.
     you fill in some of your own basic customer information. If you are
     logged in, you will instead of a form to fill in get a list of
     addresses to choose between. At this moment, the plugin is idle.  
-    ![](../../../../attachments/59342966/59342971.png)
+    ![](../../../../../attachments/59342966/59342971.png)
 2.  Next page is a bigger form field where you are entering (and if you
     become a customer also saving) the customer data to use to confirm
     your order.  
-    ![](../../../../attachments/59342966/59342963.png)
+    ![](../../../../../attachments/59342966/59342963.png)
 3.  As a third step you pick a preferred shipping method for where you
     want your products (could be different do digital orders).
 4.  At the final step the customer is now about to choose which payment
     method to use in the payment.  
-    ![](../../../../attachments/59342966/59342965.png)  
+    ![](../../../../../attachments/59342966/59342965.png)  
     This is where the plugin activates at the first time. In
     psrbsimplified.php, a first hook named paymentOptions is executed
     (as hookPaymentOptions()). This method renders an array with the
@@ -261,7 +261,7 @@ order state based on the response. The states are customizable from the
 administration panel (as long as you include order management as a
 module).
 
-![](../../../../attachments/81887234/81887236.png)
+![](../../../../../attachments/81887234/81887236.png)
 
 Each of the above states can freely be customized, but is always
 installed with preferred defaults. When a callback are received from

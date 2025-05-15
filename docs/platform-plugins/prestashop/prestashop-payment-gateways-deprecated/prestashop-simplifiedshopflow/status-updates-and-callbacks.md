@@ -19,7 +19,7 @@ order state based on the response. The states are customizable from the
 administration panel (as long as you include order management as a
 module).
 
-![](../../../../attachments/81887234/81887236.png)
+![](../../../../../attachments/81887234/81887236.png)
 
 Each of the above states can freely be customized, but is always
 installed with preferred defaults. When a callback are received from

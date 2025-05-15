@@ -77,7 +77,7 @@ PrestaShop or in any other way makes Resurs finalize the order. For
 example, direct debiting payment methods like SWISH/VIPPS/etc are
 normally instantly finalized via the UPDATE callback this way.
 
-![](../../../../attachments/77365432/81887242.png)
+![](../../../../../attachments/77365432/81887242.png)
 
 ## Language and translations
 [P17-222](https://resursbankplugins.atlassian.net/browse/P17-222) and
@@ -96,7 +96,7 @@ can be disabled from the performance section in the advanced admin
 configuration and is nearly a requirement for newly committed data to
 work properly.
 
-![](../../../../attachments/77365432/77365433.png)
+![](../../../../../attachments/77365432/77365433.png)
 
 ## Are we using session data at any point in the modules?
 As of march 2022, the only place known to use a session_start() is
