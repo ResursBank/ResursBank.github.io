@@ -37,6 +37,15 @@ organisations.
 | 4967996-6           | 230580-7335  | OlutpanimoKansakoulukatu 900100 Helsinki  | submitLimitApplication returns decision=DENIED | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED |
 | 1105814-4           | 230580-7335  | OlutpanimoKansakoulukatu 500100 Helsinki  | submitLimitApplication returns decision=TRIAL  | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED |
 
+| Organisation number | SSN | Behavior  | Scenario  |
+|---------------------|--------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| 5333901-6 | 080779-1213 | Organisation has no account. Credit applications are approved and the applicant can sign alone. | Approved standalone credit application where the applicant can sign alone |
+| 5333901-6 | 080779-1213 | Organisation has no account. Credit applications are approved and the applicant can sign alone. | Approved credit application in combination with purchase  where the applicant can sign alone |
+| 8878318-4 | 050578-2382 | Organisation has no account. Denied credit | Denied credit application |
+| 1039562-4 | 050407A4603 | Organisation has an account. The contact person is allowed to purchase. | Purchase on existing account |
+| 1039562-4 | 080503A0685 | Organisation has an account. The contact person is not allowed to purchase. | Not allowed to purchase on existing account. |
+
+
 ### Cards
 Card to use when testing.
 
