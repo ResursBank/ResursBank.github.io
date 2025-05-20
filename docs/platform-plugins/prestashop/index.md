@@ -1,11 +1,10 @@
 ---
 layout: page
-title: QuickStart Guide
-permalink: /platform-plugins/prestashop/woocommerce-quickstart
-parent: PrestaShop
-grand_parent: Platform Plugins
-nav_order: 11
-has_children: false
+title: PrestaShop Quickstart Guide
+permalink: /platform-plugins/prestashop/
+parent: Platform Plugins
+nav_order: 12
+has_children: true
 has_toc: false
 ---
 
