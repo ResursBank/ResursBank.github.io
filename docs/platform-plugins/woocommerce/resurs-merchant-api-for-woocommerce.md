@@ -129,7 +129,7 @@ Change **[WP_DATABASE]** to your database name and set the
 
 ## Figuring out remote ip for whitelisting in firewalls
 
-In tests, we sometimes need to whitelist your server's IP address, for example when your server is located in a country
+In test, we sometimes need to whitelist your server's IP address, for example when your server is located in a country
 outside the Nordic region.
 
 Normally, it is not very difficult to figure out which IP address needs to be whitelisted. Several online services can
