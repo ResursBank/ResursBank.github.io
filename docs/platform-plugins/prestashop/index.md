@@ -1,6 +1,6 @@
 ---
 layout: page
-title: PrestaShop Quickstart Guide
+title: PrestaShop
 permalink: /platform-plugins/prestashop/
 parent: Platform Plugins
 nav_order: 12
