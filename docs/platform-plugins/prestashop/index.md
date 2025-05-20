@@ -9,7 +9,7 @@ has_children: false
 has_toc: false
 ---
 
-# QuickStart Guide WooCommerce
+# QuickStart Guide PrestaShop
 
 _Sign an agreement with Resurs Bank to get credentials for production._
 
