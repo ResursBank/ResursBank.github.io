@@ -19,7 +19,7 @@ proceeding with the integration.
 
 # 2. Installation
 
-Install the plugin.
+Install the plugin ([download/resursbank.zip](resursbank.zip)).
 
 # 3. Configuration
 
