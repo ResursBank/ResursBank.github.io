@@ -361,20 +361,23 @@ The purchase procedure, as handled through the PrestaShop module, follows this o
   take place depending on method and risk level.
 
 ![](images/prestashop-checkout-payment.png)
+
 3. **Payment Confirmation**
 
 - Upon completing the external flow, Resurs either:
-  - Accepts the payment (order moves to *Paid* status)
-  - Rejects the payment (order is *Cancelled*)
-  - Freezes the payment for later manual or automatic decision (order becomes *Under Review*)
+    - Accepts the payment (order moves to *Paid* status)
+    - Rejects the payment (order is *Cancelled*)
+    - Freezes the payment for later manual or automatic decision (order becomes *Under Review*)
 
 ![](images/prestashop-approve-and-purchase.png)
+
 4. **Redirect & Finalization**
 
 - Customer is sent back to the shop’s **order confirmation** page (thank you page) or to a **failure** page.
 - The PrestaShop module finalizes local order data (payment info, invoice references, etc).
 
 ![](images/prestashop-order-confirmed.png)
+
 5. **Callbacks for Failover Safety**
 
 - Even if the customer closes the browser or loses connection, **callbacks** from Resurs ensure that the correct order
@@ -390,7 +393,9 @@ never returns to the store after authorization.
 
 ### Order Management
 
-When an order is placed and processed through the Resurs plugin, it becomes visible in the PrestaShop order editor interface. The interface is divided into multiple sections, with the Resurs-specific payment information highlighted in green to differentiate it from native order details.
+When an order is placed and processed through the Resurs plugin, it becomes visible in the PrestaShop order editor
+interface. The interface is divided into multiple sections, with the Resurs-specific payment information highlighted in
+green to differentiate it from native order details.
 
 #### Order Overview (Top Section)
 
@@ -417,50 +422,66 @@ This area includes:
 - Payment method used (e.g., Faktura, Delbetalning, etc.)
 - Customer billing data synchronized from the payment
 
-If discrepancies occur (e.g., payment accepted at Resurs but still shown as pending in PrestaShop), always start by checking the status in this panel.
+If discrepancies occur (e.g., payment accepted at Resurs but still shown as pending in PrestaShop), always start by
+checking the status in this panel.
 
-> **Note:** Clicking the "Resurs Bank betalhistorik" button will open detailed payment history including capture/refund events, where applicable.
+> **Note:** Clicking the "Resurs Bank betalhistorik" button will open detailed payment history including capture/refund
+> events, where applicable.
 
 #### Managing Orders
 
-From the PrestaShop order editor, additional actions related to Resurs orders are available under the **Fler åtgärder** (More actions) dropdown menu:
+From the PrestaShop order editor, additional actions related to Resurs orders are available under the **Fler åtgärder
+** (More actions) dropdown menu:
 
 ![](images/prestashop-order-actions.png)
 
 Here, you will typically find:
 
-- **Fånga** – Used to capture an authorized payment. This is relevant for payment methods that support delayed capture (e.g., invoice or part payment).
-- **Makulera** – Used to cancel a payment that has been authorized but not yet captured. Canceling sends a void request to Resurs and updates the order status accordingly.
+- **Fånga** – Used to capture an authorized payment. This is relevant for payment methods that support delayed capture (
+  e.g., invoice or part payment).
+- **Makulera** – Used to cancel a payment that has been authorized but not yet captured. Canceling sends a void request
+  to Resurs and updates the order status accordingly.
 
-> **Note:** Partial capture is not supported in this version of the plugin. The entire order amount must be captured at once.
+> **Note:** Partial capture is not supported in this version of the plugin. The entire order amount must be captured at
+> once.
+>
+> Orders can still be handled on separate rows (partial cancellations/refunds) but this is handled with a special modify
+> operation in the API. This means the order will be entirely cancelled and rewritten each time such changes occur, rather
+> than modifying individual rows directly.
 
-> **However:** You can still modify the order through the Merchant API using a "modify" operation (PSMAPI-26), which performs a workaround by canceling the entire original order and re-creating it with adjusted order lines. This approach allows for flexibility but is not a true partial capture.
-
-Only orders with the correct current status (such as *Pending Payment* or *Authorized*) will show these options. Once an order is captured or canceled, these actions will be disabled or removed from the list.
+Only orders with the correct current status (such as *Pending Payment* or *Authorized*) will show these options. Once an
+order is captured or canceled, these actions will be disabled or removed from the list.
 
 After capturing the payment, the order view will reflect the updated state and display a confirmation banner:
 
 ![](images/prestashop-successful-capture.png)
 
-If a full or partial refund is performed successfully, it will be reflected in the same interface:
+If a full refund is performed successfully, it will be reflected in the same interface:
 
 ![](images/prestashop-successful-credit.png)
 
-Each payment operation is logged and made available in the payment lifecycle view. For example, a successful refund flow will be recorded and shown:
+Each payment operation is logged and made available in the payment lifecycle view. For example, a successful refund flow
+will be recorded and shown:
 
 ![](images/prestashop-payment-history-after-refund.png)
 
 > Always ensure that the order status is synchronized with Resurs Bank before taking manual actions.
 
-If an order is cancelled successfully using the **Makulera** function, the editor will reflect the updated status and show a confirmation message:
+If an order is cancelled successfully using the **Makulera** function, the editor will reflect the updated status and
+show a confirmation message:
 
 ![](images/prestashop-successful-cancel.png)
 
----
+> **Note:** In some cases, such as partial refunds or adjustments via modify operations, the order view and payment
+> history tab may not update in real-time. Refreshing the page after such actions ensures that updated state information
+> becomes visible. This includes order info boxes and lifecycle logs.
+
+![](images/prestashop-orderinfo-box-on-edit.png)
 
 #### Resurs Payment History
 
-By clicking the **Resurs Bank betalhistorik** button from the order view, you can access a detailed log of each event in the payment lifecycle:
+By clicking the **Resurs Bank betalhistorik** button from the order view, you can access a detailed log of each event in
+the payment lifecycle:
 
 ![](images/prestashop-payment-history.png)
 
@@ -474,7 +495,8 @@ Each row includes:
 
 This log is helpful when debugging flow issues, such as orders stuck in incorrect states or unreceived callbacks.
 
-> **Note:** If the callback is missing here or appears late, check the callback configuration and verify that your shop is reachable externally via HTTPS.
+> **Note:** If the callback is missing here or appears late, check the callback configuration and verify that your shop
+> is reachable externally via HTTPS.
 
 # Troubleshooting and error handling
 
