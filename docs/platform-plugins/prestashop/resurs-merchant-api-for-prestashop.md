@@ -45,6 +45,7 @@ has_toc: true
 - [Troubleshooting and error handling](#troubleshooting-and-error-handling)
   - [Support Information Panel](#support-information-panel)
   - [Enabling Logging in PrestaShop](#enabling-logging-in-prestashop)
+- [Known Problems](#known-problems)
 
 ## Requirements
 
@@ -406,7 +407,7 @@ green to differentiate it from native order details.
 
 The top section of the interface displays core order information:
 
-![](images/prestashop-order-editor-top.png)
+![](images/prestashop-order-view-top.png)
 
 - Order number and customer identity
 - Total order amount
@@ -417,7 +418,7 @@ The top section of the interface displays core order information:
 
 Scroll down to access the payment data retrieved directly from Resurs Bank:
 
-![](images/prestashop-order-editor-bottom.png)
+![](images/prestashop-order-view-bottom-orderhistory.png)
 
 This area includes:
 
@@ -549,3 +550,9 @@ that would trigger entries.** On PrestaShop, logs are usually directed to the fi
 server setup. Make sure PHP has permission to write to the target directory.
 
 Always verify that the log file is writable and regularly rotated if used in production environments.
+
+## Known Problems
+
+If you install the plugin and experience an empty administrator view, make sure you have your cache cleared. In the latest package, we have added a mechanism for this and it should happen automatically. However, in some cases the following warning might still appear:
+
+![](images/prestashop-cache-uncleared.png)
