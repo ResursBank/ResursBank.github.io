@@ -439,7 +439,7 @@ checking the status in this panel.
 From the PrestaShop order editor, additional actions related to Resurs orders are available under the
 **Fler åtgärder** (More actions) dropdown menu:
 
-![](images/prestashop-order-actions.png)
+![](images/prestashop-order-management-buttons.png)
 
 Here, you will typically find:
 
