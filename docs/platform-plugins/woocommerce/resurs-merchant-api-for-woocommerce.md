@@ -17,47 +17,48 @@ has_toc: true
 * [Download/Install the Plugin](#downloadinstall-the-plugin)
     * [Installing from WordPress Plugin Repository](#installing-from-wordpress-plugin-repository)
     * [Manually Installing the Plugin](#manually-installing-the-plugin)
-        * [Dual Plugins (How to Handle Them)](#dual-plugins-how-to-handle-them)
-* [Store Configuration Requirements](#store-configuration-requirements)
-    * [Stock Keeping Unit (SKU)](#stock-keeping-unit-sku)
-    * [Number of Decimals](#number-of-decimals)
-        * [Zero Decimals in WooCommerce](#zero-decimals-in-woocommerce)
-        * [Solving Decimal Issues](#solving-decimal-issues)
-        * [Rounding to nearest quarter](#rounding-to-nearest-quarter)
-* [Plugin Basics and Information](#plugin-basics-and-information)
+* [Basic Configuration](#basic-configuration)
+* [FAQ & General Questions](#faq--general-questions)
+    * [Can I Change the Order Number Sequence?](#can-i-change-the-order-number-sequence)
+    * [Figuring Out Remote IP for Whitelisting in Firewalls](#figuring-out-remote-ip-for-whitelisting-in-firewalls)
+    * [Detailed Configuration Information and Store Configuration](#detailed-configuration-information-and-store-configuration)
+        * [Stock Keeping Unit (SKU)](#stock-keeping-unit-sku)
+        * [Number of Decimals](#number-of-decimals)
+            * [Zero Decimals in WooCommerce](#zero-decimals-in-woocommerce)
+            * [Solving Too Many Decimals Issues](#solving-too-many-decimals-issues)
+            * [Rounding to Nearest Quarter](#rounding-to-nearest-quarter)
+    * [Understanding Customer Link Expiration (TTL)](#understanding-customer-link-expiration-ttl)
+* [API Settings](#api-settings)
+    * [Changing the Payment Method Configuration](#changing-the-payment-method-configuration)
+    * [Accessing the Credentials Section](#accessing-the-credentials-section)
+        * [Inputting Credentials](#inputting-credentials)
+        * [Handling Errors with Credentials](#handling-errors-with-credentials)
+        * [Switching Between Environments](#switching-between-environments)
+        * [Remember!](#remember)
+        * [Summary of Workflow](#summary-of-workflow)
+    * [Payment Methods](#payment-methods)
+    * [Part Payment](#part-payment)
+        * [Configuration](#configuration)
+        * [Part Payment Widget Enabled](#part-payment-widget-enabled)
+        * [Payment Method](#payment-method)
+        * [Annuity Period](#annuity-period)
+        * [Limit](#limit)
 * [Order Management](#order-management)
     * [Enable Capture](#enable-capture)
     * [Enable Cancel](#enable-cancel)
     * [Enable Refund](#enable-refund)
     * [Enable Modify](#enable-modify)
-    * [External integrations and hook requirements](#external-integrations-and-hook-requirements)
-* [MAPI Checkout Flow](#mapi-checkout-flow)
+    * [External Integrations and Hook Requirements](#external-integrations-and-hook-requirements)
+        * [Conditions Required for Capturing Payments](#conditions-required-for-capturing-payments)
+* [Callbacks](#callbacks)
+* [Advanced Settings](#advanced)
 * [Resurs Mail Flow Explained](#resurs-mail-flow-explained)
-* [FAQ & General Questions](#faq--general-questions)
-    * [Can I Change the Order Number Sequence?](#can-i-change-the-order-number-sequence)
-    * [Figuring Out Remote IP for Whitelisting in Firewalls](#figuring-out-remote-ip-for-whitelisting-in-firewalls)
-    * [Detailed Configuration Information and Store Configuration](#detailed-configuration-information-and-store-configuration)
-    * [Understanding Customer Link Expiration (TTL)](#understanding-customer-link-expiration-ttl)
-    * [API Settings](#api-settings)
-        * [Changing the Payment Method Configuration](#changing-the-payment-method-configuration)
-        * [Accessing the Credentials Section](#accessing-the-credentials-section)
-            * [Inputting Credentials](#inputting-credentials)
-            * [Handling Errors with Credentials](#handling-errors-with-credentials)
-            * [Switching Between Environments](#switching-between-environments)
-            * [Remember!](#remember)
-            * [Summary of Workflow](#summary-of-workflow)
-        * [Payment Methods](#payment-methods)
-        * [Part Payment](#part-payment)
-            * [Configuration](#configuration)
-            * [Part Payment Widget Enabled](#part-payment-widget-enabled)
-            * [Payment Method](#payment-method)
-            * [Annuity Period](#annuity-period)
-            * [Limit](#limit)
-    * [Callbacks](#callbacks)
-    * [Order Status Flow](#order-status-flow)
-    * [Advanced](#advanced)
-    * [Purchasing with the New Merchant API](#purchasing-with-the-new-merchant-api)
+* [Purchasing with the New Merchant API](#purchasing-with-the-new-merchant-api)
+* [Order Status Flow](#order-status-flow)
+    * [Status::update Process](#statusupdate-process)
 * [Troubleshooting and Error Handling](#troubleshooting-and-error-handling)
+    * [Tracing Errors and Logging](#tracing-errors-and-logging)
+    * [Handling Free Shipping Cost Values Requiring Numeric Casting](#handling-free-shipping-cost-values-requiring-numeric-casting)
 
 # Requirements
 
@@ -90,7 +91,7 @@ The official release is located at
 and can be installed directly from the plugin installation system in
 WordPress.
 
-![](../../../../attachments/files/rb_plugin_install.png)
+![](files/rb_plugin_install.png)
 
 # Manually Installing the Plugin
 
@@ -140,7 +141,7 @@ curl https://api.ipify.org/?format=txt
 91.198.202.76
 ```
 
-![](../../../../attachments/91029909/91029913.png)
+![](files/91029913.png)
 
 ## Detailed configuration information and store configuration
 
@@ -154,7 +155,7 @@ The setting for this can be found in the `Inventory`  tab in the
 `Product data`  box on each product.
 
 ![Product data
-box](../../../../attachments/91029884/91029882.png "Product data box")
+box](files/91029882.png "Product data box")
 
 ### Number of decimals
 
@@ -168,7 +169,7 @@ This setting can be changed by going to `WooCommerce` → `Settings`  →
 `Number of decimals`  and should be at the very bottom of the section.
 
 ![Currency options
-section](../../../../attachments/91029884/91029883.png "Currency options section")
+section](files/91029883.png "Currency options section")
 
 ### Zero decimals in WooCommerce
 
@@ -181,7 +182,7 @@ fully support more than 2 and payments are normally getting inaccurate when sett
 If you want to run with 0 decimals regardless of the warnings, you can
 [check out this page](zero-decimals-with-resurs-bank-in-woocommerce) for a proper solution.
 
-![](../../../../attachments/91029973/91029972.png)
+![](files/91029972.png)
 
 ### Solving too many decimals issues {#solving-decimal-issues}
 
@@ -211,7 +212,6 @@ you should check:
 1. **WooCommerce Decimal Setting**
 
     - Navigate to *WooCommerce > Settings > General > Number of decimals* and verify that the value is set to 2.
-
 2. **PHP Precision**
 
     - Check the `precision` directive in your PHP configuration (php.ini). A common default is `14`, but for
@@ -222,7 +222,6 @@ you should check:
    ```ini
    precision = 10
    ```
-
 3. **Custom Filters or Themes**
 
     - Ensure no plugins or themes are manipulating price or tax values before they're sent. Some themes hook into price
@@ -270,14 +269,14 @@ The default TTL can be configured between 1 and 43200 minutes (up to 30 days), d
 This setting can be found under:
 **WooCommerce > Settings > Products > Inventory > Hold Stock (minutes)**.
 
-![](../../../../attachments/woocommerce-stock-management-ttl.jpg)
+![](files/woocommerce-stock-management-ttl.jpg)
 
 ## API Settings
 
 This manual provides detailed instructions on how to manage credentials in the WooCommerce admin view for seamless
 functionality between environments and to ensure proper handling of user credentials.
 
-![](../../../../attachments/files/wp_credentials.png)
+![](files/wp_credentials.png)
 
 ### Changing the payment method configuration
 
@@ -299,10 +298,11 @@ To manage credentials in WooCommerce:
 When entering your credentials:
 
 1. **Fill in the API Key, API Secret, and Store ID** fields.
+
     - Ensure that the credentials you enter are correct and valid, as incorrect credentials will prevent the store from
       functioning properly.
-
 2. **Fetching Store Data**:
+
     - After entering the credentials, click the **Fetch Stores** button to retrieve the store list associated with the
       entered credentials.
     - The store list will appear if the credentials are valid. If the credentials are invalid, an error message will
@@ -313,14 +313,15 @@ When entering your credentials:
 If you enter incorrect credentials:
 
 1. **Fetching Store Failure**:
+
     - An error message will display, indicating that the credentials are incorrect.
     - The store list will not appear.
-
 2. **Session Handling**:
+
     - Incorrect credentials may also impact session handling. If the session fails due to invalid credentials, the admin
       view will alert you, and no further actions can be taken until the correct credentials are entered.
-
 3. **Invalid Scope Warnings**:
+
     - If you switch between environments (Test and Production), there may be warnings about scope. These occur when
       WooCommerce tries to use previously saved data that conflicts with the current environment.
     - Fetching the store list again with the correct credentials will resolve these issues, ensuring that the correct
@@ -340,10 +341,8 @@ When switching from **Test** to **Production** or vice versa:
 
 1. **Always Verify Credentials**: Ensure that the credentials you enter are accurate before attempting to fetch store
    data. This avoids unnecessary errors and ensures smooth functionality.
-
 2. **Fetch Stores After Environment Switch**: Whenever you switch between environments, remember to fetch the store data
    again to ensure that the credentials are properly updated for the selected environment.
-
 3. **Check Error Messages**: If you encounter any issues while saving or fetching stores, check for error messages
    related to invalid credentials or session handling. Address these issues before proceeding.
 
@@ -364,7 +363,7 @@ transitions between environments and avoiding common credential-related errors.
 This tab has no settings on it but allows you to see which payment
 methods have been configured for your account. Example:
 
-![](../../../../attachments/91029886/131006472.png)
+![](files/131006472.png)
 
 ### Part Payment
 
@@ -373,8 +372,8 @@ on individual product pages with information about available part
 payment options including a modal iframe popup with more detailed
 information.
 
-![Widget appearance](../../../../attachments/91029758/91029756.png "Widget appearance")
-![Modal appearance](../../../../attachments/91029758/regexp.png "Modal appearance")
+![Widget appearance](files/91029756.png "Widget appearance")
+![Modal appearance](files/regexp.png "Modal appearance")
 
 ### Configuration
 
@@ -384,7 +383,7 @@ The widget configuration options can be found on the `Part payment` tab
 Before configuring the widget you need to set the global plugin
 configuration on the `API` Settings tab.
 
-![Configuration form](../../../../attachments/91029758/91029759.png "Configuration form")
+![Configuration form](files/91029759.png "Configuration form")
 
 ### Part payment widget enabled
 
@@ -420,7 +419,7 @@ SEK 150 (Sweden) or EUR 15 (Finland).
 Here you can enable/disable the different order management features of
 the plugin.
 
-![](../../../../attachments/91029886/91029889.png)
+![](files/91029889.png)
 
 The plugin has functionality built into it for automatically updating
 the payment at Resurs Bank when the order is manually edit/updated in
@@ -432,7 +431,7 @@ but can be disabled in the settings under
 
 *Please read below about ERP's.*
 
-![](../../../../attachments/91029950/91029949.png)
+![](files/91029949.png)
 
 ### Enable Capture
 
@@ -534,7 +533,6 @@ These rules are enforced through the Resurs Bank API. If the payment fails any o
 functionality will not be available through the plugin and must instead be handled manually in the Resurs Bank Merchant
 Portal.
 
-
 ### Callbacks
 
 Callbacks are notifications sent to a specified URL when a payment
@@ -543,7 +541,7 @@ reaches a certain status, such as authorization or rejection.
 Also see [Order Status Flow](#order-status-flow) for more information about how statuses are updated during callbacks
 and payments.
 
-![](../../../../attachments/91029886/91029987.png)
+![](files/91029987.png)
 
 1. When a purchase is completed and the payment is ready to be handled
    at Resurs side a few callbacks are executed synchronously from
@@ -565,7 +563,7 @@ settings. As a general rule it is recommended to keep the cache enabled
 as it significantly reduces the number of requests made to the API (and
 thus improves performance under most circumstances).
 
-![](../../../../attachments/91029886/131006469.png)
+![](files/131006469.png)
 
 ### Resurs Mail Flow Explained
 
@@ -579,13 +577,11 @@ Here's an outline of what happens during a payment:
 1. **Customer initiates checkout and completes the payment:**
 
    The order is first created in WooCommerce.
-
 2. **Customer is redirected to an external page:**
 
    On this page, the customer completes tasks such as signing or confirming the payment. During this process, the order
    is already created in WooCommerce and is automatically set to "Pending Payment", which is the default initial status
    for an order.
-
 3. **No further action occurs until the payment is completed:**
 
    Once the customer returns to the "Thank You" page, the WooCommerce order is updated to "Processing". At this point,
@@ -596,12 +592,10 @@ Here's an outline of what happens during a payment:
 1. **Customer is redirected to an external page:**
 
    On this page, the customer completes signing, payment via credit card (e.g., Visa/Mastercard), etc.
-
 2. **Customer exits the browser before returning to the success page:**
 
    If the customer closes their browser before being redirected back to the "Thank You" page, Resurs Bank initiates a
    callback to the shop.
-
 3. **Callback process and status update instead of customer success page:**
 
    A callback registers the payment completion in the system but is delayed briefly to avoid conflicts with the
@@ -616,7 +610,6 @@ Here's an outline of what happens during a payment:
 
    The customer is redirected to an internal page but decides to abandon the process without explicitly canceling the
    payment. As a result, the payment remains in a "Pending" state in the system.
-
 2. **Merchant manually changes the order status incorrectly:**
 
    If the merchant mistakenly updates the order status to "Processing" in the WooCommerce order editor, WooCommerce will
@@ -671,12 +664,13 @@ The status control process ensures that order statuses are correctly updated bas
 Resurs Bank. The implementation follows these steps:
 
 1. **Validation Check:**
+
     - Before any processing, the plugin checks if the payment is a valid Resurs Payment (`isValidResursPayment`).
-
 2. **Fetching Payment Details:**
-    - The payment details are fetched from the repository (`getPayment`).
 
+    - The payment details are fetched from the repository (`getPayment`).
 3. **Order Status Validation & Validation Control:**
+
     - The plugin verifies if the current payment status matches the expected order
       status (`BeforeOrderStatusChange::validatePaymentAction`), provided that the existing order status is
       not `pending`. If the criteria are not met, the plugin will not proceed with any further actions.
@@ -690,20 +684,20 @@ Resurs Bank. The implementation follows these steps:
           details.
         - Otherwise, the status is set to `on-hold` (Other statusen can
           be `TASK_REDIRECTION_REQUIRED`, `INSPECTION`, `SUPPLEMENTING_REQUIRED`, `FROZEN`).
-
 4. **Order Status Update (from `match ($payment->status) {`):**
+
     - The plugin updates the order status based on the payment status from Resurs Bank.
         - If the payment status is `ACCEPTED`, the order status is set to `processing`.
         - If the payment status is `REJECTED`, the order status is set to `failed` or `cancelled` based on task status
           details (this will be triggered from the `updateRejected` method).
         - If any other status than expected is found in `$payment->status`, the order status is set to `on-hold`.
-
 5. **The `updateRejected` Method:**
+
     - This method determines the appropriate status for all `REJECTED` orders, which will be set to either `failed`
       or `cancelled` depending on task status details retrieved from:
       ```
       Repository::getTaskStatusDetails(paymentId: $payment->id)
-      ```  
+      ```
     - The task status details from Resurs are examined for the `completed` flag (refer
       to [Resurs API Documentation](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getTaskStatuses)).
     - If the `completed` flag is set to true, the order status will be set to `failed`.
@@ -713,11 +707,13 @@ Resurs Bank. The implementation follows these steps:
       in [MAPI's getPayment request](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment)
       to assist in providing better feedback or error logging. At a very basic level, however, all orders marked
       as `REJECTED` by Resurs Bank should be treated as pure `cancelled`.
-
 6. **Error Handling:**
+
     - If an error occurs during the status determination process, it is logged, and a default status is returned.
 
 # Troubleshooting and error handling
+
+## Tracing errors and logging
 
 From time to time, you'll need to handle problems with the plugin.
 Before you contact us with error reporting, make sure the below settings
@@ -732,10 +728,32 @@ example screen dump below.
 By using the same path as your wc-logs directory, you will be able to
 look at the log files the same way that you browse WooCommerce logs.
 
-![](../../../../attachments/91030061/91030060.png)
+![](files/91030060.png)
 
 When logging is enabled with the above "practices", you will be able to
 see the logs inside the wordpress platform under WooCommerce logs
 section like this:
 
-![](../../../../attachments/91030061/91030064.png)
+![](files/91030064.png)
+
+## Handling free shipping cost values requiring numeric casting
+
+WooCommerce usually returns the shipping cost as a decimal string, but there are edge cases
+where `WC_Order_Item_Shipping::get_total()` yields an empty string (or an invalid numeric), most commonly when the Free
+Shipping method has been applied (by default, free shipping don't behave like this and this far it hasn't been
+reproduceable) or when a legacy order was created before cost fields were normalised. Attempting to convert that empty
+string directly to `float` via `Order::convertFloat()` triggers an `IllegalValueException`. Developers should therefore
+normalise the value before it reaches the converter:
+
+```php
+$rawCost = $item->get_total();
+$cost    = is_numeric($rawCost) ? (float) $rawCost : 0.0;
+```
+
+By explicitly casting non‑numeric or empty values to `0.0`, the implementation remains forward compatible and avoids
+PHP‑8 type errors. For context, see WooCommerce core issue Legacy order data PHP 8 compatibility #39489 which documents
+the empty string
+behaviour. [GitHub issue #39489](https://github.com/woocommerce/woocommerce/issues/39489) ([github.com](https://github.com/woocommerce/woocommerce/issues/39489?utm_source=chatgpt.com))
+
+> **Tip** – If you maintain third‑party shipping extensions, ensure that they always return a numeric cost so the plugin
+> can rely on strict typing.
