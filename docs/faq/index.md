@@ -18,8 +18,8 @@ has_children: true
 Here's a checklist for what you should test before reporting problems to
 Resurs
 
-- ### Are your site available from internet?
-  Make sure your site are publicly available from internet (DNS
+- ### Is your site available from internet?
+  Make sure your site is publicly available from internet (DNS
   configuration). Please see the section about local networks below.
 - ### Are you using ngrok?
   ngrok is a reverse-proxy service that many times helps testing things
@@ -36,7 +36,7 @@ Resurs
   See below, how you should configure your firewall to receive traffic
   from Resurs.
 - ### Are you allowing traffic from certain traffic in your webserver?
-  Like in the matter of firewalls, a webserver could also block traffic
+  Like in the matter of firewalls, a web server could also block traffic
   from unknown locations. See the firewall section how to configure
   this.
 - ### Are you using correct TLS version?
@@ -48,7 +48,7 @@ If you have restricted firewalls that explicitly need to define what
 communication is allowed, you should consider open for the
 [CIDR](https://sv.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-blocks
 below.
-***Please note that the primary ports for a web-server should be 443
+***Please note that the primary ports for a web server should be 443
 (https) as Resurs no longer support plain text callbacks at port 80.***
 
 | Network CIDR-block | Range equivalent                | Broadcast       | Netmask       | Allow ports | AS Number                            |
@@ -61,7 +61,7 @@ below.
 
 ### Whitelisting Callbacks from Resurs
 
-Callbacks has historically been sent from 192.121.110.100 but after some network changes, callbacks may now also come from the listed IP's below.
+Callbacks have historically been sent from 192.121.110.100 but after some network changes, callbacks may now also come from the listed IP's below.
 
     192.121.110.100
     13.50.187.51
@@ -70,20 +70,20 @@ Callbacks has historically been sent from 192.121.110.100 but after some network
 ## Local networks / Hosts (or "your callbacks is not working")
 
 If you are using local networks during tests, be aware that all
-teststings does not work. There are a few rules to consider for
+tests don't work. There are a few rules to consider for
 "locals":
 
 - Local networks like 192.168.0.0/16,172.16.0.0/16, 10.0.0.0/8, etc
   (see [https://en.wikipedia.org/wiki/Private_network](https://en.wikipedia.org/wiki/Private_network))
   are unreachable. Testing callbacks on such networks won't work.
-- Hostnames assigned by local isolated DNS servers only does not work -
+- Hostnames assigned by local isolated DNS servers only do not work -
   we won't be able to resolve them unless they reside on a reachable
   internet connection. This includes local zones like localhost
   (example: my-dev.localhost, my-site.dev, etc).
 
 ## First step of error checking
 
-Make sure that you're checked with [The "not a bug" list](16056903.md)
+Make sure that you've checked with [The "not a bug" list](16056903.md)
 before considering the problem as a remote error. You can also take a
 look at [Errors, problem-solving and corner cases](16056453.html), to
 see if it might be other problems that can be "self solvable".
@@ -113,8 +113,8 @@ I have certificate here, issued by myself. Is this OK?
 
 **No!**
 
-Resurs Bank does not communication with self signed certificates.
-Neither we do with invalidated (revoked) or expired certificates, so
+Resurs Bank does not communicate with self-signed certificates.
+Neither do we support invalidated (revoked) or expired certificates, so
 make sure you get it from a verified issuer. But here's some examples:
 
 - [Digicert](https://www.digicert.com/)
@@ -126,7 +126,7 @@ make sure you get it from a verified issuer. But here's some examples:
 
 ### Where do I find a verified issuer?
 
-There's a lots of issuers available on the internet, so there's nearly
+There are a lots of issuers available on the internet, so it's nearly
 impossible to recommend a verified issuer.
 
 ### Swish för Handel - Resurs Technical supplier
@@ -138,7 +138,7 @@ available on your production account;
 2. Sign an agreement with your bank for Swish för Handel and choose Resurs as technical supplier at your bank. (
    Selecting Resurs bank as
    technical provider is done through the bank that you have an agreement with.)
-3. When done, Swish will automatically send an email to the Integration-team (onboarding@resurs.se) that your
+3. When done, Swish will automatically email the Integration team (onboarding@resurs.se) that your
    organizational number now has
    connected to Resurs for Swish för Handel
 4. Resurs configures the payment method and uploads it to your production account
