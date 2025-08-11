@@ -1,14 +1,16 @@
-# Installing locally
+# Using developers.resurs.com
+
+## Installing locally
 
 Follow the instructions on https://jekyllrb.com/docs/installation/
 
 Also install `bundler` by running `gem install bundler`
 
-# Install dependencies
+## Install dependencies
 
 Go to the root of the project and run `bundle install`
 
-# Starting the server
+## Starting the server
 
 Run `bundle exec jekyll serve`
 
