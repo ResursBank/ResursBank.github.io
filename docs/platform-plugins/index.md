@@ -11,29 +11,29 @@ has_toc: false
 
 # Supported open source e-commerce website platforms
 
-| E-Commerce Platforms                                     | Magento v2.4.4+ | WooCommerce v7.6.0- |
-|----------------------------------------------------------|-----------------|---------------------|
-| **Shop flow**                                            |                 |                     | 
-| Resurs Merchant API 2.0                                  | YES             | YES                 |
-| **After shop**                                           |                 |                     |                                               
-| Debiting whole order                                     | YES             | YES                 |
-| Debiting part order                                      | NO              | NO                  |
-| Crediting whole order                                    | YES             | YES                 |
-| Crediting part order                                     | YES             | YES \*              |
-| Annulment whole order                                    | YES             | YES                 |
-| Annulment part order                                     | NO              | YES \*              |
-| Additional Debit of Payment                              | NO              | NO                  |
-| **Callback support**                                     |                 |                     |
-| Callbacks report to shop                                 | YES             | YES                 |
-| **Discounts and fees**                                   |                 |                     |
-| Handle gift card                                         | NO              | NO                  |
-| Handle invoice fee                                       | NO              | YES                 |
-| Handle discount                                          | YES             | YES                 |
-| Handle shipping fee                                      | YES             | YES                 |
-| **Other**                                                |                 |                     |
-| Display monthly cost with Resurs Bank in product catalog | YES             | YES                 |
-| Use platform order number as reference in Resurs Bank    | YES             | YES                 |
-| Supports multistore                                      | YES             | NO                  |
+| E-Commerce Platforms                                     | Magento v2.4.4+ | WooCommerce v7.6.0- | PrestaShop v8.2.0- | 
+|----------------------------------------------------------|-----------------|---------------------|--------------------|
+| **Shop flow**                                            |                 |                     |                    | 
+| Resurs Merchant API 2.0                                  | YES             | YES                 | YES                |
+| **After shop**                                           |                 |                     |                    |                                               
+| Debiting whole order                                     | YES             | YES                 | YES                |
+| Debiting part order                                      | NO              | NO                  | NO                 |
+| Crediting whole order                                    | YES             | YES                 | YES                |
+| Crediting part order                                     | YES             | YES \*              | YES                |
+| Annulment whole order                                    | YES             | YES                 | YES                |
+| Annulment part order                                     | NO              | YES \*              | YES                |
+| Additional Debit of Payment                              | NO              | NO                  | NO                 |
+| **Callback support**                                     |                 |                     |                    |
+| Callbacks report to shop                                 | YES             | YES                 | YES                |
+| **Discounts and fees**                                   |                 |                     |                    |
+| Handle gift card                                         | NO              | NO                  | NO                 |
+| Handle invoice fee                                       | NO              | YES                 | NO                 |
+| Handle discount                                          | YES             | YES                 | YES                |
+| Handle shipping fee                                      | YES             | YES                 | YES                |
+| **Other**                                                |                 |                     |                    |
+| Display monthly cost with Resurs Bank in product catalog | YES             | YES                 | YES                |
+| Use platform order number as reference in Resurs Bank    | YES             | YES                 | YES                |
+| Supports multistore                                      | YES             | NO                  | NO                 |
 
 <!---
 | E-Commerce Platforms                                        | Magentov2.3.x-v2.4.x                                    | WooCommerceRead more                          | OpenCartv1.5.x - v3.x End of life: September, 2023     | PrestaShopv1.6.1.x / v1.7.7.x End of life: October 1, 2022 | PrestaShopv1.7.7.x End of life: September, 2023 |
