@@ -23,8 +23,6 @@ examples.
 
 ## Table of Contents
 
-## Table of Contents
-
 * [Custom pricing in part payment widget logic using filters](#custom-pricing-in-part-payment-widget-logic-using-filters)
 * [Understanding rounding with decimals in WooCommerce](#understanding-rounding-with-decimals-in-woocommerce)
     * [How quantity and discounts impact rounding](#how-quantity-and-discounts-impact-rounding)
