@@ -23,16 +23,18 @@ examples.
 
 ## Table of Contents
 
+## Table of Contents
+
 * [Custom pricing in part payment widget logic using filters](#custom-pricing-in-part-payment-widget-logic-using-filters)
-* * [Understanding rounding with decimals in WooCommerce](#understanding-rounding-with-decimals-in-woocommerce)
-  * [How quantity and discounts impact rounding](#how-quantity-and-discounts-impact-rounding)
-  * [What if I don’t want to display decimals in my store—how can I achieve this?](#what-if-i-dont-want-to-display-decimals-in-my-store-how-can-i-achieve-this)
-  * [Example plugin implementation](#example-plugin-implementation)
+* [Understanding rounding with decimals in WooCommerce](#understanding-rounding-with-decimals-in-woocommerce)
+    * [How quantity and discounts impact rounding](#how-quantity-and-discounts-impact-rounding)
+    * [Hiding decimals in store display](#hiding-decimals-in-store-display)
+    * [Plugin example: Trim zeros](#plugin-example-trim-zeros)
 * [Rounding issues with high PHP precision settings](#rounding-issues-with-high-php-precision-settings)
-  * [Why is PHP precision a problem here?](#why-is-php-precision-a-problem-here)
-  * [Example workaround: Rounding prices to the nearest quarter](#example-workaround-rounding-prices-to-the-nearest-quarter)
-  * [Example plugin implementation](#example-plugin-implementation-1)
-  * [Important notes](#important-notes)
+    * [Why PHP precision is a problem](#why-php-precision-is-a-problem)
+    * [Workaround: Rounding to the nearest quarter](#workaround-rounding-to-the-nearest-quarter)
+    * [Plugin example: Quarter rounding](#plugin-example-quarter-rounding)
+    * [Important notes](#important-notes)
 
 # Custom pricing in part payment widget logic using filters
 
@@ -129,9 +131,6 @@ Plugin Name: WooCommerce price trim zeros
  **/
 add_filter( 'woocommerce_price_trim_zeros', '__return_true' );
 ```
-
-
-
 
 # Rounding issues with high PHP precision settings
 
