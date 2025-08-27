@@ -26,13 +26,3 @@ Resources for testing the integration are collected here.
 - [Test Data - Finland](/testing/test-data---finland/)
 - [Test Data - Norway](/testing/test-data---norway/)
 
-### SoapUI testing
-Resurs Bank provides a set of public soapUI test cases to get you up and
-running quickly. soupUI is the leading free test tool for interaction
-with SOAP based WebServices.
-
-By executing (and understanding) these test cases, you will gain a good
-understanding of how the Resurs Bank eCommerce service works, which will
-make the actual integrat ion much easier.
-
-Download the SOAPUI testing suite here: [xml](soapui-testing-suite.xml).
