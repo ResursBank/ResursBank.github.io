@@ -17,9 +17,6 @@ has_toc: false
 > these old applications will be weighted in. A lot of credit
 > applications in a short period of time looks suspicious.  
 
-> PS! Note that the test data does not work for Store Solution API, only
-> our ecommerce flows as well as Resurs Checkout POS/PUSH.
-
 Resources for testing the integration are collected here.
 
 - [Test URLs](/testing/test-urls/)
