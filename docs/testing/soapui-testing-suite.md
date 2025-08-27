@@ -4,6 +4,7 @@ title: SoapUI Test Suite (XML)
 permalink: /testing/soapui-testing-suite
 has_toc: false
 parent: Testing
+nav_exclude: true
 ---
 
 # SOAPUI Test suite (xml)
