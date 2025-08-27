@@ -50,35 +50,4 @@ See [MAPI documentation here](/merchant-api-2-0) for more information.
 
 [Resurs Merchant Portal](https://merchantportal.resurs.com/login)
 
-## Live URLs
-
-### Resurs Checkout
-For Resurs Checkout go to:  
-[https://checkout.resurs.com/checkout](https://checkout.resurs.com/checkout)
-
-<!---  
-## Hosted Flow
-For hosted flow go to:  
-[https://ecommerce-hosted.resurs.com/back-channel](https://ecommerce-hosted.resurs.com/back-channel)
----> 
-## Webservices
-### WSDL files
-#### Simplified Shop Flow:
-[https://ecommerce.resurs.com/ws/V4/SimplifiedShopFlowService?wsdl](https://ecommerce.resurs.com/ws/V4/SimplifiedShopFlowService?wsdl)
-#### After Shop Flow:
-[https://ecommerce.resurs.com/ws/V4/AfterShopFlowService?wsdl](https://ecommerce.resurs.com/ws/V4/AfterShopFlowService?wsdl)
-#### Configuration:
-[https://ecommerce.resurs.com/ws/V4/ConfigurationService?wsdl](https://ecommerce.resurs.com/ws/V4/ConfigurationService?wsdl)
-#### Developer:
-[https://ecommerce.resurs.com/ws/V4/DeveloperWebService?wsdl](https://ecommerce.resurs.com/ws/V4/DeveloperWebService?wsdl)
-### Service endpoints
-#### Simplified Shop Flow:
-[https://ecommerce.resurs.com/ws/V4/SimplifiedShopFlowService](https://ecommerce.resurs.com/ws/V4/SimplifiedShopFlowService?wsdl)
-#### After Shop Flow:
-[https://ecommerce.resurs.com/ws/V4/AfterShopFlowService](https://ecommerce.resurs.com/ws/V4/AfterShopFlowService?wsdl)
-#### Configuration:
-[https://ecommerce.resurs.com/ws/V4/ConfigurationService](https://ecommerce.resurs.com/ws/V4/ConfigurationService?wsdl)
-#### Developer:
-[https://ecommerce.resurs.com/ws/V4/DeveloperWebService](https://ecommerce.resurs.com/ws/V4/DeveloperWebService?wsdl)
-  
   
