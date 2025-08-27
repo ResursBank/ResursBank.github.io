@@ -25,16 +25,16 @@ has_children: true
 ### Persons
 Persons to use when testing.
 
-| Civic number | [Simplified shop flow](/simplified-flow-api/)   | Merchant API  |
-| ------------:| :-----------------------------------------------| :-----------------|
-| 180872-48794 | [bookPayment](/simplified-flow-api/bookpayment/)   returns bookPaymentStatus=BOOKED or FINALIZED | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status ACCEPTED<br>Callback AUTHORIZATION will be sent with status AUTHORIZED  |
-| 010249-24986 | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status REJECTED<br>Callback AUTHORIZATION will be sent with status REJECTED |
-| 020849-29428 | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=FROZEN | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>Callback AUTHORIZATION will be sent with status FROZEN |
-| 230682-01608 | [bookPayment](/simplified-flow-api/bookpayment/) returns fraudControlStatus=FROZEN<br>After 5 seconds the payment is **unfrozen.**<br>Requires `waitForFraudControl=true` | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 5 seconds the payment is **unfrozen**<br>Callback AUTHORIZATION will be sent with status FROZEN then AUTHORIZED<br>Requires handleFrozenPayments is true |
-| 050178-18440 | [bookPayment](/simplified-flow-api/bookpayment/) returns fraudControlStatus=FROZEN<br>After 5 seconds the payment is **annulled.** | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 5 seconds the payment is **annulled**<br>Callback AUTHORIZATION will be sent with status FROZEN then REJECTED<br>Requires handleFrozenPayments is true |
-| 010782-12868 | [bookPayment](/simplified-flow-api/bookpayment/) returns fraudControlStatus=FROZEN<br>After 10 minutes the payment is **unfrozen.**<br>Requires `waitForFraudControl=true` | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 10 minutes the payment is **unfrozen**<br>Callback AUTHORIZATION will be sent with status FROZEN then AUTHORIZED<br>Requires handleFrozenPayments is true |
-| 030477-05311 | [bookPayment](/simplified-flow-api/bookpayment/) returns fraudControlStatus=FROZEN<br>After 10 minutes the payment is **annulled.** | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 10 minutes the payment is **annulled**<br>Callback AUTHORIZATION will be sent with status FROZEN then REJECTED<br>Requires handleFrozenPayments is true |
-| 260249-14002 | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status REJECTED<br>Callback AUTHORIZATION will be sent with status REJECTED |
+| Civic number | Merchant API  |
+| ------------:| :-----------------|
+| 180872-48794 | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status ACCEPTED<br>Callback AUTHORIZATION will be sent with status AUTHORIZED  |
+| 010249-24986 | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status REJECTED<br>Callback AUTHORIZATION will be sent with status REJECTED |
+| 020849-29428 |  [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>Callback AUTHORIZATION will be sent with status FROZEN |
+| 230682-01608 | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 5 seconds the payment is **unfrozen**<br>Callback AUTHORIZATION will be sent with status FROZEN then AUTHORIZED<br>Requires handleFrozenPayments is true |
+| 050178-18440 | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 5 seconds the payment is **annulled**<br>Callback AUTHORIZATION will be sent with status FROZEN then REJECTED<br>Requires handleFrozenPayments is true |
+| 010782-12868 | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 10 minutes the payment is **unfrozen**<br>Callback AUTHORIZATION will be sent with status FROZEN then AUTHORIZED<br>Requires handleFrozenPayments is true |
+| 030477-05311 | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 10 minutes the payment is **annulled**<br>Callback AUTHORIZATION will be sent with status FROZEN then REJECTED<br>Requires handleFrozenPayments is true |
+| 260249-14002 | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status REJECTED<br>Callback AUTHORIZATION will be sent with status REJECTED |
 | 270288-09552 | customer got no cards/accounts which allow **new card/account** | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status ACCEPTED<br>Callback AUTHORIZATION will be sent with status AUTHORIZED |
 
 ### Organisations
@@ -42,25 +42,13 @@ No payment methods for Norwegian orgainsations exist today. Contact your
 Resurs Bank sales representative if you want to support Norwegian
 organisations.
 
-| Organisation number | Gender | Civic number | ~~[Shop Flow](https://test.resurs.com/docs/display/DD/Shop+Flow+Service)~~                                             | [Simplified shop flow](simplified-flow-api)                 |
-|-------------------|--------|--------------|--------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
-| 892831270         | M      | 180872-48794 |                                                                                                                    |                                                             |
-| 996030962         | M      | 180872-48794 | submitLimitApplication returns decision=DENIED | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED |
-| 950576839         | M      | 180872-48794 | submitLimitApplication returns decision=TRIAL  | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED |
+| Organisation number | Gender | Civic number | [Simplified shop flow](simplified-flow-api)  |
+|-------------------|--------|--------------|------------------------------------------------|
+| 892831270         | M      | 180872-48794 |  | 
+| 996030962         | M      | 180872-48794 | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED |
+| 950576839         | M      | 180872-48794 | [bookPayment](/simplified-flow-api/bookpayment/) returns bookPaymentStatus=DENIED |
 
 ### Cards
-Card to use when testing.
-
-| Test card numbers   | Government ID | Phone number | Maximum limit / purchase |
-|---------------------|---------------|--------------|-------------------------:|
-| 9000 0000 0000 0000 | 16066405994   | 40000010     |                        0 |
-| 9000 0000 0000 5000 | 16066405994   | 40000010     |                    5 000 |
-| 9000 0000 0001 0000 | 16066405994   | 40000010     |                   10 000 |
-| 9000 0000 0001 5000 | 16066405994   | 40000010     |                   15 000 |
-| 9000 0000 0002 0000 | 16066405994   | 40000010     |                   20 000 |
-| 9000 0000 0002 5000 | 16066405994   | 40000010     |                   25 000 |
-| 9000 0000 0005 0000 | 16066405994   | 40000010     |                   50 000 |
-
 **To test VISA/Mastercard ** please see:
 [https://shop.nets.eu/web/partners/test-cards](https://shop.nets.eu/web/partners/test-cards)
 
