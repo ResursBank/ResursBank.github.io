@@ -38,6 +38,7 @@ Persons to use when testing.
 | 270288-09552 | customer got no cards/accounts which allow **new card/account** | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status ACCEPTED<br>Callback AUTHORIZATION will be sent with status AUTHORIZED |
 
 ### Organisations
+
 | Organisation number | Gender | Civic number | [Simplified shop flow](simplified-flow-api)  |
 |-------------------|--------|--------------|------------------------------------------------|
 | 892831270         | M      | 180872-48794 |  | 
