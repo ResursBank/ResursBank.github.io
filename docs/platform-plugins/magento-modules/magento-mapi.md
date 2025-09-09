@@ -146,6 +146,9 @@ This widget will be displayed on your product pages to give customers an idea of
 what the monthly cost would be if they choose to pay using a part payment
 based method.
 
+For the Swedish market the widget also displays a legally required consumer
+credit warning.
+
 ![Resurs Bank](Documentation/5.png)
 
 The calculation of the monthly cost is based on a pre-configured *Payment Method*
@@ -162,9 +165,10 @@ Hence the currency is SEK.**
 The price calculated in the widget changes on the fly as the customer selects
 potential options for the product or change the quantity.
 
-Clicking the **Read More** link at the bottom of the widget content will display
-a modal with more information about the payment method in context to configured
-product price.
+Clicking the **Read More** link in the widget content will display
+a modal with SECCI information. You can also configure the module to instead
+display the "legacy" modal with more information about the payment method in
+context to configured product price.
 
 ![Resurs Bank](Documentation/7.png)
 
@@ -310,23 +314,13 @@ is left in Magento.
 By applying this setting you can choose to delete these orders automatically,
 avoiding unnecessary clutter in the order list.
 
-### Clean up pending orders
+### Enable developer mode
 
-This controls whether you wish to delete orders left as **pending** at regular
-intervals.
+If you need to debug any of the module's AJAX calls this setting can be useful.
+When enabled it appends a configurable `XDEBUG_SESSION` parameter to internal
+URLs used by the module.
 
-### Clean up frequency
-
-This setting controls how often the cleanup process should run.
-
-### Start time for cleanup
-
-This setting controls when the cleanup process should run.
-
-### Minimum order age in hours
-
-This setting controls how old an order must be before it is considered for
-cleanup.
+It is not recommended to have debugging enabled in production environments.
 
 ## Cache
 
