@@ -11,7 +11,7 @@ has_toc: false
 
 # Supported open source e-commerce website platforms
 
-| E-Commerce Platforms                                     | Magento v2.4.4+ | WooCommerce v7.6.0- | PrestaShop v8.2.0- | 
+| E-Commerce Platforms                                     | Magento v2.4.4+ | WooCommerce v7.6.0+ | PrestaShop v8.2.0- |
 |----------------------------------------------------------|-----------------|---------------------|--------------------|
 | **Shop flow**                                            |                 |                     |                    | 
 | Resurs Merchant API 2.0                                  | YES             | YES                 | YES                |
@@ -35,37 +35,11 @@ has_toc: false
 | Use platform order number as reference in Resurs Bank    | YES             | YES                 | YES                |
 | Supports multistore                                      | YES             | NO                  | NO                 |
 
-<!---
-| E-Commerce Platforms                                        | Magentov2.3.x-v2.4.x                                    | WooCommerceRead more                          | OpenCartv1.5.x - v3.x End of life: September, 2023     | PrestaShopv1.6.1.x / v1.7.7.x End of life: October 1, 2022 | PrestaShopv1.7.7.x End of life: September, 2023 |
-|-------------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------|--------------------------------------------------------|------------------------------------------------------------|------------------------------------------------|
-| **Shop flow**                                               |                                                         |                                               |                                                        |                                                            |                                                |
-| Resurs Checkout                      | YES (Not Denmark)  | NO   | YES (Not Denmark) | YES (Not Denmark)     | NO    |
-| Simplified Flow  | YES              | NO   | NO            | NO                | YES     |
-| Resurs Merchant API 2.0](merchant-api-2.0)                 | NO             | YES    | NO            | NO                | NO    |
-|  **After shop**                                             |                                                         |                                               |                                                        |                                                            |                                                |
-|  Debiting whole order                                       | YES              | YES    | NO            | NO                | YES     |
-|  Debiting part order                                        | NO             | NO   | NO            | NO                | NO    |
-| Crediting whole order                                       | YES              | YES    | NO            | NO                | YES     |
-|  Crediting part order                                       | YES              | YES \* | NO            | NO                | YES     |
-|  Annulment whole order                                      | YES              | YES    | NO            | NO                | YES     |
-|  Annulment part order                                       | NO             | YES \* | NO            | NO                | YES     |
-|  Additional Debit of Payment                                | NO             | NO   | NO            | NO                | NO    |
-| ** Callback support**                                       |                                                         |                                               |                                                        |                                                            |                                                |
-|  Callbacks report to shop                                   | YES              | YES    | YES             | YES                 | YES     |
-| **Discounts and fees  **                                    |                                                         |                                               |                                                        |                                                            |                                                |
-|  Handle gift card                                           | NO             | NO   |  YES            | NO                | NO    |
-|  Handle invoice fee                                         | NO             | YES    |  NO           | NO                | NO    |
-|  Handle discount                                            | YES              | YES    |  YES            | YES                 | YES     |
-|  Handle shipping fee                                        | YES              | YES    |  YES            | YES                 | YES     |
-| **Other**                                                   |                                                         |                                               |                                                        |                                                            |                                                |
-| Display monthly cost with Resurs Bank in product catalog    | YES              | YES    | YES             | YES                 | YES     |
-| Use platform order number as reference in Resurs Bank       | YES              | YES    | YES             | YES                 | YES     |
-|  Supports multistore                                        | YES              | NO   | YES             | NO                | NO    |
--->
-
 ## SSL Certificate https and certificates
 
-### Remember to check your certificates! [See the FAQ](/faq/)
+### Remember to check your certificates!
+
+[See the FAQ](/faq/)
 
 ## Maintaining Compatibility
 
