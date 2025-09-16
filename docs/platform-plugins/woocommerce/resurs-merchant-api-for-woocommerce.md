@@ -302,6 +302,9 @@ on individual product pages with information about available part
 payment options including a modal iframe popup with more detailed
 information.
 
+See widget appearance below (they may differ a bit from each other respectively - the examples are taken from Sweden,
+where "Att låna pengar" is included).
+
 #### Widget Appearance
 
 ![](files/widget-appearance.png)
