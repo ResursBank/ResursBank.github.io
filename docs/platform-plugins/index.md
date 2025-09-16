@@ -27,13 +27,18 @@ has_toc: false
 | Callbacks report to shop                                 | YES             | YES                 | YES                |
 | **Discounts and fees**                                   |                 |                     |                    |
 | Handle gift card                                         | NO              | NO                  | NO                 |
-| Handle invoice fee                                       | NO              | YES                 | NO                 |
+| Handle invoice fee                                       | NO              | NO                  | NO                 |
 | Handle discount                                          | YES             | YES                 | YES                |
 | Handle shipping fee                                      | YES             | YES                 | YES                |
 | **Other**                                                |                 |                     |                    |
 | Display monthly cost with Resurs Bank in product catalog | YES             | YES                 | YES                |
 | Use platform order number as reference in Resurs Bank    | YES             | YES                 | YES                |
 | Supports multistore                                      | YES             | NO                  | NO                 |
+
+#### Fee notes
+
+*Fees are supported in WooCommerce in the way that if you add fees with an external plugin, they will be added to the
+order sent to Resurs Bank. However, the plugin does not handle fees itself.*
 
 ## SSL Certificate https and certificates
 
