@@ -67,7 +67,6 @@ has_toc: true
     * [Tracing Errors and Logging](#tracing-errors-and-logging)
     * [Handling Free Shipping Cost Values Requiring Numeric Casting](#handling-free-shipping-cost-values-requiring-numeric-casting)
 
-
 # Requirements
 
 - **At least** PHP 8.1
@@ -441,10 +440,11 @@ The order status dropdown is directly connected to Resurs Bank’s payment handl
   cannot cancel an order that is already captured.
 
 The workflow is straightforward: choose the correct status in the dropdown and click **Update** to trigger the action
-towards Resurs Bank.
+towards Resurs Bank. Each action performed is also logged in the order notes, ensuring that administrators have a clear
+audit trail of what has been done.
 
-Each action performed is also logged in the order notes, ensuring that administrators have a clear audit trail of what
-has been done.
+![](files/failed-handling-frozen.png)
+![](files/successful-capture.png)
 
 #### Order Line Handling
 
