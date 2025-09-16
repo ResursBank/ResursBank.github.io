@@ -302,10 +302,12 @@ on individual product pages with information about available part
 payment options including a modal iframe popup with more detailed
 information.
 
-**Widget Appearance**
+#### Widget Appearance
+
 ![](files/widget-appearance.png)
 
-**Modal "Read More" Appearance**
+#### Modal "Read More" Appearance
+
 ![](files/modal-readmore-appearance.png)
 
 ### Configuration
