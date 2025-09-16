@@ -302,8 +302,11 @@ on individual product pages with information about available part
 payment options including a modal iframe popup with more detailed
 information.
 
-![Widget appearance](files/91029756.png "Widget appearance")
-![Modal appearance](files/regexp.png "Modal appearance")
+**Widget Appearance**
+![](files/widget-appearance.png)
+
+**Modal "Read More" Appearance**
+![](files/modal-readmore-appearance.png)
 
 ### Configuration
 
@@ -313,7 +316,7 @@ The widget configuration options can be found on the `Part payment` tab
 Before configuring the widget you need to set the global plugin
 configuration on the `API` Settings tab.
 
-![Configuration form](files/91029759.png "Configuration form")
+![](files/91029759.png "Configuration form")
 
 ### Part payment widget enabled
 
