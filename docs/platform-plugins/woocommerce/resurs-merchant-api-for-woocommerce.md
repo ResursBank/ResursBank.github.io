@@ -23,7 +23,7 @@ has_toc: true
     * [Figuring Out Remote IP for Whitelisting in Firewalls](#figuring-out-remote-ip-for-whitelisting-in-firewalls)
     * [Detailed Configuration Information and Store Configuration](#detailed-configuration-information-and-store-configuration)
         * [Stock Keeping Unit (SKU)](#stock-keeping-unit-sku)
-        * [Number of Decimals](#number-of-decimals)
+        * [Decimals and Rounding](#decimals-and-rounding)
             * [Zero Decimals in WooCommerce](#zero-decimals-in-woocommerce)
             * [Solving Too Many Decimals Issues](#solving-too-many-decimals-issues)
             * [Rounding to Nearest Quarter](#rounding-to-nearest-quarter)
@@ -48,11 +48,18 @@ has_toc: true
     * [Enable Cancel](#enable-cancel)
     * [Enable Refund](#enable-refund)
     * [Enable Modify](#enable-modify)
+    * [Order Management with Resurs Bank Plugin](#order-management-with-resurs-bank-plugin)
+        * [Order Line Handling](#order-line-handling)
+        * [Administrative Considerations](#administrative-considerations)
     * [External Integrations and Hook Requirements](#external-integrations-and-hook-requirements)
         * [Conditions Required for Capturing Payments](#conditions-required-for-capturing-payments)
+        * [Additional HPOS Handling](#additional-hpos-handling)
 * [Callbacks](#callbacks)
 * [Advanced Settings](#advanced)
 * [Resurs Mail Flow Explained](#resurs-mail-flow-explained)
+    * [Normal Scenario](#normal-scenario)
+    * [Alternative Scenario](#alternative-scenario)
+    * [Third Scenario Based on Merchant Errors](#third-scenario-based-on-merchant-errors)
 * [Purchasing with the New Merchant API](#purchasing-with-the-new-merchant-api)
 * [Order Status Flow](#order-status-flow)
     * [Status::update Process](#statusupdate-process)
@@ -157,7 +164,7 @@ The setting for this can be found in the `Inventory`  tab in the
 ![Product data
 box](files/91029882.png "Product data box")
 
-### Number of decimals
+### Decimals and rounding
 
 In some platforms WooCommerce is configured to show prices with zero decimals.
 For certain technical reasons this can occasionally cause rounding
@@ -171,85 +178,8 @@ This setting can be changed by going to `WooCommerce` → `Settings`  →
 ![Currency options
 section](files/91029883.png "Currency options section")
 
-### Zero decimals in WooCommerce
-
-In newer installs of WooCommerce the setting for number of decimals to
-use in the checkout may be set to 0 as the default value. This is
-usually what you *do not want*, due to problems with roundings. If you are new to WooCommerce, make sure to check this
-setting and change it if necessary. The recommended setting here is 2 decimals (***Resurs do not
-fully support more than 2 and payments are normally getting inaccurate when setting them to 0***).
-
-If you want to run with 0 decimals regardless of the warnings, you can
-[check out this page](zero-decimals-with-resurs-bank-in-woocommerce) for a proper solution.
-
-![](files/91029972.png)
-
-### Solving too many decimals issues {#solving-decimal-issues}
-
-One issue that may occur in some cases with the plugin is not directly caused by the plugin itself, but still affects
-the outcome of what is sent to our API. For instance, you may receive an error in the checkout related
-to `totalAmountIncludingVat` being too high or, as shown in our example image, resulting in an "out of bounds" message.
-When the decimal precision of a field like `totalAmountIncludingVat` is too high, it can trigger validation errors from
-Resurs Bank’s API.
-
-A value that looks visually correct may, for example, still be submitted to us like this:
-
-"totalAmountIncludingVat":1310.259999999999990905052982270717620849609375
-
-This is a typical floating-point precision issue that originates from how PHP handles decimal numbers internally. Even
-if WooCommerce is set to 2 decimals, if your server environment uses an overly high `precision` value in `php.ini`,
-numbers can be serialized with an excessive number of decimals when encoded into JSON. In addition, it's possible that
-other plugins, filters or theme functions in your WooCommerce installation are affecting the final precision of price or
-tax fields by altering them before the payload is constructed.
-
-If this happens, you may see errors such as:
-
-**{"order.orderLines[1].totalAmountIncludingVat":"numeric value out of bounds (<10 digits>.<2 digits> expected)"}**
-
-This is not caused by the plugin itself but rather by the environment or platform surrounding WooCommerce. Here’s what
-you should check:
-
-1. **WooCommerce Decimal Setting**
-
-    - Navigate to *WooCommerce > Settings > General > Number of decimals* and verify that the value is set to 2.
-2. **PHP Precision**
-
-    - Check the `precision` directive in your PHP configuration (php.ini). A common default is `14`, but for
-      WooCommerce/Resurs integrations we recommend lowering it to something like `10` to avoid these edge cases.
-
-   Example in php.ini:
-
-   ```ini
-   precision = 10
-   ```
-3. **Custom Filters or Themes**
-
-    - Ensure no plugins or themes are manipulating price or tax values before they're sent. Some themes hook into price
-      display and can inadvertently tamper with raw totals.
-
-Once corrected, the numeric output should fall within the accepted decimal limits supported by Resurs Bank. If you
-continue to experience issues, enable WooCommerce logging and inspect the order payloads closely for floating point
-anomalies.
-
-If you still feel that you are unable to follow the instructions above, i.e., you can't lower the precision in PHP core,
-you can try another solution.
-
-### Alternative: Rounding to nearest quarter {#rounding-to-nearest-quarter}
-
-**Please note:** Since this is a non-standard solution and not part of the official plugin features, we do not actively
-provide support for it. However, we have documented the method in detail for those who wish to implement it at their own
-discretion.
-
-If you are unable to lower the PHP core precision as recommended above, another solution is to round product prices
-directly before WooCommerce calculates the totals.
-
-This workaround targets floating-point artifacts by rounding prices to the nearest quarter, specifically when using the
-Resurs Bank payment method. The approach helps prevent mismatches between WooCommerce totals and what the Resurs API
-expects.
-
-You can find the full documentation and example implementation here:
-
-[Rounding to nearest quarter in WooCommerce](rounding-to-nearest-quarter-in-woocommerce)
+See [woocommerce-self-service](woocommerce-self-service) for more information about all issues with decimals and
+roundings
 
 ## Understanding Customer Link Expiration (TTL)
 
@@ -414,7 +344,7 @@ after saving your settings.
 You should set this value high enough that the monthly cost is at least
 SEK 150 (Sweden) or EUR 15 (Finland).
 
-### Order Management
+## Order Management
 
 Here you can enable/disable the different order management features of
 the plugin.
@@ -493,16 +423,63 @@ also pushes the order update to the payment at Resurs.
 > not reflect back to the WooCommerce system and have to be made there
 > as well.
 
+### Order Management with Resurs Bank Plugin
+
+When handling WooCommerce orders paid through Resurs Bank, the order editor provides a simple but powerful way of
+synchronizing order status and payment handling directly with Resurs.
+
+The order status dropdown is directly connected to Resurs Bank’s payment handling. The following actions are supported:
+
+![](files/order-management-editor.png)
+
+* **Completed** → Performs a *full capture*. This means the payment is finalized and captured at Resurs Bank. Once a
+  capture has been made, the order can no longer be cancelled.
+* **Refunded** → Performs a *full credit*. The order is refunded completely in Resurs Bank. Partial refunds via the
+  dropdown are not supported.
+* **Cancelled** → Performs a *full cancellation*. This is only possible if the order has not yet been captured. You
+  cannot cancel an order that is already captured.
+
+The workflow is straightforward: choose the correct status in the dropdown and click **Update** to trigger the action
+towards Resurs Bank. Each action performed is also logged in the order notes, ensuring that administrators have a clear
+audit trail of what has been done.
+
+![](files/failed-handling-frozen.png)
+![](files/successful-capture.png)
+
+#### Order Line Handling
+
+Resurs Bank also supports changes at the order line level:
+
+* If you **remove items** from the order, the plugin updates Resurs Bank by first cancelling the entire order and then
+  recreating it with the updated set of order lines (excluding the removed item).
+* **Adding new items** is *not supported*. This limitation exists due to credit limits and authorization rules from
+  Resurs Bank. Orders can only be reduced in value after authorization, not increased.
+
+![](files/item-handling.png)
+
+Administrative Considerations
+
+We rely on administrators handling orders interactively through the WooCommerce admin panel. Managing these processes
+externally using custom plugins or hooks is not recommended, since there is a risk that the business logic will not
+execute correctly.
+
+For example, if you manually trigger hooks such as update_status and the order is frozen, it is up to the integrator to
+ensure that frozen status checks are handled properly. The plugin has built-in mechanisms to prevent frozen orders from
+being mishandled (for example in suspected fraud cases), but there is always a risk of errors when bypassing the
+intended workflow.
+
 ### External integrations and hook requirements
 
 The automatic capture, modification and refund logic depends entirely on WooCommerce’s own action and filter hooks. The
 plugin subscribes to the following hooks and uses them to keep the Resurs Bank payment state in sync:
 
-- `transition_post_status` – invoked just before WooCommerce changes an order’s
+* `transition_post_status` – invoked just before WooCommerce changes an order’s
   status ([developer.wordpress.org](https://developer.wordpress.org/reference/hooks/transition_post_status/))
-- `woocommerce_order_status_changed` – invoked immediately after the status change has been
+* `woocommerce_before_order_object_save` – invoked when a High‑Performance Order Storage (HPOS) order is about to be
+  persisted ([developer.woocommerce.com](https://developer.woocommerce.com/2022/09/12/high-performance-order-storage/))
+* `woocommerce_order_status_changed` – invoked immediately after the status change has been
   committed ([wp-kama.com](https://wp-kama.com/plugin/woocommerce/hook/woocommerce_order_status_changed))
-- `woocommerce_update_order` – invoked when an order is saved after being edited in the admin
+* `woocommerce_update_order` – invoked when an order is saved after being edited in the admin
   interface ([wp-kama.com](https://wp-kama.com/plugin/woocommerce/hook/woocommerce_update_order))
 
 If an external system such as an ERP, POS or warehouse management platform updates orders directly in the database, via
@@ -513,7 +490,7 @@ Bank.
 **To ensure reliable synchronisation you must either:**
 
 1. Extend the external integration so that it uses the official WooCommerce APIs, calling `$order->update_status()`
-   and `$order->save()` (or equivalent) so that WooCommerce dispatches its hooks, eller
+   and `$order->save()` (or equivalent) so that WooCommerce dispatches its hooks, or
 2. Disable "Automatic capture", "Automatic refund" and "Allow order modifications" under the plugin’s Order Management
    settings and carry out these actions manually in Resurs Bank’s Merchant Portal.
 
@@ -524,14 +501,27 @@ captures or refunds and require manual intervention.
 
 The plugin only allows capturing a Resurs Bank payment if certain conditions are met:
 
-- The order must have an attached `Payment` object with a valid `Order` structure.
-- The payment must **not** be in a `REJECTED`, `FROZEN`, or `INSPECTION` state.
-- The list of `possibleActions` provided by Resurs Bank must contain either `CAPTURE` or `PARTIAL_CAPTURE`.
-- The payment must not yet be fully captured.
+* The order must have an attached `Payment` object with a valid `Order` structure.
+* The payment must **not** be in a `REJECTED`, `FROZEN`, or `INSPECTION` state.
+* The list of `possibleActions` provided by Resurs Bank must contain either `CAPTURE` or `PARTIAL_CAPTURE`.
+* The payment must not yet be fully captured.
 
 These rules are enforced through the Resurs Bank API. If the payment fails any of the checks above, capture
 functionality will not be available through the plugin and must instead be handled manually in the Resurs Bank Merchant
 Portal.
+
+#### Additional HPOS handling
+
+With WooCommerce’s High‑Performance Order Storage (HPOS), status transitions may bypass the
+legacy `transition_post_status` hook. To ensure full compatibility, the plugin also subscribes to:
+
+* `woocommerce_before_order_object_save` – This hook is used to validate state changes before they are persisted. For
+  example, attempts to complete an order that is in a frozen state will be blocked and result in an error
+  message (`unable-to-capture-frozen-order`).
+
+The HPOS handler loads the persisted order, compares the old and new status, and enforces Resurs Bank’s business rules
+before allowing the status transition. This prevents illegal captures or cancellations from being attempted even in HPOS
+environments.
 
 ### Callbacks
 

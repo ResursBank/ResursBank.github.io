@@ -23,16 +23,20 @@ examples.
 
 ## Table of Contents
 
+* [Disclaimer](#disclaimer)
 * [Custom pricing in part payment widget logic using filters](#custom-pricing-in-part-payment-widget-logic-using-filters)
-* [Understanding rounding with decimals in WooCommerce](#understanding-rounding-with-decimals-in-woocommerce)
-    * [How quantity and discounts impact rounding](#how-quantity-and-discounts-impact-rounding)
-    * [Hiding decimals in store display](#hiding-decimals-in-store-display)
-    * [Plugin example: Trim zeros](#plugin-example-trim-zeros)
+* [Decimal issues and rounding in WooCommerce](#decimal-issues-and-rounding-in-woocommerce)
+  * [Rounding with decimals in WooCommerce](#rounding-with-decimals-in-woocommerce)
+  * [How quantity and discounts impact rounding](#how-quantity-and-discounts-impact-rounding)
+  * [What if I don’t want to display decimals in my store—how can I achieve this?](#what-if-i-dont-want-to-display-decimals-in-my-storehow-can-i-achieve-this)
+  * [Example plugin implementation](#example-plugin-implementation)
+  * [Solving too many decimals issues](#solving-too-many-decimals-issues)
+    * [Alternative: Rounding to nearest quarter](#alternative-rounding-to-nearest-quarter)
 * [Rounding issues with high PHP precision settings](#rounding-issues-with-high-php-precision-settings)
-    * [Why PHP precision is a problem](#why-php-precision-is-a-problem)
-    * [Workaround: Rounding to the nearest quarter](#workaround-rounding-to-the-nearest-quarter)
-    * [Plugin example: Quarter rounding](#plugin-example-quarter-rounding)
-    * [Important notes](#important-notes)
+  * [Why is PHP precision a problem here?](#why-is-php-precision-a-problem-here)
+  * [Example workaround: Rounding prices to the nearest quarter](#example-workaround-rounding-prices-to-the-nearest-quarter)
+  * [Example plugin implementation](#example-plugin-implementation-1)
+  * [Important notes](#important-notes)
 
 # Custom pricing in part payment widget logic using filters
 
@@ -67,7 +71,9 @@ add_filter('resursbank_pp_price_data', function($price, $product) {
 By using this filter, partners can ensure that the part payment calculations remain consistent between product pages
 and checkout, while also preserving plugin compatibility across future updates.
 
-# Understanding rounding with decimals in WooCommerce
+# Decimal issues and rounding in WooCommerce
+
+## Rounding with decimals in WooCommerce
 
 In *General settings* under *Currency options*, WooCommerce lets you set the store currency and decimal precision. While
 it may seem cosmetic, setting decimals to 0 can cause issues.
@@ -129,6 +135,71 @@ Plugin Name: WooCommerce price trim zeros
  **/
 add_filter( 'woocommerce_price_trim_zeros', '__return_true' );
 ```
+
+## Solving too many decimals issues {#solving-decimal-issues}
+
+One issue that may occur in some cases with the plugin is not directly caused by the plugin itself, but still affects
+the outcome of what is sent to our API. For instance, you may receive an error in the checkout related
+to `totalAmountIncludingVat` being too high or, as shown in our example image, resulting in an "out of bounds" message.
+When the decimal precision of a field like `totalAmountIncludingVat` is too high, it can trigger validation errors from
+Resurs Bank’s API.
+
+A value that looks visually correct may, for example, still be submitted to us like this:
+
+"totalAmountIncludingVat":1310.259999999999990905052982270717620849609375
+
+This is a typical floating-point precision issue that originates from how PHP handles decimal numbers internally. Even
+if WooCommerce is set to 2 decimals, if your server environment uses an overly high `precision` value in `php.ini`,
+numbers can be serialized with an excessive number of decimals when encoded into JSON. In addition, it's possible that
+other plugins, filters or theme functions in your WooCommerce installation are affecting the final precision of price or
+tax fields by altering them before the payload is constructed.
+
+If this happens, you may see errors such as:
+
+**{"order.orderLines[1].totalAmountIncludingVat":"numeric value out of bounds (<10 digits>.<2 digits> expected)"}**
+
+This is not caused by the plugin itself but rather by the environment or platform surrounding WooCommerce. Here’s what
+you should check:
+
+1. **WooCommerce Decimal Setting**
+
+- Navigate to *WooCommerce > Settings > General > Number of decimals* and verify that the value is set to 2.
+2. **PHP Precision**
+
+- Check the `precision` directive in your PHP configuration (php.ini). A common default is `14`, but for
+  WooCommerce/Resurs integrations we recommend lowering it to something like `10` to avoid these edge cases.
+
+Example in php.ini:
+
+   ```ini
+   precision = 10
+   ```
+3. **Custom Filters or Themes**
+
+- Ensure no plugins or themes are manipulating price or tax values before they're sent. Some themes hook into price
+  display and can inadvertently tamper with raw totals.
+
+Once corrected, the numeric output should fall within the accepted decimal limits supported by Resurs Bank. If you
+continue to experience issues, enable WooCommerce logging and inspect the order payloads closely for floating point
+anomalies.
+
+If you still feel that you are unable to follow the instructions above, i.e., you can't lower the precision in PHP core,
+you can try another solution.
+
+### Alternative: Rounding to nearest quarter {#rounding-to-nearest-quarter}
+
+**Please note:** Since this is a non-standard solution and not part of the official plugin features, we do not actively
+provide support for it. However, we have documented the method in detail for those who wish to implement it at their own
+discretion.
+
+If you are unable to lower the PHP core precision as recommended above, another solution is to round product prices
+directly before WooCommerce calculates the totals.
+
+This workaround targets floating-point artifacts by rounding prices to the nearest quarter, specifically when using the
+Resurs Bank payment method. The approach helps prevent mismatches between WooCommerce totals and what the Resurs API
+expects.
+
+![](files/91029972.png)
 
 # Rounding issues with high PHP precision settings
 
