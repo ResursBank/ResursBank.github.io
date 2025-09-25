@@ -292,15 +292,9 @@ to help us speed up the process of resolving the issue.
 
 ![Resurs Bank](Documentation/21.png)
 
-You can also choose to **enable developers mode** to enable xDebug for incoming
-requests from the API, such as callbacks. **Never enable this in production
-environments**.
-
-![Resurs Bank](Documentation/22.png)
-
 ## Advanced settings
 
-This section briefly covers some optional settings you can utilise.
+This section briefly covers some optional settings you can utilize.
 
 ![Resurs Bank](Documentation/23.png)
 
