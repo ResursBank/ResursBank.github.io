@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Consumer Loan Api
+title: Consumer Loan API
 permalink: /consumer-loan-api/
 nav_order: 71
 has_children: true
