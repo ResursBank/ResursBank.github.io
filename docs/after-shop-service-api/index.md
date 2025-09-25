@@ -1,6 +1,6 @@
 ---
 layout: page
-title: After Shop Service Api
+title: After Shop Service API
 permalink: /after-shop-service-api/
 nav_order: 51
 has_children: true
