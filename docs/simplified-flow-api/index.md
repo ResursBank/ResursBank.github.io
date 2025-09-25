@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Simplified Flow Api
+title: Simplified Flow API
 permalink: /simplified-flow-api/
 nav_order: 41
 has_children: true
