@@ -2,7 +2,7 @@
 layout: page
 title: Getapplicationquote
 permalink: /consumer-loan-api/getapplicationquote/
-parent: Consumer Loan Api
+parent: Consumer Loan API
 ---
 
 
