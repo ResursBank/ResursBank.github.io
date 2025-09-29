@@ -2,7 +2,7 @@
 layout: page
 title: Acceptquote
 permalink: /consumer-loan-api/acceptquote/
-parent: Consumer Loan Api
+parent: Consumer Loan API
 ---
 
 
