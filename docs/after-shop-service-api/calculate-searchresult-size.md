@@ -2,7 +2,7 @@
 layout: page
 title: Calculate Searchresult Size
 permalink: /after-shop-service-api/calculate-searchresult-size/
-parent: After Shop Service Api
+parent: After Shop Service API
 ---
 
 
