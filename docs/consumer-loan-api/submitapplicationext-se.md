@@ -2,7 +2,7 @@
 layout: page
 title: submitApplicationExt SE
 permalink: /consumer-loan-api/submitapplicationext-se/
-parent: Consumer Loan Api
+parent: Consumer Loan API
 ---
 
 
