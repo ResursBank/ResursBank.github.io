@@ -2,7 +2,7 @@
 layout: page
 title: Metadata Aftershop
 permalink: /after-shop-service-api/metadata-aftershop/
-parent: After Shop Service Api
+parent: After Shop Service API
 ---
 
 
