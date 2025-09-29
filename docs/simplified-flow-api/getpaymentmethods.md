@@ -2,7 +2,7 @@
 layout: page
 title: getpaymentMethods
 permalink: /simplified-flow-api/getpaymentmethods/
-parent: Simplified Flow Api
+parent: Simplified Flow API
 ---
 
 
