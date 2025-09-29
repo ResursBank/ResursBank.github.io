@@ -2,7 +2,7 @@
 layout: page
 title: updateApplication
 permalink: /consumer-loan-api/updateapplication/
-parent: Consumer Loan Api
+parent: Consumer Loan API
 ---
 
 
