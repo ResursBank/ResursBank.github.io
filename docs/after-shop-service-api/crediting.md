@@ -2,7 +2,7 @@
 layout: page
 title: Crediting / Refunding
 permalink: /after-shop-service-api/Crediting/
-parent: After Shop Service Api
+parent: After Shop Service API
 ---
 
 
