@@ -101,6 +101,8 @@ releases, we hope to be able to use PrestaShop marketplace.
    ![](images/prestashop-install-success.png)
 5. Start configuring the plugin.
 
+ZIP deployment date: 2025-09-29
+
 After installation, the module will appear under the "Payment" or "Resurs Bank" section depending on your PrestaShop
 version and theme.
 

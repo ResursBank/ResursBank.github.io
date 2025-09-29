@@ -30,7 +30,7 @@ proceeding with the integration.
 
 # 2. Installation
 
-Download and install the plugin ([resursbank.zip](download/resursbank.zip) - updated 2025-06-05).
+Download and install the plugin ([resursbank.zip](download/resursbank.zip) - updated 2025-09-29).
 
 # 3. Configuration
 
