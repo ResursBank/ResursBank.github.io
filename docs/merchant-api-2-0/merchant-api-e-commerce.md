@@ -2,7 +2,7 @@
 layout: page
 title: Merchant Api E-Commerce
 permalink: /merchant-api-2-0/merchant-api-e-commerce/
-parent: Merchant Api 2.0
+parent: Merchant API 2.0
 nav_order: 21
 ---
 
