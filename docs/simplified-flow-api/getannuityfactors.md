@@ -2,7 +2,7 @@
 layout: page
 title: getAnnuityFactors
 permalink: /simplified-flow-api/getannuityfactors/
-parent: Simplified Flow Api
+parent: Simplified Flow API
 ---
 
 
