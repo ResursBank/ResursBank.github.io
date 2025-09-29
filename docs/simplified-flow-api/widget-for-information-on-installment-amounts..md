@@ -2,7 +2,7 @@
 layout: page
 title: Widget For Information On Installment Amounts.
 permalink: /simplified-flow-api/widget-for-information-on-installment-amounts./
-parent: Simplified Flow Api
+parent: Simplified Flow API
 ---
 
 
