@@ -2,7 +2,7 @@
 layout: page
 title: getCostOfPurchaseHtml
 permalink: /simplified-flow-api/getcostofpurchasehtml/
-parent: Simplified Flow Api
+parent: Simplified Flow API
 ---
 
 

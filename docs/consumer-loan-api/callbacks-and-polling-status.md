@@ -2,7 +2,7 @@
 layout: page
 title: Callbacks And Polling Status
 permalink: /consumer-loan-api/callbacks-and-polling-status/
-parent: Consumer Loan Api
+parent: Consumer Loan API
 ---
 
 

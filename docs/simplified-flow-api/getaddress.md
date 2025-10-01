@@ -2,7 +2,7 @@
 layout: page
 title: getAddress (Se)
 permalink: /simplified-flow-api/getaddress/
-parent: Simplified Flow Api
+parent: Simplified Flow API
 ---
 
 

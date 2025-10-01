@@ -2,7 +2,7 @@
 layout: page
 title: Find Payments
 permalink: /after-shop-service-api/find-payments/
-parent: After Shop Service Api
+parent: After Shop Service API
 ---
 
 

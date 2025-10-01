@@ -2,7 +2,7 @@
 layout: page
 title: bookSignedPayment
 permalink: /simplified-flow-api/booksignedpayment/
-parent: Simplified Flow Api
+parent: Simplified Flow API
 ---
 
 

@@ -2,7 +2,7 @@
 layout: page
 title: Finalize Payment
 permalink: /after-shop-service-api/finalize-payment/
-parent: After Shop Service Api
+parent: After Shop Service API
 ---
 
 

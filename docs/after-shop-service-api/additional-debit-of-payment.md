@@ -2,7 +2,7 @@
 layout: page
 title: Additional Debit Of Payment
 permalink: /after-shop-service-api/additional-debit-of-payment/
-parent: After Shop Service Api
+parent: After Shop Service API
 ---
 
 

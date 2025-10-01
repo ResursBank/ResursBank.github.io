@@ -2,7 +2,7 @@
 layout: page
 title: submitApplicationExt FI
 permalink: /consumer-loan-api/submitapplicationext-fi/
-parent: Consumer Loan Api
+parent: Consumer Loan API
 ---
 
 

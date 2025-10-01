@@ -2,7 +2,7 @@
 layout: page
 title: Get Payment Document Names
 permalink: /after-shop-service-api/get-payment-document-names/
-parent: After Shop Service Api
+parent: After Shop Service API
 ---
 
 
