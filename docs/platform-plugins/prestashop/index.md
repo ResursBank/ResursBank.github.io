@@ -7,7 +7,6 @@ nav_order: 12
 has_children: true
 has_toc: false
 ---
-
 # QuickStart Guide PrestaShop
 
 _Sign an agreement with Resurs Bank to get credentials for production._
@@ -35,9 +34,9 @@ Download and install the plugin ([resursbank.zip](download/resursbank.zip) - upd
 
 ### Older versions
 
-[v1.0.0](download/resursbank-1.0.0.zip) - 2025-09-29.
-v1.0.1 (not released).
-[v1.0.2](download/resursbank-1.0.2.zip) - 2025-10-01.
+[v1.0.0](download/resursbank-1.0.0.zip) - 2025-09-29.\
+v1.0.1 (not released).\
+[v1.0.2](download/resursbank-1.0.2.zip) - 2025-10-01.\
 
 # 3. Configuration
 
