@@ -368,6 +368,26 @@ The purchase procedure, as handled through the PrestaShop module, follows this o
 - Customer is redirected to Resurs’ authentication/signing portal, where identity verification or credit scoring may
   take place depending on method and risk level.
 
+#### Swish specifics and getaddress behavior
+
+When using **Swish** as the selected payment method, the plugin prioritizes **mobile phone numbers** (`phone_mobile`) before fixed line phone numbers. This ensures that the number used for initiating the Swish payment is always the most relevant one.
+
+There are some differences in how addresses are displayed between PrestaShop and the Resurs Merchant Portal, depending on whether the **getaddress widget** is used:
+
+* **Scenario 1 – Guest checkout with getaddress (single address shown in Merchant)**
+  If a customer is not logged in and uses getaddress, only **one address entry** will appear in the Merchant Portal. This is because the address is retrieved directly from the national registry. In PrestaShop, however, both billing and delivery addresses remain visible, even though only a single address is presented in the Merchant Portal.
+
+* **Scenario 2 – Guest checkout without getaddress (manual entry, both addresses visible)**
+  If address information is entered manually, the Merchant Portal will contain **both billing and delivery addresses**, consistent with how PrestaShop stores and displays them.
+
+* **Scenario 3 – Logged-in customers (billing mobile number prioritized)**
+  For logged-in customers, the **billing address mobile number** will always be prioritized for Swish, regardless of what is entered in the delivery address. In these cases, the getaddress widget is not used – PrestaShop’s stored address data is passed directly to the API.
+
+* **Scenario 4 – Guest checkout with getaddress, different billing and shipping**
+  When getaddress is used but the customer enters a separate billing address, Merchant Portal will still show only the registered (shipping) address, while PrestaShop displays both.
+
+These differences explain why PrestaShop may show multiple addresses, while the Merchant Portal only displays one when getaddress has been used. This behavior is expected and should not be considered an error.
+
 ![](images/prestashop-checkout-payment.png)
 
 3. **Payment Confirmation**
