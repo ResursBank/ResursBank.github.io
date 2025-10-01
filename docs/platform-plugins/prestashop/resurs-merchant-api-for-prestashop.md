@@ -575,11 +575,9 @@ Always verify that the log file is writable and regularly rotated if used in pro
 
 ## Known Problems
 
-### Known problems
-
 In some rare cases, upgrades may cause unexpected behavior. This is relatively normal due to how PrestaShop handles cached data and configuration between versions.
 
-#### During upgrade
+### During upgrade
 
 ![](images/prestashop-cache-uncleared.png)
 
