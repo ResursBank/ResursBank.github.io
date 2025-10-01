@@ -575,6 +575,30 @@ Always verify that the log file is writable and regularly rotated if used in pro
 
 ## Known Problems
 
-If you install the plugin and experience an empty administrator view, make sure you have your cache cleared. In the latest package, we have added a mechanism for this and it should happen automatically. However, in some cases the following warning might still appear:
+### Known problems
+
+In some rare cases, upgrades may cause unexpected behavior. This is relatively normal due to how PrestaShop handles cached data and configuration between versions.
+
+#### During upgrade
 
 ![](images/prestashop-cache-uncleared.png)
+
+If you experience issues after an upgrade, first make sure you have cleared your PrestaShop cache.
+
+When clearing the cache is not enough, performing a module reset usually resolves the problem:
+
+```bash
+php bin/console prestashop:module reset resursbank
+```
+
+This command uninstalls and reinstalls the module in a clean way, and in most cases resolves upgrade-related issues without requiring further manual intervention.
+
+As an alternative, you can achieve the same by manually uninstalling and reinstalling the module:
+
+```bash
+php bin/console prestashop:module uninstall resursbank
+php bin/console prestashop:module install resursbank
+```
+
+This method works too, but in some cases old configuration data may remain, which is why `reset` is generally recommended as the first step.
+
