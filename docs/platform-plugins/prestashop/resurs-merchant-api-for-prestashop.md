@@ -8,6 +8,7 @@ nav_order: 14
 has_children: true
 has_toc: true
 ---
+
 # Resurs Merchant API 2.0 for PrestaShop
 
 ## Table of Contents
@@ -15,36 +16,36 @@ has_toc: true
 - [Requirements](#requirements)
 - [Important Notes](#important-notes)
 - [Installation and upgrade instructions](#installation-and-upgrade-instructions)
-  - [Installation](#installation)
+    - [Installation](#installation)
 - [FAQ & General questions](#faq--general-questions)
-  - [Detailed configuration information and store configuration](#detailed-configuration-information-and-store-configuration)
-  - [Figuring out remote IP for whitelisting in firewalls](#figuring-out-remote-ip-for-whitelisting-in-firewalls)
-  - [Stock Keeping Unit (SKU)](#stock-keeping-unit-sku)
-  - [Number of decimals](#number-of-decimals)
+    - [Detailed configuration information and store configuration](#detailed-configuration-information-and-store-configuration)
+    - [Figuring out remote IP for whitelisting in firewalls](#figuring-out-remote-ip-for-whitelisting-in-firewalls)
+    - [Stock Keeping Unit (SKU)](#stock-keeping-unit-sku)
+    - [Number of decimals](#number-of-decimals)
 - [API Settings](#api-settings)
-  - [Managing API Credentials in PrestaShop](#managing-api-credentials-in-prestashop)
-    - [Choosing Environment](#choosing-environment)
-    - [Entering and Saving Credentials](#entering-and-saving-credentials)
-    - [Fetching Store Data](#fetching-store-data)
-    - [Switching Between Environments](#switching-between-environments)
-    - [Order Management Toggle](#order-management-toggle)
-  - [Callback Handling and Order States](#callback-handling-and-order-states)
-    - [Order status mapping](#order-status-mapping)
-    - [Persistence of custom statuses](#persistence-of-custom-statuses)
-    - [Testing callback handling](#testing-callback-handling)
+    - [Managing API Credentials in PrestaShop](#managing-api-credentials-in-prestashop)
+        - [Choosing Environment](#choosing-environment)
+        - [Entering and Saving Credentials](#entering-and-saving-credentials)
+        - [Fetching Store Data](#fetching-store-data)
+        - [Switching Between Environments](#switching-between-environments)
+        - [Order Management Toggle](#order-management-toggle)
+    - [Callback Handling and Order States](#callback-handling-and-order-states)
+        - [Order status mapping](#order-status-mapping)
+        - [Persistence of custom statuses](#persistence-of-custom-statuses)
+        - [Testing callback handling](#testing-callback-handling)
 - [Part Payment Widget](#part-payment-widget)
-  - [Settings Overview](#settings-overview)
-  - [Frontend Behavior](#frontend-behavior)
-  - [Part Payment Widget Examples](#part-payment-widget-examples)
+    - [Settings Overview](#settings-overview)
+    - [Frontend Behavior](#frontend-behavior)
+    - [Part Payment Widget Examples](#part-payment-widget-examples)
 - [Purchasing with the new Merchant API](#purchasing-with-the-new-merchant-api)
 - [Order Management](#order-management)
-  - [Order Overview (Top Section)](#order-overview-top-section)
-  - [Payment Details (Bottom Section)](#payment-details-bottom-section)
-  - [Managing Orders](#managing-orders)
-  - [Resurs Payment History](#resurs-payment-history)
+    - [Order Overview (Top Section)](#order-overview-top-section)
+    - [Payment Details (Bottom Section)](#payment-details-bottom-section)
+    - [Managing Orders](#managing-orders)
+    - [Resurs Payment History](#resurs-payment-history)
 - [Troubleshooting and error handling](#troubleshooting-and-error-handling)
-  - [Support Information Panel](#support-information-panel)
-  - [Enabling Logging in PrestaShop](#enabling-logging-in-prestashop)
+    - [Support Information Panel](#support-information-panel)
+    - [Enabling Logging in PrestaShop](#enabling-logging-in-prestashop)
 - [Known Problems](#known-problems)
 
 ## Requirements
@@ -370,32 +371,42 @@ The purchase procedure, as handled through the PrestaShop module, follows this o
 
 #### Swish specifics and getaddress behavior
 
-When using **Swish** as the selected payment method, the plugin prioritizes **mobile phone numbers** (`phone_mobile`) before fixed line phone numbers. This ensures that the number used for initiating the Swish payment is always the most relevant one.
+When using **Swish** as the selected payment method, the plugin prioritizes **mobile phone numbers** (`phone_mobile`)
+before fixed line phone numbers. This ensures that the number used for initiating the Swish payment is always the most
+relevant one.
 
-There are some differences in how addresses are displayed between PrestaShop and the Resurs Merchant Portal, depending on whether the **getaddress widget** is used:
+There are some differences in how addresses are displayed between PrestaShop and the Resurs Merchant Portal, depending
+on whether the **getaddress widget** is used:
 
 * **Scenario 1 – Guest checkout with getaddress (single address shown in Merchant)**
-  If a customer is not logged in and uses getaddress, only **one address entry** will appear in the Merchant Portal. This is because the address is retrieved directly from the national registry. In PrestaShop, however, both billing and delivery addresses remain visible, even though only a single address is presented in the Merchant Portal.
+  If a customer is not logged in and uses getaddress, only **one address entry** will appear in the Merchant Portal.
+  This is because the address is retrieved directly from the national registry. In PrestaShop, however, both billing and
+  delivery addresses remain visible, even though only a single address is presented in the Merchant Portal.
 
 * **Scenario 2 – Guest checkout without getaddress (manual entry, both addresses visible)**
-  If address information is entered manually, the Merchant Portal will contain **both billing and delivery addresses**, consistent with how PrestaShop stores and displays them.
+  If address information is entered manually, the Merchant Portal will contain **both billing and delivery addresses**,
+  consistent with how PrestaShop stores and displays them.
 
 * **Scenario 3 – Logged-in customers (billing mobile number prioritized)**
-  For logged-in customers, the **billing address mobile number** will always be prioritized for Swish, regardless of what is entered in the delivery address. In these cases, the getaddress widget is not used – PrestaShop’s stored address data is passed directly to the API.
+  For logged-in customers, the **billing address mobile number** will always be prioritized for Swish, regardless of
+  what is entered in the delivery address. In these cases, the getaddress widget is not used – PrestaShop’s stored
+  address data is passed directly to the API.
 
 * **Scenario 4 – Guest checkout with getaddress, different billing and shipping**
-  When getaddress is used but the customer enters a separate billing address, Merchant Portal will still show only the registered (shipping) address, while PrestaShop displays both.
+  When getaddress is used but the customer enters a separate billing address, Merchant Portal will still show only the
+  registered (shipping) address, while PrestaShop displays both.
 
-These differences explain why PrestaShop may show multiple addresses, while the Merchant Portal only displays one when getaddress has been used. This behavior is expected and should not be considered an error.
+These differences explain why PrestaShop may show multiple addresses, while the Merchant Portal only displays one when
+getaddress has been used. This behavior is expected and should not be considered an error.
 
 ![](images/prestashop-checkout-payment.png)
 
 3. **Payment Confirmation**
 
 - Upon completing the external flow, Resurs either:
-  - Accepts the payment (order moves to *Paid* status)
-  - Rejects the payment (order is *Cancelled*)
-  - Freezes the payment for later manual or automatic decision (order becomes *Under Review*)
+    - Accepts the payment (order moves to *Paid* status)
+    - Rejects the payment (order is *Cancelled*)
+    - Freezes the payment for later manual or automatic decision (order becomes *Under Review*)
 
 ![](images/prestashop-approve-and-purchase.png)
 
@@ -575,21 +586,23 @@ Always verify that the log file is writable and regularly rotated if used in pro
 
 ## Known Problems
 
-In some rare cases, upgrades may cause unexpected behavior. This is relatively normal due to how PrestaShop handles cached data and configuration between versions.
+In some rare cases, upgrades may cause unexpected behavior. This is relatively normal due to how PrestaShop handles
+cached data and configuration between versions.
 
 ### During upgrade
 
 ![](images/prestashop-cache-uncleared.png)
 
 If you experience issues after an upgrade, first make sure you have cleared your PrestaShop cache.
-
-When clearing the cache is not enough, performing a module reset usually resolves the problem:
+When clearing the cache is not enough, performing a module reset usually resolves the problem.
+From version 1.0.3 and higher, this should be resolved, but in case of problems, follow the steps below.
 
 ```bash
 php bin/console prestashop:module reset resursbank
 ```
 
-This command uninstalls and reinstalls the module in a clean way, and in most cases resolves upgrade-related issues without requiring further manual intervention.
+This command uninstalls and reinstalls the module in a clean way, and in most cases resolves upgrade-related issues
+without requiring further manual intervention. It, however, requires you to fill in your settings again from scratch.
 
 As an alternative, you can achieve the same by manually uninstalling and reinstalling the module:
 
@@ -597,6 +610,3 @@ As an alternative, you can achieve the same by manually uninstalling and reinsta
 php bin/console prestashop:module uninstall resursbank
 php bin/console prestashop:module install resursbank
 ```
-
-This method works too, but in some cases old configuration data may remain, which is why `reset` is generally recommended as the first step.
-

@@ -7,6 +7,7 @@ nav_order: 12
 has_children: true
 has_toc: false
 ---
+
 # QuickStart Guide PrestaShop
 
 _Sign an agreement with Resurs Bank to get credentials for production._
@@ -48,7 +49,8 @@ For full documentation, read [the repository README's](https://bitbucket.org/res
 
 ## Known problems
 
-In some rare cases, upgrades may cause unexpected behavior. This is normal due to how PrestaShop handles cache and configuration.
+In some rare cases, upgrades may cause unexpected behavior. This is normal due to how PrestaShop handles cache and
+configuration. From v1.0.3 and higher, this should be less common.
 
 Usually, a module reset resolves the problem:
 
@@ -56,4 +58,5 @@ Usually, a module reset resolves the problem:
 php bin/console prestashop:module reset resursbank
 ```
 
-For detailed information and alternative solutions, see the full documentation: [Known Problems – Resurs Merchant API for PrestaShop](https://developers.resurs.com/platform-plugins/prestashop/resurs-merchant-api-for-prestashop#known-problems)
+For detailed information and alternative solutions, see the full
+documentation: [Known Problems – Resurs Merchant API for PrestaShop](resurs-merchant-api-for-prestashop#known-problems)
