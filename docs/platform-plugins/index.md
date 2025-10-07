@@ -35,7 +35,7 @@ has_toc: false
 | Use platform order number as reference in Resurs Bank    | YES             | YES                 | YES                |
 | Supports multistore                                      | YES             | NO                  | NO                 |
 
-#### Fee notes
+### Fee notes
 
 *Fees are supported in WooCommerce in the way that if you add fees with an external plugin, they will be added to the
 order sent to Resurs Bank. However, the plugin does not handle fees itself.*
