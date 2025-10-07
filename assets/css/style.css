@@ -1,6 +1,0 @@
-h4 {
-  /* Micro-section: #### – toned down so it doesn't look “shouty” */
-  font-size: clamp(1.15rem, 1.05rem + .5vw, 1.35rem);
-  font-weight: 600;
-  color: var(--muted);
-}
