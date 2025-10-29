@@ -15,13 +15,13 @@ has_toc: true
 
 - [Requirements](#requirements)
 - [Important Notes](#important-notes)
-- [Installation and upgrade instructions](#installation-and-upgrade-instructions)
+- [Installation and Upgrade Instructions](#installation-and-upgrade-instructions)
     - [Installation](#installation)
-- [FAQ & General questions](#faq--general-questions)
-    - [Detailed configuration information and store configuration](#detailed-configuration-information-and-store-configuration)
-    - [Figuring out remote IP for whitelisting in firewalls](#figuring-out-remote-ip-for-whitelisting-in-firewalls)
-    - [Stock Keeping Unit (SKU)](#stock-keeping-unit-sku)
-    - [Number of decimals](#number-of-decimals)
+- [FAQ & General Questions](#faq--general-questions)
+    - [Detailed Configuration Information and Store Setup](#detailed-configuration-information-and-store-configuration)
+    - [Determining Remote IP for Firewall Whitelisting](#figuring-out-remote-ip-for-whitelisting-in-firewalls)
+    - [Product Reference / SKU](#stock-keeping-unit-sku)
+    - [Number of Decimals](#number-of-decimals)
 - [API Settings](#api-settings)
     - [Managing API Credentials in PrestaShop](#managing-api-credentials-in-prestashop)
         - [Choosing Environment](#choosing-environment)
@@ -30,23 +30,30 @@ has_toc: true
         - [Switching Between Environments](#switching-between-environments)
         - [Order Management Toggle](#order-management-toggle)
     - [Callback Handling and Order States](#callback-handling-and-order-states)
-        - [Order status mapping](#order-status-mapping)
-        - [Persistence of custom statuses](#persistence-of-custom-statuses)
-        - [Testing callback handling](#testing-callback-handling)
+        - [Order Status Mapping](#order-status-mapping)
+        - [Paid Status and Invoice Generation](#paid-status-and-invoice-generation)
+        - [Persistence of Custom Statuses](#persistence-of-custom-statuses)
+        - [Testing Callback Handling](#testing-callback-handling)
 - [Part Payment Widget](#part-payment-widget)
     - [Settings Overview](#settings-overview)
     - [Frontend Behavior](#frontend-behavior)
-    - [Part Payment Widget Examples](#part-payment-widget-examples)
-- [Purchasing with the new Merchant API](#purchasing-with-the-new-merchant-api)
+    - [Examples](#part-payment-widget-examples)
+- [Purchasing Flow with Merchant API](#purchasing-with-the-new-merchant-api)
+    - [Order Initiation](#order-initiation)
+    - [Resurs Integration and Swish Behavior](#swish-specifics-and-getaddress-behavior)
+    - [Payment Confirmation](#payment-confirmation)
+    - [Redirect & Finalization](#redirect--finalization)
+    - [Callback Failover Safety](#callbacks-for-failover-safety)
 - [Order Management](#order-management)
     - [Order Overview (Top Section)](#order-overview-top-section)
     - [Payment Details (Bottom Section)](#payment-details-bottom-section)
     - [Managing Orders](#managing-orders)
     - [Resurs Payment History](#resurs-payment-history)
-- [Troubleshooting and error handling](#troubleshooting-and-error-handling)
+- [Troubleshooting and Error Handling](#troubleshooting-and-error-handling)
     - [Support Information Panel](#support-information-panel)
     - [Enabling Logging in PrestaShop](#enabling-logging-in-prestashop)
 - [Known Problems](#known-problems)
+    - [During Upgrade](#during-upgrade)
 
 ## Requirements
 
@@ -287,7 +294,7 @@ Starting from **version 1.0.4**, this behavior has been corrected:
 * The system will instead skip the linking process entirely, preventing the "Invoice object not persisted" error
   described in this section.
 
-### Legacy behavior (pre-1.0.4)
+#### Legacy behavior (pre-1.0.4)
 
 In older module versions (before **1.0.4**), disabling invoice generation while still performing a **capture** operation
 could cause errors like the one shown below:
