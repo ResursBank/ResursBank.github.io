@@ -249,7 +249,7 @@ of the transaction in the Resurs system.
 
 ![](images/prestashop-callback-settings.png)
 
-#### Order status mapping
+### Order status mapping
 
 The Resurs PrestaShop plugin introduces several **custom order statuses**, installed directly into the database during
 module installation. These include:
@@ -266,6 +266,46 @@ In addition to these, the plugin also utilizes native PrestaShop statuses:
 
 These status codes are mapped programmatically based on Resurs payment states such
 as `isCancelled`, `isFrozen`, `isCaptured`, and `canCapture`.
+
+### Paid status and invoice generation
+
+Observe that the status **`PS_OS_RESURSBANK_PAID`** is used when the payment has been successfully captured - either
+manually from the **order administration** in PrestaShop or automatically through **Resurs Bank MAPI callbacks** (for
+example, via Swish payments).
+
+![Paid status - invoice generation enabled](.resurs-merchant-api-for-prestashop_images/paid-staus-invoice.png)
+
+As illustrated in the image above, the *Paid* order status is configured by default to generate an invoice. This ensures
+that PrestaShop automatically creates and links an invoice once the payment is marked as captured.
+
+If the "Generate invoice" option is disabled, the module will trigger an error in versions prior to **1.0.4**, since
+earlier releases attempted to link payments to invoices even when no invoice had been generated.
+
+Starting from **version 1.0.4**, this behavior has been corrected:
+
+* No payment-to-invoice linking will occur if the status is not configured to generate an invoice.
+* The system will instead skip the linking process entirely, preventing the "Invoice object not persisted" error
+  described in this section.
+
+### Legacy behavior (pre-1.0.4)
+
+In older module versions (before **1.0.4**), disabling invoice generation while still performing a **capture** operation
+could cause errors like the one shown below:
+
+> *"Failed to capture payment. (Invoice object for order #70 is not persisted.)"*
+
+![Capture error when invoices are disabled](.resurs-merchant-api-for-prestashop_images/invoice-object-not-persisted.png)
+
+This happened because the module attempted to link the captured payment to a PrestaShop invoice that did not exist yet -
+a direct result of the "Generate invoice" option being turned off while the status **`PS_OS_RESURSBANK_PAID`** was still
+used for payment capture.
+
+In these earlier builds, PrestaShop created the payment record successfully, but since the invoice object wasn’t
+persisted, the database link between the payment and invoice (stored in `order_invoice_payment`) failed - resulting in
+the red error banner even though the payment itself was processed correctly at Resurs Bank.
+
+As of **version 1.0.4**, this issue no longer occurs. The module now verifies that a valid, persisted invoice exists
+before attempting to create the linkage, and skips that step entirely if invoice generation has been disabled.
 
 #### Persistence of custom statuses
 
