@@ -273,7 +273,7 @@ Observe that the status **`PS_OS_RESURSBANK_PAID`** is used when the payment has
 manually from the **order administration** in PrestaShop or automatically through **Resurs Bank MAPI callbacks** (for
 example, via Swish payments).
 
-![Paid status - invoice generation enabled](.resurs-merchant-api-for-prestashop_images/paid-staus-invoice.png)
+![Paid status - invoice generation enabled](images/paid-staus-invoice.png)
 
 As illustrated in the image above, the *Paid* order status is configured by default to generate an invoice. This ensures
 that PrestaShop automatically creates and links an invoice once the payment is marked as captured.
@@ -294,7 +294,7 @@ could cause errors like the one shown below:
 
 > *"Failed to capture payment. (Invoice object for order #70 is not persisted.)"*
 
-![Capture error when invoices are disabled](.resurs-merchant-api-for-prestashop_images/invoice-object-not-persisted.png)
+![Capture error when invoices are disabled](images/invoice-object-not-persisted.png)
 
 This happened because the module attempted to link the captured payment to a PrestaShop invoice that did not exist yet -
 a direct result of the "Generate invoice" option being turned off while the status **`PS_OS_RESURSBANK_PAID`** was still
