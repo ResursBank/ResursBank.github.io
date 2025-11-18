@@ -23,4 +23,8 @@ For certain application flows, Resurs bank will send you Callbacks. For you to b
 
 13.50.187.51 
 
-51.21.32.255 
+51.21.32.255
+
+51.21.206.32
+
+51.21.39.192
