@@ -1,6 +1,6 @@
 ---
 nav_order: 11
-permalink: /contact/
+
 ---
 
 # Contact
