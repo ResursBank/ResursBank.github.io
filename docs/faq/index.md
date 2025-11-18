@@ -42,31 +42,6 @@ Resurs
 - ### Are you using correct TLS version?
   As shown above, TLS below version 1.2 is not supported.
 
-## How do I configure my firewall/network?
-
-If you have restricted firewalls that explicitly need to define what
-communication is allowed, you should consider open for the
-[CIDR](https://sv.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-blocks
-below.
-***Please note that the primary ports for a web server should be 443
-(https) as Resurs no longer support plain text callbacks at port 80.***
-
-| Network CIDR-block | Range equivalent                | Broadcast       | Netmask       | Allow ports | AS Number                            |
-|-------------------|---------------------------------|-----------------|---------------|-------------|--------------------------------------|
-| 192.121.110.0/24  | 192.121.110.1 - 192.121.110.254 | 192.121.110.255 | 255.255.255.0 | 443 (https) | [AS35814](https://ipinfo.io/AS35814) |
-| 194.68.237.0/24   | 194.68.237.1 - 194.68.237.254   | 194.68.237.255  | 255.255.255.0 | 443 (https) | [AS35814](https://ipinfo.io/AS35814) |
-| 91.198.202.0/24   | 91.198.202.1 - 91.198.202.254   | 91.198.202.255  | 255.255.255.0 | 443 (https) | [AS35814](https://ipinfo.io/AS35814) |
-| 13.50.187.51/32   | Single address not in a range   | -               | -             | 443 (https) | [AS16509](https://ipinfo.io/AS16509) |
-| 51.21.32.255/32   | Single address not in a range   | -               | -             | 443 (https) | [AS16509](https://ipinfo.io/AS16509) |
-
-### Whitelisting Callbacks from Resurs
-
-Callbacks have historically been sent from 192.121.110.100 but after some network changes, callbacks may now also come from the listed IP's below.
-
-    192.121.110.100
-    13.50.187.51
-    51.21.32.255
-
 ## Local networks / Hosts (or "your callbacks is not working")
 
 If you are using local networks during tests, be aware that all
