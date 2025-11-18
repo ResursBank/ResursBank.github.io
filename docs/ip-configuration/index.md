@@ -1,13 +1,13 @@
 ---
 layout: page
-title: IP-configuration
+title: Firewall configuration
 permalink: /ip-configuration/
 nav_order: 65
 has_children: false
 has_toc: false
 ---
 
-# IP-configuration 
+# Firewall configuration 
 
 ## Your outbound traffic 
 
