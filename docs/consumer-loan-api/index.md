@@ -40,21 +40,6 @@ Test: [https://](http://consumerloan.cte.loc/cl-webservice/api/callback/delivery
 Production:
 [https://consumerloan.resurs.com/cl-webservice/](https://consumerloan.resurs.com/cl-webservice/ApplicationService?wsdl)
 
-### IP-addresses to whitelist
-**Production**:
-
-> 91.198.202.100  
-> 192.121.110.100
-> 13.50.187.51
-> 51.21.32.255
-
-**CTE Integration:**
-
-> 194.68.237.250  
-> 192.121.110.100
-> 13.50.187.51
-> 51.21.32.255
-
 ### Decisions - social security numbers
 **Sweden**  
 > MANUAL INSPECTION: 970415-2371  
