@@ -15,7 +15,7 @@ For standard use cases, we recommend that you access Resurs Bank’s services us
 We therefore encourage you to remove any IP whitelisting configured for your outbound traffic towards Resurs Bank’s resources using FQDN. 
 If you have a compelling reason to maintain IP whitelisting for your outbound traffic, please contact us — we will provide guidance on how to do so properly. 
 
-### Your inbound traffic 
+## Your inbound traffic 
 
 For certain application flows, Resurs bank will send you Callbacks. For you to be able to receive these callbacks, you may need to whitelist the following IP address for Inbound traffic to your network: 
 
