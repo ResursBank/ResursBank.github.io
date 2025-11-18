@@ -120,4 +120,3 @@ available on your production account;
    Depending on your integration, you may need to update/fetch your payment methods in order for the payment method to
    appear. If uncertain that is required in your unique case, please email onboarding@resurs.se
 
-## Missing a question? [Contact us!](/contact/)
