@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Firewall configuration
-permalink: /ip-configuration/
+permalink: /firewall-configuration/
 nav_order: 65
 has_children: false
 has_toc: false
