@@ -44,7 +44,7 @@ Resurs
 
 - ### How do I configure my firewall/network?
   #### Your outbound traffic
-  For standard use cases, we recommend that you access Resurs Bank’s services using the FQDNs provided to you. This ensures that your integration remains unaffected if the underlying IP addresses associated with these FQDNs change. We therefore encourage you to remove any IP whitelisting configured for your outbound traffic towards Resurs Bank’s resources using FQDN. If you have a compelling reason to maintain IP whitelisting for your outbound traffic, please contact us — we will provide guidance on how to do so properly.
+  For standard use cases, we recommend that you access Resurs Bank’s services using the FQDNs provided to you. This ensures that your integration remains unaffected if the underlying IP addresses associated with these FQDNs change. **We therefore encourage you to remove any IP whitelisting configured for your outbound traffic towards Resurs Bank’s resources using FQDN.** If you have a compelling reason to maintain IP whitelisting for your outbound traffic, please contact us — we will provide guidance on how to do so properly.
   
   #### Your inbound traffic
   
