@@ -1,10 +1,9 @@
 ---
-
 layout: page
 title: FAQ
 permalink: /faq/
 has_children: true
-------------------
+---
 
 # FAQ
 
