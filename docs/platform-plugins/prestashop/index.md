@@ -24,10 +24,6 @@ has_toc: false
 
 ## Quick instructions
 
-### First: Fix them agreements!
-
-_Sign an agreement with Resurs Bank to get credentials for production._
-
 ### 1. Acquire test credentials
 
 Contact Resurs Bank to request your test credentials. Make sure that your system meets all technical requirements before
