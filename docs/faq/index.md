@@ -180,8 +180,10 @@ To offer Swish for your customers, complete the following steps before activatio
 
 ## CIDR overview
 
-| Network CIDR-block | Range equivalent                | Broadcast       | Netmask       | Allow ports | AS Number                            |
-|--------------------|---------------------------------|-----------------|---------------|-------------|--------------------------------------|
-| 192.121.110.0/24   | 192.121.110.1 - 192.121.110.254 | 192.121.110.255 | 255.255.255.0 | 443 (https) | [AS35814](https://ipinfo.io/AS35814) |
-| 194.68.237.0/24    | 194.68.237.1 - 194.68.237.254   | 194.68.237.255  | 255.255.255.0 | 443 (https) | [AS35814](https://ipinfo.io/AS35814) |
-| 91.198.202.0/24    | 91.198.202.1 - 91.198.202.254   | 91.198.202.255  | 255.255.255.0 | 443 (https) | [AS35814](https://ipinfo.io/AS35814) |
+If you need to whitelist entire network ranges owned by Resurs Bank, use the following details:
+
+| Network CIDR-block | Broadcast       | Netmask       | AS Number                            |
+| ------------------ | --------------- | ------------- | ------------------------------------ |
+| 192.121.110.0/24   | 192.121.110.255 | 255.255.255.0 | [AS35814](https://ipinfo.io/AS35814) |
+| 194.68.237.0/24    | 194.68.237.255  | 255.255.255.0 | [AS35814](https://ipinfo.io/AS35814) |
+| 91.198.202.0/24    | 91.198.202.255  | 255.255.255.0 | [AS35814](https://ipinfo.io/AS35814) |
