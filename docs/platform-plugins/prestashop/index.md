@@ -35,7 +35,9 @@ Download and install the plugin ([resursbank.zip](download/resursbank.zip) - v1.
 
 ### Older versions
 
+- 1.0.9 - Coming soon (ecom 3.3.10+)
 - [v1.0.8](download/resursbank-1.0.8.zip) - 2025-11-18.
+- There is no 1.0.7 release package, since it was bundled into 1.0.8.
 - [v1.0.6](download/resursbank-1.0.8.zip) - 2025-11-13.
 
 # 3. Configuration
