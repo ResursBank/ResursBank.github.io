@@ -10,8 +10,6 @@ has_toc: false
 
 # QuickStart Guide PrestaShop
 
-_Sign an agreement with Resurs Bank to get credentials for production._
-
 ## Requirements
 
 - **PHP version:** Minimum PHP 8.1 (note: PrestaShop allows down to PHP 7.2, but this plugin does not support anything
@@ -25,6 +23,10 @@ _Sign an agreement with Resurs Bank to get credentials for production._
   ensure proper two-decimal rounding behavior.
 
 ## Quick instructions
+
+### First: Fix them agreements!
+
+_Sign an agreement with Resurs Bank to get credentials for production._
 
 ### 1. Acquire test credentials
 
