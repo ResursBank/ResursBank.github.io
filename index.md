@@ -1,6 +1,6 @@
 ---
 nav_order: 11
-permalink: /contact/
+
 ---
 
 # Contact
@@ -11,11 +11,11 @@ support@resurs.se
 ### After sales support
 If you have problems with payments in production. 
 
-Mon – Fri: 08.00 – 18.00 CET
+Mon – Fri: 08:00 – 17:00
 
-Call +46 42-38 20 50
+Call +46 42-38 20 40
 
-ehandel@resurs.se 
+ombud@resurs.se
 
 ### Technical support during onboarding and this documentation
 onboarding@resurs.se

@@ -42,30 +42,23 @@ Resurs
 - ### Are you using correct TLS version?
   As shown above, TLS below version 1.2 is not supported.
 
-## How do I configure my firewall/network?
+- ### How do I configure my firewall/network?
+  #### Your outbound traffic
+  For standard use cases, we recommend that you access Resurs Bank’s services using the FQDNs provided to you. This ensures that your integration remains unaffected if the underlying IP addresses associated with these FQDNs change. **We therefore encourage you to remove any IP whitelisting configured for your outbound traffic towards Resurs Bank’s resources using FQDN.** If you have a compelling reason to maintain IP whitelisting for your outbound traffic, please contact us — we will provide guidance on how to do so properly.
+  
+  #### Your inbound traffic
+  
+  For certain application flows, Resurs bank will send you Callbacks. For you to be able to receive these callbacks, you may need to whitelist the following IP address for Inbound traffic to your network:
 
-If you have restricted firewalls that explicitly need to define what
-communication is allowed, you should consider open for the
-[CIDR](https://sv.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-blocks
-below.
-***Please note that the primary ports for a web server should be 443
-(https) as Resurs no longer support plain text callbacks at port 80.***
+  192.121.110.100
 
-| Network CIDR-block | Range equivalent                | Broadcast       | Netmask       | Allow ports | AS Number                            |
-|-------------------|---------------------------------|-----------------|---------------|-------------|--------------------------------------|
-| 192.121.110.0/24  | 192.121.110.1 - 192.121.110.254 | 192.121.110.255 | 255.255.255.0 | 443 (https) | [AS35814](https://ipinfo.io/AS35814) |
-| 194.68.237.0/24   | 194.68.237.1 - 194.68.237.254   | 194.68.237.255  | 255.255.255.0 | 443 (https) | [AS35814](https://ipinfo.io/AS35814) |
-| 91.198.202.0/24   | 91.198.202.1 - 91.198.202.254   | 91.198.202.255  | 255.255.255.0 | 443 (https) | [AS35814](https://ipinfo.io/AS35814) |
-| 13.50.187.51/32   | Single address not in a range   | -               | -             | 443 (https) | [AS16509](https://ipinfo.io/AS16509) |
-| 51.21.32.255/32   | Single address not in a range   | -               | -             | 443 (https) | [AS16509](https://ipinfo.io/AS16509) |
+  13.50.187.51
 
-### Whitelisting Callbacks from Resurs
+  51.21.32.255
 
-Callbacks have historically been sent from 192.121.110.100 but after some network changes, callbacks may now also come from the listed IP's below.
+  51.21.206.32
 
-    192.121.110.100
-    13.50.187.51
-    51.21.32.255
+  51.21.39.192
 
 ## Local networks / Hosts (or "your callbacks is not working")
 
@@ -145,4 +138,3 @@ available on your production account;
    Depending on your integration, you may need to update/fetch your payment methods in order for the payment method to
    appear. If uncertain that is required in your unique case, please email onboarding@resurs.se
 
-## Missing a question? [Contact us!](/contact/)
