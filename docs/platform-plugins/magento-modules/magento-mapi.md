@@ -7,6 +7,28 @@ parent: Magento Modules
 grand_parent: Platform Plugins
 ---
 
+# Table of Contents
+
+- [Resurs Bank - Magento 2 module for MAPI integration](#resurs-bank---magento-2-module-for-mapi-integration)
+- [Installation](#installation)
+- [Configuration](#configuration)
+    - [Confirm that payment methods are resolved](#confirm-that-payment-methods-are-resolved)
+    - [Confirm callbacks work](#confirm-callbacks-work)
+    - [Additional API settings](#additional-api-settings)
+- [Part payment widget](#part-payment-widget)
+- [Order placement](#order-placement)
+- [Order management](#order-management)
+    - [Capturing a payment](#capturing-a-payment)
+    - [Refunding a payment](#refunding-a-payment)
+    - [Canceling a payment](#canceling-a-payment)
+    - [Order management settings](#order-management-settings)
+- [Payment history](#payment-history)
+- [Troubleshooting](#troubleshooting)
+- [Advanced settings](#advanced-settings)
+    - [Delete aborted orders](#delete-aborted-orders)
+    - [Enable developer mode](#enable-developer-mode)
+- [Cache](#cache)
+
 # Resurs Bank - Magento 2 module for MAPI integration
 
 This module integrates MAPI (**M**erchant **API**) with Magento 2. It uses the
@@ -196,7 +218,8 @@ one of three potential places in Magento:
    page.
 2. The payment failed and the customer is redirected back to the checkout page,
    an error message is displayed, and their cart is rebuilt, so they can try a different payment method.
-3. There is an error while attempting to rebuild the customers shopping cart in Magento. In this case the customer is redirected to the order failure page.
+3. There is an error while attempting to rebuild the customers shopping cart in Magento. In this case the customer is
+   redirected to the order failure page.
 
 ## Order management
 
@@ -243,7 +266,6 @@ Clicking the **Cancel** button on an order will cancel the payment at Resurs
 Bank in its entirety.
 
 ![Resurs Bank](Documentation/16.png)
-
 
 ### Order management settings
 
