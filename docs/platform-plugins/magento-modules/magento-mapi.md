@@ -7,7 +7,9 @@ parent: Magento Modules
 grand_parent: Platform Plugins
 ---
 
-# Table of Contents
+# Resurs Bank - Magento 2 module for MAPI integration
+
+## Table of Contents
 
 - [Resurs Bank - Magento 2 module for MAPI integration](#resurs-bank---magento-2-module-for-mapi-integration)
 - [Installation](#installation)
@@ -28,8 +30,6 @@ grand_parent: Platform Plugins
     - [Delete aborted orders](#delete-aborted-orders)
     - [Enable developer mode](#enable-developer-mode)
 - [Cache](#cache)
-
-# Resurs Bank - Magento 2 module for MAPI integration
 
 This module integrates MAPI (**M**erchant **API**) with Magento 2. It uses the
 **Ecom** library (https://bitbucket.org/resursbankplugins/ecom2/) for this.
