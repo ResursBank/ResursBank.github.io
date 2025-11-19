@@ -631,29 +631,25 @@ server setup. Make sure PHP has permission to write to the target directory.
 
 Always verify that the log file is writable and regularly rotated if used in production environments.
 
-## Known Problems
+## Known problems
 
-In some rare cases, upgrades may cause unexpected behavior. This is relatively normal due to how PrestaShop handles
-cached data and configuration between versions.
+There are currently no known issues that require explicit warnings. Any minor irregularities that may occur during or
+after upgrades are generally resolved by updating to the latest version or performing a clean module reset.
 
-### During upgrade
-
-![](images/prestashop-cache-uncleared.png)
-
-If you experience issues after an upgrade, first make sure you have cleared your PrestaShop cache.
-When clearing the cache is not enough, performing a module reset usually resolves the problem.
-From version 1.0.3 and higher, this should be resolved, but in case of problems, follow the steps below.
+If unexpected behavior appears, start by resetting the module:
 
 ```bash
 php bin/console prestashop:module reset resursbank
 ```
 
-This command uninstalls and reinstalls the module in a clean way, and in most cases resolves upgrade-related issues
-without requiring further manual intervention. It, however, requires you to fill in your settings again from scratch.
+This performs a clean uninstall and reinstall. You will need to re-enter your settings, but it typically resolves
+upgrade-related issues without further steps.
 
-As an alternative, you can achieve the same by manually uninstalling and reinstalling the module:
+You can also uninstall and reinstall manually:
 
 ```bash
 php bin/console prestashop:module uninstall resursbank
 php bin/console prestashop:module install resursbank
 ```
+
+For other questions, see our [FAQ](https://developers.resurs.com/faq/).

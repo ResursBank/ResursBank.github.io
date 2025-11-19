@@ -61,3 +61,5 @@ php bin/console prestashop:module reset resursbank
 
 Additional troubleshooting guidance is available in the full
 documentation: [Known Problems – Resurs Merchant API for PrestaShop](resurs-merchant-api-for-prestashop#known-problems)
+
+For other questions, see our [FAQ](https://developers.resurs.com/faq/)
