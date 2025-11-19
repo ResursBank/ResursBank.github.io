@@ -27,7 +27,7 @@ github_username: "ResursBank"
 # Build settings
 remote_theme: just-the-docs/just-the-docs
 color_scheme: resurs
-footer_content: "Copyright &copy; Resurs Bank AB 2024"
+footer_content: "Copyright &copy; Resurs Bank AB 2025"
 logo: "/assets/resurs.svg"
 plugins:
   - jekyll-remote-theme
