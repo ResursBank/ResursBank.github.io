@@ -8,14 +8,16 @@ grand_parent: Platform Plugins
 nav_exclude: true
 ---
 
-# Resurs Bank Magento 2.4+ Installation Instruction 
+# Resurs Bank Magento 2.4+ Installation Instruction
 
 # System Requirements
+
 Outside of Magento’s own requirements you will need the PHP SOAP and
 JSON extensions. The iframe based checkout solution (RCO) will not
 function properly without SSL.
 
 # Packages
+
 The module consists of five separate packages, which can all be
 installed at once through the metapackage **resursbank/magento-all**, or
 installed separately if preferred. Resurs Bank recommends you install
@@ -23,6 +25,7 @@ the module using the supplied metapackage. Each of the packages are
 briefly described below.
 
 ## Core
+
 *resursbank/magento-core*
 
 Basic functionality required by all other packages such as API
@@ -32,6 +35,7 @@ that this is the only required package, all other packages are optional
 but recommended.
 
 ## Order Management
+
 *resursbank/magento-ordermanagement*
 
 Command integration against the API to capture, refund and void
@@ -41,6 +45,7 @@ payment changes state. Includes a feature to track events related to the
 payment.
 
 ## Simplified
+
 *resursbank/magento-simplified*
 
 Provides integration with Magento’s native checkout process. This module
@@ -49,18 +54,21 @@ the checkout process, it also enables a widget to fetch the customer
 address information from a remote service.
 
 ## RCO
+
 *resursbank/magento-rco*
 
 Provides a custom single-page checkout solution based on an iframe for
 quicker conversions. This module replaces the native checkout page.
 
 ## Part Payment
+
 *resursbank/magento-partpayment*
 
 Implements a widget on product pages to calculate estimated part payment
 prices
 
 # Installation Procedure
+
 Download extensions from [Magento
 marketplace.](https://marketplace.magento.com/resursbank-magento-all.html)
 
@@ -69,12 +77,13 @@ installation procedure is as follows.
 
 ```xml
 cd [magento_root_directory]
-composer require resursbank/magento-all
-bin/magento module:enable Resursbank_Core Resursbank_Simplified Resursbank_Rco Resursbank_Ordermanagement Resursbank_Partpayment
-bin/magento setup:upgrade
-bin/magento setup:di:compile
-bin/magento cache:flush
+        composer require resursbank/magento-all
+        bin/magento module:enable Resursbank_Core Resursbank_Simplified Resursbank_Rco Resursbank_Ordermanagement Resursbank_Partpayment
+        bin/magento setup:upgrade
+        bin/magento setup:di:compile
+        bin/magento cache:flush
 ```
+
 Open the administration panel and navigate to **Stores -\>
 Configuration** followed by **Sales -\> Payment Methods -\> Other
 Payment Methods** and click on the **Open** button displayed on the
@@ -106,7 +115,7 @@ reach your website. Please note that in order for any callbacks to
 function at all, including the test callback, your website **must be
 exposed to the Internet**, otherwise the API can’t reach it.
 
- ![](../../../attachments/71794809/71794813.png)
+![](../../../attachments/71794809/71794813.png)
 
 **Upgrading from the resursbank/checkout module**
 
@@ -129,8 +138,5 @@ drop foreign key **\[FOREIGN_KEY\]**;
 You can then re-run the **setup:upgrade **command to proceed with the
 upgrade.  
 **Please remember to always backup your database before executing any
-queries manually! **
-
-**  
-**
+queries manually!**
 
