@@ -7,7 +7,7 @@ parent: Development
 
 # Rounding
 
-> Please, do not round numbers on your side. If calculations result in
+> When using Simplified Flow API or After Shop Service API, please, do not round numbers on your side. If calculations result in
 > more than 2 decimals, please supply all decimals in the invocations of
 > our service.Later, the API will return five (5) decimals in the
 > getPayment-response - no matter how many decimals where sent in
