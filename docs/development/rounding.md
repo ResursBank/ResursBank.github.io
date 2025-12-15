@@ -27,7 +27,7 @@ The service compensates for errors less than, or equal to, 0.05 currency
 units (i.e. no matter which currency).  
 This error threshold must be respected in both the “**specLines**”
 values and in the “**totalAmount**” and “**totalVatAmount**” values
-within the “**paymentSpect**” XML tag, [see paymentSpec](paymentspec).
+within the “**paymentSpect**” XML tag, [see paymentSpec](/development/api-types/paymentspec/).
 
 To summarize:
 
