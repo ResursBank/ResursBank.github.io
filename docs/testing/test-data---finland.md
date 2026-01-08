@@ -16,7 +16,7 @@ Persons to use when testing.
 
 | Civic number | Address |   Merchant API  |
 | --------: | :-------------------- | :--------------|
-| 230580-7335  | Olavi Korhonen Nieminen<br>Kansakoulukatu 90<br>0100 Helsinki   |  [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status ACCEPTED<br>Callback AUTHORIZATION will be sent with status AUTHORIZED |
+| 230580-7335  | Olavi Korhonen Nieminen<br>Kansakoulukatu 90<br>00100 Helsinki   |  [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status ACCEPTED<br>Callback AUTHORIZATION will be sent with status AUTHORIZED |
 | 220950-9256  | Juhani Korhonen Mäkelä<br>Kalevankatu 15<br>00100 Helsinki      |  [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status REJECTED<br>Callback AUTHORIZATION will be sent with status REJECTED |
 | 140584-4785  | Anneli Korhonen Korhonen<br>Kalevankatu 1<br>00100 Helsinki     |  [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>Callback AUTHORIZATION will be sent with status FROZEN   |
 | 020681-1008  | Johanna Virtanen Virtanen<br>Fredrikinkatu 7<br>00100 Helsinki |  [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 5 seconds the payment is **unfrozen**<br>Callback AUTHORIZATION will be sent with status FROZEN then AUTHORIZED<br>Requires handleFrozenPayments is true   |
