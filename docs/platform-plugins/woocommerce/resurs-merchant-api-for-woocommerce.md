@@ -734,48 +734,6 @@ section like this:
 
 ![](files/91030064.png)
 
-## Payment failure messages in WooCommerce Blocks (Cart & Checkout)
-
-When using WooCommerce’s **block-based Cart and Checkout**, the way system messages are rendered differs significantly
-from classic (PHP-template based) WooCommerce pages.
-
-### Important note about failure messages
-
-WooCommerce Blocks do **not** automatically render WooCommerce notices (`wc_add_notice()`) unless the page explicitly
-contains the **Store Notices** block.
-
-This means that payment failure messages (for example, rejected or cancelled Resurs payments) may not be visible to the
-customer if:
-
-- The store uses the block-based Cart or Checkout, and
-- The **Store Notices** block is not present on those pages
-
-This behavior is a limitation of WooCommerce Blocks and is not specific to the Resurs Bank plugin.
-
-### Recommended solution
-
-To ensure that customers always see important payment-related messages:
-
-1. Edit the Cart and Checkout pages using the WordPress block editor
-2. Add the **WooCommerce → Store Notices** block
-3. Place it near the top of the page for best visibility
-
-Once the Store Notices block is present, all standard WooCommerce notices, including Resurs payment failure messages,
-will be displayed correctly.
-
-### Fallback behavior
-
-In environments where block notices are not rendered, the plugin may fall back to alternative rendering strategies to
-ensure that critical information reaches the customer. The exact placement of such fallback messages can vary depending
-on theme and layout.
-
-### Summary
-
-- Classic WooCommerce themes render notices automatically
-- WooCommerce Blocks require the **Store Notices** block
-- This is a WooCommerce architectural design choice
-- No plugin can fully override this behavior using PHP alone
-
 ## Handling free shipping cost values requiring numeric casting
 
 WooCommerce usually returns the shipping cost as a decimal string, but there are edge cases
