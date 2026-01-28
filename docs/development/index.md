@@ -5,6 +5,7 @@ permalink: /development/
 nav_order: 61
 has_children: true
 has_toc: false
+nav_exclude: true
 ---
 
 # Development
