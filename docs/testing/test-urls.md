@@ -15,11 +15,9 @@ parent: Testing
 > environment? Take a look here to get proper settings for your
 > firewall/web services. [Link to faq](/faq/)
 
-## Merchant Portal
+## Payment Management in Resurs Merchant Portal
 
-For the Merchant Portal go to:
-
-[https://merchantportal.integration.resurs.com/login](https://merchantportal.integration.resurs.com/login)
+[Merchant Portal](https://merchantportal.integration.resurs.com/login)
 
 You can see the generated invoice for payment method INVOICE in Merchant
 Portal, since the invoice is not sent by mail in the test-environment.
@@ -28,5 +26,5 @@ Portal, since the invoice is not sent by mail in the test-environment.
 
 See [MAPI documentation here](/merchant-api-2.0/) for more information.
 
-[https://merchant-api.integration.resurs.com/](https://merchant-api.integration.resurs.com/)
+[Merchant API docs](https://merchant-api.integration.resurs.com/)
 
