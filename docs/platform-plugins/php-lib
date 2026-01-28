@@ -2,6 +2,7 @@
 layout: page
 title: ECom php lib
 permalink: /platform-plugins/
+nav_exclude: true
 ---
 
 # ECom V2
