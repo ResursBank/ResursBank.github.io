@@ -2,6 +2,7 @@
 layout: page
 title: Go Live URLs
 permalink: /prod-urls/
+nav_exclude: true
 ---
 
 # Go Live URLs
