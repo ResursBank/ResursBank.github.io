@@ -5,6 +5,7 @@ permalink: /configuration-service/
 nav_order: 53
 has_children: true
 has_toc: false
+nav_exclude: true
 ---
 
 # Configuration Service 
