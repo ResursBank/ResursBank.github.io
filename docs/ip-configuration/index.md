@@ -5,6 +5,7 @@ permalink: /firewall-configuration/
 nav_order: 65
 has_children: false
 has_toc: false
+nav_exclude: true
 ---
 
 # Firewall configuration 
