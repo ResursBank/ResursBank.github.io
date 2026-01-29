@@ -79,7 +79,7 @@ compatible version of cURL. Make sure **CURLAUTH_BEARER** is available.
 > request for us. The things you do may be useful for others.
 
 
-# ECom PHP-lib
+# ECom2 PHP-lib
 
 Library to communicate with **Resurs Bank APIs**.  
 This library aims to provide **complete API coverage**, including Merchant API (MAPI), PriceSignage, Store management,
