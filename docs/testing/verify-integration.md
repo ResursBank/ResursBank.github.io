@@ -33,7 +33,10 @@ be considered "Done".
 - Enter customer information. (Regular expressions / pattern is used for different fields)
 - Is it possible to enter shipping address
 
-#### Payment Method:
+#### Payment Method (using Web Component):
+- Display Payment methods using Resurs Payment Widget Web Component.
+
+#### Payment Method (using Merchant API):
 - Display Payment methods depending on order value and min- and max- purchase limit
 - Sortorder payment methods according to Merchant Portal (debit first if used)
 - Legal requirements, payment methods with the corresponding price information links
