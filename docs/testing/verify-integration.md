@@ -33,15 +33,15 @@ be considered "Done".
 - Enter customer information. (Regular expressions / pattern is used for different fields)
 - Is it possible to enter shipping address
 
-#### Payment Method (using Web Component):
+#### Payment Method:
 - Display Payment methods using Resurs Payment Widget Web Component.
-
+<!--
 #### Payment Method (using Merchant API):
 - Display Payment methods depending on order value and min- and max- purchase limit
 - Sortorder payment methods according to Merchant Portal (debit first if used)
 - Legal requirements, payment methods with the corresponding price information links
 - Konsumentverket (SE) regulations on merchants obligation to provide information when marketing consumer credit. [Read more](https://publikationer.konsumentverket.se/produkter-och-tjanster/finansiella-tjanster/kovfs-20251-konsumentverkets-foreskrifter-om-naringsidkares-upplysningsskyldighet-vid-marknadsforing-av-konsumentkrediter)
-
+-->
 #### Complete Purchase:
 - Confirm of purchase with checkbox, text or by mandatory open legal links
 - Success page
