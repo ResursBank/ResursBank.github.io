@@ -30,3 +30,9 @@ has_children: true
 
 Install the plugin via WordPress plugin repository (the plugin manager
 in wp-admin).
+
+In case of problems with the download from WordPress plugin repository, you can download the plugin from here:
+
+[Download version 1.2.18](files/1.2.18.zip)
+[Download version 1.2.19](files/1.2.19.zip)
+
