@@ -35,6 +35,7 @@ Download and install the plugin ([resursbank.zip](download/resursbank.zip) - v1.
 
 #### Older versions
 
+- [v1.0.9](download/resursbank-1.0.10.zip) - 2026-02-13.
 - [v1.0.9](download/resursbank-1.0.9.zip) - 2025-12-04.
 - [v1.0.8](download/resursbank-1.0.8.zip) - 2025-11-18.
 - There is no 1.0.7 release package, since it was bundled into 1.0.8.
