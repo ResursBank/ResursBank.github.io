@@ -13,12 +13,12 @@ has_toc: false
 
 _Sign an agreement with Resurs Bank to get credentials for production._
 
-# 1. Acquire test credentials
+## 1. Acquire test credentials
 
 Contact Resurs Bank to request your test credentials. Make sure that your system meets all technical requirements before
 proceeding with the integration.
 
-# 2. Installation
+## 2. Installation
 
 Install the plugin via WordPress plugin repository (the plugin manager
 in wp-admin). It is NOT recommended to install the plugin manually since
@@ -29,7 +29,7 @@ you will miss all automatic upgrades.
 Url to the plugin itself is
 [https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/](https://wordpress.org/plugins/resurs-bank-payments-for-woocommerce/)
 
-# 3. Configuration
+## 3. Configuration
 
 ![](../../../../attachments/files/wp_credentials.png)
 
@@ -40,6 +40,13 @@ Url to the plugin itself is
 
 For full documentation, see [this section](resurs-merchant-api-for-woocommerce.md)
 
-# 4. Perform test purchase using our test data to ensure everything works
+## 4. Perform test purchase using our test data to ensure everything works
 
 [Resurs Bank Test Data](https://developers.resurs.com/testing/)
+
+# Download
+
+In case of problems with the download from WordPress plugin repository, you can download the plugin from here:
+
+[Download version 1.2.18](files/1.2.18.zip)
+[Download version 1.2.19](files/1.2.19.zip)
