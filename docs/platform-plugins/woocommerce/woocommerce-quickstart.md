@@ -48,5 +48,5 @@ For full documentation, see [this section](resurs-merchant-api-for-woocommerce.m
 
 In case of problems with the download from WordPress plugin repository, you can download the plugin from here:
 
-[Download version 1.2.18](files/1.2.18.zip)
-[Download version 1.2.19](files/1.2.19.zip)
+- [Download version 1.2.18](files/1.2.18.zip)
+- [Download version 1.2.19](files/1.2.19.zip)
