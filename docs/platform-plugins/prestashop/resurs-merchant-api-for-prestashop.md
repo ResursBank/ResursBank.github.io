@@ -49,6 +49,11 @@ has_toc: true
     - [Payment Details (Bottom Section)](#payment-details-bottom-section)
     - [Managing Orders](#managing-orders)
     - [Resurs Payment History](#resurs-payment-history)
+- [Caching](#caching)
+    - [Overview](#overview)
+    - [Cache Configuration](#cache-configuration)
+    - [Cache Storage](#cache-storage)
+    - [Cache Invalidation](#cache-invalidation)
 - [Troubleshooting and Error Handling](#troubleshooting-and-error-handling)
     - [Support Information Panel](#support-information-panel)
     - [Enabling Logging in PrestaShop](#enabling-logging-in-prestashop)
@@ -584,6 +589,55 @@ This log is helpful when debugging flow issues, such as orders stuck in incorrec
 
 > **Note:** If the callback is missing here or appears late, check the callback configuration and verify that your shop
 > is reachable externally via HTTPS.
+
+# Caching
+
+The Resurs Merchant API plugin for PrestaShop includes an integrated caching mechanism to optimize performance and
+reduce redundant API calls. This section explains how the caching system works and how to manage it.
+
+## Overview
+
+Caching is used to store frequently accessed data from the Resurs API, such as payment methods, store information, and
+configuration details. By caching this data, the plugin minimizes the number of external API requests, which improves
+performance and reduces latency for your store's checkout and administration panels.
+
+The caching system is **automatic** and requires minimal configuration, though understanding how it works can help
+optimize your store's performance.
+
+## Cache Configuration
+
+The plugin includes cache functionality accessible through the module's configuration panel:
+
+1. Go to the **Advanced Settings** section of the plugin configuration.
+2. You will find cache-related settings where you can:
+   - Enable or disable caching globally
+
+The cache configuration is straightforward—simply toggle caching on or off based on your performance needs.
+
+## Cache Storage
+
+The plugin uses **filesystem-based caching** as the primary and only guaranteed caching mechanism. This ensures reliable
+cache persistence across all server environments.
+
+Cache is stored in PrestaShop's `cache/` directory with hierarchical organization. If filesystem caching is unavailable
+or fails, the system automatically falls back to "None", meaning no caching will occur.
+
+## Cache Invalidation
+
+Cache is invalidated (cleared) automatically or manually in the following scenarios:
+
+**Automatic invalidation occurs when:**
+
+1. **Environment is switched** – Changing between Test and Production environments automatically clears the cache to ensure data consistency between environments.
+2. **Credentials are changed** – Updating Client ID or Client Secret credentials automatically clears the cache, as the cached data is specific to the current credentials.
+3. **Store ID is changed** – Updating the Store ID automatically clears the cache to ensure the correct store data is fetched.
+
+**Manual invalidation can be triggered by:**
+
+1. **Turning off caching** – Disabling the cache toggle in the **Advanced Settings** section will clear all cached data.
+2. **Using the Clear Cache button** – The **Clear Cache** button in the **Advanced Settings** section immediately flushes all cached data without affecting any other PrestaShop functionality.
+
+If you experience stale data in the checkout or configuration areas, use either method to clear the cache and resolve the issue.
 
 # Troubleshooting and error handling
 
