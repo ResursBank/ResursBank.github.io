@@ -38,6 +38,7 @@ This section can be expanded and collapsed to improve readability.
 <details>
 <summary><strong>Click to show/hide FROZEN records</strong></summary>
 
+<br>
 
 | Civic number     | Address                                                          | Merchant API                                                                                               | Note                                   |
 | ---------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------- |
@@ -46,6 +47,8 @@ This section can be expanded and collapsed to improve readability.
 | **197801069241** | Elsa Liamsson Alexandersson<br>Ekslingan 20<br>11521 Stockholm   | `GetPayment` → **FROZEN**<br>After 5 seconds → *annulled*<br>Callback AUTHORIZATION → FROZEN → REJECTED    | Requires `handleFrozenPayments = true` |
 | **199401012381** | Ebba Liamsson Williamsson<br>Glassgatan 11<br>41655 Göteborg     | `GetPayment` → **FROZEN**<br>After 10 minutes → *unfrozen*<br>Callback AUTHORIZATION → FROZEN → AUTHORIZED | Requires `handleFrozenPayments = true` |
 | **198909194451** | Vincent Liamsson Williamsson<br>Glassgatan 12<br>11521 Stockholm | `GetPayment` → **FROZEN**<br>After 10 minutes → *annulled*<br>Callback AUTHORIZATION → FROZEN → REJECTED   | Requires `handleFrozenPayments = true` |
+
+<br>
 
 </details>
 
