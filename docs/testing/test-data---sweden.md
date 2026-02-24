@@ -12,23 +12,56 @@ parent: Testing
 ### Persons
 Persons to use when testing. 
 
-> If you use waitForFraudControl=false the booking will get frozen
-> automatically and you must register the
-> callback automaticFraudControl to get informed when the booking is
-> thawed.
+
+> If you use `handleFrozenPayments=true`, payments may be frozen due to fraud controls. If you want as many approved payments as possible, you should handle frozen payments. But in some cases it is not possible to handle frozen payments, for example when booking a flight there may not be a way to cancel the booking if the frozen payment does not get authorized. Register the callback `AUTHORIZATION` to get informed when the payment is authorized.
 
 
-| Civic number | Get address response|  Merchant API | Note  |
-|--------:|:----------------|----------------------------------|-----------------------------|
-| 198305147715 | Vincent Williamsson Alexandersson<br>Glassgatan 15<br>41655 Göteborg | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status ACCEPTED<br>Callback AUTHORIZATION will be sent with status AUTHORIZED<br>if callbacks are in use |  |
-| 197211072793 | Oliver Williamsson Alexandersson<br>Makadamg 5<br>25024 Helsingborg    |  [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status REJECTED<br>Callback AUTHORIZATION will be sent with status REJECTED                                    |                                                                   |
-| 198209123705 |  Julia Liamsson Liamsson<br>Makadamg 17<br>25024 Helsingborg      |  [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>Callback AUTHORIZATION will be sent with status FROZEN |  |
-| 198001010001 |  Stella Liamsson Eliassson<br>Makadamg 3<br>41655 Göteborg      | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 5 seconds the payment is **unfrozen**<br>Callback AUTHORIZATION will be sent with status FROZEN then AUTHORIZED<br>Requires handleFrozenPayments is true      |  |
-| 197801069241 |  Elsa Liamsson Alexandersson<br>Ekslingan 20<br>11521 Stockholm    | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 5 seconds the payment is **annulled**<br>Callback AUTHORIZATION will be sent with status FROZEN then REJECTED<br>Requires handleFrozenPayments is true     | |
-| 199401012381 |  Ebba Liamsson Williamsson<br>Glassgatan 11<br>41655 Göteborg    | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 10 minutes the payment is **unfrozen**<br>Callback AUTHORIZATION will be sent with status FROZEN then AUTHORIZED<br>Requires handleFrozenPayments is true   | |
-| 198909194451 |  Vincent Liamsson Williamsson<br>Glassgatan 12<br>11521 Stockholm   | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 10 minutes the payment is **annulled**<br>Callback AUTHORIZATION will be sent with status FROZEN then REJECTED<br>Requires handleFrozenPayments is true   |  |
-| 195004269741 |  Stella Liamsson Williamsson<br>Makadamg 16<br>11521 Stockholm    | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status REJECTED<br>Callback AUTHORIZATION will be sent with status REJECTED                                                                                    |  |
-| 198801082382 | Olivia Williamsson Alexandersson<br>Ekslingan 10<br>21149 Malmö  |  [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status ACCEPTED<br>Callback AUTHORIZATION will be sent with status AUTHORIZED   |   customer got no cards/accounts which allow **new account**      |
+# Status **FROZEN** – Sunset Information
+
+## 🔔 Sunset Notice
+
+The status value **`FROZEN`** is **deprecated** and will be removed from the payment flow.  
+It is only used during a transitional period and should not be relied upon in new implementations.
+
+New integrations must instead use the final status values, such as:
+
+*   `AUTHORIZED`
+*   `REJECTED`
+*   `ANNULLED`
+
+***
+
+## 🔒 Records with status `FROZEN`
+
+This section can be expanded and collapsed to improve readability.
+
+<details>
+<summary><strong>Click to show/hide FROZEN records</strong></summary>
+
+<br>
+
+| Civic number     | Address                                                          | Merchant API                                                                                               | Note                                   |
+| ---------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| **198209123705** | Julia Liamsson Liamsson<br>Makadamg 17<br>25024 Helsingborg      | `GetPayment` → **FROZEN**<br>Callback AUTHORIZATION → **FROZEN**                                           |                                        |
+| **198001010001** | Stella Liamsson Eliassson<br>Makadamg 3<br>41655 Göteborg        | `GetPayment` → **FROZEN**<br>After 5 seconds → *unfrozen*<br>Callback AUTHORIZATION → FROZEN → AUTHORIZED  | Requires `handleFrozenPayments = true` |
+| **197801069241** | Elsa Liamsson Alexandersson<br>Ekslingan 20<br>11521 Stockholm   | `GetPayment` → **FROZEN**<br>After 5 seconds → *annulled*<br>Callback AUTHORIZATION → FROZEN → REJECTED    | Requires `handleFrozenPayments = true` |
+| **199401012381** | Ebba Liamsson Williamsson<br>Glassgatan 11<br>41655 Göteborg     | `GetPayment` → **FROZEN**<br>After 10 minutes → *unfrozen*<br>Callback AUTHORIZATION → FROZEN → AUTHORIZED | Requires `handleFrozenPayments = true` |
+| **198909194451** | Vincent Liamsson Williamsson<br>Glassgatan 12<br>11521 Stockholm | `GetPayment` → **FROZEN**<br>After 10 minutes → *annulled*<br>Callback AUTHORIZATION → FROZEN → REJECTED   | Requires `handleFrozenPayments = true` |
+
+</details>
+
+***
+
+## ✔ Records without `FROZEN`
+
+| Civic number | Address                                                              | Merchant API          | Note                                                  |
+| ------------ | -------------------------------------------------------------------- | --------------------- | ----------------------------------------------------- |
+| 198305147715 | Vincent Williamsson Alexandersson<br>Glassgatan 15<br>41655 Göteborg | ACCEPTED → AUTHORIZED |                                                       |
+| 197211072793 | Oliver Williamsson Alexandersson<br>Makadamg 5<br>25024 Helsingborg  | REJECTED → REJECTED   |                                                       |
+| 195004269741 | Stella Liamsson Williamsson<br>Makadamg 16<br>11521 Stockholm        | REJECTED → REJECTED   |                                                       |
+| 198801082382 | Olivia Williamsson Alexandersson<br>Ekslingan 10<br>21149 Malmö      | ACCEPTED → AUTHORIZED | Customer has no cards/accounts allowing *new account* |
+
+***
 
 ###  Organisations
 Organisations to use when testing.
