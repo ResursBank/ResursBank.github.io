@@ -38,7 +38,6 @@ This section can be expanded and collapsed to improve readability.
 <details>
 <summary><strong>Click to show/hide FROZEN records</strong></summary>
 
-<br>
 
 | Civic number     | Address                                                          | Merchant API                                                                                               | Note                                   |
 | ---------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------- |
