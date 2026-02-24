@@ -28,6 +28,7 @@ New integrations must instead use the final status values, such as:
 *   `AUTHORIZED`
 *   `REJECTED`
 *   `ANNULLED`
+*   `CAPTURED`
 
 ***
 
