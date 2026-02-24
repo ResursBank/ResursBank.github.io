@@ -10,9 +10,6 @@ parent: Testing
 
 > Phone number +4525557585
 
-### Persons
-Persons to use when testing.
-
 ***
 
 # 🔔 Sunset Notice — `FROZEN` Status Is Deprecated
