@@ -27,6 +27,7 @@ New integrations must instead use the final status values, such as:
 *   `REJECTED`
 *   `ANNULLED`
 *   `CAPTURED`
+  
 ***
 
 ## ✔ Records without `FROZEN`
