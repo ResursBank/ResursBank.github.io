@@ -12,16 +12,19 @@ parent: Testing
 
 ***
 
-# 🔔 Sunset Notice — `FROZEN` Status Is Deprecated
+# Status **FROZEN** – Sunset Information
+
+## 🔔 Sunset Notice
 
 The status value **`FROZEN`** is **deprecated** and will be removed from the payment flow.  
-It may still appear temporarily during a transition period, but **should not be used** in new implementations.
+It may still appear during a transitional period, but **should not be used** in new implementations.
 
-New integrations must rely on final status values such as:
+All new integrations must rely on final status values such as:
 
 *   `AUTHORIZED`
 *   `REJECTED`
 *   `ANNULLED`
+*   `CAPTURED`
 
 ***
 
