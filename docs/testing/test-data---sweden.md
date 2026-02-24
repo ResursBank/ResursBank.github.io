@@ -21,9 +21,8 @@ It may still appear during a transitional period, but **should not be used** in 
 All new integrations must rely on final status values such as:
 
 *   `AUTHORIZED`
-*   `REJECTED`
-*   `ANNULLED`
 *   `CAPTURED`
+*   `REJECTED`
 
 ***
 
