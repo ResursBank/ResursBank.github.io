@@ -31,29 +31,6 @@ New integrations must instead use the final status values, such as:
 
 ***
 
-## 🔒 Records with status `FROZEN`
-
-This section can be expanded and collapsed to improve readability.
-
-<details>
-<summary><strong>Click to show/hide FROZEN records</strong></summary>
-
-<br>
-
-| Civic number     | Address                                                          | Merchant API                                                                                               | Note                                   |
-| ---------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| **198209123705** | Julia Liamsson Liamsson<br>Makadamg 17<br>25024 Helsingborg      | `GetPayment` → **FROZEN**<br>Callback AUTHORIZATION → **FROZEN**                                           |                                        |
-| **198001010001** | Stella Liamsson Eliassson<br>Makadamg 3<br>41655 Göteborg        | `GetPayment` → **FROZEN**<br>After 5 seconds → *unfrozen*<br>Callback AUTHORIZATION → FROZEN → AUTHORIZED  | Requires `handleFrozenPayments = true` |
-| **197801069241** | Elsa Liamsson Alexandersson<br>Ekslingan 20<br>11521 Stockholm   | `GetPayment` → **FROZEN**<br>After 5 seconds → *annulled*<br>Callback AUTHORIZATION → FROZEN → REJECTED    | Requires `handleFrozenPayments = true` |
-| **199401012381** | Ebba Liamsson Williamsson<br>Glassgatan 11<br>41655 Göteborg     | `GetPayment` → **FROZEN**<br>After 10 minutes → *unfrozen*<br>Callback AUTHORIZATION → FROZEN → AUTHORIZED | Requires `handleFrozenPayments = true` |
-| **198909194451** | Vincent Liamsson Williamsson<br>Glassgatan 12<br>11521 Stockholm | `GetPayment` → **FROZEN**<br>After 10 minutes → *annulled*<br>Callback AUTHORIZATION → FROZEN → REJECTED   | Requires `handleFrozenPayments = true` |
-
-<br>
-
-</details>
-
-***
-
 ## ✔ Records without `FROZEN`
 
 | Civic number | Address                                                              | Merchant API          | Note                                                  |
@@ -64,6 +41,21 @@ This section can be expanded and collapsed to improve readability.
 | 198801082382 | Olivia Williamsson Alexandersson<br>Ekslingan 10<br>21149 Malmö      | ACCEPTED → AUTHORIZED | Customer has no cards/accounts allowing *new account* |
 
 ***
+
+## 🔒 Records with status `FROZEN`
+
+
+| Civic number     | Address                                                          | Merchant API                                                                                               | Note                                   |
+| ---------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| **198209123705** | Julia Liamsson Liamsson<br>Makadamg 17<br>25024 Helsingborg      | `GetPayment` → **FROZEN**<br>Callback AUTHORIZATION → **FROZEN**                                           |                                        |
+| **198001010001** | Stella Liamsson Eliassson<br>Makadamg 3<br>41655 Göteborg        | `GetPayment` → **FROZEN**<br>After 5 seconds → *unfrozen*<br>Callback AUTHORIZATION → FROZEN → AUTHORIZED  | Requires `handleFrozenPayments = true` |
+| **197801069241** | Elsa Liamsson Alexandersson<br>Ekslingan 20<br>11521 Stockholm   | `GetPayment` → **FROZEN**<br>After 5 seconds → *annulled*<br>Callback AUTHORIZATION → FROZEN → REJECTED    | Requires `handleFrozenPayments = true` |
+| **199401012381** | Ebba Liamsson Williamsson<br>Glassgatan 11<br>41655 Göteborg     | `GetPayment` → **FROZEN**<br>After 10 minutes → *unfrozen*<br>Callback AUTHORIZATION → FROZEN → AUTHORIZED | Requires `handleFrozenPayments = true` |
+| **198909194451** | Vincent Liamsson Williamsson<br>Glassgatan 12<br>11521 Stockholm | `GetPayment` → **FROZEN**<br>After 10 minutes → *annulled*<br>Callback AUTHORIZATION → FROZEN → REJECTED   | Requires `handleFrozenPayments = true` |
+
+***
+
+
 
 ###  Organisations
 Organisations to use when testing.
