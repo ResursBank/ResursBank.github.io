@@ -9,12 +9,7 @@ parent: Testing
 
 > Phone number 0701-112233
 
-### Persons
-Persons to use when testing. 
-
-
-> If you use `handleFrozenPayments=true`, payments may be frozen due to fraud controls. If you want as many approved payments as possible, you should handle frozen payments. But in some cases it is not possible to handle frozen payments, for example when booking a flight there may not be a way to cancel the booking if the frozen payment does not get authorized. Register the callback `AUTHORIZATION` to get informed when the payment is authorized.
-
+***
 
 # Status **FROZEN** – Sunset Information
 
