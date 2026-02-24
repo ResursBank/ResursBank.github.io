@@ -19,14 +19,14 @@ has_children: true
 ## 🔔 Sunset Notice
 
 The status value **`FROZEN`** is **deprecated** and will be removed from the payment flow.  
-It is only used during a transitional phase and must not be used for new integrations.
+It is only used during a transitional period and should not be relied upon in new implementations.
 
-Recommended final status values are:
+New integrations must instead use the final status values, such as:
 
 *   `AUTHORIZED`
 *   `REJECTED`
 *   `ANNULLED`
-
+*   `CAPTURED`
 ***
 
 ## ✔ Records without `FROZEN`
