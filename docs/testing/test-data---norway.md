@@ -33,10 +33,10 @@ All new integrations must rely on final status values such as:
 
 | Civic number     | Merchant API                                                                                                                                                              |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **180872‑48794** | **GetPayment** returns **ACCEPTED**<br>Callback **AUTHORIZATION** will be sent with status **AUTHORIZED**                                                                 |
-| **010249‑24986** | **GetPayment** returns **REJECTED**<br>Callback **AUTHORIZATION** will be sent with status **REJECTED**                                                                   |
-| **260249‑14002** | **GetPayment** returns **REJECTED**<br>Callback **AUTHORIZATION** will be sent with status **REJECTED**                                                                   |
-| **270288‑09552** | Customer has no cards/accounts allowing **new card/account**<br>**GetPayment** returns **ACCEPTED**<br>Callback **AUTHORIZATION** will be sent with status **AUTHORIZED** |
+| **180872-48794** | **GetPayment** returns **ACCEPTED**<br>Callback **AUTHORIZATION** will be sent with status **AUTHORIZED**                                                                 |
+| **010249-24986** | **GetPayment** returns **REJECTED**<br>Callback **AUTHORIZATION** will be sent with status **REJECTED**                                                                   |
+| **260249-14002** | **GetPayment** returns **REJECTED**<br>Callback **AUTHORIZATION** will be sent with status **REJECTED**                                                                   |
+| **270288-09552** | Customer has no cards/accounts allowing **new card/account**<br>**GetPayment** returns **ACCEPTED**<br>Callback **AUTHORIZATION** will be sent with status **AUTHORIZED** |
 
 ***
 
@@ -45,11 +45,11 @@ All new integrations must rely on final status values such as:
 
 | Civic number     | Merchant API                                                                                                                                                                                                        |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **020849‑29428** | **GetPayment** returns **FROZEN**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN**                                                                                                                 |
-| **230682‑01608** | **GetPayment** returns **FROZEN**<br>After 5 seconds the payment becomes **unfrozen**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN** → **AUTHORIZED**<br>Requires `handleFrozenPayments = true`  |
-| **050178‑18440** | **GetPayment** returns **FROZEN**<br>After 5 seconds the payment is **annulled**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN** → **REJECTED**<br>Requires `handleFrozenPayments = true`         |
-| **010782‑12868** | **GetPayment** returns **FROZEN**<br>After 10 minutes the payment becomes **unfrozen**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN** → **AUTHORIZED**<br>Requires `handleFrozenPayments = true` |
-| **030477‑05311** | **GetPayment** returns **FROZEN**<br>After 10 minutes the payment is **annulled**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN** → **REJECTED**<br>Requires `handleFrozenPayments = true`        |
+| **020849-29428** | **GetPayment** returns **FROZEN**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN**                                                                                                                 |
+| **230682-01608** | **GetPayment** returns **FROZEN**<br>After 5 seconds the payment becomes **unfrozen**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN** → **AUTHORIZED**<br>Requires `handleFrozenPayments = true`  |
+| **050178-18440** | **GetPayment** returns **FROZEN**<br>After 5 seconds the payment is **annulled**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN** → **REJECTED**<br>Requires `handleFrozenPayments = true`         |
+| **010782-12868** | **GetPayment** returns **FROZEN**<br>After 10 minutes the payment becomes **unfrozen**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN** → **AUTHORIZED**<br>Requires `handleFrozenPayments = true` |
+| **030477-05311** | **GetPayment** returns **FROZEN**<br>After 10 minutes the payment is **annulled**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN** → **REJECTED**<br>Requires `handleFrozenPayments = true`        |
 
 ***
 
