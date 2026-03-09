@@ -12,30 +12,46 @@ has_children: true
 
 > Phone number 49999999
 
-> All phone numbers are intended for test of functionality between the
-> merchant and Resurs, not for tests between the merchant and end
-> customer point. At creation time they are tested not to be real but at
-> any time, without notice, they might be picked up for use by tele
-> companies. If they then are used for tests, real people might get
-> notifications, depending on use. The numbers have no logical
-> functionality at Resurs other than to fetch an address, so if you want
-> to test towards end customer point you can use your own private
-> numbers.
+***
 
-### Persons
-Persons to use when testing.
+# Status **FROZEN** – Sunset Information
 
-| Civic number | Merchant API  |
-| ------------:| :-----------------|
-| 180872-48794 | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status ACCEPTED<br>Callback AUTHORIZATION will be sent with status AUTHORIZED  |
-| 010249-24986 | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status REJECTED<br>Callback AUTHORIZATION will be sent with status REJECTED |
-| 020849-29428 |  [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>Callback AUTHORIZATION will be sent with status FROZEN |
-| 230682-01608 | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 5 seconds the payment is **unfrozen**<br>Callback AUTHORIZATION will be sent with status FROZEN then AUTHORIZED<br>Requires handleFrozenPayments is true |
-| 050178-18440 | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 5 seconds the payment is **annulled**<br>Callback AUTHORIZATION will be sent with status FROZEN then REJECTED<br>Requires handleFrozenPayments is true |
-| 010782-12868 | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 10 minutes the payment is **unfrozen**<br>Callback AUTHORIZATION will be sent with status FROZEN then AUTHORIZED<br>Requires handleFrozenPayments is true |
-| 030477-05311 | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status FROZEN<br>After 10 minutes the payment is **annulled**<br>Callback AUTHORIZATION will be sent with status FROZEN then REJECTED<br>Requires handleFrozenPayments is true |
-| 260249-14002 | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status REJECTED<br>Callback AUTHORIZATION will be sent with status REJECTED |
-| 270288-09552 | customer got no cards/accounts which allow **new card/account** | [Get payment](https://merchant-api.resurs.com/docs/v2/merchant_payments_v2#/Payment%20information/getPayment) returns status ACCEPTED<br>Callback AUTHORIZATION will be sent with status AUTHORIZED |
+## 🔔 Sunset Notice
+
+The status value **`FROZEN`** is **deprecated** and will be removed from the payment flow.  
+It may still appear during a transitional period, but **should not be used** in new implementations.
+
+All new integrations must rely on final status values such as:
+
+*   `AUTHORIZED`
+*   `CAPTURED`
+*   `REJECTED`
+  
+***
+
+## ✔ Records without `FROZEN`
+
+| Civic number     | Merchant API                                                                                                                                                              |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **180872-48794** | **GetPayment** returns **ACCEPTED**<br>Callback **AUTHORIZATION** will be sent with status **AUTHORIZED**                                                                 |
+| **010249-24986** | **GetPayment** returns **REJECTED**<br>Callback **AUTHORIZATION** will be sent with status **REJECTED**                                                                   |
+| **260249-14002** | **GetPayment** returns **REJECTED**<br>Callback **AUTHORIZATION** will be sent with status **REJECTED**                                                                   |
+| **270288-09552** | Customer has no cards/accounts allowing **new card/account**<br>**GetPayment** returns **ACCEPTED**<br>Callback **AUTHORIZATION** will be sent with status **AUTHORIZED** |
+
+***
+
+## 🔒 Records with status `FROZEN`
+
+
+| Civic number     | Merchant API                                                                                                                                                                                                        |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **020849-29428** | **GetPayment** returns **FROZEN**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN**                                                                                                                 |
+| **230682-01608** | **GetPayment** returns **FROZEN**<br>After 5 seconds the payment becomes **unfrozen**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN** → **AUTHORIZED**<br>Requires `handleFrozenPayments = true`  |
+| **050178-18440** | **GetPayment** returns **FROZEN**<br>After 5 seconds the payment is **annulled**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN** → **REJECTED**<br>Requires `handleFrozenPayments = true`         |
+| **010782-12868** | **GetPayment** returns **FROZEN**<br>After 10 minutes the payment becomes **unfrozen**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN** → **AUTHORIZED**<br>Requires `handleFrozenPayments = true` |
+| **030477-05311** | **GetPayment** returns **FROZEN**<br>After 10 minutes the payment is **annulled**<br>Callback **AUTHORIZATION** will be sent with status **FROZEN** → **REJECTED**<br>Requires `handleFrozenPayments = true`        |
+
+***
 
 ### Organisations
 
