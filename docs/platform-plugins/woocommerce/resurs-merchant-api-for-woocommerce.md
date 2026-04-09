@@ -436,6 +436,13 @@ also pushes the order update to the payment at Resurs.
 When handling WooCommerce orders paid through Resurs Bank, the order editor provides a simple but powerful way of
 synchronizing order status and payment handling directly with Resurs.
 
+
+> ⚠️ **Limitation**
+>
+> It is not possible to use Resurs payment methods when creating orders manually via the WordPress admin (`wp-admin`).  
+> Resurs payment methods are only supported for purchases completed through the frontend checkout.
+
+
 The order status dropdown is directly connected to Resurs Bank’s payment handling. The following actions are supported:
 
 ![](files/order-management-editor.png)
