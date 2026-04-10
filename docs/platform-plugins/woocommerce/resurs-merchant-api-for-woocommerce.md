@@ -741,6 +741,19 @@ section like this:
 
 ![](files/91030064.png)
 
+
+## Limitation: Manual Orders in WooCommerce Admin
+
+> ⚠️ **Limitation**
+>
+> Resurs payment methods are not available when creating orders manually in the WooCommerce admin interface (`wp-admin`).
+
+The Resurs Payments plugin only supports payment methods for orders created through the standard **frontend checkout flow**.
+
+This limitation is caused by regulatory requirements related to **customer authentication and legally binding signing**, which require a controlled end-user checkout flow and cannot be fulfilled for manually created admin orders.
+
+As a result, Resurs payment options will **not** appear for orders that are manually created or edited in the WooCommerce admin panel.
+
 ## Handling free shipping cost values requiring numeric casting
 
 WooCommerce usually returns the shipping cost as a decimal string, but there are edge cases
