@@ -742,7 +742,7 @@ section like this:
 ![](files/91030064.png)
 
 
-## Limitation: Manual Orders in WooCommerce Admin
+## Manual Orders in WooCommerce Admin
 
 > ⚠️ **Limitation**
 >
