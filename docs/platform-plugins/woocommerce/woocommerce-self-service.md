@@ -37,6 +37,14 @@ examples.
   * [Example workaround: Rounding prices to the nearest quarter](#example-workaround-rounding-prices-to-the-nearest-quarter)
   * [Example plugin implementation](#example-plugin-implementation-1)
   * [Important notes](#important-notes)
+* [ERP integration examples for Resurs + WooCommerce](#erp-integration-examples-for-resurs--woocommerce)
+  * [Overview: ERP as master for order data](#overview-erp-as-master-for-order-data)
+  * [Sync between ERP, e-commerce and payment](#sync-between-erp-e-commerce-and-payment)
+  * [Order status, changes and deviations](#order-status-changes-and-deviations)
+  * [Example integration pattern from a known merchant setup](#example-integration-pattern-from-a-known-merchant-setup)
+  * [Code example: trigger-safe ERP import](#code-example-trigger-safe-erp-import)
+  * [Common pitfalls](#common-pitfalls)
+  * [Development helper: manual status tool](#development-helper-manual-status-tool)
 
 # Custom pricing in part payment widget logic using filters
 
@@ -317,4 +325,234 @@ add_action('plugins_loaded', function () {
 - Use of `ini_set('precision', 30)` is only for testing purposes. In production, ensure your PHP configuration aligns
   with your gateway's requirements.
 
+# ERP integration examples for Resurs + WooCommerce
 
+This section documents one partner-specific integration example.
+
+> **Important:** The Resurs plugin does **not** expose an inbound API for receiving ERP payloads directly.
+
+## Overview: ERP as master for order data
+
+In this documented partner case, ERP provided the order changes, while WooCommerce handled lifecycle execution through
+native hooks and status transitions.
+Put simply: ERP decided *what* changed, and WooCommerce (with the Resurs plugin) handled *how* the change was applied.
+
+## Sync between ERP, e-commerce and payment
+
+In this partner case, the integration flow was:
+
+1. ERP exports order updates to a file payload.
+2. File is transferred to the WooCommerce environment (for example SFTP).
+3. A scheduled import job (WP-Cron) reads rows and applies status/refund updates in WooCommerce.
+4. Resurs reacts through existing plugin hooks and executes payment-side actions.
+
+Other ERP integration patterns may exist, but they are outside the scope of this example.
+For this documented case, the important part is that updates were applied through WooCommerce methods that fire normal
+triggers.
+
+## Order status, changes and deviations
+
+For standard status changes, use `WC_Order::update_status()`. For refund scenarios, create a WooCommerce refund object.
+These two paths ensure the expected triggers are fired in the same way as native WooCommerce operations.
+
+If ERP sends exceptional events (partial delivery, compensation, retry, correction), map them to WooCommerce-compatible
+actions first, then apply through the same flow. Avoid custom shortcuts that skip triggers.
+
+## Example integration pattern from a known merchant setup
+
+1. ERP exports status data (CSV/XML/JSON).
+2. Import bridge (for example server cron or WP-Cron) reads the payload.
+3. Bridge resolves WooCommerce order id and desired action.
+4. Bridge calls `update_status()` or `wc_create_refund()`.
+5. Resurs plugin handles payment lifecycle behavior (including capture eligibility checks such as `canCapture`).
+
+## Code example: trigger-safe ERP import
+
+`resursbank-erp-emulation.php` is primarily a **manual admin test harness** (form submit + debug output).
+For ERP imports, one can use the same core transition logic but without the admin/request UI parts.
+
+Using the same transition logic when applying imported ERP updates is what makes the required triggers run in the
+natural WooCommerce flow.
+
+```php
+<?php
+/**
+ * Plugin Name: Resurs Bank ERP Emulation for WooCommerce
+ * Description: Provides an admin interface for manually triggering WooCommerce order status changes,
+ *              demonstrating how ERP systems can integrate with WooCommerce's native order status flow
+ *              via $order->update_status(). The Resurs Bank plugin hooks into standard WooCommerce
+ *              status actions and handles the payment lifecycle (e.g. capture, annulment) automatically —
+ *              no custom capture logic is required here. Note: the Resurs Bank plugin has no inbound API
+ *              for receiving data from external systems. Real ERP integrations must deliver order data
+ *              via SFTP (or similar file transfer) and process it with a scheduled cron job that calls
+ *              update_status() on each affected WooCommerce order.
+ * Version: 1.0.0
+ */
+
+add_action('plugins_loaded', function () {
+    add_action('admin_menu', 'resursbank_erp_register_status_menu');
+
+    function resursbank_erp_register_status_menu()
+    {
+        add_menu_page(
+            'Order Status Change',
+            'Order Status',
+            'manage_woocommerce',
+            'resursbank-erp-status-change',
+            'resursbank_erp_render_status_page',
+            'dashicons-update',
+            56
+        );
+    }
+
+    function resursbank_erp_render_status_page()
+    {
+        ?>
+        <div class="wrap">
+            <h1>Resurs Bank &ndash; Order Status Manual Change</h1>
+            <p>
+                This tool demonstrates how an ERP system can update WooCommerce order statuses using
+                the native <code>$order->update_status()</code> method. The Resurs Bank plugin listens
+                to WooCommerce's standard status hooks and handles the payment lifecycle (such as capture
+                or annulment) automatically &mdash; no custom capture logic is required here.
+            </p>
+            <div class="notice notice-info inline">
+                <p><strong>ERP Integration Architecture &mdash; Important Notes</strong></p>
+                <p>
+                    The Resurs Bank plugin does <strong>not</strong> expose an inbound HTTP API for receiving
+                    data from external systems. All ERP-driven order management must therefore be initiated
+                    from the WooCommerce side.
+                </p>
+                <p>The recommended integration pattern is:</p>
+                <ol>
+                    <li>
+                        <strong>Data export from ERP:</strong> The ERP system exports order status updates
+                        (e.g. as CSV, XML, or JSON) and transfers the file to the WooCommerce server via
+                        <strong>SFTP</strong> (or a shared network path with appropriate access controls).
+                    </li>
+                    <li>
+                        <strong>Scheduled processing via cron:</strong> A <strong>server-side cron job</strong>
+                        (or WP-Cron for low-volume sites) runs at a regular interval, reads the exported file,
+                        and calls <code>$order->update_status()</code> for each order. This is the same
+                        mechanism this tool uses manually.
+                    </li>
+                    <li>
+                        <strong>Resurs Bank reacts automatically:</strong> Once the WooCommerce status changes,
+                        the Resurs Bank plugin picks it up via standard WooCommerce hooks and performs the
+                        corresponding payment action (capture, annulment, refund) &mdash; no additional
+                        integration code is needed.
+                    </li>
+                </ol>
+                <p>
+                    <strong>Example cron entry</strong> (runs every 5 minutes, processes an import script):
+                </p>
+                <pre style="background:#f6f7f7;padding:8px;border-left:4px solid #ccd0d4;">*/5 * * * * php /var/www/html/wp-content/plugins/your-erp-bridge/import.php</pre>
+                <p>
+                    The import script should read the SFTP-delivered file and, for each row, look up the
+                    WooCommerce order and call <code>wc_get_order( $id )->update_status( $newStatus )</code>.
+                    This tool can be used to test that the status transitions work correctly before deploying
+                    the automated cron-based bridge.
+                </p>
+            </div>
+            <?php
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resursbank_erp_status_change'])) {
+                $result    = false;
+                $orderNr   = intval($_REQUEST['resursbank_erp_order_nr']);
+                $newStatus = strtolower((string)$_REQUEST['resursbank_erp_new_status']);
+
+                // Normalize status: strip "wc-" prefix if present
+                $newStatus = preg_replace('/^wc-/', '', $newStatus);
+
+                echo "<strong>Processing request</strong><br/>";
+                echo "Order: " . esc_html($orderNr) . "<br />";
+                echo "New status: " . esc_html($newStatus) . "<br />";
+
+                $wcOrder = wc_get_order($orderNr);
+
+                if ($wcOrder instanceof WC_Order) {
+                    echo "Valid order found.<br />";
+
+                    if ($newStatus === 'refunded') {
+                        // Refund status requires a WooCommerce refund object.
+                        // The Resurs Bank plugin will handle the actual payment refund
+                        // through its own hook on wc_create_refund / refund_payment.
+                        $existingRefunds = $wcOrder->get_refunds();
+
+                        if (is_array($existingRefunds) && count($existingRefunds) > 0) {
+                            echo "Refund object already exists. Skipping refund creation.<br />";
+                        } else {
+                            $total     = (float)$wcOrder->get_total();
+                            $refunded  = (float)$wcOrder->get_total_refunded();
+                            $remaining = max(0.0, $total - $refunded);
+
+                            echo "No refund object found. Remaining refundable amount: " . esc_html($remaining) . "<br />";
+
+                            if ($remaining > 0) {
+                                $refund = wc_create_refund([
+                                    'amount'         => $remaining,
+                                    'reason'         => 'Refund triggered via ERP emulation tool',
+                                    'order_id'       => $wcOrder->get_id(),
+                                    'refund_payment' => false, // Set true to trigger gateway refund
+                                    'restock_items'  => false,
+                                ]);
+
+                                if (is_wp_error($refund)) {
+                                    echo "Refund creation failed: " . esc_html($refund->get_error_message()) . "<br />";
+                                } else {
+                                    echo "Refund object created. Refund ID: " . esc_html($refund->get_id()) . "<br />";
+                                }
+                            } else {
+                                echo "Nothing left to refund (remaining amount is 0).<br />";
+                            }
+                        }
+                    } else {
+                        // For all other statuses, use the native update_status() method.
+                        // This fires woocommerce_order_status_changed and all related hooks,
+                        // allowing the Resurs Bank plugin to react (e.g. capture on completed).
+                        $result = $wcOrder->update_status($newStatus, 'Status changed via ERP emulation tool.');
+                        echo "Update result: " . ($result ? 'Updated' : 'Not updated') . ".<br />";
+                    }
+                } else {
+                    echo "Order not found.<br />";
+                }
+                echo "<hr>";
+            }
+            ?>
+            <form method="post" action="">
+                <input type="hidden" name="resursbank_erp_status_change" id="resursbank_erp_status_change" value="true"/>
+                <table class="form-table">
+                    <tr>
+                        <th scope="row"><label for="resursbank_erp_order_nr">Order number</label></th>
+                        <td><input type="text" name="resursbank_erp_order_nr" id="resursbank_erp_order_nr"
+                                   class="regular-text"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="resursbank_erp_new_status">New status</label></th>
+                        <td>
+                            <select name="resursbank_erp_new_status" id="resursbank_erp_new_status">
+                                <option value="on-hold">on-hold</option>
+                                <option value="processing">processing</option>
+                                <option value="completed">completed</option>
+                                <option value="refunded">refunded</option>
+                                <option value="cancelled">cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <?php submit_button('Change status'); ?>
+            </form>
+        </div>
+        <?php
+    }
+});
+```
+
+## Common pitfalls
+
+- Writing directly to `wp_posts` / `wp_postmeta` for status changes.
+- Creating custom "fast paths" that bypass `update_status()` and refund objects.
+- Re-implementing capture/refund logic in the ERP bridge instead of relying on Resurs hooks.
+- Treating test/admin helper tools as production integration architecture.
+
+Choosing a different path than the built-in trigger flow is a common source of missing callbacks, missed captures, and
+state drift between ERP, WooCommerce, and payment state.
