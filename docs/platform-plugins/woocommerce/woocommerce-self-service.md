@@ -37,10 +37,6 @@ examples.
   * [Example workaround: Rounding prices to the nearest quarter](#example-workaround-rounding-prices-to-the-nearest-quarter)
   * [Example plugin implementation](#example-plugin-implementation-1)
   * [Important notes](#important-notes)
-* [ERP integration for Resurs + WooCommerce via cron and file transfer](#erp-integration-for-resurs--woocommerce-via-cron-and-file-transfer)
-  * [Recommended production flow](#recommended-production-flow)
-  * [Example cron bridge for ERP status import](#example-cron-bridge-for-erp-status-import)
-  * [Development helper: manual status tool](#development-helper-manual-status-tool)
 
 # Custom pricing in part payment widget logic using filters
 
@@ -321,20 +317,4 @@ add_action('plugins_loaded', function () {
 - Use of `ini_set('precision', 30)` is only for testing purposes. In production, ensure your PHP configuration aligns
   with your gateway's requirements.
 
-# ERP integration for Resurs + WooCommerce via cron and file transfer
 
-Resurs is designed to work with WooCommerce's native order lifecycle, where ERP integrations hook into the existing
-WooCommerce flow and update order status through `update_status()`.
-
-In practice, ERP integrations can choose different technical setups (for example scheduled file import), but the core
-idea is the same: let WooCommerce status transitions drive the process, and let the Resurs plugin handle payment
-lifecycle behavior (including capture eligibility checks such as `canCapture`) through the hooks that already exist.
-
-> **Important:** The Resurs plugin does **not** expose an inbound API for receiving ERP payloads directly.
-
-## Recommended production flow
-
-1. **ERP exports status data** to file (CSV/XML/JSON).
-2. **File is transferred via SFTP** (or equivalent secure file delivery) to the WooCommerce environment.
-3. **A cron job imports the file** and updates orders in WooCommerce.
-4. **Resurs hooks in the active plugin** execute the payment-side actions automatically.
