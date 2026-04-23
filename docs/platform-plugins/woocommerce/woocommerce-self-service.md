@@ -333,9 +333,8 @@ This section documents one partner-specific integration example.
 
 ## Overview: ERP as master for order data
 
-In this documented partner case, ERP provided the order changes, while WooCommerce handled lifecycle execution through
-native hooks and status transitions.
-Put simply: ERP decided *what* changed, and WooCommerce (with the Resurs plugin) handled *how* the change was applied.
+In this documented partner case, ERP decided *what* changed, while WooCommerce (with the Resurs plugin) handled *how*
+changes were applied through native hooks and status transitions.
 
 ## Sync between ERP, e-commerce and payment
 
