@@ -99,10 +99,10 @@ After a predefined delay, the application automatically transitions to either:
 
 | SSN          | Initial Decision  | Final Decision | Delay  | Application Status (Initial) | Application Status (Final) | Rejected Reason | CREDIT_APPLICATION (Initial) | CREDIT_APPLICATION (Final) | AUTHORIZATION (Callback) |
 |--------------|-------------------|----------------|--------|------------------------------|-----------------------------|------------------|------------------------------|-----------------------------|---------------------------|
-| 199105149612 | MANUAL_INSPECTION | APPROVED       | 10 sec | INSPECTION                   | AUTHORIZED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
-| 199010242395 | MANUAL_INSPECTION | APPROVED       | 5 min  | INSPECTION                   | AUTHORIZED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
-| 199010122399 | MANUAL_INSPECTION | APPROVED       | 30 min | INSPECTION                   | AUTHORIZED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
-| 198711192396 | MANUAL_INSPECTION | APPROVED       | 24 h   | INSPECTION                   | AUTHORIZED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
+| 199105149612 | MANUAL_INSPECTION | APPROVED       | 10 sec | INSPECTION                   | ACCEPTED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
+| 199010242395 | MANUAL_INSPECTION | APPROVED       | 5 min  | INSPECTION                   | ACCEPTED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
+| 199010122399 | MANUAL_INSPECTION | APPROVED       | 30 min | INSPECTION                   | ACCEPTED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
+| 198711192396 | MANUAL_INSPECTION | APPROVED       | 24 h   | INSPECTION                   | ACCEPTED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
 
 ---
 
