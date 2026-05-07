@@ -97,24 +97,24 @@ After a predefined delay, the application automatically transitions to either:
 ✅ **Approved Outcomes**
 
 
-| SSN          | Initial Decision  | Final Decision | Delay  | Application Status (Initial) | Application Status (Final) | Rejected Reason | CREDIT_APPLICATION (Initial) | CREDIT_APPLICATION (Final) | AUTHORIZATION (Callback) |
-|--------------|-------------------|----------------|--------|------------------------------|-----------------------------|------------------|------------------------------|-----------------------------|---------------------------|
-| 199105149612 | MANUAL_INSPECTION | APPROVED       | 10 sec | INSPECTION                   | ACCEPTED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
-| 199010242395 | MANUAL_INSPECTION | APPROVED       | 5 min  | INSPECTION                   | ACCEPTED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
-| 199010122399 | MANUAL_INSPECTION | APPROVED       | 30 min | INSPECTION                   | ACCEPTED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
-| 198711192396 | MANUAL_INSPECTION | APPROVED       | 24 h   | INSPECTION                   | ACCEPTED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
+| SSN          | Initial Decision  | Delay | Final Decision  | Application Status (Initial) | Application Status (Final) | Rejected Reason | CREDIT_APPLICATION (Initial) | CREDIT_APPLICATION (Final) | AUTHORIZATION (Callback) |
+|--------------|-------------------|-------|--------|------------------------------|-----------------------------|------------------|------------------------------|-----------------------------|---------------------------|
+| 199105149612 | MANUAL_INSPECTION | 10 sec | APPROVED | INSPECTION                   | ACCEPTED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
+| 199010242395 | MANUAL_INSPECTION | 5 min  | APPROVED  | INSPECTION                   | ACCEPTED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
+| 199010122399 | MANUAL_INSPECTION | 30 min | APPROVED | INSPECTION                   | ACCEPTED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
+| 198711192396 | MANUAL_INSPECTION | 24 h   | APPROVED   | INSPECTION                   | ACCEPTED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
 
 ---
 
 ❌ **Rejected Outcomes**
 
 
-| SSN          | Initial Decision  | Final Decision | Delay  | Application Status (Initial) | Application Status (Final) | Rejected Reason | CREDIT_APPLICATION (Initial) | CREDIT_APPLICATION (Final) | AUTHORIZATION (Callback) |
+| SSN          | Initial Decision  | Delay | Final Decision  | Application Status (Initial) | Application Status (Final) | Rejected Reason | CREDIT_APPLICATION (Initial) | CREDIT_APPLICATION (Final) | AUTHORIZATION (Callback) |
 |--------------|-------------------|----------------|--------|------------------------------|-----------------------------|------------------|------------------------------|-----------------------------|---------------------------|
-| 199111282399 | MANUAL_INSPECTION | REJECTED       | 10 sec | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
-| 198810112394 | MANUAL_INSPECTION | REJECTED       | 5 min  | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
-| 198806192392 | MANUAL_INSPECTION | REJECTED       | 30 min | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
-| 199111292398 | MANUAL_INSPECTION | REJECTED       | 24 h   | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
+| 199111282399 | MANUAL_INSPECTION | 10 sec       | REJECTED | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
+| 198810112394 | MANUAL_INSPECTION | 5 min       | REJECTED  | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
+| 198806192392 | MANUAL_INSPECTION | 30 min       | REJECTED | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
+| 199111292398 | MANUAL_INSPECTION | 24 h       | REJECTED   | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
 
 ---
 
