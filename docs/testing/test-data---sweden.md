@@ -94,10 +94,8 @@ After a predefined delay, the application automatically transitions to either:
 
 ## Test Data
 
-<details open>
-<summary><strong>✅ Approved Outcomes</strong></summary>
+✅ **Approved Outcomes**
 
-<br>
 
 | SSN          | Initial Decision  | Final Decision | Delay  | Application Status (Initial) | Application Status (Final) | Rejected Reason | CREDIT_APPLICATION (Initial) | CREDIT_APPLICATION (Final) | AUTHORIZATION (Callback) |
 |--------------|-------------------|----------------|--------|------------------------------|-----------------------------|------------------|------------------------------|-----------------------------|---------------------------|
@@ -106,14 +104,10 @@ After a predefined delay, the application automatically transitions to either:
 | 199010122399 | MANUAL_INSPECTION | APPROVED       | 30 min | INSPECTION                   | AUTHORIZED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
 | 198711192396 | MANUAL_INSPECTION | APPROVED       | 24 h   | INSPECTION                   | AUTHORIZED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
 
-</details>
-
 ---
 
-<details>
-<summary><strong>❌ Rejected Outcomes</strong></summary>
+❌ **Rejected Outcomes**
 
-<br>
 
 | SSN          | Initial Decision  | Final Decision | Delay  | Application Status (Initial) | Application Status (Final) | Rejected Reason | CREDIT_APPLICATION (Initial) | CREDIT_APPLICATION (Final) | AUTHORIZATION (Callback) |
 |--------------|-------------------|----------------|--------|------------------------------|-----------------------------|------------------|------------------------------|-----------------------------|---------------------------|
@@ -121,8 +115,6 @@ After a predefined delay, the application automatically transitions to either:
 | 198810112394 | MANUAL_INSPECTION | REJECTED       | 5 min  | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
 | 198806192392 | MANUAL_INSPECTION | REJECTED       | 30 min | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
 | 199111292398 | MANUAL_INSPECTION | REJECTED       | 24 h   | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
-
-</details>
 
 ---
 
