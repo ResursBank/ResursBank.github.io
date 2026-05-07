@@ -92,7 +92,17 @@ After a predefined delay, the application automatically transitions to either:
 
 ---
 
-## Test Data
+## Merchant API – Payments (`/v2/payments`)
+
+### Overview
+
+The following scenarios describe the expected outcomes when testing the **Merchant API Payments endpoint**:
+
+`/v2/payments`
+
+The flow mirrors the manual inspection process, where the initial state is `INSPECTION` and transitions asynchronously after a delay.
+
+---
 
 ✅ **Approved Outcomes**
 
@@ -115,6 +125,41 @@ After a predefined delay, the application automatically transitions to either:
 | 198810112394 | MANUAL_INSPECTION | 5 min       | REJECTED  | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
 | 198806192392 | MANUAL_INSPECTION | 30 min       | REJECTED | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
 | 199111292398 | MANUAL_INSPECTION | 24 h       | REJECTED   | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
+
+---
+
+## Merchant API – Applications (`/v2/applications`)
+
+### Overview
+
+The following scenarios describe the expected outcomes when testing the **Merchant API Applications endpoint**:
+
+`/v2/applications`
+
+The flow mirrors the manual inspection process, where the initial state is `INSPECTION` and transitions asynchronously after a delay.
+
+---
+
+✅ **Approved Outcomes (Applications API)**
+
+| SSN          | Initial Decision  | Delay  | Transition To | CREDIT_APPLICATION (Initial) | CREDIT_APPLICATION (Result) | CREDIT_APPLICATION (Final) |
+|--------------|-------------------|--------|----------------|------------------------------|-----------------------------|------------------------------|
+| 199105149612 | MANUAL_INSPECTION | 10 sec | APPROVED       | INSPECTION                   | CREDIT_APPROVED             | ACCEPTED                     |
+| 199010242395 | MANUAL_INSPECTION | 5 min  | APPROVED       | INSPECTION                   | CREDIT_APPROVED             | ACCEPTED                     |
+| 199010122399 | MANUAL_INSPECTION | 30 min | APPROVED       | INSPECTION                   | CREDIT_APPROVED             | ACCEPTED                     |
+| 198711192396 | MANUAL_INSPECTION | 24 h   | APPROVED       | INSPECTION                   | CREDIT_APPROVED             | ACCEPTED                     |
+
+---
+
+❌ **Rejected Outcomes (Applications API)**
+
+| SSN          | Initial Decision  | Delay  | Transition To | CREDIT_APPLICATION (Initial) | CREDIT_APPLICATION (Final) |
+|--------------|-------------------|--------|----------------|------------------------------|-----------------------------|
+| 199111282399 | MANUAL_INSPECTION | 10 sec | REJECTED       | INSPECTION                   | REJECTED                    |
+| 198810112394 | MANUAL_INSPECTION | 5 min  | REJECTED       | INSPECTION                   | REJECTED                    |
+| 198806192392 | MANUAL_INSPECTION | 30 min | REJECTED       | INSPECTION                   | REJECTED                    |
+| 199111292398 | MANUAL_INSPECTION | 24 h   | REJECTED       | INSPECTION                   | REJECTED                    |
+
 
 ---
 
