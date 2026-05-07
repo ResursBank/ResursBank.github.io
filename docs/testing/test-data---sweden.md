@@ -76,3 +76,64 @@ Organisations to use when testing.
 | 4925 0000 0000 0087 | \> today     | Any 3 digits | Reservation will fail |
 |                     |              |              |                       |
 
+
+## Manual Inspection Test Data
+
+### Overview
+
+These test cases simulate a **manual inspection flow**, where the initial decision is:
+
+- `MANUAL_INSPECTION` → `INSPECTION`
+
+After a predefined delay, the application automatically transitions to either:
+
+- ✅ **APPROVED**, or  
+- ❌ **REJECTED**
+
+---
+
+## Test Data
+
+<details open>
+<summary><strong>✅ Approved Outcomes</strong></summary>
+
+<br>
+
+| SSN          | Initial Decision  | Final Decision | Delay  | Application Status (Initial) | Application Status (Final) | Rejected Reason | CREDIT_APPLICATION (Initial) | CREDIT_APPLICATION (Final) | AUTHORIZATION (Callback) |
+|--------------|-------------------|----------------|--------|------------------------------|-----------------------------|------------------|------------------------------|-----------------------------|---------------------------|
+| 199105149612 | MANUAL_INSPECTION | APPROVED       | 10 sec | INSPECTION                   | AUTHORIZED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
+| 199010242395 | MANUAL_INSPECTION | APPROVED       | 5 min  | INSPECTION                   | AUTHORIZED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
+| 199010122399 | MANUAL_INSPECTION | APPROVED       | 30 min | INSPECTION                   | AUTHORIZED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
+| 198711192396 | MANUAL_INSPECTION | APPROVED       | 24 h   | INSPECTION                   | AUTHORIZED                  | n/a              | INSPECTION                   | CREDIT_APPROVED             | AUTHORIZED                |
+
+</details>
+
+---
+
+<details>
+<summary><strong>❌ Rejected Outcomes</strong></summary>
+
+<br>
+
+| SSN          | Initial Decision  | Final Decision | Delay  | Application Status (Initial) | Application Status (Final) | Rejected Reason | CREDIT_APPLICATION (Initial) | CREDIT_APPLICATION (Final) | AUTHORIZATION (Callback) |
+|--------------|-------------------|----------------|--------|------------------------------|-----------------------------|------------------|------------------------------|-----------------------------|---------------------------|
+| 199111282399 | MANUAL_INSPECTION | REJECTED       | 10 sec | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
+| 198810112394 | MANUAL_INSPECTION | REJECTED       | 5 min  | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
+| 198806192392 | MANUAL_INSPECTION | REJECTED       | 30 min | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
+| 199111292398 | MANUAL_INSPECTION | REJECTED       | 24 h   | INSPECTION                   | REJECTED                    | CREDIT_DENIED    | INSPECTION                   | n/a                         | REJECTED                  |
+
+</details>
+
+---
+
+## Field Definitions
+
+- **Application Status**  
+  Refers to the status of the credit application.
+
+- **CREDIT_APPLICATION (Callback)**  
+  Status returned via the `CREDIT_APPLICATION` callback.
+
+- **AUTHORIZATION (Callback)**  
+  Status returned via the `AUTHORIZATION` callback.
+
