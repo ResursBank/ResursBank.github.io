@@ -18,6 +18,12 @@ has_toc: true
     * [Installing from WordPress Plugin Repository](#installing-from-wordpress-plugin-repository)
     * [Manually Installing the Plugin](#manually-installing-the-plugin)
 * [Basic Configuration](#basic-configuration)
+* [Multistore Support](#multistore-support)
+    * [Overview](#overview)
+    * [WordPress Multisite / Network](#wordpress-multisite--network)
+    * [WooCommerce Multistore (within same WordPress site)](#woocommerce-multistore-within-same-wordpress-site)
+        * [Important Limitation](#important-limitation)
+        * [Recommendation](#recommendation)
 * [FAQ & General Questions](#faq--general-questions)
     * [Can I Change the Order Number Sequence?](#can-i-change-the-order-number-sequence)
     * [Figuring Out Remote IP for Whitelisting in Firewalls](#figuring-out-remote-ip-for-whitelisting-in-firewalls)
@@ -118,6 +124,38 @@ through outdated versions. You should avoid this if possible.
 2. Enter your credentials in the `API Settings`  tab
 3. Choose the correct Store ID for your store from the dropdown
 4. Save the settings
+
+# Multistore Support
+
+## Overview
+
+The Resurs Bank Merchant API plugin has basic support for running in environments with multiple WordPress sites, as the plugin does not depend on generated gateway files stored on disk. There are therefore no such file dependencies that would prevent the plugin from being used on multiple sites simultaneously.
+
+However, it is important to distinguish between different types of multistore implementations:
+
+### WordPress Multisite / Network
+
+**Status: Supported**
+
+WordPress Multisite (also called WordPress Network) is considered compatible with the plugin, provided that:
+- Each site/subsite has its own WooCommerce configuration
+- Each site/subsite has its own Resurs credentials (API Key, API Secret, and Store ID)
+
+The plugin's normal configuration is based on entering API Key, API Secret, and Store ID for each WordPress site/WooCommerce installation.
+
+### WooCommerce Multistore (within same WordPress site)
+
+**Status: Not Verified / Not Supported**
+
+WooCommerce Multistore implemented via third-party plugins or custom solutions is **not the same** as WordPress Multisite. If multiple stores are managed within the same WordPress site/WooCommerce installation and share the same plugin settings, this functionality is **untested and unsupported**.
+
+#### Important Limitation
+
+The Resurs Bank plugin currently supports one credential set per WordPress site. This means that multiple logical stores within the same WooCommerce installation would likely use the same API Key, API Secret, and Store ID. All purchases would therefore be sent to the same Resurs store, regardless of how the WooCommerce multistore solution is configured.
+
+#### Recommendation
+
+We recommend treating WooCommerce Multistore (within a single WordPress site) as an **unsupported configuration** without separate testing and potential code modifications. If you require this setup, please contact Resurs Bank support for guidance and verification before implementing it in production.
 
 # FAQ & General questions
 
