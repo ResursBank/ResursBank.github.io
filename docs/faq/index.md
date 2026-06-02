@@ -239,7 +239,7 @@ Many hosting companies bundle SSL certificates.
 ### Steps to activate Swish
 
 1. **Verify availability** with your salesperson  
-2. **Sign agreement** with your bank choosing Resurs as technical supplier  
+2. **Sign agreement** with your bank choosing Resurs as technical supplier. If the bank is in need of Resurs's Technical Supplier-number, please provide the following: 9872389326  
 3. **Await confirmation** — Swish notifies onboarding@resurs.se  
 4. **Configuration** — Resurs enables the payment method in production  
 
