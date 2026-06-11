@@ -29,12 +29,12 @@ All new integrations must rely on final status values such as:
 
 ## ✔ Records without `FROZEN`
 
-| Civic number    | Address                                                      | Merchant API                                                                                              |
-| --------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
-| **140285-3877** | Gorm Anker Bøgh<br>Strøget 15<br>3100 Hornbæk                | **GetPayment** returns **ACCEPTED**<br>Callback **AUTHORIZATION** will be sent with status **AUTHORIZED** |
-| **021250-0003** | Kaj Anker Anker<br>Frederiksberggade 1<br>1620 København     | **GetPayment** returns **REJECTED**<br>Callback **AUTHORIZATION** will be sent with status **REJECTED**   |
-| **290550-1913** | Preben Anker Dunker<br>Strøget 9<br>3250 Gilleleje           | **GetPayment** returns **REJECTED**<br>Callback **AUTHORIZATION** will be sent with status **REJECTED**   |
-| **2304881898**  | Customer has no cards/accounts allowing **new card/account** | **GetPayment** returns **ACCEPTED**<br>Callback **AUTHORIZATION** will be sent with status **AUTHORIZED** |
+| Civic number    | Address                                                      | Merchant API                                                                                              | Note |
+| --------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | ---- |
+| **140285-3877** | Gorm Anker Bøgh<br>Strøget 15<br>3100 Hornbæk                | **GetPayment** returns **ACCEPTED**<br>Callback **AUTHORIZATION** will be sent with status **AUTHORIZED** | Approved credit limit DKK 5000 |
+| **021250-0003** | Kaj Anker Anker<br>Frederiksberggade 1<br>1620 København     | **GetPayment** returns **REJECTED**<br>Callback **AUTHORIZATION** will be sent with status **REJECTED**   |  |
+| **290550-1913** | Preben Anker Dunker<br>Strøget 9<br>3250 Gilleleje           | **GetPayment** returns **REJECTED**<br>Callback **AUTHORIZATION** will be sent with status **REJECTED**   |  |
+| **2304881898**  | Customer has no cards/accounts allowing **new card/account** | **GetPayment** returns **ACCEPTED**<br>Callback **AUTHORIZATION** will be sent with status **AUTHORIZED** |  |
 
 ***
 
