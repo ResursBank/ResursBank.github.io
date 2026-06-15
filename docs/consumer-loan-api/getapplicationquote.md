@@ -36,6 +36,7 @@ parent: Consumer Loan API
             <documentTypes>ID</documentTypes>
             <documentTypes>PAYMENT_SLIP</documentTypes>
             <monthlyAccountFee>0</monthlyAccountFee>
+            <individualSecciPdf>JVBERi0xLjQK...base64-encoded SECCI PDF, truncated...JSVFT0YK</individualSecciPdf>
          </applicationQuoteResult>
       </ns2:getApplicationQuoteResponse>
    </soap:Body>
