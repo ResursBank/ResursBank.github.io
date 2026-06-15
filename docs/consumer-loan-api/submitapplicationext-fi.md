@@ -875,6 +875,7 @@ parent: Consumer Loan API
                 <totalFeesAndInterest>8700.00</totalFeesAndInterest>
                 <topUpAmount>9000.0</topUpAmount>
                 <monthlyCostTopUp>169.0</monthlyCostTopUp>
+                <individualSecciPdf>JVBERi0xLjQK...base64-encoded SECCI PDF, truncated...JSVFT0YK</individualSecciPdf>
                 </submitApplicationExtResult>
         </ns2:submitApplicationExtResponse>
     </soap:Body>
