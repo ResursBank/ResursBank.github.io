@@ -766,6 +766,7 @@ parent: Consumer Loan API
             <documentTypes>PAYMENT_SLIP</documentTypes>
             <monthlyAccountFee>0</monthlyAccountFee>
             <totalFeesAndInterest>1000.00</totalFeesAndInterest>
+            <individualSecciPdf>JVBERi0xLjQK...base64-encoded SECCI PDF, truncated...JSVFT0YK</individualSecciPdf>
          </submitApplicationExtResult>
       </ns2:submitApplicationExtResponse>
    </soap:Body>
