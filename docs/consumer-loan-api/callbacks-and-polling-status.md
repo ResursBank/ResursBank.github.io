@@ -99,6 +99,7 @@ below;
         "totalRepaymentAmount" : 13000,
         "monthlyAccountFee" : 0,
         "totalFeesAndInterest": 3000.00,
+        "individualSecciPdf" : "JVBERi0xLjQK...base64-encoded SECCI PDF, truncated...JSVFT0YK",
         "documentTypes" : [ "ID", "PAYMENT_SLIP" ]
     }
   },
