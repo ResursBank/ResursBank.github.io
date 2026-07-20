@@ -186,7 +186,7 @@ Payment](https://merchant-api.integration.resurs.com/docs/v2/merchant_payments_v
   "options": {
     "initiatedOnCustomersDevice": true,
     "deliverLinks": false,
-      "handleFrozenPayments": true,
+      "handleFrozenPayments": false,
       "handleManualInspection": false,
       "automaticCapture": false,
     "callbacks": {
