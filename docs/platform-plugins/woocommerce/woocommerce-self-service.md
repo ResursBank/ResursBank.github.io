@@ -37,6 +37,13 @@ examples.
   * [Example workaround: Rounding prices to the nearest quarter](#example-workaround-rounding-prices-to-the-nearest-quarter)
   * [Example plugin implementation](#example-plugin-implementation-1)
   * [Important notes](#important-notes)
+* [Custom CSS overrides for Resurs Bank widgets](#custom-css-overrides-for-resurs-bank-widgets)
+  * [How the plugin loads CSS](#how-the-plugin-loads-css)
+  * [Available stylesheet handles](#available-stylesheet-handles)
+  * [Read More widget CSS classes](#read-more-widget-css-classes)
+  * [Part Payment and USP CSS classes](#part-payment-and-usp-css-classes)
+  * [Override examples](#override-examples)
+  * [Example plugin implementation](#example-plugin-implementation-2)
 * [ERP integration examples for Resurs + WooCommerce](#erp-integration-examples-for-resurs--woocommerce)
   * [Overview: ERP as master for order data](#overview-erp-as-master-for-order-data)
   * [Sync between ERP, e-commerce and payment](#sync-between-erp-e-commerce-and-payment)
@@ -324,6 +331,182 @@ add_action('plugins_loaded', function () {
 - The plugin validates whether the Resurs Bank integration is present before executing the rounding logic.
 - Use of `ini_set('precision', 30)` is only for testing purposes. In production, ensure your PHP configuration aligns
   with your gateway's requirements.
+
+# Custom CSS overrides for Resurs Bank widgets
+
+The Resurs Bank plugin renders several frontend widgets — the Read More modal, the Part Payment widget, the USP banner,
+and the Cost List — whose styles are injected as inline CSS via WordPress's `wp_add_inline_style()`. Because there are
+no external `.css` files to dequeue, the standard approach is to enqueue your own stylesheet that loads **after** the
+plugin's handles and override the relevant selectors using equal or higher specificity.
+
+## How the plugin loads CSS
+
+The plugin registers inline stylesheets against named handles during the `wp_enqueue_scripts` action. The CSS content
+itself comes from the ecom SDK (for example `ReadMore\Css` and `PartPayment\Css`) and is injected as an inline `<style>`
+block. This means you cannot simply override a file path — instead, hook in after the existing handle and add your own
+rules on top.
+
+## Available stylesheet handles
+
+| Handle | Widgets covered |
+|---|---|
+| `resursbankabpaygw-read-more-style` | Read More modal (`.rb-rm-*`) |
+| `resursbankabpaygw-pp-styles` | Part Payment widget |
+| `resursbankabpaygw-pp-css-extra` | USP banner (`.rb-usp`) and Cost List container |
+| `resursbankabpaygw-costlist-css` | Cost List widget |
+
+All handles are registered and enqueued on the `wp_enqueue_scripts` hook via the plugin's `AssetLoader`. Your override
+code must run on the same hook but at a **later priority** (default is `10`; use e.g. `20`).
+
+## Read More widget CSS classes
+
+The Read More widget is rendered with the following structure and class names:
+
+```html
+<div class="rb-rm" data-payment-method="<method-id>">
+    <div class="rb-logo"></div>
+    <div class="rb-rm-link">
+        <div class="rb-rm-link-label">Läs mer</div>
+    </div>
+    <div id="rb-rm-model-<method-id>" style="display:none;">
+        <div class="rb-rm-background"></div>
+        <div class="rb-rm-iframe-container">
+            <div class="rb-rm-close">✕</div>
+            <iframe class="rb-rm-iframe" src="..." loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+```
+
+| CSS class | Purpose |
+|---|---|
+| `.rb-rm` | Outer wrapper for the entire Read More component |
+| `.rb-rm-link` | Container for the "read more" trigger link |
+| `.rb-rm-link div` | The clickable label (font, underline, cursor styling) |
+| `.rb-rm-background` | Full-screen dimmed overlay (`opacity: 0.7`, `z-index: 999`) |
+| `.rb-rm-iframe-container` | Centered modal container (`fixed`, `z-index: 999999`) |
+| `.rb-rm-iframe` | The iframe displaying SECCI or legal info |
+| `.rb-rm-close` | Close button in top-right corner (red, `z-index: 10`) |
+
+## Part Payment and USP CSS classes
+
+| CSS class | Purpose |
+|---|---|
+| `.rb-usp` | USP banner rendered below each payment method (teal background, white text) |
+| `.rb-ps-cl-container` | Wrapper around the Cost List inside the USP area |
+
+## Override examples
+
+**Change the "read more" link colour and remove underline:**
+
+```css
+.rb-rm-link div {
+    color: #333333;
+    text-decoration: none;
+}
+
+.rb-rm-link div:hover {
+    text-decoration: underline;
+}
+```
+
+**Change the overlay opacity and colour:**
+
+```css
+.rb-rm-background {
+    background-color: #1a1a1a;
+    opacity: 0.85;
+}
+```
+
+**Restyle the close button:**
+
+```css
+.rb-rm-close {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 4px 8px;
+}
+```
+
+**Restyle the USP banner:**
+
+```css
+.rb-usp {
+    background-color: rgba(0, 80, 160, 0.85);
+    border-radius: 6px;
+    font-size: 0.875rem;
+}
+```
+
+## Example plugin implementation
+
+Create a small plugin file in `wp-content/plugins/` and activate it via the plugin manager. The key is to depend on the
+plugin's stylesheet handle and add your rules with `wp_add_inline_style()`.
+
+**Example: `<WP-root>/wp-content/plugins/resursbank-css-overrides.php`**
+
+```php
+<?php
+/*
+ * Plugin Name: Resurs Bank CSS Overrides
+ * Description: Custom CSS overrides for Resurs Bank widget styles.
+ * Version: 1.0.0
+ */
+
+add_action('wp_enqueue_scripts', function () {
+    // Only run when the Resurs Bank read-more handle is already registered.
+    if (!wp_style_is('resursbankabpaygw-read-more-style', 'registered')) {
+        return;
+    }
+
+    $css = '
+        /* Read More link */
+        .rb-rm-link div {
+            color: #333333;
+            text-decoration: none;
+        }
+        .rb-rm-link div:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal overlay */
+        .rb-rm-background {
+            opacity: 0.85;
+        }
+
+        /* Close button */
+        .rb-rm-close {
+            color: #ffffff;
+            font-size: 20px;
+        }
+    ';
+
+    wp_add_inline_style('resursbankabpaygw-read-more-style', $css);
+}, 20);
+
+add_action('wp_enqueue_scripts', function () {
+    // Only run when the Resurs Bank USP/extra handle is already registered.
+    if (!wp_style_is('resursbankabpaygw-pp-css-extra', 'registered')) {
+        return;
+    }
+
+    $css = '
+        /* USP banner */
+        .rb-usp {
+            background-color: rgba(0, 80, 160, 0.85);
+            border-radius: 6px;
+        }
+    ';
+
+    wp_add_inline_style('resursbankabpaygw-pp-css-extra', $css);
+}, 20);
+```
+
+> **Note:** Because the plugin's CSS is injected as inline `<style>` blocks, standard browser specificity rules apply.
+> If your overrides are not taking effect, increase specificity (for example `.woocommerce .rb-rm-link div`) rather than
+> using `!important`.
 
 # ERP integration examples for Resurs + WooCommerce
 
