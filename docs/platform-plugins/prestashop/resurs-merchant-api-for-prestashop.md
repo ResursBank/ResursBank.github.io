@@ -8,20 +8,19 @@ nav_order: 14
 has_children: true
 has_toc: true
 ---
-
 # Resurs Merchant API 2.0 for PrestaShop
 
 ## Table of Contents
 
 - [Requirements](#requirements)
 - [Important Notes](#important-notes)
-- [Installation and Upgrade Instructions](#installation-and-upgrade-instructions)
+- [Installation and upgrade instructions](#installation-and-upgrade-instructions)
     - [Installation](#installation)
-- [FAQ & General Questions](#faq--general-questions)
-    - [Detailed Configuration Information and Store Setup](#detailed-configuration-information-and-store-configuration)
-    - [Determining Remote IP for Firewall Whitelisting](#figuring-out-remote-ip-for-whitelisting-in-firewalls)
-    - [Product Reference / SKU](#stock-keeping-unit-sku)
-    - [Number of Decimals](#number-of-decimals)
+- [FAQ & General questions](#faq--general-questions)
+    - [Detailed configuration information and store configuration](#detailed-configuration-information-and-store-configuration)
+    - [Figuring out remote IP for whitelisting in firewalls](#figuring-out-remote-ip-for-whitelisting-in-firewalls)
+    - [Stock Keeping Unit (SKU)](#stock-keeping-unit-sku)
+    - [Number of decimals](#number-of-decimals)
 - [API Settings](#api-settings)
     - [Managing API Credentials in PrestaShop](#managing-api-credentials-in-prestashop)
         - [Choosing Environment](#choosing-environment)
@@ -30,35 +29,23 @@ has_toc: true
         - [Switching Between Environments](#switching-between-environments)
         - [Order Management Toggle](#order-management-toggle)
     - [Callback Handling and Order States](#callback-handling-and-order-states)
-        - [Order Status Mapping](#order-status-mapping)
-        - [Paid Status and Invoice Generation](#paid-status-and-invoice-generation)
-        - [Persistence of Custom Statuses](#persistence-of-custom-statuses)
-        - [Testing Callback Handling](#testing-callback-handling)
+        - [Order status mapping](#order-status-mapping)
+        - [Persistence of custom statuses](#persistence-of-custom-statuses)
+        - [Testing callback handling](#testing-callback-handling)
 - [Part Payment Widget](#part-payment-widget)
     - [Settings Overview](#settings-overview)
     - [Frontend Behavior](#frontend-behavior)
-    - [Examples](#part-payment-widget-examples)
-- [Purchasing Flow with Merchant API](#purchasing-with-the-new-merchant-api)
-    - [Order Initiation](#order-initiation)
-    - [Resurs Integration and Swish Behavior](#swish-specifics-and-getaddress-behavior)
-    - [Payment Confirmation](#payment-confirmation)
-    - [Redirect & Finalization](#redirect--finalization)
-    - [Callback Failover Safety](#callbacks-for-failover-safety)
+    - [Part Payment Widget Examples](#part-payment-widget-examples)
+- [Purchasing with the new Merchant API](#purchasing-with-the-new-merchant-api)
 - [Order Management](#order-management)
     - [Order Overview (Top Section)](#order-overview-top-section)
     - [Payment Details (Bottom Section)](#payment-details-bottom-section)
     - [Managing Orders](#managing-orders)
     - [Resurs Payment History](#resurs-payment-history)
-- [Caching](#caching)
-    - [Overview](#overview)
-    - [Cache Configuration](#cache-configuration)
-    - [Cache Storage](#cache-storage)
-    - [Cache Invalidation](#cache-invalidation)
-- [Troubleshooting and Error Handling](#troubleshooting-and-error-handling)
+- [Troubleshooting and error handling](#troubleshooting-and-error-handling)
     - [Support Information Panel](#support-information-panel)
     - [Enabling Logging in PrestaShop](#enabling-logging-in-prestashop)
 - [Known Problems](#known-problems)
-    - [During Upgrade](#during-upgrade)
 
 ## Requirements
 
@@ -76,6 +63,10 @@ has_toc: true
   decimals (e.g., rounding to whole numbers) may result in critical inconsistencies between displayed totals and amounts
   actually sent to the API. This may cause failed transactions. PrestaShop, like WooCommerce, allows configuration of
   decimal precision - make sure this is set to exactly two decimals for all currencies to ensure compatibility.
+
+## Compatibility Notes
+
+**This module is not compatible with PrestaShop 1.7.7.x**!
 
 ## Important Notes
 
@@ -113,8 +104,6 @@ releases, we hope to be able to use PrestaShop marketplace.
 4. Once uploaded, the module will appear in the list and can be installed via the "Install" button.
    ![](images/prestashop-install-success.png)
 5. Start configuring the plugin.
-
-ZIP deployment date: See the quickstart guide.
 
 After installation, the module will appear under the "Payment" or "Resurs Bank" section depending on your PrestaShop
 version and theme.
@@ -261,7 +250,7 @@ of the transaction in the Resurs system.
 
 ![](images/prestashop-callback-settings.png)
 
-### Order status mapping
+#### Order status mapping
 
 The Resurs PrestaShop plugin introduces several **custom order statuses**, installed directly into the database during
 module installation. These include:
@@ -278,46 +267,6 @@ In addition to these, the plugin also utilizes native PrestaShop statuses:
 
 These status codes are mapped programmatically based on Resurs payment states such
 as `isCancelled`, `isFrozen`, `isCaptured`, and `canCapture`.
-
-### Paid status and invoice generation
-
-Observe that the status **`PS_OS_RESURSBANK_PAID`** is used when the payment has been successfully captured - either
-manually from the **order administration** in PrestaShop or automatically through **Resurs Bank MAPI callbacks** (for
-example, via Swish payments).
-
-![Paid status - invoice generation enabled](images/paid-staus-invoice.png)
-
-As illustrated in the image above, the *Paid* order status is configured by default to generate an invoice. This ensures
-that PrestaShop automatically creates and links an invoice once the payment is marked as captured.
-
-If the "Generate invoice" option is disabled, the module will trigger an error in versions prior to **1.0.4**, since
-earlier releases attempted to link payments to invoices even when no invoice had been generated.
-
-Starting from **version 1.0.4**, this behavior has been corrected:
-
-* No payment-to-invoice linking will occur if the status is not configured to generate an invoice.
-* The system will instead skip the linking process entirely, preventing the "Invoice object not persisted" error
-  described in this section.
-
-#### Legacy behavior (pre-1.0.4)
-
-In older module versions (before **1.0.4**), disabling invoice generation while still performing a **capture** operation
-could cause errors like the one shown below:
-
-> *"Failed to capture payment. (Invoice object for order #70 is not persisted.)"*
-
-![Capture error when invoices are disabled](images/invoice-object-not-persisted.png)
-
-This happened because the module attempted to link the captured payment to a PrestaShop invoice that did not exist yet -
-a direct result of the "Generate invoice" option being turned off while the status **`PS_OS_RESURSBANK_PAID`** was still
-used for payment capture.
-
-In these earlier builds, PrestaShop created the payment record successfully, but since the invoice object wasn’t
-persisted, the database link between the payment and invoice (stored in `order_invoice_payment`) failed - resulting in
-the red error banner even though the payment itself was processed correctly at Resurs Bank.
-
-As of **version 1.0.4**, this issue no longer occurs. The module now verifies that a valid, persisted invoice exists
-before attempting to create the linkage, and skips that step entirely if invoice generation has been disabled.
 
 #### Persistence of custom statuses
 
@@ -372,12 +321,14 @@ control display behavior.
 
 ![](images/prestashop-partpayment-widget-choices.png)
 
-- **Aktiverad**: Enables or disables the widget globally.
-- **Betalningsmetod**: The specific payment method from Resurs (e.g., Delbetalning) that should be used for widget
+- **Enabled**: Enables or disables the widget globally.
+- **Payment Method**: The specific payment method from Resurs (e.g., Delbetalning) that should be used for widget
   calculation.
-- **Avbetalningstid**: Defines the installment period (in months or predefined intervals).
-- **Threshold**: Minimum cart amount required for the widget to appear. If the product price is below this threshold,
+- **Annuity Period**: Defines the installment period (in months or predefined intervals).
+- **Limit**: Minimum cart amount required for the widget to appear. If the product price is below this threshold,
   the widget is not shown.
+- **Select legal Read More link**: Which information should be shown when a user clicks the Read More link.
+- **Show cost example**: Whether to show a calculated cost example or not.
 
 #### Frontend Behavior
 
@@ -394,7 +345,21 @@ Once configured and enabled, the widget will:
 
 ##### In the checkout
 
+There are two ways in which the module can render payment methods, either natively
+or using the Resurs Payment Methods web component. Which method is used depends
+on how each individual payment method has been configured by Resurs.
+
+One major difference between native rendering and the web component is that
+the latter is capable of grouping related payment methods while native
+rendering always renders payment methods individually.
+
+###### Native rendering
+
 ![](images/prestashop-checkout-partpayment.png)
+
+###### Web component rendering
+
+![](images/prestashop-checkout-web-component-grouped.png)
 
 #### When the modal is opened:
 
@@ -420,36 +385,6 @@ The purchase procedure, as handled through the PrestaShop module, follows this o
 - The Resurs plugin takes over: stock validation is confirmed, and the API request to Resurs is initiated.
 - Customer is redirected to Resurs’ authentication/signing portal, where identity verification or credit scoring may
   take place depending on method and risk level.
-
-#### Swish specifics and getaddress behavior
-
-When using **Swish** as the selected payment method, the plugin prioritizes **mobile phone numbers** (`phone_mobile`)
-before fixed line phone numbers. This ensures that the number used for initiating the Swish payment is always the most
-relevant one.
-
-There are some differences in how addresses are displayed between PrestaShop and the Resurs Merchant Portal, depending
-on whether the **getaddress widget** is used:
-
-* **Scenario 1 – Guest checkout with getaddress (single address shown in Merchant)**
-  If a customer is not logged in and uses getaddress, only **one address entry** will appear in the Merchant Portal.
-  This is because the address is retrieved directly from the national registry. In PrestaShop, however, both billing and
-  delivery addresses remain visible, even though only a single address is presented in the Merchant Portal.
-
-* **Scenario 2 – Guest checkout without getaddress (manual entry, both addresses visible)**
-  If address information is entered manually, the Merchant Portal will contain **both billing and delivery addresses**,
-  consistent with how PrestaShop stores and displays them.
-
-* **Scenario 3 – Logged-in customers (billing mobile number prioritized)**
-  For logged-in customers, the **billing address mobile number** will always be prioritized for Swish, regardless of
-  what is entered in the delivery address. In these cases, the getaddress widget is not used – PrestaShop’s stored
-  address data is passed directly to the API.
-
-* **Scenario 4 – Guest checkout with getaddress, different billing and shipping**
-  When getaddress is used but the customer enters a separate billing address, Merchant Portal will still show only the
-  registered (shipping) address, while PrestaShop displays both.
-
-These differences explain why PrestaShop may show multiple addresses, while the Merchant Portal only displays one when
-getaddress has been used. This behavior is expected and should not be considered an error.
 
 ![](images/prestashop-checkout-payment.png)
 
@@ -521,16 +456,13 @@ checking the status in this panel.
 
 #### Managing Orders
 
-From the PrestaShop order editor, additional actions related to Resurs orders are available under the
-**Fler åtgärder** (More actions) dropdown menu:
-
 ![](images/prestashop-order-management-buttons.png)
 
 Here, you will typically find:
 
-- **Fånga** – Used to capture an authorized payment. This is relevant for payment methods that support delayed capture (
+- **Capture** – Used to capture an authorized payment. This is relevant for payment methods that support delayed capture (
   e.g., invoice or part payment).
-- **Makulera** – Used to cancel a payment that has been authorized but not yet captured. Canceling sends a void request
+- **Cancel** – Used to cancel a payment that has been authorized but not yet captured. Canceling sends a void request
   to Resurs and updates the order status accordingly.
 
 > **Note:** Partial capture is not supported in this version of the plugin. The entire order amount must be captured at
@@ -559,7 +491,7 @@ will be recorded and shown:
 
 > Always ensure that the order status is synchronized with Resurs Bank before taking manual actions.
 
-If an order is cancelled successfully using the **Makulera** function, the editor will reflect the updated status and
+If an order is cancelled successfully using the **Cancel** function, the editor will reflect the updated status and
 show a confirmation message:
 
 ![](images/prestashop-successful-cancel.png)
@@ -572,7 +504,7 @@ show a confirmation message:
 
 #### Resurs Payment History
 
-By clicking the **Resurs Bank betalhistorik** button from the order view, you can access a detailed log of each event in
+By clicking the **Resurs Bank payment history** button from the order view, you can access a detailed log of each event in
 the payment lifecycle:
 
 ![](images/prestashop-payment-history.png)
@@ -589,55 +521,6 @@ This log is helpful when debugging flow issues, such as orders stuck in incorrec
 
 > **Note:** If the callback is missing here or appears late, check the callback configuration and verify that your shop
 > is reachable externally via HTTPS.
-
-# Caching
-
-The Resurs Merchant API plugin for PrestaShop includes an integrated caching mechanism to optimize performance and
-reduce redundant API calls. This section explains how the caching system works and how to manage it.
-
-## Overview
-
-Caching is used to store frequently accessed data from the Resurs API, such as payment methods, store information, and
-configuration details. By caching this data, the plugin minimizes the number of external API requests, which improves
-performance and reduces latency for your store's checkout and administration panels.
-
-The caching system is **automatic** and requires minimal configuration, though understanding how it works can help
-optimize your store's performance.
-
-## Cache Configuration
-
-The plugin includes cache functionality accessible through the module's configuration panel:
-
-1. Go to the **Advanced Settings** section of the plugin configuration.
-2. You will find cache-related settings where you can:
-   - Enable or disable caching globally
-
-The cache configuration is straightforward—simply toggle caching on or off based on your performance needs.
-
-## Cache Storage
-
-The plugin uses **filesystem-based caching** as the primary and only guaranteed caching mechanism. This ensures reliable
-cache persistence across all server environments.
-
-Cache is stored in PrestaShop's `cache/` directory with hierarchical organization. If filesystem caching is unavailable
-or fails, the system automatically falls back to "None", meaning no caching will occur.
-
-## Cache Invalidation
-
-Cache is invalidated (cleared) automatically or manually in the following scenarios:
-
-**Automatic invalidation occurs when:**
-
-1. **Environment is switched** – Changing between Test and Production environments automatically clears the cache to ensure data consistency between environments.
-2. **Credentials are changed** – Updating Client ID or Client Secret credentials automatically clears the cache, as the cached data is specific to the current credentials.
-3. **Store ID is changed** – Updating the Store ID automatically clears the cache to ensure the correct store data is fetched.
-
-**Manual invalidation can be triggered by:**
-
-1. **Turning off caching** – Disabling the cache toggle in the **Advanced Settings** section will clear all cached data.
-2. **Using the Clear Cache button** – The **Clear Cache** button in the **Advanced Settings** section immediately flushes all cached data without affecting any other PrestaShop functionality.
-
-If you experience stale data in the checkout or configuration areas, use either method to clear the cache and resolve the issue.
 
 # Troubleshooting and error handling
 
@@ -660,21 +543,19 @@ It displays:
 
 If you're reporting a bug or issue, always include a screenshot or text dump of this section.
 
-## Enabling Logging in PrestaShop
+## Logging
 
 The Resurs plugin also includes built-in logging functionality specifically for PrestaShop.
 
 To enable logging:
 
 1. Go to the **Advanced Settings** section of the plugin configuration.
-2. Toggle **Loggning aktiverad** to "Ja".
+2. Toggle **Log Enabled** to "Yes".
 3. The default log file path is:
 
    `_PS_ROOT_DIR_/var/logs/ecom.log`
 
    Ensure that this path is writable by the PHP process running your store.
-
-![](images/prestashop-advanced-settings-logging.png)
 
 > Once activated, logs will be written to the specified file. These logs contain information about API communication,
 > errors, and callbacks.
@@ -685,25 +566,22 @@ server setup. Make sure PHP has permission to write to the target directory.
 
 Always verify that the log file is writable and regularly rotated if used in production environments.
 
-## Known problems
+### Redis cache
 
-There are currently no known issues that require explicit warnings. Any minor irregularities that may occur during or
-after upgrades are generally resolved by updating to the latest version or performing a clean module reset.
+The module supports the use of a Redis server to cache some data.
 
-If unexpected behavior appears, start by resetting the module:
+The settings for this can be found in the Advanced Settings section in the module configuration.
 
-```bash
-php bin/console prestashop:module reset resursbank
-```
+### Debug mode
 
-This performs a clean uninstall and reinstall. You will need to re-enter your settings, but it typically resolves
-upgrade-related issues without further steps.
+Setting a session name in **Xdebug session name** will enable debugging.
 
-You can also uninstall and reinstall manually:
+For safety and performance reasons debugging should not be enabled in production environments.
 
-```bash
-php bin/console prestashop:module uninstall resursbank
-php bin/console prestashop:module install resursbank
-```
+![](images/prestashop-advanced-settings-logging.png)
 
-For other questions, see our [FAQ](https://developers.resurs.com/faq/).
+## Known Problems
+
+If you install the plugin and experience an empty administrator view, make sure you have your cache cleared. In the latest package, we have added a mechanism for this and it should happen automatically. However, in some cases the following warning might still appear:
+
+![](images/prestashop-cache-uncleared.png)
