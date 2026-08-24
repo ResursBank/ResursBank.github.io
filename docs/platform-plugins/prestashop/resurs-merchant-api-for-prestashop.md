@@ -8,6 +8,7 @@ nav_order: 14
 has_children: true
 has_toc: true
 ---
+
 # Resurs Merchant API 2.0 for PrestaShop
 
 ## Table of Contents
@@ -15,36 +16,36 @@ has_toc: true
 - [Requirements](#requirements)
 - [Important Notes](#important-notes)
 - [Installation and upgrade instructions](#installation-and-upgrade-instructions)
-    - [Installation](#installation)
+  - [Installation](#installation)
 - [FAQ & General questions](#faq--general-questions)
-    - [Detailed configuration information and store configuration](#detailed-configuration-information-and-store-configuration)
-    - [Figuring out remote IP for whitelisting in firewalls](#figuring-out-remote-ip-for-whitelisting-in-firewalls)
-    - [Stock Keeping Unit (SKU)](#stock-keeping-unit-sku)
-    - [Number of decimals](#number-of-decimals)
+  - [Detailed configuration information and store configuration](#detailed-configuration-information-and-store-configuration)
+  - [Figuring out remote IP for whitelisting in firewalls](#figuring-out-remote-ip-for-whitelisting-in-firewalls)
+  - [Stock Keeping Unit (SKU)](#stock-keeping-unit-sku)
+  - [Number of decimals](#number-of-decimals)
 - [API Settings](#api-settings)
-    - [Managing API Credentials in PrestaShop](#managing-api-credentials-in-prestashop)
-        - [Choosing Environment](#choosing-environment)
-        - [Entering and Saving Credentials](#entering-and-saving-credentials)
-        - [Fetching Store Data](#fetching-store-data)
-        - [Switching Between Environments](#switching-between-environments)
-        - [Order Management Toggle](#order-management-toggle)
-    - [Callback Handling and Order States](#callback-handling-and-order-states)
-        - [Order status mapping](#order-status-mapping)
-        - [Persistence of custom statuses](#persistence-of-custom-statuses)
-        - [Testing callback handling](#testing-callback-handling)
+  - [Managing API Credentials in PrestaShop](#managing-api-credentials-in-prestashop)
+    - [Choosing Environment](#choosing-environment)
+    - [Entering and Saving Credentials](#entering-and-saving-credentials)
+    - [Fetching Store Data](#fetching-store-data)
+    - [Switching Between Environments](#switching-between-environments)
+    - [Order Management Toggle](#order-management-toggle)
+  - [Callback Handling and Order States](#callback-handling-and-order-states)
+    - [Order status mapping](#order-status-mapping)
+    - [Persistence of custom statuses](#persistence-of-custom-statuses)
+    - [Testing callback handling](#testing-callback-handling)
 - [Part Payment Widget](#part-payment-widget)
-    - [Settings Overview](#settings-overview)
-    - [Frontend Behavior](#frontend-behavior)
-    - [Part Payment Widget Examples](#part-payment-widget-examples)
+  - [Settings Overview](#settings-overview)
+  - [Frontend Behavior](#frontend-behavior)
+  - [Part Payment Widget Examples](#part-payment-widget-examples)
 - [Purchasing with the new Merchant API](#purchasing-with-the-new-merchant-api)
 - [Order Management](#order-management)
-    - [Order Overview (Top Section)](#order-overview-top-section)
-    - [Payment Details (Bottom Section)](#payment-details-bottom-section)
-    - [Managing Orders](#managing-orders)
-    - [Resurs Payment History](#resurs-payment-history)
+  - [Order Overview (Top Section)](#order-overview-top-section)
+  - [Payment Details (Bottom Section)](#payment-details-bottom-section)
+  - [Managing Orders](#managing-orders)
+  - [Resurs Payment History](#resurs-payment-history)
 - [Troubleshooting and error handling](#troubleshooting-and-error-handling)
-    - [Support Information Panel](#support-information-panel)
-    - [Enabling Logging in PrestaShop](#enabling-logging-in-prestashop)
+  - [Support Information Panel](#support-information-panel)
+  - [Enabling Logging in PrestaShop](#enabling-logging-in-prestashop)
 - [Known Problems](#known-problems)
 
 ## Requirements
@@ -391,9 +392,9 @@ The purchase procedure, as handled through the PrestaShop module, follows this o
 3. **Payment Confirmation**
 
 - Upon completing the external flow, Resurs either:
-    - Accepts the payment (order moves to *Paid* status)
-    - Rejects the payment (order is *Cancelled*)
-    - Freezes the payment for later manual or automatic decision (order becomes *Under Review*)
+  - Accepts the payment (order moves to *Paid* status)
+  - Rejects the payment (order is *Cancelled*)
+  - Freezes the payment for later manual or automatic decision (order becomes *Under Review*)
 
 ![](images/prestashop-approve-and-purchase.png)
 
@@ -543,7 +544,17 @@ It displays:
 
 If you're reporting a bug or issue, always include a screenshot or text dump of this section.
 
-## Logging
+## Redis cache
+
+The module supports the use of a Redis server to cache some data.
+
+The settings for this can be found in the **Cache settings** section in the module configuration.
+
+![](images/prestashop-cache-settings.png)
+
+## Advanced settings
+
+### Logging
 
 The Resurs plugin also includes built-in logging functionality specifically for PrestaShop.
 
@@ -565,12 +576,6 @@ that would trigger entries.** On PrestaShop, logs are usually directed to the fi
 server setup. Make sure PHP has permission to write to the target directory.
 
 Always verify that the log file is writable and regularly rotated if used in production environments.
-
-### Redis cache
-
-The module supports the use of a Redis server to cache some data.
-
-The settings for this can be found in the Advanced Settings section in the module configuration.
 
 ### Debug mode
 
