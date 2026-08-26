@@ -1,3 +1,11 @@
+---
+layout: page
+title: Best Practices for Handling Merchant API Callbacks
+permalink: /merchant-api-2-0/Handling_MerchantAPI_Callbacks/
+parent: Merchant API 2.0
+nav_order: 41
+---
+
 # Best Practices for Handling Merchant API Callbacks
 
 > [!IMPORTANT]
