@@ -9,7 +9,7 @@ nav_exclude: true
 
 # Best Practices for Handling Merchant API Callbacks
 
-> [!IMPORTANT]
+> ⚠️
 > Callbacks should be treated as **notifications that an event has occurred**, not as the authoritative source of truth for a payment's current state.
 >
 > Always verify payment information through the Merchant API before performing any business-critical actions.
@@ -101,7 +101,7 @@ Before updating an order, verify:
 - Capture status
 - Refund information
 
-> [!TIP]
+> 💡
 > Business decisions should always be based on the latest state maintained by Resurs, not on callback payload data alone.
 
 ---
@@ -169,7 +169,7 @@ CAPTURED
   └──► PENDING
 ```
 
-> [!WARNING]
+> ❗
 > Invalid status transitions can lead to inconsistent order states and unexpected business behavior.
 
 ---
@@ -224,7 +224,7 @@ All callback activity should be logged for troubleshooting, monitoring, and audi
 - Access tokens
 - Sensitive personal information (PII)
 
-> [!CAUTION]
+> ⚠️
 > Logs should contain sufficient diagnostic information while avoiding sensitive security or customer data.
 
 ---
