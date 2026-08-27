@@ -13,6 +13,8 @@ When integrating with Merchant API callbacks, it's important to remember:
 > ⚠️
 > Callbacks should be treated as **notifications that an event has occurred**, not as the authoritative source of truth for a payment's current state.
 > Always verify payment information through the Merchant API before performing any business-critical actions.
+>
+
 ---
 
 ## Overview
