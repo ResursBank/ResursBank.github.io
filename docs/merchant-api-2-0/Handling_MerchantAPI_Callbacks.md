@@ -7,14 +7,12 @@ nav_order: 77
 nav_exclude: false
 ---
 
-# Best Practices for Handling Merchant API Callbacks
+# Recommended Approach for Handling Merchant API Callback
 
 When integrating with Merchant API callbacks, it's important to remember:
 > ⚠️
 > Callbacks should be treated as **notifications that an event has occurred**, not as the authoritative source of truth for a payment's current state.
->
-> Always verify the latest payment status via Merchant API before performing business-critical actions such as updating orders, shipping goods, capturing 
-> payments, or processing refunds.
+> Always verify payment information through the Merchant API before performing any business-critical actions.
 ---
 
 ## Overview
@@ -310,4 +308,4 @@ Resurs recommends the following approach:
 
 ## Summary
 
-> The most secure and reliable way to handle Merchant API callbacks is to treat the callback as a notification that a payment has changed and then retrieve the latest payment information directly from Merchant API before performing any business
+> The most secure and reliable way to handle Merchant API callbacks is to treat the callback as a notification that a payment has changed and then retrieve the latest payment information directly from Merchant API before performing any business logic.
