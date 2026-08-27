@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Recommended Approach for Handling Merchant API Callback
+title: Recommended Approach for Handling Merchant API Callbacks
 permalink: /merchant-api-2-0/Handling_MerchantAPI_Callbacks/
 parent: Merchant API 2.0
 nav_order: 77
 nav_exclude: false
 ---
 
-# Recommended Approach for Handling Merchant API Callback
+# Recommended Approach for Handling Merchant API Callbacks
 
 When integrating with Merchant API callbacks, it's important to remember:
 > ⚠️
