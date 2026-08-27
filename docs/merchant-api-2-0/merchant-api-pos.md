@@ -3,6 +3,7 @@ layout: page
 title: Merchant Api Pos
 permalink: /merchant-api-2-0/merchant-api-pos/
 parent: Merchant API 2.0
+nav_order: 41
 ---
 
 
