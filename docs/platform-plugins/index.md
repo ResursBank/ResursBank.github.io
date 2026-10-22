@@ -55,7 +55,7 @@ the plugin won't work as intended.**
 ## PHP Platform Requirements
 
 Most of our new plugins work with Merchant API. Merchant API are in PHP cases driven with Ecom2, our library that
-handles the communication with MAPI. Ecom2 requires PHP 8.1 or higher versions. For MAPI, you also need a token
+handles the communication with MAPI. Ecom2 requires PHP 8.2.35 or higher versions. For MAPI, you also need a token
 compatible version of cURL. Make sure **CURLAUTH_BEARER** is available.
 
 > The plugins listed and provided from this page are open source and
@@ -86,7 +86,7 @@ This library aims to provide **complete API coverage**, including Merchant API (
 and callback handling. It replaces all previous EComPHP releases and serves as the foundation for modern Resurs
 integrations in PHP.
 
-The library is written for **PHP 8.1 or higher** and is actively maintained in the `resursbankplugins/ecom2`
+The library is written for **PHP 8.2.35 or higher** and is actively maintained in the `resursbankplugins/ecom2`
 repository.  
 It follows a modular structure with standalone components for payment handling, configuration, logging, caching, and
 widget rendering.
@@ -98,7 +98,7 @@ Full documentation, including examples, module breakdowns, and JavaScript integr
 
 ### Quick summary
 
-- **Supported PHP:** 8.1+ (older versions no longer supported)
+- **Supported PHP:** 8.2.35+ (older versions no longer supported)
 - **Primary API:** [Merchant API (MAPI)](/merchant-api-2.0/)
 - **Removed flows:** All legacy and SOAP-based integrations have been deprecated.
 - **Active repository:** [bitbucket.org/resursbankplugins/ecom2](https://bitbucket.org/resursbankplugins/ecom2)
