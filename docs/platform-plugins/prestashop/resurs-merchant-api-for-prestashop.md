@@ -50,8 +50,8 @@ has_toc: true
 
 ## Requirements
 
-- **PHP version:** Minimum PHP 8.1 (note: PrestaShop allows down to PHP 7.2, but this plugin does not support anything
-  below 8.1)
+- **PHP version:** Minimum PHP 8.2.35 (note: PrestaShop allows down to PHP 7.2, but this plugin does not support anything
+  below 8.2.35)
 - **PrestaShop version:** Tested with PrestaShop 8.2.0 and compatible with versions 8.x and above
 - **SSL connectivity:** Required (preferably using OpenSSL)
 - **CURL:** ext-curl must be enabled with a minimum version of 7.61.0

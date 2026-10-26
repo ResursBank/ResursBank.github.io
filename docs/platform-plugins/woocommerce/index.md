@@ -17,7 +17,7 @@ has_children: true
 
 ### Requirements
 
-- **At least** PHP 8.1
+- **At least** PHP 8.2.35
 - **At least** WooCommerce 7.6.0
 - SSL-connectivity (preferably OpenSSL)
 - CURL (ext-curl with necessary libraries) 7.61.0 or higher

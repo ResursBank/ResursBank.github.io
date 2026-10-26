@@ -17,7 +17,7 @@ solutions with Magento based e-commerce stores.
 
 | Flow/Name                   | Magento Version | PHP    | Details         | Country        | Documentation                         | Links and downloadables                                                    | Support   |
 |-----------------------------|-----------------|--------|-----------------|----------------|---------------------------------------|----------------------------------------------------------------------------|-----------|
-| Resurs Checkout - Magento 2 | CE 2.4.6+       | >= 8.1 | Resurs Checkout | SE, FI, NO, DK | [Full Documentation](magento-mapi.md) | [Marketplace](https://marketplace.magento.com/resursbank-magento-all.html) | SUPPORTED |
+| Resurs Checkout - Magento 2 | CE 2.4.6+       | >= 8.2.35 | Resurs Checkout | SE, FI, NO, DK | [Full Documentation](magento-mapi.md) | [Marketplace](https://marketplace.magento.com/resursbank-magento-all.html) | SUPPORTED |
 
 ## Requirements and support
 
