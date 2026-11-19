@@ -29,6 +29,7 @@ parent: Consumer Loan API
    <applicant-monthly-income-gross>3200</applicant-monthly-income-gross>
    <household-monthly-income>6400</household-monthly-income>
    <household-living-expenses>300</household-living-expenses>
+   <stated-living-expenses>200</stated-living-expenses>
    <household-mortgage-debt>10000</household-mortgage-debt>
    <household-other-loan-expenses>200</household-other-loan-expenses>
    <other-expenses>400</other-expenses>
@@ -49,7 +50,18 @@ parent: Consumer Loan API
 ### Validation for Finland
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<resurs-form>
+<?xml-stylesheet type="text/xsl" href="../xsl/transform-form.xsl"?>
+<!-- Formulär för agenter privatlån FI 100-50' € FI, 15 år (efterträder 02-agent-FI) -->
+<resurs-form
+        title="Yksityislaina"
+        css="/css/consumerloan-FI.css"
+        javascript="js/jquery.min.js;js/jquery-ui.min.js"
+        on-load=""
+        java-class="com.resurs.multiupplys.data.locale.fi.pp.FIPPExtendedApplication"
+        locale="FI"
+        resource-path="../"
+        custom-validation="validateConsumerloanFIForm();">
+
     <!-- ***** Lånebelopp -->
     <element java-property="amount">
         <label>Lainasumma</label>
@@ -57,11 +69,12 @@ parent: Consumer Loan API
         <name>amount</name>
         <is-mandatory>true</is-mandatory>
         <type>integer</type>
-        <min-value>100</min-value>
-        <max-value>40000</max-value>
+        <min-value>0</min-value>
+        <max-value>1000000</max-value>
         <format-message>Kenttään on täytettävä haettava summa!</format-message>
         <unit>money</unit>
     </element>
+
     <element java-property="paymentTerms">
         <label>Takaisinmaksuaika</label>
         <description>Toivottu takaisinmaksuaika.</description>
@@ -118,9 +131,22 @@ parent: Consumer Loan API
                 <label>12</label>
                 <value>144</value>
             </item>
+            <item>
+                <label>13</label>
+                <value>156</value>
+            </item>
+            <item>
+                <label>14</label>
+                <value>168</value>
+            </item>
+            <item>
+                <label>15</label>
+                <value>180</value>
+            </item>
         </items>
-        <format>^(12|24|36|48|60|72|84|96|108|120|132|144)$</format>
+        <format>^(12|24|36|48|60|72|84|96|108|120|132|144|156|168|180)$</format>
     </element>
+
     <!-- ***** Huvudsökande - Personalia -->
     <element java-property="applicant.governmentId">
         <label>Henkilötunnus</label>
@@ -129,19 +155,21 @@ parent: Consumer Loan API
         <is-mandatory>true</is-mandatory>
         <type>string</type>
         <length>11</length>
-        <format>^([\\d]{6})[\\+\\-A]([\\d]{3})([0123456789ABCDEFHJKLMNPRSTUVWXY])$</format>
-        <format-message>Kenttään on täytettävä henkilötunnus muodossa PPKKVV-XXXX tai PPKKVVAXXXX!</format-message>
+        <format>^([\\d]{6})[\\+\\-ABCDEFUVWXY]([\\d]{3})([0123456789ABCDEFHJKLMNPRSTUVWXY])$</format>
+        <format-message>Kenttään on täytettävä henkilötunnus muodossa PPKKVVYXXXX!</format-message>
     </element>
+
     <element java-property="applicant.mobilePhoneNumber">
         <label>Matkapuhelin</label>
         <description>Varmista, että matkapuhelinnumerosi on oikein.</description>
         <name>applicant-mobile-number</name>
         <is-mandatory>true</is-mandatory>
         <type>string</type>
-        <length>16</length>
+        <length>15</length>
         <format>^((\\+358|00358|0)[-| ]?(1[1-9]|[2-9]|[1][0][1-9]|201|2021|[2][0][2][4-9]|[2][0][3-8]|29|[3][0][1-9]|71|73|[7][5][0][0][3-9]|[7][5][3][0][3-9]|[7][5][3][2][3-9]|[7][5][7][5][3-9]|[7][5][9][8][3-9]|[5][0][0-9]{0,2}|[4][0-9]{1,3})([-| ]?[0-9]){3,10})$</format>
         <format-message>Tarkista puhelinnumerosi.</format-message>
     </element>
+
     <element java-property="applicant.emailAddress">
         <label>Sähköpostiosoite</label>
         <description>Varmista, että sähköpostiosoitteesi on oikein.</description>
@@ -149,9 +177,10 @@ parent: Consumer Loan API
         <is-mandatory>true</is-mandatory>
         <type>string</type>
         <length>50</length>
-        <format>^[A-Za-z0-9!#%&'*+/=?^_`~-]+(\\.[A-Za-z0-9!#%&'*+/=?^_`~-]+)*@([A-Za-z0-9]+)(([\\.\\-]?[a-zA-Z0-9]+)*)\\.([A-Za-z]{2,})$</format>
+        <format>^[A-Za-z0-9!#%&amp;'*+/=?^_`~-]+(\\.[A-Za-z0-9!#%&amp;'*+/=?^_`~-]+)*@([A-Za-z0-9]+)(([\\.\\-]?[a-zA-Z0-9]+)*)\\.([A-Za-z]{2,})$</format>
         <format-message>Tarkista sähköpostiosoitteesi.</format-message>
     </element>
+
     <element java-property="loanPurpose">
         <label>Lainan käyttötarkoitus</label>
         <description>Lainan käyttötarkoitus</description>
@@ -160,16 +189,8 @@ parent: Consumer Loan API
         <is-mandatory>true</is-mandatory>
         <items>
             <item>
-                <label>Auto / Moottoripyörä</label>
-                <value>MOTOR</value>
-            </item>
-            <item>
                 <label>Häät</label>
                 <value>WEDDING</value>
-            </item>
-            <item>
-                <label>Vene</label>
-                <value>BOAT</value>
             </item>
             <item>
                 <label>Asunto-omaisuuden hankkiminen</label>
@@ -212,8 +233,9 @@ parent: Consumer Loan API
                 <value>OTHER</value>
             </item>
         </items>
-        <format>^(MOTOR|WEDDING|BOAT|HOUSING_MORTGAGE_LOAN|INVESTMENT|DRIVERS_LICENSE|INTERIOR|RENOVATION|TRAVEL|CONSOLIDATE_LOANS|DENTAL_OR_OTHER_CARE|STUDIES|OTHER)$</format>
+        <format>^(WEDDING|HOUSING_MORTGAGE_LOAN|INVESTMENT|DRIVERS_LICENSE|INTERIOR|RENOVATION|TRAVEL|CONSOLIDATE_LOANS|DENTAL_OR_OTHER_CARE|STUDIES|OTHER)$</format>
     </element>
+
     <element java-property="applicant.maritalStatus">
         <label>Siviilisääty</label>
         <description>Valitse siviilisääty valikon vaihtoehdoista</description>
@@ -245,6 +267,7 @@ parent: Consumer Loan API
         </items>
         <format>^(MARRIED|DOMESTIC_PARTNER|SINGLE|DIVORCED|WIDOW)$</format>
     </element>
+
     <element java-property="applicant.habitationType">
         <label>Asumismuoto</label>
         <description>Valitse asumismuoto valikon vaihtoehdoista</description>
@@ -284,6 +307,7 @@ parent: Consumer Loan API
         </items>
         <format>^(DETACHED_HOUSE|APARTMENT|CONDOMINIUM|CONDOMINIUM_PARTLY_OWNED|BY_PARENTS|OFFICIAL_RESIDENCE|OTHER)$</format>
     </element>
+
     <element java-property="applicant.habitationDate">
         <label>Asunut nykyisessä osoitteessa alkaen</label>
         <description>Valitse muuttovuosi- ja kuukausi.</description>
@@ -294,6 +318,7 @@ parent: Consumer Loan API
         <format>^([0-9]{2})(0[1-9]|1[012])$</format>
         <format-message>Pakollinen kenttä</format-message>
     </element>
+
     <element>
         <name>coapplicant-toggle</name>
         <type>checkbox</type>
@@ -307,16 +332,18 @@ parent: Consumer Loan API
         </items>
         <format>^(true|)$</format>
     </element>
+
     <element java-property="coApplicant.governmentId">
         <label>Henkilötunnus</label>
-        <description>Täytä henkilötunnus muodossa PPKKVVYXXXX tai PPKKVVAXXXX.</description>
+        <description>Täytä henkilötunnus muodossa PPKKVVYXXXX.</description>
         <name>coapplicant-government-id</name>
         <is-mandatory>false</is-mandatory>
         <type>string</type>
         <length>11</length>
-        <format>^([\\d]{6})[\\+\\-A]([\\d]{3})([0123456789ABCDEFHJKLMNPRSTUVWXY])$</format>
-        <format-message>Kenttään on täytettävä henkilötunnus muodossa PPKKVV-XXXX tai PPKKVVAXXXX!</format-message>
+        <format>^([\\d]{6})[\\+\\-ABCDEFUVWXY]([\\d]{3})([0123456789ABCDEFHJKLMNPRSTUVWXY])$</format>
+        <format-message>Kenttään on täytettävä henkilötunnus muodossa PPKKVVYXXXX!</format-message>
     </element>
+
     <element java-property="coApplicant.mobilePhoneNumber">
         <label>Matkapuhelin</label>
         <description>Varmista, että matkapuhelinnumerosi on oikein.</description>
@@ -324,10 +351,11 @@ parent: Consumer Loan API
         <is-mandatory>false</is-mandatory>
         <depends-on>coapplicant-government-id</depends-on>
         <type>string</type>
-        <length>16</length>
+        <length>15</length>
         <format>^((\\+358|00358|0)[-| ]?(1[1-9]|[2-9]|[1][0][1-9]|201|2021|[2][0][2][4-9]|[2][0][3-8]|29|[3][0][1-9]|71|73|[7][5][0][0][3-9]|[7][5][3][0][3-9]|[7][5][3][2][3-9]|[7][5][7][5][3-9]|[7][5][9][8][3-9]|[5][0][0-9]{0,2}|[4][0-9]{1,3})([-| ]?[0-9]){3,10})$</format>
         <format-message>Tarkista puhelinnumerosi.</format-message>
     </element>
+
     <element java-property="coApplicant.emailAddress">
         <label>Sähköposti</label>
         <description>Varmista, että sähköpostiosoitteesi on oikein.</description>
@@ -336,10 +364,11 @@ parent: Consumer Loan API
         <depends-on>coapplicant-government-id</depends-on>
         <type>string</type>
         <length>50</length>
-        <format>^([A-Za-z0-9!#%&'*+/=?^_`~-]+(\\.[A-Za-z0-9!#%&'*+/=?^_`~-]+)*@([A-Za-z0-9]+)(([\\.\\-]?[a-zA-Z0-9]+)*)\\.([A-Za-z]{2,}))?$</format>
+        <format>^([A-Za-z0-9!#%&amp;'*+/=?^_`~-]+(\\.[A-Za-z0-9!#%&amp;'*+/=?^_`~-]+)*@([A-Za-z0-9]+)(([\\.\\-]?[a-zA-Z0-9]+)*)\\.([A-Za-z]{2,}))?$</format>
         <format-message>Tarkista sähköpostiosoitteesi.</format-message>
     </element>
-<element java-property="coApplicant.lastMonthIncomeNet">
+
+    <element java-property="coApplicant.lastMonthIncomeNet">
         <label>kk:n nettotulo</label>
         <description>Edeltävän kk:n nettotulo</description>
         <name>coapplicant-last-month-income-net</name>
@@ -350,6 +379,7 @@ parent: Consumer Loan API
         <unit>money</unit>
         <format-message>Tarkista kuukausitulosi (0-99 999 €).</format-message>
     </element>
+
     <element java-property="coApplicant.sixMonthsAverageIncomeNet">
         <label>6 kk:n nettotulo</label>
         <description>Edeltävän 6 kk:n keskimääräinen nettotulo</description>
@@ -361,7 +391,8 @@ parent: Consumer Loan API
         <unit>money</unit>
         <format-message>Tarkista kuukausitulosi (0-99 999 €).</format-message>
     </element>
-      <!-- ***** Huvudsökande - Arbete -->
+
+    <!-- ***** Huvudsökande - Arbete -->
     <element java-property="applicant.employmentType">
         <label>Hakijan työsuhteen muoto</label>
         <description>Valitse työmuoto valikon vaihtoehdoista</description>
@@ -409,6 +440,7 @@ parent: Consumer Loan API
         </items>
         <format>^(FAST_ANSTALLD|VIKARIAT|PART_TIME|PENSIONAR|SJUKPENSIONAR|EGEN_FORETAGARE|STUDENT|ARBETSLOS|FARMER)$</format>
     </element>
+
     <element java-property="applicant.employedSince">
         <label>Nykyinen työsuhde alkoi</label>
         <description>Valitse aloitusvuosi ja –kuukausi.</description>
@@ -419,6 +451,7 @@ parent: Consumer Loan API
         <format>^([0-9]{2})(0[1-9]|1[012])$</format>
         <format-message>Pakollinen kenttä</format-message>
     </element>
+
     <element java-property="applicant.employedTo">
         <label>Työsuhde päättyy</label>
         <description>Valitse päättymisvuosi ja –kuukausi.</description>
@@ -429,6 +462,7 @@ parent: Consumer Loan API
         <format>^([0-9]{2})(0[1-9]|1[012])$</format>
         <format-message>Pakollinen kenttä</format-message>
     </element>
+
     <element java-property="applicant.employerName">
         <label>Työnantaja</label>
         <description>Ilmoita työnantajasi nimi</description>
@@ -439,6 +473,7 @@ parent: Consumer Loan API
         <format>^[\\s\\S]{0,100}$</format>
         <format-message>Täydennä työntantajasi nimi</format-message>
     </element>
+
     <element java-property="applicant.profession">
         <label>Ammatti</label>
         <description>Ilmoita ammattisi</description>
@@ -449,6 +484,7 @@ parent: Consumer Loan API
         <format>^[\\s\\S]{0,100}$</format>
         <format-message>Ilmoita ammattisi</format-message>
     </element>
+
     <element java-property="applicant.grossMonthlyIncome">
         <label>Omat kuukausitulot brutto</label>
         <description>Omat kuukausitulot ennen veroja.</description>
@@ -460,7 +496,8 @@ parent: Consumer Loan API
         <unit>money</unit>
         <format-message>Tarkista kuukausitulosi (0-99 999 €).</format-message>
     </element>
-<element java-property="applicant.lastMonthIncomeNet">
+
+    <element java-property="applicant.lastMonthIncomeNet">
         <label>Hakijan kk:n nettotulo</label>
         <description>Edeltävän kk:n nettotulo</description>
         <name>applicant-last-month-income-net</name>
@@ -471,6 +508,7 @@ parent: Consumer Loan API
         <unit>money</unit>
         <format-message>Tarkista kuukausitulosi (0-99 999 €).</format-message>
     </element>
+
     <element java-property="applicant.sixMonthsAverageIncomeNet">
         <label>Hakijan 6 kk:n nettotulo</label>
         <description>Edeltävän 6 kk:n keskimääräinen nettotulo</description>
@@ -482,6 +520,7 @@ parent: Consumer Loan API
         <unit>money</unit>
         <format-message>Tarkista kuukausitulosi (0-99 999 €).</format-message>
     </element>
+
     <element java-property="householdIncome">
         <label>Talouden kuukausitulot netto</label>
         <description>Talouden yhteenlasketut kuukausitulot verojen jälkeen.</description>
@@ -493,6 +532,7 @@ parent: Consumer Loan API
         <unit>money</unit>
         <format-message>Tarkista talouden kuukausitulot (0-99 999 €).</format-message>
     </element>
+
     <element java-property="householdLivingExpenses">
         <label>Omat asumiskustannukset kuukaudessa (sis. asuntolainan)</label>
         <description>Asumiskustannuksesi sisältäen osuutesi asuntolainan lyhennyksestä, vuokrasta/vastikkeesta, sähköstä ja lämmityksestä kuukaudessa.</description>
@@ -504,6 +544,18 @@ parent: Consumer Loan API
         <unit>money</unit>
         <format-message>Tarkista omat asumiskustannuksesi (0-9 999 €).</format-message>
     </element>
+
+    <element java-property="statedLivingExpenses">
+        <label>Mikä on arviosi kuukausittaisista päivittäisistä menoistasi (esim. ruoka, vaatteet, hygienia ja vapaa-aika), ilman asumis- ja liikkumiskuluja? (€ / kk)</label>
+        <name>stated-living-expenses</name>
+        <is-mandatory>false</is-mandatory>
+        <type>integer</type>
+        <min-value>0</min-value>
+        <max-value>9999</max-value>
+        <unit>money</unit>
+        <format-message>Tarkista summa (0-9 999 €).</format-message>
+    </element>
+
     <element java-property="creditCardMasterCard">
         <label>MasterCard</label>
         <description>MasterCard</description>
@@ -518,6 +570,7 @@ parent: Consumer Loan API
         </items>
         <format>^(true|)$</format>
     </element>
+
     <element java-property="creditCardVisa">
         <label>VISA</label>
         <description>VISA</description>
@@ -532,6 +585,7 @@ parent: Consumer Loan API
         </items>
         <format>^(true|)$</format>
     </element>
+
     <element java-property="creditCardAmericanExpress">
         <label>American Express</label>
         <description>American Express</description>
@@ -546,6 +600,7 @@ parent: Consumer Loan API
         </items>
         <format>^(true|)$</format>
     </element>
+
     <element java-property="creditCardDinersClub">
         <label>Diners Club</label>
         <description>Diners Club</description>
@@ -560,6 +615,7 @@ parent: Consumer Loan API
         </items>
         <format>^(true|)$</format>
     </element>
+
     <element java-property="creditCardOthers">
         <label>Muut</label>
         <description>Muut</description>
@@ -574,6 +630,7 @@ parent: Consumer Loan API
         </items>
         <format>^(true|)$</format>
     </element>
+
     <element java-property="mortgageDebt">
         <label>Oma osuus asuntolainasta</label>
         <description>Jäljellä oleva oma osuutesi koko asuntolainasta.</description>
@@ -585,6 +642,7 @@ parent: Consumer Loan API
         <unit>money</unit>
         <format-message>Tarkista summa (0-999 999 €).</format-message>
     </element>
+
     <element java-property="householdLoanExpenses">
         <label>Omat muut lainat ja luottokorttilainat yhteensä</label>
         <description>Luottokorttilainat ja muut lainat kuin asuntolaina.</description>
@@ -596,6 +654,7 @@ parent: Consumer Loan API
         <unit>money</unit>
         <format-message>Tarkista summa (0-999 999 €).</format-message>
     </element>
+
     <element java-property="otherExpenses">
         <label>Omat lainojen lyhennykset kuukaudessa (ei asuntolaina)</label>
         <description>Muiden lainojen kuin asuntolainan lyhennykset kuukaudessa yhteensä.</description>
@@ -607,6 +666,7 @@ parent: Consumer Loan API
         <unit>money</unit>
         <format-message>Tarkista summa (0-9 999 €).</format-message>
     </element>
+
     <element java-property="mortgageTotalAmount">
         <label>Talouden kaikki lainat yhteensä</label>
         <description>Kanssasi samassa taloudessa asuvien kaikki lainat yhteensä.</description>
@@ -618,6 +678,7 @@ parent: Consumer Loan API
         <unit>money</unit>
         <format-message>Tarkista summa (0-999 999 €).</format-message>
     </element>
+
     <element java-property="monthlyMortgageCost">
         <label>Talouden kaikkien lainojen lyhennykset kuukaudessa</label>
         <description>Kanssasi samassa taloudessa asuvien kaikkien lainojen lyhennykset kuukaudessa yhteensä.</description>
@@ -629,6 +690,7 @@ parent: Consumer Loan API
         <unit>money</unit>
         <format-message>Tarkista summa (0-9 999 €).</format-message>
     </element>
+
     <element java-property="isFinancingOtherLoan">
         <label>Haluan yhdistää nykyisiä lainojani</label>
         <name>finance-other-loans</name>
@@ -642,6 +704,7 @@ parent: Consumer Loan API
         </items>
         <format>^(true|)$</format>
     </element>
+
     <element java-property="nbrOfLoansToConsolidate">
         <label>Yhdistettävien lainojen lukumäärä</label>
         <description>Anna lunastettavien lainojen ja luottokorttien lukumäärä</description>
@@ -653,6 +716,7 @@ parent: Consumer Loan API
         <unit>kpl</unit>
         <format-message>Voit yhdistää enintään 20 lainaa</format-message>
     </element>
+
     <element java-property="balanceOfConsolidatedLoans">
         <label>Yhdistettävien lainojen yhteissumma</label>
         <description>Anna yhdistettävien lainojen ja luottokorttilainojen yhteissumma</description>
@@ -664,6 +728,7 @@ parent: Consumer Loan API
         <unit>money</unit>
         <format-message>Voit yhdistää lainoja (0 - 99 999 €).</format-message>
     </element>
+
     <element java-property="monthlyCostOfConsolidatedLoans">
         <label>Yhdistettävien lainojen lyhennykset kuukaudessa</label>
         <description>Anna lunastettavien lainojen ja luottokorttien yhteenlaskettu kuukausimaksu</description>
@@ -675,6 +740,7 @@ parent: Consumer Loan API
         <unit>money</unit>
         <format-message>Yhdistettävien lainojen lyhennykset kuukaudessa voivat olla 0 - 9 999 €.</format-message>
     </element>
+
     <element java-property="financeOtherLoansConsentToConsolidate">
         <label>Hyväksyn ja annan toimeksiannon yhdistettävien lainojeni poismaksuun</label>
         <description>Hyväksyn ja annan toimeksiannon yhdistettävien lainojeni poismaksuun</description>
@@ -693,6 +759,7 @@ parent: Consumer Loan API
         </items>
         <format>^(true|false)$</format>
     </element>
+
     <element java-property="payoutAccountNo">
         <label>Tilinumero IBAN-muodossa</label>
         <name>payout-account-number</name>
@@ -702,6 +769,7 @@ parent: Consumer Loan API
         <format>^[A-Z0-9]{18}$</format>
         <format-message>Tarkista tilinumerosi, sen pitäisi olla IBAN-muodossa: FI01234567890000000.</format-message>
     </element>
+
     <element java-property="isInsured">
         <label>Haluan liittää lainaani Maksuvakuutuksen.</label>
         <description></description>
@@ -720,6 +788,7 @@ parent: Consumer Loan API
         </items>
         <format>^(true|false)$</format>
     </element>
+
     <element>
         <type>checkbox</type>
         <name>campaign-code-toggle</name>
@@ -733,6 +802,7 @@ parent: Consumer Loan API
         </items>
         <format>^(true|)$</format>
     </element>
+
     <element java-property="campaignCode">
         <label>Kampanjakoodi</label>
         <description>Jos sinulla on kampanjakoodi, täytä se tähän.</description>
@@ -743,28 +813,32 @@ parent: Consumer Loan API
         <format>^([A-ZÅÄÖÜ\\-\\.\\S\\d a-zåäöü]{2,10})?$</format>
         <format-message>Ystävällisesti tarkistakaa että kamppanjakoodi on oikein.</format-message>
     </element>
+
     <element java-property="confirmRegisterConsent">
         <name>confirm-register-concent</name>
         <label>Hyväksyn tietojeni käsittelyn</label>
-        <description>Annan/Annamme toimeksiannon Resurs Bankille kerätä ja käsitellä muilta luotonantajilta
-            saatavia tietoja luotoistani luottohakemuksen käsittelyä varten. Annan suostumukseni
-            siihen, että luotonantajat luovuttavat minua koskevia tietoja luotoistani.
-            Näitä tietoja Resurs Bank kysyy Suomen Asiakastieto Oy:n ylläpitämän
-            kyselyjärjestelmän avulla järjestelmään osallistuvilta yrityksiltä.</description>
+        <description>Huom! Luottoarviomme edellyttää suostumusta. Annan/annamme toimeksiannon
+            Resurs Bankille kerätä ja käsitellä muilta luotonantajilta saatavia tietoja luotoistani
+            luottohakemuksen käsittelyä varten. Annan suostumukseni siihen, että luotonantajat
+            luovuttavat minua koskevia tietoja luotoistani. Näitä tietoja Resurs Bank kysyy Suomen
+            Asiakastieto Oy:n ylläpitämän kyselyjärjestelmän avulla järjestelmään osallistuvilta
+            yrityksiltä.</description>
         <type>checkbox</type>
         <is-mandatory>false</is-mandatory>
         <items>
             <item>
-                <label>Annan/Annamme toimeksiannon Resurs Bankille kerätä ja käsitellä muilta luotonantajilta
-                    saatavia tietoja luotoistani luottohakemuksen käsittelyä varten. Annan suostumukseni
-                    siihen, että luotonantajat luovuttavat minua koskevia tietoja luotoistani.
-                    Näitä tietoja Resurs Bank kysyy Suomen Asiakastieto Oy:n ylläpitämän
-                    kyselyjärjestelmän avulla järjestelmään osallistuvilta yrityksiltä.</label>
+                <label>Huom! Luottoarviomme edellyttää suostumusta. Annan/annamme toimeksiannon
+                    Resurs Bankille kerätä ja käsitellä muilta luotonantajilta saatavia tietoja luotoistani
+                    luottohakemuksen käsittelyä varten. Annan suostumukseni siihen, että luotonantajat
+                    luovuttavat minua koskevia tietoja luotoistani. Näitä tietoja Resurs Bank kysyy Suomen
+                    Asiakastieto Oy:n ylläpitämän kyselyjärjestelmän avulla järjestelmään osallistuvilta
+                    yrityksiltä.</label>
                 <value>true</value>
             </item>
         </items>
         <format>^(true|)$</format>
     </element>
+
     <element java-property="confirmLegalDocuments">
         <name>confirm-legal-documents</name>
         <label>Vahvistan tietoni ja hyväksyn ehdot</label>
@@ -786,6 +860,7 @@ parent: Consumer Loan API
         <format-message>Sinun on hyväksyttävä ehdot edetä.</format-message>
         <format>^(true)$</format>
     </element>
+
     <element java-property="termsAgreedTo">
         <label>Annan suostumukseni henkilötietojeni käsittelyyn</label>
         <description>
@@ -810,6 +885,7 @@ parent: Consumer Loan API
         <format-message>Sinun on hyväksyttävä ehdot edetä.</format-message>
         <format>^(true)$</format>
     </element>
+
     <element java-property="consentEmailMarketing">
         <name>consent-email-marketing</name>
         <label></label>
@@ -826,6 +902,7 @@ parent: Consumer Loan API
         </items>
         <format>^(true|)$</format>
     </element>
+
     <element java-property="agreementSignType">
         <label>Valitse allekirjoitustapa</label>
         <description>Valitse allekirjoitustapa</description>
@@ -844,6 +921,7 @@ parent: Consumer Loan API
         </items>
         <format>^(MAIL|E_SIGN)$</format>
     </element>
+
     <!-- ***** mediaCode -->
     <element java-property="mediaCode">
         <type>hidden</type>
@@ -851,6 +929,7 @@ parent: Consumer Loan API
         <is-mandatory>false</is-mandatory>
     </element>
 </resurs-form>
+
 ```
 ### Response: submitApplicationExtResponse
 ```xml
